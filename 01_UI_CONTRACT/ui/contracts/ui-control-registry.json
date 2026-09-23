@@ -1,0 +1,3099 @@
+{
+  "canonicalActionRegistryRequired": true,
+  "pages": [
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "missing field OR local invalid OR throttle/lock active OR request pending",
+          "enabledWhen": "username,password locally valid AND not pending",
+          "id": "login.submit",
+          "kind": "primary",
+          "label": "Prihlasit se",
+          "operationBinding": "AUTH.LOGIN",
+          "purpose": "Spusti password fazi autentizace."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "login.username",
+          "inputProfile": "TEXT_1",
+          "label": "Uzivatelske jmeno",
+          "purpose": "Rucne zadany username pevne identity. UI nesmi zobrazit ani predvyplnit KRMAR78.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "text",
+          "validation": "NONEMPTY + SERVER_EXACT_SINGLETON_USERNAME"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "login.password",
+          "inputProfile": "SECRET_1",
+          "label": "Heslo",
+          "purpose": "Deployment-managed heslo pevne identity.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "password",
+          "validation": "NONEMPTY + SERVER_ARGON2_VERIFY"
+        }
+      ],
+      "id": "auth.login",
+      "panels": [
+        "Login card",
+        "Validation/error region",
+        "Throttle/locked notice"
+      ],
+      "purpose": "Overit jedinou pevnou OWNER identitu bez napovedy username a bez user-management vetve.",
+      "requiredStates": [
+        "READY",
+        "VALIDATION_ERROR",
+        "AUTH_FAILED",
+        "THROTTLED",
+        "LOCKED",
+        "PENDING"
+      ],
+      "route": "/login",
+      "title": "Prihlaseni"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "both empty OR conflicting modes OR pending",
+          "enabledWhen": "exactly one of valid TOTP/recovery inputs present AND not pending",
+          "id": "mfa.verify",
+          "kind": "primary",
+          "label": "Ověřit",
+          "operationBinding": "AUTH.MFA_VERIFY",
+          "purpose": "Dokonci TOTP/recovery autentizaci."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "MFA already active OR session not enrollment",
+          "enabledWhen": "enrollment session active",
+          "id": "mfa.showSeed",
+          "kind": "secondary",
+          "label": "Zobrazit ruční seed",
+          "operationBinding": "AUTH.MFA_ENROLLMENT_SEED_REVEAL",
+          "purpose": "Zobrazi manual seed pouze v enrollment session."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "codes no longer revealable",
+          "enabledWhen": "fresh enrollment completion response contains codes",
+          "id": "mfa.copyRecovery",
+          "kind": "secondary",
+          "label": "Kopírovat recovery kódy",
+          "operationBinding": "AUTH.RECOVERY_CODES_COPY",
+          "purpose": "Kopiruje jednorazove zobrazene recovery codes."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "mfa.code",
+          "inputProfile": "TEXT_1",
+          "label": "Overovaci kod",
+          "purpose": "Sestimistny TOTP kod.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "text",
+          "validation": "EXACT_6_DIGITS + SERVER_TOTP_VERIFY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "mfa.recovery",
+          "inputProfile": "TEXT_1",
+          "label": "Recovery kod",
+          "purpose": "Alternativni nepouzity jednorazovy recovery kod.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "text",
+          "validation": "SERVER_RECOVERY_CODE_VERIFY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "mfa.trusted",
+          "inputProfile": null,
+          "label": "Důvěryhodné zařízení",
+          "purpose": "OWNER preference pro dobu duveryhodneho zarizeni podle current konfigurace.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "checkbox",
+          "validation": "BOOLEAN"
+        }
+      ],
+      "id": "auth.mfa",
+      "panels": [
+        "Enrollment QR/seed panel",
+        "TOTP/recovery form",
+        "One-time recovery codes panel"
+      ],
+      "purpose": "Dokoncit povinne TOTP MFA nebo jednorazovy recovery flow pred vznikem plne OWNER session.",
+      "requiredStates": [
+        "ENROLLMENT_REQUIRED",
+        "READY",
+        "VERIFYING",
+        "VERIFIED",
+        "FAILED",
+        "RECOVERY_USED"
+      ],
+      "route": "/login/mfa",
+      "title": "MFA / enrollment / recovery"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "request pending",
+          "enabledWhen": "session authenticated",
+          "id": "chat.new",
+          "kind": "primary",
+          "label": "Nová konverzace",
+          "operationBinding": "CHAT.CONVERSATION_CREATE",
+          "purpose": "Zalozi novou persistentni konverzaci."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "empty submission OR OPENAI_CONFIGURATION_REQUIRED for AI turn OR pending same submit",
+          "enabledWhen": "message has content OR attachment/url/target reference AND model capability ready",
+          "id": "chat.send",
+          "kind": "primary",
+          "label": "Odeslat",
+          "operationBinding": "CHAT.MESSAGE_SEND",
+          "purpose": "Vytvori OWNER message a model/action turn."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "terminal turn OR reconciliation/manual-review barrier",
+          "enabledWhen": "turn nonterminal AND operation permits steer",
+          "id": "chat.steer",
+          "kind": "primary",
+          "label": "Upravit směr",
+          "operationBinding": "CHAT.STEER",
+          "purpose": "Vlozi novou OWNER instrukci do beziciho turnu s checkpoint/reconciliation."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no cancellable turn OR cancellation already committed",
+          "enabledWhen": "current turn cancellable and nonterminal",
+          "id": "chat.cancel",
+          "kind": "danger",
+          "label": "Zrušit běh",
+          "operationBinding": "CHAT.CANCEL",
+          "purpose": "Pozada o canonical cancellation current turn/run."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "browser capability unavailable OR recovery barrier",
+          "enabledWhen": "browser capability available AND valid target URL/intention",
+          "id": "chat.openWeb",
+          "kind": "primary",
+          "label": "Otevřít web",
+          "operationBinding": "BROWSER.SESSION_OPEN",
+          "purpose": "Zalozi nebo pripoji browser session pro URL/intention."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "already OWNER OR transfer/recovery pending",
+          "enabledWhen": "session READY/PAUSED and controller != OWNER and no incompatible transfer pending",
+          "id": "chat.takeover",
+          "kind": "primary",
+          "label": "Převzít ovládání",
+          "operationBinding": "BROWSER.CONTROL_TAKEOVER",
+          "purpose": "Fenced transfer browser control lease na OWNERa."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "OWNER not controller OR stale epoch OR unresolved challenge",
+          "enabledWhen": "OWNER holds current control lease AND AI consumer attached AND challenge resolved",
+          "id": "chat.returnAi",
+          "kind": "primary",
+          "label": "Vrátit AI",
+          "operationBinding": "BROWSER.CONTROL_RETURN_AI",
+          "purpose": "Fenced transfer browser control z OWNERa zpet AI consumeru."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no current document OR preview stale",
+          "enabledWhen": "live preview current and document identity current",
+          "id": "chat.pickTarget",
+          "kind": "primary",
+          "label": "Vybrat prvek",
+          "operationBinding": "BROWSER.TARGET_PICK_START",
+          "purpose": "Prepne preview do TARGET_PICK bez page mutation."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no challenge/login flow",
+          "enabledWhen": "typed login/challenge pending",
+          "id": "chat.loginHuman",
+          "kind": "primary",
+          "label": "Přihlásit se",
+          "operationBinding": "BROWSER.HUMAN_CHALLENGE_TAKEOVER",
+          "purpose": "Preda browser OWNERovi pro human login/challenge."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "account not verified OR possible mutation unresolved",
+          "enabledWhen": "authenticated account marker verified and state save eligible",
+          "id": "chat.saveAccount",
+          "kind": "primary",
+          "label": "Uložit účet",
+          "operationBinding": "BROWSER.ACCOUNT_SAVE",
+          "purpose": "Otevre account/state binding summary a ulozi pouze potvrzeny rozsah."
+        },
+        {
+          "confirmation": "IMPACT_IF_NONIDLE",
+          "disabledWhen": "reconciliation/manual-review blocks destructive close",
+          "enabledWhen": "session closeable and no blocking unknown effect",
+          "id": "chat.closeBrowser",
+          "kind": "danger",
+          "label": "Zavřít relaci",
+          "operationBinding": "BROWSER.SESSION_CLOSE",
+          "purpose": "Uzavre browser session pres lifecycle/reconciliation."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "chat.conversation",
+          "inputProfile": null,
+          "label": "Konverzace",
+          "purpose": "Vyber persistentni konverzace nebo aktivniho threadu.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "select",
+          "validation": "EXISTING_CONVERSATION_ID"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "chat.model",
+          "inputProfile": null,
+          "label": "OpenAI model",
+          "purpose": "OWNER volba globalniho nebo kontextoveho OpenAI modelu.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "select",
+          "validation": "OPENAI_SUPPORTED_MODEL + CAPABILITY_CHECK"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "chat.message",
+          "inputProfile": "TEXT_50",
+          "label": "Zpráva",
+          "purpose": "Prirozeny OWNER dotaz, prikaz nebo zadani.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "textarea",
+          "validation": "NONEMPTY_AFTER_UI_ONLY_WHITESPACE_CHECK; ORIGINAL_CONTENT_PRESERVED"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "chat.url",
+          "inputProfile": "TEXT_1",
+          "label": "URL",
+          "purpose": "Volitelny webovy zdroj nebo cil pro browser session.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "url",
+          "validation": "ABSOLUTE_HTTPS_OR_ALLOWED_SCHEME + SSRF/NAVIGATION_POLICY_SERVER"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "chat.credential",
+          "inputProfile": "SECRET_50",
+          "label": "Credential",
+          "purpose": "Volitelny business credential vlozeny do aktualniho operation contextu.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "secret",
+          "validation": "SECRET_TYPE/PLACEMENT_SERVER_VALIDATION"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "chat.browserSession",
+          "inputProfile": null,
+          "label": "Browser session",
+          "purpose": "Pripoji exact existujici browser session ke konverzaci.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "select",
+          "validation": "CURRENT_ATTACHABLE_BROWSER_SESSION"
+        }
+      ],
+      "id": "central.chat",
+      "panels": [
+        "Conversation list",
+        "Message timeline",
+        "Tool/action activity",
+        "Composer",
+        "Context/evidence drawer",
+        "Pinned Browser Preview Surface"
+      ],
+      "purpose": "Jednotne konverzacni rozhrani pro dotazy, prikazy, diagnostiku, generation a browser spolupraci.",
+      "requiredStates": [
+        "LOADING",
+        "EMPTY",
+        "READY",
+        "STREAMING",
+        "ACTION_RUNNING",
+        "OPENAI_CONFIGURATION_REQUIRED",
+        "BROWSER_CHALLENGE",
+        "RECONNECTING",
+        "ERROR"
+      ],
+      "route": "/chat",
+      "title": "Centrální chat"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "canvas unavailable",
+          "enabledWhen": "canvas loaded",
+          "id": "dashboard.fit",
+          "kind": "secondary",
+          "label": "Přizpůsobit",
+          "operationBinding": "UI.DASHBOARD_FIT",
+          "purpose": "Fitne topology canvas do viewportu."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "missing endpoint OR incompatible/stale contract",
+          "enabledWhen": "source,target selected AND compatibility PASS AND versions current",
+          "id": "dashboard.connect",
+          "kind": "primary",
+          "label": "Propojit",
+          "operationBinding": "BINDING.CREATE",
+          "purpose": "Zalozi exact contract binding mezi kompatibilnimi porty."
+        },
+        {
+          "confirmation": "IMPACT_PREVIEW",
+          "disabledWhen": "binding not removable OR protected activation set",
+          "enabledWhen": "active binding selected and impact preview complete",
+          "id": "dashboard.disconnect",
+          "kind": "danger",
+          "label": "Odpojit",
+          "operationBinding": "BINDING.DISCONNECT",
+          "purpose": "Odstrani/retiruje exact binding podle lifecycle."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "wildcard/invalid target OR stale revision",
+          "enabledWhen": "source revision and secret version selector valid",
+          "id": "dashboard.bindSecret",
+          "kind": "primary",
+          "label": "Připojit secret",
+          "operationBinding": "SECRET.BIND",
+          "purpose": "Zalozi exact secret binding."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "any gate not PASS OR current pointer conflict",
+          "enabledWhen": "all blocking readiness gates PASS and candidate current",
+          "id": "dashboard.activate",
+          "kind": "primary",
+          "label": "Aktivovat",
+          "operationBinding": "COMPONENT.ACTIVATE",
+          "purpose": "Aktivuje validovany activation set/component revision."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "already enabled OR lifecycle/readiness disallows",
+          "enabledWhen": "action registry enables for current state",
+          "id": "dashboard.enable",
+          "kind": "primary",
+          "label": "Zapnout",
+          "operationBinding": "COMPONENT.ENABLE",
+          "purpose": "Enable component/runtime pres control state machine."
+        },
+        {
+          "confirmation": "IMPACT_PREVIEW",
+          "disabledWhen": "already disabled OR transition forbidden",
+          "enabledWhen": "action registry enables for current state",
+          "id": "dashboard.disable",
+          "kind": "danger",
+          "label": "Vypnout",
+          "operationBinding": "COMPONENT.DISABLE",
+          "purpose": "Disable component/runtime pres control state machine."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no evidence/eligible target OR repair already active",
+          "enabledWhen": "repair eligible and no duplicate active repair",
+          "id": "dashboard.repair",
+          "kind": "primary",
+          "label": "Opravit",
+          "operationBinding": "COMPONENT.REPAIR",
+          "purpose": "Spusti deduplikovany repair workflow."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "terminal/deregistered OR run already active",
+          "enabledWhen": "component registered and recertifiable",
+          "id": "dashboard.recertify",
+          "kind": "primary",
+          "label": "Recertifikovat",
+          "operationBinding": "COMPONENT.RECERTIFY",
+          "purpose": "Spusti recertification checks."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no scenario OR readiness blocker",
+          "enabledWhen": "scenario exists and dependencies ready",
+          "id": "dashboard.e2e",
+          "kind": "primary",
+          "label": "Spustit E2E",
+          "operationBinding": "TEST.E2E_RUN",
+          "purpose": "Spusti canonical E2E scenario."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "dashboard.search",
+          "inputProfile": "TEXT_1",
+          "label": "Hledat",
+          "purpose": "Fulltext nad komponentami, porty, bindingy a souvisejicimi objekty.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "search",
+          "validation": "BOUNDED_SEARCH_QUERY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "dashboard.category",
+          "inputProfile": null,
+          "label": "Kategorie",
+          "purpose": "Filtr component category.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "multiselect",
+          "validation": "KNOWN_COMPONENT_CATEGORY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "dashboard.lifecycle",
+          "inputProfile": null,
+          "label": "Lifecycle",
+          "purpose": "Filtr lifecycle stavu.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "multiselect",
+          "validation": "KNOWN_LIFECYCLE_ENUM"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "dashboard.operational",
+          "inputProfile": null,
+          "label": "Operational",
+          "purpose": "Filtr operational projection.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "multiselect",
+          "validation": "KNOWN_OPERATIONAL_ENUM"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "dashboard.criticality",
+          "inputProfile": null,
+          "label": "Criticality",
+          "purpose": "Filtr business criticality.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "multiselect",
+          "validation": "KNOWN_CRITICALITY_ENUM"
+        }
+      ],
+      "id": "dashboard",
+      "panels": [
+        "Metric strip",
+        "Topology canvas",
+        "Filter/search bar",
+        "Selection inspector",
+        "Live event stream",
+        "Correlation detail drawer"
+      ],
+      "purpose": "Zobrazit a ovladat zivou topologii komponent, vazeb, portu, secrets, external targetu a runtime udalosti.",
+      "requiredStates": [
+        "LOADING",
+        "EMPTY",
+        "READY",
+        "LIVE",
+        "STALE",
+        "RECONNECTING",
+        "PARTIAL",
+        "ERROR"
+      ],
+      "route": "/dashboard",
+      "title": "Dashboard"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "create pending OR platform recovery barrier",
+          "enabledWhen": "authenticated and base capability available",
+          "id": "gen.create",
+          "kind": "primary",
+          "label": "Nové zadání",
+          "operationBinding": "GENERATION.CREATE",
+          "purpose": "Zalozi generation job a persistentni diskusi."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "job terminal OR no input",
+          "enabledWhen": "nonempty message/source and job nonterminal",
+          "id": "gen.send",
+          "kind": "primary",
+          "label": "Odeslat",
+          "operationBinding": "GENERATION.MESSAGE_SEND",
+          "purpose": "Prida OWNER message/source do generation discussion."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "mutation reconciliation/manual review OR terminal",
+          "enabledWhen": "job nonterminal and current phase steerable",
+          "id": "gen.steer",
+          "kind": "primary",
+          "label": "Upravit směr",
+          "operationBinding": "GENERATION.STEER",
+          "purpose": "Steer current generation/model/browser read-only loop."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "open question, stale revision, invalid spec, missing authority",
+          "enabledWhen": "spec current, all required questions resolved, validation PASS",
+          "id": "gen.approveSpec",
+          "kind": "primary",
+          "label": "Schválit specifikaci",
+          "operationBinding": "GENERATION.SPEC_APPROVE",
+          "purpose": "Atomicky schvali exact immutable specification revision."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no open blocker OR invalid/stale blocker",
+          "enabledWhen": "blocker OPEN and required input valid",
+          "id": "gen.resolveBlocker",
+          "kind": "primary",
+          "label": "Vyřešit blocker",
+          "operationBinding": "GENERATION.BLOCKER_RESOLVE",
+          "purpose": "Odesle schema-valid OWNER odpoved na exact blocker."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "unknown effect/manual review/no retry directive",
+          "enabledWhen": "current failed phase exposes retry directive allowing retry",
+          "id": "gen.retry",
+          "kind": "primary",
+          "label": "Opakovat",
+          "operationBinding": "GENERATION.RETRY",
+          "purpose": "Retry pouze podle canonical recovery directive."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "terminal OR cancellation already committed",
+          "enabledWhen": "job cancellable and nonterminal",
+          "id": "gen.cancel",
+          "kind": "danger",
+          "label": "Zrušit",
+          "operationBinding": "GENERATION.CANCEL",
+          "purpose": "Canonical cancellation generation jobu."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "nothing testable OR conflicting run",
+          "enabledWhen": "job has testable artifacts/object refs",
+          "id": "gen.selftest",
+          "kind": "primary",
+          "label": "Spustit self-test",
+          "operationBinding": "SELFTEST.RUN_FOR_JOB",
+          "purpose": "Spusti relevantni canonical self-test katalog."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "ALWAYS",
+          "enabledWhen": "NEVER",
+          "id": "gen.bypass",
+          "kind": "danger",
+          "label": "Obejít blokaci",
+          "operationBinding": "FORBIDDEN",
+          "purpose": "Tato akce NESMI existovat."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "gen.intent",
+          "inputProfile": "TEXT_50",
+          "label": "Funkční záměr",
+          "purpose": "Primarni business zadani OWNERa pro novou/menenou schopnost.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "textarea",
+          "validation": "NONEMPTY + ATTACHMENT/URL/TARGET REFERENCES ALLOWED"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "gen.url",
+          "inputProfile": "TEXT_1",
+          "label": "Zdrojová URL",
+          "purpose": "Volitelny zdroj pro research/browser.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "url",
+          "validation": "ABSOLUTE_URL + SERVER_NAVIGATION_POLICY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "gen.credential",
+          "inputProfile": "SECRET_50",
+          "label": "Credential",
+          "purpose": "Volitelny chybejici business credential pro konkretni research/configuration krok.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "secret",
+          "validation": "SECRET_USE_CONTEXT_REQUIRED"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "gen.blockerResponse",
+          "inputProfile": "TEXT_8",
+          "label": "Odpověď na blocker",
+          "purpose": "Pouze skutecne chybejici OWNER business vstup k exact blockeru.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "textarea",
+          "validation": "BLOCKER_SCHEMA"
+        }
+      ],
+      "id": "generation",
+      "panels": [
+        "Discussion panel",
+        "Web tab",
+        "Specification tab",
+        "Evidence tab",
+        "Progress tab",
+        "Source/fact inventory",
+        "Capability coverage matrix",
+        "Target graph",
+        "Generation DAG",
+        "Files/diff",
+        "Validation/eval results",
+        "Blockers",
+        "Candidate/release/activation panel"
+      ],
+      "purpose": "Od OWNER zadani pres diskusi/specifikaci az po validovany, aktivovany a monitorovany vysledek bez moznosti obejit blocking gate.",
+      "requiredStates": [
+        "DRAFT",
+        "DISCUSSING",
+        "BLOCKED",
+        "SPEC_READY",
+        "APPROVAL_REQUIRED",
+        "RUNNING",
+        "VALIDATING",
+        "ACTIVATING",
+        "COMPLETED",
+        "FAILED",
+        "CANCELLING",
+        "MANUAL_REVIEW"
+      ],
+      "route": "/generation",
+      "title": "Generování"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "terminal/deregistered OR create pending",
+          "enabledWhen": "agent exists and lifecycle allows revision",
+          "id": "agent.newRevision",
+          "kind": "primary",
+          "label": "Nová revize",
+          "operationBinding": "AGENT.REVISION_CREATE",
+          "purpose": "Vytvori editable candidate revision bez mutace active revision."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "read-only active revision OR validation errors",
+          "enabledWhen": "candidate dirty and local/schema validation PASS",
+          "id": "agent.saveRevision",
+          "kind": "primary",
+          "label": "Uložit revizi",
+          "operationBinding": "AGENT.REVISION_SAVE",
+          "purpose": "Persistuje candidate revision s validaci."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no revision OR validation active",
+          "enabledWhen": "candidate/current revision exists",
+          "id": "agent.validate",
+          "kind": "primary",
+          "label": "Validovat",
+          "operationBinding": "AGENT.VALIDATE",
+          "purpose": "Spusti full contract/binding/schema validation."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "not active/ready OR stale binding OR OPENAI_CONFIGURATION_REQUIRED",
+          "enabledWhen": "active ready revision, bindings current, OpenAI configured",
+          "id": "agent.run",
+          "kind": "primary",
+          "label": "Spustit",
+          "operationBinding": "AGENT.RUN",
+          "purpose": "Spusti agent run."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no run OR phase not pausable",
+          "enabledWhen": "run supports pause and nonterminal",
+          "id": "agent.pause",
+          "kind": "primary",
+          "label": "Pozastavit",
+          "operationBinding": "AGENT.RUN_PAUSE",
+          "purpose": "Pozastavi resumable run na checkpointu."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "stale checkpoint/binding/model capability",
+          "enabledWhen": "paused checkpoint current and dependencies valid",
+          "id": "agent.resume",
+          "kind": "primary",
+          "label": "Pokračovat",
+          "operationBinding": "AGENT.RUN_RESUME",
+          "purpose": "Resume exact checkpoint."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "terminal/unknown effect barrier",
+          "enabledWhen": "run cancellable",
+          "id": "agent.cancel",
+          "kind": "danger",
+          "label": "Zrušit",
+          "operationBinding": "AGENT.RUN_CANCEL",
+          "purpose": "Canonical cancel runu."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "any blocking gate not PASS",
+          "enabledWhen": "promotion/eval/readiness PASS",
+          "id": "agent.activate",
+          "kind": "primary",
+          "label": "Aktivovat",
+          "operationBinding": "AGENT.ACTIVATE",
+          "purpose": "Aktivuje validated revision v activation setu."
+        },
+        {
+          "confirmation": "IMPACT_PREVIEW",
+          "disabledWhen": "no rollback point OR incompatible migration/effect",
+          "enabledWhen": "valid rollback point exists and safety checks PASS",
+          "id": "agent.rollback",
+          "kind": "danger",
+          "label": "Rollback",
+          "operationBinding": "AGENT.ROLLBACK",
+          "purpose": "Vrati na overeny predchozi release/revision pointer."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "agent.search",
+          "inputProfile": "TEXT_1",
+          "label": "Hledat agenta",
+          "purpose": "Fulltext agent catalogu.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "search",
+          "validation": "BOUNDED_SEARCH_QUERY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "agent.instructions",
+          "inputProfile": "TEXT_50",
+          "label": "Canonical instrukce",
+          "purpose": "Normativni instrukce konkretni agent revision.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "textarea",
+          "validation": "REVISION_SCHEMA + PROVENANCE/INSTRUCTION_AUTHORITY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "agent.inputSchema",
+          "inputProfile": "CODE_50",
+          "label": "Input schema",
+          "purpose": "Strict vstupni schema agent revision.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "code",
+          "validation": "JSON_SCHEMA_2020_12 + OPENAI_COMPATIBILITY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "agent.outputSchema",
+          "inputProfile": "CODE_50",
+          "label": "Output schema",
+          "purpose": "Strict vystupni schema agent revision.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "code",
+          "validation": "JSON_SCHEMA_2020_12 + OPENAI_COMPATIBILITY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "agent.model",
+          "inputProfile": null,
+          "label": "OpenAI model",
+          "purpose": "Model pro revision.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "select",
+          "validation": "SUPPORTED_MODEL/CAPABILITY"
+        }
+      ],
+      "id": "agents",
+      "panels": [
+        "Agent catalog",
+        "Revision editor",
+        "Tool binding graph",
+        "Handoff graph",
+        "Guardrails/approval",
+        "Session/memory browser",
+        "Run console",
+        "Browser panel",
+        "Eval suite",
+        "Usage/SLO",
+        "Triggers/schedules",
+        "Activation/rollback",
+        "Secrets/bindings/logs/audit"
+      ],
+      "purpose": "Katalog, revision editor, tool/handoff/browser bindingy, run console, eval a lifecycle AI agentu.",
+      "requiredStates": [
+        "LOADING",
+        "EMPTY",
+        "READY",
+        "EDITING",
+        "VALIDATING",
+        "RUNNING",
+        "PAUSED",
+        "APPROVAL_REQUIRED",
+        "FAILED",
+        "MANUAL_REVIEW"
+      ],
+      "route": "/agents",
+      "title": "AI agenti"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no endpoint OR auth/binding invalid",
+          "enabledWhen": "selected endpoint/auth binding valid",
+          "id": "mcp.discover",
+          "kind": "primary",
+          "label": "server/discover",
+          "operationBinding": "MCP.DISCOVER",
+          "purpose": "Provede fresh discovery a ulozi evidence snapshot."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "malformed/mismatch/stale contract/binding",
+          "enabledWhen": "all request fields valid and selected contract current",
+          "id": "mcp.send",
+          "kind": "primary",
+          "label": "Odeslat request",
+          "operationBinding": "MCP.REQUEST_EXECUTE",
+          "purpose": "Provede exact request po protocol/schema/binding preflightu."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "terminal/noncancellable/unknown-effect reconciliation",
+          "enabledWhen": "current operation cancellable",
+          "id": "mcp.cancel",
+          "kind": "primary",
+          "label": "Zrušit",
+          "operationBinding": "MCP.REQUEST_CANCEL",
+          "purpose": "Cancel current cancellable MCP request/task podle contractu."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "verification active OR no revision",
+          "enabledWhen": "server revision selected",
+          "id": "mcp.verify",
+          "kind": "primary",
+          "label": "Ověřit",
+          "operationBinding": "MCP.VERIFY",
+          "purpose": "Spusti protocol/compatibility verification."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "era unknown/ambiguous OR any gate fail",
+          "enabledWhen": "discovery/schema/E2E/bindings PASS",
+          "id": "mcp.activate",
+          "kind": "primary",
+          "label": "Aktivovat",
+          "operationBinding": "MCP.ACTIVATE",
+          "purpose": "Aktivuje verified MCP revision/activation relation."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no repair basis OR duplicate active repair",
+          "enabledWhen": "repairable failure/evidence",
+          "id": "mcp.repair",
+          "kind": "primary",
+          "label": "Opravit",
+          "operationBinding": "MCP.REPAIR",
+          "purpose": "Spusti repair s evidence."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "mcp.search",
+          "inputProfile": "TEXT_1",
+          "label": "Hledat",
+          "purpose": "Hleda servery, tools, resources, prompts a adaptery.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "search",
+          "validation": "BOUNDED_SEARCH_QUERY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "mcp.method",
+          "inputProfile": null,
+          "label": "Method",
+          "purpose": "Exact MCP/JSON-RPC method request builderu.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "select",
+          "validation": "METHOD_SUPPORTED_BY_SELECTED_REVISION"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "mcp.name",
+          "inputProfile": "TEXT_1",
+          "label": "Name / URI / Task ID",
+          "purpose": "Method-specific target routing field.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "text",
+          "validation": "EXACT_METHOD_ROUTING_SCHEMA"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "mcp.meta",
+          "inputProfile": "CODE_50",
+          "label": "Request _meta",
+          "purpose": "Per-request protocolVersion/capabilities a povolena metadata.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "code",
+          "validation": "MCP_NATIVE_SCHEMA"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "mcp.headers",
+          "inputProfile": "CODE_50",
+          "label": "HTTP headers",
+          "purpose": "Routing headers a custom schema-recognized headers.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "code",
+          "validation": "SINGLETON_HEADER + HEADER/BODY_MATCH"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "mcp.params",
+          "inputProfile": "CODE_50",
+          "label": "Params / body",
+          "purpose": "Typed JSON-RPC params podle exact tool/method contractu.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "code",
+          "validation": "NATIVE_JSON_SCHEMA + SIZE/DEPTH_LIMITS"
+        }
+      ],
+      "id": "mcp",
+      "panels": [
+        "Server catalog",
+        "Protocol era/revision header",
+        "Discover inspector",
+        "HTTP/JSON-RPC inspector",
+        "Capabilities/extensions",
+        "Discovery snapshots/cache",
+        "Tools/resources/prompts explorer",
+        "Schema/projection viewer",
+        "Request builder",
+        "Raw JSON-RPC/SSE evidence",
+        "MRTR console",
+        "Subscription console",
+        "State handle browser",
+        "Task console",
+        "Binding graph",
+        "Idempotency/concurrency/reconciliation",
+        "Runtime/health/monitoring",
+        "Activation/rollback",
+        "Logs/audit"
+      ],
+      "purpose": "MCP katalog, protocol/wire inspector, request builder, MRTR/subscription/task konzole a activation diagnostika.",
+      "requiredStates": [
+        "LOADING",
+        "EMPTY",
+        "READY",
+        "DISCOVERING",
+        "EXECUTING",
+        "STREAMING",
+        "INPUT_REQUIRED",
+        "TASK_ACTIVE",
+        "STALE_SNAPSHOT",
+        "PROTOCOL_ERROR",
+        "RECONCILING",
+        "MANUAL_REVIEW"
+      ],
+      "route": "/mcp",
+      "title": "MCP servery a nástroje"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "capacity exhausted OR recovery barrier",
+          "enabledWhen": "capacity/admission ready",
+          "id": "browser.new",
+          "kind": "primary",
+          "label": "Nová relace",
+          "operationBinding": "BROWSER.SESSION_CREATE",
+          "purpose": "Zalozi browser session s exact consumer/parent/purpose."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no control lease OR stale page/document identity",
+          "enabledWhen": "controller has write lease and URL valid",
+          "id": "browser.navigate",
+          "kind": "primary",
+          "label": "Otevřít URL",
+          "operationBinding": "BROWSER.NAVIGATE",
+          "purpose": "Naviguje current page pod current control/operation scope."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "stale control epoch/transfer pending",
+          "enabledWhen": "current session controllable and not already OWNER",
+          "id": "browser.takeover",
+          "kind": "primary",
+          "label": "Převzít ovládání",
+          "operationBinding": "BROWSER.CONTROL_TAKEOVER",
+          "purpose": "Fenced transfer write authority na OWNERa."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "not controller OR no AI recipient OR stale epoch",
+          "enabledWhen": "OWNER current controller + AI consumer attached + challenge resolved",
+          "id": "browser.returnAi",
+          "kind": "primary",
+          "label": "Vrátit AI",
+          "operationBinding": "BROWSER.CONTROL_RETURN_AI",
+          "purpose": "Fenced transfer na exact AI consumer."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "OWNER not controller for page input",
+          "enabledWhen": "OWNER holds write lease",
+          "id": "browser.modeBrowse",
+          "kind": "secondary",
+          "label": "Procházet",
+          "operationBinding": "BROWSER.UI_MODE_BROWSE",
+          "purpose": "Prepne preview do BROWSE input rezimu."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "preview/document stale",
+          "enabledWhen": "preview current",
+          "id": "browser.modeMarkup",
+          "kind": "secondary",
+          "label": "Označit",
+          "operationBinding": "BROWSER.UI_MODE_MARKUP",
+          "purpose": "Prepne do MARKUP overlay rezimu; page pointer forwarding MUSI byt off."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no current document",
+          "enabledWhen": "fresh observation/document",
+          "id": "browser.modeTarget",
+          "kind": "secondary",
+          "label": "Vybrat prvek",
+          "operationBinding": "BROWSER.UI_MODE_TARGET_PICK",
+          "purpose": "Prepne do TARGET_PICK."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "preview stale",
+          "enabledWhen": "preview current",
+          "id": "browser.modePointer",
+          "kind": "secondary",
+          "label": "Ukazatel",
+          "operationBinding": "BROWSER.UI_MODE_LIVE_POINTER",
+          "purpose": "Aktivuje ephemeral POINTER/LASER collaboration."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "pointer-up lineage changed without snapshot-only resolution",
+          "enabledWhen": "draft geometry valid and lineage unchanged",
+          "id": "browser.annotationCommit",
+          "kind": "primary",
+          "label": "Uložit označení",
+          "operationBinding": "BROWSER.ANNOTATION_CREATE",
+          "purpose": "Commitne BrowserVisualAnnotation s exact anchor/snapshot."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no annotation OR no AI recipient",
+          "enabledWhen": ">=1 resolvable/snapshot annotation selected and AI consumer attached",
+          "id": "browser.focusAi",
+          "kind": "primary",
+          "label": "Požádat AI: zaměř se sem",
+          "operationBinding": "BROWSER.FOCUS_REQUEST_CREATE",
+          "purpose": "Vytvori focus request z vybranych annotations."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "stale AI observation/invalid anchor",
+          "enabledWhen": "AI proposal validated server-side",
+          "id": "browser.focusOwner",
+          "kind": "primary",
+          "label": "OWNER: podívej se sem",
+          "operationBinding": "BROWSER.FOCUS_REQUEST_CREATE_AI",
+          "purpose": "AI-side ekvivalent focus requestu; v OWNER UI se zobrazi jako incoming card."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "wrong/unknown account OR incompatible state",
+          "enabledWhen": "account marker verified and no unresolved effect",
+          "id": "browser.saveAccount",
+          "kind": "primary",
+          "label": "Uložit účet",
+          "operationBinding": "BROWSER.ACCOUNT_SAVE",
+          "purpose": "Ulozi povoleny state bundle po account verification."
+        },
+        {
+          "confirmation": "IMPACT_IF_NONIDLE",
+          "disabledWhen": "possible mutation unknown/manual review",
+          "enabledWhen": "session closeable",
+          "id": "browser.close",
+          "kind": "danger",
+          "label": "Zavřít relaci",
+          "operationBinding": "BROWSER.SESSION_CLOSE",
+          "purpose": "Lifecycle close se cleanup/reconciliation."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "visual-only unresolved mutating step OR model-only replay",
+          "enabledWhen": "replayable deterministic flow + postconditions PASS",
+          "id": "browser.teach",
+          "kind": "primary",
+          "label": "Vytvořit automatizaci",
+          "operationBinding": "BROWSER.AUTOMATION_CREATE_FROM_TEACHING",
+          "purpose": "Prevede verified teaching flow do candidate automation revision."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "browser.search",
+          "inputProfile": "TEXT_1",
+          "label": "Hledat relaci",
+          "purpose": "Filtr session ID, parentu, consumeru, accountu, URL/title a purpose.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "search",
+          "validation": "BOUNDED_SEARCH_QUERY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "browser.url",
+          "inputProfile": "TEXT_1",
+          "label": "URL",
+          "purpose": "Navigacni cil pro novou/ad-hoc relaci.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "url",
+          "validation": "ABSOLUTE_URL + NAVIGATION_POLICY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "browser.annotationNote",
+          "inputProfile": "TEXT_2",
+          "label": "Poznámka k označení",
+          "purpose": "Volitelna komunikacni poznamka persistentni annotation.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "textarea",
+          "validation": "MAX_2000 + PRESERVE_CONTENT"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "browser.focusMessage",
+          "inputProfile": "TEXT_2",
+          "label": "Zpráva „zaměř se sem“",
+          "purpose": "Text BrowserFocusRequestu mezi OWNER a AI.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "textarea",
+          "validation": "NONEMPTY + MAX_4000"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "browser.accountName",
+          "inputProfile": null,
+          "label": "Uložený účet / binding",
+          "purpose": "Exact browser account binding pro restore/save/login.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "select",
+          "validation": "CURRENT_ACCOUNT_BINDING"
+        }
+      ],
+      "id": "browser",
+      "panels": [
+        "Session inventory table",
+        "Preview surface",
+        "URL/page tree",
+        "Control holder banner",
+        "Operation/current action target",
+        "Challenge card",
+        "Mode toolbar",
+        "Annotation toolbar",
+        "Annotation/focus list",
+        "Account save card",
+        "Artifacts/evidence",
+        "Automation teaching/replay panel"
+      ],
+      "purpose": "Globalni inventory browser sessions, live preview, human handoff, visual collaboration, teaching a deterministic automation lifecycle.",
+      "requiredStates": [
+        "CREATING",
+        "READY",
+        "AI_CONTROLS",
+        "TAKING_OVER",
+        "OWNER_CONTROLS",
+        "AUTOMATION_CONTROLS",
+        "CHALLENGE",
+        "PAUSED",
+        "RECOVERING",
+        "CLOSED",
+        "FAILED",
+        "STALE_ANNOTATION"
+      ],
+      "route": "/browser",
+      "title": "Browser relace a automatizace"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "object tombstoned/unavailable",
+          "enabledWhen": "object exists",
+          "id": "registered.open",
+          "kind": "secondary",
+          "label": "Otevřít detail",
+          "operationBinding": "UI.OBJECT_OPEN",
+          "purpose": "Otevre canonical detail objektu."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "registry disabled with reason",
+          "enabledWhen": "action registry says enabled",
+          "id": "registered.enable",
+          "kind": "primary",
+          "label": "Zapnout",
+          "operationBinding": "OBJECT.ENABLE",
+          "purpose": "Quick action ze sdileneho action registry."
+        },
+        {
+          "confirmation": "IMPACT_IF_REQUIRED",
+          "disabledWhen": "registry disabled with reason",
+          "enabledWhen": "action registry says enabled",
+          "id": "registered.disable",
+          "kind": "danger",
+          "label": "Vypnout",
+          "operationBinding": "OBJECT.DISABLE",
+          "purpose": "Quick action ze sdileneho action registry."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "not eligible/repair active",
+          "enabledWhen": "repair eligible",
+          "id": "registered.repair",
+          "kind": "primary",
+          "label": "Opravit",
+          "operationBinding": "OBJECT.REPAIR",
+          "purpose": "Quick repair action."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "registered.search",
+          "inputProfile": "TEXT_1",
+          "label": "Hledat",
+          "purpose": "Fulltext registrovanych objektu.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "search",
+          "validation": "BOUNDED_SEARCH_QUERY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "registered.status",
+          "inputProfile": null,
+          "label": "Stav",
+          "purpose": "Filtr lifecycle/operational/monitoring stavu.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "multiselect",
+          "validation": "KNOWN_STATUS_ENUMS"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "registered.kind",
+          "inputProfile": null,
+          "label": "Typ",
+          "purpose": "Filtr component/MCP/agent/tool/automation druhu.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "multiselect",
+          "validation": "KNOWN_OBJECT_KIND"
+        }
+      ],
+      "id": "registered",
+      "panels": [
+        "Metric/status strip",
+        "Search/filter bar",
+        "Dense table/card switch",
+        "Quick action menu",
+        "Last event/alarm column"
+      ],
+      "purpose": "Provozni zkraceny prehled vsech aktivnich/registrovanych objektu a rychlych akci.",
+      "requiredStates": [
+        "LOADING",
+        "EMPTY",
+        "READY",
+        "PARTIAL",
+        "STALE_RECONNECTING",
+        "ERROR",
+        "SUCCESS"
+      ],
+      "route": "/registered",
+      "title": "Registrované prvky"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "schema/naming/uniqueness/dependency failure",
+          "enabledWhen": "required registration fields/manifest valid",
+          "id": "component.register",
+          "kind": "primary",
+          "label": "Registrovat",
+          "operationBinding": "COMPONENT.REGISTER",
+          "purpose": "Registruje existujici objekt pres canonical validator."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "OPENAI_CONFIGURATION_REQUIRED OR recovery barrier",
+          "enabledWhen": "authenticated and generation capability available",
+          "id": "component.generate",
+          "kind": "primary",
+          "label": "Generovat",
+          "operationBinding": "GENERATION.CREATE_FOR_COMPONENT",
+          "purpose": "Preda zamer do generation workflow."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "invalid file/unsupported schema",
+          "enabledWhen": "file/manifest selected and parseable",
+          "id": "component.import",
+          "kind": "primary",
+          "label": "Importovat",
+          "operationBinding": "COMPONENT.IMPORT",
+          "purpose": "Nacte candidate manifest/artifact bez tiche aktivace."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no object",
+          "enabledWhen": "object exists",
+          "id": "component.export",
+          "kind": "primary",
+          "label": "Exportovat",
+          "operationBinding": "COMPONENT.EXPORT",
+          "purpose": "Exportuje exact object/revision evidence."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no revision or run active",
+          "enabledWhen": "candidate/current revision exists",
+          "id": "component.validate",
+          "kind": "primary",
+          "label": "Validovat",
+          "operationBinding": "COMPONENT.VALIDATE",
+          "purpose": "Full registration/contract validation."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "validation not PASS",
+          "enabledWhen": "validation PASS",
+          "id": "component.verify",
+          "kind": "primary",
+          "label": "Ověřit",
+          "operationBinding": "COMPONENT.VERIFY",
+          "purpose": "Verification/E2E readiness."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "any blocking gate/stale state",
+          "enabledWhen": "all readiness/verification gates PASS",
+          "id": "component.activate",
+          "kind": "primary",
+          "label": "Aktivovat",
+          "operationBinding": "COMPONENT.ACTIVATE",
+          "purpose": "Atomic activation pointer/bindings/routes."
+        },
+        {
+          "confirmation": "IMPACT_PREVIEW",
+          "disabledWhen": "no valid point OR safety blocker",
+          "enabledWhen": "rollback point valid",
+          "id": "component.rollback",
+          "kind": "danger",
+          "label": "Rollback",
+          "operationBinding": "COMPONENT.ROLLBACK",
+          "purpose": "Rollback na verified point."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "active/required dependency",
+          "enabledWhen": "archive eligible and no active dependency",
+          "id": "component.archive",
+          "kind": "primary",
+          "label": "Archivovat",
+          "operationBinding": "COMPONENT.ARCHIVE",
+          "purpose": "Archivuje neaktivni objekt/revision podle lifecycle."
+        },
+        {
+          "confirmation": "MANDATORY_IMPACT_PREVIEW",
+          "disabledWhen": "active dependency/binding/runtime",
+          "enabledWhen": "all required detach/cleanup preconditions PASS",
+          "id": "component.deregister",
+          "kind": "danger",
+          "label": "Deregistrovat",
+          "operationBinding": "COMPONENT.DEREGISTER",
+          "purpose": "Terminal deregistration s impact preview."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "component.search",
+          "inputProfile": "TEXT_1",
+          "label": "Hledat",
+          "purpose": "Fulltext component catalogu.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "search",
+          "validation": "BOUNDED_SEARCH_QUERY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "component.displayName",
+          "inputProfile": "TEXT_1",
+          "label": "Název",
+          "purpose": "OWNER display name component candidate/registration.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "text",
+          "validation": "NONEMPTY + DOMAIN_LENGTH"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "component.purpose",
+          "inputProfile": "TEXT_8",
+          "label": "Business účel",
+          "purpose": "Business purpose komponenty.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "textarea",
+          "validation": "NONEMPTY + DOMAIN_LENGTH"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "component.category",
+          "inputProfile": null,
+          "label": "Kategorie",
+          "purpose": "Canonical component category.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "select",
+          "validation": "COMPONENT_CATEGORY_ENUM"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "component.criticality",
+          "inputProfile": null,
+          "label": "Criticality",
+          "purpose": "Business criticality pro monitoring/ops kontext.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "select",
+          "validation": "CRITICALITY_ENUM"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "component.manifest",
+          "inputProfile": "CODE_50",
+          "label": "Manifest",
+          "purpose": "Kanonicky registration manifest pri importu/registraci.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "code",
+          "validation": "MANIFEST_SCHEMA + DIGEST + CROSS_REFERENCES"
+        }
+      ],
+      "id": "components",
+      "panels": [
+        "Catalog filters",
+        "Table/card view",
+        "Identity overview",
+        "Revision/release tabs",
+        "Runtime",
+        "Contracts/relations",
+        "Secrets/bindings",
+        "Monitoring",
+        "Logs/audit",
+        "Usage graph",
+        "Diff viewer",
+        "Registration/import panel"
+      ],
+      "purpose": "Plny registr komponent, revisions, releases, runtime, contracts, relations, bindings a lifecycle operaci.",
+      "requiredStates": [
+        "LOADING",
+        "EMPTY",
+        "READY",
+        "PARTIAL",
+        "STALE_RECONNECTING",
+        "ERROR",
+        "SUCCESS"
+      ],
+      "route": "/components",
+      "title": "Katalog komponent"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "URL/method/auth/binding invalid",
+          "enabledWhen": "required fields valid",
+          "id": "external.save",
+          "kind": "primary",
+          "label": "Uložit target",
+          "operationBinding": "EXTERNAL.TARGET_SAVE",
+          "purpose": "Persistuje target candidate/config."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "circuit/policy/binding prevents dispatch",
+          "enabledWhen": "target valid/current and test request valid",
+          "id": "external.test",
+          "kind": "primary",
+          "label": "Otestovat request",
+          "operationBinding": "EXTERNAL.TEST_REQUEST",
+          "purpose": "Spusti bounded test pres egress gateway."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no challenge contract",
+          "enabledWhen": "endpoint challenge contract exists",
+          "id": "external.challenge",
+          "kind": "primary",
+          "label": "Otestovat challenge",
+          "operationBinding": "EXTERNAL.CHALLENGE_TEST",
+          "purpose": "Spusti provider challenge tester."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "already OPEN",
+          "enabledWhen": "circuit exists and not OPEN",
+          "id": "external.circuitOpen",
+          "kind": "primary",
+          "label": "Otevřít circuit",
+          "operationBinding": "EXTERNAL.CIRCUIT_OPEN",
+          "purpose": "Manual open circuit."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "state/verification blocks",
+          "enabledWhen": "state permits close",
+          "id": "external.circuitClose",
+          "kind": "primary",
+          "label": "Zavřít circuit",
+          "operationBinding": "EXTERNAL.CIRCUIT_CLOSE",
+          "purpose": "Manual close/reset according to state machine."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "active unsafe condition",
+          "enabledWhen": "reset permitted",
+          "id": "external.circuitReset",
+          "kind": "primary",
+          "label": "Resetovat circuit",
+          "operationBinding": "EXTERNAL.CIRCUIT_RESET",
+          "purpose": "Reset evidence/counters only via canonical op."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "external.name",
+          "inputProfile": "TEXT_1",
+          "label": "Název targetu",
+          "purpose": "Display name external targetu.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "text",
+          "validation": "NONEMPTY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "external.baseUrl",
+          "inputProfile": "TEXT_1",
+          "label": "Base URL",
+          "purpose": "Canonical base URL outbound targetu.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "url",
+          "validation": "ABSOLUTE_URL + EGRESS/SSRF_POLICY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "external.pathPrefixes",
+          "inputProfile": "TEXT_8",
+          "label": "Povolené cesty",
+          "purpose": "Explicitni allowed path prefixy, jeden na radek.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "textarea",
+          "validation": "NORMALIZED_RELATIVE_PREFIX_LIST"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "external.methods",
+          "inputProfile": null,
+          "label": "Metody",
+          "purpose": "Allowed HTTP methods.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "multiselect",
+          "validation": "KNOWN_HTTP_METHODS"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "external.authMode",
+          "inputProfile": null,
+          "label": "Auth režim",
+          "purpose": "NONE/Bearer/API key/OAuth/mTLS/Basic/custom header.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "select",
+          "validation": "EXTERNAL_AUTH_MODE_ENUM"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "external.secret",
+          "inputProfile": null,
+          "label": "Credential binding",
+          "purpose": "Exact Secret binding pro target/endpoint.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "select",
+          "validation": "CURRENT_COMPATIBLE_SECRET_BINDING"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "external.rate",
+          "inputProfile": null,
+          "label": "Business rate limit",
+          "purpose": "OWNER business hranice integrace.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "number",
+          "validation": "NONNEGATIVE + BUSINESS_POLICY_BOUNDS"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "external.requestBody",
+          "inputProfile": "CODE_50",
+          "label": "Test payload",
+          "purpose": "Request builder body pro test call.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "code",
+          "validation": "EXPECTED_RESPONSE/REQUEST_SCHEMA"
+        }
+      ],
+      "id": "external",
+      "panels": [
+        "Target list",
+        "Target detail form",
+        "Auth binding panel",
+        "Inbound/outbound binding matrix",
+        "Live request history",
+        "Latency/error stats",
+        "Circuit panel",
+        "Request builder",
+        "Webhook inspector",
+        "Challenge tester",
+        "Monitoring/alarms"
+      ],
+      "purpose": "Sprava external targetu, auth bindingu, inbound endpointu, outbound calls, webhooku, circuit breakeru a jejich monitoringu.",
+      "requiredStates": [
+        "LOADING",
+        "EMPTY",
+        "READY",
+        "PARTIAL",
+        "STALE_RECONNECTING",
+        "ERROR",
+        "SUCCESS"
+      ],
+      "route": "/external",
+      "title": "Externí systémy"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "not OPEN",
+          "enabledWhen": "alert OPEN",
+          "id": "monitoring.ack",
+          "kind": "primary",
+          "label": "Potvrdit alert",
+          "operationBinding": "ALERT.ACK",
+          "purpose": "ACK current alert bez falsifikace health."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "closed alert OR invalid interval",
+          "enabledWhen": "alert suppressible and interval valid",
+          "id": "monitoring.suppress",
+          "kind": "primary",
+          "label": "Potlačit",
+          "operationBinding": "ALERT.SUPPRESS",
+          "purpose": "Nastavi suppression interval."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "active unresolved condition",
+          "enabledWhen": "close preconditions satisfied",
+          "id": "monitoring.close",
+          "kind": "primary",
+          "label": "Uzavřít alert",
+          "operationBinding": "ALERT.CLOSE",
+          "purpose": "Uzavre pouze pokud close contract/postcondition dovoluje."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no eligible component/evidence or repair active",
+          "enabledWhen": "repair eligible and evidence current",
+          "id": "monitoring.repair",
+          "kind": "primary",
+          "label": "Opravit",
+          "operationBinding": "COMPONENT.REPAIR",
+          "purpose": "Spusti deduplikovany repair job z evidence."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no probe/binding unavailable",
+          "enabledWhen": "probe exists and target current",
+          "id": "monitoring.probe",
+          "kind": "primary",
+          "label": "Spustit kontrolu",
+          "operationBinding": "MONITORING.PROBE_RUN",
+          "purpose": "Ad-hoc canonical probe."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "policy conflict/out of bounds",
+          "enabledWhen": "edited values valid",
+          "id": "monitoring.saveProfile",
+          "kind": "primary",
+          "label": "Uložit profil",
+          "operationBinding": "MONITORING.PROFILE_SAVE",
+          "purpose": "Ulozi OWNER-editable business hodnoty a system-managed policy inputs."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "monitoring.search",
+          "inputProfile": "TEXT_1",
+          "label": "Hledat komponentu",
+          "purpose": "Fulltext monitoring targetu.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "search",
+          "validation": "BOUNDED_SEARCH_QUERY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "monitoring.severity",
+          "inputProfile": null,
+          "label": "Severity",
+          "purpose": "WARNING/HIGH/CRITICAL segmenty.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "multiselect",
+          "validation": "ALERT_SEVERITY_ENUM"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "monitoring.slo",
+          "inputProfile": null,
+          "label": "Business SLO",
+          "purpose": "OWNER-defined SLO target v definovane jednotce.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "number",
+          "validation": "POLICY_UNIT + BOUNDS"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "monitoring.runbook",
+          "inputProfile": "TEXT_1",
+          "label": "Runbook reference",
+          "purpose": "Odkaz/identifikator runbooku.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "text",
+          "validation": "REFERENCE_FORMAT"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "monitoring.suppressUntil",
+          "inputProfile": null,
+          "label": "Potlačit do",
+          "purpose": "Casovy konec alert suppression.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "datetime",
+          "validation": "FUTURE_TIMESTAMP_WITH_POLICY_BOUNDS"
+        }
+      ],
+      "id": "monitoring",
+      "panels": [
+        "Metric cards",
+        "Probe/state timeline",
+        "Component filters",
+        "Severity segments",
+        "Alerts/deliveries",
+        "Scheduler state",
+        "SLO/latency",
+        "Heartbeat freshness",
+        "Resource charts",
+        "Runbook/repair",
+        "Profile editor",
+        "Debug evidence"
+      ],
+      "purpose": "Probes, SLO, heartbeat, alerts, scheduler, resource metrics, runbook, repair a recertification.",
+      "requiredStates": [
+        "LOADING",
+        "EMPTY",
+        "READY",
+        "PARTIAL",
+        "STALE_RECONNECTING",
+        "ERROR",
+        "SUCCESS"
+      ],
+      "route": "/monitoring",
+      "title": "Monitoring"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "session reauthentication required",
+          "enabledWhen": "MFA-authenticated OWNER session current",
+          "id": "runtime.revealKey",
+          "kind": "secondary",
+          "label": "Zobrazit API klíč",
+          "operationBinding": "OWNER_API_KEY.REVEAL",
+          "purpose": "Reveal current singleton KCML_OWNER_API_KEY."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "not revealed/current value absent",
+          "enabledWhen": "value revealed in current trusted UI state",
+          "id": "runtime.copyKey",
+          "kind": "secondary",
+          "label": "Kopírovat API klíč",
+          "operationBinding": "OWNER_API_KEY.COPY",
+          "purpose": "Copy current revealed value."
+        },
+        {
+          "confirmation": "EXPLICIT_CONFIRM",
+          "disabledWhen": "rotate pending/session invalid",
+          "enabledWhen": "OWNER session current and no rotate pending",
+          "id": "runtime.rotateKey",
+          "kind": "danger",
+          "label": "Rotovat API klíč",
+          "operationBinding": "OWNER_API_KEY.ROTATE",
+          "purpose": "Atomicky nahradi jedinou active verzi a starou ihned zneplatni."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "stale/inactive binding",
+          "enabledWhen": "binding current and target/source available",
+          "id": "runtime.testBinding",
+          "kind": "primary",
+          "label": "Otestovat vazbu",
+          "operationBinding": "BINDING.TEST",
+          "purpose": "Test resolve/dispatch preflight selected exact binding."
+        },
+        {
+          "confirmation": "EXPLICIT_CONFIRM",
+          "disabledWhen": "already revoked/missing",
+          "enabledWhen": "certificate current and revocable",
+          "id": "runtime.revokeBridge",
+          "kind": "danger",
+          "label": "Revokovat bridge certifikát",
+          "operationBinding": "BRIDGE.CERT_REVOKE",
+          "purpose": "Revokuje exact OWNER Device Bridge cert."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "runtime.search",
+          "inputProfile": "TEXT_1",
+          "label": "Hledat vazbu",
+          "purpose": "Fulltext identities/bindings.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "search",
+          "validation": "BOUNDED_SEARCH_QUERY"
+        }
+      ],
+      "id": "runtime-access",
+      "panels": [
+        "OWNER API key card",
+        "Usage history",
+        "Runtime/component identities",
+        "Exact contract binding matrix",
+        "Secret binding matrix",
+        "External auth bindings",
+        "Bridge certificates",
+        "Evidence/audit drawer"
+      ],
+      "purpose": "Sprava singleton OWNER API key a detailni zobrazeni runtime/exact contract/Secret/external/bridge vazeb bez permission registry.",
+      "requiredStates": [
+        "LOADING",
+        "EMPTY",
+        "READY",
+        "PARTIAL",
+        "STALE_RECONNECTING",
+        "ERROR",
+        "SUCCESS"
+      ],
+      "route": "/runtime-access",
+      "title": "API klíč a runtime vazby"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "validation/uniqueness failure",
+          "enabledWhen": "required metadata/value valid and stableName available",
+          "id": "secret.create",
+          "kind": "primary",
+          "label": "Nový secret",
+          "operationBinding": "SECRET.CREATE",
+          "purpose": "Vytvori secret + prvni version."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "deleted/unavailable version",
+          "enabledWhen": "secret exists and version revealable",
+          "id": "secret.reveal",
+          "kind": "secondary",
+          "label": "Zobrazit",
+          "operationBinding": "SECRET.REVEAL",
+          "purpose": "Reveal plaintext active/selected version."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "not revealed",
+          "enabledWhen": "plaintext currently revealed",
+          "id": "secret.copy",
+          "kind": "secondary",
+          "label": "Kopírovat",
+          "operationBinding": "SECRET.COPY",
+          "purpose": "Kopiruje revealovanou hodnotu."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "reserved system secret special contract OR invalid value",
+          "enabledWhen": "secret mutable metadata exists and value valid",
+          "id": "secret.newVersion",
+          "kind": "primary",
+          "label": "Nová verze",
+          "operationBinding": "SECRET.VERSION_CREATE",
+          "purpose": "Vytvori immutable new secret version."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "same active/ineligible/stale state",
+          "enabledWhen": "selected version eligible/current state valid",
+          "id": "secret.activateVersion",
+          "kind": "primary",
+          "label": "Aktivovat verzi",
+          "operationBinding": "SECRET.VERSION_ACTIVATE",
+          "purpose": "Atomicky prepnuti active version s invalidaci dependent state dle contractu."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "policy/state blocks",
+          "enabledWhen": "rotation permitted",
+          "id": "secret.rotate",
+          "kind": "primary",
+          "label": "Rotovat",
+          "operationBinding": "SECRET.ROTATE",
+          "purpose": "Vytvori/aktivuje novou hodnotu podle rotation policy."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "wildcard/ambiguous/stale source",
+          "enabledWhen": "source/revision/purpose exact and compatible",
+          "id": "secret.bind",
+          "kind": "primary",
+          "label": "Připojit",
+          "operationBinding": "SECRET.BIND",
+          "purpose": "Vytvori exact binding source revision -> secret/version/purpose."
+        },
+        {
+          "confirmation": "IMPACT_PREVIEW",
+          "disabledWhen": "active required dependency",
+          "enabledWhen": "binding removable",
+          "id": "secret.unbind",
+          "kind": "danger",
+          "label": "Odpojit",
+          "operationBinding": "SECRET.UNBIND",
+          "purpose": "Retiruje exact binding po impact validation."
+        },
+        {
+          "confirmation": "EXPLICIT_CONFIRM",
+          "disabledWhen": "reserved/current required/retention dependency",
+          "enabledWhen": "delete eligible",
+          "id": "secret.delete",
+          "kind": "danger",
+          "label": "Smazat",
+          "operationBinding": "SECRET.DELETE",
+          "purpose": "Lifecycle delete pouze pokud contract dovoluje; system-reserved key nelze obecnym CRUD smazat."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "not exportable",
+          "enabledWhen": "exportable value/metadata selected",
+          "id": "secret.export",
+          "kind": "primary",
+          "label": "Exportovat",
+          "operationBinding": "SECRET.EXPORT",
+          "purpose": "Export selected item/version podle contractu."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "binding inactive/stale",
+          "enabledWhen": "binding active/current",
+          "id": "secret.testResolve",
+          "kind": "primary",
+          "label": "Test resolve",
+          "operationBinding": "SECRET.TEST_RESOLVE",
+          "purpose": "Otestuje exact binding resolution bez zmeny consumer state."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "secret.search",
+          "inputProfile": "TEXT_1",
+          "label": "Hledat",
+          "purpose": "Fulltext stable/display name, tags, group a metadata.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "search",
+          "validation": "BOUNDED_SEARCH_QUERY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "secret.stableName",
+          "inputProfile": "TEXT_1",
+          "label": "Stable name",
+          "purpose": "Nemenny logicky nazev secretu po vytvoreni podle contractu.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "text",
+          "validation": "STABLE_SECRET_NAME_UNIQUE"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "secret.displayName",
+          "inputProfile": "TEXT_1",
+          "label": "Název",
+          "purpose": "OWNER display label.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "text",
+          "validation": "NONEMPTY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "secret.description",
+          "inputProfile": "TEXT_8",
+          "label": "Popis",
+          "purpose": "Business popis ucelu secretu.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "textarea",
+          "validation": "DOMAIN_LENGTH"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "secret.type",
+          "inputProfile": null,
+          "label": "Typ",
+          "purpose": "PASSWORD/API_KEY/.../GENERIC_BINARY.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "select",
+          "validation": "SECRET_TYPE_ENUM"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "secret.value",
+          "inputProfile": "SECRET_50",
+          "label": "Hodnota",
+          "purpose": "Plaintext hodnota nove secret version.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "secret",
+          "validation": "TYPE_SPECIFIC + NO_SILENT_NORMALIZATION"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "secret.url",
+          "inputProfile": "TEXT_1",
+          "label": "URL",
+          "purpose": "Volitelne metadata podle typu.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "url",
+          "validation": "URL_IF_PRESENT"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "secret.username",
+          "inputProfile": "TEXT_1",
+          "label": "Username",
+          "purpose": "Volitelne metadata podle typu.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "text",
+          "validation": "DOMAIN_LENGTH"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "secret.notes",
+          "inputProfile": "TEXT_8",
+          "label": "Poznámky",
+          "purpose": "OWNER poznamky.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "textarea",
+          "validation": "DOMAIN_LENGTH"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "secret.expiration",
+          "inputProfile": null,
+          "label": "Expirace",
+          "purpose": "Volitelna expirace verze/polozky.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "datetime",
+          "validation": "TIMESTAMP/POLICY"
+        }
+      ],
+      "id": "secrets",
+      "panels": [
+        "Search/filter/groups/tags",
+        "Table/card view",
+        "Secret detail",
+        "Value/reveal area",
+        "Versions timeline",
+        "Bindings matrix",
+        "Usage graph",
+        "TOTP/countdown",
+        "Import/export",
+        "Bulk actions",
+        "Audit/live logs"
+      ],
+      "purpose": "Plny OWNER Password Manager nad Secret Managerem vcetne hodnot, verzi, rotace, bindings, usage a auditu.",
+      "requiredStates": [
+        "LOADING",
+        "EMPTY",
+        "READY",
+        "PARTIAL",
+        "STALE_RECONNECTING",
+        "ERROR",
+        "SUCCESS"
+      ],
+      "route": "/secrets",
+      "title": "Secrets a hesla"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "disconnected/auth unavailable",
+          "enabledWhen": "stream capability available",
+          "id": "audit.live",
+          "kind": "secondary",
+          "label": "Živý přenos",
+          "operationBinding": "AUDIT.LIVE_TAIL",
+          "purpose": "Zapne/vypne live tail bez zmeny ulozeneho auditu."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "invalid time range/query",
+          "enabledWhen": "filter set valid",
+          "id": "audit.search",
+          "kind": "primary",
+          "label": "Hledat",
+          "operationBinding": "AUDIT.SEARCH",
+          "purpose": "Spusti server query s filtry."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "invalid/duplicate according to contract",
+          "enabledWhen": "query/name valid",
+          "id": "audit.saveQuery",
+          "kind": "primary",
+          "label": "Uložit dotaz",
+          "operationBinding": "AUDIT.SAVED_QUERY_CREATE",
+          "purpose": "Persistuje OWNER saved query."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no query/result OR export running",
+          "enabledWhen": "query resolved",
+          "id": "audit.exportJsonl",
+          "kind": "primary",
+          "label": "Export JSONL",
+          "operationBinding": "AUDIT.EXPORT_JSONL",
+          "purpose": "Export current filtered dataset/evidence."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no result/export running",
+          "enabledWhen": "query resolved",
+          "id": "audit.exportCsv",
+          "kind": "primary",
+          "label": "Export CSV",
+          "operationBinding": "AUDIT.EXPORT_CSV",
+          "purpose": "Export projection current resultu."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "verification already running",
+          "enabledWhen": "audit store available",
+          "id": "audit.verify",
+          "kind": "primary",
+          "label": "Ověřit integritu",
+          "operationBinding": "AUDIT.INTEGRITY_VERIFY",
+          "purpose": "Spusti audit chain integrity check."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "audit.query",
+          "inputProfile": "TEXT_1",
+          "label": "Fulltext",
+          "purpose": "Fulltext nad log/audit message a indexovanymi poli.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "search",
+          "validation": "BOUNDED_SEARCH_QUERY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "audit.timeFrom",
+          "inputProfile": null,
+          "label": "Od",
+          "purpose": "Casovy filtr start.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "datetime",
+          "validation": "TIMESTAMP"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "audit.timeTo",
+          "inputProfile": null,
+          "label": "Do",
+          "purpose": "Casovy filtr konec.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "datetime",
+          "validation": "TIMESTAMP >= from"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "audit.level",
+          "inputProfile": null,
+          "label": "Level",
+          "purpose": "fatal/error/warn/info/debug/trace.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "multiselect",
+          "validation": "LOG_LEVEL_ENUM"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "audit.correlation",
+          "inputProfile": "TEXT_1",
+          "label": "Correlation ID",
+          "purpose": "Exact correlation lookup.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "text",
+          "validation": "UUID/DOMAIN_ID_FORMAT"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "audit.savedName",
+          "inputProfile": "TEXT_1",
+          "label": "Název dotazu",
+          "purpose": "Nazev saved query.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "text",
+          "validation": "NONEMPTY_IF_SAVE"
+        }
+      ],
+      "id": "audit",
+      "panels": [
+        "Filter/search bar",
+        "Live tail",
+        "Merged timeline",
+        "Raw/formatted detail",
+        "Before/after diff",
+        "Stack trace",
+        "Payload/secret view",
+        "Correlation graph",
+        "Saved queries",
+        "Retention/archive state",
+        "Integrity panel"
+      ],
+      "purpose": "Zive i historicke logy, audit chain, diffy, payloady, correlation graph, export a integrity.",
+      "requiredStates": [
+        "LOADING",
+        "EMPTY",
+        "READY",
+        "PARTIAL",
+        "STALE_RECONNECTING",
+        "ERROR",
+        "SUCCESS"
+      ],
+      "route": "/audit",
+      "title": "Audit a logy"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "SYSTEM_MANAGED or read-only derived value",
+          "enabledWhen": "ownerEditable=true",
+          "id": "config.edit",
+          "kind": "secondary",
+          "label": "Upravit",
+          "operationBinding": "CONFIG.EDIT",
+          "purpose": "Prejde selected ownerEditable setting do edit mode."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "validation error/stale version/apply active",
+          "enabledWhen": "dirty values valid + expected stateVersion current",
+          "id": "config.apply",
+          "kind": "primary",
+          "label": "Použít",
+          "operationBinding": "CONFIG.APPLY",
+          "purpose": "Commitne desired version a config-apply run."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no local changes",
+          "enabledWhen": "dirty local form",
+          "id": "config.cancelEdit",
+          "kind": "secondary",
+          "label": "Zrušit změny",
+          "operationBinding": "UI.CONFIG_EDIT_CANCEL",
+          "purpose": "Zahodi pouze lokalni neodeslane editace."
+        },
+        {
+          "confirmation": "IMPACT_PREVIEW",
+          "disabledWhen": "no snapshot/mixed manual-review state",
+          "enabledWhen": "previous snapshot exists and rollback allowed",
+          "id": "config.rollback",
+          "kind": "danger",
+          "label": "Vrátit předchozí",
+          "operationBinding": "CONFIG.ROLLBACK",
+          "purpose": "Spusti canonical rollback apply run."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "request pending",
+          "enabledWhen": "always when authenticated",
+          "id": "config.refresh",
+          "kind": "secondary",
+          "label": "Obnovit účinný stav",
+          "operationBinding": "CONFIG.REFRESH",
+          "purpose": "Nacte current desired/effective values a apply status."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "config.search",
+          "inputProfile": "TEXT_1",
+          "label": "Hledat nastavení",
+          "purpose": "Fulltext key/label/description/category.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "search",
+          "validation": "BOUNDED_SEARCH_QUERY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "config.category",
+          "inputProfile": null,
+          "label": "Kategorie",
+          "purpose": "network/auth/runtime/integrations/observability/presentation/AI/generation/browser/retention/deployment.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "multiselect",
+          "validation": "CONFIG_CATEGORY_ENUM"
+        },
+        {
+          "editableWhen": "ONLY ownerEditable=true AND managementMode != SYSTEM_MANAGED",
+          "id": "config.value",
+          "inputProfile": null,
+          "label": "Hodnota",
+          "purpose": "Editor dle type/schema konkretniho parametru.",
+          "required": false,
+          "source": "OWNER_OR_SYSTEM",
+          "type": "dynamic",
+          "validation": "PARAMETER_VALIDATION_SCHEMA"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "config.reason",
+          "inputProfile": "TEXT_2",
+          "label": "Poznámka ke změně",
+          "purpose": "Volitelny OWNER kontext zmeny do auditu.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "textarea",
+          "validation": "DOMAIN_LENGTH"
+        }
+      ],
+      "id": "configuration",
+      "panels": [
+        "Search/category navigation",
+        "Setting list",
+        "Setting detail/editor",
+        "Source/management mode badge",
+        "Desired/effective version",
+        "Derivation explanation",
+        "Apply progress",
+        "Conflict/recovery panel",
+        "Audit history"
+      ],
+      "purpose": "Jednotny registr OWNER-input/preference/system-managed parametru s desired/effective version, aplikaci, verification a rollbackem.",
+      "requiredStates": [
+        "LOADING",
+        "READY",
+        "EDITING",
+        "VALIDATING",
+        "PENDING",
+        "APPLYING",
+        "VERIFYING",
+        "APPLIED",
+        "ROLLING_BACK",
+        "ROLLED_BACK",
+        "FAILED",
+        "CONFLICT",
+        "MANUAL_REVIEW"
+      ],
+      "route": "/configuration",
+      "title": "Konfigurace"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "exclusive run/recovery barrier",
+          "enabledWhen": "no conflicting exclusive run and platform admission ready",
+          "id": "test.runAll",
+          "kind": "primary",
+          "label": "Spustit vše",
+          "operationBinding": "SELFTEST.RUN_ALL",
+          "purpose": "Spusti cely canonical self-test catalog."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "empty/invalid selection",
+          "enabledWhen": "selection valid",
+          "id": "test.runSelected",
+          "kind": "primary",
+          "label": "Spustit vybrané",
+          "operationBinding": "SELFTEST.RUN_SELECTED",
+          "purpose": "Spusti selected suite/domain/object/endpoint/element."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "terminal/noncancellable",
+          "enabledWhen": "run cancellable",
+          "id": "test.cancel",
+          "kind": "danger",
+          "label": "Zrušit test",
+          "operationBinding": "SELFTEST.CANCEL",
+          "purpose": "Canonical cancel current test run."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "invalid/unknown operation/reserved fields",
+          "enabledWhen": "method/path/body valid and operation exists",
+          "id": "api.execute",
+          "kind": "primary",
+          "label": "Odeslat API request",
+          "operationBinding": "API.EXPLORER_EXECUTE",
+          "purpose": "Provede skutecny request pres canonical API boundary."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no evidence",
+          "enabledWhen": "completed/current run has evidence",
+          "id": "test.export",
+          "kind": "primary",
+          "label": "Exportovat evidence",
+          "operationBinding": "SELFTEST.EXPORT",
+          "purpose": "Export test run evidence/logs/artifacts."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "test.search",
+          "inputProfile": "TEXT_1",
+          "label": "Hledat test",
+          "purpose": "Filtr suite/domain/object/endpoint/element.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "search",
+          "validation": "BOUNDED_SEARCH_QUERY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "api.method",
+          "inputProfile": null,
+          "label": "HTTP metoda",
+          "purpose": "Metoda API explorer requestu.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "select",
+          "validation": "OPERATION_CATALOG_METHOD"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "api.path",
+          "inputProfile": "TEXT_1",
+          "label": "API cesta",
+          "purpose": "Cesta pod canonical API root.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "text",
+          "validation": "OPERATION_CATALOG_PATH"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "api.headers",
+          "inputProfile": "CODE_50",
+          "label": "Headers",
+          "purpose": "Volitelne request headers mimo server-managed auth fields.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "code",
+          "validation": "HEADER_SCHEMA + RESERVED_FIELD_REJECTION"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "api.body",
+          "inputProfile": "CODE_50",
+          "label": "JSON body",
+          "purpose": "Request body dle operation schema.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "code",
+          "validation": "OPERATION_JSON_SCHEMA"
+        }
+      ],
+      "id": "tests-api",
+      "panels": [
+        "OWNER API key summary",
+        "Operation catalog",
+        "OpenAPI/KCIP contracts",
+        "Test catalog",
+        "Running test progress",
+        "Results/evidence/logs/cleanup",
+        "API explorer",
+        "Response/raw meta viewer"
+      ],
+      "purpose": "Self-test katalog a skutecny API explorer nad produkcnim API rootem se stejnymi validacemi jako UI/chat.",
+      "requiredStates": [
+        "LOADING",
+        "EMPTY",
+        "READY",
+        "PARTIAL",
+        "STALE_RECONNECTING",
+        "ERROR",
+        "SUCCESS"
+      ],
+      "route": "/tests-api",
+      "title": "Testy a API"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "not permitted/re-auth required",
+          "enabledWhen": "MFA enrollment permitted/current session reauthenticated",
+          "id": "security.mfaEnroll",
+          "kind": "primary",
+          "label": "Nastavit MFA",
+          "operationBinding": "AUTH.MFA_ENROLL",
+          "purpose": "Zahaji/obnovi MFA enrollment podle auth state."
+        },
+        {
+          "confirmation": "EXPLICIT_CONFIRM",
+          "disabledWhen": "reauth missing/pending",
+          "enabledWhen": "current session reauthenticated and operation allowed",
+          "id": "security.mfaReset",
+          "kind": "danger",
+          "label": "Resetovat MFA",
+          "operationBinding": "AUTH.MFA_RESET",
+          "purpose": "Canonical reset s re-auth a auditem."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "reauth required",
+          "enabledWhen": "session meets sensitivity guard",
+          "id": "security.recovery",
+          "kind": "secondary",
+          "label": "Zobrazit recovery stav",
+          "operationBinding": "AUTH.RECOVERY_VIEW",
+          "purpose": "Zobrazi metadata/reveal podle recovery contractu."
+        },
+        {
+          "confirmation": "EXPLICIT_CONFIRM",
+          "disabledWhen": "no selection/already revoked",
+          "enabledWhen": "selected revocable session exists",
+          "id": "security.revokeSession",
+          "kind": "danger",
+          "label": "Revokovat relaci",
+          "operationBinding": "AUTH.SESSION_REVOKE",
+          "purpose": "Revokuje selected web session."
+        },
+        {
+          "confirmation": "EXPLICIT_CONFIRM",
+          "disabledWhen": "none exist",
+          "enabledWhen": "other active sessions exist",
+          "id": "security.revokeOthers",
+          "kind": "danger",
+          "label": "Odhlásit ostatní relace",
+          "operationBinding": "AUTH.SESSIONS_REVOKE_OTHERS",
+          "purpose": "Revokuje vsechny krome current."
+        },
+        {
+          "confirmation": "EXPLICIT_CONFIRM",
+          "disabledWhen": "guard not met",
+          "enabledWhen": "authenticated/re-authenticated",
+          "id": "security.revokeAll",
+          "kind": "danger",
+          "label": "Odhlásit všechny relace",
+          "operationBinding": "AUTH.SESSIONS_REVOKE_ALL",
+          "purpose": "Revokuje vsechny vcetne current podle exact contractu."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "ALWAYS",
+          "enabledWhen": "NEVER",
+          "id": "security.changePassword",
+          "kind": "danger",
+          "label": "Změnit heslo v aplikaci",
+          "operationBinding": "FORBIDDEN",
+          "purpose": "Tato akce NESMI existovat; heslo se meni v GitHub Actions PASS."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "NEVER",
+          "id": "security.username",
+          "inputProfile": "TEXT_1",
+          "label": "Username",
+          "purpose": "Nemenny KRMAR78 zobrazeny pouze read-only.",
+          "required": false,
+          "source": "SERVER_PROJECTION",
+          "type": "readonly",
+          "validation": "READ_ONLY_SINGLETON"
+        },
+        {
+          "editableWhen": "NEVER",
+          "id": "security.passwordSource",
+          "inputProfile": "TEXT_1",
+          "label": "Zdroj hesla",
+          "purpose": "Zobrazi deployment-managed PASS source a posledni sync metadata, nikoli edit hesla.",
+          "required": false,
+          "source": "SERVER_PROJECTION",
+          "type": "readonly",
+          "validation": "READ_ONLY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "security.sessionFilter",
+          "inputProfile": null,
+          "label": "Relace",
+          "purpose": "Vyber konkretní aktivni/historicke relace pro detail/revokaci.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "select",
+          "validation": "SESSION_ID"
+        }
+      ],
+      "id": "security",
+      "panels": [
+        "Identity/password source",
+        "MFA/recovery",
+        "Sessions",
+        "Login history",
+        "Security events",
+        "Rate limits",
+        "Certificates",
+        "Master key status",
+        "CSP/headers",
+        "Dependency audit",
+        "Host preflight",
+        "Logs/audit"
+      ],
+      "purpose": "Zabezpeceni jedine pevne identity, MFA, recovery, sessions a platform security evidence; zadna sprava uzivatelu/roli.",
+      "requiredStates": [
+        "LOADING",
+        "EMPTY",
+        "READY",
+        "PARTIAL",
+        "STALE_RECONNECTING",
+        "ERROR",
+        "SUCCESS"
+      ],
+      "route": "/security",
+      "title": "Bezpečnost"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "missing release",
+          "enabledWhen": "release exists",
+          "id": "release.open",
+          "kind": "secondary",
+          "label": "Otevřít release",
+          "operationBinding": "RELEASE.OPEN",
+          "purpose": "Otevre exact release evidence/detail."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "candidate not validated/stale deps/acceptance fail",
+          "enabledWhen": "release VALIDATED and all promotion gates PASS",
+          "id": "release.activate",
+          "kind": "primary",
+          "label": "Aktivovat",
+          "operationBinding": "RELEASE.ACTIVATE",
+          "purpose": "Promotion/activation pouze pres canonical readiness/acceptance gate."
+        },
+        {
+          "confirmation": "IMPACT_PREVIEW",
+          "disabledWhen": "no valid point OR incompatible state",
+          "enabledWhen": "valid rollback target and migration/runtime safety PASS",
+          "id": "release.rollback",
+          "kind": "danger",
+          "label": "Rollback",
+          "operationBinding": "RELEASE.ROLLBACK",
+          "purpose": "Atomicky prepne na verified rollback point a overi postconditions."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "backup conflict/capacity/recovery barrier",
+          "enabledWhen": "backup admission ready",
+          "id": "release.backup",
+          "kind": "primary",
+          "label": "Spustit backup",
+          "operationBinding": "BACKUP.RUN",
+          "purpose": "Canonical local backup podle policy."
+        },
+        {
+          "confirmation": "MANDATORY_IMPACT_PREVIEW",
+          "disabledWhen": "unverified/stale/incompatible backup",
+          "enabledWhen": "selected backup verified and restore preflight PASS",
+          "id": "release.restore",
+          "kind": "danger",
+          "label": "Obnovit ze zálohy",
+          "operationBinding": "BACKUP.RESTORE",
+          "purpose": "Restore pouze pres recovery barrier a production contract."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "environment not ready/run active",
+          "enabledWhen": "release deployed/candidate environment ready",
+          "id": "release.acceptance",
+          "kind": "primary",
+          "label": "Spustit acceptance",
+          "operationBinding": "ACCEPTANCE.RUN",
+          "purpose": "Production-shaped acceptance run."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "release.search",
+          "inputProfile": "TEXT_1",
+          "label": "Hledat release",
+          "purpose": "Filtr release/build/commit/component.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "search",
+          "validation": "BOUNDED_SEARCH_QUERY"
+        },
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "release.kind",
+          "inputProfile": null,
+          "label": "Typ",
+          "purpose": "Application/component release filter.",
+          "required": false,
+          "source": "OWNER_INPUT",
+          "type": "multiselect",
+          "validation": "RELEASE_KIND"
+        }
+      ],
+      "id": "releases",
+      "panels": [
+        "Release list",
+        "Current pointer summary",
+        "Build/source/digest detail",
+        "Deployment timeline",
+        "Health/readiness",
+        "Rollback panel",
+        "Backups",
+        "Migrations",
+        "Services/systemd",
+        "Acceptance runs",
+        "Evidence/logs/audit"
+      ],
+      "purpose": "Application/component releases, pointers, deployment, health, migrations, backups, acceptance a rollback evidence.",
+      "requiredStates": [
+        "LOADING",
+        "EMPTY",
+        "READY",
+        "PARTIAL",
+        "STALE_RECONNECTING",
+        "ERROR",
+        "SUCCESS"
+      ],
+      "route": "/releases",
+      "title": "Releases a provoz"
+    },
+    {
+      "actions": [
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "no selection OR action disabled; reason visible",
+          "enabledWhen": "one result selected and action enabled",
+          "id": "palette.execute",
+          "kind": "primary",
+          "label": "Provést",
+          "operationBinding": "ACTION_REGISTRY.EXECUTE",
+          "purpose": "Otevre route nebo spusti selected action pres central action registry."
+        },
+        {
+          "confirmation": "NONE",
+          "disabledWhen": "never",
+          "enabledWhen": "always",
+          "id": "palette.close",
+          "kind": "secondary",
+          "label": "Zavřít",
+          "operationBinding": "UI.OVERLAY_CLOSE",
+          "purpose": "Zavre overlay bez side effectu."
+        }
+      ],
+      "fields": [
+        {
+          "editableWhen": "ALWAYS_WHEN_SECTION_EDITABLE",
+          "id": "palette.query",
+          "inputProfile": "TEXT_1",
+          "label": "Příkaz nebo hledání",
+          "purpose": "Jednoradkovy fuzzy/fulltext dotaz na navigation/object/action.",
+          "required": true,
+          "source": "OWNER_INPUT",
+          "type": "search",
+          "validation": "BOUNDED_QUERY"
+        }
+      ],
+      "id": "command-palette",
+      "panels": [
+        "Search input",
+        "Grouped navigation results",
+        "Object results",
+        "Action results with enabled/disabled reason",
+        "Keyboard hint/footer"
+      ],
+      "purpose": "Globalni navigace, hledani objektu a vykonani stejnych canonical object actions bez alternativni logiky.",
+      "requiredStates": [
+        "LOADING",
+        "EMPTY",
+        "READY",
+        "PARTIAL",
+        "STALE_RECONNECTING",
+        "ERROR",
+        "SUCCESS"
+      ],
+      "route": "GLOBAL_OVERLAY",
+      "title": "Command palette"
+    }
+  ],
+  "revision": "UI-CONTRACT",
+  "schemaVersion": "1",
+  "shared": {
+    "accessibility": {
+      "aria": "Semantic HTML/ARIA labels, descriptions and live status announcements.",
+      "contrast": "WCAG AA minimum.",
+      "focus": "Visible focus. Escape closes overlay/remote keyboard mode. Closing overlay returns focus to invoker.",
+      "keyboard": "Full keyboard traversal; logical tab order; no keyboard trap except modal/drawer focus trap.",
+      "reducedMotion": true,
+      "touchTargetPx": 40
+    },
+    "buttonRenderingRules": [
+      "Relevant action for an object kind stays visible when blocked by state and renders DISABLED with a machine/human readable reason.",
+      "Action irrelevant to the object kind MAY be absent; the UI must not invent a disabled pseudo-action.",
+      "Danger actions use danger styling and cannot be default keyboard action.",
+      "Pending action cannot be double-submitted; idempotency still remains server-side mandatory.",
+      "A disabled action must expose its reason in text/tooltip and accessible description; primary blocking reason also appears inline.",
+      "No optimistic UI may render a terminal success before canonical server outcome.",
+      "Conflict refresh preserves unsent OWNER input in a local comparison buffer; it does not auto-merge noncommutative changes."
+    ],
+    "buttonStates": {
+      "CONFLICT": "Stale stateVersion/revision/binding/epoch. UI nenabizi blind retry; nejprve refreshne canonical snapshot a zachova OWNER vstup pro porovnani.",
+      "DISABLED": "Akce je pro dany object kind relevantni, ale current stav nebo chybejici vstup ji blokuje. UI MUSI zobrazit konkretni duvod; samotna seda barva nestaci.",
+      "ENABLED": "Akce je semanticky aplikovatelna, current server snapshot splnuje guardy a povinne vstupy jsou lokalne validni.",
+      "FAILED": "Zobrazi stable error code, lidske vysvetleni, correlation a presnou recovery akci.",
+      "MANUAL_REVIEW": "Automaticky retry je zablokovan. UI zobrazi evidence, unknown effect a explicitni OWNER rozhodovaci akce podle operation contractu.",
+      "PENDING": "Command byl odeslan nebo accepted. Tlacitko ukazuje spinner/progress, nespousti druhy command a podle operation contractu nabizi Cancel.",
+      "SUCCEEDED": "Zobrazi se az po canonical persistovanem outcome/postcondition. Lokalni callback, toast nebo HTTP 2xx samy o sobe success nedokazuji."
+    },
+    "commonPageStates": [
+      "LOADING",
+      "EMPTY",
+      "READY",
+      "PARTIAL",
+      "STALE_RECONNECTING",
+      "ERROR",
+      "SUCCESS",
+      "AUTH_SESSION_REQUIRED",
+      "BINDING_REQUIRED"
+    ],
+    "inputProfiles": {
+      "CODE_50": {
+        "control": "code_editor",
+        "expectedLines": "1-50+",
+        "maxVisibleRowsBeforeScroll": 30,
+        "rule": "JSON, schema, payload, manifest, diff nebo kod. Editor nikdy neorezava platny obsah podle poctu radku; 50 radku je navrhova kapacita, business limit urcuje operation schema.",
+        "visibleRows": 24
+      },
+      "SECRET_1": {
+        "control": "secret_input",
+        "expectedLines": "1",
+        "maxVisibleRowsBeforeScroll": 1,
+        "rule": "Token, heslo, API key nebo jina jednoradkova tajna hodnota; reveal/copy je samostatna explicitni UI akce.",
+        "visibleRows": 1
+      },
+      "SECRET_50": {
+        "control": "secret_editor",
+        "expectedLines": "1-50+",
+        "maxVisibleRowsBeforeScroll": 18,
+        "rule": "Privatni klic, certifikat nebo multiline secret. Obsah se nesmi trimovat, normalizovat ani formatovat bez explicitniho contractu.",
+        "visibleRows": 10
+      },
+      "TEXT_1": {
+        "control": "input",
+        "expectedLines": "1",
+        "maxVisibleRowsBeforeScroll": 1,
+        "rule": "Jednoradkovy identifikator, nazev, URL, klic, filtr nebo kratka hodnota. Enter nesmi vytvaret novy radek; podle kontextu submitne formular nebo nema efekt.",
+        "visibleRows": 1
+      },
+      "TEXT_2": {
+        "control": "textarea",
+        "expectedLines": "1-2",
+        "maxVisibleRowsBeforeScroll": 6,
+        "rule": "Kratke vysvetleni, poznamka, duvod nebo focus message. Auto-grow do 6 radku, pote vlastni vertikalni scroll.",
+        "visibleRows": 2
+      },
+      "TEXT_50": {
+        "control": "textarea",
+        "expectedLines": "1-50",
+        "maxVisibleRowsBeforeScroll": 18,
+        "rule": "Delsi prirozeny text: zadani, instrukce, specifikace, vysvetleni nebo dlouhy chatovy vstup. Nad 18 viditelnych radku se pouzije vlastni scroll; canonical operation schema muze povolit delsi obsah.",
+        "visibleRows": 12
+      },
+      "TEXT_8": {
+        "control": "textarea",
+        "expectedLines": "2-8",
+        "maxVisibleRowsBeforeScroll": 8,
+        "rule": "Stredne dlouhy business popis, runbook poznamka, popis integrace nebo shrnuti zmeny.",
+        "visibleRows": 4
+      }
+    },
+    "validationPipeline": [
+      "CLIENT_SHAPE: required/type/basic format/size for immediate feedback; never authoritative.",
+      "SERVER_AUTH_SESSION: current OWNER session/API boundary and CSRF where applicable.",
+      "SERVER_OPERATION_SCHEMA: canonical payload schema, reserved fields, business constraints.",
+      "SERVER_FRESHNESS: stateVersion/revision/release/bindingSet/activationEpoch/controlEpoch/document identity as operation requires.",
+      "SERVER_SEMANTIC_CONTEXT: OWNER intent, operation context, target/argument provenance, Secret-use context.",
+      "ADMISSION: deadline, recovery barrier, capacity, concurrency/idempotency guards.",
+      "DISPATCH: side-effect intent/outbox/fence according to canonical operation.",
+      "POSTCONDITION: read-back/evidence/reconciliation; only persistovaný canonical outcome may render success."
+    ],
+    "viewports": [
+      "390x844",
+      "768x1024",
+      "1366x768",
+      "1920x1080"
+    ]
+  },
+  "uiApiChatParityRequired": true
+}

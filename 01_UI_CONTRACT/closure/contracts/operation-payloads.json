@@ -1,0 +1,1939 @@
+{
+  "count": 14,
+  "format": "KCML-FINAL-OPERATION-PAYLOADS/1",
+  "records": [
+    {
+      "method": "POST",
+      "operationId": "owner.mfa.reset",
+      "path": "/api/v1/auth/mfa/reset",
+      "requestSchema": {
+        "$id": "urn:kcml:closure:owner.mfa.reset:request",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "expectedOwnerStateVersion": {
+            "maxLength": 19,
+            "minLength": 1,
+            "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$",
+            "type": "string"
+          },
+          "idempotencyKey": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "reauthenticationEvidenceId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "reauthenticationEvidenceId",
+          "expectedOwnerStateVersion",
+          "idempotencyKey"
+        ],
+        "type": "object"
+      },
+      "reservedPlatformFieldsForbidden": true,
+      "responseSchema": {
+        "$id": "urn:kcml:closure:owner.mfa.reset:response",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "correlationId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "enrollmentState": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "logicalOperationId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "resetEpoch": {
+            "maxLength": 19,
+            "minLength": 1,
+            "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "resetEpoch",
+          "enrollmentState",
+          "correlationId",
+          "logicalOperationId"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "method": "POST",
+      "operationId": "chat.turn.steer",
+      "path": "/api/v1/chat/conversations/{conversationId}/turns/{turnId}/steer",
+      "requestSchema": {
+        "$id": "urn:kcml:closure:chat.turn.steer:request",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "clientIdempotencyKey": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "contentRefs": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "artifactId": {
+                  "maxLength": 36,
+                  "minLength": 36,
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                  "type": "string"
+                },
+                "contentDigest": {
+                  "maxLength": 71,
+                  "minLength": 71,
+                  "pattern": "^sha256:[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                "kind": {
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+                  "type": "string"
+                },
+                "mediaType": {
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "^[a-z0-9.+-]+/[a-z0-9.+-]+$",
+                  "type": "string"
+                },
+                "path": {
+                  "maxLength": 4096,
+                  "minLength": 1,
+                  "pattern": "^(?!/)(?!.*//)(?!.*(?:^|/)\\.{1,2}(?:/|$))[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*$",
+                  "type": "string"
+                },
+                "producerNodeId": {
+                  "anyOf": [
+                    {
+                      "maxLength": 128,
+                      "minLength": 1,
+                      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "provenanceDigest": {
+                  "maxLength": 71,
+                  "minLength": 71,
+                  "pattern": "^sha256:[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                "schema": {
+                  "anyOf": [
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "bundleDigest": {
+                          "maxLength": 71,
+                          "minLength": 71,
+                          "pattern": "^sha256:[0-9a-f]{64}$",
+                          "type": "string"
+                        },
+                        "definition": {
+                          "maxLength": 128,
+                          "minLength": 1,
+                          "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+                          "type": "string"
+                        },
+                        "schemaId": {
+                          "maxLength": 256,
+                          "minLength": 1,
+                          "pattern": "^urn:kcml:[A-Za-z0-9_.:/-]+$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "schemaId",
+                        "definition",
+                        "bundleDigest"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "sizeBytes": {
+                  "maximum": 9007199254740991,
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "artifactId",
+                "kind",
+                "schema",
+                "mediaType",
+                "path",
+                "contentDigest",
+                "sizeBytes",
+                "producerNodeId",
+                "provenanceDigest"
+              ],
+              "type": "object"
+            },
+            "maxItems": 64,
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "expectedStateVersion": {
+            "maxLength": 19,
+            "minLength": 1,
+            "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$",
+            "type": "string"
+          },
+          "text": {
+            "anyOf": [
+              {
+                "maxLength": 65536,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "turnId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "turnId",
+          "text",
+          "contentRefs",
+          "expectedStateVersion",
+          "clientIdempotencyKey"
+        ],
+        "type": "object"
+      },
+      "reservedPlatformFieldsForbidden": true,
+      "responseSchema": {
+        "$id": "urn:kcml:closure:chat.turn.steer:response",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "checkpointDisposition": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "correlationId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "logicalOperationId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "messageId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "messageId",
+          "checkpointDisposition",
+          "logicalOperationId",
+          "correlationId"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "method": "POST",
+      "operationId": "browser.automation.createFromTeaching",
+      "path": "/api/v1/browser-teaching-runs/{teachingRunId}/automation",
+      "requestSchema": {
+        "$id": "urn:kcml:closure:browser.automation.createFromTeaching:request",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "clientIdempotencyKey": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "expectedCompileDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "metadata": {
+            "additionalProperties": false,
+            "properties": {
+              "description": {
+                "anyOf": [
+                  {
+                    "maxLength": 8192,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tags": {
+                "items": {
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+                  "type": "string"
+                },
+                "maxItems": 128,
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "description",
+              "tags"
+            ],
+            "type": "object"
+          },
+          "name": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "teachingRunId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "teachingRunId",
+          "name",
+          "metadata",
+          "expectedCompileDigest",
+          "clientIdempotencyKey"
+        ],
+        "type": "object"
+      },
+      "reservedPlatformFieldsForbidden": true,
+      "responseSchema": {
+        "$id": "urn:kcml:closure:browser.automation.createFromTeaching:response",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "automationId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "compileDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "logicalOperationId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "revisionId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "automationId",
+          "revisionId",
+          "compileDigest",
+          "logicalOperationId"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "method": "POST",
+      "operationId": "component.import",
+      "path": "/api/v1/components/import",
+      "requestSchema": {
+        "$id": "urn:kcml:closure:component.import:request",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "artifactDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "expectedExistingObject": {
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "componentId": {
+                    "maxLength": 36,
+                    "minLength": 36,
+                    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                    "type": "string"
+                  },
+                  "currentRevisionId": {
+                    "anyOf": [
+                      {
+                        "maxLength": 36,
+                        "minLength": 36,
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "stateVersion": {
+                    "maxLength": 19,
+                    "minLength": 1,
+                    "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "componentId",
+                  "currentRevisionId",
+                  "stateVersion"
+                ],
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "idempotencyKey": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "manifestDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "mediaType": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[a-z0-9.+-]+/[a-z0-9.+-]+$",
+            "type": "string"
+          },
+          "source": {
+            "oneOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "contentBase64": {
+                    "maxLength": 33554432,
+                    "minLength": 1,
+                    "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$",
+                    "type": "string"
+                  },
+                  "kind": {
+                    "const": "INLINE_BASE64"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "contentBase64"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "artifactRef": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "artifactId": {
+                        "maxLength": 36,
+                        "minLength": 36,
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                        "type": "string"
+                      },
+                      "contentDigest": {
+                        "maxLength": 71,
+                        "minLength": 71,
+                        "pattern": "^sha256:[0-9a-f]{64}$",
+                        "type": "string"
+                      },
+                      "kind": {
+                        "maxLength": 128,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+                        "type": "string"
+                      },
+                      "mediaType": {
+                        "maxLength": 128,
+                        "minLength": 1,
+                        "pattern": "^[a-z0-9.+-]+/[a-z0-9.+-]+$",
+                        "type": "string"
+                      },
+                      "path": {
+                        "maxLength": 4096,
+                        "minLength": 1,
+                        "pattern": "^(?!/)(?!.*//)(?!.*(?:^|/)\\.{1,2}(?:/|$))[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*$",
+                        "type": "string"
+                      },
+                      "producerNodeId": {
+                        "anyOf": [
+                          {
+                            "maxLength": 128,
+                            "minLength": 1,
+                            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "provenanceDigest": {
+                        "maxLength": 71,
+                        "minLength": 71,
+                        "pattern": "^sha256:[0-9a-f]{64}$",
+                        "type": "string"
+                      },
+                      "schema": {
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "bundleDigest": {
+                                "maxLength": 71,
+                                "minLength": 71,
+                                "pattern": "^sha256:[0-9a-f]{64}$",
+                                "type": "string"
+                              },
+                              "definition": {
+                                "maxLength": 128,
+                                "minLength": 1,
+                                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+                                "type": "string"
+                              },
+                              "schemaId": {
+                                "maxLength": 256,
+                                "minLength": 1,
+                                "pattern": "^urn:kcml:[A-Za-z0-9_.:/-]+$",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "schemaId",
+                              "definition",
+                              "bundleDigest"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "sizeBytes": {
+                        "maximum": 9007199254740991,
+                        "minimum": 0,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "artifactId",
+                      "kind",
+                      "schema",
+                      "mediaType",
+                      "path",
+                      "contentDigest",
+                      "sizeBytes",
+                      "producerNodeId",
+                      "provenanceDigest"
+                    ],
+                    "type": "object"
+                  },
+                  "kind": {
+                    "const": "ARTIFACT_REF"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "artifactRef"
+                ],
+                "type": "object"
+              }
+            ]
+          }
+        },
+        "required": [
+          "manifestDigest",
+          "artifactDigest",
+          "mediaType",
+          "source",
+          "expectedExistingObject",
+          "idempotencyKey"
+        ],
+        "type": "object"
+      },
+      "reservedPlatformFieldsForbidden": true,
+      "responseSchema": {
+        "$id": "urn:kcml:closure:component.import:response",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "componentId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "resolution": {
+            "enum": [
+              "NEW_COMPONENT",
+              "NEW_REVISION"
+            ],
+            "type": "string"
+          },
+          "revisionId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "validationEvidenceDigests": {
+            "items": {
+              "maxLength": 71,
+              "minLength": 71,
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "maxItems": 4096,
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "resolution",
+          "componentId",
+          "revisionId",
+          "validationEvidenceDigests"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "method": "GET",
+      "operationId": "component.export",
+      "path": "/api/v1/components/{componentId}/export",
+      "requestSchema": {
+        "$id": "urn:kcml:closure:component.export:request",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "componentId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "evidenceSelection": {
+            "items": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+              "type": "string"
+            },
+            "maxItems": 256,
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "revisionId": {
+            "anyOf": [
+              {
+                "maxLength": 36,
+                "minLength": 36,
+                "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "componentId",
+          "revisionId",
+          "evidenceSelection"
+        ],
+        "type": "object"
+      },
+      "reservedPlatformFieldsForbidden": true,
+      "responseSchema": {
+        "$id": "urn:kcml:closure:component.export:response",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "contentDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "mediaType": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[a-z0-9.+-]+/[a-z0-9.+-]+$",
+            "type": "string"
+          },
+          "source": {
+            "oneOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "contentBase64": {
+                    "maxLength": 33554432,
+                    "minLength": 1,
+                    "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$",
+                    "type": "string"
+                  },
+                  "kind": {
+                    "const": "INLINE_BASE64"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "contentBase64"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "artifactRef": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "artifactId": {
+                        "maxLength": 36,
+                        "minLength": 36,
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                        "type": "string"
+                      },
+                      "contentDigest": {
+                        "maxLength": 71,
+                        "minLength": 71,
+                        "pattern": "^sha256:[0-9a-f]{64}$",
+                        "type": "string"
+                      },
+                      "kind": {
+                        "maxLength": 128,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+                        "type": "string"
+                      },
+                      "mediaType": {
+                        "maxLength": 128,
+                        "minLength": 1,
+                        "pattern": "^[a-z0-9.+-]+/[a-z0-9.+-]+$",
+                        "type": "string"
+                      },
+                      "path": {
+                        "maxLength": 4096,
+                        "minLength": 1,
+                        "pattern": "^(?!/)(?!.*//)(?!.*(?:^|/)\\.{1,2}(?:/|$))[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*$",
+                        "type": "string"
+                      },
+                      "producerNodeId": {
+                        "anyOf": [
+                          {
+                            "maxLength": 128,
+                            "minLength": 1,
+                            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "provenanceDigest": {
+                        "maxLength": 71,
+                        "minLength": 71,
+                        "pattern": "^sha256:[0-9a-f]{64}$",
+                        "type": "string"
+                      },
+                      "schema": {
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "bundleDigest": {
+                                "maxLength": 71,
+                                "minLength": 71,
+                                "pattern": "^sha256:[0-9a-f]{64}$",
+                                "type": "string"
+                              },
+                              "definition": {
+                                "maxLength": 128,
+                                "minLength": 1,
+                                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+                                "type": "string"
+                              },
+                              "schemaId": {
+                                "maxLength": 256,
+                                "minLength": 1,
+                                "pattern": "^urn:kcml:[A-Za-z0-9_.:/-]+$",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "schemaId",
+                              "definition",
+                              "bundleDigest"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "sizeBytes": {
+                        "maximum": 9007199254740991,
+                        "minimum": 0,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "artifactId",
+                      "kind",
+                      "schema",
+                      "mediaType",
+                      "path",
+                      "contentDigest",
+                      "sizeBytes",
+                      "producerNodeId",
+                      "provenanceDigest"
+                    ],
+                    "type": "object"
+                  },
+                  "kind": {
+                    "const": "ARTIFACT_REF"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "artifactRef"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "sourceDigests": {
+            "items": {
+              "maxLength": 71,
+              "minLength": 71,
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "maxItems": 4096,
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "mediaType",
+          "source",
+          "contentDigest",
+          "sourceDigests"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "method": "POST",
+      "operationId": "component.retire",
+      "path": "/api/v1/components/{componentId}/retire",
+      "requestSchema": {
+        "$id": "urn:kcml:closure:component.retire:request",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "componentId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "expectedStateVersion": {
+            "maxLength": 19,
+            "minLength": 1,
+            "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$",
+            "type": "string"
+          },
+          "idempotencyKey": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "impactDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "componentId",
+          "expectedStateVersion",
+          "impactDigest",
+          "idempotencyKey"
+        ],
+        "type": "object"
+      },
+      "reservedPlatformFieldsForbidden": true,
+      "responseSchema": {
+        "$id": "urn:kcml:closure:component.retire:response",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "evidenceDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "impactDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "lifecycle": {
+            "const": "RETIRED"
+          },
+          "stateVersion": {
+            "maxLength": 19,
+            "minLength": 1,
+            "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "lifecycle",
+          "stateVersion",
+          "impactDigest",
+          "evidenceDigest"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "method": "POST",
+      "operationId": "external.circuit.reset",
+      "path": "/api/v1/external/targets/{targetId}/circuit/reset",
+      "requestSchema": {
+        "$id": "urn:kcml:closure:external.circuit.reset:request",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "expectedCircuitGeneration": {
+            "maxLength": 19,
+            "minLength": 1,
+            "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$",
+            "type": "string"
+          },
+          "expectedStateVersion": {
+            "maxLength": 19,
+            "minLength": 1,
+            "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$",
+            "type": "string"
+          },
+          "idempotencyKey": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "targetId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "targetId",
+          "expectedStateVersion",
+          "expectedCircuitGeneration",
+          "idempotencyKey"
+        ],
+        "type": "object"
+      },
+      "reservedPlatformFieldsForbidden": true,
+      "responseSchema": {
+        "$id": "urn:kcml:closure:external.circuit.reset:response",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "circuitGeneration": {
+            "maxLength": 19,
+            "minLength": 1,
+            "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$",
+            "type": "string"
+          },
+          "circuitState": {
+            "enum": [
+              "CLOSED",
+              "OPEN",
+              "HALF_OPEN"
+            ],
+            "type": "string"
+          },
+          "logicalOperationId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "resetAt": {
+            "format": "date-time",
+            "maxLength": 27,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}(?:\\d{3})?Z$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "circuitState",
+          "circuitGeneration",
+          "resetAt",
+          "logicalOperationId"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "method": "POST",
+      "operationId": "audit.savedQuery.create",
+      "path": "/api/v1/audit/saved-queries",
+      "requestSchema": {
+        "$id": "urn:kcml:closure:audit.savedQuery.create:request",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "clientIdempotencyKey": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "query": {
+            "additionalProperties": false,
+            "properties": {
+              "correlationId": {
+                "anyOf": [
+                  {
+                    "maxLength": 36,
+                    "minLength": 36,
+                    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "levels": {
+                "items": {
+                  "enum": [
+                    "fatal",
+                    "error",
+                    "warn",
+                    "info",
+                    "debug",
+                    "trace"
+                  ],
+                  "type": "string"
+                },
+                "maxItems": 6,
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "text": {
+                "anyOf": [
+                  {
+                    "maxLength": 4096,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "timeFrom": {
+                "anyOf": [
+                  {
+                    "format": "date-time",
+                    "maxLength": 27,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}(?:\\d{3})?Z$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "timeTo": {
+                "anyOf": [
+                  {
+                    "format": "date-time",
+                    "maxLength": 27,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}(?:\\d{3})?Z$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "text",
+              "timeFrom",
+              "timeTo",
+              "levels",
+              "correlationId"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "name",
+          "query",
+          "clientIdempotencyKey"
+        ],
+        "type": "object"
+      },
+      "reservedPlatformFieldsForbidden": true,
+      "responseSchema": {
+        "$id": "urn:kcml:closure:audit.savedQuery.create:response",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "createdAt": {
+            "format": "date-time",
+            "maxLength": 27,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}(?:\\d{3})?Z$",
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "queryDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "savedQueryId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "savedQueryId",
+          "name",
+          "queryDigest",
+          "createdAt"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "method": "POST",
+      "operationId": "config.rollback",
+      "path": "/api/v1/configuration/rollback",
+      "requestSchema": {
+        "$id": "urn:kcml:closure:config.rollback:request",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "expectedCurrentDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "idempotencyKey": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "impactDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "selection": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "settingId": {
+                  "maxLength": 36,
+                  "minLength": 36,
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                  "type": "string"
+                },
+                "targetVersion": {
+                  "maxLength": 19,
+                  "minLength": 1,
+                  "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "settingId",
+                "targetVersion"
+              ],
+              "type": "object"
+            },
+            "maxItems": 4096,
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "selection",
+          "expectedCurrentDigest",
+          "impactDigest",
+          "idempotencyKey"
+        ],
+        "type": "object"
+      },
+      "reservedPlatformFieldsForbidden": true,
+      "responseSchema": {
+        "$id": "urn:kcml:closure:config.rollback:response",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "configApplyRunId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "desiredDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "evidenceDigests": {
+            "items": {
+              "maxLength": 71,
+              "minLength": 71,
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "maxItems": 4096,
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "state": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "configApplyRunId",
+          "desiredDigest",
+          "state",
+          "evidenceDigests"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "method": "GET",
+      "operationId": "selfTest.evidence.export",
+      "path": "/api/v1/self-test-runs/{runId}/export",
+      "requestSchema": {
+        "$id": "urn:kcml:closure:selfTest.evidence.export:request",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "format": {
+            "enum": [
+              "JSON",
+              "JSONL",
+              "ZIP"
+            ],
+            "type": "string"
+          },
+          "runId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "selection": {
+            "items": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+              "type": "string"
+            },
+            "maxItems": 4096,
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "runId",
+          "selection",
+          "format"
+        ],
+        "type": "object"
+      },
+      "reservedPlatformFieldsForbidden": true,
+      "responseSchema": {
+        "$id": "urn:kcml:closure:selfTest.evidence.export:response",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "contentDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "evidenceDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "source": {
+            "oneOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "contentBase64": {
+                    "maxLength": 33554432,
+                    "minLength": 1,
+                    "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$",
+                    "type": "string"
+                  },
+                  "kind": {
+                    "const": "INLINE_BASE64"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "contentBase64"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "artifactRef": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "artifactId": {
+                        "maxLength": 36,
+                        "minLength": 36,
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                        "type": "string"
+                      },
+                      "contentDigest": {
+                        "maxLength": 71,
+                        "minLength": 71,
+                        "pattern": "^sha256:[0-9a-f]{64}$",
+                        "type": "string"
+                      },
+                      "kind": {
+                        "maxLength": 128,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+                        "type": "string"
+                      },
+                      "mediaType": {
+                        "maxLength": 128,
+                        "minLength": 1,
+                        "pattern": "^[a-z0-9.+-]+/[a-z0-9.+-]+$",
+                        "type": "string"
+                      },
+                      "path": {
+                        "maxLength": 4096,
+                        "minLength": 1,
+                        "pattern": "^(?!/)(?!.*//)(?!.*(?:^|/)\\.{1,2}(?:/|$))[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*$",
+                        "type": "string"
+                      },
+                      "producerNodeId": {
+                        "anyOf": [
+                          {
+                            "maxLength": 128,
+                            "minLength": 1,
+                            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "provenanceDigest": {
+                        "maxLength": 71,
+                        "minLength": 71,
+                        "pattern": "^sha256:[0-9a-f]{64}$",
+                        "type": "string"
+                      },
+                      "schema": {
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "bundleDigest": {
+                                "maxLength": 71,
+                                "minLength": 71,
+                                "pattern": "^sha256:[0-9a-f]{64}$",
+                                "type": "string"
+                              },
+                              "definition": {
+                                "maxLength": 128,
+                                "minLength": 1,
+                                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+                                "type": "string"
+                              },
+                              "schemaId": {
+                                "maxLength": 256,
+                                "minLength": 1,
+                                "pattern": "^urn:kcml:[A-Za-z0-9_.:/-]+$",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "schemaId",
+                              "definition",
+                              "bundleDigest"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "sizeBytes": {
+                        "maximum": 9007199254740991,
+                        "minimum": 0,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "artifactId",
+                      "kind",
+                      "schema",
+                      "mediaType",
+                      "path",
+                      "contentDigest",
+                      "sizeBytes",
+                      "producerNodeId",
+                      "provenanceDigest"
+                    ],
+                    "type": "object"
+                  },
+                  "kind": {
+                    "const": "ARTIFACT_REF"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "artifactRef"
+                ],
+                "type": "object"
+              }
+            ]
+          }
+        },
+        "required": [
+          "source",
+          "contentDigest",
+          "evidenceDigest"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "method": "POST",
+      "operationId": "release.activate",
+      "path": "/api/v1/releases/{releaseId}/activate",
+      "requestSchema": {
+        "$id": "urn:kcml:closure:release.activate:request",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "acceptanceDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "expectedCurrent": {
+            "additionalProperties": false,
+            "properties": {
+              "epoch": {
+                "maxLength": 19,
+                "minLength": 1,
+                "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$",
+                "type": "string"
+              },
+              "pointerId": {
+                "anyOf": [
+                  {
+                    "maxLength": 36,
+                    "minLength": 36,
+                    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "pointerId",
+              "epoch"
+            ],
+            "type": "object"
+          },
+          "idempotencyKey": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "readinessDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "releaseId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "releaseKind": {
+            "enum": [
+              "APPLICATION",
+              "COMPONENT"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "releaseId",
+          "releaseKind",
+          "expectedCurrent",
+          "readinessDigest",
+          "acceptanceDigest",
+          "idempotencyKey"
+        ],
+        "type": "object"
+      },
+      "reservedPlatformFieldsForbidden": true,
+      "responseSchema": {
+        "$id": "urn:kcml:closure:release.activate:response",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "evidenceDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "resultingEpoch": {
+            "maxLength": 19,
+            "minLength": 1,
+            "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$",
+            "type": "string"
+          },
+          "resultingPointerId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "runId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "runKind": {
+            "enum": [
+              "ACTIVATION",
+              "DEPLOYMENT"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "runId",
+          "runKind",
+          "resultingPointerId",
+          "resultingEpoch",
+          "evidenceDigest"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "method": "POST",
+      "operationId": "backup.restore",
+      "path": "/api/v1/backups/{backupId}/restore",
+      "requestSchema": {
+        "$id": "urn:kcml:closure:backup.restore:request",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "backupId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "idempotencyKey": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "impactDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "targetEnvironment": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "verificationDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "backupId",
+          "verificationDigest",
+          "impactDigest",
+          "targetEnvironment",
+          "idempotencyKey"
+        ],
+        "type": "object"
+      },
+      "reservedPlatformFieldsForbidden": true,
+      "responseSchema": {
+        "$id": "urn:kcml:closure:backup.restore:response",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "acceptanceEvidenceDigest": {
+            "anyOf": [
+              {
+                "maxLength": 71,
+                "minLength": 71,
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "platformIncarnationId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "reconciliationEvidenceDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "restoreRunId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "state": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "restoreRunId",
+          "platformIncarnationId",
+          "state",
+          "reconciliationEvidenceDigest",
+          "acceptanceEvidenceDigest"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "method": "POST",
+      "operationId": "acceptance.run.start",
+      "path": "/api/v1/acceptance-runs",
+      "requestSchema": {
+        "$id": "urn:kcml:closure:acceptance.run.start:request",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "acceptanceProfile": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "deployedCommitSha": {
+            "maxLength": 64,
+            "minLength": 40,
+            "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64})$",
+            "type": "string"
+          },
+          "environment": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "fixtureNamespace": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "idempotencyKey": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "releaseId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "releaseId",
+          "deployedCommitSha",
+          "environment",
+          "acceptanceProfile",
+          "fixtureNamespace",
+          "idempotencyKey"
+        ],
+        "type": "object"
+      },
+      "reservedPlatformFieldsForbidden": true,
+      "responseSchema": {
+        "$id": "urn:kcml:closure:acceptance.run.start:response",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "acceptanceRunId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "logicalOperationId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "planDigest": {
+            "maxLength": 71,
+            "minLength": 71,
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "state": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "acceptanceRunId",
+          "planDigest",
+          "state",
+          "logicalOperationId"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "method": "POST",
+      "operationId": "acceptance.run.cancel",
+      "path": "/api/v1/acceptance-runs/{runId}/cancel",
+      "requestSchema": {
+        "$id": "urn:kcml:closure:acceptance.run.cancel:request",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "expectedStateVersion": {
+            "maxLength": 19,
+            "minLength": 1,
+            "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$",
+            "type": "string"
+          },
+          "idempotencyKey": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "reason": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "runId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "runId",
+          "expectedStateVersion",
+          "reason",
+          "idempotencyKey"
+        ],
+        "type": "object"
+      },
+      "reservedPlatformFieldsForbidden": true,
+      "responseSchema": {
+        "$id": "urn:kcml:closure:acceptance.run.cancel:response",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "cleanupStatus": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "reconciliationStatus": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "runId": {
+            "maxLength": 36,
+            "minLength": 36,
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "type": "string"
+          },
+          "state": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "runId",
+          "state",
+          "cleanupStatus",
+          "reconciliationStatus"
+        ],
+        "type": "object"
+      }
+    }
+  ],
+  "schemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "unresolved": []
+}

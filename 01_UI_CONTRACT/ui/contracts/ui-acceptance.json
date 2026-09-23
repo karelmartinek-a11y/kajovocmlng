@@ -1,0 +1,125 @@
+{
+  "blocking": true,
+  "gates": [
+    {
+      "id": "UI-001",
+      "rule": "All 17 navigation sections render and route to a non-placeholder functional surface."
+    },
+    {
+      "id": "UI-002",
+      "rule": "Every visible mutating action maps to one canonical operationBinding or is explicitly FORBIDDEN and absent in production."
+    },
+    {
+      "id": "UI-003",
+      "rule": "Every relevant blocked action renders disabled reason; no unexplained disabled primary action."
+    },
+    {
+      "id": "UI-004",
+      "rule": "No client-only success: mutating success requires persisted canonical outcome/postcondition."
+    },
+    {
+      "id": "UI-005",
+      "rule": "stateVersion/revision/binding/epoch conflict renders CONFLICT, refreshes canonical snapshot and does not blind retry."
+    },
+    {
+      "id": "UI-006",
+      "rule": "All text controls follow declared input profile and preserve content without silent truncation; server schema remains authoritative."
+    },
+    {
+      "id": "UI-007",
+      "rule": "Each page proves loading, empty, error, stale/reconnecting, ready and success/terminal states applicable to its contract."
+    },
+    {
+      "id": "UI-008",
+      "rule": "Responsive tests pass at 390x844, 768x1024, 1366x768 and 1920x1080 without unintended page-level horizontal scroll."
+    },
+    {
+      "id": "UI-009",
+      "rule": "Keyboard-only traversal can reach every action, editor, table control, modal/drawer and browser collaboration tool."
+    },
+    {
+      "id": "UI-010",
+      "rule": "Screen-reader labels, disabled reasons, validation errors and live operation states are announced."
+    },
+    {
+      "id": "UI-011",
+      "rule": "Generation has no bypass blocking-gate action anywhere in page, command palette, context menu, chat projection or API-generated action UI."
+    },
+    {
+      "id": "UI-012",
+      "rule": "Security UI has no application password-change control and no user/role/group/permission management surface."
+    },
+    {
+      "id": "UI-013",
+      "rule": "OPENAI_CONFIGURATION_REQUIRED disables only AI-dependent actions and leaves non-AI administration operational."
+    },
+    {
+      "id": "UI-014",
+      "rule": "Browser MARKUP never forwards pointer/touch input to page; BROWSE input requires current control lease."
+    },
+    {
+      "id": "UI-015",
+      "rule": "Stale Browser target/annotation/document identity never silently rebinds to similar content."
+    },
+    {
+      "id": "UI-016",
+      "rule": "OWNER takeover/return-AI controls reflect server control lease and reject stale epoch before page input dispatch."
+    },
+    {
+      "id": "UI-017",
+      "rule": "Secrets reveal/copy/rotate/bind/version flows expose real canonical state and reserved OWNER API key restrictions."
+    },
+    {
+      "id": "UI-018",
+      "rule": "Configuration SYSTEM_MANAGED values are read-only with derivation/source explanation; OWNER-editable values use desired/effective lifecycle."
+    },
+    {
+      "id": "UI-019",
+      "rule": "Audit/log UI can correlate a mutating UI operation to logicalOperationId/correlationId and canonical audit event."
+    },
+    {
+      "id": "UI-020",
+      "rule": "Object actions are parity-tested across detail, table, dashboard, search, command palette, alert/audit relation views where semantically applicable."
+    },
+    {
+      "id": "UI-021",
+      "rule": "Double-click/double-submit does not create duplicate business effect; UI disables pending action and server idempotency proves same logical outcome."
+    },
+    {
+      "id": "UI-022",
+      "rule": "Cancel before/after possible side effect follows operation reconciliation and never renders false CANCELLED/SUCCESS."
+    },
+    {
+      "id": "UI-023",
+      "rule": "MANUAL_REVIEW blocks automatic retries and presents evidence plus exact OWNER next actions."
+    },
+    {
+      "id": "UI-024",
+      "rule": "All tables have sticky header where specified, bounded internal horizontal scroll for wide data and column chooser without losing row identity."
+    },
+    {
+      "id": "UI-025",
+      "rule": "All modal/drawer destructive actions require declared confirmation level and return focus to invoker after close."
+    },
+    {
+      "id": "UI-026",
+      "rule": "Empty states expose one primary recovery/create action only when the action registry says it is valid."
+    },
+    {
+      "id": "UI-027",
+      "rule": "All file/attachment/upload controls surface size/type/schema validation and deterministic failure without partial domain mutation."
+    },
+    {
+      "id": "UI-028",
+      "rule": "Live SSE/WSS reconnect restores from server snapshot/cursor and labels stale data until freshness is confirmed."
+    },
+    {
+      "id": "UI-029",
+      "rule": "Presentation/secret-hiding mode changes only presentation and never stored logs/audit/API payload semantics."
+    },
+    {
+      "id": "UI-030",
+      "rule": "No placeholder, mock, dead button, local fake action, TODO-only surface or demo-only route exists in production UI."
+    }
+  ]
+}

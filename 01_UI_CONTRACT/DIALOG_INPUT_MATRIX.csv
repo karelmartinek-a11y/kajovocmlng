@@ -1,0 +1,13 @@
+﻿template,trigger,OWNER_inputs,required_projections,submit_rule
+explicit-confirm,EXPLICIT_CONFIRM,none,object identity; exact operation; impact summary,explicit confirm
+impact-preview,IMPACT_PREVIEW,none,affected bindings/objects/runs; current stateVersion; preview digest,confirm after fresh preview
+mandatory-impact-preview,MANDATORY_IMPACT_PREVIEW,none,complete current impact preview; guard snapshot,confirm disabled until current+complete
+conditional-impact,IMPACT_IF_NONIDLE / IMPACT_IF_REQUIRED,none,current non-idle/required impact,shown only when canonical state requires
+conflict,CONFLICT,choice only,OWNER edited value; current server snapshot; changed items,refresh before a new command
+manual-review,MANUAL_REVIEW,canonical OWNER decision only,attempt evidence; possible effect; reconciliation status,automatic retry blocked
+pending-operation,PENDING,Cancel only if allowed,logicalOperationId; correlation; progress; checkpoint,no second submit
+validation-error,VALIDATION_ERROR,the invalid fields of the active form,client shape + canonical server error,preserve entered data/focus
+dirty-state,DIRTY_STATE,preserve/discard choice,list/diff of unsaved fields,no silent data loss
+action-failed,FAILED,recovery action only when directive allows,stable error; correlation; retry directive; outcome,never infer retry from HTTP/toast
+browser-challenge,BROWSER_CHALLENGE,typed challenge field(s) only,session/document/control epoch; challenge type,OWNER takeover under fenced control epoch
+secret-entry,SECRET_ENTRY,stable name; display name; type; value; metadata/binding fields as declared by /secrets,Secret Manager validation and exact bindings,secret value preserved exactly unless contract says otherwise
