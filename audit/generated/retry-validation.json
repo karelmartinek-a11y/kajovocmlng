@@ -1,0 +1,49 @@
+{
+  "scope": "Contract boundary reference fixtures; no scheduler implementation or external operation executed.",
+  "checks": [
+    {
+      "id": "profile.exact-approved-bounds",
+      "status": "PASS"
+    },
+    {
+      "id": "retry.three-retries-only",
+      "status": "PASS"
+    },
+    {
+      "id": "retry.seed-stable-after-restart",
+      "status": "PASS"
+    },
+    {
+      "id": "retry.provider-lower-bound",
+      "status": "PASS"
+    },
+    {
+      "id": "retry.exact-deadline-rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "retry.denies-no-authority",
+      "status": "PASS"
+    },
+    {
+      "id": "retry.denies-unknown-effect",
+      "status": "PASS"
+    },
+    {
+      "id": "retry.denies-changed-input",
+      "status": "PASS"
+    },
+    {
+      "id": "retry.denies-human-intervention",
+      "status": "PASS"
+    },
+    {
+      "id": "retry.denies-cancelled",
+      "status": "PASS"
+    },
+    {
+      "id": "fallback.no-retry",
+      "status": "PASS"
+    }
+  ]
+}

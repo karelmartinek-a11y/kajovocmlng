@@ -1,0 +1,52 @@
+{
+  "scope": "Isolated local compile probe, not product implementation or target Ubuntu validation. Package lifecycle scripts disabled.",
+  "node": "v24.18.1",
+  "packages": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "vite": "6.3.5",
+    "@xyflow/react": "12.8.5",
+    "@radix-ui/react-context-menu": "2.2.16",
+    "@radix-ui/react-dialog": "1.1.15",
+    "@radix-ui/react-tooltip": "1.2.8",
+    "@radix-ui/react-popover": "1.1.15",
+    "@tanstack/react-table": "8.21.3",
+    "papaparse": "5.5.3",
+    "exceljs": "4.4.0",
+    "pdfjs-dist": "5.4.149",
+    "@dnd-kit/core": "6.3.1",
+    "@dnd-kit/sortable": "10.0.0",
+    "typescript": "6.0.3",
+    "@types/node": "24.10.12",
+    "@types/react": "18.3.18",
+    "@types/react-dom": "18.3.5",
+    "@types/papaparse": "5.3.16"
+  },
+  "checks": [
+    {
+      "command": [
+        "npm.cmd",
+        "install",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exitCode": 0,
+      "stdout": "\nadded 3 packages, and changed 5 packages in 12s\n",
+      "stderr": "npm warn ERESOLVE overriding peer dependency\nnpm warn While resolving: kcml-ui-contract-probe@0.0.0\nnpm warn Found: @types/react@19.1.2\nnpm warn node_modules/@types/react\nnpm warn   @types/react@\"18.3.18\" from the root project\nnpm warn   35 more (@radix-ui/react-arrow, @radix-ui/react-collection, ...)\nnpm warn\nnpm warn Could not resolve dependency:\nnpm warn peer @types/react@\"^19.0.0\" from @types/react-dom@19.1.2\nnpm warn node_modules/@types/react-dom\nnpm warn   @types/react-dom@\"18.3.5\" from the root project\nnpm warn   15 more (@radix-ui/react-arrow, @radix-ui/react-collection, ...)\nnpm warn ERESOLVE overriding peer dependency\nnpm warn While resolving: kcml-ui-contract-probe@0.0.0\nnpm warn Found: @types/react@19.1.2\nnpm warn node_modules/@types/react\nnpm warn   @types/react@\"18.3.18\" from the root project\nnpm warn   35 more (@radix-ui/react-arrow, @radix-ui/react-collection, ...)\nnpm warn\nnpm warn Could not resolve dependency:\nnpm warn peer @types/react@\"^19.0.0\" from @types/react-dom@19.1.2\nnpm warn node_modules/@types/react-dom\nnpm warn   @types/react-dom@\"18.3.5\" from the root project\nnpm warn   15 more (@radix-ui/react-arrow, @radix-ui/react-collection, ...)\nnpm warn ERESOLVE overriding peer dependency\nnpm warn While resolving: kcml-ui-contract-probe@0.0.0\nnpm warn Found: @types/react@19.1.2\nnpm warn node_modules/@types/react\nnpm warn   @types/react@\"18.3.18\" from the root project\nnpm warn   35 more (@radix-ui/react-arrow, @radix-ui/react-collection, ...)\nnpm warn\nnpm warn Could not resolve dependency:\nnpm warn peer @types/react@\"^19.0.0\" from @types/react-dom@19.1.2\nnpm warn node_modules/@types/react-dom\nnpm warn   @types/react-dom@\"18.3.5\" from the root project\nnpm warn   15 more (@radix-ui/react-arrow, @radix-ui/react-collection, ...)\nnpm warn ERESOLVE overriding peer dependency\nnpm warn While resolving: kcml-ui-contract-probe@0.0.0\nnpm warn Found: @types/react@19.1.2\nnpm warn node_modules/@types/react\nnpm warn   @types/react@\"18.3.18\" from the root project\nnpm warn   35 more (@radix-ui/react-arrow, @radix-ui/react-collection, ...)\nnpm warn\nnpm warn Could not resolve dependency:\nnpm warn peer @types/react@\"^19.0.0\" from @types/react-dom@19.1.2\nnpm warn node_modules/@types/react-dom\nnpm warn   @types/react-dom@\"18.3.5\" from the root project\nnpm warn   15 more (@radix-ui/react-arrow, @radix-ui/react-collection, ...)\nnpm warn ERESOLVE overriding peer dependency\nnpm warn While resolving: kcml-ui-contract-probe@0.0.0\nnpm warn Found: react@19.1.0\nnpm warn node_modules/react\nnpm warn   react@\"18.3.1\" from the root project\nnpm warn   27 more (@dnd-kit/accessibility, @dnd-kit/core, ...)\nnpm warn\nnpm warn Could not resolve dependency:\nnpm warn peer react@\"^19.1.0\" from react-dom@19.1.0\nnpm warn node_modules/react-dom\nnpm warn   react-dom@\"18.3.1\" from the root project\nnpm warn   7 more (@dnd-kit/core, @radix-ui/react-context-menu, ...)\nnpm warn ERESOLVE overriding peer dependency\nnpm warn While resolving: kcml-ui-contract-probe@0.0.0\nnpm warn Found: react@19.1.0\nnpm warn node_modules/react\nnpm warn   react@\"18.3.1\" from the root project\nnpm warn   27 more (@dnd-kit/accessibility, @dnd-kit/core, ...)\nnpm warn\nnpm warn Could not resolve dependency:\nnpm warn peer react@\"^19.1.0\" from react-dom@19.1.0\nnpm warn node_modules/react-dom\nnpm warn   react-dom@\"18.3.1\" from the root project\nnpm warn   7 more (@dnd-kit/core, @radix-ui/react-context-menu, ...)\nnpm warn ERESOLVE overriding peer dependency\nnpm warn While resolving: kcml-ui-contract-probe@0.0.0\nnpm warn Found: react@19.1.0\nnpm warn node_modules/react\nnpm warn   react@\"18.3.1\" from the root project\nnpm warn   27 more (@dnd-kit/accessibility, @dnd-kit/core, ...)\nnpm warn\nnpm warn Could not resolve dependency:\nnpm warn peer react@\"^19.1.0\" from react-dom@19.1.0\nnpm warn node_modules/react-dom\nnpm warn   react-dom@\"18.3.1\" from the root project\nnpm warn   7 more (@dnd-kit/core, @radix-ui/react-context-menu, ...)\nnpm warn ERESOLVE overriding peer dependency\nnpm warn While resolving: kcml-ui-contract-probe@0.0.0\nnpm warn Found: react@19.1.0\nnpm warn node_modules/react\nnpm warn   react@\"18.3.1\" from the root project\nnpm warn   27 more (@dnd-kit/accessibility, @dnd-kit/core, ...)\nnpm warn\nnpm warn Could not resolve dependency:\nnpm warn peer react@\"^19.1.0\" from react-dom@19.1.0\nnpm warn node_modules/react-dom\nnpm warn   react-dom@\"18.3.1\" from the root project\nnpm warn   7 more (@dnd-kit/core, @radix-ui/react-context-menu, ...)\nnpm warn ERESOLVE overriding peer dependency\nnpm warn While resolving: kcml-ui-contract-probe@0.0.0\nnpm warn Found: react@19.1.0\nnpm warn node_modules/react\nnpm warn   react@\"18.3.1\" from the root project\nnpm warn   27 more (@dnd-kit/accessibility, @dnd-kit/core, ...)\nnpm warn\nnpm warn Could not resolve dependency:\nnpm warn peer react@\"^19.1.0\" from react-dom@19.1.0\nnpm warn node_modules/react-dom\nnpm warn   react-dom@\"18.3.1\" from the root project\nnpm warn   7 more (@dnd-kit/core, @radix-ui/react-context-menu, ...)\nnpm warn ERESOLVE overriding peer dependency\nnpm warn While resolving: kcml-ui-contract-probe@0.0.0\nnpm warn Found: react@19.1.0\nnpm warn node_modules/react\nnpm warn   react@\"18.3.1\" from the root project\nnpm warn   27 more (@dnd-kit/accessibility, @dnd-kit/core, ...)\nnpm warn\nnpm warn Could not resolve dependency:\nnpm warn peer react@\"^19.1.0\" from react-dom@19.1.0\nnpm warn node_modules/react-dom\nnpm warn   react-dom@\"18.3.1\" from the root project\nnpm warn   7 more (@dnd-kit/core, @radix-ui/react-context-menu, ...)\nnpm warn ERESOLVE overriding peer dependency\nnpm warn While resolving: kcml-ui-contract-probe@0.0.0\nnpm warn Found: react@19.1.0\nnpm warn node_modules/react\nnpm warn   react@\"18.3.1\" from the root project\nnpm warn   27 more (@dnd-kit/accessibility, @dnd-kit/core, ...)\nnpm warn\nnpm warn Could not resolve dependency:\nnpm warn peer react@\"^19.1.0\" from react-dom@19.1.0\nnpm warn node_modules/react-dom\nnpm warn   react-dom@\"18.3.1\" from the root project\nnpm warn   7 more (@dnd-kit/core, @radix-ui/react-context-menu, ...)\nnpm warn ERESOLVE overriding peer dependency\nnpm warn While resolving: kcml-ui-contract-probe@0.0.0\nnpm warn Found: react@19.1.0\nnpm warn node_modules/react\nnpm warn   react@\"18.3.1\" from the root project\nnpm warn   27 more (@dnd-kit/accessibility, @dnd-kit/core, ...)\nnpm warn\nnpm warn Could not resolve dependency:\nnpm warn peer react@\"^19.1.0\" from react-dom@19.1.0\nnpm warn node_modules/react-dom\nnpm warn   react-dom@\"18.3.1\" from the root project\nnpm warn   7 more (@dnd-kit/core, @radix-ui/react-context-menu, ...)\n",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "node",
+        "node_modules/typescript/bin/tsc",
+        "--project",
+        "tsconfig.json"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "status": "PASS"
+    }
+  ]
+}

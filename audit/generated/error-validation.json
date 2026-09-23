@@ -1,0 +1,55 @@
+{
+  "checks": [
+    {
+      "id": "schema.valid",
+      "status": "PASS"
+    },
+    {
+      "id": "codes.exact-source-set",
+      "status": "PASS"
+    },
+    {
+      "id": "codes.unique",
+      "status": "PASS"
+    },
+    {
+      "id": "provider.codes-unique",
+      "status": "PASS"
+    },
+    {
+      "id": "provider.targets-resolve",
+      "status": "PASS"
+    },
+    {
+      "id": "provider.messages-cs-en",
+      "status": "PASS"
+    },
+    {
+      "id": "messages.cs-en-complete",
+      "status": "PASS"
+    },
+    {
+      "id": "conditions.exact-code-match",
+      "status": "PASS"
+    },
+    {
+      "id": "fallback.no-blind-retry",
+      "status": "PASS"
+    },
+    {
+      "id": "negative.missing-retry-rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "negative.extra-field-rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "negative.empty-translation-rejected",
+      "status": "PASS"
+    }
+  ],
+  "schemaErrors": [],
+  "completeErrorContract": "BLOCKED",
+  "reason": "Per-provider technical adapters are not fully materialized. The approved bounded default retry profile supplies numeric limits only for already-authorized replay; translation coverage does not close provider mapping."
+}

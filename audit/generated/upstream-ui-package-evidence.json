@@ -1,0 +1,674 @@
+{
+  "upstreamCommit": "d7e121bdc5f9c0b4aa0cc476f35178bacdfadd2e",
+  "packages": [
+    {
+      "name": "react",
+      "version": "19.3.0",
+      "status": "PASS",
+      "url": "https://registry.npmjs.org/react/19.3.0",
+      "metadataSha256": "c9b7f5adeab67cd3146ffc69712aee7ddc37c23e656e41feaaa5624dff4e02aa",
+      "license": "MIT",
+      "engines": {
+        "node": ">=0.10.0"
+      },
+      "peerDependencies": {},
+      "repository": {
+        "url": "git+https://github.com/react/react.git",
+        "type": "git",
+        "directory": "packages/react"
+      },
+      "dist": {
+        "shasum": "e20aa3a14687075ce863351b5878b0608c3fbfb2",
+        "tarball": "https://registry.npmjs.org/react/-/react-19.3.0.tgz",
+        "fileCount": 27,
+        "integrity": "sha512-E8LUcbtBWt20bbl2YoHfx4ZDBdxVTfOKtCZn9cDSJ4l6/nuoApcpIBcj47t2wZoVX8g2ZHuMHbiShgCR1T5Sog==",
+        "signatures": [
+          {
+            "sig": "MEUCIALru2uJjzTwQTeh/ax6FRZSyVBDySuUEr4k+TiaANpDAiEAgJVCX1upjcvo4FzKCrJW9vcVnWVJwMbuM4Wsc4UM61o=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEYCIQCLRI5uegHedldoJjX7BioMz8AnR5jZmFZB2+1PMyrFagIhAMlHH0dBWncX0Nq4vSqkVKZtP7Jolgae2aodnOtIRrQK",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/react@19.3.0",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 178663
+      },
+      "limitation": "Registry evidence is not a browser integration or Ubuntu build test."
+    },
+    {
+      "name": "react-dom",
+      "version": "19.3.0",
+      "status": "PASS",
+      "url": "https://registry.npmjs.org/react-dom/19.3.0",
+      "metadataSha256": "f7bb2eaf8d193af94c0b1749f05d7a0a8475c3d913aec87f1cb93e56ac860877",
+      "license": "MIT",
+      "engines": {},
+      "peerDependencies": {
+        "react": "^19.3.0"
+      },
+      "repository": {
+        "url": "git+https://github.com/react/react.git",
+        "type": "git",
+        "directory": "packages/react-dom"
+      },
+      "dist": {
+        "shasum": "a0ff19161d7f4e9be5469a07278b0c06e00f9001",
+        "tarball": "https://registry.npmjs.org/react-dom/-/react-dom-19.3.0.tgz",
+        "fileCount": 43,
+        "integrity": "sha512-JDk8dgif51OjFoDE70+OT9ICyYr+69HlmihNwp1+Nsfbna3t5sIiCa9ZJktDmQ4/1b/rn26hIAR2uYXDMr5r0Q==",
+        "signatures": [
+          {
+            "sig": "MEUCIQDl7gfoVlOoqKLgPU325X6EcrNHIYuFJJX0R9PHDs9KygIgAQaRzlBCG57IDn6XBjaOL/adBCuf/oiguaTixpmBBjw=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEUCIBJlBwP9e+XpqYfXpAJxCFTZ2i9tt8XCm9JYmuFMXsm1AiEAi9g3MN8fg6vModu7alAeUKmJ6iWO6untLGlvHfX1mb4=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/react-dom@19.3.0",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 8063782
+      },
+      "limitation": "Registry evidence is not a browser integration or Ubuntu build test."
+    },
+    {
+      "name": "vite",
+      "version": "8.3.0",
+      "status": "PASS",
+      "url": "https://registry.npmjs.org/vite/8.3.0",
+      "metadataSha256": "4e3c0145dba179e36b8bc4c2deb333ad388fb46a8c02904605183e4cfbeb5cf2",
+      "license": "MIT",
+      "engines": {
+        "node": "^20.19.0 || >=22.12.0"
+      },
+      "peerDependencies": {
+        "tsx": "^4.8.1",
+        "jiti": ">=1.21.0",
+        "less": "^4.0.0",
+        "sass": "^1.70.0",
+        "yaml": "^2.4.2",
+        "stylus": ">=0.54.8",
+        "terser": "^5.16.0",
+        "esbuild": "^0.27.0 || ^0.28.0",
+        "sugarss": "^5.0.0",
+        "@types/node": "^20.19.0 || >=22.12.0",
+        "sass-embedded": "^1.70.0",
+        "@vitejs/devtools": "^0.7.1"
+      },
+      "repository": {
+        "url": "git+https://github.com/vitejs/vite.git",
+        "type": "git",
+        "directory": "packages/vite"
+      },
+      "dist": {
+        "shasum": "f9565cfd4879d58d28fa64d3c7aff3b372d2ccc8",
+        "tarball": "https://registry.npmjs.org/vite/-/vite-8.3.0.tgz",
+        "fileCount": 37,
+        "integrity": "sha512-lhZBVvEHefgE+HQZC9O7EBJgCU/nVzFNl7vkS4RE0APtWLP02/8QVIkQtzBxPquh7lq5/78NHipTj7ODQ6XuyQ==",
+        "signatures": [
+          {
+            "sig": "MEUCIQC6/kYWbrBTW51oUkyntHZ9LpjXCOrT7HIb213qT/q4LQIgDWIF97Fb1C8TvoJHIg37Vg1Bcsuh+EslNdR7W1VtvIE=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEQCIFwGbT0il/0wNZ1/QWe6KYtPmhluQiji573dYgLkAsLqAiAjDuWcZDmJha7pYgL2ajvnxfwthXUvMDvN+UD7Xev9Uw==",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/vite@8.3.0",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 2361169
+      },
+      "limitation": "Registry evidence is not a browser integration or Ubuntu build test."
+    },
+    {
+      "name": "typescript",
+      "version": "6.0.3",
+      "status": "PASS",
+      "url": "https://registry.npmjs.org/typescript/6.0.3",
+      "metadataSha256": "c3b095f0ba61c854843c4965598d3d1de8eb8e3d41cfec93c5ffbfd8bde537cc",
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14.17"
+      },
+      "peerDependencies": {},
+      "repository": {
+        "url": "git+https://github.com/microsoft/TypeScript.git",
+        "type": "git"
+      },
+      "dist": {
+        "shasum": "90251dc007916e972786cb94d74d15b185577d21",
+        "tarball": "https://registry.npmjs.org/typescript/-/typescript-6.0.3.tgz",
+        "fileCount": 140,
+        "integrity": "sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==",
+        "signatures": [
+          {
+            "sig": "MEYCIQDv8tVB8x5z1EeS+UHLgSqOywErEEFERRmMNef6kTXsPQIhAMO+L+ktR6FwCDSc+z0KD68md8mvKukeVzgjuBhoie9i",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "unpackedSize": 24346827
+      },
+      "limitation": "Registry evidence is not a browser integration or Ubuntu build test."
+    },
+    {
+      "name": "@xyflow/react",
+      "version": "12.11.6",
+      "status": "PASS",
+      "url": "https://registry.npmjs.org/%40xyflow%2Freact/12.11.6",
+      "metadataSha256": "d11ec48dac913b72c51e94bcf34e877899213688cc8886552b50e96116f07c47",
+      "license": "MIT",
+      "engines": {},
+      "peerDependencies": {
+        "react": ">=17",
+        "react-dom": ">=17",
+        "@types/react": ">=17",
+        "@types/react-dom": ">=17"
+      },
+      "repository": {
+        "url": "git+https://github.com/xyflow/xyflow.git",
+        "type": "git",
+        "directory": "packages/react"
+      },
+      "dist": {
+        "shasum": "e94c6d6d9910e5e4f6d97b9a6c25464817b85685",
+        "tarball": "https://registry.npmjs.org/@xyflow/react/-/react-12.11.6.tgz",
+        "fileCount": 516,
+        "integrity": "sha512-9XsEJNHjatKYndszKTF/bsU7FOP9dJ6V/EQwzy3oMdtqgBuUq7BjKSwkEo+C7s4qHstHQfwwoHA3E8QfpPxZZQ==",
+        "signatures": [
+          {
+            "sig": "MEQCIGnvFGpq1Hn+vQG4L3Ppuy/qipT3K/dWbGqa6Neg/T/IAiBmqAzrvk+DHFoiltyI8Jkc1aaqfT4W8jUaCfCwfDDdwg==",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEQCIGEp34PIag4a0dRbC+Imai80PU6psdxi4mAZfiaqy126AiB50NOKc5y8CQEn/XoOG/ojUxqL/MZOyx2NR2YCbskv8A==",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@xyflow%2freact@12.11.6",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 1216002
+      },
+      "limitation": "Registry evidence is not a browser integration or Ubuntu build test."
+    },
+    {
+      "name": "@radix-ui/react-context-menu",
+      "version": "2.3.7",
+      "status": "PASS",
+      "url": "https://registry.npmjs.org/%40radix-ui%2Freact-context-menu/2.3.7",
+      "metadataSha256": "d9589d71ed8c66578db990e1591d1f24c4e0253c438a65058a6f708c6092f8a4",
+      "license": "MIT",
+      "engines": {},
+      "peerDependencies": {
+        "react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+        "react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+        "@types/react": "*",
+        "@types/react-dom": "*"
+      },
+      "repository": {
+        "url": "git+https://github.com/radix-ui/primitives.git",
+        "type": "git",
+        "directory": "packages/react/context-menu"
+      },
+      "dist": {
+        "shasum": "9973ebbccc944bd99582c60dd1e99a5bc0285c8d",
+        "tarball": "https://registry.npmjs.org/@radix-ui/react-context-menu/-/react-context-menu-2.3.7.tgz",
+        "fileCount": 9,
+        "integrity": "sha512-CtXP35dxaB5T3zXSd+E3uHe/QpXcpYnZmxp6OaIbfthtfW4wyb77M23BG+bwIJDtsMwEP/YssdsmNyZu7jhWew==",
+        "signatures": [
+          {
+            "sig": "MEYCIQDI2N/sDgidQ/YCRyzunf8aXBRxNic7zQGOq9K+bUG00wIhAMRERdA1Oc7fDTPnS6KtTWvsoYJO0TMS6+N4mK5t50A3",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEYCIQCgrKRtN6+6YE/Pv4TPYSSa8G9jhjjO1fPNKGjkVPDmswIhAOTH+CPwllXjZPcTkwSGtfZsat7URFiUaPh7ZgzlJMm0",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@radix-ui%2freact-context-menu@2.3.7",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 114995
+      },
+      "limitation": "Registry evidence is not a browser integration or Ubuntu build test."
+    },
+    {
+      "name": "@radix-ui/react-dropdown-menu",
+      "version": "2.1.24",
+      "status": "PASS",
+      "url": "https://registry.npmjs.org/%40radix-ui%2Freact-dropdown-menu/2.1.24",
+      "metadataSha256": "b42965afc6c1793797e10e33608a5d89bffc813e75e66f5ae356f46247554453",
+      "license": "MIT",
+      "engines": {},
+      "peerDependencies": {
+        "react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+        "react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+        "@types/react": "*",
+        "@types/react-dom": "*"
+      },
+      "repository": {
+        "url": "git+https://github.com/radix-ui/primitives.git",
+        "type": "git",
+        "directory": "packages/react/dropdown-menu"
+      },
+      "dist": {
+        "shasum": "3ed6d50cdacb1e68a5230c13510b6a87131b577b",
+        "tarball": "https://registry.npmjs.org/@radix-ui/react-dropdown-menu/-/react-dropdown-menu-2.1.24.tgz",
+        "fileCount": 9,
+        "integrity": "sha512-geq8l2rJkxvkXsT9RMgtUE3P8pITFpTsvYpbySi1IH4fZEABD/Gp85myayFgxk0ktljGMJnCbeFkyTusvSvv7g==",
+        "signatures": [
+          {
+            "sig": "MEUCIEMwUSo4ksRUa/T7LPhtH110+/xUxHQAiWCwocySnNK2AiEAsmwfDn/VO4oGv4SiJbFtoxwa/FHQOyb8dHHR9Omo2A0=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEQCIFe8UsNmiAvi/e2i3qjE2TkqWDGKyzalwQMQRVh5jMjpAiAlbmQBKEjkT7XyiWQKa97LJqGhKauvAnAM01OkQqHM/w==",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@radix-ui%2freact-dropdown-menu@2.1.24",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 107334
+      },
+      "limitation": "Registry evidence is not a browser integration or Ubuntu build test."
+    },
+    {
+      "name": "@radix-ui/react-tooltip",
+      "version": "1.2.16",
+      "status": "PASS",
+      "url": "https://registry.npmjs.org/%40radix-ui%2Freact-tooltip/1.2.16",
+      "metadataSha256": "72545e5fd4bfb3a1b2f4e3296bd2451c35701eb9f5b52c64cf5b95454690a7c0",
+      "license": "MIT",
+      "engines": {},
+      "peerDependencies": {
+        "react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+        "react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+        "@types/react": "*",
+        "@types/react-dom": "*"
+      },
+      "repository": {
+        "url": "git+https://github.com/radix-ui/primitives.git",
+        "type": "git",
+        "directory": "packages/react/tooltip"
+      },
+      "dist": {
+        "shasum": "b38fc8475b4d5619b0f50fa057390b278a5d4e69",
+        "tarball": "https://registry.npmjs.org/@radix-ui/react-tooltip/-/react-tooltip-1.2.16.tgz",
+        "fileCount": 9,
+        "integrity": "sha512-6EamKFRRnlpdadndbZ6LMwycfwkwPte1B42hs6QA0gYhjaOKqW4PZ4pjaW9UrlDX5eVt/OjncE7BFTPL5nmZhg==",
+        "signatures": [
+          {
+            "sig": "MEUCIFa/QquG9iYh7PzAMthFSaNbroZq+rDG69KtSyjZw7T0AiEA1fDw46l2hzLr6FPkuZ+1PpzOUvUkdiy/EflDoVpyzM8=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEUCIQCDlLorIzloOI0GZ2MJ/cwRTQAoANDHhSecMxgJUQvnJAIgJK2F1q9qzZdRzXtpiyV4Fxi/c3MFvtZ0EgV+tPUgOaE=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@radix-ui%2freact-tooltip@1.2.16",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 139023
+      },
+      "limitation": "Registry evidence is not a browser integration or Ubuntu build test."
+    },
+    {
+      "name": "@radix-ui/react-dialog",
+      "version": "1.1.23",
+      "status": "PASS",
+      "url": "https://registry.npmjs.org/%40radix-ui%2Freact-dialog/1.1.23",
+      "metadataSha256": "144a37b15c2f353b9ce704f4d6e37df62fa11ce77ae669d5c60f001d86a3c6a0",
+      "license": "MIT",
+      "engines": {},
+      "peerDependencies": {
+        "react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+        "react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+        "@types/react": "*",
+        "@types/react-dom": "*"
+      },
+      "repository": {
+        "url": "git+https://github.com/radix-ui/primitives.git",
+        "type": "git",
+        "directory": "packages/react/dialog"
+      },
+      "dist": {
+        "shasum": "b7d8e83a3ccf97e46f3c3f477a0bf563f0de8239",
+        "tarball": "https://registry.npmjs.org/@radix-ui/react-dialog/-/react-dialog-1.1.23.tgz",
+        "fileCount": 9,
+        "integrity": "sha512-Ksw4WeROkO4rC9k/onilX/Ao2Cr1ku1unMNH+XSCcP4jSXYu7HDsg9n4ojMjVb22XpYjAQ9qfrFlVbru1vXDUA==",
+        "signatures": [
+          {
+            "sig": "MEUCIDf8MHm1v5wgBJWsziZenja8Dw6Wb9wmilUQC4lZKoJ+AiEApe7g3T9jmQCdG8XgqE7hBJik9HOwI70lhhET/Y6g8C8=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEYCIQC0o0908Wyy9ragVMnEeZOP9ti0Bv+qdLLwWyv6UaVQFAIhANFek828TdrIbN5J30zhqMKvbOlZ2sw4dxcDQw6OaGfn",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@radix-ui%2freact-dialog@1.1.23",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 99377
+      },
+      "limitation": "Registry evidence is not a browser integration or Ubuntu build test."
+    },
+    {
+      "name": "@tanstack/react-table",
+      "version": "9.2.4",
+      "status": "PASS",
+      "url": "https://registry.npmjs.org/%40tanstack%2Freact-table/9.2.4",
+      "metadataSha256": "7f70da3684d8339f887626444bb459f8440758f7a118f5593ab50304530f82ee",
+      "license": "MIT",
+      "engines": {
+        "node": ">=20"
+      },
+      "peerDependencies": {
+        "react": ">=18"
+      },
+      "repository": {
+        "url": "https://github.com/TanStack/table.git",
+        "type": "git",
+        "directory": "packages/react-table"
+      },
+      "dist": {
+        "shasum": "4324dd0e08d4ca53a433110d8694ad82a4606bc7",
+        "tarball": "https://registry.npmjs.org/@tanstack/react-table/-/react-table-9.2.4.tgz",
+        "fileCount": 32,
+        "integrity": "sha512-Rzp1Q4e0/nIgEjmISYR5HeEgLTNtrG+C7NFZf/AbCxPO5hg+zC3yNGwcoECigUk8SFzzvhXbd2rFdtP2ZiGrfA==",
+        "signatures": [
+          {
+            "sig": "MEYCIQC9DTULT/8dn3I3JqNlYQbV1Dsgzg8JtQia6L8pDLzvKgIhAPjhnIe3Dm2mfdtBwX2HOwjzCZ+l+/nElfZDSPR0Nzp7",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEUCIFfVg0tVOW95VTRxGM3dWObl/hsRRHdpKfoXOvqeXZC4AiEAllHQESFvYB2FtNE+IaERzByJgRaOIVcT4/UJp7z4jac=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@tanstack%2freact-table@9.2.4",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 134466
+      },
+      "limitation": "Registry evidence is not a browser integration or Ubuntu build test."
+    },
+    {
+      "name": "@tanstack/react-virtual",
+      "version": "3.14.13",
+      "status": "PASS",
+      "url": "https://registry.npmjs.org/%40tanstack%2Freact-virtual/3.14.13",
+      "metadataSha256": "f5e69659f93a30ed1f712e2cc59d1dab61baf18ddd804b898982fa1f82a3b530",
+      "license": "MIT",
+      "engines": {},
+      "peerDependencies": {
+        "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+        "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+      },
+      "repository": {
+        "url": "git+https://github.com/TanStack/virtual.git",
+        "type": "git",
+        "directory": "packages/react-virtual"
+      },
+      "dist": {
+        "shasum": "b30cab7650aef2f05a70297c3861bd3a43013d0b",
+        "tarball": "https://registry.npmjs.org/@tanstack/react-virtual/-/react-virtual-3.14.13.tgz",
+        "fileCount": 9,
+        "integrity": "sha512-JbDTAwtzZ99aOeCrAfW5EsE5KSq5RWh6Af2dtFwyLIIk48Ja7vm6n4axu/43T3vfjFnEGJalxJ1wyYjSQD6bSg==",
+        "signatures": [
+          {
+            "sig": "MEQCIBvVkw9MS8uXKGkgaH1xXIZRHX0GL5X7HZTfrD+wviiHAiBBbEUpxe0ciNRKEwXzwbvdHmCVvnzkhADT/k64En+iqw==",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEUCIQC9b65LJUHii+JlW9QdESW8n5NlNWNrJxR40jZuJ5lI2gIgftycFkkY4Ib/iDjKOvPbN0on0c0IJaa3mNJxYceh5EI=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@tanstack%2freact-virtual@3.14.13",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 60900
+      },
+      "limitation": "Registry evidence is not a browser integration or Ubuntu build test."
+    },
+    {
+      "name": "@dnd-kit/core",
+      "version": "6.3.1",
+      "status": "PASS",
+      "url": "https://registry.npmjs.org/%40dnd-kit%2Fcore/6.3.1",
+      "metadataSha256": "439df9d017fbdd3903fc75a3396f4c46ac852887c9723db87e85df67e7dc2c51",
+      "license": "MIT",
+      "engines": {},
+      "peerDependencies": {
+        "react": ">=16.8.0",
+        "react-dom": ">=16.8.0"
+      },
+      "repository": {
+        "url": "git+https://github.com/clauderic/dnd-kit.git",
+        "type": "git",
+        "directory": "packages/core"
+      },
+      "dist": {
+        "shasum": "4c36406a62c7baac499726f899935f93f0e6d003",
+        "tarball": "https://registry.npmjs.org/@dnd-kit/core/-/core-6.3.1.tgz",
+        "fileCount": 141,
+        "integrity": "sha512-xkGBRQQab4RLwgXxoqETICr6S5JlogafbhNsidmrkVv2YRs5MLwpjoF2qpiGjQt8S9AoxtIV603s0GIUpY5eYQ==",
+        "signatures": [
+          {
+            "sig": "MEQCIHInWuAiKReku3q3esS8/63sNYN1zqdRD3n3MHBQU+miAiAm27rAaKj3b11ElT2ZQcfIVMiOYGXOO8TLE3FjHAPJNA==",
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+          }
+        ],
+        "unpackedSize": 1066148
+      },
+      "limitation": "Registry evidence is not a browser integration or Ubuntu build test."
+    },
+    {
+      "name": "@dnd-kit/sortable",
+      "version": "10.0.0",
+      "status": "PASS",
+      "url": "https://registry.npmjs.org/%40dnd-kit%2Fsortable/10.0.0",
+      "metadataSha256": "9086b106322c162c7303ff41cbf5319286ff9ce74d8ab15a542b6a6744c2184e",
+      "license": "MIT",
+      "engines": {},
+      "peerDependencies": {
+        "react": ">=16.8.0",
+        "@dnd-kit/core": "^6.3.0"
+      },
+      "repository": {
+        "url": "git+https://github.com/clauderic/dnd-kit.git",
+        "type": "git",
+        "directory": "packages/sortable"
+      },
+      "dist": {
+        "shasum": "1f9382b90d835cd5c65d92824fa9dafb78c4c3e8",
+        "tarball": "https://registry.npmjs.org/@dnd-kit/sortable/-/sortable-10.0.0.tgz",
+        "fileCount": 40,
+        "integrity": "sha512-+xqhmIIzvAYMGfBYYnbKuNicfSsk4RksY2XdmJhT+HAC01nix6fHCztU68jooFiMUB01Ky3F0FyOvhG/BZrWkg==",
+        "signatures": [
+          {
+            "sig": "MEUCIB7uYvDWm33fxuup4fKcJ3my+BSxxXJLUDReEgdaqfLUAiEApZWg3ODKxSjo0sC29PDd0AWvbpSXCw71SYKr+mIJ/1M=",
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+          }
+        ],
+        "unpackedSize": 234022
+      },
+      "limitation": "Registry evidence is not a browser integration or Ubuntu build test."
+    },
+    {
+      "name": "dompurify",
+      "version": "3.4.15",
+      "status": "PASS",
+      "url": "https://registry.npmjs.org/dompurify/3.4.15",
+      "metadataSha256": "1a5b51ce79002ad2e8008ef5dfd73ccd9ff1e9167afd9a7d0024618969e52ab5",
+      "license": "(MPL-2.0 OR Apache-2.0)",
+      "engines": {},
+      "peerDependencies": {},
+      "repository": {
+        "url": "git://github.com/cure53/DOMPurify.git",
+        "type": "git"
+      },
+      "dist": {
+        "shasum": "30351b34513894f428c13bddb28bff0a027ae804",
+        "tarball": "https://registry.npmjs.org/dompurify/-/dompurify-3.4.15.tgz",
+        "fileCount": 24,
+        "integrity": "sha512-EUBjM+B+lkDE41iE82DDSCfkoPGfXx8IxFxPMjNzm/Uk4xDet77rTN9wqlxlVg71kK7XGuUMv6wUxJUwwv+Xyw==",
+        "signatures": [
+          {
+            "sig": "MEQCICSii5HUqg51KFmSn6uSKoPwEWY9otZugfUZoqVF7nOzAiBLG9/bQBy9285SC57zl4QBDvXfPKRcipvmbqFGQUqoiA==",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEUCIFsLLwTBj2Y5cKdojQDE2uc/83xf8zhNjfv4e2RpUd/IAiEA53eM1FbWn8rdEpWR880txAEycrkG0s55z6XsVeHIuC4=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "unpackedSize": 1819949
+      },
+      "limitation": "Registry evidence is not a browser integration or Ubuntu build test."
+    },
+    {
+      "name": "papaparse",
+      "version": "5.7.0",
+      "status": "PASS",
+      "url": "https://registry.npmjs.org/papaparse/5.7.0",
+      "metadataSha256": "db432322a792063a9d41786f875005e1576a80f23657371abe873097f058712e",
+      "license": "MIT",
+      "engines": {},
+      "peerDependencies": {},
+      "repository": {
+        "url": "git+https://github.com/mholt/PapaParse.git",
+        "type": "git"
+      },
+      "dist": {
+        "shasum": "791209b95dd3a0ca0b6ed9b64f853bc491a45a65",
+        "tarball": "https://registry.npmjs.org/papaparse/-/papaparse-5.7.0.tgz",
+        "fileCount": 24,
+        "integrity": "sha512-qBGxg/7Q3Kl9Wfhrz2Z74UnvnHTXLNG6jmKJFeBvP2+y4lV7So+7SR62+Zd47JvdrCkX+nDcnr0ObPzek/+6RA==",
+        "signatures": [
+          {
+            "sig": "MEUCIGSvLj8te8Kr0K88lpkIPDWqqQVhgX2LRIdxY3LFrlz3AiEA6psf/BtybMQ4xK3AR1lBLzrSGFuixl2Vhe4fiAnxrP4=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEUCIQDW+1A2IOq7Ii9Cvoas0Uh+LHZjcl0HB2hTCDeztGDX9gIgMEUlNeT2mAgMGKDfRhZSHPDRUxe49oBk7ucmIrgqqbU=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "unpackedSize": 270635
+      },
+      "limitation": "Registry evidence is not a browser integration or Ubuntu build test."
+    },
+    {
+      "name": "exceljs",
+      "version": "4.4.0",
+      "status": "PASS",
+      "url": "https://registry.npmjs.org/exceljs/4.4.0",
+      "metadataSha256": "3ab557c4f67eeffccd913a7ac1584dd5baea3ff5f51a51168fd6682296718c42",
+      "license": "MIT",
+      "engines": {
+        "node": ">=8.3.0"
+      },
+      "peerDependencies": {},
+      "repository": {
+        "url": "git+https://github.com/exceljs/exceljs.git",
+        "type": "git"
+      },
+      "dist": {
+        "shasum": "cfb1cb8dcc82c760a9fc9faa9e52dadab66b0156",
+        "tarball": "https://registry.npmjs.org/exceljs/-/exceljs-4.4.0.tgz",
+        "fileCount": 519,
+        "integrity": "sha512-XctvKaEMaj1Ii9oDOqbW/6e1gXknSY4g/aLCDicOXqBE4M0nRWkUu0PTp++UPNzoFY12BNHMfs/VadKIS6llvg==",
+        "signatures": [
+          {
+            "sig": "MEQCIFwCYQzMOynIoEteDy5mkf5tDosIO5+1hQvB0TjWBZyqAiB6ZAdVCECtIcILmeuNCFT1OWeWASqBdHXnMiXPO0DxPQ==",
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+          }
+        ],
+        "unpackedSize": 21825509
+      },
+      "limitation": "Registry evidence is not a browser integration or Ubuntu build test."
+    },
+    {
+      "name": "pdfjs-dist",
+      "version": "6.3.289",
+      "status": "PASS",
+      "url": "https://registry.npmjs.org/pdfjs-dist/6.3.289",
+      "metadataSha256": "2be9f24f7cb1e81cc4442820ba538af032bc91fa9b8e4fd2ce7ad990e58a9c0e",
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=22.13.0 || >=24"
+      },
+      "peerDependencies": {},
+      "repository": {
+        "url": "git+https://github.com/mozilla/pdf.js.git",
+        "type": "git"
+      },
+      "dist": {
+        "shasum": "9e46d89489782a479f58d674ae5ddde8481aaa17",
+        "tarball": "https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-6.3.289.tgz",
+        "fileCount": 554,
+        "integrity": "sha512-ZHjSVpDa3D6izMq8/04lvkhkATUmL9px6ChPaXc1k6nU2Mrhlg1/7F0bdUqCwUjw3NsPTfPZsMDUU6ZIcRaeQw==",
+        "signatures": [
+          {
+            "sig": "MEUCIHTrXOTUg3r52454XEhkfNnyT7mfHHNQz6FnOwEF1TUbAiEAyME7BuLwtYtiQHe8pKl0bJGhGBhhCJTBLXFqOGse1ng=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEQCIDCSD4pVFLa4IbwK5u9iJ7aWH+XTA0Dc0Y82SNgZseEJAiAX+WaxAHeYWH5fh1wKuJtO0lQ0fBBcaG9dCPht5o3Kpw==",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/pdfjs-dist@6.3.289",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 34781083
+      },
+      "limitation": "Registry evidence is not a browser integration or Ubuntu build test."
+    }
+  ]
+}

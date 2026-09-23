@@ -1,0 +1,13 @@
+view_id,state_id,component_ids,operation_ids,event_contract,viewports,sample_data
+process,ACTIVE,process|timeline,generation.job.read|generation.job.events.read,KCML-LIVE-EVENT/1,390x844|768x1024|1366x768|1920x1080,DEMONSTRATION_ONLY
+dashboard,ACTIVE,topology|process|objectPanel,component.list|component.read,KCML-LIVE-EVENT/1,390x844|768x1024|1366x768|1920x1080,DEMONSTRATION_ONLY
+dashboard-empty,PLANNED,topology|chat,generation.job.create,KCML-LIVE-EVENT/1,390x844|768x1024|1366x768|1920x1080,DEMONSTRATION_ONLY
+dashboard-stale,WAITING,topology|notice,audit.stream.replay.request,KCML-LIVE-EVENT/1,390x844|768x1024|1366x768|1920x1080,DEMONSTRATION_ONLY
+context-menu,ACTIVE,topology|objectMenu,component.read|component.enable|component.disable,KCML-LIVE-EVENT/1,390x844|768x1024|1366x768|1920x1080,DEMONSTRATION_ONLY
+object-detail,SUCCEEDED,objectPanel|timeline,component.read|component.state.query,KCML-LIVE-EVENT/1,390x844|768x1024|1366x768|1920x1080,DEMONSTRATION_ONLY
+inputs-outputs,SUCCEEDED,objectPanel|table|preview,generation.artifact.list,KCML-LIVE-EVENT/1,390x844|768x1024|1366x768|1920x1080,DEMONSTRATION_ONLY
+live-communication,WAITING,topology|eventPanel,audit.event.list,KCML-LIVE-EVENT/1,390x844|768x1024|1366x768|1920x1080,DEMONSTRATION_ONLY
+failure,FAILED,process|errorPanel,generation.job.read|generation.job.retry,KCML-LIVE-EVENT/1,390x844|768x1024|1366x768|1920x1080,DEMONSTRATION_ONLY
+human-wait,HUMAN_REQUIRED,process|browserPanel,browser.session.snapshot.read,KCML-LIVE-EVENT/1,390x844|768x1024|1366x768|1920x1080,DEMONSTRATION_ONLY
+multi-component,ACTIVE,topology|dependencyPanel|process,generation.plan.read|generation.plan.validate,KCML-LIVE-EVENT/1,390x844|768x1024|1366x768|1920x1080,DEMONSTRATION_ONLY
+specification,PLANNED,specEditor|impactPanel|chat,generation.spec.propose|generation.spec.precheck|generation.spec.approve,KCML-LIVE-EVENT/1,390x844|768x1024|1366x768|1920x1080,DEMONSTRATION_ONLY

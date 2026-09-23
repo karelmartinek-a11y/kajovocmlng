@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import re,json,hashlib,sys
-p=Path(sys.argv[1] if len(sys.argv)>1 else 'KajovoCMLNG_SSOT.md')
+p=Path(sys.argv[1] if len(sys.argv)>1 else 'KájovoCMLNG_SSOT.md')
 t=p.read_text('utf-8'); b=t.encode('utf-8')
 DIALECT='https://json-schema.org/draft/2020-12/schema'
 

@@ -1,0 +1,53 @@
+{
+  "scope": "Schema fixtures and reference semantic checks, not a live history backend query. IANA-zone admission and cursor signing remain product integration checks.",
+  "checks": [
+    {
+      "id": "query.valid-fixture",
+      "status": "PASS"
+    },
+    {
+      "id": "result.unavailable-explicit",
+      "status": "PASS"
+    },
+    {
+      "id": "query.reject-bad-date",
+      "status": "PASS"
+    },
+    {
+      "id": "query.reject-unbounded-page",
+      "status": "PASS"
+    },
+    {
+      "id": "query.reject-unknown-filter",
+      "status": "PASS"
+    },
+    {
+      "id": "query.reject-invalid-channel",
+      "status": "PASS"
+    },
+    {
+      "id": "result.reject-complete-without-coverage",
+      "status": "PASS"
+    },
+    {
+      "id": "result.reject-unavailable-without-source",
+      "status": "PASS"
+    },
+    {
+      "id": "result.empty-complete-with-evidence",
+      "status": "PASS"
+    },
+    {
+      "id": "result.reject-partial-without-missing-source",
+      "status": "PASS"
+    },
+    {
+      "id": "semantic.ordered-interval",
+      "status": "PASS"
+    },
+    {
+      "id": "semantic.empty-interval-rejected",
+      "status": "PASS"
+    }
+  ]
+}

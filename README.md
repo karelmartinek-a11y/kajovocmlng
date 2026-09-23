@@ -1,11 +1,9 @@
-# KájovoCML NG — development SSOT
+# KájovoCMLNG SSOT package
 
-**Freeze is blocked.** This package contains normative contracts, UI references and reproducible validation. It does not claim a completed first edition, a running implementation or production acceptance.
+The canonical specification is [00_SSOT/KajovoCMLNG_SSOT.md](00_SSOT/KajovoCMLNG_SSOT.md). Embedded machine-readable contracts are authoritative; extracted UI files are projections. Audit evidence does not introduce another normative source.
 
-Start with [the Czech guide](README_CZ.md), [the SSOT](00_SSOT/KajovoCMLNG_SSOT.md), [the final audit](audit/FINAL_AUDIT.md) and [the machine-readable audit](audit/final-audit.json).
+This repository contains specification, validation and presentation artifacts, not the product implementation. See the [Czech entry index](README_CZ.md), [audit status](audit/FINAL_AUDIT.md), [quality checks](QUALITY_ASSURANCE.md) and [UI references](03_UI_REFERENCE/index.html).
 
-Run `python scripts/verify_package.py` for structural and integrity checks. Run `python scripts/verify_package.py --freeze` for the strict semantic gate. The latter must fail while unresolved findings remain. Literal PASS values in embedded historical audits are not proof of current package readiness.
+Generate projections with `python scripts/project_experience.py`; verify them with `--check`. Render Czech references with `python scripts/render_live_views.py --render`, or English references by adding `--locale en`. All operation examples are explicitly labelled sample data.
 
-The reference dashboard and specification editor are in `03_UI_REFERENCE/pages/`. They use explicitly labelled sample states; their controls expose canonical operation contracts and never pretend to execute production commands. The 48 responsive reference renders cover 12 states at four viewport sizes. See [visual bindings](01_UI_CONTRACT/ui/contracts/visual-artifact-bindings.json).
-
-UI JSON resources mirrored from the SSOT must stay byte-identical. CSV matrices, catalogs and PNGs are generated views. `PACKAGE_MANIFEST.json` inventories all files; `FILE_MANIFEST_SHA256` hashes every file except itself. Git supplies the manifest's own immutable identity.
+No freeze, release or production deployment is performed by this task. A passing individual validator is not evidence that the complete package is ready for implementation or freeze.

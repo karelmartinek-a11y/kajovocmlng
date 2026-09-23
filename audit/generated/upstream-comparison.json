@@ -1,0 +1,716 @@
+{
+  "upstreamCommit": "d7e121bdc5f9c0b4aa0cc476f35178bacdfadd2e",
+  "baseCommit": "0ea5bf6b90ae4246956d1d76387ab540dc842f79",
+  "files": [
+    {
+      "path": ".github/workflows/ssot.yml",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "7607fed3ee48a6ba8f20b303a9455aaf38a5a911c1196b15f54a2cfbfcb66fce"
+    },
+    {
+      "path": ".gitignore",
+      "localExists": true,
+      "localSha256": "42c2f135b8cc0c60e5059467a86a55eb93816d712911894e97bb4aec5db837c6",
+      "upstreamSha256": "827fdfda81856ac69fca8453b063541c79071a60d0530a3303ad13f9c08d7991"
+    },
+    {
+      "path": "00_SSOT/KajovoCMLNG_SSOT.md",
+      "localExists": true,
+      "localSha256": "6f2c9b75c4b42ec5a404995540546b9b2c01a196ee96e72c04ac80e1f673d112",
+      "upstreamSha256": "c13249f7b094a8b0947afe71fe93ce4eb4647174c88ba3e86bfecf6b0ddbba5e"
+    },
+    {
+      "path": "01_UI_CONTRACT/DIALOG_INPUT_MATRIX.csv",
+      "localExists": true,
+      "localSha256": "145d7ae9e1ca2aab365d9e16f7de19183ff019d7d64be276c3036423d0df3292",
+      "upstreamSha256": "b10be1a1c745b1aed38146fe5d0ed93f3ee33b0580066512c6a7cba670d82e0b"
+    },
+    {
+      "path": "01_UI_CONTRACT/UI_CATALOG.md",
+      "localExists": true,
+      "localSha256": "24de206308fe66cc466374dca383f5487141fa1290e46ea5dcf0337051d32db8",
+      "upstreamSha256": "15e76b95c63fc46b998714d2840612693604fd2443557c8bca534d402388d319"
+    },
+    {
+      "path": "01_UI_CONTRACT/UI_CONTROLS.csv",
+      "localExists": true,
+      "localSha256": "0859b0b5725eb80f319b1a88f188a2907f3f7620346ee3455e7fc0971424af02",
+      "upstreamSha256": "c893a55536778e76d17dd00ae6e55faf850423260a270999adbab3637aba4824"
+    },
+    {
+      "path": "01_UI_CONTRACT/UI_DIALOG_CATALOG.md",
+      "localExists": true,
+      "localSha256": "37470f3ea4c9a0cc27e2bc777d0d835f16b108905f68f16fe14f69431076a7f5",
+      "upstreamSha256": "a1bb0311b1ce71640fc8b6811c80f3f4fe28ba84fc99c64703a0d4c144fa8584"
+    },
+    {
+      "path": "01_UI_CONTRACT/UI_FUNCTION_PARITY.csv",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "db78efc61b25eba082b9fbc0366c95852ed286a6fb2e46c3e9cfcd8d7f8ded88"
+    },
+    {
+      "path": "01_UI_CONTRACT/closure/contracts/ui-action-resolution.json",
+      "localExists": true,
+      "localSha256": "0fe5c2e68dc4e9c5bdbe65a363208a4c915ee1d032561206a2d267c8bf1bed48",
+      "upstreamSha256": "f5021065ca8c55430a439be0d002485f5ae01defcbead4bd1851f9f1ad0070e9"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/audit/ui-coverage.json",
+      "localExists": true,
+      "localSha256": "367afb5c4ba684b94d061488369d411bd1c9a7c008cfeaaf5b543238ec10ce72",
+      "upstreamSha256": "bd5f268d06625281e4049cf1348e8d835567b941613a95c4ebf95b459c0d3433"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/error-message-registry.json",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "1f6993f08f53056495ce6c6687f5c71e472a8aa75f505205ca19b419f899a4db"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/error-record.schema.json",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "6e4905bae099c7148bace401ef3f29f009cad2a7ad2a122a74e3c7e2e39a181f"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/history-query.schema.json",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "f54dc9c1ab0d1d209ea8f207d64430470668560fe43999ea925a4dc052de58ba"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/live-event.schema.json",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "df2dbeeef2b66e77be2d99ebebbd75b84f3d9ce8d021892becd4c0d8156ed8f1"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/live-stream-policy.json",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "e6a01eb065322a01e7d83d777fb618fd9bdaf99a2f50ae533b6e4298696e48d3"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/observability-query-contract.json",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "6dc5fcd7317b6a52cd32826bc42227ffe748ce0ec3b0d39ac64c01d25cd1c4b0"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/process-visual-registry.json",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "79161c623131b734f3f6172ce41b9a09a4103564ab15b18b4a2c4242ce6dcf36"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/secrets-channel-parity.json",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "5d9c2fabb8f995a8c46adf0f44cfb1354ac8012f3797fd744b3510f259b8befd"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/solution-planning-contract.json",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "10f391986e7ba4ac609dd8562be255cce458433bf5bbbffb28bf3004bf9761f7"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/solution-specification.schema.json",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "820a0c7b58dbef6d55f544bb942acbcea5eddaf9ffdcf25e4feae57c15193273"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/ui-control-registry.json",
+      "localExists": true,
+      "localSha256": "d59fb06aabf8fdbfea5079acb6f1ad46e37fd86af687a69ba2d03b30eb18a528",
+      "upstreamSha256": "d8ea658c11d229966df0081933c7c51dd608473a9f5d688ae6f215ad7f3f1a79"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/ui-stack-contract.json",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "6fbd4d2912f2cafcdbeabdcdc32196b9e4f0c18e18243dcd90b0fd5586d50f7b"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/visual-artifact-bindings.json",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "a7388cef59830e1703018cbf9099e3d900886771306725f165ec6bb7c01cd19e"
+    },
+    {
+      "path": "03_UI_REFERENCE/assets/workspace.css",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "7996124087a9767e786e3249e8e463390478814b851c3499b85a59c8d1af28f0"
+    },
+    {
+      "path": "03_UI_REFERENCE/assets/workspace.js",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "4769bd6239941446e2bf70fa121d06c5d6949e4d974d3700502dd160c65dde3f"
+    },
+    {
+      "path": "03_UI_REFERENCE/dialogs/pending-operation.html",
+      "localExists": true,
+      "localSha256": "f8925224abecdd102017cc147b77d89cd39c610f6a69d183e79d9c5ea3d81eca",
+      "upstreamSha256": "47417db1996b5e5790747032f92bb4fb325f093dbb74f88967692f8915620300"
+    },
+    {
+      "path": "03_UI_REFERENCE/index.html",
+      "localExists": true,
+      "localSha256": "910b6d9798066da7195e598ead1d303116c514f78510a6dc9da13b7bcd30f8ae",
+      "upstreamSha256": "bf0b7f97eeaba03e581b801bfe4b4f6d56ab566065731b49c987910b7e369d69"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/dashboard.html",
+      "localExists": true,
+      "localSha256": "bd1fccd3f3fee2023116df3b14089bf437faa1984c5e9af1332955cfdcbcb318",
+      "upstreamSha256": "6823ce420f7280527000cf2ad0737b0484d74d4b48a88057b0256b8807bcf479"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/generation.html",
+      "localExists": true,
+      "localSha256": "8f450c68040279a8ddc4d7c9457a942debe3a367104eb0397c299354fdea40ca",
+      "upstreamSha256": "6823ce420f7280527000cf2ad0737b0484d74d4b48a88057b0256b8807bcf479"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/dashboard.png",
+      "localExists": true,
+      "localSha256": "6f54d10ed8b5f849e2d8b264e558575987b79b3e7de93d0af8cb0c7898a80dd8",
+      "upstreamSha256": "75033522b1cf1ff5b0133c678db08aa7c6b3f006e9c1ec2fb9d20f8965015c06"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/generation.png",
+      "localExists": true,
+      "localSha256": "2cd8f521b7b020d80bf8424dcf8f26fa975055d77547820597da95176539404c",
+      "upstreamSha256": "9248ffe74aed98fcbdc6e4938c7b2a56d1ed98899b4ef5dea51dcd7c6e453b74"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-detail.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "208f325f6775dd0f0ee1bc2c279c2343cb0a58eab30aaa32125e5a0bc1baba73"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-empty.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "000c7850234b7697ab8c4300b21842de4e94f05f92e771ab82afb9619ea91b81"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-error.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "fadf2d84d4c158ff1490dae3d4a85e903b7da65bda3c9e72ef2e4cbad51cee2a"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-inputs.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "ea0e006777b8afff6d508a184695f9badef9527bf86de0ce66e1e6f74be86cb0"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-live.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "73fd1ed50615a130f4c1216dbcde9b1479aae5e99c616ce887e9f7687a97056a"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-menu.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "3de4528916c671f6eb9b442f104f56a8b6bb2ae4813042dcdb35cd7c4e8fd3c4"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-multi.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "6dec0d4eb977ff1aef96ea23b098e83e7ceb7fc9d699218bb9b0ff02cd53ce6d"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-progress.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "1535856207222f032cbcda43cd6002833b08092793ffa45caaffac94129655a8"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-ready.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "75033522b1cf1ff5b0133c678db08aa7c6b3f006e9c1ec2fb9d20f8965015c06"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-specification.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "9248ffe74aed98fcbdc6e4938c7b2a56d1ed98899b4ef5dea51dcd7c6e453b74"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-stale.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "2ae61e7b0acc14a6caba6824222d82998681c9beef3382fe908390a36a5bd8f6"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-waiting.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "0fdbbc92c864d5691fa37aa3b924b28ac3759c24483d2dab8fe8d3507cadf32d"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/dashboard.png",
+      "localExists": true,
+      "localSha256": "475cce560ae8050f8665caa6f29147fdc51101305dea959e150c8b01a2e2241f",
+      "upstreamSha256": "45c8a4bf4fc86dbfcb3c6e562a2c6602fc8a5491484ae60d5106181d71bee96d"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/generation.png",
+      "localExists": true,
+      "localSha256": "e18d557af5e7c2c56e3a0bad64acc1986f3493fb019faed5e5e892d0ad30011b",
+      "upstreamSha256": "d5532d0aaa88790691160262acc19e6b81cdea8764b966b6a3a4933ba553c0ad"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-detail.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "31c2283c5c53460931897aef6ed0d0538ce633d030006906634620c7899900b3"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-empty.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "214cec06ae83721fe8e3db29fc00483cef7cabb4d7477071fe2beb9499767083"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-error.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "2d5c8f8271c043e08fe59bac118f633374ac6b080198a729dae4d71f72dd8dfc"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-inputs.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "00ec02b66002ad42d634bacd19f54363415385240f68e6ab8f809c227d353fce"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-live.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "ebdd12ab96de313e11513444757bcc8b5b16b229dea013edd08c79cc87cef944"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-menu.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "f08d0a16917f213a0639567d0685956d4e473d52c8cb9b5d1df28263ed4b26e9"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-multi.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "c59d62a179306cd7d08ba0ce9a5b7f2b1446287e12aa349771dfa5e2d314238b"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-progress.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "250f6f65a03a72561688d3ed79e4eaa1281b4529022a7333f4118c63ebce3cf5"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-ready.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "45c8a4bf4fc86dbfcb3c6e562a2c6602fc8a5491484ae60d5106181d71bee96d"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-specification.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "d5532d0aaa88790691160262acc19e6b81cdea8764b966b6a3a4933ba553c0ad"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-stale.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "cdb6c6067d49b30b5d335028b5145003e294596424b485c060cec7cd68d6df1f"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-waiting.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "53fd677ffe613ab65438fd6760d09fdd99dc20462c3f892e780abeed44ec7fb8"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/dashboard.png",
+      "localExists": true,
+      "localSha256": "beb69305fbbcef837b78b29ce297282a6aa2ea8a24ffc1f56cdb71a02e8dac05",
+      "upstreamSha256": "cff84e225d519aa3ba898af80afc0deb9d0797ab7a7cc5bcfebd890fbff71ca1"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/generation.png",
+      "localExists": true,
+      "localSha256": "f3ac011b1176d2a2ff1453decc5ca63c94111e277cc6af2392615de525298cf5",
+      "upstreamSha256": "89bcf2cc52a3db244bd6bcd39370c4b65a762328b37048f58689ef280cfa8549"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-detail.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "5485445eecacab8418f7ca128ff6092bfda7130d7decbf04edb5b90666038406"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-empty.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "c363ae9bd7a9d62cff2b51eb85d1714d0f0cc700508e66d5b217568af692e799"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-error.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "c321ebe6515a7a3bbd314bbfd4109cbb1d50f9e4f4ac20302a63041a13d6f616"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-inputs.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "7a73dbe1effc03caa0900ded66e74cf64823dc8230feea576acc9284222ea935"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-live.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "85261046a1b5a689b0670ef5a9c564d78635e1cca878872bb871c5e7f9eeda6c"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-menu.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "386673bc2f0528251034b6bec337b2bb4e5d937e29fe6f313bbf9151a2e88f2e"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-multi.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "08e8f6e036fbdac1dde9d69516bd0fb963cce1e039f1cc57f80435ce28f70cf4"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-progress.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "2a52fc7a81fcd791daee99bc9055066ed9188a637e8f9f4d42b2a81fcf3c594c"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-ready.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "cff84e225d519aa3ba898af80afc0deb9d0797ab7a7cc5bcfebd890fbff71ca1"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-specification.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "89bcf2cc52a3db244bd6bcd39370c4b65a762328b37048f58689ef280cfa8549"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-stale.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "bc625cd201148261aeee361104557f4c723baa12fe9a6bb8be35095824292d5c"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-waiting.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "3cdd1bfc5d4e30ebae20e442c4b9be056eff63643e61d9d1911b68e4e674dabf"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/dashboard.png",
+      "localExists": true,
+      "localSha256": "2bf8e549e2dd32a4fb5e1e8e3560af7354d338dea0d9531fc3d0aae300fab8e0",
+      "upstreamSha256": "b3f2b0f053ebe235e18df80c339fe81e7c4e609fdd7adb87bd2efcca9704a7e8"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/generation.png",
+      "localExists": true,
+      "localSha256": "59264309e895d555daa20806836dfefc8ea1cd103a42881a524c24527f6842ee",
+      "upstreamSha256": "a35835d5d2ed4f88ae715a304a2dcedaab16c2a2ed2aa1dcbbec2f00d18579fe"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-detail.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "c5572296bf698bb090aa32e4a0c48b6968de2ad463491668cfb163481170e9c5"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-empty.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "b07547db89e169479ada22f3ea687feb047fb2d8411f821453b6a1e136b17b7f"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-error.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "b3d7d84b7df6d1078febb111ef7854f71a7b2636bc4a5af023d8a1cb0e4c816d"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-inputs.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "d4009a99eacfa74f3be07eba832260b358f989914314aa62da6523b350063fac"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-live.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "89c62599031ac48715988f0b3ba6f2ae0a030905d25296f0f809cd78bffddc77"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-menu.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "da7498df8736870df04a495faa3991137e7b677191bfa9941e1cb4f101a56616"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-multi.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "24b596e9dd91fe10ac888ccda3c6034bdf7d7efe8b9f2de4a1735ec84f90eb62"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-progress.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "c1209684991aaf3939f54566885b246fa6263f6f1864bfb1f1f3775c2a4f04c0"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-ready.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "b3f2b0f053ebe235e18df80c339fe81e7c4e609fdd7adb87bd2efcca9704a7e8"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-specification.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "a35835d5d2ed4f88ae715a304a2dcedaab16c2a2ed2aa1dcbbec2f00d18579fe"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-stale.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "312e63c3bbae5721308ef1384b757aa38e6583fa9aaa0fbcfb51361b8bd36700"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-waiting.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "40d8f4fc7b0e05c8c78d12fa12be12b4a6b06a18784565d4e40e368ce16b3aeb"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1366x768/pending-operation.png",
+      "localExists": true,
+      "localSha256": "f750cac998332d03a294ebb21553d08f4285388ba6d3ba45ec25f603fb02ddfc",
+      "upstreamSha256": "1535856207222f032cbcda43cd6002833b08092793ffa45caaffac94129655a8"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1920x1080/pending-operation.png",
+      "localExists": true,
+      "localSha256": "420e7db6ac86e79df33a9a186b827f4b66f3e89d487d4b5b9f37c514d638f0dc",
+      "upstreamSha256": "250f6f65a03a72561688d3ed79e4eaa1281b4529022a7333f4118c63ebce3cf5"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/390x844/pending-operation.png",
+      "localExists": true,
+      "localSha256": "f4994d1239d7ef74c46bc6b191a619e6bcc3ff79a390ead5b037aa6fe9dbe6ca",
+      "upstreamSha256": "2a52fc7a81fcd791daee99bc9055066ed9188a637e8f9f4d42b2a81fcf3c594c"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/768x1024/pending-operation.png",
+      "localExists": true,
+      "localSha256": "70bf87b00fa0063cfb1606ccf6d54b809c25aad275660bc3209c94c34a2c3d3f",
+      "upstreamSha256": "c1209684991aaf3939f54566885b246fa6263f6f1864bfb1f1f3775c2a4f04c0"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/VIEW_INDEX.md",
+      "localExists": true,
+      "localSha256": "9c4c274eee46ccbfdbb420620010f37afd6e416dd075ed5984ff817e599d85ed",
+      "upstreamSha256": "e4c832ffd656f406e90c481f4c390af9fb4a27d490108b89214d544eaf879647"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/dialogs-1366x768.png",
+      "localExists": true,
+      "localSha256": "c113057ae7ad1d9904a5a946bd8cff764f49e0661a2679e73b0544bc6fe914f6",
+      "upstreamSha256": "60778f7e5d4150bee275ad474c04e552af4857f34a6c663fc3be25ce14b61404"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/dialogs-1920x1080.png",
+      "localExists": true,
+      "localSha256": "00c54dba87e052e365543d3e21b45475bb9129ae06a78ff258239d1638c0db5f",
+      "upstreamSha256": "5a62eaed6e0ea66cae346bcd37f14aca33f8ea970ee11c99724b04c7e6096218"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/dialogs-390x844.png",
+      "localExists": true,
+      "localSha256": "d227b83cdc4a025d5738d2de39ebe336f5235788ff2e4c8b1e615608c11cfbb4",
+      "upstreamSha256": "c5660e7940eb3acecca8d772d06c23ae8a4de677162b10ba312a12e254fbd296"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/dialogs-768x1024.png",
+      "localExists": true,
+      "localSha256": "4bd4b479648c91234538e32aa584a85c7f181ef4c83b826ce07921b2fcd5ada3",
+      "upstreamSha256": "7219abb47bc2f44e332b0d771140f83378a8808a467d30eaa1a42ef987546c29"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/pages-1366x768.png",
+      "localExists": true,
+      "localSha256": "16e46b21c7552190ea968c8e6d4e10cf554418080a7b58cdfed372e86d56931d",
+      "upstreamSha256": "ac6f04f0b6b93c447aaba6486b772c11cf5e58cb9df7c86bb6e6271487572931"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/pages-1920x1080.png",
+      "localExists": true,
+      "localSha256": "45122c97d362ff362f014b556721d8ba081290b5b6bf1cda791c823cd60e7354",
+      "upstreamSha256": "76a08ab6d54361aa3555fdb3fa20e9a0a76adc97b4e74bcef5efd3cfe9e5f1a2"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/pages-390x844.png",
+      "localExists": true,
+      "localSha256": "8ce39879597f0555f2618a7e5de34b429d9e4fcaea60a9714b150fe8e4347a3a",
+      "upstreamSha256": "f5df2227b3167bb7fa997052dda6270f79ded1c69c3615b76be5842d4fca7e0f"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/pages-768x1024.png",
+      "localExists": true,
+      "localSha256": "223b83ef3312402090530d3c6612081429440e403fbfbcd6545812f7367b77cf",
+      "upstreamSha256": "7826603ff0da35880f7279ea7de111dcedc29907799026651733b412841a728a"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/workspace-1366x768.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "e41e88d4bc4d52c3935588456a1c5aef39fb7b2d2054817315be1b8f0bb49604"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/workspace-1920x1080.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "058a64fce853c2a997580597513b2f781632423b1802570475702a6ca1b9a165"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/workspace-390x844.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "03b40336d2111d78b4db38686be4b634eea3eaa4c3b43bd5dcc56debd0cf4aaf"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/workspace-768x1024.png",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "04bf2cc373ce3cea7a55c8e53fbaa760d389b04503cc3e7eab8c902b38656e77"
+    },
+    {
+      "path": "FILE_MANIFEST_SHA256",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "bd942e9078816851b636e39c536a18457d372913348669a2674b0127b5767f70"
+    },
+    {
+      "path": "PACKAGE_MANIFEST.json",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "60a8cd5c43e0305f4e115c883b76a16567483d3c05e5feac2811ad290b816f4a"
+    },
+    {
+      "path": "QUALITY_ASSURANCE.md",
+      "localExists": true,
+      "localSha256": "52cbf78ab760c0406e3efe287cccb686c7a6dc43d76281cb47ff464a205940f6",
+      "upstreamSha256": "77e04825efdf9f070ea13bd93144084e318a602c08c13707572052cd6e2e4f4c"
+    },
+    {
+      "path": "README.md",
+      "localExists": true,
+      "localSha256": "ceea78856642c99b3d4a386f9fe4794c22c7fc1cc29f5baffe8f5ab845d5d02b",
+      "upstreamSha256": "fc4364b310b347d8be1e0f2c9519ebd7a57385d20e34ae6a1ccb332ebdd0f0c2"
+    },
+    {
+      "path": "README_CZ.md",
+      "localExists": true,
+      "localSha256": "b9c7a536d7bac486f6b24e660a2720740da8ee596ae4e1949bec4846c37bace0",
+      "upstreamSha256": "8492d3ac5935233d4df9bb348504106dd0dc6b254a0df459a5e77dff214c9df0"
+    },
+    {
+      "path": "audit/FINAL_AUDIT.md",
+      "localExists": true,
+      "localSha256": "3a3d4e484b964c92f8d3a51a39d9773f81fa4faff11af27cda8c583336f4776e",
+      "upstreamSha256": "5c4dbc7421c58593ce7e3e86658b3da1dd3499fef9aca6330cc01c3bd2521051"
+    },
+    {
+      "path": "audit/final-audit.json",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "67a477ab6fda3f47f101cbe688cb96aebb7f59ad1c2c8f2fc38fd92806aac203"
+    },
+    {
+      "path": "audit/visual-validation.json",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "62bf1fe84234950038bb9ef372a97acea5f84a49a63e771ee3ce4c0dff17cef9"
+    },
+    {
+      "path": "scripts/refresh_embedded_integrity.py",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "5a93a280e44567cba7d3301db4bd935427c46ab21578bf3c50ebf5caefc39a52"
+    },
+    {
+      "path": "scripts/regenerate_ui_projections.py",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "7d816fa92d385ee6c0ae4f07aaaba8b05841ec5eeae9c461d2e286ef59c17e77"
+    },
+    {
+      "path": "scripts/render_overviews.py",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "3cd1fed2c879237dd155e25078fa9f0fcc6b4eba0f1b390f7031e8e4d40ec2a9"
+    },
+    {
+      "path": "scripts/render_reference.mjs",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "d5a08ba62f476c795df22679400c932acf92d66bec261aa370826b1a36987fbf"
+    },
+    {
+      "path": "scripts/ssot_resources.py",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "47431ea05eed5e071a25117b2ba9f7b2e0d5133d75b2a6323d3786e3bec471e5"
+    },
+    {
+      "path": "scripts/update_manifests.py",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "54f2db5f1b56c14739e2af4823fccab576703549dac525726ac194c7fa7d6857"
+    },
+    {
+      "path": "scripts/verify_package.py",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "74bc4318404ffce8d485ef22f1f7eb92db426fe7fb2034b3ce48961834dcb995"
+    },
+    {
+      "path": "scripts/verify_visual_contracts.py",
+      "localExists": false,
+      "localSha256": null,
+      "upstreamSha256": "726695a0022cefbe65f6e52ae5022e81384b2b62185a85b8d4051a5cc5d207bc"
+    }
+  ],
+  "status": "REVIEW_IN_PROGRESS",
+  "pendingOwnerDecision": "AUD-007 Secrets policy conflict"
+}

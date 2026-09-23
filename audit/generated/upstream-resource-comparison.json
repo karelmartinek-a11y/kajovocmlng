@@ -1,0 +1,82 @@
+{
+  "localCount": 320,
+  "remoteCount": 325,
+  "remoteOnly": [
+    [
+      "KCML-EMBEDDED",
+      "r4-recovery/finalize_delivery.py"
+    ],
+    [
+      "KCML-R5-RESOURCE",
+      "r5-manifest.json"
+    ],
+    [
+      "KCML-R5-RESOURCE",
+      "scripts/r5/derivation/source-declarations.json"
+    ],
+    [
+      "KCML-R5-RESOURCE",
+      "scripts/ssot/audit_checks.py"
+    ],
+    [
+      "KCML-R5-RESOURCE",
+      "scripts/ssot/ssot_control.py"
+    ],
+    [
+      "KCML-R7-RESOURCE",
+      "r7/manifest.json"
+    ],
+    [
+      "KCML-R7-RESOURCE",
+      "r7/provenance/source-inventory.json"
+    ],
+    [
+      "KCML-R8-RESOURCE",
+      "r8/manifest.json"
+    ]
+  ],
+  "localOnly": [
+    [
+      "KCML-ERRORS-RESOURCE",
+      "ui/contracts/error-presentation.json"
+    ],
+    [
+      "KCML-ERRORS-RESOURCE",
+      "ui/contracts/error-presentation.schema.json"
+    ],
+    [
+      "KCML-EXPERIENCE-RESOURCE",
+      "ui/contracts/live-experience.json"
+    ]
+  ],
+  "differentCommonResources": [
+    [
+      "KCML-CLOSURE-RESOURCE",
+      "closure/contracts/ui-action-resolution.json"
+    ],
+    [
+      "KCML-CLOSURE-RESOURCE",
+      "closure/scripts/verify_final_closure.py"
+    ],
+    [
+      "KCML-R11-RESOURCE",
+      "r11/contracts/r10-operation-contracts.json"
+    ],
+    [
+      "KCML-R13-RESOURCE",
+      "r13/contracts/effective-precedence-index.json"
+    ],
+    [
+      "KCML-UI-RESOURCE",
+      "ui/audit/ui-coverage.json"
+    ],
+    [
+      "KCML-UI-RESOURCE",
+      "ui/contracts/ui-control-registry.json"
+    ],
+    [
+      "KCML-UI-RESOURCE",
+      "ui/scripts/verify_ui.py"
+    ]
+  ]
+}

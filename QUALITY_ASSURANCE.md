@@ -1,21 +1,42 @@
-# Quality assurance
+# Ověřování SSOT balíku
 
-## Meaning of results
+Kontroly se spouštějí z kořene repozitáře. Python závislosti jsou připnuté v `requirements-audit.txt`; renderování navíc vyžaduje `python -m playwright install chromium`. Instalace závislostí není důkaz ověření kontraktů.
 
-`audit/final-audit.json` is the current package-level evidence. `structuralStatus=PASS` means the implemented structural checks passed; `status=BLOCKED` means the package cannot be declared complete or freeze ready. Read the blocker details before implementation admission.
+| Kontrola | Příkaz | Důkaz v `audit/generated` |
+|---|---|---|
+| Inventář, formáty, vložené hashe a komprimované podklady | `python scripts/audit_inventory.py` | `inventory.json` |
+| Pět existujících SSOT bran | `python scripts/run_baseline_gates.py` | `baseline-gates.json` |
+| Stavy, události, lokalizace a parity bindings | `python scripts/verify_experience.py` | `experience-validation.json` |
+| Chybový registr a negativní případy | `python scripts/verify_errors.py` | `error-validation.json` |
+| Priorita a podmínky klasifikace poskytovatelů | `python scripts/verify_provider_mapping.py` | `provider-mapping-validation.json` |
+| Omezený retry profil a jeho zákazy | `python scripts/verify_retry_profile.py` | `retry-validation.json` |
+| Historické dotazy a úplnost dat | `python scripts/verify_observability.py` | `observability-validation.json` |
+| Konkrétní odkazy na command/response schémata | `python scripts/verify_schema_references.py` | `schema-reference-validation.json` |
+| Zachování pravidel Secrets | `python scripts/verify_preserved_policy.py` | `preserved-policy.json` |
+| Shoda projekcí | `python scripts/project_experience.py --check` | výstup příkazu; zahrnuto v experience validation |
+| Inventář UI a operací | `python scripts/build_parity.py` | `function-parity.json` |
+| Pokrytí chyb | `python scripts/audit_errors.py` | `error-coverage.json` |
+| Prezentační interakce | `python scripts/verify_reference_interactions.py` | `reference-interactions.json` |
+| Metadata vybraných UI verzí | `python scripts/verify_ui_stack.py` | `ui-package-evidence.json` |
+| Instalace a striktní typová kompatibilita UI knihoven | `python scripts/probe_ui_stack.py` | `ui-stack-probe.json` |
+| Render CS / EN | `python scripts/render_live_views.py --render [--locale en]` | `live-render-checks*.json` |
 
-The checks cover the repository inventory, strict JSON parsing, Python syntax for active resources, all embedded resource byte counts and hashes, compressed capsule integrity, UI mirror equality, action/field CSV projections, exact operation IDs, visual process-family coverage, new JSON Schema compilation, error record fields and unique codes, graphical artifact bindings, and the R9/R10/R16/UI/CLOSURE/R17 validators. The verifier detects opaque route payloads and incomplete inherited error predicates instead of trusting embedded claims of completeness.
+Selhání se neopravuje oslabením testu. Negativní případy musí zůstat odmítnuté. Referenční testovací oracle není implementace backendu. Kontrola přetečení nezastupuje vizuální kontrolu čitelnosti, překryvů a funkční konzistence.
 
-Historical audit-only fragments are inspected and reported separately. Their literal PASS, revision markers and preserved source digests are provenance; they cannot grant current readiness. A truncated historical script is preserved as evidence and never executed.
+## Kritéria výsledných gate
 
-## Visual verification
+| Gate | Nutné podmínky |
+|---|---|
+| FORENSICALLY COMPLETE | Úplný inventář všech vrstev, dohledatelná autorita a pokrytí, žádný nevypořádaný rozpor nebo nekontrolovaný normativní obsah. |
+| IMPLEMENTATION READY | Konkrétní schémata vstupů a výstupů, uzavřené lifecycle a recovery, ověřený stack, přesná realizovatelná rozhraní bez povinných chybějících rozhodnutí. |
+| VISUALLY CLOSED | Povinné stavy a viewporty mají aktuální render, vizuální kontrolu, přístupné ovládání, úplnou CS/EN lokalizaci a vazbu na platné kontrakty. |
+| CONTRACT CLOSED | Každá operace, událost, chyba a přechod má úplný kontrakt; reference se rozlišují na konkrétní platné cíle; negativní testy odmítají porušení pravidel. |
+| FREEZE READY | Všechny předchozí gate splněné, aktuální manifesty a hash integrita, žádný neuzavřený povinný požadavek. Samotný freeze není povolen. |
 
-`scripts/render_reference.mjs` renders 12 states at 390×844, 768×1024, 1366×768 and 1920×1080. It records JavaScript errors, horizontal overflow, action-menu interaction, Escape dismissal and the output-data tab. Results are in `audit/visual-validation.json`. The source uses real HTML/CSS/SVG layouts and explicitly marked fixtures. The renderer is a reference-browser check, not a claim that the selected future production libraries or backend were deployed.
+Výsledek rozhoduje audit, nikoli existence souboru nebo počet položek. Tato vlastní kontrola není nezávislý audit.
 
-The visual audit includes inspection of desktop and mobile renders; the topology label overlap found during review was removed. Progress is an inline panel above the work surface. Mobile uses the same selected-object actions through a list and visible menu. No timer produces fictitious operation progress or communication traffic.
+## Pořadí závěrečné kontroly a integrity
 
-## Integrity and repeatability
+Po každé opravě se zopakují dotčené kontroly. Před uzavřením se spustí celá sada nad finálním obsahem. Auditní výsledky musí vzniknout před posledním hashováním. Následuje `python scripts/package_integrity.py --generate` a `python scripts/package_integrity.py --receipt`; po poslední změně znovu `python scripts/package_integrity.py`.
 
-Run `python scripts/regenerate_ui_projections.py` after editing the UI registry; it synchronizes embedded mirrors. Render graphics, refresh embedded metadata, write the audit, then run `scripts/update_manifests.py`. Verify the final tree after manifest generation. Rebuilding manifests is never a substitute for semantic review.
-
-`python scripts/verify_package.py --freeze` must return a nonzero status while blockers remain. No freeze tag, branch lock or release is created by these scripts.
+Hashují se přesné bajty všech souborů balíku včetně auditní evidence. Vyloučeny jsou `.git`, `.cache`, `__pycache__` a `node_modules`, protože jde o historii Gitu nebo pracovní a instalační výstupy. Explicitní výjimky ze souborů jsou samotný `FILE_MANIFEST_SHA256.json` a následná `audit/generated/integrity-receipt.json`, která uvádí jeho hash. Tyto výjimky řeší sebeodkazování; nemohou být rozšířeny bez změny a kontroly pravidel integritního skriptu.

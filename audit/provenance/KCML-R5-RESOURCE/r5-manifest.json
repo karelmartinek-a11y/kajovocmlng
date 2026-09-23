@@ -1,0 +1,666 @@
+{
+  "format": "KCML-SINGLE-MD-DESIGN-PROJECTION/5",
+  "compilerVersion": "5.0.0",
+  "sourceName": "KájovoCML_SSOT_REGISTRY_R4(1).md",
+  "sourceOffset": 814,
+  "sourceBytes": 4477316,
+  "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12",
+  "resources": [
+    {
+      "path": "audit/legacy-r2-full-tests.json",
+      "bytes": 470264,
+      "sha256": "sha256:b30668bc782cc0d1570fce91082bd91ada7793025ad8d3d2dd157c7770d68768",
+      "kind": "AUDIT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "audit/legacy-r2-static-recheck.json",
+      "bytes": 374,
+      "sha256": "sha256:176aca7146fd6cf70da307020272d8279469c87cfd6e594aaf02948fbf5fa925",
+      "kind": "AUDIT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "audit/r5-validation-report.json",
+      "bytes": 147940,
+      "sha256": "sha256:d50f339cdb060a2a7cfc0b4a24b0eec68dfa1ba1f1d2478b982a0b46dde116f7",
+      "kind": "AUDIT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "audit/rejected-unsafe-inferences.json",
+      "bytes": 879,
+      "sha256": "sha256:1b2f8f4532c34614119ba2b2fc36dcef2acff923aa90ab5ed8d514cf88f49f90",
+      "kind": "AUDIT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "audit/source-rebuild-report.json",
+      "bytes": 11289,
+      "sha256": "sha256:dd24d6d8c23bc73f158fe3189b050e68d338d6b34baed9aa6fb07abe1ef264d5",
+      "kind": "AUDIT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "audit/unresolved-mappings.json",
+      "bytes": 625235,
+      "sha256": "sha256:57a42fa06e184474f7cebe857d9cb0b04dd4d669a8c1d5b7621028fda1fa615b",
+      "kind": "AUDIT",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "audit/unresolved-obligations.json",
+      "bytes": 2095,
+      "sha256": "sha256:2fbb3b073112d4020c1a303def8a9ecada1d8f2dd7a160a00f872f80f43d2f1e",
+      "kind": "AUDIT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "compiler-environment.json",
+      "bytes": 145,
+      "sha256": "sha256:7916bdb2291545ffb11894918b863922e0382ae02aba7888486c66416b59f9ba",
+      "kind": "TOOLCHAIN",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/execution/design-tokens.json",
+      "bytes": 328,
+      "sha256": "sha256:545919e3dfd526dd296e4ef4360c1e2077735ea905c0760ea7b534481bf7cc39",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/execution/ipc-framing.json",
+      "bytes": 624,
+      "sha256": "sha256:b07b27a892910ef5d87519f6d72ac37afe856b33bc151d0ebfe1a4462b314e87",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/execution/mcp-native-recipes.json",
+      "bytes": 2157,
+      "sha256": "sha256:23a60b0ac7ee61abfe923f9ec99bd60efd7b9ce23e5c2c8d95e2ab4fdafb47bc",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/execution/model-catalog.json",
+      "bytes": 87610,
+      "sha256": "sha256:b1f7076ce94a22bb0e27a8c8522cf5c6acc8c550e108a945178300df49549c50",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/execution/raw-artifact-kinds.json",
+      "bytes": 187,
+      "sha256": "sha256:b11d4093b96c4f917b71f8d61f4bde5d08d3039aecf9660b5c1d0667d94f8cbe",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/execution/repository-homes.json",
+      "bytes": 8676,
+      "sha256": "sha256:f153489ba66e456d7e05ec490dbc93df2026a5ebf94088ca38a53e8b89c0bd9b",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/execution/route-catalog.json",
+      "bytes": 220384,
+      "sha256": "sha256:222ea153ee7f6de03d1493834ff4e65d8a594e6c8e7d01d5e8d87b4c51394dbb",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/execution/runtime-paths.json",
+      "bytes": 4529,
+      "sha256": "sha256:f0444c34903b02a9c54475578903d21b3f86e3f5e1abd2524c3079b29e53ff20",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/execution/sdk-design-profile.json",
+      "bytes": 1268,
+      "sha256": "sha256:2605feb6010fcc747043622a9d343e5fc376940cb1843d8188ef3754d0a3b338",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/execution/specialist-catalog.json",
+      "bytes": 2683,
+      "sha256": "sha256:9d58806ec69ea22b9f81951904083237fdef4152d0a44d700dd296d77dc84642",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/execution/sql-statements.json",
+      "bytes": 7540,
+      "sha256": "sha256:7c7e6e15421082775d1d24136a2acdbb485172c7f0f44978634403aae6cd09cc",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/execution/wire-specialization.json",
+      "bytes": 1254,
+      "sha256": "sha256:ef07fdd9fa074a25946a5ac9e0e43136b8de1b679eaa61895c273a8f2400e119",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/generation/artifact-schema-map.json",
+      "bytes": 5766,
+      "sha256": "sha256:d6707ab2709af25bdb4fe359b37f7880fbfaaedc54f9e69b56c6a5af2adc6091",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/generation/domain-record-schema-map.json",
+      "bytes": 2936,
+      "sha256": "sha256:991012a51b98b81e184317b548a4f13a41eacbaaea5fa3dd4c1effbcf5780651",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/generation/generation-contracts.schema.json",
+      "bytes": 770556,
+      "sha256": "sha256:5e7c1e7b1586303c325829c51111eb615a6170b167bbca24047a5f27eaeb4e44",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/generation/integration-step-catalog.json",
+      "bytes": 4959,
+      "sha256": "sha256:12651872896ef2b6d5f1f0a3c08786d6ba74425ee0a23976210f6e7a3043475e",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/generation/semantic-validation-rules.json",
+      "bytes": 29217,
+      "sha256": "sha256:34a1075a47446e6448a1127b8541842aa3c5190977e50286909cd511ab4e0506",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/generation/specialist-output-map.json",
+      "bytes": 526,
+      "sha256": "sha256:34627f787bdbfe88cc7e1864737d28c227fbe0e636dcd8519e09dbb3022691c6",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/generation/step-catalog.json",
+      "bytes": 11715,
+      "sha256": "sha256:8ceb73982a2a4157db2783a6ccc9480881e3037e71d16bc2858651dd77a3a10f",
+      "kind": "SOURCE_CONTRACT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/materialized-records.capsule.json",
+      "bytes": 4481219,
+      "sha256": "sha256:ec3c6597b0b577553973e4248e0e4aaf0e86e947853f77ac8e5bb1c50bb40574",
+      "kind": "CAPSULE",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/registries/CanonicalAuthorityAssignment.json",
+      "bytes": 239719,
+      "sha256": "sha256:9c1fe52bb7f6d846ceeca96968a1ad2222a7bbd3f28caafb483ba1a24f15d4eb",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/ClosureDecisionTable.json",
+      "bytes": 2822,
+      "sha256": "sha256:be29b6e604fafbd7be99fc92ba9352fb147e9c2dd4d21f3f5ad2ee961b82e979",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/DesignArtifactExpectation.json",
+      "bytes": 3894177,
+      "sha256": "sha256:227c363c3318eed034983767d0f44e57f03a6a24f5ccb0bb20ee9fc05b31fb20",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/EntitySourceRecord.json",
+      "bytes": 3468390,
+      "sha256": "sha256:1a1c664f47e6765d0ca1484580f7f1a7c1123313029d8feaf1fffab571816333",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/ExactRouteBinding.json",
+      "bytes": 6912122,
+      "sha256": "sha256:238c747654e8cb8ee025421ce8b5b62b900a3cf5455738882f1a59f20b2f48fe",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/ExecutableModel.json",
+      "bytes": 62553,
+      "sha256": "sha256:4153ec3ee410eea66e9536c75dd9fb721dba1ad309ed31ed7f4007b00245e6e6",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/FaultCutpointObligation.json",
+      "bytes": 1731264,
+      "sha256": "sha256:69b45b1b414ece09e911092049c3d4a91411e6dd523d49bce28627fb2bdae154",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/GenerationFlowLink.json",
+      "bytes": 37617,
+      "sha256": "sha256:a85973029cf080cfc40d342228e025f25e468a153eb475a4fb4a3ff1208865a1",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/ModelWriterBinding.json",
+      "bytes": 12153,
+      "sha256": "sha256:e6e06923ded5a7893d654f428858618d41439b2fdb67ef5a25d8c6b682b2ea7b",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/OperationSemanticRecord.json",
+      "bytes": 6539572,
+      "sha256": "sha256:f702d2c5d0e21e0116ea02e4aee5893dc85f0d53ce8cbfdc94cbbca33fd30c03",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/PhysicalOwnership.json",
+      "bytes": 109572,
+      "sha256": "sha256:7d9346ce41aa9431079c6480813735c159705456ceabe4a152e7a2992cbd7120",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/PostgresOperationDesign.json",
+      "bytes": 329870,
+      "sha256": "sha256:5301061366f1c62f12c5ae63bbd292cc7c839e101bc3648c3a11b0abe21895a2",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/RecoveryDecisionTable.json",
+      "bytes": 7574,
+      "sha256": "sha256:c5e1b5aa3b915c0a4948f03004228fc7f9c6ed31fa47ea25949e60df1c5b340e",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/RegistryRequirement.json",
+      "bytes": 32352389,
+      "sha256": "sha256:f80697f916e44222c30d1f9e87c8847acd70a0d0f8040151e1ea7667c5ddd871",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/RuntimeBoundarySource.json",
+      "bytes": 255303,
+      "sha256": "sha256:c50d5080943cea6a616622440659c31e754b36dc3892e76fe37fd7919e4a1ae0",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/SourceAcceptanceObligation.json",
+      "bytes": 902271,
+      "sha256": "sha256:45727d90092d147ea0183fde9ce8e98a70ade1a0adcb832bd8f6223c22de63a4",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/SourceDatabaseRule.json",
+      "bytes": 550073,
+      "sha256": "sha256:1d776b411fd2585dc8eb8731c3401f53295e46c23fc65e11ea8482d900c5ee66",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/SourceErrorRecord.json",
+      "bytes": 366903,
+      "sha256": "sha256:57c28dcd870a543c41e833b2f565bfdb82dadd9155f82be411cc52b6d46fbc9c",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registries/authority-owners.json",
+      "bytes": 6937,
+      "sha256": "sha256:b8c1c78fd8d156763929beff133b2a0d4687bcfe31361b4abc79f0ef8a795486",
+      "kind": "REGISTRY_PROJECTION",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "contracts/registry-schemas/project-registry.schema.json",
+      "bytes": 405630,
+      "sha256": "sha256:e40c2f8f3dcbd19d503d9f05fba27d98a7203aa55f95b0ef29d959d1b378ddad",
+      "kind": "SCHEMA",
+      "storage": "INLINE"
+    },
+    {
+      "path": "contracts/registry-schemas/resource-capsule.schema.json",
+      "bytes": 1522,
+      "sha256": "sha256:90fac37c2451d21c90f433abdd7ab5d1dd6d064f289a2a1707494fe34b52ac84",
+      "kind": "SCHEMA",
+      "storage": "INLINE"
+    },
+    {
+      "path": "database/baseline/constraints/ssot-201.sql",
+      "bytes": 172,
+      "sha256": "sha256:4501835184ea8fcf22060990c2a870872774eef344910ce22c4737e11829fd57",
+      "kind": "TOOLCHAIN",
+      "storage": "INLINE"
+    },
+    {
+      "path": "database/baseline/constraints/ssot-202.sql",
+      "bytes": 2034,
+      "sha256": "sha256:ffb189d0d7d589bd959787a4cc729594f8daf2160e3b5a12a74a25dcce61073b",
+      "kind": "TOOLCHAIN",
+      "storage": "INLINE"
+    },
+    {
+      "path": "database/baseline/constraints/ssot-213.sql",
+      "bytes": 213,
+      "sha256": "sha256:de2d44153faf4736e5cfa9de4174fc4a42fe019d712365f57be51ce2ff0214bb",
+      "kind": "TOOLCHAIN",
+      "storage": "INLINE"
+    },
+    {
+      "path": "database/baseline/constraints/ssot-220.sql",
+      "bytes": 2034,
+      "sha256": "sha256:51d178e06d74c42738473223552b68ffeab3574f8446d13e60a437ae71e5ed03",
+      "kind": "TOOLCHAIN",
+      "storage": "INLINE"
+    },
+    {
+      "path": "database/design/constraint-records.json",
+      "bytes": 67508,
+      "sha256": "sha256:afd04b41b72759c95cbeed730ad2ed8a8c479c75d2a1c0946ec484def9a278c8",
+      "kind": "DESIGN_FRAGMENT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "database/design/explicit-physical-clarifications.json",
+      "bytes": 597,
+      "sha256": "sha256:0f75aeb6a82d3b7fd9e0744d5cb8eed648eb4f015f3f3e714273c64ed0ac8b4a",
+      "kind": "DESIGN_FRAGMENT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "database/design/normative-constraints.sql",
+      "bytes": 14383,
+      "sha256": "sha256:0d2ab269f27ad69cbf343c876e6fdae7ef3ba821da1554c7c2cf651cbc5ae143",
+      "kind": "DESIGN_FRAGMENT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "database/design/root-ordinals.json",
+      "bytes": 5020,
+      "sha256": "sha256:84ebd3d9bd0794cf64e99f0a4589c6899861eb9983c08a6bd3f34260f200b920",
+      "kind": "DESIGN_FRAGMENT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "database/source-fragments/ssot-199.sql",
+      "bytes": 400,
+      "sha256": "sha256:91ae9b8ef84fd4bfde7d8f732ebe4331302f388523762167b51bdfd82e90aa1c",
+      "kind": "SOURCE_CORRECTION",
+      "storage": "INLINE"
+    },
+    {
+      "path": "database/source-fragments/ssot-201.sql",
+      "bytes": 172,
+      "sha256": "sha256:4501835184ea8fcf22060990c2a870872774eef344910ce22c4737e11829fd57",
+      "kind": "SOURCE_CORRECTION",
+      "storage": "INLINE"
+    },
+    {
+      "path": "database/source-fragments/ssot-202.sql",
+      "bytes": 2034,
+      "sha256": "sha256:ffb189d0d7d589bd959787a4cc729594f8daf2160e3b5a12a74a25dcce61073b",
+      "kind": "SOURCE_CORRECTION",
+      "storage": "INLINE"
+    },
+    {
+      "path": "database/source-fragments/ssot-205.sql",
+      "bytes": 544,
+      "sha256": "sha256:569505eb95d7925e4eba1e52e482db612f9de79a98f2d71c6c5fd64eaf879c19",
+      "kind": "SOURCE_CORRECTION",
+      "storage": "INLINE"
+    },
+    {
+      "path": "database/source-fragments/ssot-206.sql",
+      "bytes": 69,
+      "sha256": "sha256:08394e6b43efecd02d5f9159add2b04fabac1bba65ee74c305ea11c84ce1c7e3",
+      "kind": "SOURCE_CORRECTION",
+      "storage": "INLINE"
+    },
+    {
+      "path": "database/source-fragments/ssot-207.sql",
+      "bytes": 771,
+      "sha256": "sha256:6f1757ea1ed74a17adfdf011afb8db456cb6482891ca72664ca892928a5d8d7a",
+      "kind": "SOURCE_CORRECTION",
+      "storage": "INLINE"
+    },
+    {
+      "path": "database/source-fragments/ssot-213.sql",
+      "bytes": 213,
+      "sha256": "sha256:de2d44153faf4736e5cfa9de4174fc4a42fe019d712365f57be51ce2ff0214bb",
+      "kind": "SOURCE_CORRECTION",
+      "storage": "INLINE"
+    },
+    {
+      "path": "database/source-fragments/ssot-220.sql",
+      "bytes": 2026,
+      "sha256": "sha256:602150a9c038e0e84ff4f93c35834ac4eecc04358c10e5b88e0fd98c22935bb1",
+      "kind": "SOURCE_CORRECTION",
+      "storage": "INLINE"
+    },
+    {
+      "path": "history/r2/embedded-manifest.json",
+      "bytes": 7636,
+      "sha256": "sha256:167801022fb218fb237b77a7e65be5407a2cb0928234817c209c0859333ff820",
+      "kind": "HISTORY",
+      "storage": "INLINE"
+    },
+    {
+      "path": "packages/database/src/sql/ssot-199.sql",
+      "bytes": 400,
+      "sha256": "sha256:91ae9b8ef84fd4bfde7d8f732ebe4331302f388523762167b51bdfd82e90aa1c",
+      "kind": "TOOLCHAIN",
+      "storage": "INLINE"
+    },
+    {
+      "path": "packages/database/src/sql/ssot-205.sql",
+      "bytes": 544,
+      "sha256": "sha256:569505eb95d7925e4eba1e52e482db612f9de79a98f2d71c6c5fd64eaf879c19",
+      "kind": "TOOLCHAIN",
+      "storage": "INLINE"
+    },
+    {
+      "path": "packages/database/src/sql/ssot-206.sql",
+      "bytes": 69,
+      "sha256": "sha256:08394e6b43efecd02d5f9159add2b04fabac1bba65ee74c305ea11c84ce1c7e3",
+      "kind": "TOOLCHAIN",
+      "storage": "INLINE"
+    },
+    {
+      "path": "packages/database/src/sql/ssot-207.sql",
+      "bytes": 771,
+      "sha256": "sha256:6f1757ea1ed74a17adfdf011afb8db456cb6482891ca72664ca892928a5d8d7a",
+      "kind": "TOOLCHAIN",
+      "storage": "INLINE"
+    },
+    {
+      "path": "provenance/source-atom-index.json",
+      "bytes": 10614362,
+      "sha256": "sha256:c707b092448c88bf1d93836d9c04f53d1753bfb08db4b5d993c3b1ec30f2903f",
+      "kind": "PROVENANCE",
+      "storage": "CAPSULE"
+    },
+    {
+      "path": "scripts/r5/derivation/add_reference_rules.py",
+      "bytes": 6471,
+      "sha256": "sha256:b9252aef02e6f289682b81ecbdbf028b537ceedc8ad247a7078fc233d8587716",
+      "kind": "DERIVATION_SCRIPT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/r5/derivation/add_writer_bindings.py",
+      "bytes": 3226,
+      "sha256": "sha256:8973e768024928e3b34358564d6f12673fb93363385b63c81b95d8e31ae84d51",
+      "kind": "DERIVATION_SCRIPT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/r5/derivation/build_r5.py",
+      "bytes": 29229,
+      "sha256": "sha256:bb1dfccc5971028199082458bebcd639472ad0314a2f6a6594e7fc8558083a6b",
+      "kind": "DERIVATION_SCRIPT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/r5/derivation/finalize_records.py",
+      "bytes": 10106,
+      "sha256": "sha256:aa9621e20e3f2f699a7bb46b4397803b93cf5b9a7d8645fcc70eea69adc0f4b1",
+      "kind": "DERIVATION_SCRIPT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/r5/derivation/harvest.py",
+      "bytes": 7795,
+      "sha256": "sha256:cf45a0b057ebc27088bf409d8b7d547bfb28a82bccab6c29ad62078345bf9e34",
+      "kind": "DERIVATION_SCRIPT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/r5/derivation/inspect_source.py",
+      "bytes": 1529,
+      "sha256": "sha256:7871735fae4587dfdc38fffadeea0a19465901ae04a121914ff66be924fc9c46",
+      "kind": "DERIVATION_SCRIPT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/r5/derivation/materialize_constraints.py",
+      "bytes": 6114,
+      "sha256": "sha256:6ce9290802112daf7e2c515209073b1476f56b7b1a6600d6c33068bcdf448369",
+      "kind": "DERIVATION_SCRIPT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/r5/derivation/normalize_identity.py",
+      "bytes": 3759,
+      "sha256": "sha256:01cc4f900badc3937db14f546302f8aaa4d06a6f4ef1ba85512741394ea315b1",
+      "kind": "DERIVATION_SCRIPT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/r5/derivation/operation-semantics.tsv",
+      "bytes": 21396,
+      "sha256": "sha256:75877098932d7036c521763128e18e1d20ac63d3eaf927730437699d98805679",
+      "kind": "DERIVATION_SCRIPT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/r5/derivation/populate_r5.py",
+      "bytes": 26935,
+      "sha256": "sha256:cba3316aa81e02b930b622447596aef390bd458a5272a5d837fbbcbd73fa8d0d",
+      "kind": "DERIVATION_SCRIPT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/r5/derivation/source-declarations.json",
+      "bytes": 18079,
+      "sha256": "sha256:2470f24b6fdf8b5118274ec0aa3596c713e9a1062a7357924c6c15c7cc25e2ef",
+      "kind": "DERIVATION_SCRIPT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/r5/extract_single_md.py",
+      "bytes": 8462,
+      "sha256": "sha256:0a6f1a25df9f5304db4fa15b45cd944d8f5a447a3deb632d76d3638c0613d594",
+      "kind": "VALIDATOR",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/r5/rebuild_projection.py",
+      "bytes": 4274,
+      "sha256": "sha256:0d08d8e5e7be3f6567496480a0aceede6eea6414fdc4f94684f04f710909ba38",
+      "kind": "VALIDATOR",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/r5/reference_logic.py",
+      "bytes": 6924,
+      "sha256": "sha256:140fac40218d3fb8252a984553bbd5dc9ccdddd410e970dddf4675dd663637f0",
+      "kind": "VALIDATOR",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/r5/registry_validate.py",
+      "bytes": 31484,
+      "sha256": "sha256:5a7ade7bd023da4a307632e1374b8d95096b9393b44ba075bd1c426515ad07ca",
+      "kind": "VALIDATOR",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/ssot/audit_checks.py",
+      "bytes": 22122,
+      "sha256": "sha256:765dbb6c5a9602d3e52549703b6c5387fc439aa71d9246c38406bd53e3d0818a",
+      "kind": "SOURCE_SCRIPT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/ssot/boundary_codecs.py",
+      "bytes": 7681,
+      "sha256": "sha256:812df1ec7af1c2350bf07405d4e01edbb2b25bd787f2a5f7fd42186bfdcf7126",
+      "kind": "SOURCE_SCRIPT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/ssot/extract_embedded.py",
+      "bytes": 2342,
+      "sha256": "sha256:b462d69794fc81f5443f9e0ea1d4c9c760227e6c188b49671bae291990305c5b",
+      "kind": "SOURCE_SCRIPT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/ssot/generation_guards.py",
+      "bytes": 5860,
+      "sha256": "sha256:2b70b79f698588355d8da3599829a937cad9946943477c86e2f4e48c20caeb64",
+      "kind": "SOURCE_SCRIPT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/ssot/schema_projection.py",
+      "bytes": 6452,
+      "sha256": "sha256:c16ec10e0febc48bf756181142b41c5973e7a16f2ba87fecff3d70ce0ab9c093",
+      "kind": "SOURCE_SCRIPT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/ssot/sdk_probe.mjs",
+      "bytes": 2483,
+      "sha256": "sha256:52fc9953dc74c0788ee61579fa15964e32a58f10dae0c4356cfd9ec830a4d851",
+      "kind": "SOURCE_SCRIPT",
+      "storage": "INLINE"
+    },
+    {
+      "path": "scripts/ssot/ssot_control.py",
+      "bytes": 47516,
+      "sha256": "sha256:20c0ca32bc5e62d8916237a73be6f7271c2f0a4acdcba1ef8b122bd4001254f6",
+      "kind": "SOURCE_SCRIPT",
+      "storage": "INLINE"
+    }
+  ],
+  "readinessReport": "audit/r5-validation-report.json",
+  "artifactPurpose": "SOURCE_BOUND_DESIGN_PROJECTION_NOT_CLOSED_CONTRACT_PACK",
+  "sourceScopeChanged": false,
+  "projectionDigest": "sha256:0cf29bc8f14d930297f0c74e00f67f970e871b0d7141b2ab96b876517e073f4f"
+}
+

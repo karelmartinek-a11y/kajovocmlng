@@ -1,43 +1,28 @@
-# Závěrečný audit SSOT
+# Audit výsledného SSOT balíku
 
-Stav: **BLOCKED**. Strukturální kontroly: **PASS**. Freeze neproveden.
+Stav auditu: **ROZPRACOVÁNO — závěrečná kontrola dosud není uzavřena**.
 
-Rozsah: celý strom, vložené resources a kapsle, projekce UI, JSON/CSV, schémata, integrita a šest dílčích autoritativních validátorů. Automatické kontroly nejsou důkazem úplné ruční sémantické revize.
+Tento soubor zatím není důkazem dokončení ani nezávislého auditu. Kanonický obsah zůstává v `00_SSOT/KajovoCMLNG_SSOT.md`; auditní evidence je oddělená od normativní vrstvy.
 
-## Ověřené počty
+Výchozí commit: `0ea5bf6b90ae4246956d1d76387ab540dc842f79`, větev `main`. Přesnou identifikaci výsledného stavu musí po dokončení obsahových změn doložit hash manifest a kontrolní účtenka.
 
-- embeddedResources: 325
-- capsuleResources: 21
-- repositoryFiles: 284
-- actions: 152
-- controls: 242
-- processFamilies: 34
-- steps: 30
-- statuses: 13
-- errors: 288
+## Dosavadní ověření
 
-## Skutečné blockery
+- Existující brány R10, R16, UI, CLOSURE a R17 prošly; jejich rozsah nepokrývá všechny nově zjištěné nedostatky.
+- Nové kontraktní kontroly prověřují stavové přechody, události, lokalizační klíče, parity bindings, OWNER dispatchery, chybové zprávy a omezený retry profil.
+- Podle AUD-004 byly zachovány skutečné bajty osmi poškozených historických artefaktů v `provenance`; původní deklarované hashe se nevydávají za platné.
+- Podle AUD-005 smějí obecné dispatchery nabízet pouze 480 doložených OWNER operací.
+- Kontrola 40 původních Secrets/credential sekcí proti výchozímu commitu potvrdila zachování jejich obsahu.
 
-### F-PAYLOAD
+Aktuální konkrétní výsledky jsou v `generated`. Starší výsledek nad jiným hashem není potvrzení aktuálního obsahu.
 
-Business payloads are requirementId/canonicalJson bags; closed envelopes do not type individual domain fields.
+## Otevřené části kontroly
 
-Concrete domain input/output fields, constraints and positive/negative examples for each route; exact command/query profile bindings.
+- Kontrola konkrétních schémat odhalila 260 nerozlišených schema ID pro 130 operací. Seznam je v `generated/schema-reference-validation.json`. Existující registr je označuje za úplné operace, ale samotná deklarace nenahrazuje definici schématu.
+- Některé route payloady mají obecné `values`/`canonicalJson` místo uzavřených doménových vstupů. Je nutné posoudit jejich konkrétní význam a authoritative vazby.
+- Dokončuje se celobalíková lokalizační, vizuální a sémantická kontrola starších UI podkladů a vložených vrstev.
+- Dokončuje se oddělení historických formulací od normativního prvopisu, indexy, regenerace souvisejících podkladů a finální integrita.
 
-### F-ERROR
+## Gate
 
-Inherited codes have class-level messages and unmaterialized domain predicates/retry bindings.
-
-Review and define code-specific producer predicate, bilingual text and exact recovery binding; retain original semantics.
-
-### F-PRVOPIS
-
-Normative prose still contains provenance/precedence layers; lossless semantic consolidation is not complete.
-
-Consolidate every overlapping norm, migrate historical explanation out of normative prose, prove no requirement lost with full traceability.
-
-## Strukturální chyby
-
-[]
-
-Definitivní prvopis ani FREEZE READY se neprohlašuje. Přesné strojové důkazy a návratové kódy jsou v `final-audit.json`.
+Kritéria jsou uvedena v `../QUALITY_ASSURANCE.md`. Žádný cílový status není v této rozpracované podobě přiznán: FORENSICALLY COMPLETE, IMPLEMENTATION READY, VISUALLY CLOSED, CONTRACT CLOSED a FREEZE READY zůstávají **BLOCKED / neprokázáno** do uzavření příslušných povinných kontrol.

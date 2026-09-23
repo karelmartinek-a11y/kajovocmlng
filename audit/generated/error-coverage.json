@@ -1,0 +1,3623 @@
+{
+  "format": "KCML-ERROR-COVERAGE/1",
+  "errors": [
+    {
+      "error_code": "KCIP_MALFORMED_ENVELOPE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/0",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_UNSUPPORTED_PROTOCOL",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/1",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_RESERVED_FIELD_PRESENT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/2",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_MESSAGE_ID_CONFLICT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/3",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_CAUSATION_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/4",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_TARGET_NOT_FOUND",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/5",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_TARGET_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/6",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_CONTRACT_DIGEST_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/7",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_BINDING_NOT_ACTIVE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/8",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_BINDING_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/9",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_DEADLINE_EXCEEDED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/10",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_IDEMPOTENCY_CONFLICT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/11",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_STATE_VERSION_CONFLICT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/12",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_SEQUENCE_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/13",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_SEQUENCE_GAP",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/14",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_CAPACITY_EXHAUSTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/15",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_CANCELLED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/16",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_OUTCOME_UNKNOWN",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/17",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "KCIP_INTERNAL_FAILURE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum107",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/18",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_PARSE_ERROR",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/19",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_INVALID_REQUEST",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/20",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_DUPLICATE_JSON_MEMBER",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/21",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_DUPLICATE_IN_FLIGHT_REQUEST_ID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/22",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_HEADER_MISMATCH",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/23",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_PROTOCOL_VERSION_UNSUPPORTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/24",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_CLIENT_CAPABILITY_MISSING",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/25",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_METHOD_NOT_FOUND",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/26",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_INVALID_PARAMS",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/27",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_TOOL_NOT_FOUND",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/28",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_DISCOVERY_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/29",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_CONTRACT_BREAKING",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/30",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_SCHEMA_DIALECT_UNSUPPORTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/31",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_SCHEMA_REFERENCE_UNRESOLVED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/32",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_SCHEMA_DRIFT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/33",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_RESULT_TYPE_UNKNOWN",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/34",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_RESULT_SCHEMA_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/35",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_REQUEST_STATE_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/36",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_REQUEST_STATE_EXPIRED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/37",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_REQUEST_STATE_CONSUMED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/38",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_CURSOR_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/39",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_SUBSCRIPTION_PROTOCOL_VIOLATION",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/40",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_STATE_HANDLE_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/41",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_STATE_HANDLE_EXPIRED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/42",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_STATE_HANDLE_CLOSED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/43",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_TASK_NOT_FOUND",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/44",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_TASK_EXPIRED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/45",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_TASK_CAPABILITY_REQUIRED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/46",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_BINDING_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/47",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_CONTRACT_DIGEST_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/48",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_DEADLINE_EXCEEDED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/49",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_CANCELLED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/50",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_OUTCOME_UNKNOWN",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/51",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_ERA_INDETERMINATE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/52",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_PROTOCOL_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/53",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MCP_INTERNAL_FAILURE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum108",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/54",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "OPENAI_CONFIGURATION_REQUIRED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/55",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "OPENAI_MODEL_CAPABILITY_UNSUPPORTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/56",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "OPENAI_PROVIDER_TRANSIENT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/57",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "OPENAI_RESPONSE_EXPIRED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/58",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "OPENAI_STREAM_PROTOCOL_CONFLICT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/59",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "OPENAI_PROVIDER_STATUS_UNKNOWN",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/60",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "OPENAI_OUTPUT_ITEM_UNSUPPORTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/61",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "OPENAI_TOOL_CALL_ID_CONFLICT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/62",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "OPENAI_TOOL_EFFECT_OUTCOME_UNKNOWN",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/63",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "OPENAI_CONTINUATION_CONFLICT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/64",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "OPENAI_BACKGROUND_CANCEL_UNCONFIRMED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/65",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MODEL_OUTPUT_SCHEMA_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/66",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MODEL_REFUSAL",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/67",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MODEL_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/68",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MODEL_SUBMIT_OUTCOME_UNKNOWN",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/69",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "UNKNOWN_MODEL_TOOL",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/70",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "TOOL_ARGUMENT_SCHEMA_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/71",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "CAPABILITY_SNAPSHOT_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/72",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "SPECIFICATION_NOT_APPROVABLE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/73",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "SPECIFICATION_DIGEST_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/74",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "GENERATION_PLAN_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/75",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "WORKSPACE_BASE_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/76",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "WORKSPACE_PATH_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/77",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "VALIDATION_STAGNATION",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum109",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/78",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "IDEMPOTENCY_CONFLICT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/79",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "STATE_VERSION_CONFLICT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/80",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "LEASE_EXPIRED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/81",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "FENCING_TOKEN_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/82",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "PLATFORM_INCARNATION_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/83",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "CHECKPOINT_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/84",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "CHECKPOINT_DIGEST_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/85",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "REVISION_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/86",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BINDING_REVISION_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/87",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "ACTIVATION_EPOCH_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/88",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "ACTIVATION_IN_PROGRESS",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/89",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "ACTIVATION_EFFECTIVE_UNKNOWN",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/90",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "SEQUENCE_GAP",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/91",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "QUEUE_ITEM_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/92",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "CONCURRENCY_KEY_HELD",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/93",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "SIDE_EFFECT_OUTCOME_UNKNOWN",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/94",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "SIDE_EFFECT_RECONCILIATION_UNKNOWN",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/95",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "SIDE_EFFECT_RECONCILIATION_FAILED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/96",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "TERMINAL_STATE_IMMUTABLE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/97",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "CANCELLATION_ALREADY_TERMINAL",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/98",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "MANUAL_OUTCOME_CONFLICT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/99",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "CLEANUP_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/100",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "ACTIVATION_SET_NOT_READY",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/101",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "ACTIVATION_SET_ROLLED_BACK",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/102",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "GENERATION_BLOCKED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum110",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/103",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENT_TOOL_BINDING_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum111",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/104",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENT_GRAPH_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum111",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/105",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENT_APPROVAL_REQUIRED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum111",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/106",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENT_APPROVAL_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum111",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/107",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENT_CHECKPOINT_INCOMPATIBLE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum111",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/108",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENT_RUN_STATE_UNRESUMABLE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum111",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/109",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENT_SDK_RUNTIME_UNAVAILABLE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum111",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/110",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENT_SESSION_STRATEGY_CONFLICT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum111",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/111",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENT_MAX_TURNS_EXCEEDED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum111",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/112",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENT_EVAL_FAILED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum111",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/113",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_AUTHORITY_LINEAGE_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/114",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_OWNER_INTENT_MISSING",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/115",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_OWNER_INTENT_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/116",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_OPERATION_CONTEXT_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/117",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_OPERATION_CONTEXT_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/118",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_CONTENT_AUTHORITY_ESCALATION",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/119",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_CONTENT_ROLE_CONFLICT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/120",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_PROVENANCE_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/121",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_DERIVATION_CONTRACT_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/122",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_ARGUMENT_ORIGIN_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/123",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_DYNAMIC_TARGET_UNBOUND",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/124",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_TARGET_SUBSTITUTION",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/125",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_TOOL_SUBSTITUTION",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/126",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_DELEGATION_EXPANSION",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/127",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_SECRET_USE_CONTEXT_MISMATCH",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/128",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_RESULT_REENTRY_BLOCKED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/129",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_COMPACTION_AUTHORITY_DRIFT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/130",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AGENTIC_INSTRUCTION_DATA_COLLISION",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum112",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/131",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_CONTEXT_SPOOF_ATTEMPT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/132",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_CONTEXT_NOT_CURRENT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/133",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_PEER_IDENTITY_REJECTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/134",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_PID_REUSE_DETECTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/135",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_SERVICE_GENERATION_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/136",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_PROCESS_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/137",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_LAUNCH_MANIFEST_MISMATCH",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/138",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_RELEASE_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/139",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_DIGEST_MISMATCH",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/140",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_BINDING_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/141",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_ACTIVATION_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/142",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_SOCKET_INTEGRITY_FAILED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/143",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_SOCKET_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/144",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_CHANNEL_CLOSED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/145",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_PROTOCOL_VIOLATION",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/146",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_DESCRIPTOR_INJECTION",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/147",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_PAYLOAD_TOO_LARGE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/148",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_STREAM_BACKPRESSURE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/149",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_DEADLINE_EXCEEDED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/150",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_CANCELLED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/151",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_SANDBOX_SETUP_FAILED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/152",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_SECCOMP_VIOLATION",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/153",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_FILESYSTEM_BOUNDARY_VIOLATION",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/154",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_NETWORK_BOUNDARY_VIOLATION",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/155",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_STATE_BOUNDARY_VIOLATION",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/156",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_SECRET_BINDING_REJECTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/157",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_EGRESS_BINDING_REJECTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/158",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_RESOURCE_EXHAUSTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/159",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_CHILD_SPAWN_REJECTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/160",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_CHILD_CLEANUP_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/161",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_CREDENTIAL_GENERATION_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/162",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_OUTCOME_UNKNOWN",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum113",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/163",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_RUNTIME_BUILD_INCOMPATIBLE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/164",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_HOST_IDENTITY_REJECTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/165",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_HOST_GENERATION_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/166",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_CONTEXT_GENERATION_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/167",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_RAW_TRANSPORT_EXPOSURE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/168",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_SESSION_NOT_READY",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/169",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_SESSION_EXPIRED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/170",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_SESSION_TERMINAL",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/171",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_CONTROL_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/172",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_CONTROL_HELD",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/173",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_CONTROL_TRANSFER_PENDING",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/174",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_INPUT_STATE_UNRESOLVED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/175",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_PAGE_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/176",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_PAGE_CLOSED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/177",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_PAGE_AMBIGUOUS",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/178",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_FRAME_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/179",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_FRAME_DETACHED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/180",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_DOCUMENT_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/181",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_NAVIGATION_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/182",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_VIEWPORT_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/183",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_TARGET_MISSING",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/184",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_TARGET_AMBIGUOUS",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/185",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_TARGET_DRIFT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/186",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_TARGET_INACCESSIBLE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/187",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_ACTIONABILITY_FAILED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/188",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_OVERLAY_BLOCKED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/189",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_INPUT_STRATEGY_UNSUPPORTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/190",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_MUTATION_TRIGGER_UNRESOLVED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/191",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_OPERATION_OUT_OF_SCOPE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/192",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_CONFIRMATION_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/193",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_ACCOUNT_MISMATCH",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/194",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_ACCOUNT_CONCURRENCY_HELD",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/195",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_AUTH_STATE_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/196",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_AUTH_EPOCH_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/197",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_REAUTHENTICATION_REQUIRED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/198",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_CHALLENGE_REQUIRED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/199",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_CHALLENGE_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/200",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_DIALOG_UNHANDLED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/201",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_PERMISSION_REQUIRED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/202",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_WEBAUTHN_CAPABILITY_MISSING",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/203",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_CLIENT_CERTIFICATE_UNAVAILABLE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/204",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_STATE_BUNDLE_INCOMPATIBLE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/205",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_STATE_BUNDLE_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/206",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_POPUP_NOT_OBSERVED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/207",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_DOWNLOAD_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/208",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_UPLOAD_HANDLE_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/209",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_BRIDGE_OFFLINE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/210",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_BRIDGE_VERSION_MISMATCH",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/211",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_BRIDGE_CAPABILITY_MISMATCH",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/212",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_BRIDGE_CERTIFICATE_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/213",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_BRIDGE_CONNECTION_STALE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/214",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BRIDGE_SESSION_SCOPE_REJECTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/215",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_PROFILE_LEASE_HELD",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/216",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_ENGINE_UNSUPPORTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/217",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_HOST_CAPACITY",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/218",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_HOST_DISCONNECTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/219",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_RENDERER_CRASHED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/220",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_POSTCONDITION_FAILED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/221",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_RECONCILIATION_REQUIRED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/222",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_RECOVERY_UNKNOWN",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/223",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_ARTIFACT_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/224",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BROWSER_CLEANUP_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum114",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/225",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "PLATFORM_RECOVERY_IN_PROGRESS",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum115",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/226",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "PLATFORM_RECOVERY_BLOCKED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum115",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/227",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "QUEUE_CAPACITY_EXHAUSTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum115",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/228",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "STORAGE_CAPACITY_EXHAUSTED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum115",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/229",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "FILESYSTEM_OPERATION_FAILED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum115",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/230",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "DNS_RESOLUTION_FAILED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum115",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/231",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "TLS_HANDSHAKE_FAILED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum115",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/232",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "PROVIDER_RATE_LIMITED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum115",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/233",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "CREDENTIAL_EXPIRED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum115",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/234",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "CREDENTIAL_ROTATED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum115",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/235",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "UPLOAD_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum115",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/236",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "DOWNLOAD_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum115",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/237",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "ROLLBACK_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum115",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/238",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RECOVERY_ORACLE_CONFLICT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum115",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/239",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "TERMINAL_CLOSURE_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum115",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/240",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "SSOT_NORMATIVE_CONFLICT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum116",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/241",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "CONTRACT_PACK_DRIFT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum116",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/242",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "CONTRACT_PACK_REFERENCE_INVALID",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum116",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/243",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "REQUIREMENT_TRACEABILITY_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum116",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/244",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "ORPHAN_REQUIREMENT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum116",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/245",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "ORPHAN_IMPLEMENTATION_ARTIFACT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum116",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/246",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "OPERATION_CONTRACT_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum116",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/247",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "STATE_MACHINE_CONTRACT_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum116",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/248",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "POSTGRES_CONTRACT_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum116",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/249",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "RUNTIME_BOUNDARY_CONTRACT_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum116",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/250",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "BINDING_CONTRACT_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum116",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/251",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "ERROR_RECOVERY_CONTRACT_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum116",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/252",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "AUTHORITY_OWNERSHIP_CONFLICT",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum116",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/253",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "EXPOSURE_PARITY_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum116",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/254",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "ACCEPTANCE_GATE_CONTRACT_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum116",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/255",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "CLOSURE_PREDICATE_INCOMPLETE",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum116",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/256",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    },
+    {
+      "error_code": "ARCHITECTURE_READINESS_BLOCKED",
+      "sourceRef": "contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum116",
+      "correlation_requirements": [
+        "correlationId",
+        "logicalOperationId",
+        "affectedObject",
+        "currentSnapshot"
+      ],
+      "logging_requirements": "SSOT 19 and 32; Secrets remain under trusted-perimeter policy.",
+      "missingNormativeFields": [],
+      "messageRef": "ui/contracts/error-presentation.json#/entries/257",
+      "status": "PRESENTATION_MAPPED_RETRY_POLICY_REQUIRES_OPERATION_BINDING"
+    }
+  ],
+  "summary": {
+    "sourceCodes": 258,
+    "presentationRecords": 258,
+    "completeRegistryRecords": 0
+  },
+  "limitation": "Enum membership and general recovery rules do not establish per-code technical conditions, deterministic localization or exact retry policy."
+}

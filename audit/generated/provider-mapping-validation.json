@@ -1,0 +1,125 @@
+{
+  "scope": "Adapter selection reference fixtures. RetryDirective never overrides operation replay authorization.",
+  "checks": [
+    {
+      "id": "billing-before-rate",
+      "status": "PASS",
+      "actual": [
+        "PROVIDER_BILLING_BLOCKED",
+        "DO_NOT_RETRY"
+      ]
+    },
+    {
+      "id": "quota-type",
+      "status": "PASS",
+      "actual": [
+        "PROVIDER_BILLING_BLOCKED",
+        "DO_NOT_RETRY"
+      ]
+    },
+    {
+      "id": "rate-only",
+      "status": "PASS",
+      "actual": [
+        "PROVIDER_RATE_LIMITED",
+        "CANONICAL_OPERATION_POLICY_ONLY"
+      ]
+    },
+    {
+      "id": "overloaded",
+      "status": "PASS",
+      "actual": [
+        "OPENAI_PROVIDER_TRANSIENT",
+        "CANONICAL_OPERATION_POLICY_ONLY"
+      ]
+    },
+    {
+      "id": "authentication",
+      "status": "PASS",
+      "actual": [
+        "PROVIDER_AUTHENTICATION_FAILED",
+        "DO_NOT_RETRY"
+      ]
+    },
+    {
+      "id": "permission",
+      "status": "PASS",
+      "actual": [
+        "PROVIDER_ACCESS_DENIED",
+        "DO_NOT_RETRY"
+      ]
+    },
+    {
+      "id": "bad-request",
+      "status": "PASS",
+      "actual": [
+        "PROVIDER_REQUEST_INVALID",
+        "DO_NOT_RETRY"
+      ]
+    },
+    {
+      "id": "timeout",
+      "status": "PASS",
+      "actual": [
+        "PROVIDER_TRANSPORT_TIMEOUT",
+        "RECONCILE_BEFORE_RETRY"
+      ]
+    },
+    {
+      "id": "invalid-response",
+      "status": "PASS",
+      "actual": [
+        "PROVIDER_RESPONSE_INVALID",
+        "RECONCILE_BEFORE_RETRY"
+      ]
+    },
+    {
+      "id": "db-unique",
+      "status": "PASS",
+      "actual": [
+        "DATABASE_CONSTRAINT_REJECTED",
+        "DO_NOT_RETRY"
+      ]
+    },
+    {
+      "id": "db-deadlock",
+      "status": "PASS",
+      "actual": [
+        "DATABASE_TRANSACTION_CONFLICT",
+        "CANONICAL_OPERATION_POLICY_ONLY"
+      ]
+    },
+    {
+      "id": "db-serialization",
+      "status": "PASS",
+      "actual": [
+        "DATABASE_TRANSACTION_CONFLICT",
+        "CANONICAL_OPERATION_POLICY_ONLY"
+      ]
+    },
+    {
+      "id": "unknown-empty",
+      "status": "PASS",
+      "actual": [
+        "UNCLASSIFIED_ERROR",
+        "DO_NOT_RETRY"
+      ]
+    },
+    {
+      "id": "never-parse-message",
+      "status": "PASS",
+      "actual": [
+        "UNCLASSIFIED_ERROR",
+        "DO_NOT_RETRY"
+      ]
+    },
+    {
+      "id": "provider-isolation",
+      "status": "PASS",
+      "actual": [
+        "UNCLASSIFIED_ERROR",
+        "DO_NOT_RETRY"
+      ]
+    }
+  ]
+}

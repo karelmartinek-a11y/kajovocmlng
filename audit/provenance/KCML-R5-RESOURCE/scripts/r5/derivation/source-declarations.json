@@ -1,0 +1,458 @@
+[
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-151",
+    "sourceSection": "### 49.4 Idempotency scope a exactly-once observable outcome",
+    "clauses": [
+      "operationContractId + operationContractRevision",
+      "callerAuthorityKind",
+      "stableCallerObjectId + stableCallerRevisionId",
+      "businessTargetId nebo concurrencyResourceKey",
+      "clientIdempotencyKey"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryRequirement",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-188",
+    "sourceSection": "### 50.15 Linux capabilities, privilege a seccomp",
+    "clauses": [
+      "CapabilityBoundingSet=",
+      "AmbientCapabilities=",
+      "EffectiveCapabilities=",
+      "PermittedCapabilities=",
+      "InheritableCapabilities=",
+      "NoNewPrivileges=true"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryRuntimeBoundary",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-198",
+    "sourceSection": "### 51.6 Jediné kanonické pořadí row locků",
+    "clauses": [
+      "A. transaction-scoped advisory locks: (namespace_id ASC, signed_key ASC)",
+      "B. singleton authority heads:",
+      "   B1 platform_incarnation singleton FOR SHARE",
+      "   B2 application_deployment_head singleton FOR SHARE",
+      "   B3 owner_api_credential FOR SHARE při API-key acceptance nebo FOR UPDATE při rotaci",
+      "   B4 activation_head singleton FOR UPDATE pouze při alokaci epoch",
+      "C. idempotency_locator subordinal 0, domain_idempotency_record subordinal 1: canonical key digest order uvnitř subtřídy",
+      "D. activation_domain_head: domain_key byte order",
+      "E. aggregate roots: (aggregate_kind_ordinal, aggregate_uuid raw bytes)",
+      "F. concurrency_claim: (namespace_id, key_digest)",
+      "G. dedicated sequence allocator rows: (sequence_namespace, parent_uuid, sequence_kind)",
+      "H. mutable child/head/claimable-work rows: (child_kind_ordinal, primary_parent_uuid, child stable ID/sequence)",
+      "I. audit_head singleton FOR UPDATE"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-200",
+    "sourceSection": "### 51.10 Immutable revisions, attempts, evidence a active pointers",
+    "clauses": [
+      "UNIQUE (parent_id, revision_number)",
+      "UNIQUE (parent_id, canonical_digest)",
+      "UNIQUE (parent_id, id)"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-203",
+    "sourceSection": "### 51.12 Idempotency, request digest a logical operation creation",
+    "clauses": [
+      "UNIQUE (scope_digest, key_digest)",
+      "UNIQUE (logical_operation_id)",
+      "CHECK (octet_length(scope_digest) = 32)",
+      "CHECK (octet_length(key_digest) = 32)",
+      "CHECK (octet_length(request_digest) = 32)"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-204",
+    "sourceSection": "### 51.14 Queue, outbox a inbox claim přes `SKIP LOCKED`",
+    "clauses": [
+      "state = READY",
+      "available_at <= db_now",
+      "unmet_dependency_count = 0",
+      "barrier_blocked = false",
+      "cancellation_requested = false",
+      "attempt_count < max_attempts",
+      "deadline_at IS NULL OR deadline_at > db_now"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-208",
+    "sourceSection": "### 51.15 Lease claim, heartbeat, expiry během transakce a takeover",
+    "clauses": [
+      "lease_state != ACTIVE",
+      "OR lease_expires_at <= db_now",
+      "OR lease_owner_id = same owner a explicitní idempotentní claim kontrakt"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-209",
+    "sourceSection": "### 51.18 Activation domain admission, barrier, switch a rollback",
+    "clauses": [
+      "domain_key + domain_digest",
+      "state_version",
+      "current_activation_epoch",
+      "current_activation_set_id",
+      "admission_state = OPEN | DRAINING | CLOSED",
+      "barrier_id",
+      "platform_incarnation_id",
+      "updated_at"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-210",
+    "sourceSection": "### 51.18 Activation domain admission, barrier, switch a rollback",
+    "clauses": [
+      "platform/deployment heads FOR SHARE",
+      "activation_head FOR UPDATE",
+      "domain heads FOR UPDATE sorted",
+      "všechny dotčené aggregate roots včetně activation setu sorted podle 51.6",
+      "mutable binding/route/runtime pointer child rows sorted",
+      "audit_head FOR UPDATE last"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-211",
+    "sourceSection": "### 51.19 Binding-set revisions a component bindings",
+    "clauses": [
+      "UNIQUE (binding_set_id, revision_number)",
+      "UNIQUE (binding_set_id, canonical_digest)",
+      "UNIQUE (binding_set_revision_id, member_key_digest)",
+      "CHECK (octet_length(member_key_digest) = 32)"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-212",
+    "sourceSection": "### 51.20 Secret version, binding a atomická rotace `KCML_OWNER_API_KEY`",
+    "clauses": [
+      "UNIQUE (secret_id, version_number)",
+      "UNIQUE (secret_id, id)",
+      "CHECK (octet_length(canonical_value_digest) = 32)",
+      "partial UNIQUE (secret_id) WHERE lifecycle = 'ACTIVE'"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-214",
+    "sourceSection": "#### 51.22.3 MRTR exchange a input items",
+    "clauses": [
+      "UNIQUE (call_run_id, exchange_sequence)",
+      "UNIQUE (request_state_lookup_digest)",
+      "partial UNIQUE (call_run_id, consume_idempotency_key_digest)",
+      "  WHERE consume_idempotency_key_digest IS NOT NULL"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-216",
+    "sourceSection": "#### 51.24.1 Session, host/context a browser identity observations",
+    "clauses": [
+      "UNIQUE (session_id,page_id,page_generation)",
+      "UNIQUE (page_id,page_generation,frame_id,frame_attachment_epoch)",
+      "UNIQUE (frame_id,frame_attachment_epoch,document_epoch)",
+      "UNIQUE (session_id,source_generation,source_sequence)",
+      "UNIQUE (page_id,page_generation,navigation_sequence)"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-217",
+    "sourceSection": "#### 51.24.2 Control takeover, return a input-state reset",
+    "clauses": [
+      "UNIQUE (session_id,control_epoch,client_sequence)",
+      "CHECK (client_sequence >= 0)"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-218",
+    "sourceSection": "#### 51.24.4 Dispatch phases a stale response",
+    "clauses": [
+      "UNIQUE (action_attempt_id,phase_sequence)",
+      "UNIQUE (action_attempt_id,phase)",
+      "CHECK (phase_sequence > 0)"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-219",
+    "sourceSection": "### 51.26 Cleanup operation a orphan-free completion",
+    "clauses": [
+      "UNIQUE (cleanup_operation_id, resource_kind, stable_resource_key_digest)",
+      "UNIQUE (cleanup_operation_id, step_ordinal)",
+      "partial UNIQUE (owner_kind,owner_id,cleanup_kind)",
+      "  WHERE terminal_at IS NULL"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-221",
+    "sourceSection": "### 51.37 Agentic authority, provenance a semantic-dispatch transakce",
+    "clauses": [
+      "UNIQUE (authority_lineage_id, lineage_digest)",
+      "UNIQUE (operation_intent_id, revision_number)",
+      "UNIQUE (parent_owner_kind, parent_owner_id, intent_stable_key, intent_digest)",
+      "UNIQUE (operation_context_id, context_digest)",
+      "UNIQUE (parent_logical_operation_id, semantic_step_key, context_generation)",
+      "UNIQUE (operation_context_id, action_plan_digest)",
+      "UNIQUE (action_plan_id, destination_argument_path) pro one-value slots",
+      "UNIQUE (operation_context_id, secret_binding_id, consumer_step_key, placement_path, attempt_number)",
+      "UNIQUE (request_descriptor_id, segment_sequence)",
+      "CHECK (dispatch_state <> 'DISPATCH_RESERVED' OR validated_at IS NOT NULL)",
+      "CHECK (instruction_authority <> 'NONE' OR destination <> 'INSTRUCTIONS')"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-223",
+    "sourceSection": "### 51.38 Recovery barrier, closure a capacity physical contract",
+    "clauses": [
+      "PRIMARY KEY (singleton_key)",
+      "CHECK (singleton_key = 1)",
+      "CHECK (state IN ('STARTING','RECONCILING','READY','BLOCKED','MANUAL_REVIEW'))",
+      "UNIQUE (recovery_epoch)",
+      "UNIQUE (recovery_attempt_id, owner_kind, owner_id, classification_revision)",
+      "UNIQUE (terminal_root_kind, terminal_root_id, terminal_state_version)",
+      "UNIQUE (capacity_kind, reservation_key) WHERE released_at IS NULL",
+      "UNIQUE (artifact_owner_kind, artifact_owner_id, logical_name, publication_revision)",
+      "CHECK (state <> 'READY' OR ready_evidence_digest IS NOT NULL)",
+      "CHECK (artifact_state <> 'PUBLISHED' OR final_digest IS NOT NULL)"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-230",
+    "sourceSection": "### 52.34 Databázové objekty a constraints",
+    "clauses": [
+      "UNIQUE (owner_kind, owner_id, local_idempotency_scope, local_idempotency_key)",
+      "UNIQUE (model_logical_operation_id, attempt_number)",
+      "partial UNIQUE (model_logical_operation_id) WHERE canonical_attempt = true",
+      "UNIQUE (provider_response_id) WHERE provider_response_id IS NOT NULL",
+      "UNIQUE (model_call_id, local_event_sequence)",
+      "UNIQUE (provider_response_id, provider_sequence) WHERE provider_sequence IS NOT NULL",
+      "UNIQUE (model_call_id, provider_output_index)",
+      "UNIQUE (model_call_id, provider_item_id) WHERE provider_item_id IS NOT NULL",
+      "UNIQUE (model_call_id, provider_call_id) WHERE provider_call_id IS NOT NULL",
+      "UNIQUE (parent_run_id, producing_model_call_id, continuation_generation)",
+      "UNIQUE (session_id, source_run_id, source_item_key)",
+      "UNIQUE (session_id, sequence)",
+      "UNIQUE (checkpoint_owner_id, checkpoint_sequence)"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-239",
+    "sourceSection": "### 54.5 Sekvenční a souběžná historie",
+    "clauses": [
+      "sequence",
+      "actor/session/worker",
+      "command invocation",
+      "logicalOperationId",
+      "idempotency key a request digest",
+      "expected state snapshot",
+      "admission time",
+      "dispatch-intent commit",
+      "dispatch-authority claim",
+      "possible-effect trigger",
+      "external observation",
+      "outcome commit",
+      "response delivery",
+      "cleanup/terminal commit",
+      "faults a scheduler barriers"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryRequirement",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-240",
+    "sourceSection": "### 54.6 Stabilní fault-point registry",
+    "clauses": [
+      "<subsystem>.<operation>.<phase>.<before|after>"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryRequirement",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-241",
+    "sourceSection": "### 54.6 Stabilní fault-point registry",
+    "clauses": [
+      "admission.validate",
+      "idempotency.claim",
+      "root.lock",
+      "state.transition",
+      "checkpoint.persist",
+      "side_effect.intent",
+      "dispatch_outbox.persist",
+      "dispatch_authority.claim",
+      "dispatch.trigger",
+      "request.headers_start",
+      "request.body_start",
+      "effect.response_received",
+      "effect.readback",
+      "outcome.persist",
+      "terminal.commit",
+      "successor.reserve",
+      "successor.enqueue",
+      "pointer.prepare",
+      "pointer.switch",
+      "runtime.start",
+      "runtime.ready",
+      "rollback.switch",
+      "cleanup.intent",
+      "cleanup.step.<name>",
+      "cleanup.complete",
+      "artifact.write",
+      "artifact.fsync",
+      "artifact.validate",
+      "artifact.rename",
+      "artifact.pointer",
+      "response.emit"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryRequirement",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-243",
+    "sourceSection": "### 54.12 Recovery oracle",
+    "clauses": [
+      "root state/version",
+      "idempotency record",
+      "lease/fence/incarnation/deployment/recovery epoch",
+      "checkpoint lineage",
+      "dispatch intent/outbox/claim",
+      "adapter send phase",
+      "target idempotency handle",
+      "external read-back",
+      "provider response/task ID",
+      "browser mutation phase a postcondition",
+      "pointer/runtime effective inventory",
+      "cleanup inventory"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryRequirement",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-250",
+    "sourceSection": "### 55.5 Requirement Registry",
+    "clauses": [
+      "KCML-REQ-<DOMAIN>-<64 lowercase hex>"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryRequirement",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  },
+  {
+    "contractKind": "NORMATIVE_CONSTRAINT_DECLARATION",
+    "declarationId": "SSOT-DECL-251",
+    "sourceSection": "### 55.5 Requirement Registry",
+    "clauses": [
+      "domain",
+      "canonical subject key",
+      "normalized normative statement",
+      "normalized table/schema/enum context",
+      "normative level"
+    ],
+    "allClausesMandatory": true,
+    "recordDefinition": "RegistryRequirement",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "unknownBindingPolicy": "BLOCKED"
+  }
+]

@@ -1,0 +1,472 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kcml:error-presentation:1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": "KCML-ERROR-PRESENTATION/1"
+    },
+    "authority": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/record"
+      },
+      "minItems": 1
+    },
+    "fallback": {
+      "$ref": "#/$defs/record"
+    },
+    "knownProviderConditionsRequiringExactAdapterBinding": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "providerMappingGate": {
+      "type": "string",
+      "minLength": 1
+    },
+    "retryGate": {
+      "type": "string",
+      "minLength": 1
+    },
+    "defaultRetryProfile": {
+      "const": {
+        "policyRevision": "KCML-BOUNDED-RETRY/1",
+        "maxRetries": 3,
+        "maxAttempts": 4,
+        "baseDelayMs": 500,
+        "maxDelayMs": 2000,
+        "jitterMaxMs": 250,
+        "retryDelaysMs": [
+          500,
+          1000,
+          2000
+        ],
+        "attemptCounting": "Initial execution is attempt 1. Retry indices 0, 1, 2 are attempts 2, 3, 4; the original attempt is never counted as a retry.",
+        "precedence": "An explicit existing operation-specific policy takes precedence; this profile fills missing numeric limits only after explicit canonical replay authorization. It never grants replay permission.",
+        "eligibility": [
+          "canonical operation explicitly permits automatic replay",
+          "same approved input revision and digest",
+          "current authority and fencing valid",
+          "no pending human intervention",
+          "effect known absent or canonical idempotency/reconciliation proves replay safe"
+        ],
+        "denied": [
+          "unknown side-effect outcome",
+          "changed input revision or digest",
+          "human intervention required",
+          "cancelled or terminal operation",
+          "stale authority",
+          "billing or authentication failure without resolved cause"
+        ],
+        "jitter": "Persist jitterSeed at admission. For zero-based retryIndex, take SHA256(UTF8(jitterSeed + \":\" + decimal(retryIndex))), interpret first 8 bytes as unsigned big-endian, modulo 251. Do not redraw after restart.",
+        "scheduling": "eligibleAt = max(failureObservedAt + retryDelaysMs[retryIndex] + jitterMs, retryAfterAt). A missing Retry-After adds no lower bound. Parse delay-seconds relative to responseReceivedAt or HTTP-date as UTC; an invalid value is audited and adds no bound. If eligibleAt >= effectiveDeadlineAt, terminate without dispatch.",
+        "resume": "Persist retryIndex, eligibleAt, logicalOperationId, attemptId, inputDigest and policyRevision before scheduling. Reconnect or restart does not reset the budget. A unique logicalOperationId + retryIndex reservation prevents duplicate dispatch.",
+        "audit": [
+          "RETRY_SCHEDULED with policyRevision, retryIndex, eligibleAt, cause and correlationId",
+          "RETRY_SUPPRESSED with failed eligibility guard",
+          "canonical operation terminal event when retry budget or deadline is exhausted"
+        ]
+      }
+    },
+    "providerErrors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/record"
+      },
+      "minItems": 10
+    },
+    "providerAdapters": {
+      "const": {
+        "format": "KCML-PROVIDER-ERROR-ADAPTERS/1",
+        "inputFields": [
+          "providerId",
+          "httpStatus",
+          "providerCode",
+          "providerType",
+          "transportFailure",
+          "responseValidation",
+          "sqlState",
+          "responseReceivedAt",
+          "retryAfter",
+          "logicalOperationId",
+          "runId",
+          "componentId",
+          "correlationId",
+          "effectEvidence"
+        ],
+        "selection": "Evaluate rules in listed order. A rule matches only if all declared conditions match. anyOf matches one branch. startsWith is a literal string prefix. Every nonmatching known or unknown condition proceeds to the next rule; no match returns UNCLASSIFIED_ERROR. Never classify by localized message substring.",
+        "effectSafety": "Classification does not establish that an operation had no effect. Automatic replay additionally requires the canonical recovery and idempotency guards. In particular timeout, connection reset after dispatch and invalid response do not prove absent effects.",
+        "normalization": "providerId openai identifies the configured OpenAI endpoint, not untrusted response content. Copy error.code and error.type as providerCode/providerType when strings; do not infer them from message. PostgreSQL sqlState is the driver SQLSTATE string. httpStatus is the actual response status. Missing fields are null and never match a non-null condition.",
+        "rules": [
+          {
+            "id": "openai.billing",
+            "when": {
+              "providerId": "openai",
+              "anyOf": [
+                {
+                  "providerCode": {
+                    "in": [
+                      "credit_balance_exhausted",
+                      "organization_spend_limit_exceeded",
+                      "project_spend_limit_exceeded",
+                      "organization_usage_limit_exceeded",
+                      "insufficient_quota"
+                    ]
+                  }
+                },
+                {
+                  "providerType": {
+                    "in": [
+                      "credit_balance_exhausted",
+                      "organization_spend_limit_exceeded",
+                      "project_spend_limit_exceeded",
+                      "organization_usage_limit_exceeded",
+                      "insufficient_quota"
+                    ]
+                  }
+                }
+              ]
+            },
+            "error_code": "PROVIDER_BILLING_BLOCKED",
+            "retryDirective": "DO_NOT_RETRY"
+          },
+          {
+            "id": "http.authentication",
+            "when": {
+              "httpStatus": 401
+            },
+            "error_code": "PROVIDER_AUTHENTICATION_FAILED",
+            "retryDirective": "DO_NOT_RETRY"
+          },
+          {
+            "id": "http.access",
+            "when": {
+              "httpStatus": 403
+            },
+            "error_code": "PROVIDER_ACCESS_DENIED",
+            "retryDirective": "DO_NOT_RETRY"
+          },
+          {
+            "id": "http.request",
+            "when": {
+              "httpStatus": {
+                "in": [
+                  400,
+                  422
+                ]
+              }
+            },
+            "error_code": "PROVIDER_REQUEST_INVALID",
+            "retryDirective": "DO_NOT_RETRY"
+          },
+          {
+            "id": "http.missing",
+            "when": {
+              "httpStatus": 404
+            },
+            "error_code": "PROVIDER_RESOURCE_NOT_FOUND",
+            "retryDirective": "DO_NOT_RETRY"
+          },
+          {
+            "id": "http.rate",
+            "when": {
+              "httpStatus": 429
+            },
+            "error_code": "PROVIDER_RATE_LIMITED",
+            "retryDirective": "CANONICAL_OPERATION_POLICY_ONLY"
+          },
+          {
+            "id": "openai.availability",
+            "when": {
+              "providerId": "openai",
+              "httpStatus": {
+                "in": [
+                  500,
+                  502,
+                  503,
+                  504
+                ]
+              }
+            },
+            "error_code": "OPENAI_PROVIDER_TRANSIENT",
+            "retryDirective": "CANONICAL_OPERATION_POLICY_ONLY"
+          },
+          {
+            "id": "transport.timeout",
+            "when": {
+              "transportFailure": "TIMEOUT"
+            },
+            "error_code": "PROVIDER_TRANSPORT_TIMEOUT",
+            "retryDirective": "RECONCILE_BEFORE_RETRY"
+          },
+          {
+            "id": "transport.connection",
+            "when": {
+              "transportFailure": {
+                "in": [
+                  "DNS",
+                  "CONNECTION_REFUSED",
+                  "CONNECTION_RESET",
+                  "TLS"
+                ]
+              }
+            },
+            "error_code": "PROVIDER_NETWORK_UNAVAILABLE",
+            "retryDirective": "CANONICAL_OPERATION_POLICY_ONLY"
+          },
+          {
+            "id": "response.invalid",
+            "when": {
+              "responseValidation": {
+                "in": [
+                  "INVALID_JSON",
+                  "SCHEMA_MISMATCH"
+                ]
+              }
+            },
+            "error_code": "PROVIDER_RESPONSE_INVALID",
+            "retryDirective": "RECONCILE_BEFORE_RETRY"
+          },
+          {
+            "id": "database.concurrent",
+            "when": {
+              "sqlState": {
+                "in": [
+                  "40001",
+                  "40P01"
+                ]
+              }
+            },
+            "error_code": "DATABASE_TRANSACTION_CONFLICT",
+            "retryDirective": "CANONICAL_OPERATION_POLICY_ONLY"
+          },
+          {
+            "id": "database.constraint",
+            "when": {
+              "sqlState": {
+                "startsWith": "23"
+              }
+            },
+            "error_code": "DATABASE_CONSTRAINT_REJECTED",
+            "retryDirective": "DO_NOT_RETRY"
+          }
+        ],
+        "fallback": "UNCLASSIFIED_ERROR",
+        "diagnostics": "Preserve original diagnostic response according to existing SSOT 19/32, including its Secrets/trusted-perimeter rules. User-facing primary text is selected by stable error_code; never use the raw provider message as the primary message.",
+        "sources": [
+          "https://developers.openai.com/api/docs/guides/error-codes",
+          "https://developers.openai.com/api/docs/guides/rate-limits",
+          "https://www.postgresql.org/docs/18/errcodes-appendix.html"
+        ],
+        "verification": "OpenAI error classes and PostgreSQL 18 SQLSTATE classes 23, 40001 and 40P01 verified against official documentation 2026-09-23. This is source verification, not a live provider test."
+      }
+    }
+  },
+  "required": [
+    "format",
+    "authority",
+    "entries",
+    "fallback",
+    "knownProviderConditionsRequiringExactAdapterBinding",
+    "providerMappingGate",
+    "retryGate",
+    "defaultRetryProfile",
+    "providerErrors",
+    "providerAdapters"
+  ],
+  "$defs": {
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "error_code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "minLength": 1
+        },
+        "severity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "operator_detail": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recoverability": {
+          "type": "string",
+          "minLength": 1
+        },
+        "manual_recovery": {
+          "type": "string",
+          "minLength": 1
+        },
+        "logging_requirements": {
+          "type": "string",
+          "minLength": 1
+        },
+        "user_message_cs": {
+          "type": "string",
+          "minLength": 1
+        },
+        "user_message_en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "messageKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "technical_condition": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "match": {
+              "enum": [
+                "CANONICAL_STABLE_CODE_EQUALS",
+                "NO_KNOWN_STABLE_CODE_MATCH"
+              ]
+            },
+            "value": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authorityRef": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "match"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "match": {
+                    "const": "CANONICAL_STABLE_CODE_EQUALS"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "value",
+                  "authorityRef"
+                ]
+              }
+            }
+          ]
+        },
+        "correlation_requirements": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "automatic_retry_policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "mode": {
+              "enum": [
+                "CANONICAL_OPERATION_POLICY_ONLY",
+                "DO_NOT_RETRY"
+              ]
+            },
+            "authoritySections": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "requiredPinnedFields": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            },
+            "missingPolicy": {
+              "type": "string",
+              "minLength": 1
+            },
+            "delay": {
+              "type": "string",
+              "minLength": 1
+            },
+            "stop": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              ]
+            },
+            "sideEffects": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxAttempts": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "delayMs": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "defaultProfileRef": {
+              "const": "ui/contracts/error-presentation.json#/defaultRetryProfile"
+            }
+          },
+          "required": [
+            "mode",
+            "stop",
+            "sideEffects"
+          ]
+        }
+      },
+      "required": [
+        "error_code",
+        "source",
+        "category",
+        "severity",
+        "operator_detail",
+        "recoverability",
+        "manual_recovery",
+        "logging_requirements",
+        "user_message_cs",
+        "user_message_en",
+        "messageKey",
+        "technical_condition",
+        "correlation_requirements",
+        "automatic_retry_policy"
+      ]
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "scope": "Static contract validation and reference-oracle fixtures; no backend or provider call.",
+  "checks": [
+    {
+      "id": "states.transitions-and-terminal-reachability",
+      "status": "PASS"
+    },
+    {
+      "id": "locales.keys-and-placeholders",
+      "status": "PASS"
+    },
+    {
+      "id": "projections.exact-source-match",
+      "status": "PASS"
+    },
+    {
+      "id": "authority.no-implicit-last-wins",
+      "status": "PASS"
+    },
+    {
+      "id": "references.operations-process-families",
+      "status": "PASS"
+    },
+    {
+      "id": "dispatchers.exact-owner-allowlist-and-internal-denial",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.complete-action-placement-and-command-identity",
+      "status": "PASS"
+    },
+    {
+      "id": "event.schema-meta",
+      "status": "PASS"
+    },
+    {
+      "id": "event.valid-fixture",
+      "status": "PASS"
+    },
+    {
+      "id": "event.reject-unknown-state",
+      "status": "PASS"
+    },
+    {
+      "id": "event.reject-missing-correlation",
+      "status": "PASS"
+    },
+    {
+      "id": "event.reject-negative-sequence",
+      "status": "PASS"
+    },
+    {
+      "id": "event.reject-invalid-time",
+      "status": "PASS"
+    },
+    {
+      "id": "event.reject-reserved-field",
+      "status": "PASS"
+    },
+    {
+      "id": "oracle.duplicate",
+      "status": "PASS"
+    },
+    {
+      "id": "oracle.late",
+      "status": "PASS"
+    },
+    {
+      "id": "oracle.gap",
+      "status": "PASS"
+    },
+    {
+      "id": "oracle.regression",
+      "status": "PASS"
+    },
+    {
+      "id": "oracle.production-demo",
+      "status": "PASS"
+    },
+    {
+      "id": "oracle.wrong-stream",
+      "status": "PASS"
+    },
+    {
+      "id": "oracle.snapshot-watermark",
+      "status": "PASS"
+    }
+  ]
+}

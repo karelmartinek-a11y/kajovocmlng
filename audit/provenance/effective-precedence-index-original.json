@@ -1,0 +1,55 @@
+{
+  "currentRevision": "REGISTRY-R13-FINAL-DEVELOPMENT-BASELINE-CLOSURE-2026-09-21",
+  "currentTechnicalSupersessions": [
+    {
+      "current": "18.6",
+      "old": "16",
+      "reason": "greenfield modernization",
+      "subject": "PostgreSQL baseline"
+    },
+    {
+      "current": "12.5.1",
+      "old": "11",
+      "reason": "current stable deterministic bootstrap",
+      "subject": "pnpm baseline"
+    },
+    {
+      "current": "24.21.0 LTS",
+      "old": "24 generic",
+      "reason": "exact runtime tuple",
+      "subject": "Node baseline"
+    },
+    {
+      "current": "1.63.0",
+      "old": "exact version required but not selected",
+      "reason": "exact browser runtime tuple",
+      "subject": "Playwright bootstrap"
+    },
+    {
+      "current": "7.20.0",
+      "old": "exact lock required but initial version not selected",
+      "reason": "current provider SDK realization",
+      "subject": "OpenAI JS SDK"
+    },
+    {
+      "current": "0.18.0",
+      "old": "exact lock required but initial version not selected",
+      "reason": "current agent runtime realization",
+      "subject": "OpenAI Agents SDK"
+    }
+  ],
+  "format": "KCML-R13-EFFECTIVE-PRECEDENCE-INDEX/1",
+  "interpretationRules": [
+    "A lower preserved revision is evidence/provenance and remains byte-identical; its superseded state/header/version constants are not effective configuration.",
+    "Higher layer changes only the explicitly named subject; all unaffected lower-layer business invariants remain normative.",
+    "No implementation may choose an older statement merely because it appears earlier in the file.",
+    "Tooling MUST generate an effective normalized view from the precedence index before implementation/code generation."
+  ],
+  "sourceRevision": "REGISTRY-R12-OPENAI-PROVIDER-SURFACE-AND-MASK-CLOSURE-2026-09-21",
+  "state": {
+    "ARCHITECTURE_READINESS": "PASS_AFTER_REMEDIATION",
+    "BUSINESS_SCOPE_CHANGED": false,
+    "CONFORMANCE_AUDIT": "PASS_AFTER_REMEDIATION",
+    "OPEN_OBLIGATIONS": 0
+  }
+}
