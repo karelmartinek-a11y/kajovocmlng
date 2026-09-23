@@ -1,0 +1,296 @@
+{
+  "format": "KCML-VISUAL-BINDINGS/1",
+  "authority": "SSOT 45.10; UI canonical registry; design tokens",
+  "renderer": "scripts/render_reference.mjs",
+  "fixturePolicy": "illustrative state snapshots, explicitly labeled; never claimed as production evidence",
+  "artifacts": [
+    {
+      "id": "A",
+      "scenario": "progress",
+      "source": "03_UI_REFERENCE/pages/dashboard.html?state=progress",
+      "component": "RunProgress",
+      "state": "step.wait",
+      "event": "response.wait.started",
+      "backendOperation": "dashboard.events.read",
+      "dataContract": "live-event.schema.json",
+      "controls": "Detail běhu; cancellation through canonical run action",
+      "validation": "planDigest/nodeId/attempt and ordered event source",
+      "viewports": [
+        "390x844",
+        "768x1024",
+        "1366x768",
+        "1920x1080"
+      ],
+      "screenshots": [
+        "04_UI_VIEWS/390x844/workspace-progress.png",
+        "04_UI_VIEWS/768x1024/workspace-progress.png",
+        "04_UI_VIEWS/1366x768/workspace-progress.png",
+        "04_UI_VIEWS/1920x1080/workspace-progress.png"
+      ]
+    },
+    {
+      "id": "B",
+      "scenario": "ready",
+      "source": "03_UI_REFERENCE/pages/dashboard.html?state=ready",
+      "component": "DashboardCanvas + ObjectInspector",
+      "state": "READY",
+      "event": "snapshot",
+      "backendOperation": "dashboard.topology.read",
+      "dataContract": "ui-control-registry.json",
+      "controls": "Select object; pan/zoom; action menu",
+      "validation": "userManaged nodes only; current snapshot",
+      "viewports": [
+        "390x844",
+        "768x1024",
+        "1366x768",
+        "1920x1080"
+      ],
+      "screenshots": [
+        "04_UI_VIEWS/390x844/workspace-ready.png",
+        "04_UI_VIEWS/768x1024/workspace-ready.png",
+        "04_UI_VIEWS/1366x768/workspace-ready.png",
+        "04_UI_VIEWS/1920x1080/workspace-ready.png"
+      ]
+    },
+    {
+      "id": "C",
+      "scenario": "stale",
+      "source": "03_UI_REFERENCE/pages/dashboard.html?state=stale",
+      "component": "StreamStatus + DashboardCanvas",
+      "state": "STALE",
+      "event": "stream.resync_required",
+      "backendOperation": "dashboard.topology.read",
+      "dataContract": "ui-control-registry.json",
+      "controls": "Reload snapshot",
+      "validation": "no fake pulses; timestamp and gap visible",
+      "viewports": [
+        "390x844",
+        "768x1024",
+        "1366x768",
+        "1920x1080"
+      ],
+      "screenshots": [
+        "04_UI_VIEWS/390x844/workspace-stale.png",
+        "04_UI_VIEWS/768x1024/workspace-stale.png",
+        "04_UI_VIEWS/1366x768/workspace-stale.png",
+        "04_UI_VIEWS/1920x1080/workspace-stale.png"
+      ]
+    },
+    {
+      "id": "D",
+      "scenario": "menu",
+      "source": "03_UI_REFERENCE/pages/dashboard.html?state=menu",
+      "component": "ObjectActionMenu",
+      "state": "OPEN",
+      "event": "client interaction",
+      "backendOperation": "operation.catalog.list",
+      "dataContract": "ui-control-registry.json",
+      "controls": "Right click, Actions, Shift+F10, arrows, Enter, Escape",
+      "validation": "same action IDs and state guards",
+      "viewports": [
+        "390x844",
+        "768x1024",
+        "1366x768",
+        "1920x1080"
+      ],
+      "screenshots": [
+        "04_UI_VIEWS/390x844/workspace-menu.png",
+        "04_UI_VIEWS/768x1024/workspace-menu.png",
+        "04_UI_VIEWS/1366x768/workspace-menu.png",
+        "04_UI_VIEWS/1920x1080/workspace-menu.png"
+      ]
+    },
+    {
+      "id": "E",
+      "scenario": "detail",
+      "source": "03_UI_REFERENCE/pages/dashboard.html?state=detail",
+      "component": "ObjectInspector",
+      "state": "READY",
+      "event": "snapshot",
+      "backendOperation": "component.read",
+      "dataContract": "ui-control-registry.json",
+      "controls": "Detail tabs, contextual chat",
+      "validation": "selected componentId; no global latest substitution",
+      "viewports": [
+        "390x844",
+        "768x1024",
+        "1366x768",
+        "1920x1080"
+      ],
+      "screenshots": [
+        "04_UI_VIEWS/390x844/workspace-detail.png",
+        "04_UI_VIEWS/768x1024/workspace-detail.png",
+        "04_UI_VIEWS/1366x768/workspace-detail.png",
+        "04_UI_VIEWS/1920x1080/workspace-detail.png"
+      ]
+    },
+    {
+      "id": "F",
+      "scenario": "inputs",
+      "source": "03_UI_REFERENCE/pages/dashboard.html?state=inputs",
+      "component": "ArtifactPreview",
+      "state": "READY",
+      "event": "artifact receipt",
+      "backendOperation": "component.read",
+      "dataContract": "ui-control-registry.json",
+      "controls": "CSV/XLSX/email/text/files tabs; copy/download",
+      "validation": "authorized artifactId and digest; bounds and MIME",
+      "viewports": [
+        "390x844",
+        "768x1024",
+        "1366x768",
+        "1920x1080"
+      ],
+      "screenshots": [
+        "04_UI_VIEWS/390x844/workspace-inputs.png",
+        "04_UI_VIEWS/768x1024/workspace-inputs.png",
+        "04_UI_VIEWS/1366x768/workspace-inputs.png",
+        "04_UI_VIEWS/1920x1080/workspace-inputs.png"
+      ]
+    },
+    {
+      "id": "G",
+      "scenario": "live",
+      "source": "03_UI_REFERENCE/pages/dashboard.html?state=live",
+      "component": "RuntimeEdge",
+      "state": "REQUEST",
+      "event": "communication.request",
+      "backendOperation": "dashboard.events.read",
+      "dataContract": "live-event.schema.json",
+      "controls": "Open event detail",
+      "validation": "eventId dedupe; direction; finite 600ms; reduced motion",
+      "viewports": [
+        "390x844",
+        "768x1024",
+        "1366x768",
+        "1920x1080"
+      ],
+      "screenshots": [
+        "04_UI_VIEWS/390x844/workspace-live.png",
+        "04_UI_VIEWS/768x1024/workspace-live.png",
+        "04_UI_VIEWS/1366x768/workspace-live.png",
+        "04_UI_VIEWS/1920x1080/workspace-live.png"
+      ]
+    },
+    {
+      "id": "H",
+      "scenario": "error",
+      "source": "03_UI_REFERENCE/pages/dashboard.html?state=error",
+      "component": "ErrorPanel + RunProgress",
+      "state": "FAILED",
+      "event": "step.failed",
+      "backendOperation": "log.correlation.read",
+      "dataContract": "live-event.schema.json",
+      "controls": "Provider setup; diagnostics; guarded recovery",
+      "validation": "OPENAI_BILLING_QUOTA_EXHAUSTED; no auto retry",
+      "viewports": [
+        "390x844",
+        "768x1024",
+        "1366x768",
+        "1920x1080"
+      ],
+      "screenshots": [
+        "04_UI_VIEWS/390x844/workspace-error.png",
+        "04_UI_VIEWS/768x1024/workspace-error.png",
+        "04_UI_VIEWS/1366x768/workspace-error.png",
+        "04_UI_VIEWS/1920x1080/workspace-error.png"
+      ]
+    },
+    {
+      "id": "I",
+      "scenario": "waiting",
+      "source": "03_UI_REFERENCE/pages/dashboard.html?state=waiting",
+      "component": "HumanWaitPanel",
+      "state": "WAITING_FOR_HUMAN",
+      "event": "step.human_required",
+      "backendOperation": "browser.control.acquire",
+      "dataContract": "live-event.schema.json",
+      "controls": "Complete login/MFA; return automation control",
+      "validation": "current session/controlEpoch; postcondition before resume",
+      "viewports": [
+        "390x844",
+        "768x1024",
+        "1366x768",
+        "1920x1080"
+      ],
+      "screenshots": [
+        "04_UI_VIEWS/390x844/workspace-waiting.png",
+        "04_UI_VIEWS/768x1024/workspace-waiting.png",
+        "04_UI_VIEWS/1366x768/workspace-waiting.png",
+        "04_UI_VIEWS/1920x1080/workspace-waiting.png"
+      ]
+    },
+    {
+      "id": "J",
+      "scenario": "multi",
+      "source": "03_UI_REFERENCE/pages/dashboard.html?state=multi",
+      "component": "ChildRunGroup",
+      "state": "ACTIVE",
+      "event": "tests.started",
+      "backendOperation": "generation.job.list",
+      "dataContract": "live-event.schema.json",
+      "controls": "Expand child; inspect dependency blocker",
+      "validation": "same root specification digest; no success until every child closed",
+      "viewports": [
+        "390x844",
+        "768x1024",
+        "1366x768",
+        "1920x1080"
+      ],
+      "screenshots": [
+        "04_UI_VIEWS/390x844/workspace-multi.png",
+        "04_UI_VIEWS/768x1024/workspace-multi.png",
+        "04_UI_VIEWS/1366x768/workspace-multi.png",
+        "04_UI_VIEWS/1920x1080/workspace-multi.png"
+      ]
+    },
+    {
+      "id": "K",
+      "scenario": "specification",
+      "source": "03_UI_REFERENCE/pages/generation.html?state=specification",
+      "component": "SolutionEditor",
+      "state": "DRAFT",
+      "event": "specification edit proposal",
+      "backendOperation": "generation.spec.propose",
+      "dataContract": "solution-specification.schema.json",
+      "controls": "Edit component/ports/steps/bindings; review; approve exact digest",
+      "validation": "solution-specification.schema.json; CAS; DAG; impact",
+      "viewports": [
+        "390x844",
+        "768x1024",
+        "1366x768",
+        "1920x1080"
+      ],
+      "screenshots": [
+        "04_UI_VIEWS/390x844/workspace-specification.png",
+        "04_UI_VIEWS/768x1024/workspace-specification.png",
+        "04_UI_VIEWS/1366x768/workspace-specification.png",
+        "04_UI_VIEWS/1920x1080/workspace-specification.png"
+      ]
+    },
+    {
+      "id": "L",
+      "scenario": "ready",
+      "source": "03_UI_REFERENCE/pages/dashboard.html?state=ready",
+      "component": "ResponsiveObjectList",
+      "state": "READY",
+      "event": "snapshot",
+      "backendOperation": "dashboard.topology.read",
+      "dataContract": "ui-control-registry.json",
+      "controls": "Touch-visible menu and one-column inspector",
+      "validation": "same operations at 390/768/1366/1920; no forced section navigation",
+      "viewports": [
+        "390x844",
+        "768x1024",
+        "1366x768",
+        "1920x1080"
+      ],
+      "screenshots": [
+        "04_UI_VIEWS/390x844/workspace-ready.png",
+        "04_UI_VIEWS/768x1024/workspace-ready.png",
+        "04_UI_VIEWS/1366x768/workspace-ready.png",
+        "04_UI_VIEWS/1920x1080/workspace-ready.png"
+      ]
+    }
+  ]
+}

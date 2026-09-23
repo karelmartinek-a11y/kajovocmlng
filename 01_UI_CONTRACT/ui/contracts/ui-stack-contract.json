@@ -1,0 +1,123 @@
+{
+  "format": "KCML-UI-STACK/1",
+  "target": "Ubuntu production host shared with platform and isolated generated components",
+  "frontend": "React + TypeScript + Vite static build; same-origin canonical API via Nginx",
+  "designTokens": "02_BRAND/design-tokens.json",
+  "packageVersions": {
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "vite": "8.3.0",
+    "typescript": "6.0.3",
+    "@xyflow/react": "12.11.6",
+    "@radix-ui/react-context-menu": "2.3.7",
+    "@radix-ui/react-dropdown-menu": "2.1.24",
+    "@radix-ui/react-tooltip": "1.2.16",
+    "@radix-ui/react-dialog": "1.1.23",
+    "@tanstack/react-table": "9.2.4",
+    "@tanstack/react-virtual": "3.14.13",
+    "@dnd-kit/core": "6.3.1",
+    "@dnd-kit/sortable": "10.0.0",
+    "dompurify": "3.4.15",
+    "papaparse": "5.7.0",
+    "exceljs": "4.4.0",
+    "pdfjs-dist": "6.3.289"
+  },
+  "sourceVerificationDate": "2026-09-23",
+  "capabilities": [
+    {
+      "capability": "graph, nodes, handles, pan/zoom, minimap",
+      "library": "@xyflow/react",
+      "realization": "Custom nodes/edges; Controls and MiniMap; screen-reader and keyboard labels must be localized",
+      "limitations": "No automatic backend validation; positions never authorize a binding; manual layout or explicit layout engine required",
+      "primarySource": "https://reactflow.dev/learn/advanced-use/accessibility"
+    },
+    {
+      "capability": "live communication",
+      "library": "native SVG + Web Animations API",
+      "realization": "Animate one finite path traversal from persisted event receipt",
+      "limitations": "No React Flow animated=true infinite dashed animation; no synthetic traffic",
+      "primarySource": "https://reactflow.dev/learn/customization/custom-edges"
+    },
+    {
+      "capability": "drag/drop",
+      "library": "@dnd-kit/core + @dnd-kit/sortable",
+      "realization": "Pointer and keyboard sensors outside graph; React Flow native node movement inside graph",
+      "limitations": "HTML drag-and-drop alone does not cover touch; same operation exposed by menu and keyboard",
+      "primarySource": "https://reactflow.dev/examples/interaction/drag-and-drop"
+    },
+    {
+      "capability": "context menu",
+      "library": "@radix-ui/react-context-menu + @radix-ui/react-dropdown-menu",
+      "realization": "ContextMenu for right click; DropdownMenu for visible actions button",
+      "limitations": "Same command list in both; collision placement; do not hide touch actions",
+      "primarySource": "https://www.radix-ui.com/primitives/docs/components/context-menu"
+    },
+    {
+      "capability": "tooltip",
+      "library": "@radix-ui/react-tooltip",
+      "realization": "Focus and hover descriptions with aria-describedby",
+      "limitations": "Touch uses info button; critical validation is inline, not tooltip-only",
+      "primarySource": "https://www.radix-ui.com/primitives/docs/components/tooltip"
+    },
+    {
+      "capability": "dialog and drawer",
+      "library": "@radix-ui/react-dialog",
+      "realization": "Dialog focus trap, accessible title and focus return; CSS side-sheet presentation",
+      "limitations": "Run progress is non-modal; confirmation/human input uses modal only when required",
+      "primarySource": "https://www.radix-ui.com/primitives/docs/components/dialog"
+    },
+    {
+      "capability": "table",
+      "library": "@tanstack/react-table + @tanstack/react-virtual",
+      "realization": "Headless row model + separate virtualization; server paging",
+      "limitations": "Virtualization is not built into Table; export reads full authorized dataset, not viewport rows",
+      "primarySource": "https://tanstack.com/table/latest/docs/framework/react/guide/virtualization"
+    },
+    {
+      "capability": "stream",
+      "library": "native EventSource",
+      "realization": "Same-origin authenticated SSE with cursor and reconnection",
+      "limitations": "Native EventSource cannot attach arbitrary Authorization header; use HttpOnly session; no credentials in URL",
+      "primarySource": "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events"
+    },
+    {
+      "capability": "files",
+      "library": "native File API + authenticated artifact service",
+      "realization": "Upload/drop, typed artifact handles, immutable downloads",
+      "limitations": "No arbitrary filesystem paths; server MIME/size checks precede preview",
+      "primarySource": "https://developer.mozilla.org/en-US/docs/Web/API/File_API"
+    },
+    {
+      "capability": "CSV and Excel",
+      "library": "papaparse + exceljs",
+      "realization": "CSV parsing and server-side workbook reads; return bounded typed row pages",
+      "limitations": "No macros or formula execution; do not load giant workbooks into UI",
+      "primarySource": "https://github.com/exceljs/exceljs"
+    },
+    {
+      "capability": "email HTML",
+      "library": "dompurify",
+      "realization": "Sanitized HTML preview inside sandboxed frame",
+      "limitations": "No scripts, forms, remote images or credential-bearing links loaded by default",
+      "primarySource": "https://github.com/cure53/DOMPurify"
+    },
+    {
+      "capability": "PDF",
+      "library": "pdfjs-dist",
+      "realization": "Paginated PDF preview in worker",
+      "limitations": "Only authenticated artifact bytes; block active content; download fallback",
+      "primarySource": "https://mozilla.github.io/pdf.js/"
+    }
+  ],
+  "releaseGate": "Exact lockfile + install/compile/browser tests required before implementation release. Registry version lookup and documentation review alone do not prove binary compatibility.",
+  "referenceRendering": "HTML/CSS/SVG references reproduce geometry and state presentation; backend actions display contract binding, never fabricate success",
+  "responsive": {
+    "desktop": "persistent sidebar; graph + 360px inspector; nonmodal progress dock",
+    "tablet": "compact navigation; graph full width; inspector below graph or dismissible drawer",
+    "mobile": "single column object list equivalent to graph; full-width inspector; visible Actions button; graph optional pan canvas",
+    "minInteractivePx": 44,
+    "bodyFontPx": 16,
+    "secondaryFontPx": 14,
+    "motionReduced": "no movement; direction and count remain visible"
+  }
+}

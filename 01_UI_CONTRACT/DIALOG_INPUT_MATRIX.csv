@@ -5,7 +5,7 @@ mandatory-impact-preview,MANDATORY_IMPACT_PREVIEW,none,complete current impact p
 conditional-impact,IMPACT_IF_NONIDLE / IMPACT_IF_REQUIRED,none,current non-idle/required impact,shown only when canonical state requires
 conflict,CONFLICT,choice only,OWNER edited value; current server snapshot; changed items,refresh before a new command
 manual-review,MANUAL_REVIEW,canonical OWNER decision only,attempt evidence; possible effect; reconciliation status,automatic retry blocked
-pending-operation,PENDING,Cancel only if allowed,logicalOperationId; correlation; progress; checkpoint,no second submit
+pending-operation,INLINE_PROGRESS,Cancel only if allowed,logicalOperationId; correlation; committed process step; checkpoint,no modal progress; no second submit
 validation-error,VALIDATION_ERROR,the invalid fields of the active form,client shape + canonical server error,preserve entered data/focus
 dirty-state,DIRTY_STATE,preserve/discard choice,list/diff of unsaved fields,no silent data loss
 action-failed,FAILED,recovery action only when directive allows,stable error; correlation; retry directive; outcome,never infer retry from HTTP/toast

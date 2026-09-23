@@ -56,3 +56,7 @@ Kapitola 72 does not create a separate dialog namespace. Bounded entry may use a
 - `ACTION_FAILED`: stable error code, human explanation, correlation and exact recovery directive.
 - `BROWSER_CHALLENGE`: typed browser challenge/human takeover; the required field depends on the concrete challenge contract.
 - `SECRET_ENTRY`: bounded secret creation/version editor using the fields declared on `/secrets`.
+
+## Průběh operace
+
+`pending-operation` je neblokující procesní panel, nikoli modální dialog. Používá `process-visual-registry.json`; modál je vyhrazen skutečnému potvrzení nebo potřebnému lidskému vstupu.

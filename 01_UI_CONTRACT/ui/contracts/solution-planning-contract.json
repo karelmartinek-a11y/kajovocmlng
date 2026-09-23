@@ -1,0 +1,62 @@
+{
+  "format": "KCML-SOLUTION-PLAN/1",
+  "commands": {
+    "edit": "generation.spec.propose",
+    "read": "generation.spec.current",
+    "review": "generation.spec.precheck",
+    "approve": "generation.spec.approve"
+  },
+  "specificationSchema": "solution-specification.schema.json",
+  "intent": "OWNER describes outcome, inputs, outputs and constraints. System chooses component kinds. A type picker is never a prerequisite. OWNER may edit proposed kinds.",
+  "classification": [
+    "Reusable tool/resource boundary => MCP_SERVER",
+    "Model-directed multistep reasoning => AI_AGENT",
+    "Deterministic transformation => PROCESSOR or SERVICE",
+    "No supported API and authorized UI available => BROWSER_AUTOMATION",
+    "Ingress/egress adapters => INTEGRATION/INPUT/OUTPUT",
+    "Combine kinds into distinct components when boundaries require it"
+  ],
+  "draftAuthority": "one canonical immutable revision series; graphical edits and natural-language edits compile into the same propose command with expectedRevision and typed changes",
+  "stateMachine": [
+    {
+      "from": "DRAFT",
+      "to": "REVIEWED",
+      "command": "generation.spec.precheck",
+      "guard": "all schemas, dependency graph, credentials requirements and impact checks PASS for exact digest"
+    },
+    {
+      "from": "REVIEWED",
+      "to": "APPROVED_FOR_GENERATION",
+      "command": "generation.spec.approve",
+      "guard": "OWNER explicitly confirms same revisionDigest; CAS on current revision"
+    },
+    {
+      "from": "REVIEWED",
+      "to": "DRAFT",
+      "command": "generation.spec.propose",
+      "guard": "creates successor revision, discards prior review and approval"
+    },
+    {
+      "from": "APPROVED_FOR_GENERATION",
+      "to": "DRAFT",
+      "command": "generation.spec.propose",
+      "guard": "new immutable revision; running production keeps approved old digest; never mutate running contract"
+    }
+  ],
+  "graphValidation": [
+    "Unique IDs and port names; every endpoint resolves to existing or planned component",
+    "JSON Schema Draft 2020-12 port schemas must compile; refs restricted to locked shared-contract catalog",
+    "BUILD and STARTUP dependency edges must form a DAG; reject cycles with complete cycle path",
+    "RUNTIME cycles require bounded messages, dedupe, timeout and dead-letter contract; otherwise reject",
+    "Topological build order with lexicographic component ID tiebreak; build shared contracts before consumers",
+    "Missing future component is a planned ID, not COMPONENT_NOT_FOUND; missing schema or business input blocks REVIEWED",
+    "Deleting component reports impacted edges; owner edits or deletes each dangling binding before review",
+    "Generation run binds specificationId/revision/digest; children carry same root correlation and their exact component revision",
+    "Validate all components and bindings, then activate set atomically; failed child blocks whole-set success",
+    "Repair only failed/unverified nodes; confirmed effects require reconciliation, never duplicate generation dispatch"
+  ],
+  "parallelism": "Only independent DAG nodes can run concurrently within canonical capacity budget; display child progress separately",
+  "revisionDigest": "SHA256 of RFC8785 canonical {goal,components,bindings,contracts}; approval metadata excluded; recompute server-side",
+  "secrets": "Store Secret IDs and destinations; never Secret values in specification graph",
+  "externalRuntime": "LOCAL_UBUNTU default for every generated component; external target requires explicit OWNER requirement and recorded deployment target"
+}

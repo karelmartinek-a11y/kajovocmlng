@@ -1,0 +1,45 @@
+{
+  "format": "KCML-LIVE-STREAM/1",
+  "operationId": "dashboard.events.read",
+  "snapshotOperation": "dashboard.topology.read",
+  "transport": "same-origin EventSource; authenticated HttpOnly OWNER session; no bearer in URL",
+  "envelope": "live-event.schema.json",
+  "authority": "transactional outbox after domain commit; uncommitted events prohibited",
+  "ordering": "sequence scoped to stream; bigint encoded decimal string; server cursor bound to stream/filter digest",
+  "dedupe": "eventId; replay does not animate twice",
+  "heartbeatSeconds": 15,
+  "staleAfterSeconds": 45,
+  "onGap": "Pause animations, label stale, request snapshot with atomic snapshotCursor; replay only sequence > snapshotCursor; do not apply partial order",
+  "onExpiredCursor": "HTTP 409 typed STREAM_CURSOR_EXPIRED; fetch authoritative snapshot and cursor",
+  "reconnectSeconds": [
+    1,
+    2,
+    5,
+    10,
+    30
+  ],
+  "pollFallbackSeconds": 15,
+  "pollSemantics": "snapshot polling after 3 failed connections; show last confirmed timestamp; no pulses in polling mode",
+  "animation": {
+    "request": "teal dot source to target",
+    "response": "blue dot target to source",
+    "event": "purple diamond source to target",
+    "processing": "single 160ms node outline highlight",
+    "success": "green check on affected node",
+    "warning": "amber triangle on affected node",
+    "failure": "red cross on affected node",
+    "durationMs": 600,
+    "maxConcurrentPulses": 40,
+    "maxPulsesPerEdgePerSecond": 4,
+    "aggregateWindowMs": 250,
+    "aggregationKey": [
+      "edgeId",
+      "direction",
+      "eventType"
+    ],
+    "aggregation": "Keep exact count, first/last cursor and drill-down; do not invent intermediate events; failure/warning never hidden",
+    "reducedMotion": "Static directional arrow + count + timestamp; no positional or flashing animation",
+    "tabHidden": "Suspend animation only, retain cursor; resync snapshot on return",
+    "disconnect": "Stop pulses immediately; keep last known objects visibly stale"
+  }
+}

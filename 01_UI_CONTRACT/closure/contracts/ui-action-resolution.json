@@ -2546,6 +2546,230 @@
       "mutatesServer": false,
       "note": "Closes overlay and restores focus; no server/business mutation.",
       "pageId": "command-palette"
+    },
+    {
+      "pageId": "dashboard",
+      "actionId": "dashboard.detail",
+      "bindingKind": "CANONICAL_OPERATION",
+      "canonicalOperationId": "component.read",
+      "mutatesServer": false,
+      "argumentProfile": {
+        "selection": "exact selected component/run/revision; no latest-global substitution"
+      },
+      "note": "Read selected component and authorized capabilities."
+    },
+    {
+      "pageId": "dashboard",
+      "actionId": "dashboard.history",
+      "bindingKind": "CANONICAL_OPERATION",
+      "canonicalOperationId": "log.query",
+      "mutatesServer": false,
+      "argumentProfile": {
+        "selection": "exact selected component/run/revision; no latest-global substitution"
+      },
+      "note": "Read structured records for selected component."
+    },
+    {
+      "pageId": "dashboard",
+      "actionId": "dashboard.lastRun",
+      "bindingKind": "DYNAMIC_CANONICAL_DISPATCH",
+      "canonicalOperationId": null,
+      "mutatesServer": false,
+      "argumentProfile": {
+        "required": "component/run/session/generation ID from exact selected canonical context"
+      },
+      "note": "Read latest run with exact component filter.",
+      "candidateOperationIds": [
+        "agent.run.list",
+        "browser.automation.run.list",
+        "generation.job.list",
+        "selfTest.run.list",
+        "acceptance.run.list",
+        "runtime.execution.list"
+      ],
+      "discriminator": "server capability + exact current selected object kind",
+      "dispatchTable": {
+        "AI_AGENT": "agent.run.list",
+        "BROWSER_AUTOMATION": "browser.automation.run.list",
+        "GENERATION": "generation.job.list",
+        "SELF_TEST": "selfTest.run.list",
+        "ACCEPTANCE": "acceptance.run.list",
+        "SERVICE": "runtime.execution.list"
+      },
+      "unsupported": "DISABLED_WITH_REASON; never fallback to unrelated object"
+    },
+    {
+      "pageId": "dashboard",
+      "actionId": "dashboard.inputs",
+      "bindingKind": "CANONICAL_OPERATION",
+      "canonicalOperationId": "log.query",
+      "mutatesServer": false,
+      "argumentProfile": {
+        "historyProfile": "history-query.schema.json",
+        "recordKinds": [
+          "PAYLOAD"
+        ],
+        "direction": "INBOUND",
+        "componentId": "selected componentId",
+        "runId": "selected runId"
+      },
+      "note": "Open typed input evidence panel for selected component and run."
+    },
+    {
+      "pageId": "dashboard",
+      "actionId": "dashboard.outputs",
+      "bindingKind": "CANONICAL_OPERATION",
+      "canonicalOperationId": "log.query",
+      "mutatesServer": false,
+      "argumentProfile": {
+        "historyProfile": "history-query.schema.json",
+        "recordKinds": [
+          "PAYLOAD"
+        ],
+        "direction": "OUTBOUND",
+        "componentId": "selected componentId",
+        "runId": "selected runId"
+      },
+      "note": "Open typed output evidence panel for selected component and run."
+    },
+    {
+      "pageId": "dashboard",
+      "actionId": "dashboard.files",
+      "bindingKind": "DYNAMIC_CANONICAL_DISPATCH",
+      "canonicalOperationId": null,
+      "mutatesServer": false,
+      "argumentProfile": {
+        "required": "component/run/session/generation ID from exact selected canonical context"
+      },
+      "note": "Open artifact inventory with digests and preview handles.",
+      "candidateOperationIds": [
+        "generation.artifact.list",
+        "browser.automation.artifact.list",
+        "browser.session.artifact.list"
+      ],
+      "discriminator": "server capability + exact current selected object kind",
+      "dispatchTable": {
+        "GENERATION": "generation.artifact.list",
+        "BROWSER_AUTOMATION": "browser.automation.artifact.list",
+        "BROWSER_SESSION": "browser.session.artifact.list"
+      },
+      "unsupported": "DISABLED_WITH_REASON; never fallback to unrelated object"
+    },
+    {
+      "pageId": "dashboard",
+      "actionId": "dashboard.contextChat",
+      "bindingKind": "CANONICAL_OPERATION",
+      "canonicalOperationId": "chat.conversation.create",
+      "mutatesServer": true,
+      "argumentProfile": {
+        "selection": "exact selected component/run/revision; no latest-global substitution"
+      },
+      "note": "Open related chat with selected component and run references."
+    },
+    {
+      "pageId": "dashboard",
+      "actionId": "dashboard.remove",
+      "bindingKind": "CANONICAL_OPERATION",
+      "canonicalOperationId": "component.deregister",
+      "mutatesServer": true,
+      "argumentProfile": {
+        "selection": "exact selected component/run/revision; no latest-global substitution"
+      },
+      "note": "Deregister after impact preview and canonical closure."
+    },
+    {
+      "pageId": "generation",
+      "actionId": "gen.editSpec",
+      "bindingKind": "CANONICAL_OPERATION",
+      "canonicalOperationId": "generation.spec.propose",
+      "mutatesServer": true,
+      "argumentProfile": {
+        "selection": "exact selected component/run/revision; no latest-global substitution"
+      },
+      "note": "Create next editable specification revision."
+    },
+    {
+      "pageId": "generation",
+      "actionId": "gen.reviewSpec",
+      "bindingKind": "CANONICAL_OPERATION",
+      "canonicalOperationId": "generation.spec.precheck",
+      "mutatesServer": true,
+      "argumentProfile": {
+        "selection": "exact selected component/run/revision; no latest-global substitution"
+      },
+      "note": "Validate graph and mark exact revision REVIEWED."
+    },
+    {
+      "pageId": "dashboard",
+      "actionId": "dashboard.start",
+      "bindingKind": "CANONICAL_OPERATION",
+      "canonicalOperationId": "runtime.instance.start",
+      "mutatesServer": true,
+      "argumentProfile": {
+        "scope": "exact selected component and its active runtime instance; context must be server-validated"
+      },
+      "followOnCanonicalOperations": [],
+      "note": "Current capability and lifecycle state must allow dispatch."
+    },
+    {
+      "pageId": "dashboard",
+      "actionId": "dashboard.stop",
+      "bindingKind": "CANONICAL_OPERATION",
+      "canonicalOperationId": "runtime.stop",
+      "mutatesServer": true,
+      "argumentProfile": {
+        "scope": "exact selected component and its active runtime instance; context must be server-validated"
+      },
+      "followOnCanonicalOperations": [],
+      "note": "Current capability and lifecycle state must allow dispatch."
+    },
+    {
+      "pageId": "dashboard",
+      "actionId": "dashboard.restart",
+      "bindingKind": "CANONICAL_OPERATION",
+      "canonicalOperationId": "runtime.instance.restart",
+      "mutatesServer": true,
+      "argumentProfile": {
+        "scope": "exact selected component and its active runtime instance; context must be server-validated"
+      },
+      "followOnCanonicalOperations": [],
+      "note": "Current capability and lifecycle state must allow dispatch."
+    },
+    {
+      "pageId": "dashboard",
+      "actionId": "dashboard.status",
+      "bindingKind": "CANONICAL_OPERATION",
+      "canonicalOperationId": "component.state.request",
+      "mutatesServer": true,
+      "argumentProfile": {
+        "scope": "exact selected component and its active runtime instance; context must be server-validated"
+      },
+      "followOnCanonicalOperations": [],
+      "note": "Current capability and lifecycle state must allow dispatch."
+    },
+    {
+      "pageId": "dashboard",
+      "actionId": "dashboard.logs",
+      "bindingKind": "CANONICAL_OPERATION",
+      "canonicalOperationId": "log.query",
+      "mutatesServer": false,
+      "argumentProfile": {
+        "scope": "exact selected component and its active runtime instance; context must be server-validated"
+      },
+      "followOnCanonicalOperations": [],
+      "note": "Current capability and lifecycle state must allow dispatch."
+    },
+    {
+      "pageId": "dashboard",
+      "actionId": "dashboard.copy",
+      "bindingKind": "CLIENT_ONLY",
+      "canonicalOperationId": null,
+      "mutatesServer": false,
+      "argumentProfile": {
+        "scope": "exact selected component and its active runtime instance; context must be server-validated"
+      },
+      "followOnCanonicalOperations": [],
+      "note": "Clipboard does not manufacture a backend operation."
     }
   ],
   "finalOperationUniverseCount": 619,

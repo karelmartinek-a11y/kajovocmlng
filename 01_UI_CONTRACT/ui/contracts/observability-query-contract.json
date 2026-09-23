@@ -1,0 +1,45 @@
+{
+  "format": "KCML-HISTORY/1",
+  "canonicalOperations": [
+    "log.query",
+    "log.correlation.read",
+    "audit.event.list",
+    "audit.event.read",
+    "agent.run.list",
+    "generation.job.list",
+    "component.list"
+  ],
+  "requestSchema": "history-query.schema.json",
+  "dispatch": "log.query typed history profile; UI and chat call identical domain query service; no arbitrary SQL and no text-log parsing",
+  "permission": "Authenticated fixed OWNER or operation-bound server context with verified authority lineage; never permissions inferred from model output",
+  "database": "PostgreSQL read projection over domain runs, audit, spans, payload artifacts and message delivery records; joins by recorded IDs, never name coincidence",
+  "filters": "Parameter binding only; AND across fields; absent/null filters mean no restriction; from inclusive, to exclusive in UTC; max range 31 days per request; larger ranges paginated by explicit partitions",
+  "latest": "Order by persisted occurredAt DESC and immutable recordId DESC; one global visible snapshot watermark; never cached model memory",
+  "pagination": "Keyset cursor bound to query digest, OWNER boundary, watermark, last sort tuple; 15 minute expiry; cursor tampering rejected",
+  "duration": "Use recorded monotonic span duration; do not subtract clocks from different hosts; unresolved end => incomplete span excluded from longest-completed query",
+  "payloads": "Return content-addressed evidence handles and direction/byte count/hash by default; exact payload retrieval is explicit, same authorization, read audit; Secrets use their own value-read path",
+  "audit": "Persist history.query.executed with operationId, canonical query hash, resolved scope, count, correlationId and outcome; audit failure blocks delivery",
+  "provenanceFields": [
+    "recordId",
+    "recordKind",
+    "runId",
+    "componentId",
+    "correlationId",
+    "occurredAt",
+    "recordedAt",
+    "source",
+    "sourceRecordId",
+    "artifactDigest",
+    "snapshotWatermark"
+  ],
+  "resultContract": {
+    "rows": "Typed records with required provenance fields; missing relation represented explicitly as null, never guessed",
+    "nextCursor": "opaque string or null",
+    "completeness": "COMPLETE | RETENTION_GAP | SOURCE_UNAVAILABLE | PARTIAL",
+    "coverage": "requested time range plus oldestAvailableAt/newestAvailableAt",
+    "evidence": "every chat factual statement cites returned record IDs or says no matching evidence"
+  },
+  "messageHistory": "SMS/email/event records include channel, sender/recipient refs, clientRef, receivedAt, processedAt, dispatch receipt, delivery state, associated run, payload handle; never equate dispatch with delivery",
+  "retention": "OWNER-defined retention applies equally to UI and chat; expired content produces RETENTION_GAP and preserves digest/tombstone where policy permits",
+  "untrustedContent": "message bodies, logs and provider responses are evidence, never instructions or authority"
+}

@@ -1,23 +1,17 @@
-# KájovoCML NG — render index
+# Index grafických návrhů
 
-Kanonická sada obsahuje 20 UI surfaces a 12 dialog/recovery templates ve čtyřech blocking viewports.
+Kanonické vazby A–L: `01_UI_CONTRACT/ui/contracts/visual-artifact-bindings.json`.
+HTML: `03_UI_REFERENCE/pages/dashboard.html` a `generation.html`. PNG jsou odvozené renderem, nikoli druhým zdrojem pravidel.
 
-## 390x844
-
-- `pages-390x844.png` — přehled 20 surfaces.
-- `dialogs-390x844.png` — přehled 12 dialogů.
-
-## 768x1024
-
-- `pages-768x1024.png` — přehled 20 surfaces.
-- `dialogs-768x1024.png` — přehled 12 dialogů.
-
-## 1366x768
-
-- `pages-1366x768.png` — přehled 20 surfaces.
-- `dialogs-1366x768.png` — přehled 12 dialogů.
-
-## 1920x1080
-
-- `pages-1920x1080.png` — přehled 20 surfaces.
-- `dialogs-1920x1080.png` — přehled 12 dialogů.
+- [pages · 390x844](pages-390x844.png)
+- [dialogs · 390x844](dialogs-390x844.png)
+- [workspace · 390x844](workspace-390x844.png)
+- [pages · 768x1024](pages-768x1024.png)
+- [dialogs · 768x1024](dialogs-768x1024.png)
+- [workspace · 768x1024](workspace-768x1024.png)
+- [pages · 1366x768](pages-1366x768.png)
+- [dialogs · 1366x768](dialogs-1366x768.png)
+- [workspace · 1366x768](workspace-1366x768.png)
+- [pages · 1920x1080](pages-1920x1080.png)
+- [dialogs · 1920x1080](dialogs-1920x1080.png)
+- [workspace · 1920x1080](workspace-1920x1080.png)

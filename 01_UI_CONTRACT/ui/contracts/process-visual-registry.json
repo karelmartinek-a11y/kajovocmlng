@@ -1,0 +1,1309 @@
+{
+  "format": "KCML-PROCESS-VISUAL/1",
+  "authority": "00_SSOT/KajovoCMLNG_SSOT.md#17",
+  "isProjection": true,
+  "eventSchemaRef": "live-event.schema.json",
+  "statusTransitions": {
+    "PENDING": [
+      "ACTIVE",
+      "SKIPPED",
+      "CANCELLED"
+    ],
+    "ACTIVE": [
+      "WAITING",
+      "SUCCEEDED",
+      "WARNING",
+      "FAILED",
+      "WAITING_FOR_HUMAN",
+      "RETRY_SCHEDULED",
+      "CANCELLING",
+      "RECONCILING"
+    ],
+    "WAITING": [
+      "ACTIVE",
+      "SUCCEEDED",
+      "FAILED",
+      "WAITING_FOR_HUMAN",
+      "RECONCILING",
+      "CANCELLING"
+    ],
+    "WAITING_FOR_HUMAN": [
+      "ACTIVE",
+      "FAILED",
+      "CANCELLING"
+    ],
+    "WARNING": [
+      "ACTIVE",
+      "SUCCEEDED",
+      "FAILED",
+      "CANCELLING"
+    ],
+    "FAILED": [
+      "RETRY_SCHEDULED",
+      "RECONCILING"
+    ],
+    "RETRY_SCHEDULED": [
+      "ACTIVE",
+      "CANCELLING"
+    ],
+    "CANCELLING": [
+      "CANCELLED",
+      "RECONCILING"
+    ],
+    "RECONCILING": [
+      "SUCCEEDED",
+      "FAILED",
+      "WAITING_FOR_HUMAN",
+      "RETRY_SCHEDULED",
+      "CANCELLED"
+    ],
+    "SUCCEEDED": [],
+    "CANCELLED": [],
+    "COMPLETED": [],
+    "SKIPPED": []
+  },
+  "statuses": [
+    {
+      "state_id": "PENDING",
+      "text_cs": "Čeká na dokončení předchozího kroku.",
+      "text_en": "Waiting for the preceding step.",
+      "icon": "circle",
+      "colorToken": "muted",
+      "animation": "none",
+      "requiresCommittedEvent": true
+    },
+    {
+      "state_id": "ACTIVE",
+      "text_cs": "Provádím tento krok.",
+      "text_en": "Performing this step.",
+      "icon": "current",
+      "colorToken": "teal",
+      "animation": "pulse-160ms-on-event",
+      "requiresCommittedEvent": true
+    },
+    {
+      "state_id": "WAITING",
+      "text_cs": "Čekám na výsledek uvedený u tohoto kroku.",
+      "text_en": "Waiting for the result named in this step.",
+      "icon": "clock",
+      "colorToken": "teal",
+      "animation": "none",
+      "requiresCommittedEvent": true
+    },
+    {
+      "state_id": "SUCCEEDED",
+      "text_cs": "Tento krok je ověřený.",
+      "text_en": "This step has been verified.",
+      "icon": "check",
+      "colorToken": "green",
+      "animation": "none",
+      "requiresCommittedEvent": true
+    },
+    {
+      "state_id": "WARNING",
+      "text_cs": "Krok má upozornění; otevřete jeho vysvětlení.",
+      "text_en": "This step has a warning; open its explanation.",
+      "icon": "triangle",
+      "colorToken": "amber",
+      "animation": "none",
+      "requiresCommittedEvent": true
+    },
+    {
+      "state_id": "FAILED",
+      "text_cs": "Krok selhal; důvod a možnosti nápravy jsou v detailu.",
+      "text_en": "The step failed; see the reason and recovery actions.",
+      "icon": "cross",
+      "colorToken": "red",
+      "animation": "none",
+      "requiresCommittedEvent": true
+    },
+    {
+      "state_id": "RETRY_SCHEDULED",
+      "text_cs": "Další pokus je naplánovaný na {retryAt}.",
+      "text_en": "The next attempt is scheduled for {retryAt}.",
+      "icon": "retry",
+      "colorToken": "amber",
+      "animation": "none",
+      "requiresCommittedEvent": true
+    },
+    {
+      "state_id": "WAITING_FOR_HUMAN",
+      "text_cs": "Potřebuji váš zásah: {humanAction}.",
+      "text_en": "Your action is required: {humanAction}.",
+      "icon": "person",
+      "colorToken": "amber",
+      "animation": "none",
+      "requiresCommittedEvent": true
+    },
+    {
+      "state_id": "CANCELLING",
+      "text_cs": "Zastavuji další kroky a ověřuji již provedené akce.",
+      "text_en": "Stopping further steps and checking completed actions.",
+      "icon": "stop",
+      "colorToken": "amber",
+      "animation": "none",
+      "requiresCommittedEvent": true
+    },
+    {
+      "state_id": "CANCELLED",
+      "text_cs": "Operace je zrušená; výsledek již provedených akcí je v detailu.",
+      "text_en": "The operation was cancelled; see prior action outcomes in detail.",
+      "icon": "stop",
+      "colorToken": "muted",
+      "animation": "none",
+      "requiresCommittedEvent": true
+    },
+    {
+      "state_id": "COMPLETED",
+      "text_cs": "Operace je dokončená a ověřená.",
+      "text_en": "The operation is complete and verified.",
+      "icon": "check",
+      "colorToken": "green",
+      "animation": "none",
+      "requiresCommittedEvent": true
+    },
+    {
+      "state_id": "SKIPPED",
+      "text_cs": "Tento krok není pro schválený plán potřebný: {reason}.",
+      "text_en": "This step is not needed by the approved plan: {reason}.",
+      "icon": "dash",
+      "colorToken": "muted",
+      "animation": "none",
+      "requiresCommittedEvent": true
+    },
+    {
+      "state_id": "RECONCILING",
+      "text_cs": "Ověřuji skutečný výsledek předchozího pokusu.",
+      "text_en": "Checking the actual outcome of the previous attempt.",
+      "icon": "search",
+      "colorToken": "amber",
+      "animation": "none",
+      "requiresCommittedEvent": true
+    }
+  ],
+  "steps": [
+    {
+      "state_id": "step.prepare",
+      "source_event": "intent.accepted",
+      "event_source": "IntentService",
+      "entry_condition": "immutable intent and exact operation admitted",
+      "exit_condition": "intent and input references stored",
+      "user_message_cs": "Připravuji zadání.",
+      "user_message_en": "Preparing your request.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.validate",
+      "source_event": "validation.started",
+      "event_source": "ValidationService",
+      "entry_condition": "input revision exists",
+      "exit_condition": "schema and semantic checks recorded",
+      "user_message_cs": "Kontroluji potřebné údaje.",
+      "user_message_en": "Checking the required information.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.plan",
+      "source_event": "plan.started",
+      "event_source": "GenerationService",
+      "entry_condition": "validated outcome and IO known",
+      "exit_condition": "dependency graph and contract digests persisted",
+      "user_message_cs": "Navrhuji prvky a jejich propojení.",
+      "user_message_en": "Planning the components and their connections.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.review",
+      "source_event": "spec.reviewed",
+      "event_source": "SpecificationService",
+      "entry_condition": "revision precheck PASS",
+      "exit_condition": "OWNER approves same revision digest",
+      "user_message_cs": "Připravil jsem návrh; čekám na vaše schválení.",
+      "user_message_en": "The proposal is ready; waiting for your approval.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING_FOR_HUMAN",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.send",
+      "source_event": "request.dispatched",
+      "event_source": "EgressBroker",
+      "entry_condition": "durable effect intent and current fence",
+      "exit_condition": "transport dispatch receipt recorded",
+      "user_message_cs": "Odeslal jsem požadavek službě {target}.",
+      "user_message_en": "Sent the request to {target}.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.wait",
+      "source_event": "response.wait.started",
+      "event_source": "EgressBroker",
+      "entry_condition": "dispatch receipt exists",
+      "exit_condition": "response receipt, deadline or transport error",
+      "user_message_cs": "Čekám, až služba {target} odpoví na požadavek.",
+      "user_message_en": "Waiting for {target} to answer the request.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.receive",
+      "source_event": "response.received",
+      "event_source": "EgressBroker",
+      "entry_condition": "durable response/evidence ref exists",
+      "exit_condition": "native payload validation completed",
+      "user_message_cs": "Přijal jsem odpověď od služby {target}.",
+      "user_message_en": "Received the response from {target}.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.process",
+      "source_event": "result.processing",
+      "event_source": "DomainWriter",
+      "entry_condition": "response contract validated",
+      "exit_condition": "derived result persisted",
+      "user_message_cs": "Zpracovávám přijatou odpověď.",
+      "user_message_en": "Processing the received response.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.verify",
+      "source_event": "verification.started",
+      "event_source": "ValidationService",
+      "entry_condition": "result or artifact exists",
+      "exit_condition": "postcondition evidence PASS or explicit failure",
+      "user_message_cs": "Ověřuji, zda výsledek odpovídá zadání.",
+      "user_message_en": "Checking that the result meets your request.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.save",
+      "source_event": "result.saving",
+      "event_source": "DomainWriter",
+      "entry_condition": "required checks passed",
+      "exit_condition": "result, audit and outbox committed atomically",
+      "user_message_cs": "Ukládám ověřený výsledek.",
+      "user_message_en": "Saving the verified result.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.build",
+      "source_event": "artifact.build.started",
+      "event_source": "GenerationService",
+      "entry_condition": "approved revision digest locked",
+      "exit_condition": "artifact bytes and manifest recorded",
+      "user_message_cs": "Vytvářím soubory pro prvek {component}.",
+      "user_message_en": "Creating files for {component}.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.connect",
+      "source_event": "binding.install.started",
+      "event_source": "BindingService",
+      "entry_condition": "both endpoints and native schemas verified",
+      "exit_condition": "exact bindings and compatibility evidence persisted",
+      "user_message_cs": "Propojuji prvky podle schváleného zadání.",
+      "user_message_en": "Connecting the components in the approved specification.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.test",
+      "source_event": "tests.started",
+      "event_source": "TestService",
+      "entry_condition": "test plan and artifact revision locked",
+      "exit_condition": "all test outcomes recorded",
+      "user_message_cs": "Spouštím testy prvku {component}.",
+      "user_message_en": "Running tests for {component}.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.deploy",
+      "source_event": "deployment.started",
+      "event_source": "DeploymentService",
+      "entry_condition": "acceptance passed and target host admitted",
+      "exit_condition": "isolated runtime installed with receipt",
+      "user_message_cs": "Nasazuji prvek {component} na produkční server.",
+      "user_message_en": "Deploying {component} to the production server.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.activate",
+      "source_event": "activation.started",
+      "event_source": "ActivationService",
+      "entry_condition": "whole activation set ready",
+      "exit_condition": "atomic active-pointer switch and read-back evidence",
+      "user_message_cs": "Zapínám ověřenou verzi prvku {component}.",
+      "user_message_en": "Activating the verified version of {component}.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.open",
+      "source_event": "browser.open.started",
+      "event_source": "BrowserHost",
+      "entry_condition": "URL and session binding validated",
+      "exit_condition": "current document identity and observation stored",
+      "user_message_cs": "Otevírám web služby {target}.",
+      "user_message_en": "Opening the website for {target}.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.login",
+      "source_event": "browser.login.started",
+      "event_source": "BrowserHost",
+      "entry_condition": "exact account and authorized Secret-use context",
+      "exit_condition": "authenticated account marker or human challenge",
+      "user_message_cs": "Přihlašuji se ke službě {target}.",
+      "user_message_en": "Signing in to {target}.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.locate",
+      "source_event": "browser.locate.started",
+      "event_source": "BrowserHost",
+      "entry_condition": "current document observation",
+      "exit_condition": "unambiguous actionable target and document epoch",
+      "user_message_cs": "Hledám na webu místo pro požadovanou akci.",
+      "user_message_en": "Finding where to perform your action on the website.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.execute",
+      "source_event": "effect.started",
+      "event_source": "DomainWriter",
+      "entry_condition": "intent target guard and fence current",
+      "exit_condition": "effect outcome or UNKNOWN recorded",
+      "user_message_cs": "Provádím schválenou akci u služby {target}.",
+      "user_message_en": "Performing the approved action in {target}.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.extract",
+      "source_event": "browser.extract.started",
+      "event_source": "BrowserHost",
+      "entry_condition": "read-back postcondition confirmed",
+      "exit_condition": "structured extracted result validated",
+      "user_message_cs": "Čtu ověřený výsledek z webu.",
+      "user_message_en": "Reading the verified result from the website.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.import",
+      "source_event": "import.started",
+      "event_source": "ArtifactService",
+      "entry_condition": "bounded upload complete with digest",
+      "exit_condition": "parsed data and validation report persisted",
+      "user_message_cs": "Načítám a kontroluji dodané soubory.",
+      "user_message_en": "Reading and checking the supplied files.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.export",
+      "source_event": "export.started",
+      "event_source": "ArtifactService",
+      "entry_condition": "query and content access admitted",
+      "exit_condition": "immutable export artifact with digest ready",
+      "user_message_cs": "Připravuji soubory ke stažení.",
+      "user_message_en": "Preparing files for download.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.reconcile",
+      "source_event": "reconciliation.started",
+      "event_source": "RecoveryService",
+      "entry_condition": "possible external effect outcome unresolved",
+      "exit_condition": "read-back proves applied/not-applied or manual review",
+      "user_message_cs": "Ověřuji, zda se předchozí akce skutečně provedla.",
+      "user_message_en": "Checking whether the previous action took effect.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.cleanup",
+      "source_event": "cleanup.started",
+      "event_source": "ResourceService",
+      "entry_condition": "owned resource inventory known",
+      "exit_condition": "blocking resources released with evidence",
+      "user_message_cs": "Uklízím dočasné prostředky této operace.",
+      "user_message_en": "Cleaning up temporary resources for this operation.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.restore",
+      "source_event": "restore.started",
+      "event_source": "RecoveryService",
+      "entry_condition": "known before snapshot and rollback plan",
+      "exit_condition": "restored state verified and recorded",
+      "user_message_cs": "Obnovuji poslední ověřený stav.",
+      "user_message_en": "Restoring the last verified state.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.probe",
+      "source_event": "probe.started",
+      "event_source": "MonitorService",
+      "entry_condition": "exact probe binding current",
+      "exit_condition": "typed observation persisted",
+      "user_message_cs": "Kontroluji dostupnost prvku {component}.",
+      "user_message_en": "Checking availability of {component}.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.notify",
+      "source_event": "notification.started",
+      "event_source": "DeliveryService",
+      "entry_condition": "destination binding and dedupe key valid",
+      "exit_condition": "delivery receipt or unknown outcome recorded",
+      "user_message_cs": "Odesílám oznámení na schválené místo.",
+      "user_message_en": "Sending the notification to its approved destination.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.compile",
+      "source_event": "plan.compiling",
+      "event_source": "OrchestrationService",
+      "entry_condition": "validated root operation",
+      "exit_condition": "immutable node graph with allowed successors persisted",
+      "user_message_cs": "Připravuji přesný plán provedení.",
+      "user_message_en": "Preparing the execution plan.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.migrate",
+      "source_event": "migration.started",
+      "event_source": "MigrationService",
+      "entry_condition": "backup verified and migration lock acquired",
+      "exit_condition": "transactional migration version and invariants verified",
+      "user_message_cs": "Převádím uložená data na schválenou strukturu.",
+      "user_message_en": "Migrating stored data to the approved structure.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    },
+    {
+      "state_id": "step.done",
+      "source_event": "operation.completed",
+      "event_source": "DomainWriter",
+      "entry_condition": "terminal closure predicate true; child effects known",
+      "exit_condition": "terminal state immutable",
+      "user_message_cs": "Hotovo. Výsledek je uložený a ověřený.",
+      "user_message_en": "Done. The result is saved and verified.",
+      "visual": "numbered node + label + status icon + timestamp",
+      "animation": "160ms highlight on new committed event; none under reduced motion",
+      "waiting_state": "WAITING",
+      "success": "SUCCEEDED",
+      "warning": "WARNING",
+      "error": "FAILED",
+      "retry": "RETRY_SCHEDULED",
+      "human_wait": "WAITING_FOR_HUMAN",
+      "cancellation": "CANCELLED",
+      "completion": "COMPLETED"
+    }
+  ],
+  "plans": [
+    {
+      "process_family": "SINGLE_OPERATION_ROOT",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.execute",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "CENTRAL_CHAT_TURN",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.plan",
+        "step.send",
+        "step.wait",
+        "step.receive",
+        "step.process",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "GENERATION_CREATE",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.plan",
+        "step.review",
+        "step.build",
+        "step.test",
+        "step.connect",
+        "step.verify",
+        "step.deploy",
+        "step.activate",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "GENERATION_UPDATE",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.plan",
+        "step.review",
+        "step.build",
+        "step.test",
+        "step.connect",
+        "step.verify",
+        "step.deploy",
+        "step.activate",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "GENERATION_REPAIR",
+      "steps": [
+        "step.prepare",
+        "step.probe",
+        "step.reconcile",
+        "step.plan",
+        "step.build",
+        "step.test",
+        "step.verify",
+        "step.deploy",
+        "step.activate",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "GENERATION_FOLLOWUP",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.plan",
+        "step.review",
+        "step.build",
+        "step.test",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "DEVELOPMENT_P00_P12",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.compile",
+        "step.build",
+        "step.test",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "MODEL_ITERATION",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.send",
+        "step.wait",
+        "step.receive",
+        "step.process",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "AGENT_RUN",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.compile",
+        "step.send",
+        "step.wait",
+        "step.receive",
+        "step.process",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "MCP_REQUEST",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.send",
+        "step.wait",
+        "step.receive",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "MCP_TASK",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.compile",
+        "step.execute",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "BROWSER_SESSION",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.open",
+        "step.login",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "BROWSER_AUTOMATION",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.open",
+        "step.login",
+        "step.locate",
+        "step.execute",
+        "step.verify",
+        "step.extract",
+        "step.save",
+        "step.cleanup",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "EXTERNAL_EGRESS",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.send",
+        "step.wait",
+        "step.receive",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "SECRET_OPERATION",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.execute",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "MONITOR_PROBE",
+      "steps": [
+        "step.prepare",
+        "step.probe",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "MONITOR_ALERT",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.notify",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "MONITOR_REPAIR_CHAIN",
+      "steps": [
+        "step.prepare",
+        "step.probe",
+        "step.reconcile",
+        "step.plan",
+        "step.build",
+        "step.test",
+        "step.deploy",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "RECERTIFICATION",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.test",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "SELF_TEST",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.test",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "ACCEPTANCE_RUN",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.test",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "CHAOS_TEST",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.test",
+        "step.restore",
+        "step.verify",
+        "step.cleanup",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "ACTIVATION",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.activate",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "DEPLOYMENT",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.build",
+        "step.test",
+        "step.deploy",
+        "step.activate",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "ROLLBACK",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.restore",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "RECOVERY",
+      "steps": [
+        "step.prepare",
+        "step.reconcile",
+        "step.restore",
+        "step.verify",
+        "step.cleanup",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "CLEANUP",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.cleanup",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "BOOTSTRAP",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.compile",
+        "step.deploy",
+        "step.migrate",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "MIGRATION",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.migrate",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "WEBHOOK_INGRESS",
+      "steps": [
+        "step.receive",
+        "step.validate",
+        "step.compile",
+        "step.execute",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "PULSE_DELIVERY",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.send",
+        "step.wait",
+        "step.receive",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "QUEUE_DELIVERY",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.execute",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "PROJECTION_UPDATE",
+      "steps": [
+        "step.receive",
+        "step.validate",
+        "step.process",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    },
+    {
+      "process_family": "ORCHESTRATION_INTEGRITY_SCAN",
+      "steps": [
+        "step.prepare",
+        "step.validate",
+        "step.probe",
+        "step.verify",
+        "step.save",
+        "step.done"
+      ],
+      "stable_step_instances": "runId/planDigest/nodeId/attempt; concurrent children have independent instances",
+      "iteration": "Only declared orchestration node/edge may repeat; preserve attempt history; no synthetic progress"
+    }
+  ],
+  "operationVariants": {
+    "component.import": [
+      "prepare",
+      "validate",
+      "import",
+      "verify",
+      "save",
+      "done"
+    ],
+    "component.export": [
+      "prepare",
+      "validate",
+      "export",
+      "verify",
+      "save",
+      "done"
+    ],
+    "secret.import": [
+      "prepare",
+      "validate",
+      "import",
+      "verify",
+      "save",
+      "done"
+    ],
+    "secret.export": [
+      "prepare",
+      "validate",
+      "export",
+      "verify",
+      "save",
+      "done"
+    ],
+    "log.export": [
+      "prepare",
+      "validate",
+      "export",
+      "verify",
+      "save",
+      "done"
+    ]
+  },
+  "policies": {
+    "completion": "COMPLETED only from committed operation.completed with terminal closure evidence; HTTP 2xx is insufficient",
+    "skip": "Only persisted plan decision with reason and source requirement; never mark skipped as success",
+    "percentage": "Omit percentage unless backend supplies exact work totals; completed steps are counts, not a time estimate",
+    "failure": "Registry error code + localized message; unknown possible effect enters RECONCILING then human review, never blind retry",
+    "cancel": "Cancel requests canonical cancellation; cancelled projection only after cleanup/effect reconciliation closure",
+    "restart": "Snapshot plus cursor; restore active node and attempt; do not replay old animation",
+    "visibility": "Inline RunProgress in Dashboard, chat, detail and generation; one run identity; never a blocking progress modal",
+    "parallel": "Parent shows X/Y verified components; expand independent child sequences; failed child blocks parent success",
+    "labels": "Resolve target/component names from authorized server snapshot; no raw provider message as primary text"
+  }
+}

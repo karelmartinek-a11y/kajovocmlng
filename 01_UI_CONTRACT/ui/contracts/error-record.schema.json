@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kcml:error-record:1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "error_code": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "severity": {
+      "type": "string",
+      "minLength": 1
+    },
+    "technical_condition": {
+      "type": "object"
+    },
+    "user_message_cs": {
+      "type": "string",
+      "minLength": 1
+    },
+    "user_message_en": {
+      "type": "string",
+      "minLength": 1
+    },
+    "operator_detail": {
+      "type": "object"
+    },
+    "recoverability": {
+      "type": "string",
+      "minLength": 1
+    },
+    "automatic_retry_policy": {
+      "type": "object"
+    },
+    "manual_recovery": {
+      "type": "object"
+    },
+    "correlation_requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "logging_requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "presentationCompleteness": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "error_code",
+    "source",
+    "category",
+    "severity",
+    "technical_condition",
+    "user_message_cs",
+    "user_message_en",
+    "operator_detail",
+    "recoverability",
+    "automatic_retry_policy",
+    "manual_recovery",
+    "correlation_requirements",
+    "logging_requirements"
+  ]
+}

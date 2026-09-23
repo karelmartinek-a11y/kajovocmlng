@@ -1,0 +1,1426 @@
+{
+  "format": "KCML-PACKAGE-MANIFEST/1",
+  "sourceBranch": "main",
+  "canonicalSSOT": "00_SSOT/KajovoCMLNG_SSOT.md",
+  "packageStatus": "BLOCKED",
+  "freezePerformed": false,
+  "inventoryExclusions": [
+    ".git",
+    ".cache",
+    "__pycache__",
+    "node_modules"
+  ],
+  "selfReferencePolicy": "PACKAGE_MANIFEST inventory excludes itself and FILE_MANIFEST_SHA256; FILE_MANIFEST_SHA256 hashes all files except itself; Git commit binds that final manifest.",
+  "files": [
+    {
+      "path": ".github/workflows/ssot.yml",
+      "bytes": 656,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 35,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "00_SSOT/KajovoCMLNG_SSOT.md",
+      "bytes": 39753214,
+      "authority": "NORMATIVE"
+    },
+    {
+      "path": "01_UI_CONTRACT/DIALOG_INPUT_MATRIX.csv",
+      "bytes": 1761,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "01_UI_CONTRACT/UI_CATALOG.md",
+      "bytes": 51090,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "01_UI_CONTRACT/UI_CONTROLS.csv",
+      "bytes": 54279,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "01_UI_CONTRACT/UI_DIALOG_CATALOG.md",
+      "bytes": 6192,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "01_UI_CONTRACT/UI_FUNCTION_PARITY.csv",
+      "bytes": 88229,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "01_UI_CONTRACT/UI_SCREEN_MATRIX.csv",
+      "bytes": 6788,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "01_UI_CONTRACT/closure/audit/structural-closure.json",
+      "bytes": 1429,
+      "authority": "SSOT_EMBEDDED_PROJECTION"
+    },
+    {
+      "path": "01_UI_CONTRACT/closure/contracts/operation-overlay.json",
+      "bytes": 48859,
+      "authority": "SSOT_EMBEDDED_PROJECTION"
+    },
+    {
+      "path": "01_UI_CONTRACT/closure/contracts/operation-payloads.json",
+      "bytes": 67566,
+      "authority": "SSOT_EMBEDDED_PROJECTION"
+    },
+    {
+      "path": "01_UI_CONTRACT/closure/contracts/storage-closure.json",
+      "bytes": 1807,
+      "authority": "SSOT_EMBEDDED_PROJECTION"
+    },
+    {
+      "path": "01_UI_CONTRACT/closure/contracts/ui-action-resolution.json",
+      "bytes": 90374,
+      "authority": "SSOT_EMBEDDED_PROJECTION"
+    },
+    {
+      "path": "01_UI_CONTRACT/closure/scripts/verify_final_closure.py",
+      "bytes": 8422,
+      "authority": "SSOT_EMBEDDED_PROJECTION"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/audit/ui-coverage.json",
+      "bytes": 1378,
+      "authority": "SSOT_EMBEDDED_PROJECTION"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/error-message-registry.json",
+      "bytes": 891489,
+      "authority": "NORMATIVE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/error-record.schema.json",
+      "bytes": 1609,
+      "authority": "NORMATIVE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/history-query.schema.json",
+      "bytes": 2103,
+      "authority": "NORMATIVE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/live-event.schema.json",
+      "bytes": 27284,
+      "authority": "NORMATIVE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/live-stream-policy.json",
+      "bytes": 2033,
+      "authority": "NORMATIVE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/observability-query-contract.json",
+      "bytes": 2987,
+      "authority": "NORMATIVE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/process-visual-registry.json",
+      "bytes": 47799,
+      "authority": "NORMATIVE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/secrets-channel-parity.json",
+      "bytes": 2305,
+      "authority": "NORMATIVE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/solution-planning-contract.json",
+      "bytes": 3589,
+      "authority": "NORMATIVE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/solution-specification.schema.json",
+      "bytes": 6749,
+      "authority": "NORMATIVE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/ui-acceptance.json",
+      "bytes": 5045,
+      "authority": "NORMATIVE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/ui-control-registry.json",
+      "bytes": 471575,
+      "authority": "SSOT_EMBEDDED_PROJECTION"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/ui-stack-contract.json",
+      "bytes": 6287,
+      "authority": "NORMATIVE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/visual-artifact-bindings.json",
+      "bytes": 10097,
+      "authority": "NORMATIVE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/scripts/verify_ui.py",
+      "bytes": 2130,
+      "authority": "SSOT_EMBEDDED_PROJECTION"
+    },
+    {
+      "path": "02_BRAND/BRAND_GUIDE.md",
+      "bytes": 939,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "02_BRAND/design-tokens.json",
+      "bytes": 579,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "02_BRAND/logo-kajovocml-ng-mark.png",
+      "bytes": 4818,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "02_BRAND/logo-kajovocml-ng-mark.svg",
+      "bytes": 756,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "02_BRAND/logo-kajovocml-ng-network-map.png",
+      "bytes": 81182,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "02_BRAND/logo-kajovocml-ng-network-map.svg",
+      "bytes": 3996,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "02_BRAND/logo-kajovocml-ng-network.png",
+      "bytes": 13104,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "02_BRAND/logo-kajovocml-ng-network.svg",
+      "bytes": 3685,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "02_BRAND/logo-kajovocml-ng.png",
+      "bytes": 9184,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "02_BRAND/logo-kajovocml-ng.svg",
+      "bytes": 815,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "02_BRAND/section-selector.html",
+      "bytes": 4819,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/assets/style.css",
+      "bytes": 18053,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/assets/ui.js",
+      "bytes": 164,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/assets/workspace.css",
+      "bytes": 10570,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/assets/workspace.js",
+      "bytes": 8989,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/dialogs/action-failed.html",
+      "bytes": 1807,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/dialogs/browser-challenge.html",
+      "bytes": 2060,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/dialogs/conditional-impact.html",
+      "bytes": 1881,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/dialogs/conflict.html",
+      "bytes": 1827,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/dialogs/dirty-state.html",
+      "bytes": 1768,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/dialogs/explicit-confirm.html",
+      "bytes": 1740,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/dialogs/impact-preview.html",
+      "bytes": 1692,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/dialogs/mandatory-impact-preview.html",
+      "bytes": 2105,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/dialogs/manual-review.html",
+      "bytes": 1992,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/dialogs/pending-operation.html",
+      "bytes": 11167,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/dialogs/secret-entry.html",
+      "bytes": 2854,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/dialogs/validation-error.html",
+      "bytes": 1667,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/index.html",
+      "bytes": 1981,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/agents.html",
+      "bytes": 16563,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/audit.html",
+      "bytes": 13534,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/browser.html",
+      "bytes": 15890,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/chat.html",
+      "bytes": 11713,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/command-palette.html",
+      "bytes": 3553,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/components.html",
+      "bytes": 16837,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/configuration.html",
+      "bytes": 11931,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/dashboard.html",
+      "bytes": 11137,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/external.html",
+      "bytes": 16144,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/generation.html",
+      "bytes": 11137,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/login-mfa.html",
+      "bytes": 2196,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/login.html",
+      "bytes": 1724,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/mcp.html",
+      "bytes": 15262,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/monitoring.html",
+      "bytes": 15008,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/registered.html",
+      "bytes": 13986,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/releases.html",
+      "bytes": 14427,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/runtime-access.html",
+      "bytes": 14080,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/secrets.html",
+      "bytes": 17633,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/security.html",
+      "bytes": 14501,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "03_UI_REFERENCE/pages/tests-api.html",
+      "bytes": 14823,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/agents.png",
+      "bytes": 181516,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/audit.png",
+      "bytes": 168353,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/browser.png",
+      "bytes": 190113,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/chat.png",
+      "bytes": 162298,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/command-palette.png",
+      "bytes": 193286,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/components.png",
+      "bytes": 180034,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/configuration.png",
+      "bytes": 158900,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/dashboard.png",
+      "bytes": 244213,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/external.png",
+      "bytes": 180837,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/generation.png",
+      "bytes": 282012,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/login-mfa.png",
+      "bytes": 282305,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/login.png",
+      "bytes": 261184,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/mcp.png",
+      "bytes": 185181,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/monitoring.png",
+      "bytes": 187703,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/registered.png",
+      "bytes": 179844,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/releases.png",
+      "bytes": 183957,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/runtime-access.png",
+      "bytes": 167668,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/secrets.png",
+      "bytes": 176574,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/security.png",
+      "bytes": 186080,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/tests-api.png",
+      "bytes": 180774,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-detail.png",
+      "bytes": 244426,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-empty.png",
+      "bytes": 105888,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-error.png",
+      "bytes": 256146,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-inputs.png",
+      "bytes": 243371,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-live.png",
+      "bytes": 255244,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-menu.png",
+      "bytes": 256300,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-multi.png",
+      "bytes": 259321,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-progress.png",
+      "bytes": 244745,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-ready.png",
+      "bytes": 244213,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-specification.png",
+      "bytes": 282012,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-stale.png",
+      "bytes": 251897,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-waiting.png",
+      "bytes": 254750,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/agents.png",
+      "bytes": 231749,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/audit.png",
+      "bytes": 195095,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/browser.png",
+      "bytes": 236535,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/chat.png",
+      "bytes": 171678,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/command-palette.png",
+      "bytes": 294159,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/components.png",
+      "bytes": 231215,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/configuration.png",
+      "bytes": 170419,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/dashboard.png",
+      "bytes": 255882,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/external.png",
+      "bytes": 235032,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/generation.png",
+      "bytes": 293260,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/login-mfa.png",
+      "bytes": 416725,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/login.png",
+      "bytes": 399213,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/mcp.png",
+      "bytes": 216268,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/monitoring.png",
+      "bytes": 232135,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/registered.png",
+      "bytes": 206683,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/releases.png",
+      "bytes": 228261,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/runtime-access.png",
+      "bytes": 202940,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/secrets.png",
+      "bytes": 204672,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/security.png",
+      "bytes": 220944,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/tests-api.png",
+      "bytes": 226879,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-detail.png",
+      "bytes": 256127,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-empty.png",
+      "bytes": 111343,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-error.png",
+      "bytes": 267984,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-inputs.png",
+      "bytes": 254914,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-live.png",
+      "bytes": 267045,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-menu.png",
+      "bytes": 292385,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-multi.png",
+      "bytes": 270636,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-progress.png",
+      "bytes": 256475,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-ready.png",
+      "bytes": 255882,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-specification.png",
+      "bytes": 293260,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-stale.png",
+      "bytes": 263442,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-waiting.png",
+      "bytes": 266395,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/agents.png",
+      "bytes": 75512,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/audit.png",
+      "bytes": 30372,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/browser.png",
+      "bytes": 75516,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/chat.png",
+      "bytes": 58280,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/command-palette.png",
+      "bytes": 87432,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/components.png",
+      "bytes": 76606,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/configuration.png",
+      "bytes": 53633,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/dashboard.png",
+      "bytes": 194846,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/external.png",
+      "bytes": 76625,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/generation.png",
+      "bytes": 229216,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/login-mfa.png",
+      "bytes": 35893,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/login.png",
+      "bytes": 22971,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/mcp.png",
+      "bytes": 81344,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/monitoring.png",
+      "bytes": 79835,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/registered.png",
+      "bytes": 76937,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/releases.png",
+      "bytes": 80713,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/runtime-access.png",
+      "bytes": 84598,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/secrets.png",
+      "bytes": 78269,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/security.png",
+      "bytes": 76302,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/tests-api.png",
+      "bytes": 73553,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-detail.png",
+      "bytes": 195030,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-empty.png",
+      "bytes": 68467,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-error.png",
+      "bytes": 205925,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-inputs.png",
+      "bytes": 194115,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-live.png",
+      "bytes": 206166,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-menu.png",
+      "bytes": 200502,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-multi.png",
+      "bytes": 212421,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-progress.png",
+      "bytes": 195256,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-ready.png",
+      "bytes": 194846,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-specification.png",
+      "bytes": 229216,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-stale.png",
+      "bytes": 202401,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-waiting.png",
+      "bytes": 205652,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/agents.png",
+      "bytes": 123924,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/audit.png",
+      "bytes": 66271,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/browser.png",
+      "bytes": 141524,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/chat.png",
+      "bytes": 95457,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/command-palette.png",
+      "bytes": 142791,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/components.png",
+      "bytes": 125059,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/configuration.png",
+      "bytes": 88990,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/dashboard.png",
+      "bytes": 217805,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/external.png",
+      "bytes": 126447,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/generation.png",
+      "bytes": 252613,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/login-mfa.png",
+      "bytes": 41243,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/login.png",
+      "bytes": 27526,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/mcp.png",
+      "bytes": 129179,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/monitoring.png",
+      "bytes": 129863,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/registered.png",
+      "bytes": 120511,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/releases.png",
+      "bytes": 126794,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/runtime-access.png",
+      "bytes": 129861,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/secrets.png",
+      "bytes": 124198,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/security.png",
+      "bytes": 129980,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/tests-api.png",
+      "bytes": 119814,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-detail.png",
+      "bytes": 217994,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-empty.png",
+      "bytes": 78331,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-error.png",
+      "bytes": 230064,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-inputs.png",
+      "bytes": 216908,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-live.png",
+      "bytes": 230040,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-menu.png",
+      "bytes": 232365,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-multi.png",
+      "bytes": 234945,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-progress.png",
+      "bytes": 218310,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-ready.png",
+      "bytes": 217805,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-specification.png",
+      "bytes": 252613,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-stale.png",
+      "bytes": 224617,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-waiting.png",
+      "bytes": 229192,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1366x768/action-failed.png",
+      "bytes": 204464,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1366x768/browser-challenge.png",
+      "bytes": 212553,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1366x768/conditional-impact.png",
+      "bytes": 208454,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1366x768/conflict.png",
+      "bytes": 204861,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1366x768/dirty-state.png",
+      "bytes": 205130,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1366x768/explicit-confirm.png",
+      "bytes": 206328,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1366x768/impact-preview.png",
+      "bytes": 207993,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1366x768/mandatory-impact-preview.png",
+      "bytes": 210710,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1366x768/manual-review.png",
+      "bytes": 210531,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1366x768/pending-operation.png",
+      "bytes": 244745,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1366x768/secret-entry.png",
+      "bytes": 212963,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1366x768/validation-error.png",
+      "bytes": 203609,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1920x1080/action-failed.png",
+      "bytes": 314434,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1920x1080/browser-challenge.png",
+      "bytes": 322394,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1920x1080/conditional-impact.png",
+      "bytes": 316943,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1920x1080/conflict.png",
+      "bytes": 311761,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1920x1080/dirty-state.png",
+      "bytes": 311961,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1920x1080/explicit-confirm.png",
+      "bytes": 312569,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1920x1080/impact-preview.png",
+      "bytes": 318852,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1920x1080/mandatory-impact-preview.png",
+      "bytes": 324068,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1920x1080/manual-review.png",
+      "bytes": 321105,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1920x1080/pending-operation.png",
+      "bytes": 256475,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1920x1080/secret-entry.png",
+      "bytes": 327197,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/1920x1080/validation-error.png",
+      "bytes": 311233,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/390x844/action-failed.png",
+      "bytes": 77257,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/390x844/browser-challenge.png",
+      "bytes": 84894,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/390x844/conditional-impact.png",
+      "bytes": 82467,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/390x844/conflict.png",
+      "bytes": 77374,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/390x844/dirty-state.png",
+      "bytes": 78932,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/390x844/explicit-confirm.png",
+      "bytes": 80797,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/390x844/impact-preview.png",
+      "bytes": 81129,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/390x844/mandatory-impact-preview.png",
+      "bytes": 82584,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/390x844/manual-review.png",
+      "bytes": 82960,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/390x844/pending-operation.png",
+      "bytes": 195256,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/390x844/secret-entry.png",
+      "bytes": 71318,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/390x844/validation-error.png",
+      "bytes": 77961,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/768x1024/action-failed.png",
+      "bytes": 149631,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/768x1024/browser-challenge.png",
+      "bytes": 157836,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/768x1024/conditional-impact.png",
+      "bytes": 155174,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/768x1024/conflict.png",
+      "bytes": 151798,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/768x1024/dirty-state.png",
+      "bytes": 152767,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/768x1024/explicit-confirm.png",
+      "bytes": 153960,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/768x1024/impact-preview.png",
+      "bytes": 152877,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/768x1024/mandatory-impact-preview.png",
+      "bytes": 153758,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/768x1024/manual-review.png",
+      "bytes": 155846,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/768x1024/pending-operation.png",
+      "bytes": 218310,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/768x1024/secret-entry.png",
+      "bytes": 146660,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "05_DIALOG_VIEWS/768x1024/validation-error.png",
+      "bytes": 150822,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/VIEW_INDEX.md",
+      "bytes": 796,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/dialogs-1366x768.png",
+      "bytes": 159419,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/dialogs-1920x1080.png",
+      "bytes": 138397,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/dialogs-390x844.png",
+      "bytes": 131163,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/dialogs-768x1024.png",
+      "bytes": 128120,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/pages-1366x768.png",
+      "bytes": 423979,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/pages-1920x1080.png",
+      "bytes": 344700,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/pages-390x844.png",
+      "bytes": 242494,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/pages-768x1024.png",
+      "bytes": 272018,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/workspace-1366x768.png",
+      "bytes": 250429,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/workspace-1920x1080.png",
+      "bytes": 259180,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/workspace-390x844.png",
+      "bytes": 117526,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/workspace-768x1024.png",
+      "bytes": 155395,
+      "authority": "DERIVED_VIEW"
+    },
+    {
+      "path": "QUALITY_ASSURANCE.md",
+      "bytes": 2493,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1394,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "README_CZ.md",
+      "bytes": 3499,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "audit/FINAL_AUDIT.md",
+      "bytes": 1456,
+      "authority": "CURRENT_AUDIT_EVIDENCE"
+    },
+    {
+      "path": "audit/final-audit.json",
+      "bytes": 39746,
+      "authority": "CURRENT_AUDIT_EVIDENCE"
+    },
+    {
+      "path": "audit/visual-validation.json",
+      "bytes": 9078,
+      "authority": "CURRENT_AUDIT_EVIDENCE"
+    },
+    {
+      "path": "scripts/refresh_embedded_integrity.py",
+      "bytes": 1793,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "scripts/regenerate_ui_projections.py",
+      "bytes": 3054,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "scripts/render_overviews.py",
+      "bytes": 1196,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "scripts/render_reference.mjs",
+      "bytes": 4326,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "scripts/ssot_resources.py",
+      "bytes": 2899,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "scripts/update_manifests.py",
+      "bytes": 1796,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "scripts/verify_package.py",
+      "bytes": 10227,
+      "authority": "SUPPORTING_SOURCE"
+    },
+    {
+      "path": "scripts/verify_visual_contracts.py",
+      "bytes": 3454,
+      "authority": "SUPPORTING_SOURCE"
+    }
+  ]
+}
