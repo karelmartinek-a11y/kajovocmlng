@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import re,json,hashlib,sys
-p=Path(sys.argv[1] if len(sys.argv)>1 else 'KájovoCMLNG_SSOT.md')
+ROOT = Path(__file__).resolve().parents[3]
+p = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / '00_SSOT/KajovoCMLNG_SSOT.md'
 b=p.read_bytes(); t=b.decode('utf-8')
 # Flat normative prvopis: UI contract is verified directly in this document.
 fence=chr(96)*3

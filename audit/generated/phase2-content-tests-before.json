@@ -1,0 +1,1542 @@
+{
+  "scope": "Test actual embedded artifact hydration, with in-memory byte I/O only.\n\nThese tests do not certify filesystem security, transitive registry references,\nruntime execution, or the still-missing R11 compact-reference adapter.\n",
+  "checks": [
+    {
+      "case": "REQUIREMENT_PROPOSAL/native-positive",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "case": "REQUIREMENT_PROPOSAL/producer-positive",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "case": "REQUIREMENT_PROPOSAL/hydrate-positive",
+      "expectedValid": true,
+      "actualValid": false,
+      "status": "FAIL",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "REQUIREMENT_PROPOSAL/null",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "REQUIREMENT_PROPOSAL/wrong-type",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "REQUIREMENT_PROPOSAL/missing-required",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "REQUIREMENT_PROPOSAL/unknown-field",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "REQUIREMENT_PROPOSAL/invalid-json",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "REQUIREMENT_PROPOSAL/duplicate-json-key",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "REQUIREMENT_PROPOSAL/stale-schema-digest",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "REQUIREMENT_PROPOSAL/wrong-definition",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "SOURCE_ANALYSIS/native-positive",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "case": "SOURCE_ANALYSIS/producer-positive",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "case": "SOURCE_ANALYSIS/hydrate-positive",
+      "expectedValid": true,
+      "actualValid": false,
+      "status": "FAIL",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "SOURCE_ANALYSIS/null",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "SOURCE_ANALYSIS/wrong-type",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "SOURCE_ANALYSIS/missing-required",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "SOURCE_ANALYSIS/unknown-field",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "SOURCE_ANALYSIS/invalid-json",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "SOURCE_ANALYSIS/duplicate-json-key",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "SOURCE_ANALYSIS/stale-schema-digest",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "SOURCE_ANALYSIS/wrong-definition",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CAPABILITY_DECISION/native-positive",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "case": "CAPABILITY_DECISION/producer-positive",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "case": "CAPABILITY_DECISION/hydrate-positive",
+      "expectedValid": true,
+      "actualValid": false,
+      "status": "FAIL",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CAPABILITY_DECISION/null",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CAPABILITY_DECISION/wrong-type",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CAPABILITY_DECISION/missing-required",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CAPABILITY_DECISION/unknown-field",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CAPABILITY_DECISION/invalid-json",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CAPABILITY_DECISION/duplicate-json-key",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CAPABILITY_DECISION/stale-schema-digest",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CAPABILITY_DECISION/wrong-definition",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CONTRACT_ARCHITECTURE/native-positive",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "case": "CONTRACT_ARCHITECTURE/producer-positive",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "case": "CONTRACT_ARCHITECTURE/hydrate-positive",
+      "expectedValid": true,
+      "actualValid": false,
+      "status": "FAIL",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CONTRACT_ARCHITECTURE/null",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CONTRACT_ARCHITECTURE/wrong-type",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CONTRACT_ARCHITECTURE/missing-required",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CONTRACT_ARCHITECTURE/unknown-field",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CONTRACT_ARCHITECTURE/invalid-json",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CONTRACT_ARCHITECTURE/duplicate-json-key",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CONTRACT_ARCHITECTURE/stale-schema-digest",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "CONTRACT_ARCHITECTURE/wrong-definition",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "GENERATION_PLAN/native-positive",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "case": "GENERATION_PLAN/producer-positive",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "case": "GENERATION_PLAN/hydrate-positive",
+      "expectedValid": true,
+      "actualValid": false,
+      "status": "FAIL",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "GENERATION_PLAN/null",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "GENERATION_PLAN/wrong-type",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "GENERATION_PLAN/missing-required",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "GENERATION_PLAN/unknown-field",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "GENERATION_PLAN/invalid-json",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "GENERATION_PLAN/duplicate-json-key",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "GENERATION_PLAN/stale-schema-digest",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "GENERATION_PLAN/wrong-definition",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "INTEGRATION_PLAN/native-positive",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "case": "INTEGRATION_PLAN/producer-positive",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "case": "INTEGRATION_PLAN/hydrate-positive",
+      "expectedValid": true,
+      "actualValid": false,
+      "status": "FAIL",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "INTEGRATION_PLAN/null",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "INTEGRATION_PLAN/wrong-type",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "INTEGRATION_PLAN/missing-required",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "INTEGRATION_PLAN/unknown-field",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "INTEGRATION_PLAN/invalid-json",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "INTEGRATION_PLAN/duplicate-json-key",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "INTEGRATION_PLAN/stale-schema-digest",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "INTEGRATION_PLAN/wrong-definition",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "requirement/empty-requirements",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "requirement/invalid-kind",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "requirement/duplicate-identity",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /kind: Unknown artifact kind"
+    },
+    {
+      "case": "producer/null-without-question-or-blocker",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: ARTIFACT_VALIDATION_FAILED /: {'schemaVersion': '1.0', 'role': 'REQUIREMENTS_ANALYST', 'proposal': None, 'questions': [], 'blocker': None} is not valid under any of the given schemas"
+    },
+    {
+      "case": "open-adapter/compact-reference-valid",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "case": "open-adapter/compact-is-not-native-ArtifactRef",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: ARTIFACT_VALIDATION_FAILED /: 'schema' is a required property"
+    },
+    {
+      "case": "open-adapter/native-reference-valid",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "case": "open-adapter/native-is-not-compact",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ValidationError: Additional properties are not allowed ('path', 'producerNodeId', 'schema' were unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'additionalProperties': False,\n     'properties': {'artifactId': {'pattern': '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$',\n                                   'type': 'string'},\n                    'contentDigest': {'pattern': '^sha256:[0-9a-f]{64}$',\n                                      'type': 'string'},\n                    'kind': {'const': 'REQUIREMENT_PROPOSAL'},\n                    'mediaType': {'maxLength': 128,\n                                  'minLength': 1,\n                                  'type': 'string'},\n                    'provenanceDigest': {'pattern': '^sha256:[0-9a-f]{64}$',\n                                         'type': 'string'},\n                    'schemaDigest': {'anyOf': [{'pattern': '^sha256:[0-9a-f]{64}$',\n                                                'type': 'string'},\n                                               {'type': 'null'}]},\n                    'sizeBytes': {'maximum': 9007199254740991,\n                                  'minimum': 0,\n                                  'type': 'integer'}},\n     'required': ['artifactId',\n                  'kind',\n                  'contentDigest',\n                  'schemaDigest',\n                  'mediaType',\n                  'sizeBytes',\n                  'provenanceDigest'],\n     'type': 'object'}\n\nOn instance:\n    {'artifactId': '00000000-0000-4000-8000-000000000001',\n     'kind': 'REQUIREMENT_PROPOSAL',\n     'schema': {'schemaId': 'urn:kcml:generation-contracts:2',\n                'definition': 'RequirementProposal',\n                'bundleDigest': 'sha256:5e7c1e7b1586303c325829c51111eb615a6170b167bbca24047a5f27eaeb4e44'},\n     'mediaType': 'application/json',\n     'path': 'fixture.json',\n     'contentDigest': 'sha256:0000000000000000000000000000000000000000000000000000000000000000',\n     'sizeBytes': 0,\n     'producerNodeId': None,\n     'provenanceDigest': 'sha256:0000000000000000000000000000000000000000000000000000000000000000'}"
+    },
+    {
+      "case": "raw-schema/valid",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "case": "raw-schema/invalid-type",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "SchemaError: 'NOT_A_TYPE' is not valid under any of the given schemas\n\nFailed validating 'anyOf' in metaschema['allOf'][3]['properties']['type']:\n    {'anyOf': [{'$ref': '#/$defs/simpleTypes'},\n               {'type': 'array',\n                'items': {'$ref': '#/$defs/simpleTypes'},\n                'minItems': 1,\n                'uniqueItems': True}]}\n\nOn schema['type']:\n    'NOT_A_TYPE'"
+    },
+    {
+      "case": "raw-schema/missing-ref",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "error": "ContractFailure: CONTRACT_PACK_REFERENCE_INVALID /$defs/missing: Missing object member"
+    }
+  ],
+  "checked": 77,
+  "failed": 6,
+  "fixtures": {
+    "REQUIREMENT_PROPOSAL": {
+      "objective": {
+        "statement": "sample",
+        "requirementIds": [
+          "sample"
+        ],
+        "successCriteriaIds": [
+          "sample"
+        ]
+      },
+      "requirements": [
+        {
+          "requirementId": "sample",
+          "kind": "BUSINESS",
+          "statement": "sample",
+          "sourceRefs": [
+            {
+              "section": "12.2",
+              "anchor": "sample",
+              "sourceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "relation": "AUTHORITY"
+            }
+          ],
+          "ownerDecisionIds": [],
+          "dependsOn": [],
+          "acceptanceIds": [
+            "sample"
+          ],
+          "domainContractRefs": []
+        }
+      ],
+      "ownerDecisionRefs": [],
+      "openQuestions": []
+    },
+    "SOURCE_ANALYSIS": {
+      "facts": [],
+      "provenance": [],
+      "contradictions": [],
+      "requirements": []
+    },
+    "CAPABILITY_DECISION": {
+      "decision": "FULL_REUSE",
+      "snapshot": {
+        "artifactId": "00000000-0000-4000-8000-000000000001",
+        "kind": "CAPABILITY_SNAPSHOT",
+        "schema": null,
+        "mediaType": "application/json",
+        "path": "sample",
+        "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "sizeBytes": 0,
+        "producerNodeId": null,
+        "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "reusedTargets": [],
+      "uncoveredRequirementIds": [],
+      "newTargetKeys": [],
+      "coverage": [
+        {
+          "requirementId": "sample",
+          "disposition": "REUSED",
+          "existingTargets": [],
+          "plannedTargetKeys": [],
+          "verificationContractRefs": [
+            {
+              "recordId": "sample",
+              "recordKind": "sample",
+              "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "schema": {
+                "schemaId": "urn:kcml:test",
+                "definition": "sample",
+                "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+              },
+              "artifact": {
+                "artifactId": "00000000-0000-4000-8000-000000000001",
+                "kind": "sample",
+                "schema": null,
+                "mediaType": "application/json",
+                "path": "sample",
+                "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+                "sizeBytes": 0,
+                "producerNodeId": null,
+                "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "CONTRACT_ARCHITECTURE": {
+      "mcpElements": [],
+      "agents": [],
+      "bindings": [],
+      "schemaBundles": [
+        {
+          "schemaId": "sample",
+          "dialect": "https://json-schema.org/draft/2020-12/schema",
+          "rootPointer": "",
+          "bundle": {
+            "artifactId": "00000000-0000-4000-8000-000000000001",
+            "kind": "JSON_SCHEMA_BUNDLE",
+            "schema": null,
+            "mediaType": "application/json",
+            "path": "sample",
+            "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "sizeBytes": 0,
+            "producerNodeId": null,
+            "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "nativeSchemaDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "requirementIds": [
+        "sample"
+      ]
+    },
+    "GENERATION_PLAN": {
+      "schemaVersion": "1.0",
+      "planId": "00000000-0000-4000-8000-000000000001",
+      "jobId": "00000000-0000-4000-8000-000000000001",
+      "specificationDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "scopeLock": {
+        "schemaVersion": "1.0",
+        "approvedSpecificationId": "00000000-0000-4000-8000-000000000001",
+        "approvedSpecificationDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "ownerDecisionSetDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "requirementSetDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "approvedRequirementIds": [
+          "sample"
+        ],
+        "approvedTargetKeys": [
+          "sample"
+        ],
+        "allowedTechnicalDerivationContract": {
+          "recordId": "sample",
+          "recordKind": "TECHNICAL_DERIVATION",
+          "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "schema": {
+            "schemaId": "urn:kcml:test",
+            "definition": "sample",
+            "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "artifact": {
+            "artifactId": "00000000-0000-4000-8000-000000000001",
+            "kind": "sample",
+            "schema": null,
+            "mediaType": "application/json",
+            "path": "sample",
+            "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "sizeBytes": 0,
+            "producerNodeId": null,
+            "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        },
+        "scopeChangeAllowed": false
+      },
+      "pathPlan": {
+        "artifactId": "00000000-0000-4000-8000-000000000001",
+        "kind": "PATH_PLAN",
+        "schema": null,
+        "mediaType": "application/json",
+        "path": "sample",
+        "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "sizeBytes": 0,
+        "producerNodeId": null,
+        "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "sdkLock": {
+        "artifactId": "00000000-0000-4000-8000-000000000001",
+        "kind": "SDK_LOCK",
+        "schema": null,
+        "mediaType": "application/json",
+        "path": "sample",
+        "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "sizeBytes": 0,
+        "producerNodeId": null,
+        "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "rootArtifacts": [
+        {
+          "artifactId": "00000000-0000-4000-8000-000000000001",
+          "kind": "sample",
+          "schema": null,
+          "mediaType": "application/json",
+          "path": "sample",
+          "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "sizeBytes": 0,
+          "producerNodeId": null,
+          "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "nodes": [
+        {
+          "nodeId": "sample",
+          "kind": "REUSE_BINDING",
+          "phase": "DISCUSSING",
+          "purpose": "sample",
+          "requirementIds": [
+            "sample"
+          ],
+          "dependencies": [],
+          "inputBindings": [
+            {
+              "slot": "sample",
+              "source": {
+                "origin": "ROOT_ARTIFACT",
+                "artifact": {
+                  "artifactId": "00000000-0000-4000-8000-000000000001",
+                  "kind": "sample",
+                  "schema": null,
+                  "mediaType": "application/json",
+                  "path": "sample",
+                  "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+                  "sizeBytes": 0,
+                  "producerNodeId": null,
+                  "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+                }
+              }
+            }
+          ],
+          "outputSchema": {
+            "schemaId": "urn:kcml:test",
+            "definition": "sample",
+            "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "executionRole": "COORDINATOR",
+          "operationId": "sample",
+          "sideEffectClass": "READ_ONLY",
+          "retryClass": "SAFE_RETRY",
+          "idempotencyContract": {
+            "recordId": "sample",
+            "recordKind": "IDEMPOTENCY_CONTRACT",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          },
+          "budget": {
+            "policy": {
+              "recordId": "sample",
+              "recordKind": "SYSTEM_MANAGED_POLICY",
+              "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "schema": {
+                "schemaId": "urn:kcml:test",
+                "definition": "sample",
+                "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+              },
+              "artifact": {
+                "artifactId": "00000000-0000-4000-8000-000000000001",
+                "kind": "sample",
+                "schema": null,
+                "mediaType": "application/json",
+                "path": "sample",
+                "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+                "sizeBytes": 0,
+                "producerNodeId": null,
+                "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+              }
+            },
+            "maxDurationMs": 1,
+            "maxModelCalls": 0,
+            "maxToolCalls": 0,
+            "maxInputTokens": 0,
+            "maxOutputTokens": 0,
+            "maxRepairAttempts": 0,
+            "maxArtifactBytes": 1,
+            "maxFiles": 1,
+            "maxJsonDepth": 1,
+            "maxJsonMembers": 1,
+            "maxSchemaValidationMs": 1,
+            "costAdmission": "OBSERVE_ONLY"
+          },
+          "requiredGateIds": [],
+          "checkpointContract": {
+            "recordId": "sample",
+            "recordKind": "CHECKPOINT_CONTRACT",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          },
+          "compensationContract": {
+            "recordId": "sample",
+            "recordKind": "COMPENSATION_CONTRACT",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          },
+          "pathSlotIds": []
+        }
+      ],
+      "coverage": [
+        {
+          "requirementId": "sample",
+          "producerNodeIds": [
+            "sample"
+          ],
+          "verificationNodeIds": [
+            "sample"
+          ],
+          "sourceRefs": [
+            {
+              "section": "12.2",
+              "anchor": "sample",
+              "sourceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "relation": "AUTHORITY"
+            }
+          ]
+        }
+      ]
+    },
+    "INTEGRATION_PLAN": {
+      "targetKeys": [
+        "sample"
+      ],
+      "bindingKeys": [],
+      "steps": [
+        {
+          "stepId": "S01",
+          "postcondition": {
+            "recordId": "sample",
+            "recordKind": "INTEGRATION_POSTCONDITION",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          },
+          "compensation": {
+            "recordId": "sample",
+            "recordKind": "COMPENSATION_CONTRACT",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          }
+        },
+        {
+          "stepId": "S02",
+          "postcondition": {
+            "recordId": "sample",
+            "recordKind": "INTEGRATION_POSTCONDITION",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          },
+          "compensation": {
+            "recordId": "sample",
+            "recordKind": "COMPENSATION_CONTRACT",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          }
+        },
+        {
+          "stepId": "S03",
+          "postcondition": {
+            "recordId": "sample",
+            "recordKind": "INTEGRATION_POSTCONDITION",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          },
+          "compensation": {
+            "recordId": "sample",
+            "recordKind": "COMPENSATION_CONTRACT",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          }
+        },
+        {
+          "stepId": "S04",
+          "postcondition": {
+            "recordId": "sample",
+            "recordKind": "INTEGRATION_POSTCONDITION",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          },
+          "compensation": {
+            "recordId": "sample",
+            "recordKind": "COMPENSATION_CONTRACT",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          }
+        },
+        {
+          "stepId": "S05",
+          "postcondition": {
+            "recordId": "sample",
+            "recordKind": "INTEGRATION_POSTCONDITION",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          },
+          "compensation": {
+            "recordId": "sample",
+            "recordKind": "COMPENSATION_CONTRACT",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          }
+        },
+        {
+          "stepId": "S06",
+          "postcondition": {
+            "recordId": "sample",
+            "recordKind": "INTEGRATION_POSTCONDITION",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          },
+          "compensation": {
+            "recordId": "sample",
+            "recordKind": "COMPENSATION_CONTRACT",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          }
+        },
+        {
+          "stepId": "S07",
+          "postcondition": {
+            "recordId": "sample",
+            "recordKind": "INTEGRATION_POSTCONDITION",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          },
+          "compensation": {
+            "recordId": "sample",
+            "recordKind": "COMPENSATION_CONTRACT",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          }
+        },
+        {
+          "stepId": "S08",
+          "postcondition": {
+            "recordId": "sample",
+            "recordKind": "INTEGRATION_POSTCONDITION",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          },
+          "compensation": {
+            "recordId": "sample",
+            "recordKind": "COMPENSATION_CONTRACT",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          }
+        },
+        {
+          "stepId": "S09",
+          "postcondition": {
+            "recordId": "sample",
+            "recordKind": "INTEGRATION_POSTCONDITION",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          },
+          "compensation": {
+            "recordId": "sample",
+            "recordKind": "COMPENSATION_CONTRACT",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          }
+        },
+        {
+          "stepId": "S10",
+          "postcondition": {
+            "recordId": "sample",
+            "recordKind": "INTEGRATION_POSTCONDITION",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          },
+          "compensation": {
+            "recordId": "sample",
+            "recordKind": "COMPENSATION_CONTRACT",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          }
+        },
+        {
+          "stepId": "S11",
+          "postcondition": {
+            "recordId": "sample",
+            "recordKind": "INTEGRATION_POSTCONDITION",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          },
+          "compensation": {
+            "recordId": "sample",
+            "recordKind": "COMPENSATION_CONTRACT",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          }
+        },
+        {
+          "stepId": "S12",
+          "postcondition": {
+            "recordId": "sample",
+            "recordKind": "INTEGRATION_POSTCONDITION",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          },
+          "compensation": {
+            "recordId": "sample",
+            "recordKind": "COMPENSATION_CONTRACT",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          }
+        },
+        {
+          "stepId": "S13",
+          "postcondition": {
+            "recordId": "sample",
+            "recordKind": "INTEGRATION_POSTCONDITION",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          },
+          "compensation": {
+            "recordId": "sample",
+            "recordKind": "COMPENSATION_CONTRACT",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          }
+        },
+        {
+          "stepId": "S14",
+          "postcondition": {
+            "recordId": "sample",
+            "recordKind": "INTEGRATION_POSTCONDITION",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          },
+          "compensation": {
+            "recordId": "sample",
+            "recordKind": "COMPENSATION_CONTRACT",
+            "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "schema": {
+              "schemaId": "urn:kcml:test",
+              "definition": "sample",
+              "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "artifact": {
+              "artifactId": "00000000-0000-4000-8000-000000000001",
+              "kind": "sample",
+              "schema": null,
+              "mediaType": "application/json",
+              "path": "sample",
+              "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+              "sizeBytes": 0,
+              "producerNodeId": null,
+              "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          }
+        }
+      ],
+      "requirementIds": [
+        "sample"
+      ]
+    }
+  },
+  "openCounterexamples": [
+    "R11 compact reference accepts schemaDigest=null and has no schema address/path; neither reference shape can be passed unchanged to the other validator. This is NOT a fixed adapter."
+  ]
+}

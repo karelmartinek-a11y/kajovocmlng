@@ -12,6 +12,9 @@ Kontroly se spouštějí z kořene repozitáře. Python závislosti jsou připnu
 | Omezený retry profil a jeho zákazy | `python scripts/verify_retry_profile.py` | `retry-validation.json` |
 | Historické dotazy a úplnost dat | `python scripts/verify_observability.py` | `observability-validation.json` |
 | Konkrétní odkazy na command/response schémata | `python scripts/verify_schema_references.py` | `schema-reference-validation.json` |
+| Strukturální matice hranic fáze 1 | `python scripts/phase1_schema_closure.py` | `audit/phase1-operation-schema-matrix.json`, `audit/phase1-unresolved.json` |
+| Negativní případy a otevřené doménové mezery | `python scripts/verify_phase1_contracts.py` | `phase1-contract-tests.json`, `phase1-fixtures.json` |
+| Reprodukce oprav z výchozího commitu | `python scripts/phase1_repair_contracts.py --verify-from-baseline` | `phase1-reproduction.json` |
 | Zachování pravidel Secrets | `python scripts/verify_preserved_policy.py` | `preserved-policy.json` |
 | Shoda projekcí | `python scripts/project_experience.py --check` | výstup příkazu; zahrnuto v experience validation |
 | Inventář UI a operací | `python scripts/build_parity.py` | `function-parity.json` |

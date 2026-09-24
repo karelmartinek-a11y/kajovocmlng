@@ -1,0 +1,53 @@
+{
+  "status": "PARTIAL",
+  "items": [
+    {
+      "id": "artifactref-hydration",
+      "status": "BLOCKED_MISSING_CONTRACT",
+      "detail": "No lossless adapter: compact reference lacks schema address, path, producerNodeId; extra nullable schemaDigest has no proven semantic equivalence to bundleDigest; lookup and validated-content return/error contract absent."
+    },
+    {
+      "id": "state-enums",
+      "status": "BLOCKED_MISSING_CONTRACT",
+      "detail": "Eight state/disposition fields accept NOT_A_VALID_STATE. No authoritative finite state dictionaries/transition guards found in active SSOT."
+    },
+    {
+      "id": "digest-field-binding",
+      "status": "BLOCKED_MISSING_CONTRACT",
+      "detail": "General JCS/SHA-256 is normative, but exact binding of R11 schemaDigest to native bundleDigest/selected definition and its mismatch timing is unspecified."
+    },
+    {
+      "id": "browser-presence-sequence",
+      "status": "NOT_VERIFIED",
+      "detail": "r15/contracts/browser-visual-collaboration.schema.json#/$defs/BrowserPresencePointer/properties/sequence accepts an unbounded decimal string. Active SSOT does not establish whether this is platform eventSequence or client/native pointer sequencing; it is not coerced from its name alone."
+    },
+    {
+      "id": "remaining-phase1-schema-links",
+      "status": "NOT_VERIFIED",
+      "detail": "260 unresolved links at 130 operations remain; Phase 3 did not reduce or suppress them."
+    },
+    {
+      "id": "remaining-phase1-domain-and-event-closure",
+      "status": "NOT_VERIFIED",
+      "detail": "Phase 1 remains PARTIAL: 8 failures/108 baseline contract tests and unresolved domain masks/query allowlists/canonicalJson/event edges remain."
+    },
+    {
+      "id": "remaining-phase2-handoff-closure",
+      "status": "NOT_VERIFIED",
+      "detail": "Phase 2 remains PARTIAL: 27 unmapped R11 input positions/23 kinds, 152 event applicability blockers and incomplete semantic graph; 77 content checks passing are only local proofs."
+    },
+    {
+      "id": "prior-validator-failures",
+      "status": "NOT_VERIFIED",
+      "detail": "NO_PRESERVED_R10_MARKER and CONTRACT_PACK_DRIFT scripts/ssot/audit_checks.py: Embedded bytes differ reproduce in current isolated checkout; both predate Phase 3."
+    },
+    {
+      "id": "phase2-matrix-refresh",
+      "status": "NOT_VERIFIED",
+      "detail": "Phase 2 source-derived matrix --check now reports MATRIX_COVERAGE_OR_CONTENT_DRIFT because Phase 3 changed the canonical UI experience resource; historic Phase 2 matrix/report deliberately preserved."
+    }
+  ],
+  "phase1Status": "PARTIAL",
+  "phase2Status": "PARTIAL",
+  "phase3Status": "PARTIAL"
+}

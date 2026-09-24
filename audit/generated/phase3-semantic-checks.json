@@ -1,0 +1,21 @@
+{
+  "scope": "Schema identity, counter and named status/outcome probes; state dictionaries and hydration remain open.",
+  "checks": [
+    {
+      "id": "identity.distinct-and-projections-exact",
+      "status": "PASS"
+    },
+    {
+      "id": "counter.int64-range-and-wire-type",
+      "status": "PASS"
+    },
+    {
+      "id": "response.status-terminal-error-branches",
+      "status": "PASS"
+    },
+    {
+      "id": "state-fields-confirmed-open-unbounded-identifiers",
+      "status": "PASS"
+    }
+  ]
+}

@@ -22,6 +22,20 @@
       "visualStatus": "NOT_APPLICABLE"
     },
     {
+      "path": ".github/workflows/ssot.yml",
+      "bytes": 656,
+      "sha256": "7607fed3ee48a6ba8f20b303a9455aaf38a5a911c1196b15f54a2cfbfcb66fce",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
       "path": ".gitignore",
       "bytes": 36,
       "sha256": "42c2f135b8cc0c60e5059467a86a55eb93816d712911894e97bb4aec5db837c6",
@@ -37,8 +51,8 @@
     },
     {
       "path": "00_SSOT/KajovoCMLNG_SSOT.md",
-      "bytes": 40507483,
-      "sha256": "68a0951abc951ccdb07ff4b12d43ad62e926b1b56be7cbbcb962511a958becee",
+      "bytes": 40647552,
+      "sha256": "cc72d9719a936574c2c2c550fad66f2c330cd43843b19962eadf66edeea402ee",
       "purpose": "canonical specification",
       "checks": [
         "UTF8"
@@ -111,8 +125,8 @@
     },
     {
       "path": "01_UI_CONTRACT/closure/contracts/ui-action-resolution.json",
-      "bytes": 72703,
-      "sha256": "0fe5c2e68dc4e9c5bdbe65a363208a4c915ee1d032561206a2d267c8bf1bed48",
+      "bytes": 80996,
+      "sha256": "f9697a91d652d82e4cb5d0b7f081c328bf4d1025b46476f65ced01c7e8ee742a",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -141,8 +155,8 @@
     },
     {
       "path": "01_UI_CONTRACT/DIALOG_INPUT_MATRIX.csv",
-      "bytes": 1733,
-      "sha256": "145d7ae9e1ca2aab365d9e16f7de19183ff019d7d64be276c3036423d0df3292",
+      "bytes": 1761,
+      "sha256": "b10be1a1c745b1aed38146fe5d0ed93f3ee33b0580066512c6a7cba670d82e0b",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -156,8 +170,8 @@
     },
     {
       "path": "01_UI_CONTRACT/FUNCTION_PARITY.csv",
-      "bytes": 272611,
-      "sha256": "09a234aa2e1d4c92007e82437c290ba75a1b69e4a6e9d06fe7ecc52e9471372d",
+      "bytes": 273185,
+      "sha256": "d27d1e504199281c8485c983d6474f9b6346c3251d2aa8ddaf0a58803dc09880",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -186,8 +200,23 @@
     },
     {
       "path": "01_UI_CONTRACT/ui/audit/ui-coverage.json",
-      "bytes": 1281,
-      "sha256": "367afb5c4ba684b94d061488369d411bd1c9a7c008cfeaaf5b543238ec10ce72",
+      "bytes": 1378,
+      "sha256": "bd5f268d06625281e4049cf1348e8d835567b941613a95c4ebf95b459c0d3433",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/error-message-registry.json",
+      "bytes": 891489,
+      "sha256": "1f6993f08f53056495ce6c6687f5c71e472a8aa75f505205ca19b419f899a4db",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -231,13 +260,152 @@
       "visualStatus": "NOT_APPLICABLE"
     },
     {
+      "path": "01_UI_CONTRACT/ui/contracts/error-record.schema.json",
+      "bytes": 1609,
+      "sha256": "6e4905bae099c7148bace401ef3f29f009cad2a7ad2a122a74e3c7e2e39a181f",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE",
+        "JSON_SCHEMA_META"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/history-query.schema.json",
+      "bytes": 2103,
+      "sha256": "f54dc9c1ab0d1d209ea8f207d64430470668560fe43999ea925a4dc052de58ba",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE",
+        "JSON_SCHEMA_META"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/live-event.schema.json",
+      "bytes": 27284,
+      "sha256": "df2dbeeef2b66e77be2d99ebebbd75b84f3d9ce8d021892becd4c0d8156ed8f1",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE",
+        "JSON_SCHEMA_META"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
       "path": "01_UI_CONTRACT/ui/contracts/live-experience.json",
-      "bytes": 422392,
-      "sha256": "1880dd21044e628566b757a3b587bd7cfe62c2049621ffa07132ef3eed7e7b81",
+      "bytes": 422528,
+      "sha256": "2c9f41770c7ea1238cc5902a2c8f387f32c3bc801d8c7ad1fca31d5f2c200233",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
         "JSON_PARSE"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/live-stream-policy.json",
+      "bytes": 2033,
+      "sha256": "e6a01eb065322a01e7d83d777fb618fd9bdaf99a2f50ae533b6e4298696e48d3",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/observability-query-contract.json",
+      "bytes": 2987,
+      "sha256": "6dc5fcd7317b6a52cd32826bc42227ffe748ce0ec3b0d39ac64c01d25cd1c4b0",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/process-visual-registry.json",
+      "bytes": 47799,
+      "sha256": "79161c623131b734f3f6172ce41b9a09a4103564ab15b18b4a2c4242ce6dcf36",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/secrets-channel-parity.json",
+      "bytes": 2305,
+      "sha256": "5d9c2fabb8f995a8c46adf0f44cfb1354ac8012f3797fd744b3510f259b8befd",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/solution-planning-contract.json",
+      "bytes": 3589,
+      "sha256": "10f391986e7ba4ac609dd8562be255cce458433bf5bbbffb28bf3004bf9761f7",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/solution-specification.schema.json",
+      "bytes": 6749,
+      "sha256": "820a0c7b58dbef6d55f544bb942acbcea5eddaf9ffdcf25e4feae57c15193273",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE",
+        "JSON_SCHEMA_META"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -262,8 +430,38 @@
     },
     {
       "path": "01_UI_CONTRACT/ui/contracts/ui-control-registry.json",
-      "bytes": 112580,
-      "sha256": "d59fb06aabf8fdbfea5079acb6f1ad46e37fd86af687a69ba2d03b30eb18a528",
+      "bytes": 471575,
+      "sha256": "d8ea658c11d229966df0081933c7c51dd608473a9f5d688ae6f215ad7f3f1a79",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/ui-stack-contract.json",
+      "bytes": 6287,
+      "sha256": "6fbd4d2912f2cafcdbeabdcdc32196b9e4f0c18e18243dcd90b0fd5586d50f7b",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "01_UI_CONTRACT/ui/contracts/visual-artifact-bindings.json",
+      "bytes": 10097,
+      "sha256": "a7388cef59830e1703018cbf9099e3d900886771306725f165ec6bb7c01cd19e",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -277,8 +475,8 @@
     },
     {
       "path": "01_UI_CONTRACT/ui/locales/cs.json",
-      "bytes": 58604,
-      "sha256": "2d89c2e4ac4ace7d7d5bb7f1c7b0c2cfab2dc6ea9807f06a408cd408c40b2a92",
+      "bytes": 58669,
+      "sha256": "d8ff4ace33db214a33a85bcdd86b258023ddee2f8eeaebf8cd8e9fd5918bc276",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -292,8 +490,8 @@
     },
     {
       "path": "01_UI_CONTRACT/ui/locales/en.json",
-      "bytes": 56205,
-      "sha256": "6bf757d45ecb41af4cc2bdee7a3280c4519f9663cd076531ded02ae31562a6e8",
+      "bytes": 56265,
+      "sha256": "d907136667bb744f1868db67f98f8dcfba99439ea4569f1d6eb6439206c54be6",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -322,8 +520,8 @@
     },
     {
       "path": "01_UI_CONTRACT/UI_CATALOG.md",
-      "bytes": 57772,
-      "sha256": "24de206308fe66cc466374dca383f5487141fa1290e46ea5dcf0337051d32db8",
+      "bytes": 51090,
+      "sha256": "15e76b95c63fc46b998714d2840612693604fd2443557c8bca534d402388d319",
       "purpose": "package source or projection",
       "checks": [
         "UTF8"
@@ -336,8 +534,8 @@
     },
     {
       "path": "01_UI_CONTRACT/UI_CONTROLS.csv",
-      "bytes": 49003,
-      "sha256": "0859b0b5725eb80f319b1a88f188a2907f3f7620346ee3455e7fc0971424af02",
+      "bytes": 54279,
+      "sha256": "c893a55536778e76d17dd00ae6e55faf850423260a270999adbab3637aba4824",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -351,11 +549,26 @@
     },
     {
       "path": "01_UI_CONTRACT/UI_DIALOG_CATALOG.md",
-      "bytes": 5969,
-      "sha256": "37470f3ea4c9a0cc27e2bc777d0d835f16b108905f68f16fe14f69431076a7f5",
+      "bytes": 6192,
+      "sha256": "a1bb0311b1ce71640fc8b6811c80f3f4fe28ba84fc99c64703a0d4c144fa8584",
       "purpose": "package source or projection",
       "checks": [
         "UTF8"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "01_UI_CONTRACT/UI_FUNCTION_PARITY.csv",
+      "bytes": 88229,
+      "sha256": "db78efc61b25eba082b9fbc0366c95852ed286a6fb2e46c3e9cfcd8d7f8ded88",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "CSV_PARSE"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -544,8 +757,8 @@
     },
     {
       "path": "03_UI_REFERENCE/assets/live.css",
-      "bytes": 10161,
-      "sha256": "7f0059cc329e4d76b58f6ba4237b220b589e3ba0d628f82b7fcdc93062b0bb9b",
+      "bytes": 10158,
+      "sha256": "474efde10578fdfebae935a57a77823c1f4c35c586430b2bfc21e37655512387",
       "purpose": "package source or projection",
       "checks": [
         "UTF8"
@@ -558,8 +771,8 @@
     },
     {
       "path": "03_UI_REFERENCE/assets/live.js",
-      "bytes": 2260,
-      "sha256": "0ed829ecf03995a0e8864018766e2857e1e87d4f3409f221837c927d25378c40",
+      "bytes": 2392,
+      "sha256": "c4db4b403c4f12edbfb5578a574f7d9594bcd837d304d3f9864609cacabbf970",
       "purpose": "package source or projection",
       "checks": [
         "UTF8"
@@ -599,9 +812,37 @@
       "visualStatus": "NOT_APPLICABLE"
     },
     {
+      "path": "03_UI_REFERENCE/assets/workspace.css",
+      "bytes": 10570,
+      "sha256": "7996124087a9767e786e3249e8e463390478814b851c3499b85a59c8d1af28f0",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "03_UI_REFERENCE/assets/workspace.js",
+      "bytes": 8989,
+      "sha256": "4769bd6239941446e2bf70fa121d06c5d6949e4d974d3700502dd160c65dde3f",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
       "path": "03_UI_REFERENCE/dialogs/action-failed.html",
-      "bytes": 1807,
-      "sha256": "9b0bd69eba4a44e4fd16570294a1081d6f633b5ef21a4a432e8c3b16483862b8",
+      "bytes": 2073,
+      "sha256": "5b35fa80e84bd2589f6ee26bc9b56be0496ad7da257b3a9d9a8035c56a65ecad",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -615,8 +856,8 @@
     },
     {
       "path": "03_UI_REFERENCE/dialogs/browser-challenge.html",
-      "bytes": 2060,
-      "sha256": "ac23b878b7bfdd45eadb50a58ac77f6234b44aa44ac076ce5d0ab99b47043b07",
+      "bytes": 2326,
+      "sha256": "b84eeda1d0b7061cfd1815009a4cfeac43b246f56fb080e5ae40db460d08034f",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -630,8 +871,8 @@
     },
     {
       "path": "03_UI_REFERENCE/dialogs/conditional-impact.html",
-      "bytes": 1881,
-      "sha256": "6d8b9912393e6fe37a5ec4756d897ebb665ac205e6ed35f78e0ebebc4d72524f",
+      "bytes": 2147,
+      "sha256": "7b17d4a08892366cf0920cebdbdc50a4e93c5e7cedf2b991460e50f8efdf16d6",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -645,8 +886,8 @@
     },
     {
       "path": "03_UI_REFERENCE/dialogs/conflict.html",
-      "bytes": 1827,
-      "sha256": "b43ac6ed14b234701d813795dbb8909a63283c501b6a943fb5a9d54048dd861d",
+      "bytes": 2093,
+      "sha256": "4ef75ee3b90ce1166d3cfdfbc31e2086a66668020ca95628ea3630110866a297",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -660,8 +901,8 @@
     },
     {
       "path": "03_UI_REFERENCE/dialogs/dirty-state.html",
-      "bytes": 1768,
-      "sha256": "ebbba9bafda89a26373fb62cc57fd2a952f90552fda5772efbe00462b7faa1fb",
+      "bytes": 2034,
+      "sha256": "dd07df71b7c86c606bb0852a0544e52daf5f4beb26c080d1ba3df577abecb7a3",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -675,8 +916,8 @@
     },
     {
       "path": "03_UI_REFERENCE/dialogs/explicit-confirm.html",
-      "bytes": 1740,
-      "sha256": "b21de2a1563818698e2fa5d8356ad366cfe5f8ec88584a1029d38fb295862771",
+      "bytes": 2006,
+      "sha256": "9de0f4d3d4293aa8a6dc4bdc3e7bdfd131132b29032b2b383d03185c89431c11",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -690,8 +931,8 @@
     },
     {
       "path": "03_UI_REFERENCE/dialogs/impact-preview.html",
-      "bytes": 1692,
-      "sha256": "9a71b0e31a6193079cef356a1aa553fa25c198dfaa1a48957eaef29f928376b6",
+      "bytes": 1958,
+      "sha256": "a4d0b972a92de358b2eb3fa304081196403a7006a246d76dc632acd6b7b5e284",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -705,8 +946,8 @@
     },
     {
       "path": "03_UI_REFERENCE/dialogs/mandatory-impact-preview.html",
-      "bytes": 2105,
-      "sha256": "3273cad4362c9fb545f9a9818a11aa05fa32acdefbdf49469a82cdc65366af4a",
+      "bytes": 2371,
+      "sha256": "4445fc60d01921e9de767ae7ca3ef52a75fc9f43c8aceba4a21949d187b5e133",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -720,8 +961,8 @@
     },
     {
       "path": "03_UI_REFERENCE/dialogs/manual-review.html",
-      "bytes": 1992,
-      "sha256": "f13d64dccd442b859a807c4f441b9c23b5fd6aa51aec6d0876b6d6c53a040650",
+      "bytes": 2258,
+      "sha256": "5bad74b285d99745ca1dc7c84dd4a875d9713ce70b813740ca03140e122b6728",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -735,8 +976,8 @@
     },
     {
       "path": "03_UI_REFERENCE/dialogs/pending-operation.html",
-      "bytes": 1824,
-      "sha256": "2aecd96074a7c6bcea22363a2fa575c921128d8f387ab51232146595fe0e5191",
+      "bytes": 2090,
+      "sha256": "f8925224abecdd102017cc147b77d89cd39c610f6a69d183e79d9c5ea3d81eca",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -750,8 +991,8 @@
     },
     {
       "path": "03_UI_REFERENCE/dialogs/secret-entry.html",
-      "bytes": 2854,
-      "sha256": "b9d681cfe820a7db8326df197f681cc319ce8441f83ab952bee5238ebef968ca",
+      "bytes": 3120,
+      "sha256": "2b17fe82e9e9a19583f6ff403da4c30f57e8c3bbd6c4f27d9e63805616389212",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -765,8 +1006,8 @@
     },
     {
       "path": "03_UI_REFERENCE/dialogs/validation-error.html",
-      "bytes": 1667,
-      "sha256": "3a85b537aa0eebf05dfe9fc932f1deb8ca9e6d6558d0643f40128dfc7607254b",
+      "bytes": 1933,
+      "sha256": "a05aa4af0d51ce17634e33c9d1b8b42f7ad2598e0d4ed50122599aec2713b4ae",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -780,8 +1021,8 @@
     },
     {
       "path": "03_UI_REFERENCE/index.html",
-      "bytes": 5262,
-      "sha256": "9e94d3aa2d4f5435937304a6adc783da7bdaf2383c21174b5ea17d3ca0fb25ce",
+      "bytes": 8985,
+      "sha256": "910b6d9798066da7195e598ead1d303116c514f78510a6dc9da13b7bcd30f8ae",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -795,8 +1036,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/agents.html",
-      "bytes": 16563,
-      "sha256": "b1a9393925f7f6e9d5fb248af5fe0cbc823c1e48baebcfc435044f3333cc1038",
+      "bytes": 16829,
+      "sha256": "b0adba02e77aa529166f18f85814fcb89b565a090efe04ef43da3426c1116252",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -810,8 +1051,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/audit.html",
-      "bytes": 13534,
-      "sha256": "31eded3453a593e40cf9dad42e774df2dcb3cf261831130bc203da28c5a9eba0",
+      "bytes": 13800,
+      "sha256": "828f8cc068d97a084c9e1f78576385b48b194132c7ae490722d99a3789872f72",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -825,8 +1066,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/browser.html",
-      "bytes": 15890,
-      "sha256": "a3ee0ab0187329976d02e4e0f0a8d57a032275150dac7941a6b25230637fc2a2",
+      "bytes": 16156,
+      "sha256": "0bcea8cbfed0a1129a43b78509c9aaedd27f9e2d374602e0a3be4c73147a4446",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -840,8 +1081,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/chat.html",
-      "bytes": 11713,
-      "sha256": "9a01ea480fa824d87f2ab0314f3fe00502bc248447cb1e3f9caca68c19fa210d",
+      "bytes": 11979,
+      "sha256": "27c7fd2a16b69acddce29847f107d2132da07006dce2b86d19154b3276f2b616",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -855,8 +1096,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/command-palette.html",
-      "bytes": 3553,
-      "sha256": "e3d895d413896f0bf5889ed3f1e9605248d2783378995a85c79c229e3c4af788",
+      "bytes": 3819,
+      "sha256": "94b47e262e8cc5edc97302a15dbb03bbdb8492dd782c01a9b243c7677155916a",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -870,8 +1111,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/components.html",
-      "bytes": 16837,
-      "sha256": "c8937b677ca201fad8369839d64213d6ed0bda149da326b9a53c9dc1da137804",
+      "bytes": 17103,
+      "sha256": "eba53213334265004b8946b9c74388f0f927951f262a36d58d813a6ee74aedae",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -885,8 +1126,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/configuration.html",
-      "bytes": 11931,
-      "sha256": "424831f3aa78656f47809294498aedef243daebebecd9662d8f6cc1b7aebd8be",
+      "bytes": 12197,
+      "sha256": "131e7a16a53981405ef09da45da1807aebf5ec56c94eec401a09b71d0c8befd4",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -900,8 +1141,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/dashboard-en.html",
-      "bytes": 8792,
-      "sha256": "c32bd356c388ae01b165a3d28f23d92142945ab5f6b96a1fc1c17144a8e633cb",
+      "bytes": 8822,
+      "sha256": "58390b1e84ec70bc8d8b064f7d419930519aa2db61779e700d49d54a3a367e91",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -915,8 +1156,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/dashboard.html",
-      "bytes": 9012,
-      "sha256": "bd1fccd3f3fee2023116df3b14089bf437faa1984c5e9af1332955cfdcbcb318",
+      "bytes": 9047,
+      "sha256": "01a766da61f88f9062a2293f3966e5bf41041811e53ef36bf29b8c5583cf6202",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -930,8 +1171,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/external.html",
-      "bytes": 16144,
-      "sha256": "8d27c6fd5506b060177fb1739c8d298e6cf827ed2b25e2f0722e3c53a96262b8",
+      "bytes": 16410,
+      "sha256": "45d47cfc8a1b425bff88c8ddceb0a56383b4a15fb71fbc9f44d3ee667fe1dcbe",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -945,8 +1186,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/generation.html",
-      "bytes": 14854,
-      "sha256": "484154809d889e72cb19b6fed10c35b6967967ba9dd5a20bf3dca6723fa16b02",
+      "bytes": 15120,
+      "sha256": "8f450c68040279a8ddc4d7c9457a942debe3a367104eb0397c299354fdea40ca",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -960,8 +1201,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/live-context-menu-en.html",
-      "bytes": 8801,
-      "sha256": "cdcc4fee5ac3583827ec0c21eaa40b46b620f90b2a09e8d9de344211eb7b8214",
+      "bytes": 8831,
+      "sha256": "13cdf669f2106bc20e2b02faba3ca153cc4f14b5d97e7cd4ce1ddf8af2be9e3d",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -975,8 +1216,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/live-context-menu.html",
-      "bytes": 9017,
-      "sha256": "6922cc19dbd32032e25199ac10201223ec3e3a0a986fd3d395a80bb67f93ad2f",
+      "bytes": 9052,
+      "sha256": "e5bfe49233f6f755d22bc086e1829a57046ea112a0c079265040303b9d4e2718",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1020,8 +1261,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/live-dashboard-stale-en.html",
-      "bytes": 8304,
-      "sha256": "7536e4e6248eee160d79c26c797aac76d4f5633c6d993ced4d4f9e53d6f42136",
+      "bytes": 8334,
+      "sha256": "6f386186c6b0136e16bab0f89de223d378822860377a488fc384bf7d47233241",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1035,8 +1276,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/live-dashboard-stale.html",
-      "bytes": 8529,
-      "sha256": "a7255394dcd384acf22ad366a55fb90dfdd092d3b4e45522b15e00f4c597ceba",
+      "bytes": 8564,
+      "sha256": "f2962498a9041e796ad15b29e0190a5dbe07539d474e3e950d4fb8c7d354958e",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1140,8 +1381,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/live-live-communication-en.html",
-      "bytes": 8318,
-      "sha256": "e14352509560fd75fdeb207f79e293835180ef97a1d9200a1b35026914d6300d",
+      "bytes": 8348,
+      "sha256": "a42f77850b8037e99d83a25b9abe04631798970e3b187412721f941eb8d21f2f",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1155,8 +1396,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/live-live-communication.html",
-      "bytes": 8515,
-      "sha256": "2373795fd89692db1a785e229532249815b4d68436e8c508b8e430b7a65b12c6",
+      "bytes": 8550,
+      "sha256": "0826f7cee80c81b3cbe6432f2612a17e39faaf9648c5ab7225a5f8125b36a453",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1170,8 +1411,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/live-multi-component-en.html",
-      "bytes": 8817,
-      "sha256": "8f1d666313110f0379f7b85432515ca499d1659e62dcde64549cb5a1b3a01cdc",
+      "bytes": 8847,
+      "sha256": "cdb4666b14c08cbf88410b0b3442ee58fc42c89ed443b4eb6b513bfde7497c5f",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1185,8 +1426,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/live-multi-component.html",
-      "bytes": 9029,
-      "sha256": "5da20cd7a18436da3eda6292fd3a3baab3223dad277df75b3cf4588fa5af7291",
+      "bytes": 9064,
+      "sha256": "16eb0a35b002b228deca78fd4fc8e9cd9407f350c6c04e112a13a36fd2e26968",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1230,8 +1471,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/live-process-en.html",
-      "bytes": 8792,
-      "sha256": "0868c193e2d8e725d579db40967b13126fff715adb8b866934a4f1206e937b62",
+      "bytes": 8822,
+      "sha256": "b9dd25e17aee190261b3d936e3100f3a34d8acf6b6f19c3eb3f7045a4b257760",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1245,8 +1486,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/live-process.html",
-      "bytes": 9006,
-      "sha256": "0e50120bdfe10664611b850940971cdb724c2d8c26a8083d8105abee0ffbc59f",
+      "bytes": 9041,
+      "sha256": "038fe4dc8d06d52203f109e6b5afdf80c49bc7bedd23b52313ee324fade1754f",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1290,8 +1531,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/login-mfa.html",
-      "bytes": 2196,
-      "sha256": "fe4033132a848d43f9fffba6a9eeb85b52357e0ef7fc6b39053a356cff2ee3c4",
+      "bytes": 2462,
+      "sha256": "99c725849b5255f68fa86042adb807bfe4a0013439c71bb4c2b88bbe65c559ba",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1305,8 +1546,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/login.html",
-      "bytes": 1724,
-      "sha256": "0aecdc97f4b8545b6a45bf256cf3fd0a7b2d0590033b06da90190494c808aada",
+      "bytes": 1990,
+      "sha256": "799cbb467d49e834e1045cb870efa502ee4fcd84e4266bf60acffe4cf03f3ec4",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1320,8 +1561,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/mcp.html",
-      "bytes": 15262,
-      "sha256": "d13f4e73104fefc522ac8d308b32db913f7fa1cc19c0b21d19353993e9358775",
+      "bytes": 15528,
+      "sha256": "9cda657735db33fdceb5a1a1b0c05461fe146e3ffbfbb82c06b77625c19afabe",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1335,8 +1576,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/monitoring.html",
-      "bytes": 15008,
-      "sha256": "877badc9919ff32c42f843af62ed1ab551bf2383e8f755d9de9b841ae283efe7",
+      "bytes": 15274,
+      "sha256": "1321ecc4e964cab976ef87f4e9bae774311bcd71beb71f533e4470f8fc95fdd0",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1350,8 +1591,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/registered.html",
-      "bytes": 13986,
-      "sha256": "f07eefce50678c213ec9352a040097419c5cc88fff235d7c94448ee6d0d10612",
+      "bytes": 14252,
+      "sha256": "f90546855c760c8ccb96d0f19db703b21b0357b465a40a07bbf72aef71a179d2",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1365,8 +1606,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/releases.html",
-      "bytes": 14427,
-      "sha256": "f13cb8e963cc77107d0bce02e92c2ac4cc140c14d29449cf84297c0dd8724c84",
+      "bytes": 14693,
+      "sha256": "b21608f573ccb44c5b478dfc380039bddb1ec0017dc25579e9d7d9731e69cca9",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1380,8 +1621,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/runtime-access.html",
-      "bytes": 14080,
-      "sha256": "981efb6778ed60b00d54a74b9ded8e847decd5364ee78e25b313aa7ecb83b636",
+      "bytes": 14346,
+      "sha256": "aa2a794a2e28897efd28fe55bd1c20cf7afd46640d18fc7ee8583d50df90cc06",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1395,8 +1636,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/secrets.html",
-      "bytes": 17633,
-      "sha256": "f7907808fc1e73694abe11ed7b95879623341f4cea5e80fcaca145f5fc3a8381",
+      "bytes": 17899,
+      "sha256": "35820ed15e6a515bfb7613817c0df492e735982dbf4aa65dc30af0083bc1fa01",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1410,8 +1651,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/security.html",
-      "bytes": 14501,
-      "sha256": "f830cfd432fcc9d71ff01053cba2dd0e207c0c4660a437dbd821ecf0418840d9",
+      "bytes": 14767,
+      "sha256": "3a32a492367dd6c86ad02c026a2d2eed1d0ddc1d32eae7902a4de84c588c30ab",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1425,8 +1666,8 @@
     },
     {
       "path": "03_UI_REFERENCE/pages/tests-api.html",
-      "bytes": 14823,
-      "sha256": "8473a87751461d8492b8d400b702cbe4941408d516de4a33d13d3247ba6b35e6",
+      "bytes": 15089,
+      "sha256": "0e9e20cb04d70f7a3c974bfc9785c21bb412e7fc40e6b914384a7a457d3204d4",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -1440,12 +1681,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/agents.png",
-      "bytes": 181516,
-      "sha256": "8d2414aad1284a6d501768c6456e703fe80158057e9106732b3e2d8dd6bc6eaf",
+      "bytes": 68129,
+      "sha256": "82ffcd31b9558377942efd047b1d2ba44c91b2acd40bf305985e1af6667818e3",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1455,12 +1696,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/audit.png",
-      "bytes": 168353,
-      "sha256": "55a98e592df1400ba1d7acb5fd8a92c51596c28026bcdf1dc2526c09a9dd6591",
+      "bytes": 66588,
+      "sha256": "4d358e9dae6bd429fb62a6a2f4441ab39d1240d6d9a3b5ad9b9fb7331a33d30d",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1470,12 +1711,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/browser.png",
-      "bytes": 190113,
-      "sha256": "c3c559b444aaacfa587acb3d5271b2ed83b05c2f7e174e8e1516f8b189a461ed",
+      "bytes": 112622,
+      "sha256": "5a3801331d99d1aac84582778d4ed94100c151c2ef67858d40017ecbc1b723a7",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1485,12 +1726,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/chat.png",
-      "bytes": 162298,
-      "sha256": "6c924fe047f6ad610e93bc04f1ab24f31fdf6e2bda0b064166477c685b8b695f",
+      "bytes": 75722,
+      "sha256": "9ef8954fc28c8b880ae856a34df124491d01970e823baab6abfc03e3d421bff3",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1500,12 +1741,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/command-palette.png",
-      "bytes": 193286,
-      "sha256": "1910edf0f56a861dc1e8af08180ea5cd567b8e49576e49e6f11f3aff3ec9c1b5",
+      "bytes": 159104,
+      "sha256": "44aa11fdf1633b4e8a7406bf8b1b89a6167afe604624261164954529eaded42b",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1515,12 +1756,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/components.png",
-      "bytes": 180034,
-      "sha256": "dbbbf224a97a987d2347ef9774ed5dc08993ffa4e0700f2d43e8b6dd54816ce8",
+      "bytes": 68614,
+      "sha256": "274168c4aee648a02df73c97a609e572b8dd17631c1aff1c1b2a09780a5e1b4c",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1530,12 +1771,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/configuration.png",
-      "bytes": 158900,
-      "sha256": "884117758c5f3fb83b6d85bc77e9bdf2e48c154d1eb02e7c252a85ceb6b4d16a",
+      "bytes": 64418,
+      "sha256": "1b04a8cdf99a1159b6717bc0d3146b2ab01009e4eab2b8bb1826e40c85d26e3c",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1560,12 +1801,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/external.png",
-      "bytes": 180837,
-      "sha256": "8053b973377ddec01df4c9b495f1da131b102e330836d4a8281fc5ba632706de",
+      "bytes": 68537,
+      "sha256": "1f53753280b8b2421385f0d02bb6baf222bf20a6f578fa8c933aa4e7d5ce12ac",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1575,12 +1816,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/generation.png",
-      "bytes": 133623,
-      "sha256": "c200ce2663737aed60b4634eb9aed65c29c870af5546315e51b3973bab8e4f2b",
+      "bytes": 57646,
+      "sha256": "2cd8f521b7b020d80bf8424dcf8f26fa975055d77547820597da95176539404c",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1755,12 +1996,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/login-mfa.png",
-      "bytes": 282305,
-      "sha256": "f9732016efabaa0acb91b1637f047c321ce47108449f5145f483a69f6bd2c40f",
+      "bytes": 239354,
+      "sha256": "0c6d2c5acd1d1ccc8d610119c0d696b33c13874a1c2a75994ffea125ffdd6adf",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1770,12 +2011,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/login.png",
-      "bytes": 261184,
-      "sha256": "bcf066560097f7b731d12a05a4e52de8721c9d8a1a58169b19443bdb9e3b7294",
+      "bytes": 231225,
+      "sha256": "41be8b1af85152d7252471f541c414f5d7d796702ed5d0a47d21e714dd087548",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1785,12 +2026,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/mcp.png",
-      "bytes": 185181,
-      "sha256": "06259ea2e4ef4f332ee3a7a67cf11e46bb60e08c621d23c489104173c636d880",
+      "bytes": 68893,
+      "sha256": "25b532ff6d623e45b5ccc0a034b8e346a953729770c2f1b92fe381e6502c002f",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1800,12 +2041,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/monitoring.png",
-      "bytes": 187703,
-      "sha256": "fde2ab13f538ed5aef4bcf0cde98d817a4401a80e08f1f6bb79fe7a90a7db831",
+      "bytes": 71779,
+      "sha256": "ad385268248432d2a03473fc9de0fc5909ed6408aaacfcf0f0c462abd2125a8b",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1815,12 +2056,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/registered.png",
-      "bytes": 179844,
-      "sha256": "aad59be6c785bbd0b44f39a5d4abba1a795d82e898e5251c4ae9d99e0ebd557d",
+      "bytes": 69158,
+      "sha256": "eb887b3da65e767500a1280b188c203bee12bd99635f19180f96f9ef332a546a",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1830,12 +2071,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/releases.png",
-      "bytes": 183957,
-      "sha256": "d6931a1dd9f4101b09553deae60c5a74499c395b04bbe79ed267e5c1f48a9976",
+      "bytes": 70390,
+      "sha256": "4160c6aacdaf88f6465f3830af61abe9c9debb0e2f31f53095f0a289a10c39a6",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1845,12 +2086,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/runtime-access.png",
-      "bytes": 167668,
-      "sha256": "e7cf64f014a025bbade9c7aba3206ede0020e413134b40c98ba5e0ab0330464c",
+      "bytes": 66181,
+      "sha256": "666b5b85a7aad6dbe776709e990e51b4ae47eaf40b68513504c0da7fbc300ae9",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1860,12 +2101,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/secrets.png",
-      "bytes": 176574,
-      "sha256": "2a3ed1c0d53127abedfb4ce1aefcf13dec2b01a30ab1b385057c9b7e06305ff0",
+      "bytes": 68448,
+      "sha256": "4a3d39e031ff43950e80b576afc9a31a7ae4a699cf1c31633a60bf4f58009557",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1875,12 +2116,12 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/security.png",
-      "bytes": 186080,
-      "sha256": "8e580ab72ee25d765095b0074bd84dd996622089e7f84e3d95a8d30f9d76049b",
+      "bytes": 71419,
+      "sha256": "366a4db099972fb83578f52e0c9519a712525c9f805c898ac60728b8a811d2ef",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1890,8 +2131,38 @@
     },
     {
       "path": "04_UI_VIEWS/1366x768/tests-api.png",
-      "bytes": 180774,
-      "sha256": "39e45c009e4243339535b189bf4f350d09277e0602e051cca599f3c2cf8e608b",
+      "bytes": 69204,
+      "sha256": "89f508ef7df9d001927cf1de9953b7f2a6d430401f862f3e84820f73e5636f94",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1366, 805]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-detail.png",
+      "bytes": 244426,
+      "sha256": "208f325f6775dd0f0ee1bc2c279c2343cb0a58eab30aaa32125e5a0bc1baba73",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1366, 1524]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-empty.png",
+      "bytes": 105888,
+      "sha256": "000c7850234b7697ab8c4300b21842de4e94f05f92e771ab82afb9619ea91b81",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -1904,13 +2175,163 @@
       "visualStatus": "NOT_EVALUATED"
     },
     {
-      "path": "04_UI_VIEWS/1920x1080/agents.png",
-      "bytes": 231749,
-      "sha256": "3fa7105cf2cd3eb920bf353c2c28f6dbf6795b1f921fbb90d0ca2efc4fa68bab",
+      "path": "04_UI_VIEWS/1366x768/workspace-error.png",
+      "bytes": 256146,
+      "sha256": "fadf2d84d4c158ff1490dae3d4a85e903b7da65bda3c9e72ef2e4cbad51cee2a",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1366, 1589]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-inputs.png",
+      "bytes": 243371,
+      "sha256": "ea0e006777b8afff6d508a184695f9badef9527bf86de0ce66e1e6f74be86cb0",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1366, 1504]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-live.png",
+      "bytes": 255244,
+      "sha256": "73fd1ed50615a130f4c1216dbcde9b1479aae5e99c616ce887e9f7687a97056a",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1366, 1589]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-menu.png",
+      "bytes": 256300,
+      "sha256": "3de4528916c671f6eb9b442f104f56a8b6bb2ae4813042dcdb35cd7c4e8fd3c4",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1366, 1524]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-multi.png",
+      "bytes": 259321,
+      "sha256": "6dec0d4eb977ff1aef96ea23b098e83e7ceb7fc9d699218bb9b0ff02cd53ce6d",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1366, 1608]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-progress.png",
+      "bytes": 244745,
+      "sha256": "1535856207222f032cbcda43cd6002833b08092793ffa45caaffac94129655a8",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1366, 1524]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-ready.png",
+      "bytes": 244213,
+      "sha256": "75033522b1cf1ff5b0133c678db08aa7c6b3f006e9c1ec2fb9d20f8965015c06",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1366, 1524]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-specification.png",
+      "bytes": 282012,
+      "sha256": "9248ffe74aed98fcbdc6e4938c7b2a56d1ed98899b4ef5dea51dcd7c6e453b74",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1366, 1992]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-stale.png",
+      "bytes": 251897,
+      "sha256": "2ae61e7b0acc14a6caba6824222d82998681c9beef3382fe908390a36a5bd8f6",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1366, 1589]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1366x768/workspace-waiting.png",
+      "bytes": 254750,
+      "sha256": "0fdbbc92c864d5691fa37aa3b924b28ac3759c24483d2dab8fe8d3507cadf32d",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1366, 1589]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/agents.png",
+      "bytes": 86451,
+      "sha256": "a66ed6dea327c64866cc90f62722a47561ad53eaa2eb6e59652a93052fae1de6",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1920,12 +2341,12 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/audit.png",
-      "bytes": 195095,
-      "sha256": "d75ff53a3720360790229a022e967e2861aa247127f55346113a77ab4b7d4ba8",
+      "bytes": 78826,
+      "sha256": "e0d57a4167f66f708c2407bc9d41901f2d2e8ef0fe8405c6938d1728395d44bb",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1935,12 +2356,12 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/browser.png",
-      "bytes": 236535,
-      "sha256": "5f19a5c1e6e3971387170c24b07ee8431f1ea1284ea2f0996a083191b0f70488",
+      "bytes": 137893,
+      "sha256": "4f0103e3000fdab72f3630e922965dd01900f1da169d7d3369641bc274335e65",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1950,12 +2371,12 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/chat.png",
-      "bytes": 171678,
-      "sha256": "13cac2641a0e923452ad5f4bacd6ea23f4897ea70f2c1db266ece503834cf371",
+      "bytes": 83859,
+      "sha256": "b673aad8cebb291b94d353a209164561a7767bfa1b809f0c3890f4068e34e924",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1965,12 +2386,12 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/command-palette.png",
-      "bytes": 294159,
-      "sha256": "e019734865d1901ea869ba95b725b431ef086f19daa4de38e4c56934726fca83",
+      "bytes": 259718,
+      "sha256": "e38daa2ed8095040796457dd17a1c0ee2362a2405a6a70bacea35b349b994cb1",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1980,12 +2401,12 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/components.png",
-      "bytes": 231215,
-      "sha256": "c412367699d82f56a1994a2e181b5bed0e1e4f1d6ac4bf71bb53cbc375390186",
+      "bytes": 86825,
+      "sha256": "29d3d7823a63013702582c897727144982a70262cedbe6b9342ff17f0323b5c1",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -1995,12 +2416,12 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/configuration.png",
-      "bytes": 170419,
-      "sha256": "38e85bc2c8ab24683e3d07ad17ff34068478a278623f43f81ecdcc7694924ae3",
+      "bytes": 71966,
+      "sha256": "36a5831eba66513a154940f7c68623ca8c89ffb77ba43d109e4ae8175683c828",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2025,12 +2446,12 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/external.png",
-      "bytes": 235032,
-      "sha256": "8e8cc6f412b934b7f63d7e75aaec84ddd8213f2390820a7a794009163d756ebc",
+      "bytes": 87459,
+      "sha256": "ab35f0e314cc882e69dc464542fe5188fd3b738abf6fe15fd00cce5d0ed7f2c3",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2040,12 +2461,12 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/generation.png",
-      "bytes": 187748,
-      "sha256": "e491372bce236daa3647cfd5ab169bc0107e6cd44b6f73ff2c604de9315de9a2",
+      "bytes": 76032,
+      "sha256": "e18d557af5e7c2c56e3a0bad64acc1986f3493fb019faed5e5e892d0ad30011b",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2220,12 +2641,12 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/login-mfa.png",
-      "bytes": 416725,
-      "sha256": "ddeb3f676eb4e4f332122cda68a2fb32aadd9e920157152c2d9cb8db1a6afaea",
+      "bytes": 372706,
+      "sha256": "93f1f184eb934f8147b8fff6f7be95344941a919d1d64ed361f1bd3775a12a80",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2235,12 +2656,12 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/login.png",
-      "bytes": 399213,
-      "sha256": "29473861114bf1b751f8ccfc84d72600aafa06bd8276e70dc5c0dc7d7a735dc8",
+      "bytes": 366543,
+      "sha256": "591cde1067d79251fca9848c4729333cd06e9794019e42e6227eb44c85f2ae8b",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2250,12 +2671,12 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/mcp.png",
-      "bytes": 216268,
-      "sha256": "b25d9a9ad70e5e57a76cb7901c5ec44f1995334414cc1de91f2596ca54387326",
+      "bytes": 81707,
+      "sha256": "b3848e46c62fbc287d6f6dccf3366cae268438b8ee4c12190f8d3e4277ee969f",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2265,12 +2686,12 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/monitoring.png",
-      "bytes": 232135,
-      "sha256": "f1a5408a34ecaf13a3246da805c587032afd942f6a557d9f7e1f9f5472337ef0",
+      "bytes": 88615,
+      "sha256": "f8fe2000894989e78aa0249f4f42ca3188c7dc7541b136dc27ac0c4e328ec579",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2280,12 +2701,12 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/registered.png",
-      "bytes": 206683,
-      "sha256": "ba79dd0859e75a41813406626b2dcd5489204e76bc680b2148e07a2ac1487772",
+      "bytes": 83484,
+      "sha256": "f212d955b119fd04486edfe93c229dd553039c52bb1516cc428ede14350b5783",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2295,12 +2716,12 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/releases.png",
-      "bytes": 228261,
-      "sha256": "8eeb3f4401c2ac96e30dd079377dfe02131bbf5a62e341eac7b4c7b1c747a4f6",
+      "bytes": 86224,
+      "sha256": "9a0ffabdca6e5b0009bcba3185381f712a967e5a0f64ba6c4702e5a958effad5",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2310,12 +2731,12 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/runtime-access.png",
-      "bytes": 202940,
-      "sha256": "bad1b96b36f9a2accbed86144eee481149640c9eacb24d2d21a49291c666e01b",
+      "bytes": 79338,
+      "sha256": "37fba40440c5eda288949dcf55a70f181af9663dcd493b75661b925a9ed92d6b",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2325,12 +2746,12 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/secrets.png",
-      "bytes": 204672,
-      "sha256": "bfca5de189dccdc5625f6e3e52a4e718dd7604abb39e12910620b9775f197b57",
+      "bytes": 80975,
+      "sha256": "a30d62c9912450acc67df5fa95c1477a0cfd41fee58d04c750575831c5e82d08",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2340,12 +2761,12 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/security.png",
-      "bytes": 220944,
-      "sha256": "b9d332ce29ec8b97d51fd8cdf7c74507fa8b1a3526019db6e4acfd5dbca48de4",
+      "bytes": 84785,
+      "sha256": "4762404960cac238c576123d233aa05e34c851b06a55e109ff441097b6ea3f3f",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2355,8 +2776,38 @@
     },
     {
       "path": "04_UI_VIEWS/1920x1080/tests-api.png",
-      "bytes": 226879,
-      "sha256": "e14b0e3e0364d0ba81d07df090093606e125ee6971e1df14157fc796327d14c4",
+      "bytes": 87299,
+      "sha256": "c1f6d443f7a4b84391700049b7fb2829eda8819ef73812be4a4e1d0033aebd64",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1920, 1117]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-detail.png",
+      "bytes": 256127,
+      "sha256": "31c2283c5c53460931897aef6ed0d0538ce633d030006906634620c7899900b3",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1920, 1524]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-empty.png",
+      "bytes": 111343,
+      "sha256": "214cec06ae83721fe8e3db29fc00483cef7cabb4d7477071fe2beb9499767083",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -2369,13 +2820,163 @@
       "visualStatus": "NOT_EVALUATED"
     },
     {
-      "path": "04_UI_VIEWS/390x844/agents.png",
-      "bytes": 75512,
-      "sha256": "8abe65893a1b2ccfca6e7562844055700b048f30f80e6ce321960deb95f8ae63",
+      "path": "04_UI_VIEWS/1920x1080/workspace-error.png",
+      "bytes": 267984,
+      "sha256": "2d5c8f8271c043e08fe59bac118f633374ac6b080198a729dae4d71f72dd8dfc",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[1920, 1589]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-inputs.png",
+      "bytes": 254914,
+      "sha256": "00ec02b66002ad42d634bacd19f54363415385240f68e6ab8f809c227d353fce",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1920, 1504]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-live.png",
+      "bytes": 267045,
+      "sha256": "ebdd12ab96de313e11513444757bcc8b5b16b229dea013edd08c79cc87cef944",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1920, 1589]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-menu.png",
+      "bytes": 292385,
+      "sha256": "f08d0a16917f213a0639567d0685956d4e473d52c8cb9b5d1df28263ed4b26e9",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1920, 1524]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-multi.png",
+      "bytes": 270636,
+      "sha256": "c59d62a179306cd7d08ba0ce9a5b7f2b1446287e12aa349771dfa5e2d314238b",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1920, 1608]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-progress.png",
+      "bytes": 256475,
+      "sha256": "250f6f65a03a72561688d3ed79e4eaa1281b4529022a7333f4118c63ebce3cf5",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1920, 1524]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-ready.png",
+      "bytes": 255882,
+      "sha256": "45c8a4bf4fc86dbfcb3c6e562a2c6602fc8a5491484ae60d5106181d71bee96d",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1920, 1524]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-specification.png",
+      "bytes": 293260,
+      "sha256": "d5532d0aaa88790691160262acc19e6b81cdea8764b966b6a3a4933ba553c0ad",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1920, 1992]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-stale.png",
+      "bytes": 263442,
+      "sha256": "cdb6c6067d49b30b5d335028b5145003e294596424b485c060cec7cd68d6df1f",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1920, 1589]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/1920x1080/workspace-waiting.png",
+      "bytes": 266395,
+      "sha256": "53fd677ffe613ab65438fd6760d09fdd99dc20462c3f892e780abeed44ec7fb8",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1920, 1589]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/agents.png",
+      "bytes": 24908,
+      "sha256": "63c5d8f94ff65a45946296a429da7e6d46387bd06c977294ea3a11114e2fb17b",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2385,12 +2986,12 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/audit.png",
-      "bytes": 30372,
-      "sha256": "b14b3eb592aab06d3b2e4ebfb88f804d88d3015c01848ce695889fa001dc2c3e",
+      "bytes": 14815,
+      "sha256": "107dd5fad9687e0e15175a591e4c9cc75452fc2e40952e0e5edfb135dcf6a206",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2400,12 +3001,12 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/browser.png",
-      "bytes": 75516,
-      "sha256": "81ac7258cb82f6afa4f7c23d04fc9160632d723ae67056a421c3f4d023cfebe0",
+      "bytes": 53839,
+      "sha256": "4ba1e67a8ee53342f83d17d946696daeda6a974b7c8c3f5ffcd816cfbae7fd29",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2415,12 +3016,12 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/chat.png",
-      "bytes": 58280,
-      "sha256": "9ce63f2e3c9ee946f81549dbcf818e497585da846b395e2241584f5336ffd188",
+      "bytes": 21359,
+      "sha256": "127f9925dc0546c1b788f5c36e3f4e8538321266f9edb2ffb143c82eedfa6fb0",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2430,12 +3031,12 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/command-palette.png",
-      "bytes": 87432,
-      "sha256": "8ebaba5fe8deac4f78f1110277722b1504e1eb4679ecea010083d38ec4d227b7",
+      "bytes": 56361,
+      "sha256": "192a255417291f40a5553e344c7f0153def91685b2b845609ec03792081336ae",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2445,12 +3046,12 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/components.png",
-      "bytes": 76606,
-      "sha256": "930ac61b9d046d757dc2f8fc43198c28f8716d72067c1a7b3077bd575fa3e8f0",
+      "bytes": 25122,
+      "sha256": "05687f24fbbf1012ad634c2e811e3b4d41423f351c0b3c139c757655e38d53f0",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2460,12 +3061,12 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/configuration.png",
-      "bytes": 53633,
-      "sha256": "5e9a3770ea65b79aa4504d5271f320f65bb6c39fa780433c3e6fccaa8860e7c0",
+      "bytes": 19738,
+      "sha256": "a08cee4378db08e6fa2bd7b7cd3420965dfe5b7f0a78736d29ca54b38370b0ff",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2475,8 +3076,8 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/dashboard.png",
-      "bytes": 39649,
-      "sha256": "beb69305fbbcef837b78b29ce297282a6aa2ea8a24ffc1f56cdb71a02e8dac05",
+      "bytes": 40218,
+      "sha256": "b14a26f4e12c095372f264210599e7d87a1fe4dd8ae2496a3ddf00b4413e8ef0",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -2490,12 +3091,12 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/external.png",
-      "bytes": 76625,
-      "sha256": "610c7cfdfdb1b1b7d1ff12cb195a768a569879a2592abb1ff16ef75ed2cee834",
+      "bytes": 25059,
+      "sha256": "7f8842f032acb706e32364a5c2aa08430aab32eb59b6298eb515537cef0c62ba",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2505,12 +3106,12 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/generation.png",
-      "bytes": 65504,
-      "sha256": "301d70afacdedfd4b8137dec1f23d0e4acd7d8a5b40c29915db7d170fcce5c07",
+      "bytes": 23274,
+      "sha256": "f3ac011b1176d2a2ff1453decc5ca63c94111e277cc6af2392615de525298cf5",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2520,8 +3121,8 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/live-context-menu.png",
-      "bytes": 37897,
-      "sha256": "24f802f7617102b1862aa5ed7e4c3421594bdec40e83bbe57f4f3bd9d42f861b",
+      "bytes": 38480,
+      "sha256": "c3ac2dde60b49be76337cd35bea92ba7e8582475cddb869f9979498c2f0447db",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -2550,8 +3151,8 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/live-dashboard-stale.png",
-      "bytes": 34655,
-      "sha256": "0840b835f3914021de5da26e99d311525c4940e10892cf3601d5385cbeffb913",
+      "bytes": 35187,
+      "sha256": "ba625b8f403feee71d97c58e23e79fa273d786c5f2a22bd603060bc4f66a3df8",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -2610,8 +3211,8 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/live-live-communication.png",
-      "bytes": 32434,
-      "sha256": "613c03bdbc910ead21ddbed8d32aa2e6bd28cf4fabc9cb9e00438cefec867b14",
+      "bytes": 32984,
+      "sha256": "7591db1b270af556b3f9a281534ba197cab053de668598b927e53884f6524d2a",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -2625,8 +3226,8 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/live-multi-component.png",
-      "bytes": 40237,
-      "sha256": "dca1e5bf4b811793b471f0e925a3c0088444c244addfd096b114ecf4a8068bdf",
+      "bytes": 40776,
+      "sha256": "97e76b0719b4e28a300f8a467c564edd834d4fe0563d5051dd189b076f4d002d",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -2655,8 +3256,8 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/live-process.png",
-      "bytes": 39648,
-      "sha256": "cbbe6527035fb8ec8f7e4d87d79f31d377b749ba8af0327587f039cf4222abce",
+      "bytes": 40213,
+      "sha256": "5b027ebe0047cb1d4d4f0d32ff1d25db9df0ab14bb917a60a81428211584f72e",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -2685,12 +3286,12 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/login-mfa.png",
-      "bytes": 35893,
-      "sha256": "2886a2da5e40b74782471466aa26143597f70dcd879d32bc072af8eca82fd926",
+      "bytes": 15587,
+      "sha256": "3ec0cd5868231354fa354038efc4b58079cf7bd5e3ecab04603140e4ebf1ad26",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2700,12 +3301,12 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/login.png",
-      "bytes": 22971,
-      "sha256": "329afec958c8852c00b395785112f29f584100dc19a7f1dfff959bfd9a911cdc",
+      "bytes": 13043,
+      "sha256": "214493de3f3981007d69014d4b78c1303417b5aa28df8eb2c49529b5ff16e46f",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2715,12 +3316,12 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/mcp.png",
-      "bytes": 81344,
-      "sha256": "452b417e2ca21acc57bc093479287a8a5f61fd4f4aa76c789f82a34e7437f17c",
+      "bytes": 26283,
+      "sha256": "1bab897831fa3777584be1429373528436e4f99cd115abac6c33ef1ac58d337b",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2730,12 +3331,12 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/monitoring.png",
-      "bytes": 79835,
-      "sha256": "07db89f71751e275983d4c107fd23f50020f13381c1459e914e8f04ed52bfaeb",
+      "bytes": 26458,
+      "sha256": "d1799049e2494f42da960ad346241c6c3e737765193473d7ae00aa3b7ea48712",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2745,12 +3346,12 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/registered.png",
-      "bytes": 76937,
-      "sha256": "d8d5b184b4b4a163244f1d2a2d8cf4ecef4f12459bdc4fe5a3ab89bcc775cbea",
+      "bytes": 25082,
+      "sha256": "c8b870e7c72f611764ebfbef5f0b0bddb27a91ccdfba9e7244129b381818ea0e",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2760,12 +3361,12 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/releases.png",
-      "bytes": 80713,
-      "sha256": "966e23451a863386a74eb398915bea5cbbbb6dadc0e7d732a62fb138d096aabf",
+      "bytes": 26257,
+      "sha256": "e502830a77e9f11b213afbb52649899aa45f89a08ed25f7a8071e849749e8bc4",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2775,12 +3376,12 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/runtime-access.png",
-      "bytes": 84598,
-      "sha256": "572220a2654c2113a75c6c27040475acab9cd32f60d4588c17704c6751d01370",
+      "bytes": 27112,
+      "sha256": "e802d1e1eee71aeba60ddc424a00fc885e06d44a49a75b40602e20eef5bf531c",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2790,12 +3391,12 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/secrets.png",
-      "bytes": 78269,
-      "sha256": "be6e8e233710809bead52769a20398c5e7a7a2486551af7fce6a2a9077d7461b",
+      "bytes": 25661,
+      "sha256": "1fbe85a4e174a276ccf318194674dde989da60215d224cecd0fcb502d0c8f44c",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2805,12 +3406,12 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/security.png",
-      "bytes": 76302,
-      "sha256": "aaf6f3b47cd1e9ad2c5fc253ef2d1a3c97935e130c271e511d8dad1463720f60",
+      "bytes": 25441,
+      "sha256": "c7675916481929886013f9bc441be443dacbe9e23141175ddd813d679839a667",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2820,8 +3421,38 @@
     },
     {
       "path": "04_UI_VIEWS/390x844/tests-api.png",
-      "bytes": 73553,
-      "sha256": "53a2e49da1693e39187e3cbf450bc3488a8a8e0e7a3d5819b21a52c68064a88b",
+      "bytes": 26043,
+      "sha256": "bf8de60d6cf9e971ac75744f8c82f90222dabb40ede76505ddad209fdf47824c",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[390, 915]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-detail.png",
+      "bytes": 195030,
+      "sha256": "5485445eecacab8418f7ca128ff6092bfda7130d7decbf04edb5b90666038406",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[390, 2516]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-empty.png",
+      "bytes": 68467,
+      "sha256": "c363ae9bd7a9d62cff2b51eb85d1714d0f0cc700508e66d5b217568af692e799",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -2834,13 +3465,163 @@
       "visualStatus": "NOT_EVALUATED"
     },
     {
-      "path": "04_UI_VIEWS/768x1024/agents.png",
-      "bytes": 123924,
-      "sha256": "fd0f0c72e68eaa9d41808a17f8fe7606316cb5cc9cc6e9b67f4348d37c9285a5",
+      "path": "04_UI_VIEWS/390x844/workspace-error.png",
+      "bytes": 205925,
+      "sha256": "c321ebe6515a7a3bbd314bbfd4109cbb1d50f9e4f4ac20302a63041a13d6f616",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[390, 2623]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-inputs.png",
+      "bytes": 194115,
+      "sha256": "7a73dbe1effc03caa0900ded66e74cf64823dc8230feea576acc9284222ea935",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[390, 2517]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-live.png",
+      "bytes": 206166,
+      "sha256": "85261046a1b5a689b0670ef5a9c564d78635e1cca878872bb871c5e7f9eeda6c",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[390, 2644]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-menu.png",
+      "bytes": 200502,
+      "sha256": "386673bc2f0528251034b6bec337b2bb4e5d937e29fe6f313bbf9151a2e88f2e",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[390, 2516]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-multi.png",
+      "bytes": 212421,
+      "sha256": "08e8f6e036fbdac1dde9d69516bd0fb963cce1e039f1cc57f80435ce28f70cf4",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[390, 2760]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-progress.png",
+      "bytes": 195256,
+      "sha256": "2a52fc7a81fcd791daee99bc9055066ed9188a637e8f9f4d42b2a81fcf3c594c",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[390, 2516]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-ready.png",
+      "bytes": 194846,
+      "sha256": "cff84e225d519aa3ba898af80afc0deb9d0797ab7a7cc5bcfebd890fbff71ca1",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[390, 2516]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-specification.png",
+      "bytes": 229216,
+      "sha256": "89bcf2cc52a3db244bd6bcd39370c4b65a762328b37048f58689ef280cfa8549",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[390, 3138]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-stale.png",
+      "bytes": 202401,
+      "sha256": "bc625cd201148261aeee361104557f4c723baa12fe9a6bb8be35095824292d5c",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[390, 2602]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/390x844/workspace-waiting.png",
+      "bytes": 205652,
+      "sha256": "3cdd1bfc5d4e30ebae20e442c4b9be056eff63643e61d9d1911b68e4e674dabf",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[390, 2623]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/agents.png",
+      "bytes": 49939,
+      "sha256": "781587012816d3dad27a3b4bb85d966951d7c9bb652849c5df420abcd0d72527",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2850,12 +3631,12 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/audit.png",
-      "bytes": 66271,
-      "sha256": "2616680e5a5491b2e63eb3da38cefb2b06181d266a2f9da108cb8f66239f8ef1",
+      "bytes": 37855,
+      "sha256": "a161d24d8d682e9764739a88d014e35f2035b2d748e459659caea2e4be7396f0",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2865,12 +3646,12 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/browser.png",
-      "bytes": 141524,
-      "sha256": "63919fd0bcd4b1f75b3f7370a6c07571b2cdb4dc80eedeb25f48eb122036ffbe",
+      "bytes": 101024,
+      "sha256": "c2dd9e1ffe876e1f576bf009e8a297f74fd201ec3318b074da3ceb5ecfab747a",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2880,12 +3661,12 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/chat.png",
-      "bytes": 95457,
-      "sha256": "7585ab380d0463929636fb605528cf3cf59c8212a4032a63f637867e348b6d1b",
+      "bytes": 43287,
+      "sha256": "18f92416ae3adc449e146470f264e532d0534afe9ba228300e67b5967d47d734",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2895,12 +3676,12 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/command-palette.png",
-      "bytes": 142791,
-      "sha256": "31a09717d8311d9e37c6829d6ab130bc88abf0c4c15ad830f4ba60ab6705eecb",
+      "bytes": 111496,
+      "sha256": "bc6b4bfbef34702c89d6d46b1bc268d36c9c1e46babc4c1f78f9a57041130cb4",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2910,12 +3691,12 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/components.png",
-      "bytes": 125059,
-      "sha256": "8d4eb6528daef1ebc89ba4c4e3f3eb589f6181fb2a80bff396c171c39b255d4c",
+      "bytes": 50449,
+      "sha256": "22ff500b0a0df104947970a0c73092d9d09a854bdd67f388ce9094b3ac5028fa",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2925,12 +3706,12 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/configuration.png",
-      "bytes": 88990,
-      "sha256": "b73c9f45c53856a14d74f8b00ad130cd9156211a3083c313aa18e8c4ad739402",
+      "bytes": 42013,
+      "sha256": "caa241cabe7e15bbf77844e0b7a8d48027437d8ce3de1e385461fc29a12985a6",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2940,8 +3721,8 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/dashboard.png",
-      "bytes": 48927,
-      "sha256": "2bf8e549e2dd32a4fb5e1e8e3560af7354d338dea0d9531fc3d0aae300fab8e0",
+      "bytes": 49469,
+      "sha256": "84bbc62bb67d92781f6111c92b2ba8a3dfff1737fc2ded21407ce1b2fd03c111",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -2955,12 +3736,12 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/external.png",
-      "bytes": 126447,
-      "sha256": "5a44fd4443d6d7a3647404621ad798fd0e67b034c0b514acb723fd72d0c63de5",
+      "bytes": 50538,
+      "sha256": "170129c37a0a975bf9ee95db2b50c33a5e33b0b04b39c55381ce3421816f4154",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2970,12 +3751,12 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/generation.png",
-      "bytes": 96992,
-      "sha256": "9d2fa80e6e13fb4c60b8d944b2c54c8cd8bcf80dc04b2fc1d5ebce4d43c4f06a",
+      "bytes": 43755,
+      "sha256": "59264309e895d555daa20806836dfefc8ea1cd103a42881a524c24527f6842ee",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -2985,8 +3766,8 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/live-context-menu.png",
-      "bytes": 47548,
-      "sha256": "079a6820c8609b38d18c84d8e0f0af7e2b7f436a5cc83d79eac264450f5b5742",
+      "bytes": 48069,
+      "sha256": "371c7b79460b93d52b1bd65d150e0de759d1fff8346c4e0b12717599027b6eda",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -3015,8 +3796,8 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/live-dashboard-stale.png",
-      "bytes": 43439,
-      "sha256": "27a78b44bb45917d2ba2fdc0884716097eda94d84886210fc484a5d5c02f32ab",
+      "bytes": 43958,
+      "sha256": "b009c9f5f1c166e5f3ead18e7162ccc07337ce2f181c177f4ed89f102db430a5",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -3075,8 +3856,8 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/live-live-communication.png",
-      "bytes": 41450,
-      "sha256": "24e64cc151a6e2c36c98cc5ed4c40c114fafc29dc04023a9dbb7d337f8a5ee3b",
+      "bytes": 41993,
+      "sha256": "6485bd8ad68216f3f3c71abf9b54df86e36bdf5794e01c8ddea94ec1b88cfb67",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -3090,8 +3871,8 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/live-multi-component.png",
-      "bytes": 49010,
-      "sha256": "f53df450a06b93ca901d4f7a987b56b9bdd2b45761f8558765fd2d8d5259d247",
+      "bytes": 49561,
+      "sha256": "66d48f1ea77ad7efdbbe8531d92d2b2cf9bfdefeb39275bf02a186fdbeb9e1f6",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -3120,8 +3901,8 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/live-process.png",
-      "bytes": 48937,
-      "sha256": "2736144b6c030bd2f490c153b66a9ac9f52e009a367509f440df57e102ab8a99",
+      "bytes": 49461,
+      "sha256": "4530207174b1e8827ae4636e337ae301032c28ca9a78bc6004190321b74972f4",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -3150,12 +3931,12 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/login-mfa.png",
-      "bytes": 41243,
-      "sha256": "2988471aed6d18b957ae985ad2a5960c0e22b9b72b5ec2ff87bb44ecafe604a5",
+      "bytes": 19886,
+      "sha256": "a064483bec05977ab50992b1a9051634ca5bac2e3c08effee8da7f7ae5287eb0",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -3165,12 +3946,12 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/login.png",
-      "bytes": 27526,
-      "sha256": "f78aba582f81f19ba12189b2d7400737eae0d57161f23264bf758ed0933173c4",
+      "bytes": 16605,
+      "sha256": "59a047e0428651132d8ea1c64da3a8f07bcfc789d7ad25168309418cf1de0f18",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -3180,12 +3961,12 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/mcp.png",
-      "bytes": 129179,
-      "sha256": "fc20f75a677d88fd6a3009559fedcb3ef6e13c047c78028330b0420b36be9296",
+      "bytes": 51299,
+      "sha256": "5d818c16bb49f5e2189c13a9d6daa8048fb3b8f6b32b6c302f3adeb731981fc6",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -3195,12 +3976,12 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/monitoring.png",
-      "bytes": 129863,
-      "sha256": "12e626c230a443df77ab72dbc14524ebe6fa6dbc12228259816ba6427d65c906",
+      "bytes": 52578,
+      "sha256": "04b616f901fafd8df8dd9dab8ed88a345ceb5068b56185b357c81bac739322e6",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -3210,12 +3991,12 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/registered.png",
-      "bytes": 120511,
-      "sha256": "a85b1699782921289202a7edb5730a7eb17600ce99e8cb13cc2d9d3781dd8d1e",
+      "bytes": 49784,
+      "sha256": "ee60ace96d5e16284cf021cce1ecba9829aaf83e6b3d0ffd4fef0cb2fa0e2b6d",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -3225,12 +4006,12 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/releases.png",
-      "bytes": 126794,
-      "sha256": "88dae3b6aba39ac22713b97cbeff7cfb6df613dafd022ffec550abb89a4a4499",
+      "bytes": 51277,
+      "sha256": "5588774ced6411e7a4fd297977aec17f5a605c68cdd03afaaeb987f4bee7f35a",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -3240,12 +4021,12 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/runtime-access.png",
-      "bytes": 129861,
-      "sha256": "e21ec290521e64bd452ebc5b2514ace8576ad4463fac162642a0a1c2f985692a",
+      "bytes": 51774,
+      "sha256": "71390d59b513e1ed927aa54ab40438acb26a126ca63b7ad60e11d51046358ca8",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -3255,12 +4036,12 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/secrets.png",
-      "bytes": 124198,
-      "sha256": "b1f0bfdf19cdbc8d1c1106b0392f47e2124e5ee0699b1ce36b828ab463731dce",
+      "bytes": 50506,
+      "sha256": "0409cd58bdfeef9f64290892c17ccff2248ffd9b63f398e778db97e0db4f97d9",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -3270,8 +4051,53 @@
     },
     {
       "path": "04_UI_VIEWS/768x1024/security.png",
-      "bytes": 129980,
-      "sha256": "9cb8360de981ae5fb2ce40ef73c7214059c9305327dd76a7abf4f078600e2e38",
+      "bytes": 52480,
+      "sha256": "b89deb656c35fb19a0151fcbd4da1ae3c9537ab2ce22109f6a84162421f60538",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[768, 1078]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/tests-api.png",
+      "bytes": 50548,
+      "sha256": "0d930b9da2f7bf751a4a517173625e77e34266798e6e259a11112f6efde0918d",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[768, 1078]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-detail.png",
+      "bytes": 217994,
+      "sha256": "c5572296bf698bb090aa32e4a0c48b6968de2ad463491668cfb163481170e9c5",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[768, 2236]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-empty.png",
+      "bytes": 78331,
+      "sha256": "b07547db89e169479ada22f3ea687feb047fb2d8411f821453b6a1e136b17b7f",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -3284,13 +4110,148 @@
       "visualStatus": "NOT_EVALUATED"
     },
     {
-      "path": "04_UI_VIEWS/768x1024/tests-api.png",
-      "bytes": 119814,
-      "sha256": "d559361c6f82404c4cb5d530bb3ba5e7cddda4d73414bc5bb6a4e05c24d52b18",
+      "path": "04_UI_VIEWS/768x1024/workspace-error.png",
+      "bytes": 230064,
+      "sha256": "b3d7d84b7df6d1078febb111ef7854f71a7b2636bc4a5af023d8a1cb0e4c816d",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 2306]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-inputs.png",
+      "bytes": 216908,
+      "sha256": "d4009a99eacfa74f3be07eba832260b358f989914314aa62da6523b350063fac",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[768, 2216]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-live.png",
+      "bytes": 230040,
+      "sha256": "89c62599031ac48715988f0b3ba6f2ae0a030905d25296f0f809cd78bffddc77",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[768, 2322]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-menu.png",
+      "bytes": 232365,
+      "sha256": "da7498df8736870df04a495faa3991137e7b677191bfa9941e1cb4f101a56616",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[768, 2236]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-multi.png",
+      "bytes": 234945,
+      "sha256": "24b596e9dd91fe10ac888ccda3c6034bdf7d7efe8b9f2de4a1735ec84f90eb62",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[768, 2400]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-progress.png",
+      "bytes": 218310,
+      "sha256": "c1209684991aaf3939f54566885b246fa6263f6f1864bfb1f1f3775c2a4f04c0",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[768, 2236]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-ready.png",
+      "bytes": 217805,
+      "sha256": "b3f2b0f053ebe235e18df80c339fe81e7c4e609fdd7adb87bd2efcca9704a7e8",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[768, 2236]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-specification.png",
+      "bytes": 252613,
+      "sha256": "a35835d5d2ed4f88ae715a304a2dcedaab16c2a2ed2aa1dcbbec2f00d18579fe",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[768, 2725]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-stale.png",
+      "bytes": 224617,
+      "sha256": "312e63c3bbae5721308ef1384b757aa38e6583fa9aaa0fbcfb51361b8bd36700",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[768, 2306]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "04_UI_VIEWS/768x1024/workspace-waiting.png",
+      "bytes": 229192,
+      "sha256": "40d8f4fc7b0e05c8c78d12fa12be12b4a6b06a18784565d4e40e368ce16b3aeb",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[768, 2322]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -3660,8 +4621,8 @@
     },
     {
       "path": "04_UI_VIEWS/en/390x844/dashboard-en.png",
-      "bytes": 37863,
-      "sha256": "698dc6e53263ad5449cdcb92e22fd77663efa005890383f1aad1d6061933a694",
+      "bytes": 38301,
+      "sha256": "f952484e9ace1504b744f8ecb757e17d63bbd11c275f79e6d846921cdcf45d78",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -3810,8 +4771,8 @@
     },
     {
       "path": "04_UI_VIEWS/en/390x844/live-process-en.png",
-      "bytes": 37890,
-      "sha256": "8ed9c0b666f1f4cb7a2b04b142ffd81d4c44989c4ec4ddd83a1e74b9edc6d7ed",
+      "bytes": 38329,
+      "sha256": "3e55e471d72767b6c3ef235af0de7442827a97a858a1b0168392398cc296f2b5",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -4020,12 +4981,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1366x768/action-failed.png",
-      "bytes": 204464,
-      "sha256": "e8a0908288ddd8b2bf951fc0ed122d7b0029d0115fe6e059fc8232e586b28e7a",
+      "bytes": 186212,
+      "sha256": "1cd4eda6f8c858042a00bbe5120487c36fca150d6d1e99e6ef2a25ee005ae4a0",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4035,12 +4996,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1366x768/browser-challenge.png",
-      "bytes": 212553,
-      "sha256": "41d9229027290f00e18b63ee02b87c736d77705e9f54552be898cb001696b827",
+      "bytes": 188246,
+      "sha256": "5c5691918687baa48b9260afa3761471877d1b0fd773019c0b5a2e96a7f7b53a",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4050,12 +5011,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1366x768/conditional-impact.png",
-      "bytes": 208454,
-      "sha256": "fbe308a518b9e22a9db12e0d413527a27d426fd3b739de283b35f13d20215c41",
+      "bytes": 188301,
+      "sha256": "aac5dc5fb5d4d717e59336d4bb56ed922ddac12cd88eadefe28cbb7b891d562a",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4065,12 +5026,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1366x768/conflict.png",
-      "bytes": 204861,
-      "sha256": "ab67c3ed0fff74f38d41e09265c7ec5dd1d7c2493203ce436d4529559216e01c",
+      "bytes": 187802,
+      "sha256": "b1917b76db4cc7fcc7394c052461eeb58c79f447d86dbbcce3e83235c10348a7",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4080,12 +5041,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1366x768/dirty-state.png",
-      "bytes": 205130,
-      "sha256": "c37e8c878c7786ad60be2795d60bdc3152ba6b51460e0113d925f30bfa88bc05",
+      "bytes": 188461,
+      "sha256": "e72c6fe11882741dee3be9d8ac6edec7a79e13b1107ef9c8bd16741d94411e7d",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4095,12 +5056,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1366x768/explicit-confirm.png",
-      "bytes": 206328,
-      "sha256": "bc87185bb0ffd8e9c63f08d434e672775f64d79c0603aad089cd5d16deaf76e4",
+      "bytes": 189083,
+      "sha256": "e7bb981239dc67965290c98a994dbff9a9dc206ee2e505270ebacb341e3ff246",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4110,12 +5071,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1366x768/impact-preview.png",
-      "bytes": 207993,
-      "sha256": "1dc1298aa45791cbbc11ae1b211d13594ef29f02b3bd6114860cd6c32f84022a",
+      "bytes": 186620,
+      "sha256": "95b0de41a773b5af20e703c5cd49ed2fb4cd8ba4cf444a52a6b5d2fa0b39225c",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4125,12 +5086,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1366x768/mandatory-impact-preview.png",
-      "bytes": 210710,
-      "sha256": "2f262aca064a8a934fa6643ba0cc652b8813f6c38e90c727ad4ace66e17173d8",
+      "bytes": 186677,
+      "sha256": "16e2fcc5b3042205bcb574e02df347bf323c2ff930035474ad33bfa89121abd9",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4140,12 +5101,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1366x768/manual-review.png",
-      "bytes": 210531,
-      "sha256": "e3e865da213830a64ce566c0d951605d13daf4bd2f037e4ffa3ecdc174d1c068",
+      "bytes": 187247,
+      "sha256": "0fd914cd482b3c79d080991e631b7c2adba9cdd564d616ffe849783f3cdc03ea",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4155,12 +5116,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1366x768/pending-operation.png",
-      "bytes": 209072,
-      "sha256": "d54755e369efc38b93884ed5f0e304a9c1dc6a4393e270afe021c7f27546f7ee",
+      "bytes": 186838,
+      "sha256": "f750cac998332d03a294ebb21553d08f4285388ba6d3ba45ec25f603fb02ddfc",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4170,12 +5131,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1366x768/secret-entry.png",
-      "bytes": 212963,
-      "sha256": "c8d74d714ea2eb649c30bf0f965924d6552fcbe492d16be5b64f827e29d4eef3",
+      "bytes": 185327,
+      "sha256": "ad9706be803a58dae991ff9779f445213f2c1b690f0c004305d52bc0e73dcba2",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4185,12 +5146,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1366x768/validation-error.png",
-      "bytes": 203609,
-      "sha256": "d1438cfc00332e75b388ea8fbb67f13b5f6f27f38686c80c115417f0ee757af7",
+      "bytes": 187014,
+      "sha256": "771e9dc149448ed71e3a002a04ab3cafbce1bc70d3b6ad5ab62769f74077af55",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1366, 768]"
+        "dimensions=[1366, 805]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4200,12 +5161,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1920x1080/action-failed.png",
-      "bytes": 314434,
-      "sha256": "787fad014d9ecac482b5ce5ac9d236498b7e49ee8fb23c7e7b232e19f66f7b36",
+      "bytes": 300066,
+      "sha256": "4d09c8e3718be8e7f09ece89c0be8ca678761e9a13306c88ac7410c080278376",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4215,12 +5176,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1920x1080/browser-challenge.png",
-      "bytes": 322394,
-      "sha256": "941414117b85bd2fade3c72aa3502c72c64164d2556ffcd6871778e199a2df8b",
+      "bytes": 302302,
+      "sha256": "2740357b90ddc0cdc09d3d643a943bddbab0271a8496aa330cb955f6394583bd",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4230,12 +5191,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1920x1080/conditional-impact.png",
-      "bytes": 316943,
-      "sha256": "4583f37c72f533da5c6b0b520bc79a71392e259e9a5fe20430a4cc8ca3d73a63",
+      "bytes": 301092,
+      "sha256": "2fc1f7039043cf67dfb97064e443ce18ebff41aedaa8a7d81ca9f5f9cf2403d2",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4245,12 +5206,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1920x1080/conflict.png",
-      "bytes": 311761,
-      "sha256": "54586312ebbdcedd3857e829e5d6fa3cc718b348ebad86ca67708c76bbd4a0e4",
+      "bytes": 299877,
+      "sha256": "351089b238796d0e6dab494e88574d285e9aa5fb4ddc335fc11d1e8b48e3fea0",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4260,12 +5221,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1920x1080/dirty-state.png",
-      "bytes": 311961,
-      "sha256": "04de4a8ce0e3963e205c8e97f5e41bec556cac0ed3259cc45cd5bc6b9e208127",
+      "bytes": 300109,
+      "sha256": "97300e3c4536a53a9628d535d2a15751ccefa62612a8df157e90c986689421be",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4275,12 +5236,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1920x1080/explicit-confirm.png",
-      "bytes": 312569,
-      "sha256": "410588461d716d21f467efc29be793a5ef064227e1889ca2cdb83b6699dcafa1",
+      "bytes": 300270,
+      "sha256": "c1cfdba5fc34c9db82b9c8786b154aea4acb6ec6bb0b2a585a350a04ec449ae1",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4290,12 +5251,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1920x1080/impact-preview.png",
-      "bytes": 318852,
-      "sha256": "a108a4c47756d9875821ef871d159846cbc079c9f3218ac232530ae64b8f8d43",
+      "bytes": 301640,
+      "sha256": "1a2a300b7e5618a676fdc924dd1612c5d795a4fea275e25e02f793e8d5f4f16f",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4305,12 +5266,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1920x1080/mandatory-impact-preview.png",
-      "bytes": 324068,
-      "sha256": "3689c361c9bca10e5f78ca8d2c65875f9887e6b2326ed0e09ef0bf22122e761f",
+      "bytes": 302566,
+      "sha256": "11c769b21d4ccfb5ab4f5bc9b6357131e2883df0aea596da68cdee348b148e8d",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4320,12 +5281,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1920x1080/manual-review.png",
-      "bytes": 321105,
-      "sha256": "06e3ae169c8da48cc8b4ed1b787111bf43a5b9adf9bd26de58bb21d2bae1d24c",
+      "bytes": 301138,
+      "sha256": "3136f8f38d3aeebd04971059af446f37cefcf517e50fb062649f7da1859f7fd5",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4335,12 +5296,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1920x1080/pending-operation.png",
-      "bytes": 319532,
-      "sha256": "420e7db6ac86e79df33a9a186b827f4b66f3e89d487d4b5b9f37c514d638f0dc",
+      "bytes": 300521,
+      "sha256": "a1e2fbb45e4d9e27c72b5f31b41b6b764f8727d89181d2e9ffb48f9691681d2b",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4350,12 +5311,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1920x1080/secret-entry.png",
-      "bytes": 327197,
-      "sha256": "8e7bfb90acae317ec85865c9be7b837560072a9229087062cbbe98c280929246",
+      "bytes": 302328,
+      "sha256": "54b53a7a43a49bad15f99de5292db4966b491534ede231712a389f7e8d7cf231",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4365,12 +5326,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/1920x1080/validation-error.png",
-      "bytes": 311233,
-      "sha256": "116360e3836ea2d2e2f20516f5571ffc7d0de927b927c2b782095d5362f522ff",
+      "bytes": 299165,
+      "sha256": "e9b30bcf0c5dd6a397279fd93fa2851464e80ad6ae92afece6b2f34e985b9a1f",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1920, 1080]"
+        "dimensions=[1920, 1117]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4380,12 +5341,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/390x844/action-failed.png",
-      "bytes": 77257,
-      "sha256": "7589511f02610b478f20f606c561e696d3e0cf8b6267588fe8e48db7c831007e",
+      "bytes": 63371,
+      "sha256": "b53f24d27314432ddd45c867c1947ea3e83d07f9053b24ada2b1fe16026068a9",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4395,12 +5356,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/390x844/browser-challenge.png",
-      "bytes": 84894,
-      "sha256": "488f330cf7d4e2ff677c01e8b6602c5d443b41e459cf03db35f4b34624779206",
+      "bytes": 63445,
+      "sha256": "5bdc2250cbbcb22f8a083ebc78214ea7e465ea4561fb55511e5c8ee6afe8de5c",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4410,12 +5371,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/390x844/conditional-impact.png",
-      "bytes": 82467,
-      "sha256": "337db796e08133ad550c07c1f2bc451f6b13d5519d98f6ebc333991b8204bfaa",
+      "bytes": 65485,
+      "sha256": "abb76d58ce141143483c74bb5457e580c32646c500ca50a72fe8bc3aaf75486d",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4425,12 +5386,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/390x844/conflict.png",
-      "bytes": 77374,
-      "sha256": "c93c606d197ebaf01ef9e7f3858c5b28afe44d98616467488e9ad9fcbe1e3aa3",
+      "bytes": 62284,
+      "sha256": "cacf716be8dc3f0e268c4a50bbd2696b62b7412344a4539e91b9588c64b92499",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4440,12 +5401,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/390x844/dirty-state.png",
-      "bytes": 78932,
-      "sha256": "0df820d2eaa592cb654550665e12d51b1c7d3cc5f0a4b6268439a8e612eab629",
+      "bytes": 65973,
+      "sha256": "3fd92ca7a6a1890660ceee97301e97a4bcea64168c6956ed4b2b0f2edd7892bd",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4455,12 +5416,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/390x844/explicit-confirm.png",
-      "bytes": 80797,
-      "sha256": "f73be13325e35adb2edb0772b6d063c02d4414f8a539ceb857e569eb19988050",
+      "bytes": 67498,
+      "sha256": "df5a484a0bfec15478926a11a96166cd6e33987acfde6286f7a4f2501f254789",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4470,12 +5431,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/390x844/impact-preview.png",
-      "bytes": 81129,
-      "sha256": "1a4cd19c9e90589801d8746e96e5bc0de1a9716bf7af8feec5bbaf637fe9c3c0",
+      "bytes": 63436,
+      "sha256": "19d047c43221a4d06b685d3caff301079637f02fb223fc8589e3691f1e1423e2",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4485,12 +5446,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/390x844/mandatory-impact-preview.png",
-      "bytes": 82584,
-      "sha256": "21151b1954ca08271f6fab9ddd137d74067fa98bbaa55b25d7e4bc00c04d4d60",
+      "bytes": 62298,
+      "sha256": "83c4238ad55f2eb33669aade1c5f056a470b98726354bc3b22455c493cd52307",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4500,12 +5461,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/390x844/manual-review.png",
-      "bytes": 82960,
-      "sha256": "e111289fc6f46ce0d217bb26e009f0dc0b1dc1a2c1ed256a2b425148f4e6f635",
+      "bytes": 63887,
+      "sha256": "e063982102c40a6492983172bdc25b62151ab99145e5204600246377854ccfdb",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4515,12 +5476,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/390x844/pending-operation.png",
-      "bytes": 82203,
-      "sha256": "78b4712409e0faf17963e3902ec60285ae364f68938a4e4af8caf5cc8c5d0452",
+      "bytes": 64460,
+      "sha256": "f4994d1239d7ef74c46bc6b191a619e6bcc3ff79a390ead5b037aa6fe9dbe6ca",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4530,12 +5491,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/390x844/secret-entry.png",
-      "bytes": 71318,
-      "sha256": "4765c1ffd88b28f5ec6b107f73da847a92f29e1b225bc70a3d1bbb92c269b2c1",
+      "bytes": 48291,
+      "sha256": "975ad55dec07186071819b551d0e910996274f45df0dda1e837756c9cf1910e9",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4545,12 +5506,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/390x844/validation-error.png",
-      "bytes": 77961,
-      "sha256": "cc60b6a78334d4df466205617977f778a9bd170d10af054c2e9d9995ec7e150c",
+      "bytes": 65194,
+      "sha256": "31cd3a246de6b72e10f63fa0684ff791d667f888d3c58fb04241467e17c84d08",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[390, 844]"
+        "dimensions=[390, 915]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4560,12 +5521,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/768x1024/action-failed.png",
-      "bytes": 149631,
-      "sha256": "768b081663eff599227d81ad28431f70e07c1d6d7d1d294b20ca8655c20145dd",
+      "bytes": 135532,
+      "sha256": "f6c8e1f0a97f3f5d4f63e8cc06610200bbf9d165925eadfb99b1aa3315381549",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4575,12 +5536,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/768x1024/browser-challenge.png",
-      "bytes": 157836,
-      "sha256": "72e74f6c4f390e7387e672551a5685a0098a2220c59571148b1deb241135e26f",
+      "bytes": 138200,
+      "sha256": "449cfb70dcf38536492bf2b205c6d7a7f9f7828b2581095f1ef55e79c720875f",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4590,12 +5551,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/768x1024/conditional-impact.png",
-      "bytes": 155174,
-      "sha256": "fd3ad259212567b987b5ecd507d0e44fef3b8a42ff7ccbb6660b08baa9c10a89",
+      "bytes": 138399,
+      "sha256": "6badf8712cce0b6e5d2d5f288de2b44d365b031fd5ef14cbc19696eacff133cc",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4605,12 +5566,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/768x1024/conflict.png",
-      "bytes": 151798,
-      "sha256": "81de4b90ee3cb153874259a7483ad1e68ba1bbc98629513e7b0b7ce094941ee0",
+      "bytes": 138869,
+      "sha256": "e574f748089074754d0a2a5f276894d9d01dff8f77fa427922f951c100fadc1e",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4620,12 +5581,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/768x1024/dirty-state.png",
-      "bytes": 152767,
-      "sha256": "29e1cd04498fe86b42ce3383a2e6ef932fd5efcf2eb04e3ba5665b6bca61c64d",
+      "bytes": 139288,
+      "sha256": "bbfbad4c93d06e8bcf2969742cbf312c8094f9f30d82d2c4bad85f36793b50e3",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4635,12 +5596,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/768x1024/explicit-confirm.png",
-      "bytes": 153960,
-      "sha256": "368d711c8db6596a267d41b412fc4d17f26d9e52429a425a9927081de797f745",
+      "bytes": 140768,
+      "sha256": "64624d297610f56e757a18941b71f2c23282382421946a10cf2e1bdee16ea2c7",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4650,12 +5611,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/768x1024/impact-preview.png",
-      "bytes": 152877,
-      "sha256": "c48169c8f37426ee448ac284850e44f9b33c42d71e9f6d0d2b873c91b0a07b8c",
+      "bytes": 135367,
+      "sha256": "3ba5512146c1f72816508ab68b88b8d708fc65471d6b03506615ea6a4a73f812",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4665,12 +5626,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/768x1024/mandatory-impact-preview.png",
-      "bytes": 153758,
-      "sha256": "4c9c059e0dceb9ca03ae66602dbedf53d5c9e3415ad8ed59f3e1e13ee72ec8c4",
+      "bytes": 134484,
+      "sha256": "05f6cbd05214e929d483f9834627f6b0522844b49a5c4c48ed2b516700ed13c0",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4680,12 +5641,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/768x1024/manual-review.png",
-      "bytes": 155846,
-      "sha256": "e2796f2ed0fe6a87cbf1fac50462c279d99498cd8d32554f294495cabf9702de",
+      "bytes": 136818,
+      "sha256": "c935c609447b696b657b44ec0a96df044f6c61ac406f81410cd62474c643f19a",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4695,12 +5656,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/768x1024/pending-operation.png",
-      "bytes": 154105,
-      "sha256": "d61b4659fa6c1416bcf24345ddfee696ea1d3df92a84c47cf67c06d7e98f5fea",
+      "bytes": 136177,
+      "sha256": "70bf87b00fa0063cfb1606ccf6d54b809c25aad275660bc3209c94c34a2c3d3f",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4710,12 +5671,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/768x1024/secret-entry.png",
-      "bytes": 146660,
-      "sha256": "331aef54e257e648fa483ed904a49212fd9af12c4052ba7fb9a3e4d2dc294a61",
+      "bytes": 119786,
+      "sha256": "19ba41d65b9f8a6ee1e2c492ace3419ceb0c317da412e0eaff8b7a6e43fd6742",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4725,12 +5686,12 @@
     },
     {
       "path": "05_DIALOG_VIEWS/768x1024/validation-error.png",
-      "bytes": 150822,
-      "sha256": "692752fd58084f2eeac92b2cf708c2cf96adb150c1acc57259348d15481b4d45",
+      "bytes": 137951,
+      "sha256": "4dd73c6a27646c249edab417129d1c70c60377856cd9247b4621c8c96025f9b0",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[768, 1024]"
+        "dimensions=[768, 1078]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4740,12 +5701,12 @@
     },
     {
       "path": "06_UI_OVERVIEWS/dialogs-1366x768.png",
-      "bytes": 117087,
-      "sha256": "f3ddd4af715007afb3eef2414d48f23487c720d266230181c744a353845b4537",
+      "bytes": 246770,
+      "sha256": "c113057ae7ad1d9904a5a946bd8cff764f49e0661a2679e73b0544bc6fe914f6",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1112, 684]"
+        "dimensions=[1520, 1515]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4755,12 +5716,12 @@
     },
     {
       "path": "06_UI_OVERVIEWS/dialogs-1920x1080.png",
-      "bytes": 94980,
-      "sha256": "00c54dba87e052e365543d3e21b45475bb9129ae06a78ff258239d1638c0db5f",
+      "bytes": 164548,
+      "sha256": "ec4564769e6006fe686e1eab8290843ac7a6f8bce8b4e427b5d4b77a4a99a478",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1112, 684]"
+        "dimensions=[1520, 1515]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4770,12 +5731,12 @@
     },
     {
       "path": "06_UI_OVERVIEWS/dialogs-390x844.png",
-      "bytes": 91457,
-      "sha256": "ad69e35302f38c9c7931f6d351c9cd3dbb9dd020f6f1b17670f2cafe114cef2e",
+      "bytes": 468002,
+      "sha256": "d227b83cdc4a025d5738d2de39ebe336f5235788ff2e4c8b1e615608c11cfbb4",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1112, 684]"
+        "dimensions=[1520, 1515]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4785,12 +5746,12 @@
     },
     {
       "path": "06_UI_OVERVIEWS/dialogs-768x1024.png",
-      "bytes": 94710,
-      "sha256": "0d436d78606fc7e94f2548dfa804d396154a39915984c46952980c8c10f081d3",
+      "bytes": 506892,
+      "sha256": "4bd4b479648c91234538e32aa584a85c7f181ef4c83b826ce07921b2fcd5ada3",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1112, 684]"
+        "dimensions=[1520, 1515]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4875,8 +5836,8 @@
     },
     {
       "path": "06_UI_OVERVIEWS/live-390x844.png",
-      "bytes": 348665,
-      "sha256": "784994322e384fd00ade8203ddb005a1e3ae6e2e14bbf9a3475a738c52c0aa2a",
+      "bytes": 351797,
+      "sha256": "404f1983b3cc882e40b8bbde284ac32ac90719c621516851e5da61f426989f7c",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -4905,8 +5866,8 @@
     },
     {
       "path": "06_UI_OVERVIEWS/live-768x1024.png",
-      "bytes": 506665,
-      "sha256": "8967e182f7a72dac4fbf48aa3c748377c8c12102edb6f20b09994765a9983b57",
+      "bytes": 510540,
+      "sha256": "8ec2d65b0cc319c7cf378891dac51a506136b33239417fa2a06aa97f3d28e9d1",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
@@ -4920,12 +5881,12 @@
     },
     {
       "path": "06_UI_OVERVIEWS/pages-1366x768.png",
-      "bytes": 366417,
-      "sha256": "959fd8c31ad9a5f2a361b89da3823461336717208e90d500938c59c722e506ab",
+      "bytes": 640523,
+      "sha256": "16e46b21c7552190ea968c8e6d4e10cf554418080a7b58cdfed372e86d56931d",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1112, 1096]"
+        "dimensions=[1520, 2525]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4935,12 +5896,12 @@
     },
     {
       "path": "06_UI_OVERVIEWS/pages-1920x1080.png",
-      "bytes": 286400,
-      "sha256": "f9f1bb0e5c891b6bd4adf45fdb67502d77f1fde816804f979ff2884f9c98d65d",
+      "bytes": 461150,
+      "sha256": "45122c97d362ff362f014b556721d8ba081290b5b6bf1cda791c823cd60e7354",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1112, 1096]"
+        "dimensions=[1520, 2525]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4950,12 +5911,12 @@
     },
     {
       "path": "06_UI_OVERVIEWS/pages-390x844.png",
-      "bytes": 186161,
-      "sha256": "9554a01189f548f0f78c9b62eb7d197a8578015bc5fb9bc3d25de4c5872325e8",
+      "bytes": 792062,
+      "sha256": "8ce39879597f0555f2618a7e5de34b429d9e4fcaea60a9714b150fe8e4347a3a",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1112, 1096]"
+        "dimensions=[1520, 2525]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4965,12 +5926,12 @@
     },
     {
       "path": "06_UI_OVERVIEWS/pages-768x1024.png",
-      "bytes": 212052,
-      "sha256": "168bf725403bfa243980c3b1b8a46815c3d76f42079051df58d0160140d9254d",
+      "bytes": 906425,
+      "sha256": "223b83ef3312402090530d3c6612081429440e403fbfbcd6545812f7367b77cf",
       "purpose": "package source or projection",
       "checks": [
         "PNG_DECODE",
-        "dimensions=[1112, 1096]"
+        "dimensions=[1520, 2525]"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -4980,8 +5941,8 @@
     },
     {
       "path": "06_UI_OVERVIEWS/VIEW_INDEX.md",
-      "bytes": 594,
-      "sha256": "9c4c274eee46ccbfdbb420620010f37afd6e416dd075ed5984ff817e599d85ed",
+      "bytes": 796,
+      "sha256": "e4c832ffd656f406e90c481f4c390af9fb4a27d490108b89214d544eaf879647",
       "purpose": "package source or projection",
       "checks": [
         "UTF8"
@@ -4993,12 +5954,87 @@
       "visualStatus": "NOT_APPLICABLE"
     },
     {
+      "path": "06_UI_OVERVIEWS/workspace-1366x768.png",
+      "bytes": 250429,
+      "sha256": "e41e88d4bc4d52c3935588456a1c5aef39fb7b2d2054817315be1b8f0bb49604",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1280, 750]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/workspace-1920x1080.png",
+      "bytes": 259180,
+      "sha256": "058a64fce853c2a997580597513b2f781632423b1802570475702a6ca1b9a165",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1280, 750]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/workspace-390x844.png",
+      "bytes": 117526,
+      "sha256": "03b40336d2111d78b4db38686be4b634eea3eaa4c3b43bd5dcc56debd0cf4aaf",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1280, 750]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
+      "path": "06_UI_OVERVIEWS/workspace-768x1024.png",
+      "bytes": 155395,
+      "sha256": "04bf2cc373ce3cea7a55c8e53fbaa760d389b04503cc3e7eab8c902b38656e77",
+      "purpose": "package source or projection",
+      "checks": [
+        "PNG_DECODE",
+        "dimensions=[1280, 750]"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_EVALUATED"
+    },
+    {
       "path": "audit/DECISIONS.md",
       "bytes": 2004,
       "sha256": "597077aade3710b2dea4624cb4d932f8494b2dd3027213f1e51fc2d319fea562",
       "purpose": "package source or projection",
       "checks": [
         "UTF8"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "audit/final-audit.json",
+      "bytes": 39746,
+      "sha256": "67a477ab6fda3f47f101cbe688cb96aebb7f59ad1c2c8f2fc38fd92806aac203",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE"
       ],
       "issues": [],
       "structuralStatus": "PASS",
@@ -5021,9 +6057,83 @@
       "visualStatus": "NOT_APPLICABLE"
     },
     {
+      "path": "audit/phase1-operation-schema-matrix-before.json",
+      "bytes": 3616516,
+      "sha256": "718d834fd297e606ada49bc4601a67ea6c615fff08717e239b66b9b237538680",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "audit/phase1-operation-schema-matrix.json",
+      "bytes": 3616028,
+      "sha256": "8f74bfd9f6cc47ab39614bd392938e432e86b44d00165bef58e4378ac83ebae8",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "audit/phase1-schema-closure.md",
+      "bytes": 15811,
+      "sha256": "35b2faa76e811595ece9469bf5d636d896ab941cc013472354e7aa523bbf6c66",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "audit/phase1-unresolved.json",
+      "bytes": 2945422,
+      "sha256": "c276277c3e8bd5cf1c446aa0d981837bf2b2a22658ba5ed98fb7ba603d0ff333",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "audit/provenance/effective-precedence-index-original.json",
+      "bytes": 2014,
+      "sha256": "bcc72938d3d16c5a5ece5166dfa7a979928c30e013dcafd1de2e07b2f06c2f57",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
       "path": "audit/provenance/INDEX.json",
-      "bytes": 4885,
-      "sha256": "f29fdde1e977ad5ea5fd49a3ebff316dddcdd1470a820fef47918be4ae305445",
+      "bytes": 4763,
+      "sha256": "507ca662d799c9fbd0f873a56a4dd9d0256537a21a2b0e344ffb76959e94c46d",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -5170,8 +6280,8 @@
     },
     {
       "path": "audit/provenance/ui-stack-first-probe.json",
-      "bytes": 3355,
-      "sha256": "ca44cf483186a993241f021dafd666ef5bcf09bf8d69188fbc96ea3d0128b631",
+      "bytes": 3303,
+      "sha256": "1f726069924108ef66ed4b40db7431a4ea4135e6420ba66c2c7a1c76e63afc1d",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -5212,9 +6322,9 @@
       "visualStatus": "NOT_APPLICABLE"
     },
     {
-      "path": "audit/WORK_PLAN.md",
-      "bytes": 650,
-      "sha256": "1fa87016dcba88b652704627c845750ebfa19ee82de8a2b8c4f8123960bc2bf3",
+      "path": "audit/UPSTREAM_REVIEW.md",
+      "bytes": 2388,
+      "sha256": "2b43240569f1c5e75852dcc76c8f03edbaa0f9b97f3448cd9cb35656551d0bec",
       "purpose": "package source or projection",
       "checks": [
         "UTF8"
@@ -5226,9 +6336,67 @@
       "visualStatus": "NOT_APPLICABLE"
     },
     {
+      "path": "audit/visual-validation.json",
+      "bytes": 9078,
+      "sha256": "62bf1fe84234950038bb9ef372a97acea5f84a49a63e771ee3ce4c0dff17cef9",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "audit/WORK_PLAN.md",
+      "bytes": 1338,
+      "sha256": "c48f16aa834d0ad6fa9675b1a71eaeee3dd0c7bc5de55ac59e480e94b6729712",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "FILE_MANIFEST_SHA256",
+      "bytes": 29748,
+      "sha256": "bd942e9078816851b636e39c536a18457d372913348669a2674b0127b5767f70",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "PACKAGE_MANIFEST.json",
+      "bytes": 36278,
+      "sha256": "60a8cd5c43e0305f4e115c883b76a16567483d3c05e5feac2811ad290b816f4a",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "JSON_PARSE"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
       "path": "QUALITY_ASSURANCE.md",
-      "bytes": 4265,
-      "sha256": "5174956f81e08a401c2c2a97ba93a364377314f93c65a40ef6f9713a9df5f7ec",
+      "bytes": 4841,
+      "sha256": "5027688fea89919db8d7b4d25e5d4f32737489b5a8514d18483a2224e966c0fd",
       "purpose": "package source or projection",
       "checks": [
         "UTF8"
@@ -5269,8 +6437,8 @@
     },
     {
       "path": "requirements-audit.txt",
-      "bytes": 78,
-      "sha256": "1b9c683014d0b9cbcfc21f7e044b93ba8d0762ef82c412e2b22a51e9a0ccbcc2",
+      "bytes": 98,
+      "sha256": "9e827b85f60bdd5426e76d0016c915c4805cee40619affce98e7ff0c4e4371cc",
       "purpose": "package source or projection",
       "checks": [
         "UTF8"
@@ -5283,8 +6451,8 @@
     },
     {
       "path": "scripts/audit_errors.py",
-      "bytes": 2143,
-      "sha256": "9d90a8845fec797484102e4496df1ba52111ca4e1bfe1343e3e05e0cc2ec0115",
+      "bytes": 2140,
+      "sha256": "fb7cc0d6cc8815462ef54ee0e8af46418cd82e84decb81309fda6c91e5bc81ab",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -5313,8 +6481,38 @@
     },
     {
       "path": "scripts/build_parity.py",
-      "bytes": 5075,
-      "sha256": "d9e2375d2b62a5e4d7437e80cd873fe513c866c863255061fb3bbc4dcb8b02f2",
+      "bytes": 5073,
+      "sha256": "a5c6d800505f48ff3d07c5fd796108c78d97c92991c1f4f3eb45b91c599854fa",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "PYTHON_SYNTAX"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "scripts/build_reference_index.py",
+      "bytes": 2337,
+      "sha256": "386d1066f65e6fd8c13106ff25864b115d5e96c62ccdbd798c7e68f44a9bc865",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "PYTHON_SYNTAX"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "scripts/label_reference_samples.py",
+      "bytes": 997,
+      "sha256": "7fc083c35d5f25e8d27ae15f749426c6e90947548efb12b33907872a41ad1b05",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -5357,9 +6555,69 @@
       "visualStatus": "NOT_APPLICABLE"
     },
     {
+      "path": "scripts/phase1_repair_contracts.py",
+      "bytes": 6819,
+      "sha256": "8cf51e0175c1d953785893dfdb84622b5fb43bb8c8bd82021dc830f5344e45d2",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "PYTHON_SYNTAX"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "scripts/phase1_run_checks.py",
+      "bytes": 3102,
+      "sha256": "0cc047778490244b8646933ca0efc1d565a56197bba32a7a9e6cb90cff7a8a5a",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "PYTHON_SYNTAX"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "scripts/phase1_schema_closure.py",
+      "bytes": 20684,
+      "sha256": "5a3703b497bbdeffcd08129f4dae2df983b42443034a7d0a31f3f4e6a5a2f3b9",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "PYTHON_SYNTAX"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "scripts/phase1_search_history.py",
+      "bytes": 3055,
+      "sha256": "c5b57e4d4562b52ec6b1a2b6c42f5629c8eaecfff68fd13fabc4d7ca49638ae7",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "PYTHON_SYNTAX"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
       "path": "scripts/probe_ui_stack.py",
-      "bytes": 3989,
-      "sha256": "affeb63ecbb7457bfb1c4fa859c1bee61961f5bbc9285baa12dd167c5dfe904d",
+      "bytes": 3944,
+      "sha256": "7c5f6a1e247238eb7f0cf726a9e091b19410cd233af93041bb329ced252dcda7",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -5402,9 +6660,83 @@
       "visualStatus": "NOT_APPLICABLE"
     },
     {
+      "path": "scripts/refresh_embedded_integrity.py",
+      "bytes": 1793,
+      "sha256": "5a93a280e44567cba7d3301db4bd935427c46ab21578bf3c50ebf5caefc39a52",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "PYTHON_SYNTAX"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "scripts/regenerate_ui_projections.py",
+      "bytes": 3054,
+      "sha256": "7d816fa92d385ee6c0ae4f07aaaba8b05841ec5eeae9c461d2e286ef59c17e77",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "PYTHON_SYNTAX"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
       "path": "scripts/render_live_views.py",
-      "bytes": 18716,
-      "sha256": "1edf03a9ff61b3b566b26e8a5d0963babf370d4ccd7975be793412d932b56cf5",
+      "bytes": 18806,
+      "sha256": "22436ac2a30bb6198f232396d6e4b47af8fbc6fbb2f3254799f60b8b7b334224",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "PYTHON_SYNTAX"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "scripts/render_overviews.py",
+      "bytes": 1196,
+      "sha256": "3cd1fed2c879237dd155e25078fa9f0fcc6b4eba0f1b390f7031e8e4d40ec2a9",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "PYTHON_SYNTAX"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "scripts/render_reference.mjs",
+      "bytes": 4326,
+      "sha256": "d5a08ba62f476c795df22679400c932acf92d66bec261aa370826b1a36987fbf",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "scripts/render_reference_package.py",
+      "bytes": 2554,
+      "sha256": "8bf51985c5e72ec2dd2e74f4dbe5c59d11a43566129b67678e68f4c1679b42c1",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -5432,9 +6764,39 @@
       "visualStatus": "NOT_APPLICABLE"
     },
     {
+      "path": "scripts/ssot_resources.py",
+      "bytes": 2899,
+      "sha256": "47431ea05eed5e071a25117b2ba9f7b2e0d5133d75b2a6323d3786e3bec471e5",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "PYTHON_SYNTAX"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
       "path": "scripts/ssot_sources.py",
-      "bytes": 2958,
-      "sha256": "0f85545fdf8357c2418351edba53d661b580322d66e112d7c95b85dd1cf5cfad",
+      "bytes": 3414,
+      "sha256": "6ce4622b95aba18f9afd26dbbe57ab57490c74b7c72d5b68289bd8268868b3f1",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "PYTHON_SYNTAX"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "scripts/update_manifests.py",
+      "bytes": 1796,
+      "sha256": "54f2db5f1b56c14739e2af4823fccab576703549dac525726ac194c7fa7d6857",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -5448,8 +6810,8 @@
     },
     {
       "path": "scripts/verify_errors.py",
-      "bytes": 2832,
-      "sha256": "5a362d01c138b8249c4a653f1585b3dda09c35b33dd3eeab582154dbf09e9a71",
+      "bytes": 2830,
+      "sha256": "f55037c51b470ba752bef7207d62dae9c730ab6e61e166865770fc2f85d8b1ae",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -5463,8 +6825,8 @@
     },
     {
       "path": "scripts/verify_experience.py",
-      "bytes": 7375,
-      "sha256": "ad61cf55c1d9be516b897996ae5b46b193d8492db6b889b77d4148eacff4b38d",
+      "bytes": 7937,
+      "sha256": "5147bb976d2503d9117b52a0d26f91d3f4e20b99ea30810a1165eb2e8d1d3707",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -5480,6 +6842,36 @@
       "path": "scripts/verify_observability.py",
       "bytes": 3273,
       "sha256": "a0b01978d5b239b15302d0686356906e68ae8d81328d6296490f0251fb70aa84",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "PYTHON_SYNTAX"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "scripts/verify_package.py",
+      "bytes": 10227,
+      "sha256": "74bc4318404ffce8d485ef22f1f7eb92db426fe7fb2034b3ce48961834dcb995",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "PYTHON_SYNTAX"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "scripts/verify_phase1_contracts.py",
+      "bytes": 9711,
+      "sha256": "3bf04376c4ae538fc4c910150810333777f8ad10e5acafa1574e8e071974b5f6",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -5523,8 +6915,8 @@
     },
     {
       "path": "scripts/verify_reference_interactions.py",
-      "bytes": 2416,
-      "sha256": "da649630657991a61378fb26c996d485c42d7cc9cfe29c093071f491c1e8b63d",
+      "bytes": 3508,
+      "sha256": "cb6da20c00d4630eee2f3f1d279259d7316f5fa34c9c163ea7fcec1cdac72422",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -5553,8 +6945,8 @@
     },
     {
       "path": "scripts/verify_schema_references.py",
-      "bytes": 4392,
-      "sha256": "03ab2c2133919d20e97d88babe0036adedf1a842a6ec11cad6e80ed979a47cd6",
+      "bytes": 1509,
+      "sha256": "c8a26afc541a45833e6b922a42f85630fc759f09acab85911c71e7325fd28e87",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -5568,8 +6960,23 @@
     },
     {
       "path": "scripts/verify_ui_stack.py",
-      "bytes": 1898,
-      "sha256": "e396a6aaeddabb257733bd1555d7b5bf95bc25dba5b45d8aff64e11e80d30a6d",
+      "bytes": 1861,
+      "sha256": "d712d6a8e7c903dc92088e9a6e1323a33a55920407767d8dbda42ed43a20d778",
+      "purpose": "package source or projection",
+      "checks": [
+        "UTF8",
+        "PYTHON_SYNTAX"
+      ],
+      "issues": [],
+      "structuralStatus": "PASS",
+      "authority": "PACKAGE_SOURCE_OR_PROJECTION",
+      "semanticStatus": "NOT_EVALUATED",
+      "visualStatus": "NOT_APPLICABLE"
+    },
+    {
+      "path": "scripts/verify_visual_contracts.py",
+      "bytes": 3454,
+      "sha256": "726695a0022cefbe65f6e52ae5022e81384b2b62185a85b8d4051a5cc5d207bc",
       "purpose": "package source or projection",
       "checks": [
         "UTF8",
@@ -8062,8 +9469,8 @@
       "family": "KCML-R9-RESOURCE",
       "path": "contracts/payload-contracts.json",
       "line": 437225,
-      "sha256": "5e2444a83c4354aa452f225bdc40f830623df8d9212f96f9b9af2e4c4e9ca23a",
-      "bytes": 32073067,
+      "sha256": "719882ba9fbb3026297eb6eea28f88593b7ab770cbd1a59a4e57bf7d810531e8",
+      "bytes": 32069519,
       "checks": [
         "UTF8",
         "JSON_PARSE"
@@ -8075,7 +9482,7 @@
     {
       "family": "KCML-R9-RESOURCE",
       "path": "contracts/recovery-oracles.json",
-      "line": 532340,
+      "line": 533479,
       "sha256": "e56d84fe0b839c30818130cd8f0ef14227f89daf118fc4e6f10e60e0b3733992",
       "bytes": 1275492,
       "checks": [
@@ -8089,7 +9496,7 @@
     {
       "family": "KCML-R9-RESOURCE",
       "path": "contracts/requirement-closure-map.json",
-      "line": 532751,
+      "line": 533890,
       "sha256": "17a6661033fbe8f82b1d6ce1a593676475710fabb49f2f7f4ed94a28034252cf",
       "bytes": 23631115,
       "checks": [
@@ -8103,7 +9510,7 @@
     {
       "family": "KCML-R9-RESOURCE",
       "path": "contracts/state-machine-bindings.json",
-      "line": 547843,
+      "line": 548982,
       "sha256": "019e9ef3094b36561fe01da379427fe7407cbef434c53ca685c0cf343dbada74",
       "bytes": 116614,
       "checks": [
@@ -8117,7 +9524,7 @@
     {
       "family": "KCML-R9-RESOURCE",
       "path": "contracts/state-machines.json",
-      "line": 548020,
+      "line": 549159,
       "sha256": "4af2363dfe9b118b362a60e2f78b5d4dcc0859a09b1bbc3647e7859cb774210b",
       "bytes": 1879,
       "checks": [
@@ -8131,7 +9538,7 @@
     {
       "family": "KCML-R9-RESOURCE",
       "path": "database/explicit-entities.json",
-      "line": 548031,
+      "line": 549170,
       "sha256": "378aa49737ee8ea91f0466b7ff902322423dc15f7d6b87809c25bec491a72499",
       "bytes": 724,
       "checks": [
@@ -8145,7 +9552,7 @@
     {
       "family": "KCML-R9-RESOURCE",
       "path": "database/explicit-entities.sql",
-      "line": 548040,
+      "line": 549179,
       "sha256": "b5bd3eab2da7d271a9112d5168d470ab5f8cc7bfa24cdcf9437a1c30e3db09d7",
       "bytes": 1969,
       "checks": [
@@ -8158,7 +9565,7 @@
     {
       "family": "KCML-R9-RESOURCE",
       "path": "database/operation-functions.sql",
-      "line": 548053,
+      "line": 549192,
       "sha256": "d782729c0bb6bffe6782ba4e31d7b9c26bfc697d64ae598aa4a3ae62a9490f19",
       "bytes": 1140407,
       "checks": [
@@ -8171,7 +9578,7 @@
     {
       "family": "KCML-R9-RESOURCE",
       "path": "database/operation-statements.json",
-      "line": 548670,
+      "line": 549809,
       "sha256": "f3396c1621a0423195474c5bcb581adb63d7f5b4dc9eaec05a45bc8dabfcdcad",
       "bytes": 1553263,
       "checks": [
@@ -8185,7 +9592,7 @@
     {
       "family": "KCML-R9-RESOURCE",
       "path": "database/physical-relations.json",
-      "line": 549408,
+      "line": 550547,
       "sha256": "1521cdd62f626e327d60efd8100608b16f3d7c851f31fae4c263688589d6eeab",
       "bytes": 804,
       "checks": [
@@ -8199,7 +9606,7 @@
     {
       "family": "KCML-R9-RESOURCE",
       "path": "database/physical-relations.sql",
-      "line": 549418,
+      "line": 550557,
       "sha256": "ad47d2238be806db0257429bf60f4023fd73aa8f218758a27ff311ea1b2ed774",
       "bytes": 2123,
       "checks": [
@@ -8212,7 +9619,7 @@
     {
       "family": "KCML-R9-RESOURCE",
       "path": "database/root-resolution.json",
-      "line": 549431,
+      "line": 550570,
       "sha256": "eba7430191c77f8b0b6e31f1d0453db772eec9a7c1339eedc99ed6891e150bf7",
       "bytes": 19207,
       "checks": [
@@ -8226,8 +9633,8 @@
     {
       "family": "KCML-R9-RESOURCE",
       "path": "manifest.json",
-      "line": 549455,
-      "sha256": "f07b10aebfd280e6fb4bb83cd103b84f40300f86934be471ecff38905abf5107",
+      "line": 550594,
+      "sha256": "8e78f5475374748df33a4426d855baca5fa993e74828c623bf9bcdc459bf4073",
       "bytes": 3579,
       "checks": [
         "UTF8",
@@ -8240,7 +9647,7 @@
     {
       "family": "KCML-R9-RESOURCE",
       "path": "verify_r9.py",
-      "line": 549476,
+      "line": 550615,
       "sha256": "67c6daf4c18338f105779df67369dee40a5ab02f4412b28d0d03cc13364090e3",
       "bytes": 4317,
       "checks": [
@@ -8254,7 +9661,7 @@
     {
       "family": "KCML-R10-RESOURCE",
       "path": "r10/audit/findings.json",
-      "line": 549727,
+      "line": 550866,
       "sha256": "d5e374e55d1296c134537393e687bb9aa9a73a2276a87751b6e6455543598b0c",
       "bytes": 4574,
       "checks": [
@@ -8268,7 +9675,7 @@
     {
       "family": "KCML-R10-RESOURCE",
       "path": "r10/contracts/browser-research.schema.json",
-      "line": 549820,
+      "line": 550959,
       "sha256": "1df1021201ea326381918eec59909909b3789bf1d7466722c9c6abd7e28bdfd0",
       "bytes": 11782,
       "checks": [
@@ -8283,7 +9690,7 @@
     {
       "family": "KCML-R10-RESOURCE",
       "path": "r10/contracts/route-bindings.json",
-      "line": 550347,
+      "line": 551486,
       "sha256": "c91768bd54cafe3647a8e2aa93cd19b3c32faaf104d1ee947ef0cb8b4b1a106b",
       "bytes": 4225,
       "checks": [
@@ -8297,7 +9704,7 @@
     {
       "family": "KCML-R10-RESOURCE",
       "path": "r10/contracts/mcp-extension-surface.json",
-      "line": 550470,
+      "line": 551609,
       "sha256": "d2954d51a6fc5ed86578fe7fab0adeda2c66f45bea21eba23e751ea2eaa32235",
       "bytes": 2450,
       "checks": [
@@ -8311,7 +9718,7 @@
     {
       "family": "KCML-R10-RESOURCE",
       "path": "r10/contracts/openai-sdk-surface.json",
-      "line": 550530,
+      "line": 551669,
       "sha256": "f3d6444432786cdad29fe27fa2cafa8a6e1acdc9050081bdb79d41d0976bd135",
       "bytes": 2844,
       "checks": [
@@ -8325,7 +9732,7 @@
     {
       "family": "KCML-R10-RESOURCE",
       "path": "r10/database/browser-research.sql",
-      "line": 550596,
+      "line": 551735,
       "sha256": "d52549976a999a4a2af8aedebeee78e715ac558f28789cff4a9dfdc75b581439",
       "bytes": 6761,
       "checks": [
@@ -8338,7 +9745,7 @@
     {
       "family": "KCML-R10-RESOURCE",
       "path": "r10/contracts/operations-recovery-closure.json",
-      "line": 550741,
+      "line": 551880,
       "sha256": "f8a640710a73436242ca2e5192311a3b104911572e6fd9e07b0a2b6bad270bd0",
       "bytes": 3717,
       "checks": [
@@ -8352,7 +9759,7 @@
     {
       "family": "KCML-R10-RESOURCE",
       "path": "r10/contracts/acceptance.json",
-      "line": 550848,
+      "line": 551987,
       "sha256": "cfaaaf367e0f77d9ef4d77f54f14da6fea05ad7ed0fc76b2b97097c53063290b",
       "bytes": 1877,
       "checks": [
@@ -8366,7 +9773,7 @@
     {
       "family": "KCML-R10-RESOURCE",
       "path": "r10/contracts/traceability.json",
-      "line": 550894,
+      "line": 552033,
       "sha256": "6c071294e3fb1126fa1880281ec2d63ccb25e216bfebc0f9b4cde1ad3fd7e8da",
       "bytes": 955,
       "checks": [
@@ -8380,7 +9787,7 @@
     {
       "family": "KCML-R10-RESOURCE",
       "path": "r10/scripts/verify_r10.py",
-      "line": 550932,
+      "line": 552071,
       "sha256": "ce79849a0b23987c61314f8a8e5a5c07a72ed83e650c99dea578c8bd51403cc3",
       "bytes": 2312,
       "checks": [
@@ -8394,7 +9801,7 @@
     {
       "family": "KCML-R11-RESOURCE",
       "path": "r11/audit/findings.json",
-      "line": 551019,
+      "line": 552158,
       "sha256": "3296f21a0726e40df2d4ee053b2c36c0a1c6b2a11182f9d29388588411852d98",
       "bytes": 6018,
       "checks": [
@@ -8408,7 +9815,7 @@
     {
       "family": "KCML-R11-RESOURCE",
       "path": "r11/contracts/orchestration.schema.json",
-      "line": 551123,
+      "line": 552262,
       "sha256": "88bd0479a7aaef20bba0783d92d33bfeaf9057416d1b115a5a89a2499bc7cbb3",
       "bytes": 198491,
       "checks": [
@@ -8423,7 +9830,7 @@
     {
       "family": "KCML-R11-RESOURCE",
       "path": "r11/contracts/specialist-input-map.json",
-      "line": 557889,
+      "line": 559028,
       "sha256": "3a67c3cd24ae32aa2fd95965014729c30928d6c706147b46fd286641551ce3f2",
       "bytes": 4627,
       "checks": [
@@ -8437,7 +9844,7 @@
     {
       "family": "KCML-R11-RESOURCE",
       "path": "r11/contracts/specialist-instructions.json",
-      "line": 557972,
+      "line": 559111,
       "sha256": "4cc3f53fbaf975b4110d98044cf07d81ba8542a4134f69d9c056a895d23c13dd",
       "bytes": 6032,
       "checks": [
@@ -8451,7 +9858,7 @@
     {
       "family": "KCML-R11-RESOURCE",
       "path": "r11/contracts/specialist-call-sites.json",
-      "line": 558078,
+      "line": 559217,
       "sha256": "08593afff0363f6005cff2cc5f956c58d522b5e05d1c9124eda832625825779c",
       "bytes": 21032,
       "checks": [
@@ -8465,7 +9872,7 @@
     {
       "family": "KCML-R11-RESOURCE",
       "path": "r11/contracts/orchestration-graph.json",
-      "line": 558532,
+      "line": 559671,
       "sha256": "62dd5b26b34402325e63e0e3f99cdd19882b311048b32229240152ce65ad9b0d",
       "bytes": 4084,
       "checks": [
@@ -8479,7 +9886,7 @@
     {
       "family": "KCML-R11-RESOURCE",
       "path": "r11/contracts/openai-json-mask-iteration.json",
-      "line": 558692,
+      "line": 559831,
       "sha256": "f5e557110da6a0ffc237527581aa6b184795f6bc3af2bdf731afae364b17e15b",
       "bytes": 2288,
       "checks": [
@@ -8493,7 +9900,7 @@
     {
       "family": "KCML-R11-RESOURCE",
       "path": "r11/contracts/mcp-agent-schema-bridge.json",
-      "line": 558750,
+      "line": 559889,
       "sha256": "006299ed7446d7e770cb660d37e364b3b001a53bcd2b4464175b651b48c198b6",
       "bytes": 1560,
       "checks": [
@@ -8507,7 +9914,7 @@
     {
       "family": "KCML-R11-RESOURCE",
       "path": "r11/contracts/r10-route-payloads.json",
-      "line": 558824,
+      "line": 559963,
       "sha256": "ff2ee3bdcf87ecf83e10c483cfbe39ccb9837bc75ee64d53801cbe44af714002",
       "bytes": 2824582,
       "checks": [
@@ -8521,7 +9928,7 @@
     {
       "family": "KCML-R11-RESOURCE",
       "path": "r11/contracts/r10-operation-contracts.json",
-      "line": 639434,
+      "line": 640573,
       "sha256": "bbd8975025241d685a5d626be5059c0d0bce5da79e893bbd18c914be90584fa4",
       "bytes": 28136,
       "checks": [
@@ -8535,7 +9942,7 @@
     {
       "family": "KCML-R11-RESOURCE",
       "path": "r11/contracts/post-activation-proof.json",
-      "line": 639986,
+      "line": 641125,
       "sha256": "da16cd52cb7b892ed2163d93b7348c0e810e18fd1ccf4cd0871731eed563b4e6",
       "bytes": 1225,
       "checks": [
@@ -8549,7 +9956,7 @@
     {
       "family": "KCML-R11-RESOURCE",
       "path": "r11/contracts/composite-registry.json",
-      "line": 640018,
+      "line": 641157,
       "sha256": "9ce751f1c6311758130f30341d4eb89bbc036c2692e1c3e0e1b8a6142a3630ca",
       "bytes": 719,
       "checks": [
@@ -8563,7 +9970,7 @@
     {
       "family": "KCML-R11-RESOURCE",
       "path": "r11/contracts/acceptance.json",
-      "line": 640051,
+      "line": 641190,
       "sha256": "35012824b8d30aebd8266ee7ccaa46a6ee6b87013c3e5fed9aa55b27d856248d",
       "bytes": 1055,
       "checks": [
@@ -8577,7 +9984,7 @@
     {
       "family": "KCML-R11-RESOURCE",
       "path": "r11/contracts/traceability.json",
-      "line": 640087,
+      "line": 641226,
       "sha256": "77d45e2b11514a07743055963f37905da399dba02bd6164d163b776fa65eb52c",
       "bytes": 815,
       "checks": [
@@ -8591,7 +9998,7 @@
     {
       "family": "KCML-R11-RESOURCE",
       "path": "r11/scripts/verify_r11.py",
-      "line": 640103,
+      "line": 641242,
       "sha256": "805ca652743a55fb226699c4621bf3e9ad0eba4d398b09d58ba4468400f854d5",
       "bytes": 10126,
       "checks": [
@@ -8605,7 +10012,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/audit/findings.json",
-      "line": 640297,
+      "line": 641436,
       "sha256": "7f65eb2ad19329686782b51a75ed348ed30b25d4a47977dd159453a21dedde4c",
       "bytes": 11258,
       "checks": [
@@ -8619,7 +10026,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/contracts/openai-upstream-source-lock.json",
-      "line": 640457,
+      "line": 641596,
       "sha256": "f3357049c5723ce3b93067e6f637ed70d615371af9530a2107d7fa48d7a45e23",
       "bytes": 1812,
       "checks": [
@@ -8633,7 +10040,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/contracts/openai-provider-surface-registry.json",
-      "line": 640522,
+      "line": 641661,
       "sha256": "881c1dd4ab1c693167ed4641eecd7dad47f9080bad007a5cb1133801f5a57d1a",
       "bytes": 5354,
       "checks": [
@@ -8647,7 +10054,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/contracts/openai-core-operations.json",
-      "line": 640712,
+      "line": 641851,
       "sha256": "78e9d186b8afee81564c127a800ba0fd8362540f6b9b906dd410b1852f64dfac",
       "bytes": 10921,
       "checks": [
@@ -8661,7 +10068,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/contracts/responses-create-current.json",
-      "line": 640929,
+      "line": 642068,
       "sha256": "f774308907f809f28b0671df219dfc9d53f9e165758f87a85fc6782814b27a1e",
       "bytes": 8864,
       "checks": [
@@ -8675,7 +10082,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/contracts/openai-contracts.schema.json",
-      "line": 641140,
+      "line": 642279,
       "sha256": "2fb57f51e6a0f6bcf9de91ffb19512cf29947e2e8e1b47c58335a1712d72b509",
       "bytes": 3205,
       "checks": [
@@ -8690,7 +10097,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/contracts/openai-request-descriptor-v2.json",
-      "line": 641284,
+      "line": 642423,
       "sha256": "fb4721084f54aca1df9f7460562fe4b762b9cbe194e81b5ee2d519709193451e",
       "bytes": 2282,
       "checks": [
@@ -8704,7 +10111,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/contracts/strict-mask-pipeline.json",
-      "line": 641354,
+      "line": 642493,
       "sha256": "c723644c8a1c7784ba9c4847a8f6bc11ade8326ed1437c7cc980b25ac8729b7c",
       "bytes": 2484,
       "checks": [
@@ -8718,7 +10125,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/contracts/model-artifact-handoff.json",
-      "line": 641453,
+      "line": 642592,
       "sha256": "5ab469f18908d08be9b818bfb77782e99a5a47fae2e635b47823b7b9b395cf50",
       "bytes": 1582,
       "checks": [
@@ -8732,7 +10139,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/contracts/agents-sdk-generation-contract.json",
-      "line": 641490,
+      "line": 642629,
       "sha256": "af7a016569662223ab9be66fc8ab5145db312867dfba8734fa2150371fce2d7f",
       "bytes": 2134,
       "checks": [
@@ -8746,7 +10153,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/contracts/agents-sdk-mcp-contract.json",
-      "line": 641536,
+      "line": 642675,
       "sha256": "fbfb75cd8f81c502c80a0efc228bbda3309545b703bdbe50621b5a791788f94c",
       "bytes": 1651,
       "checks": [
@@ -8760,7 +10167,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/contracts/openai-provider-recovery-matrix.json",
-      "line": 641560,
+      "line": 642699,
       "sha256": "c9582d589779a85378476f493d60867f7ef4ebab19a547e747251f03274d8914",
       "bytes": 1772,
       "checks": [
@@ -8774,7 +10181,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/contracts/openai-sdk-upgrade-gate.json",
-      "line": 641609,
+      "line": 642748,
       "sha256": "b170bd110a8b2828694aafd2e2b0c1ac3c76249ad75b6f394e9a5456a7002d9f",
       "bytes": 1768,
       "checks": [
@@ -8788,7 +10195,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/contracts/openai-static-enforcement.json",
-      "line": 641638,
+      "line": 642777,
       "sha256": "750b379b8769a8b738c5f760fb220f32b8a0443ec404e16f70adbb5f79bab977",
       "bytes": 1451,
       "checks": [
@@ -8802,7 +10209,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/contracts/openai-activation-gates.json",
-      "line": 641674,
+      "line": 642813,
       "sha256": "1ffd46edc7c078528b7a9149706260e93d06f28ac5e3d7178ca7c93f7477995d",
       "bytes": 1324,
       "checks": [
@@ -8816,7 +10223,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/contracts/openai-non-http-event-surfaces.json",
-      "line": 641708,
+      "line": 642847,
       "sha256": "27e880a16c93016a5b2d607473016b5822579b4b6bed3d01f301129dfd546ad5",
       "bytes": 3488,
       "checks": [
@@ -8830,7 +10237,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/audit/traceability.json",
-      "line": 641811,
+      "line": 642950,
       "sha256": "351451fcd5d25deceeeda8b0feba34e0dcd1aad038a7cfb13bab6aa82957c530",
       "bytes": 1432,
       "checks": [
@@ -8844,7 +10251,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/audit/acceptance.json",
-      "line": 641852,
+      "line": 642991,
       "sha256": "65890073264a941a17e9283be0cca3c0cd4744bbffb9bfc7145a996c9e0cfc4c",
       "bytes": 1010,
       "checks": [
@@ -8858,7 +10265,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/scripts/verify_openai_openapi_lock.py",
-      "line": 641883,
+      "line": 643022,
       "sha256": "0adeb8dea15a62de93b292b94e19aad648bf385173b7e92fde29d624efcfa0f7",
       "bytes": 3438,
       "checks": [
@@ -8872,7 +10279,7 @@
     {
       "family": "KCML-R12-RESOURCE",
       "path": "r12/scripts/verify_r12.py",
-      "line": 641931,
+      "line": 643070,
       "sha256": "4045ca170d7487a48a46602805765a621f55a644669f3f933517864e76ccc71d",
       "bytes": 6788,
       "checks": [
@@ -8886,7 +10293,7 @@
     {
       "family": "KCML-R13-RESOURCE",
       "path": "r13/audit/final-findings.json",
-      "line": 642064,
+      "line": 643203,
       "sha256": "bac75143bf9c61e3fe13fa977cd1d740f9699ef21f47899982e63b585ebbb0d7",
       "bytes": 5167,
       "checks": [
@@ -8900,7 +10307,7 @@
     {
       "family": "KCML-R13-RESOURCE",
       "path": "r13/audit/whole-document-audit.json",
-      "line": 642163,
+      "line": 643302,
       "sha256": "57d1f1275f5aec24c3183e3a869a9d991729dea10b41ba21bd131b6d7ec17d61",
       "bytes": 1736,
       "checks": [
@@ -8914,7 +10321,7 @@
     {
       "family": "KCML-R13-RESOURCE",
       "path": "r13/contracts/effective-toolchain-baseline.json",
-      "line": 642225,
+      "line": 643364,
       "sha256": "344880f76d5345811547c56f918bb89840040285e5ca3bf5488c0bc0d0b9d274",
       "bytes": 1951,
       "checks": [
@@ -8928,7 +10335,7 @@
     {
       "family": "KCML-R13-RESOURCE",
       "path": "r13/contracts/openai-runtime-modernization.json",
-      "line": 642284,
+      "line": 643423,
       "sha256": "f4ac5c3af8b246daccdc6bb2b380fda15dec89de3b532bd85f251b571e980e90",
       "bytes": 1967,
       "checks": [
@@ -8942,7 +10349,7 @@
     {
       "family": "KCML-R13-RESOURCE",
       "path": "r13/contracts/agents-sdk-018-modernization.json",
-      "line": 642321,
+      "line": 643460,
       "sha256": "886fd853fc59a49129c011c2c3a9a5c2092c156ce13918add4678cdbddf8cea4",
       "bytes": 1887,
       "checks": [
@@ -8956,7 +10363,7 @@
     {
       "family": "KCML-R13-RESOURCE",
       "path": "r13/contracts/deterministic-agent-testing.json",
-      "line": 642348,
+      "line": 643487,
       "sha256": "3efb35865f8dffc16de6ff4431c1616525acb6bb37b9f3cadce8ad8b45b35d93",
       "bytes": 1424,
       "checks": [
@@ -8970,7 +10377,7 @@
     {
       "family": "KCML-R13-RESOURCE",
       "path": "r13/contracts/sandbox-agent-policy.json",
-      "line": 642382,
+      "line": 643521,
       "sha256": "c41a432b3924cd59a1e3f1386f38a14302273b07a3b73ec957d94b3c57441b77",
       "bytes": 1379,
       "checks": [
@@ -8984,7 +10391,7 @@
     {
       "family": "KCML-R13-RESOURCE",
       "path": "r13/contracts/provider-and-dependency-drift-gate.json",
-      "line": 642402,
+      "line": 643541,
       "sha256": "ba1b71a2ddc468f184308ce49b18d485f1ca867ab08e9b18d0ff4b63189b7720",
       "bytes": 1552,
       "checks": [
@@ -8998,9 +10405,9 @@
     {
       "family": "KCML-R13-RESOURCE",
       "path": "r13/contracts/effective-precedence-index.json",
-      "line": 642444,
-      "sha256": "bcc72938d3d16c5a5ece5166dfa7a979928c30e013dcafd1de2e07b2f06c2f57",
-      "bytes": 2014,
+      "line": 643583,
+      "sha256": "091958ef009c12f603f3f83e86ce9d28779a4852c5f574aa42b4517e5c02b4b0",
+      "bytes": 2371,
       "checks": [
         "UTF8",
         "JSON_PARSE"
@@ -9012,7 +10419,7 @@
     {
       "family": "KCML-R13-RESOURCE",
       "path": "r13/contracts/development-plan.json",
-      "line": 642504,
+      "line": 643640,
       "sha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
       "bytes": 9209,
       "checks": [
@@ -9026,7 +10433,7 @@
     {
       "family": "KCML-R13-RESOURCE",
       "path": "r13/contracts/development-plan.schema.json",
-      "line": 642826,
+      "line": 643962,
       "sha256": "8fcba17e4883bc23809a6d6f6357fc7619d7f42bf25a55eb6e1e64d01684e9ce",
       "bytes": 2023,
       "checks": [
@@ -9041,7 +10448,7 @@
     {
       "family": "KCML-R13-RESOURCE",
       "path": "r13/contracts/release-evidence-matrix.json",
-      "line": 642923,
+      "line": 644059,
       "sha256": "0ed5577a63c0b1408d7bb76a282c912d19d085765ba5507b9af18edf7fb5f8fc",
       "bytes": 2619,
       "checks": [
@@ -9055,7 +10462,7 @@
     {
       "family": "KCML-R13-RESOURCE",
       "path": "r13/contracts/implementation-invariants.json",
-      "line": 643032,
+      "line": 644168,
       "sha256": "eb501790d3ff232a8b083be7d32557c793758619b952609c62752a12569b7848",
       "bytes": 1382,
       "checks": [
@@ -9069,7 +10476,7 @@
     {
       "family": "KCML-R13-RESOURCE",
       "path": "r13/audit/acceptance.json",
-      "line": 643053,
+      "line": 644189,
       "sha256": "b290087fbeddf6f68717493b92b37ed72ce9c954c1b5d9ed88faee5283619610",
       "bytes": 739,
       "checks": [
@@ -9083,7 +10490,7 @@
     {
       "family": "KCML-R13-RESOURCE",
       "path": "r13/scripts/verify_r13.py",
-      "line": 643073,
+      "line": 644209,
       "sha256": "2d7c41c40f4cc48392042e3bd19c8cf1b2561aabaeca8fe8514664d2849855c7",
       "bytes": 5628,
       "checks": [
@@ -9097,7 +10504,7 @@
     {
       "family": "KCML-R14-RESOURCE",
       "path": "r14/audit/browser-findings.json",
-      "line": 643258,
+      "line": 644394,
       "sha256": "9093e5c6755f758f4016c3ae9f9d6174ae4fdfd8467e6cf7ee84866650900cc6",
       "bytes": 7660,
       "checks": [
@@ -9111,7 +10518,7 @@
     {
       "family": "KCML-R14-RESOURCE",
       "path": "r14/contracts/browser-interaction.schema.json",
-      "line": 643397,
+      "line": 644533,
       "sha256": "9d7edc442636fcd8158977c768963910001438e1cc0fd579f4486bbb8a5988cd",
       "bytes": 19683,
       "checks": [
@@ -9126,7 +10533,7 @@
     {
       "family": "KCML-R14-RESOURCE",
       "path": "r14/contracts/browser-run-binding-matrix.json",
-      "line": 644162,
+      "line": 645298,
       "sha256": "88542b4e0e54ba2e3d097532f440240633538e3cf5d28b43873cf0376ad573eb",
       "bytes": 7445,
       "checks": [
@@ -9140,7 +10547,7 @@
     {
       "family": "KCML-R14-RESOURCE",
       "path": "r14/contracts/browser-pool-policy.json",
-      "line": 644363,
+      "line": 645499,
       "sha256": "d357a65d00c38e4c150319606af83d1023adb895f879e5fc4c2ccb50fd7fccc1",
       "bytes": 2105,
       "checks": [
@@ -9154,7 +10561,7 @@
     {
       "family": "KCML-R14-RESOURCE",
       "path": "r14/contracts/browser-preview-protocol.json",
-      "line": 644416,
+      "line": 645552,
       "sha256": "e79609ec7798c966f014993c1fac6d4e5b30490eba9cb8d2e4b3d7721dedd5ee",
       "bytes": 1823,
       "checks": [
@@ -9168,7 +10575,7 @@
     {
       "family": "KCML-R14-RESOURCE",
       "path": "r14/contracts/browser-human-handoff.json",
-      "line": 644505,
+      "line": 645641,
       "sha256": "b22f5a5515a9eb62f74b5d8053c5cbfa7030410640f6578914d407b4bf2612c5",
       "bytes": 1618,
       "checks": [
@@ -9182,7 +10589,7 @@
     {
       "family": "KCML-R14-RESOURCE",
       "path": "r14/contracts/browser-ubuntu-runtime-lock.json",
-      "line": 644558,
+      "line": 645694,
       "sha256": "90ef5c6161c5b00464c9da1cbfa775e8b8bba11383efefb3140745139497d7bb",
       "bytes": 2672,
       "checks": [
@@ -9196,7 +10603,7 @@
     {
       "family": "KCML-R14-RESOURCE",
       "path": "r14/contracts/browser-ubuntu-native-deps.json",
-      "line": 644648,
+      "line": 645784,
       "sha256": "6f2415af5a2704ffcd564571f9feccab34cd254f7cfce3300279f761c24f6133",
       "bytes": 3320,
       "checks": [
@@ -9210,7 +10617,7 @@
     {
       "family": "KCML-R14-RESOURCE",
       "path": "r14/contracts/browser-state-persistence.json",
-      "line": 644793,
+      "line": 645929,
       "sha256": "87494ebacfe8fb091dc8339559375daa3eb4e60a12300d078467223c240dfddb",
       "bytes": 746,
       "checks": [
@@ -9224,7 +10631,7 @@
     {
       "family": "KCML-R14-RESOURCE",
       "path": "r14/database/browser-consumer-attachment.sql",
-      "line": 644814,
+      "line": 645950,
       "sha256": "a296130942a39688dba84f9ca837d003c8b49a78340f2e7d38b870a717dd4bdd",
       "bytes": 1307,
       "checks": [
@@ -9237,7 +10644,7 @@
     {
       "family": "KCML-R14-RESOURCE",
       "path": "r14/contracts/browser-recovery-closure.json",
-      "line": 644843,
+      "line": 645979,
       "sha256": "262058751c92f917d671d03437c736be42c34b40e1e85ddf81d3b83587ca2293",
       "bytes": 1356,
       "checks": [
@@ -9251,7 +10658,7 @@
     {
       "family": "KCML-R14-RESOURCE",
       "path": "r14/contracts/browser-acceptance.json",
-      "line": 644872,
+      "line": 646008,
       "sha256": "9bd54a3d12699bdd9d0111a764b71395525349eb414ac66cf80808fade4a9d4b",
       "bytes": 1124,
       "checks": [
@@ -9265,7 +10672,7 @@
     {
       "family": "KCML-R14-RESOURCE",
       "path": "r14/contracts/browser-traceability.json",
-      "line": 644904,
+      "line": 646040,
       "sha256": "d03b8319f440b4942b7ff4dc66bda625ca1bd8f8df543fe32ca939eeeb953a04",
       "bytes": 696,
       "checks": [
@@ -9279,7 +10686,7 @@
     {
       "family": "KCML-R14-RESOURCE",
       "path": "r14/contracts/browser-source-locks.json",
-      "line": 644919,
+      "line": 646055,
       "sha256": "d409dfd6b40b7416cb2c63ce78ffa7d4d6e74efbf991ebbefb124d2880b627eb",
       "bytes": 1394,
       "checks": [
@@ -9293,7 +10700,7 @@
     {
       "family": "KCML-R14-RESOURCE",
       "path": "r14/contracts/development-plan-delta.json",
-      "line": 644962,
+      "line": 646098,
       "sha256": "4a2ab74ed04a9e200cb7667c7fc172e37ea62e50077c49eb37fe538dbc0525e6",
       "bytes": 1252,
       "checks": [
@@ -9307,7 +10714,7 @@
     {
       "family": "KCML-R14-RESOURCE",
       "path": "r14/scripts/verify_r14.py",
-      "line": 645003,
+      "line": 646139,
       "sha256": "74d288dd98f0ab69f1f57dfb7785c92a4793559e16fb132c4ff3d8c2aecc79a2",
       "bytes": 4185,
       "checks": [
@@ -9321,7 +10728,7 @@
     {
       "family": "KCML-R15-RESOURCE",
       "path": "r15/audit/visual-focus-findings.json",
-      "line": 645119,
+      "line": 646255,
       "sha256": "049ae04948057225535b6cc06e9e9a26781fd4005b0a2a9b90c15b8d4f31ee94",
       "bytes": 4544,
       "checks": [
@@ -9335,7 +10742,7 @@
     {
       "family": "KCML-R15-RESOURCE",
       "path": "r15/contracts/browser-visual-collaboration.schema.json",
-      "line": 645217,
+      "line": 646353,
       "sha256": "43d11370217e1734ce350005ebc1d271faa909b4b498e22571910695d481d96a",
       "bytes": 23975,
       "checks": [
@@ -9350,7 +10757,7 @@
     {
       "family": "KCML-R15-RESOURCE",
       "path": "r15/contracts/browser-visual-operations.json",
-      "line": 646177,
+      "line": 647313,
       "sha256": "3ccdae680346f0f9ede041265e7245e33399bbad879110914b94ef82af050f11",
       "bytes": 2855,
       "checks": [
@@ -9364,7 +10771,7 @@
     {
       "family": "KCML-R15-RESOURCE",
       "path": "r15/contracts/browser-collaboration-preview-protocol.json",
-      "line": 646255,
+      "line": 647391,
       "sha256": "f0f121d8e721c73a59e67c342ae5470d9ce8f58fe200744237dc4618308aa945",
       "bytes": 1465,
       "checks": [
@@ -9378,7 +10785,7 @@
     {
       "family": "KCML-R15-RESOURCE",
       "path": "r15/contracts/browser-focus-resolution.json",
-      "line": 646308,
+      "line": 647444,
       "sha256": "5d50222966c845789ad1524d03c502c82c14ecfabf8592f4bb69c63e0005506c",
       "bytes": 1235,
       "checks": [
@@ -9392,7 +10799,7 @@
     {
       "family": "KCML-R15-RESOURCE",
       "path": "r15/contracts/browser-ai-visual-contract.json",
-      "line": 646331,
+      "line": 647467,
       "sha256": "117e3e2213220e5309a7930c847d358d5dace1e37890d59321afe2979d82f79d",
       "bytes": 1173,
       "checks": [
@@ -9406,7 +10813,7 @@
     {
       "family": "KCML-R15-RESOURCE",
       "path": "r15/contracts/browser-visual-ui.json",
-      "line": 646349,
+      "line": 647485,
       "sha256": "0a0f2a19fbd179026cf596bf9e52acae818e577257ea33514c53710fe7ef8d0d",
       "bytes": 1197,
       "checks": [
@@ -9420,7 +10827,7 @@
     {
       "family": "KCML-R15-RESOURCE",
       "path": "r15/database/browser-visual-collaboration.sql",
-      "line": 646400,
+      "line": 647536,
       "sha256": "6ef8a97d2078349a73a8e6cc9beac1229ddd5d4c5bcc397cb9dd7c32e9aadcda",
       "bytes": 2633,
       "checks": [
@@ -9433,7 +10840,7 @@
     {
       "family": "KCML-R15-RESOURCE",
       "path": "r15/contracts/browser-visual-acceptance.json",
-      "line": 646461,
+      "line": 647597,
       "sha256": "5ab18d4ec8e306692269215b07c052c50c10f1d61fe69d04bca3f8117ff5dfcb",
       "bytes": 2344,
       "checks": [
@@ -9447,7 +10854,7 @@
     {
       "family": "KCML-R15-RESOURCE",
       "path": "r15/contracts/browser-visual-traceability.json",
-      "line": 646493,
+      "line": 647629,
       "sha256": "e417f0c567462aad4687edea67784c98a3679654c200f2a5822941b43163388c",
       "bytes": 1396,
       "checks": [
@@ -9461,7 +10868,7 @@
     {
       "family": "KCML-R15-RESOURCE",
       "path": "r15/contracts/development-plan-delta.json",
-      "line": 646562,
+      "line": 647698,
       "sha256": "efa6b842890fab4a181deca11ecd87542e88ac6e3b6c4b42af31b75113727511",
       "bytes": 1307,
       "checks": [
@@ -9475,7 +10882,7 @@
     {
       "family": "KCML-R15-RESOURCE",
       "path": "r15/scripts/verify_r15.py",
-      "line": 646613,
+      "line": 647749,
       "sha256": "3ab3769e0e41a90a5e55e0673393ff58a51236f302d2014bb0a8605acac70a81",
       "bytes": 2984,
       "checks": [
@@ -9489,7 +10896,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/audit/orchestration-findings.json",
-      "line": 646830,
+      "line": 647966,
       "sha256": "c01e18433c1a3d8f6ae2316ec2bbfa987b56f6777669a5ba9daece439537379b",
       "bytes": 18236,
       "checks": [
@@ -9503,7 +10910,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/process-family-registry.json",
-      "line": 647103,
+      "line": 648239,
       "sha256": "4b2eadd301f0cd46c0ed72ecc5468f6e13d0469b6e46f437691673ba35993ff6",
       "bytes": 6450,
       "checks": [
@@ -9517,7 +10924,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/effective-operation-universe.json",
-      "line": 647313,
+      "line": 648449,
       "sha256": "c344bc24c1cd8aa1529bb87ed098c4deaff0e6c46cfde29adf255610cd16025f",
       "bytes": 19497,
       "checks": [
@@ -9531,9 +10938,9 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/r15-visual-operation-closure.json",
-      "line": 647960,
-      "sha256": "03c0aa2de1f8cb6e25c962daaf931a8eb5d891ede5fbf8d886e709bf58d1d168",
-      "bytes": 17814,
+      "line": 649096,
+      "sha256": "02ee90057d2cbb77ad0d0c0cd5b288b64dca7502d77757ab1d47363c75130b7f",
+      "bytes": 19627,
       "checks": [
         "UTF8",
         "JSON_PARSE"
@@ -9545,7 +10952,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/r15-visual-route-schemas.json",
-      "line": 648333,
+      "line": 649485,
       "sha256": "7bad1b6fed3d04f2be37f973b0e3697b5cdcf65e6b42cddd856aa910b98568df",
       "bytes": 7669,
       "checks": [
@@ -9560,7 +10967,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/orchestration-kernel.json",
-      "line": 648659,
+      "line": 649811,
       "sha256": "ddff08431f70f2a8bebcfadfda35390c2c5fa4b09d80e92353e06bad2e1df5e9",
       "bytes": 1438,
       "checks": [
@@ -9574,7 +10981,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/domain-orchestration-binding.json",
-      "line": 648700,
+      "line": 649852,
       "sha256": "da53f12a20809aa1c39d333b14176745685254b1529887a0b56b97731af9c147",
       "bytes": 1517,
       "checks": [
@@ -9588,7 +10995,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/runtime-entrypoint-manifest.json",
-      "line": 648728,
+      "line": 649880,
       "sha256": "af726807b04fba0fb7f3ba8a994e1d2fc4a830ba49300708ae89930b8c09351f",
       "bytes": 2466,
       "checks": [
@@ -9602,7 +11009,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/closed-world-orchestration.schema.json",
-      "line": 648805,
+      "line": 649957,
       "sha256": "b517bc10df652676a365b5dd293705fe60437ac02b26e5dd96219e474606eee0",
       "bytes": 18392,
       "checks": [
@@ -9617,7 +11024,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/closed-world-policy.json",
-      "line": 649610,
+      "line": 650762,
       "sha256": "70f815b4dc4f7fae1814332cb6f746ca6a5d6b0a3d9b2277b208f3d3f7e0f44e",
       "bytes": 4346,
       "checks": [
@@ -9631,7 +11038,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/development-orchestration.json",
-      "line": 649709,
+      "line": 650861,
       "sha256": "7eb08b667554d7a40cda485a8657389f76892302fcdadc899269488cab063668",
       "bytes": 1934,
       "checks": [
@@ -9645,7 +11052,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/monitor-repair-orchestration.json",
-      "line": 649758,
+      "line": 650910,
       "sha256": "03fb4eba375dc949ba6f0245a2cedb4e1d32db4f3f03fa622ef1c2b5370866bf",
       "bytes": 2163,
       "checks": [
@@ -9659,7 +11066,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/runtime-admission.json",
-      "line": 649792,
+      "line": 650944,
       "sha256": "f8e0f54a07aac088ce5328c1d163e99a69c050748b631d9a788e347edcffbffd",
       "bytes": 2591,
       "checks": [
@@ -9673,7 +11080,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/static-enforcement.json",
-      "line": 649882,
+      "line": 651034,
       "sha256": "026a64258a336ba043227ebe00ad653f4181945253618e0534698588d3187092",
       "bytes": 3547,
       "checks": [
@@ -9687,7 +11094,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/development-execution-surface-policy.json",
-      "line": 649929,
+      "line": 651081,
       "sha256": "98c0bb8d0efc93fa750fc0079b04ac9e4a9a76b3eeba5dd0438d78266ad69191",
       "bytes": 3093,
       "checks": [
@@ -9701,7 +11108,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/orchestration-integrity-monitor.json",
-      "line": 650007,
+      "line": 651159,
       "sha256": "2e28af617476e96a2deb1f0929cef46479047ecf0bb61d06d0c53558ec23af76",
       "bytes": 2836,
       "checks": [
@@ -9715,7 +11122,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/orchestration-chaos.json",
-      "line": 650052,
+      "line": 651204,
       "sha256": "2797617d23e05d133080f8128c2b749b5d131c87c652545c979dea6a726f10f5",
       "bytes": 4289,
       "checks": [
@@ -9729,7 +11136,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/orchestration-acceptance.json",
-      "line": 650188,
+      "line": 651340,
       "sha256": "9b7f56ad0b31cb970f165670b1e75ff06d0821be419170146f13172994b66fb9",
       "bytes": 9990,
       "checks": [
@@ -9743,7 +11150,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/contracts/orchestration-traceability.json",
-      "line": 650412,
+      "line": 651564,
       "sha256": "4b877146fc658859cce631f72aa6f98e45472306b47ef37420c3d621d836b075",
       "bytes": 1147,
       "checks": [
@@ -9757,7 +11164,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/database/orchestration-closure.sql",
-      "line": 650458,
+      "line": 651610,
       "sha256": "08bb9f89c67869a87e104d39d918a4e420fae18b5601bc317b2bfa5f59799eea",
       "bytes": 20318,
       "checks": [
@@ -9770,7 +11177,7 @@
     {
       "family": "KCML-R16-RESOURCE",
       "path": "r16/scripts/verify_r16.py",
-      "line": 650814,
+      "line": 651966,
       "sha256": "664ce0316ab0bb206631d40619c3911fb99e9f05ad00881f4c5a56269f220180",
       "bytes": 11253,
       "checks": [
@@ -9784,7 +11191,7 @@
     {
       "family": "KCML-UI-RESOURCE",
       "path": "ui/contracts/ui-control-registry.json",
-      "line": 651647,
+      "line": 652799,
       "sha256": "d59fb06aabf8fdbfea5079acb6f1ad46e37fd86af687a69ba2d03b30eb18a528",
       "bytes": 112580,
       "checks": [
@@ -9798,7 +11205,7 @@
     {
       "family": "KCML-UI-RESOURCE",
       "path": "ui/contracts/ui-acceptance.json",
-      "line": 654751,
+      "line": 655903,
       "sha256": "8e3d9df596a5d33a7ccbf49d2b3720e48935a9ff6894973799ee79ab9d7f4ff8",
       "bytes": 5045,
       "checks": [
@@ -9812,7 +11219,7 @@
     {
       "family": "KCML-UI-RESOURCE",
       "path": "ui/audit/ui-coverage.json",
-      "line": 654881,
+      "line": 656033,
       "sha256": "367afb5c4ba684b94d061488369d411bd1c9a7c008cfeaaf5b543238ec10ce72",
       "bytes": 1281,
       "checks": [
@@ -9826,7 +11233,7 @@
     {
       "family": "KCML-UI-RESOURCE",
       "path": "ui/scripts/verify_ui.py",
-      "line": 654959,
+      "line": 656111,
       "sha256": "b8ce896875a30b0a2b9dd7ccd3880ac5f3fd1e2d1050ab235e25e29bc3ed10ef",
       "bytes": 2131,
       "checks": [
@@ -9840,7 +11247,7 @@
     {
       "family": "KCML-CLOSURE-RESOURCE",
       "path": "closure/contracts/ui-action-resolution.json",
-      "line": 655018,
+      "line": 656170,
       "sha256": "0fe5c2e68dc4e9c5bdbe65a363208a4c915ee1d032561206a2d267c8bf1bed48",
       "bytes": 72703,
       "checks": [
@@ -9854,7 +11261,7 @@
     {
       "family": "KCML-CLOSURE-RESOURCE",
       "path": "closure/contracts/operation-overlay.json",
-      "line": 657306,
+      "line": 658458,
       "sha256": "844a0a188f24997d63d32f13c5078a6767ac2b177a5065ec911824f12f59663e",
       "bytes": 48859,
       "checks": [
@@ -9868,7 +11275,7 @@
     {
       "family": "KCML-CLOSURE-RESOURCE",
       "path": "closure/contracts/operation-payloads.json",
-      "line": 658405,
+      "line": 659557,
       "sha256": "ba55ac1e38d67efcbdf41d32adee931e78cf7497e74bee0caa28db602ab3f471",
       "bytes": 67566,
       "checks": [
@@ -9882,7 +11289,7 @@
     {
       "family": "KCML-CLOSURE-RESOURCE",
       "path": "closure/contracts/storage-closure.json",
-      "line": 660349,
+      "line": 661501,
       "sha256": "fb3838c349351f93ae986a21c29b83bd4a128591313c74450fcc2fc1907e9bb4",
       "bytes": 1807,
       "checks": [
@@ -9896,7 +11303,7 @@
     {
       "family": "KCML-CLOSURE-RESOURCE",
       "path": "closure/audit/structural-closure.json",
-      "line": 660402,
+      "line": 661554,
       "sha256": "60a50f16648f7652e4c36f2135159193147fc8b20fed0d601e27618a36116c8e",
       "bytes": 1429,
       "checks": [
@@ -9910,7 +11317,7 @@
     {
       "family": "KCML-CLOSURE-RESOURCE",
       "path": "closure/scripts/verify_final_closure.py",
-      "line": 660439,
+      "line": 661591,
       "sha256": "da7ed1ec00e9d7ee25f689a95aa33f6ac9bb0073fb50dd0af890a0f3cb1a5514",
       "bytes": 8423,
       "checks": [
@@ -9924,9 +11331,9 @@
     {
       "family": "KCML-EXPERIENCE-RESOURCE",
       "path": "ui/contracts/live-experience.json",
-      "line": 660563,
-      "sha256": "1880dd21044e628566b757a3b587bd7cfe62c2049621ffa07132ef3eed7e7b81",
-      "bytes": 422392,
+      "line": 661715,
+      "sha256": "2c9f41770c7ea1238cc5902a2c8f387f32c3bc801d8c7ad1fca31d5f2c200233",
+      "bytes": 422528,
       "checks": [
         "UTF8",
         "JSON_PARSE"
@@ -9938,7 +11345,7 @@
     {
       "family": "KCML-R17-RESOURCE",
       "path": "r17/audit/pre-freeze-findings.json",
-      "line": 668430,
+      "line": 669586,
       "sha256": "ce4dfdc53f00d93d450f8ca35a0986eb0b8d952b12b3f1328137db494a9f575e",
       "bytes": 4603,
       "checks": [
@@ -9952,7 +11359,7 @@
     {
       "family": "KCML-R17-RESOURCE",
       "path": "r17/contracts/ubuntu-compatibility-baseline.json",
-      "line": 668508,
+      "line": 669664,
       "sha256": "7eb70389994e1d7d6dc3e4415ec5cd7a5bf46cb9a42eea7938593a9eb5b48267",
       "bytes": 2066,
       "checks": [
@@ -9966,7 +11373,7 @@
     {
       "family": "KCML-R17-RESOURCE",
       "path": "r17/contracts/pgdg-source-contract.json",
-      "line": 668572,
+      "line": 669728,
       "sha256": "2993f5fa59e33ad3ffecac858314818ee4bfbca7e9bd71b7643ed7ec9360afe8",
       "bytes": 1304,
       "checks": [
@@ -9980,7 +11387,7 @@
     {
       "family": "KCML-R17-RESOURCE",
       "path": "r17/contracts/mcp-runtime-compatibility.json",
-      "line": 668609,
+      "line": 669765,
       "sha256": "8538d8d76e6340a39c20c369ddd30e969b9d0f384eeaa6ed459104a18e98a9cd",
       "bytes": 1600,
       "checks": [
@@ -9994,7 +11401,7 @@
     {
       "family": "KCML-R17-RESOURCE",
       "path": "r17/contracts/typescript-compatibility.json",
-      "line": 668656,
+      "line": 669812,
       "sha256": "e734e2b1e5263572220e59c2573e3a15c5ae0367f9d82cf3233611c9a8755d37",
       "bytes": 839,
       "checks": [
@@ -10008,7 +11415,7 @@
     {
       "family": "KCML-R17-RESOURCE",
       "path": "r17/audit/pre-freeze-acceptance.json",
-      "line": 668677,
+      "line": 669833,
       "sha256": "3108a21ebd97eb16c615f57464347bd82fbd82f378ae44c6580cd2a150e59d4c",
       "bytes": 1275,
       "checks": [
@@ -10022,7 +11429,7 @@
     {
       "family": "KCML-R17-RESOURCE",
       "path": "r17/scripts/verify_r17.py",
-      "line": 668714,
+      "line": 669870,
       "sha256": "53a1bd0b811343ef027ad272742540904f86d28973118be2eea948696550b025",
       "bytes": 4468,
       "checks": [
@@ -10311,7 +11718,7 @@
   ],
   "scope": "All package files and direct embedded resources. Structural results do not imply semantic or visual closure.",
   "summary": {
-    "files": 373,
+    "files": 467,
     "directEmbeddedResources": 320,
     "decodedCapsuleFiles": 21,
     "structuralFailures": 0,

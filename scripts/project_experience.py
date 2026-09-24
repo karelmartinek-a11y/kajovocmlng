@@ -11,6 +11,13 @@ def project(check=False):
     item = load_resource(PATH, 'KCML-EXPERIENCE-RESOURCE')
     contract = json.loads(item['raw'])
     outputs = {'01_UI_CONTRACT/' + PATH: item['raw']}
+    # Both contracts are embedded in the canonical experience resource so the
+    # standalone files consumed by the UI are reproducible projections. They
+    # are deliberately distinct from the presentation/experience schemas.
+    outputs['01_UI_CONTRACT/ui/contracts/live-event.schema.json'] = (
+        json.dumps(contract['liveStreamSchema'], ensure_ascii=False, indent=2)+'\n').encode()
+    outputs['01_UI_CONTRACT/ui/contracts/history-query.schema.json'] = (
+        json.dumps(contract['observability']['historyQuerySchema'], ensure_ascii=False, indent=2)+'\n').encode()
     errors=load_resource('ui/contracts/error-presentation.json','KCML-ERRORS-RESOURCE')
     error_contract=json.loads(errors['raw'])
     outputs['01_UI_CONTRACT/ui/contracts/error-presentation.json']=errors['raw']

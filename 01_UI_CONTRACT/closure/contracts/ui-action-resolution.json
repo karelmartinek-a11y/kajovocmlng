@@ -662,8 +662,7 @@
       "candidateOperationIds": [
         "component.repair.request",
         "browser.automation.repair",
-        "agent.repair.request",
-        "monitor.repair.enqueue"
+        "agent.repair.request"
       ],
       "canonicalOperationId": null,
       "discriminator": "selected object kind and current repair action registry row",
@@ -852,7 +851,7 @@
       "actionId": "monitoring.repair",
       "argumentProfile": {},
       "bindingKind": "CANONICAL_OPERATION",
-      "canonicalOperationId": "monitor.repair.enqueue",
+      "canonicalOperationId": "component.repair.request",
       "mutatesServer": true,
       "note": "",
       "pageId": "monitoring"

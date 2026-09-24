@@ -1,0 +1,2088 @@
+[
+  {
+    "case": "browser.annotation.create/request/positive",
+    "expectedValid": true,
+    "value": {
+      "sourceKind": "OWNER",
+      "purpose": "LOOK_HERE",
+      "markType": "FREEHAND",
+      "styleToken": "AUTHOR_DEFAULT",
+      "note": "sample",
+      "anchor": {
+        "sessionId": "00000000-0000-4000-8000-000000000001",
+        "allocationGeneration": "0",
+        "hostGeneration": "0",
+        "streamEpoch": "0",
+        "pageId": "00000000-0000-4000-8000-000000000001",
+        "pageGeneration": "0",
+        "frameId": "00000000-0000-4000-8000-000000000001",
+        "frameAttachmentEpoch": "0",
+        "documentId": "00000000-0000-4000-8000-000000000001",
+        "documentEpoch": "0",
+        "viewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "anchorKind": "SEMANTIC_TARGET",
+        "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+        "targetReferenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "semanticFingerprintDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+        "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "resolutionPolicy": "EXACT_DOCUMENT_ONLY"
+      },
+      "geometry": {
+        "coordinateSpace": "NORMALIZED_CAPTURE_VIEWPORT",
+        "points": [
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "strokeWidthCssPx": 1
+      },
+      "sourceMessageId": "00000000-0000-4000-8000-000000000001",
+      "expectedDocumentEpoch": "0",
+      "expectedViewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "case": "browser.annotation.create/request/wrong-type",
+    "expectedValid": false,
+    "value": 42
+  },
+  {
+    "case": "browser.annotation.create/request/null",
+    "expectedValid": false,
+    "value": null
+  },
+  {
+    "case": "browser.annotation.create/request/unknown-field",
+    "expectedValid": false,
+    "value": {
+      "sourceKind": "OWNER",
+      "purpose": "LOOK_HERE",
+      "markType": "FREEHAND",
+      "styleToken": "AUTHOR_DEFAULT",
+      "note": "sample",
+      "anchor": {
+        "sessionId": "00000000-0000-4000-8000-000000000001",
+        "allocationGeneration": "0",
+        "hostGeneration": "0",
+        "streamEpoch": "0",
+        "pageId": "00000000-0000-4000-8000-000000000001",
+        "pageGeneration": "0",
+        "frameId": "00000000-0000-4000-8000-000000000001",
+        "frameAttachmentEpoch": "0",
+        "documentId": "00000000-0000-4000-8000-000000000001",
+        "documentEpoch": "0",
+        "viewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "anchorKind": "SEMANTIC_TARGET",
+        "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+        "targetReferenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "semanticFingerprintDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+        "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "resolutionPolicy": "EXACT_DOCUMENT_ONLY"
+      },
+      "geometry": {
+        "coordinateSpace": "NORMALIZED_CAPTURE_VIEWPORT",
+        "points": [
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "strokeWidthCssPx": 1
+      },
+      "sourceMessageId": "00000000-0000-4000-8000-000000000001",
+      "expectedDocumentEpoch": "0",
+      "expectedViewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "NOT_A_DECLARED_FIELD": true
+    }
+  },
+  {
+    "case": "browser.annotation.create/request/missing-required",
+    "expectedValid": false,
+    "value": {
+      "purpose": "LOOK_HERE",
+      "markType": "FREEHAND",
+      "styleToken": "AUTHOR_DEFAULT",
+      "note": "sample",
+      "anchor": {
+        "sessionId": "00000000-0000-4000-8000-000000000001",
+        "allocationGeneration": "0",
+        "hostGeneration": "0",
+        "streamEpoch": "0",
+        "pageId": "00000000-0000-4000-8000-000000000001",
+        "pageGeneration": "0",
+        "frameId": "00000000-0000-4000-8000-000000000001",
+        "frameAttachmentEpoch": "0",
+        "documentId": "00000000-0000-4000-8000-000000000001",
+        "documentEpoch": "0",
+        "viewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "anchorKind": "SEMANTIC_TARGET",
+        "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+        "targetReferenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "semanticFingerprintDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+        "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "resolutionPolicy": "EXACT_DOCUMENT_ONLY"
+      },
+      "geometry": {
+        "coordinateSpace": "NORMALIZED_CAPTURE_VIEWPORT",
+        "points": [
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "strokeWidthCssPx": 1
+      },
+      "sourceMessageId": "00000000-0000-4000-8000-000000000001",
+      "expectedDocumentEpoch": "0",
+      "expectedViewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "case": "browser.annotation.create/request/variant",
+    "expectedValid": false,
+    "value": {
+      "sourceKind": "NOT_A_DECLARED_VARIANT",
+      "purpose": "LOOK_HERE",
+      "markType": "FREEHAND",
+      "styleToken": "AUTHOR_DEFAULT",
+      "note": "sample",
+      "anchor": {
+        "sessionId": "00000000-0000-4000-8000-000000000001",
+        "allocationGeneration": "0",
+        "hostGeneration": "0",
+        "streamEpoch": "0",
+        "pageId": "00000000-0000-4000-8000-000000000001",
+        "pageGeneration": "0",
+        "frameId": "00000000-0000-4000-8000-000000000001",
+        "frameAttachmentEpoch": "0",
+        "documentId": "00000000-0000-4000-8000-000000000001",
+        "documentEpoch": "0",
+        "viewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "anchorKind": "SEMANTIC_TARGET",
+        "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+        "targetReferenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "semanticFingerprintDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+        "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "resolutionPolicy": "EXACT_DOCUMENT_ONLY"
+      },
+      "geometry": {
+        "coordinateSpace": "NORMALIZED_CAPTURE_VIEWPORT",
+        "points": [
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "strokeWidthCssPx": 1
+      },
+      "sourceMessageId": "00000000-0000-4000-8000-000000000001",
+      "expectedDocumentEpoch": "0",
+      "expectedViewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "case": "browser.annotation.create/response/positive",
+    "expectedValid": true,
+    "value": {
+      "annotation": {
+        "annotationId": "00000000-0000-4000-8000-000000000001",
+        "sessionId": "00000000-0000-4000-8000-000000000001",
+        "creatorKind": "OWNER",
+        "creatorConsumerId": "00000000-0000-4000-8000-000000000001",
+        "sourceMessageId": "00000000-0000-4000-8000-000000000001",
+        "purpose": "LOOK_HERE",
+        "markType": "FREEHAND",
+        "styleToken": "AUTHOR_DEFAULT",
+        "note": "sample",
+        "anchor": {
+          "sessionId": "00000000-0000-4000-8000-000000000001",
+          "allocationGeneration": "0",
+          "hostGeneration": "0",
+          "streamEpoch": "0",
+          "pageId": "00000000-0000-4000-8000-000000000001",
+          "pageGeneration": "0",
+          "frameId": "00000000-0000-4000-8000-000000000001",
+          "frameAttachmentEpoch": "0",
+          "documentId": "00000000-0000-4000-8000-000000000001",
+          "documentEpoch": "0",
+          "viewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "anchorKind": "SEMANTIC_TARGET",
+          "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+          "targetReferenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "semanticFingerprintDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+          "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "resolutionPolicy": "EXACT_DOCUMENT_ONLY"
+        },
+        "geometry": {
+          "coordinateSpace": "NORMALIZED_CAPTURE_VIEWPORT",
+          "points": [
+            {
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "boundingBox": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "strokeWidthCssPx": 1
+        },
+        "status": "ACTIVE",
+        "supersedesAnnotationId": "00000000-0000-4000-8000-000000000001",
+        "createdAt": "2026-09-23T12:00:00.000Z",
+        "tombstonedAt": "2026-09-23T12:00:00.000Z",
+        "annotationDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "focusRequest": {
+        "focusRequestId": "00000000-0000-4000-8000-000000000001",
+        "sessionId": "00000000-0000-4000-8000-000000000001",
+        "requesterKind": "OWNER",
+        "requesterConsumerId": "00000000-0000-4000-8000-000000000001",
+        "recipientKind": "OWNER",
+        "recipientConsumerId": "00000000-0000-4000-8000-000000000001",
+        "annotationIds": [
+          "00000000-0000-4000-8000-000000000001"
+        ],
+        "message": "sample",
+        "requiresAcknowledgement": false,
+        "status": "OPEN",
+        "createdAt": "2026-09-23T12:00:00.000Z",
+        "acknowledgedAt": "2026-09-23T12:00:00.000Z",
+        "resolvedAt": "2026-09-23T12:00:00.000Z",
+        "requestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "browser.annotation.create/response/wrong-type",
+    "expectedValid": false,
+    "value": 42
+  },
+  {
+    "case": "browser.annotation.create/response/null",
+    "expectedValid": false,
+    "value": null
+  },
+  {
+    "case": "browser.annotation.create/response/unknown-field",
+    "expectedValid": false,
+    "value": {
+      "annotation": {
+        "annotationId": "00000000-0000-4000-8000-000000000001",
+        "sessionId": "00000000-0000-4000-8000-000000000001",
+        "creatorKind": "OWNER",
+        "creatorConsumerId": "00000000-0000-4000-8000-000000000001",
+        "sourceMessageId": "00000000-0000-4000-8000-000000000001",
+        "purpose": "LOOK_HERE",
+        "markType": "FREEHAND",
+        "styleToken": "AUTHOR_DEFAULT",
+        "note": "sample",
+        "anchor": {
+          "sessionId": "00000000-0000-4000-8000-000000000001",
+          "allocationGeneration": "0",
+          "hostGeneration": "0",
+          "streamEpoch": "0",
+          "pageId": "00000000-0000-4000-8000-000000000001",
+          "pageGeneration": "0",
+          "frameId": "00000000-0000-4000-8000-000000000001",
+          "frameAttachmentEpoch": "0",
+          "documentId": "00000000-0000-4000-8000-000000000001",
+          "documentEpoch": "0",
+          "viewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "anchorKind": "SEMANTIC_TARGET",
+          "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+          "targetReferenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "semanticFingerprintDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+          "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "resolutionPolicy": "EXACT_DOCUMENT_ONLY"
+        },
+        "geometry": {
+          "coordinateSpace": "NORMALIZED_CAPTURE_VIEWPORT",
+          "points": [
+            {
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "boundingBox": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "strokeWidthCssPx": 1
+        },
+        "status": "ACTIVE",
+        "supersedesAnnotationId": "00000000-0000-4000-8000-000000000001",
+        "createdAt": "2026-09-23T12:00:00.000Z",
+        "tombstonedAt": "2026-09-23T12:00:00.000Z",
+        "annotationDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "focusRequest": {
+        "focusRequestId": "00000000-0000-4000-8000-000000000001",
+        "sessionId": "00000000-0000-4000-8000-000000000001",
+        "requesterKind": "OWNER",
+        "requesterConsumerId": "00000000-0000-4000-8000-000000000001",
+        "recipientKind": "OWNER",
+        "recipientConsumerId": "00000000-0000-4000-8000-000000000001",
+        "annotationIds": [
+          "00000000-0000-4000-8000-000000000001"
+        ],
+        "message": "sample",
+        "requiresAcknowledgement": false,
+        "status": "OPEN",
+        "createdAt": "2026-09-23T12:00:00.000Z",
+        "acknowledgedAt": "2026-09-23T12:00:00.000Z",
+        "resolvedAt": "2026-09-23T12:00:00.000Z",
+        "requestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "NOT_A_DECLARED_FIELD": true
+    }
+  },
+  {
+    "case": "browser.annotation.create/response/missing-required",
+    "expectedValid": false,
+    "value": {
+      "focusRequest": {
+        "focusRequestId": "00000000-0000-4000-8000-000000000001",
+        "sessionId": "00000000-0000-4000-8000-000000000001",
+        "requesterKind": "OWNER",
+        "requesterConsumerId": "00000000-0000-4000-8000-000000000001",
+        "recipientKind": "OWNER",
+        "recipientConsumerId": "00000000-0000-4000-8000-000000000001",
+        "annotationIds": [
+          "00000000-0000-4000-8000-000000000001"
+        ],
+        "message": "sample",
+        "requiresAcknowledgement": false,
+        "status": "OPEN",
+        "createdAt": "2026-09-23T12:00:00.000Z",
+        "acknowledgedAt": "2026-09-23T12:00:00.000Z",
+        "resolvedAt": "2026-09-23T12:00:00.000Z",
+        "requestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "browser.annotation.list/request/positive",
+    "expectedValid": true,
+    "value": {}
+  },
+  {
+    "case": "browser.annotation.list/request/wrong-type",
+    "expectedValid": false,
+    "value": 42
+  },
+  {
+    "case": "browser.annotation.list/request/null",
+    "expectedValid": false,
+    "value": null
+  },
+  {
+    "case": "browser.annotation.list/request/unknown-field",
+    "expectedValid": false,
+    "value": {
+      "NOT_A_DECLARED_FIELD": true
+    }
+  },
+  {
+    "case": "browser.annotation.list/request/unknown-query",
+    "expectedValid": false,
+    "value": {
+      "NOT_A_DECLARED_FILTER": "x"
+    }
+  },
+  {
+    "case": "browser.annotation.list/response/positive",
+    "expectedValid": true,
+    "value": []
+  },
+  {
+    "case": "browser.annotation.list/response/wrong-type",
+    "expectedValid": false,
+    "value": 42
+  },
+  {
+    "case": "browser.annotation.list/response/null",
+    "expectedValid": false,
+    "value": null
+  },
+  {
+    "case": "browser.annotation.tombstone/request/positive",
+    "expectedValid": true,
+    "value": {
+      "expectedStateVersion": "0",
+      "reason": "sample"
+    }
+  },
+  {
+    "case": "browser.annotation.tombstone/request/wrong-type",
+    "expectedValid": false,
+    "value": 42
+  },
+  {
+    "case": "browser.annotation.tombstone/request/null",
+    "expectedValid": false,
+    "value": null
+  },
+  {
+    "case": "browser.annotation.tombstone/request/unknown-field",
+    "expectedValid": false,
+    "value": {
+      "expectedStateVersion": "0",
+      "reason": "sample",
+      "NOT_A_DECLARED_FIELD": true
+    }
+  },
+  {
+    "case": "browser.annotation.tombstone/request/missing-required",
+    "expectedValid": false,
+    "value": {
+      "reason": "sample"
+    }
+  },
+  {
+    "case": "browser.annotation.tombstone/response/positive",
+    "expectedValid": true,
+    "value": {
+      "annotationId": "00000000-0000-4000-8000-000000000001",
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "creatorKind": "OWNER",
+      "creatorConsumerId": "00000000-0000-4000-8000-000000000001",
+      "sourceMessageId": "00000000-0000-4000-8000-000000000001",
+      "purpose": "LOOK_HERE",
+      "markType": "FREEHAND",
+      "styleToken": "AUTHOR_DEFAULT",
+      "note": "sample",
+      "anchor": {
+        "sessionId": "00000000-0000-4000-8000-000000000001",
+        "allocationGeneration": "0",
+        "hostGeneration": "0",
+        "streamEpoch": "0",
+        "pageId": "00000000-0000-4000-8000-000000000001",
+        "pageGeneration": "0",
+        "frameId": "00000000-0000-4000-8000-000000000001",
+        "frameAttachmentEpoch": "0",
+        "documentId": "00000000-0000-4000-8000-000000000001",
+        "documentEpoch": "0",
+        "viewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "anchorKind": "SEMANTIC_TARGET",
+        "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+        "targetReferenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "semanticFingerprintDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+        "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "resolutionPolicy": "EXACT_DOCUMENT_ONLY"
+      },
+      "geometry": {
+        "coordinateSpace": "NORMALIZED_CAPTURE_VIEWPORT",
+        "points": [
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "strokeWidthCssPx": 1
+      },
+      "status": "ACTIVE",
+      "supersedesAnnotationId": "00000000-0000-4000-8000-000000000001",
+      "createdAt": "2026-09-23T12:00:00.000Z",
+      "tombstonedAt": "2026-09-23T12:00:00.000Z",
+      "annotationDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "case": "browser.annotation.tombstone/response/wrong-type",
+    "expectedValid": false,
+    "value": 42
+  },
+  {
+    "case": "browser.annotation.tombstone/response/null",
+    "expectedValid": false,
+    "value": null
+  },
+  {
+    "case": "browser.annotation.tombstone/response/unknown-field",
+    "expectedValid": false,
+    "value": {
+      "annotationId": "00000000-0000-4000-8000-000000000001",
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "creatorKind": "OWNER",
+      "creatorConsumerId": "00000000-0000-4000-8000-000000000001",
+      "sourceMessageId": "00000000-0000-4000-8000-000000000001",
+      "purpose": "LOOK_HERE",
+      "markType": "FREEHAND",
+      "styleToken": "AUTHOR_DEFAULT",
+      "note": "sample",
+      "anchor": {
+        "sessionId": "00000000-0000-4000-8000-000000000001",
+        "allocationGeneration": "0",
+        "hostGeneration": "0",
+        "streamEpoch": "0",
+        "pageId": "00000000-0000-4000-8000-000000000001",
+        "pageGeneration": "0",
+        "frameId": "00000000-0000-4000-8000-000000000001",
+        "frameAttachmentEpoch": "0",
+        "documentId": "00000000-0000-4000-8000-000000000001",
+        "documentEpoch": "0",
+        "viewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "anchorKind": "SEMANTIC_TARGET",
+        "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+        "targetReferenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "semanticFingerprintDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+        "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "resolutionPolicy": "EXACT_DOCUMENT_ONLY"
+      },
+      "geometry": {
+        "coordinateSpace": "NORMALIZED_CAPTURE_VIEWPORT",
+        "points": [
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "strokeWidthCssPx": 1
+      },
+      "status": "ACTIVE",
+      "supersedesAnnotationId": "00000000-0000-4000-8000-000000000001",
+      "createdAt": "2026-09-23T12:00:00.000Z",
+      "tombstonedAt": "2026-09-23T12:00:00.000Z",
+      "annotationDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "NOT_A_DECLARED_FIELD": true
+    }
+  },
+  {
+    "case": "browser.annotation.tombstone/response/missing-required",
+    "expectedValid": false,
+    "value": {
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "creatorKind": "OWNER",
+      "creatorConsumerId": "00000000-0000-4000-8000-000000000001",
+      "sourceMessageId": "00000000-0000-4000-8000-000000000001",
+      "purpose": "LOOK_HERE",
+      "markType": "FREEHAND",
+      "styleToken": "AUTHOR_DEFAULT",
+      "note": "sample",
+      "anchor": {
+        "sessionId": "00000000-0000-4000-8000-000000000001",
+        "allocationGeneration": "0",
+        "hostGeneration": "0",
+        "streamEpoch": "0",
+        "pageId": "00000000-0000-4000-8000-000000000001",
+        "pageGeneration": "0",
+        "frameId": "00000000-0000-4000-8000-000000000001",
+        "frameAttachmentEpoch": "0",
+        "documentId": "00000000-0000-4000-8000-000000000001",
+        "documentEpoch": "0",
+        "viewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "anchorKind": "SEMANTIC_TARGET",
+        "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+        "targetReferenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "semanticFingerprintDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+        "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "resolutionPolicy": "EXACT_DOCUMENT_ONLY"
+      },
+      "geometry": {
+        "coordinateSpace": "NORMALIZED_CAPTURE_VIEWPORT",
+        "points": [
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "strokeWidthCssPx": 1
+      },
+      "status": "ACTIVE",
+      "supersedesAnnotationId": "00000000-0000-4000-8000-000000000001",
+      "createdAt": "2026-09-23T12:00:00.000Z",
+      "tombstonedAt": "2026-09-23T12:00:00.000Z",
+      "annotationDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "case": "browser.annotation.reanchor/request/positive",
+    "expectedValid": true,
+    "value": {
+      "expectedSourceStateVersion": "0",
+      "successor": {
+        "sourceKind": "OWNER",
+        "purpose": "LOOK_HERE",
+        "markType": "FREEHAND",
+        "styleToken": "AUTHOR_DEFAULT",
+        "note": "sample",
+        "anchor": {
+          "sessionId": "00000000-0000-4000-8000-000000000001",
+          "allocationGeneration": "0",
+          "hostGeneration": "0",
+          "streamEpoch": "0",
+          "pageId": "00000000-0000-4000-8000-000000000001",
+          "pageGeneration": "0",
+          "frameId": "00000000-0000-4000-8000-000000000001",
+          "frameAttachmentEpoch": "0",
+          "documentId": "00000000-0000-4000-8000-000000000001",
+          "documentEpoch": "0",
+          "viewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "anchorKind": "SEMANTIC_TARGET",
+          "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+          "targetReferenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "semanticFingerprintDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+          "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "resolutionPolicy": "EXACT_DOCUMENT_ONLY"
+        },
+        "geometry": {
+          "coordinateSpace": "NORMALIZED_CAPTURE_VIEWPORT",
+          "points": [
+            {
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "boundingBox": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "strokeWidthCssPx": 1
+        },
+        "sourceMessageId": "00000000-0000-4000-8000-000000000001",
+        "expectedDocumentEpoch": "0",
+        "expectedViewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "browser.annotation.reanchor/request/wrong-type",
+    "expectedValid": false,
+    "value": 42
+  },
+  {
+    "case": "browser.annotation.reanchor/request/null",
+    "expectedValid": false,
+    "value": null
+  },
+  {
+    "case": "browser.annotation.reanchor/request/unknown-field",
+    "expectedValid": false,
+    "value": {
+      "expectedSourceStateVersion": "0",
+      "successor": {
+        "sourceKind": "OWNER",
+        "purpose": "LOOK_HERE",
+        "markType": "FREEHAND",
+        "styleToken": "AUTHOR_DEFAULT",
+        "note": "sample",
+        "anchor": {
+          "sessionId": "00000000-0000-4000-8000-000000000001",
+          "allocationGeneration": "0",
+          "hostGeneration": "0",
+          "streamEpoch": "0",
+          "pageId": "00000000-0000-4000-8000-000000000001",
+          "pageGeneration": "0",
+          "frameId": "00000000-0000-4000-8000-000000000001",
+          "frameAttachmentEpoch": "0",
+          "documentId": "00000000-0000-4000-8000-000000000001",
+          "documentEpoch": "0",
+          "viewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "anchorKind": "SEMANTIC_TARGET",
+          "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+          "targetReferenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "semanticFingerprintDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+          "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "resolutionPolicy": "EXACT_DOCUMENT_ONLY"
+        },
+        "geometry": {
+          "coordinateSpace": "NORMALIZED_CAPTURE_VIEWPORT",
+          "points": [
+            {
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "boundingBox": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "strokeWidthCssPx": 1
+        },
+        "sourceMessageId": "00000000-0000-4000-8000-000000000001",
+        "expectedDocumentEpoch": "0",
+        "expectedViewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "NOT_A_DECLARED_FIELD": true
+    }
+  },
+  {
+    "case": "browser.annotation.reanchor/request/missing-required",
+    "expectedValid": false,
+    "value": {
+      "successor": {
+        "sourceKind": "OWNER",
+        "purpose": "LOOK_HERE",
+        "markType": "FREEHAND",
+        "styleToken": "AUTHOR_DEFAULT",
+        "note": "sample",
+        "anchor": {
+          "sessionId": "00000000-0000-4000-8000-000000000001",
+          "allocationGeneration": "0",
+          "hostGeneration": "0",
+          "streamEpoch": "0",
+          "pageId": "00000000-0000-4000-8000-000000000001",
+          "pageGeneration": "0",
+          "frameId": "00000000-0000-4000-8000-000000000001",
+          "frameAttachmentEpoch": "0",
+          "documentId": "00000000-0000-4000-8000-000000000001",
+          "documentEpoch": "0",
+          "viewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "anchorKind": "SEMANTIC_TARGET",
+          "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+          "targetReferenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "semanticFingerprintDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+          "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "resolutionPolicy": "EXACT_DOCUMENT_ONLY"
+        },
+        "geometry": {
+          "coordinateSpace": "NORMALIZED_CAPTURE_VIEWPORT",
+          "points": [
+            {
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "boundingBox": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "strokeWidthCssPx": 1
+        },
+        "sourceMessageId": "00000000-0000-4000-8000-000000000001",
+        "expectedDocumentEpoch": "0",
+        "expectedViewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "browser.annotation.reanchor/response/positive",
+    "expectedValid": true,
+    "value": {
+      "annotationId": "00000000-0000-4000-8000-000000000001",
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "creatorKind": "OWNER",
+      "creatorConsumerId": "00000000-0000-4000-8000-000000000001",
+      "sourceMessageId": "00000000-0000-4000-8000-000000000001",
+      "purpose": "LOOK_HERE",
+      "markType": "FREEHAND",
+      "styleToken": "AUTHOR_DEFAULT",
+      "note": "sample",
+      "anchor": {
+        "sessionId": "00000000-0000-4000-8000-000000000001",
+        "allocationGeneration": "0",
+        "hostGeneration": "0",
+        "streamEpoch": "0",
+        "pageId": "00000000-0000-4000-8000-000000000001",
+        "pageGeneration": "0",
+        "frameId": "00000000-0000-4000-8000-000000000001",
+        "frameAttachmentEpoch": "0",
+        "documentId": "00000000-0000-4000-8000-000000000001",
+        "documentEpoch": "0",
+        "viewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "anchorKind": "SEMANTIC_TARGET",
+        "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+        "targetReferenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "semanticFingerprintDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+        "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "resolutionPolicy": "EXACT_DOCUMENT_ONLY"
+      },
+      "geometry": {
+        "coordinateSpace": "NORMALIZED_CAPTURE_VIEWPORT",
+        "points": [
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "strokeWidthCssPx": 1
+      },
+      "status": "ACTIVE",
+      "supersedesAnnotationId": "00000000-0000-4000-8000-000000000001",
+      "createdAt": "2026-09-23T12:00:00.000Z",
+      "tombstonedAt": "2026-09-23T12:00:00.000Z",
+      "annotationDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "case": "browser.annotation.reanchor/response/wrong-type",
+    "expectedValid": false,
+    "value": 42
+  },
+  {
+    "case": "browser.annotation.reanchor/response/null",
+    "expectedValid": false,
+    "value": null
+  },
+  {
+    "case": "browser.annotation.reanchor/response/unknown-field",
+    "expectedValid": false,
+    "value": {
+      "annotationId": "00000000-0000-4000-8000-000000000001",
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "creatorKind": "OWNER",
+      "creatorConsumerId": "00000000-0000-4000-8000-000000000001",
+      "sourceMessageId": "00000000-0000-4000-8000-000000000001",
+      "purpose": "LOOK_HERE",
+      "markType": "FREEHAND",
+      "styleToken": "AUTHOR_DEFAULT",
+      "note": "sample",
+      "anchor": {
+        "sessionId": "00000000-0000-4000-8000-000000000001",
+        "allocationGeneration": "0",
+        "hostGeneration": "0",
+        "streamEpoch": "0",
+        "pageId": "00000000-0000-4000-8000-000000000001",
+        "pageGeneration": "0",
+        "frameId": "00000000-0000-4000-8000-000000000001",
+        "frameAttachmentEpoch": "0",
+        "documentId": "00000000-0000-4000-8000-000000000001",
+        "documentEpoch": "0",
+        "viewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "anchorKind": "SEMANTIC_TARGET",
+        "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+        "targetReferenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "semanticFingerprintDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+        "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "resolutionPolicy": "EXACT_DOCUMENT_ONLY"
+      },
+      "geometry": {
+        "coordinateSpace": "NORMALIZED_CAPTURE_VIEWPORT",
+        "points": [
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "strokeWidthCssPx": 1
+      },
+      "status": "ACTIVE",
+      "supersedesAnnotationId": "00000000-0000-4000-8000-000000000001",
+      "createdAt": "2026-09-23T12:00:00.000Z",
+      "tombstonedAt": "2026-09-23T12:00:00.000Z",
+      "annotationDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "NOT_A_DECLARED_FIELD": true
+    }
+  },
+  {
+    "case": "browser.annotation.reanchor/response/missing-required",
+    "expectedValid": false,
+    "value": {
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "creatorKind": "OWNER",
+      "creatorConsumerId": "00000000-0000-4000-8000-000000000001",
+      "sourceMessageId": "00000000-0000-4000-8000-000000000001",
+      "purpose": "LOOK_HERE",
+      "markType": "FREEHAND",
+      "styleToken": "AUTHOR_DEFAULT",
+      "note": "sample",
+      "anchor": {
+        "sessionId": "00000000-0000-4000-8000-000000000001",
+        "allocationGeneration": "0",
+        "hostGeneration": "0",
+        "streamEpoch": "0",
+        "pageId": "00000000-0000-4000-8000-000000000001",
+        "pageGeneration": "0",
+        "frameId": "00000000-0000-4000-8000-000000000001",
+        "frameAttachmentEpoch": "0",
+        "documentId": "00000000-0000-4000-8000-000000000001",
+        "documentEpoch": "0",
+        "viewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "captureFrameDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "anchorKind": "SEMANTIC_TARGET",
+        "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+        "targetReferenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "semanticFingerprintDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+        "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "resolutionPolicy": "EXACT_DOCUMENT_ONLY"
+      },
+      "geometry": {
+        "coordinateSpace": "NORMALIZED_CAPTURE_VIEWPORT",
+        "points": [
+          {
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "boundingBox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "strokeWidthCssPx": 1
+      },
+      "status": "ACTIVE",
+      "supersedesAnnotationId": "00000000-0000-4000-8000-000000000001",
+      "createdAt": "2026-09-23T12:00:00.000Z",
+      "tombstonedAt": "2026-09-23T12:00:00.000Z",
+      "annotationDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "case": "browser.focus.request/request/positive",
+    "expectedValid": true,
+    "value": {
+      "annotations": [
+        {
+          "annotationId": "00000000-0000-4000-8000-000000000001",
+          "annotationDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "recipientKind": "OWNER",
+      "recipientConsumerId": "00000000-0000-4000-8000-000000000001",
+      "message": "sample",
+      "requiresAcknowledgement": false
+    }
+  },
+  {
+    "case": "browser.focus.request/request/wrong-type",
+    "expectedValid": false,
+    "value": 42
+  },
+  {
+    "case": "browser.focus.request/request/null",
+    "expectedValid": false,
+    "value": null
+  },
+  {
+    "case": "browser.focus.request/request/unknown-field",
+    "expectedValid": false,
+    "value": {
+      "annotations": [
+        {
+          "annotationId": "00000000-0000-4000-8000-000000000001",
+          "annotationDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "recipientKind": "OWNER",
+      "recipientConsumerId": "00000000-0000-4000-8000-000000000001",
+      "message": "sample",
+      "requiresAcknowledgement": false,
+      "NOT_A_DECLARED_FIELD": true
+    }
+  },
+  {
+    "case": "browser.focus.request/request/missing-required",
+    "expectedValid": false,
+    "value": {
+      "recipientKind": "OWNER",
+      "recipientConsumerId": "00000000-0000-4000-8000-000000000001",
+      "message": "sample",
+      "requiresAcknowledgement": false
+    }
+  },
+  {
+    "case": "browser.focus.request/response/positive",
+    "expectedValid": true,
+    "value": {
+      "focusRequestId": "00000000-0000-4000-8000-000000000001",
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "requesterKind": "OWNER",
+      "requesterConsumerId": "00000000-0000-4000-8000-000000000001",
+      "recipientKind": "OWNER",
+      "recipientConsumerId": "00000000-0000-4000-8000-000000000001",
+      "annotationIds": [
+        "00000000-0000-4000-8000-000000000001"
+      ],
+      "message": "sample",
+      "requiresAcknowledgement": false,
+      "status": "OPEN",
+      "createdAt": "2026-09-23T12:00:00.000Z",
+      "acknowledgedAt": "2026-09-23T12:00:00.000Z",
+      "resolvedAt": "2026-09-23T12:00:00.000Z",
+      "requestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "case": "browser.focus.request/response/wrong-type",
+    "expectedValid": false,
+    "value": 42
+  },
+  {
+    "case": "browser.focus.request/response/null",
+    "expectedValid": false,
+    "value": null
+  },
+  {
+    "case": "browser.focus.request/response/unknown-field",
+    "expectedValid": false,
+    "value": {
+      "focusRequestId": "00000000-0000-4000-8000-000000000001",
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "requesterKind": "OWNER",
+      "requesterConsumerId": "00000000-0000-4000-8000-000000000001",
+      "recipientKind": "OWNER",
+      "recipientConsumerId": "00000000-0000-4000-8000-000000000001",
+      "annotationIds": [
+        "00000000-0000-4000-8000-000000000001"
+      ],
+      "message": "sample",
+      "requiresAcknowledgement": false,
+      "status": "OPEN",
+      "createdAt": "2026-09-23T12:00:00.000Z",
+      "acknowledgedAt": "2026-09-23T12:00:00.000Z",
+      "resolvedAt": "2026-09-23T12:00:00.000Z",
+      "requestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "NOT_A_DECLARED_FIELD": true
+    }
+  },
+  {
+    "case": "browser.focus.request/response/missing-required",
+    "expectedValid": false,
+    "value": {
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "requesterKind": "OWNER",
+      "requesterConsumerId": "00000000-0000-4000-8000-000000000001",
+      "recipientKind": "OWNER",
+      "recipientConsumerId": "00000000-0000-4000-8000-000000000001",
+      "annotationIds": [
+        "00000000-0000-4000-8000-000000000001"
+      ],
+      "message": "sample",
+      "requiresAcknowledgement": false,
+      "status": "OPEN",
+      "createdAt": "2026-09-23T12:00:00.000Z",
+      "acknowledgedAt": "2026-09-23T12:00:00.000Z",
+      "resolvedAt": "2026-09-23T12:00:00.000Z",
+      "requestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "case": "browser.focus.acknowledge/request/positive",
+    "expectedValid": true,
+    "value": {
+      "expectedStateVersion": "0",
+      "kind": "SEEN",
+      "message": "sample"
+    }
+  },
+  {
+    "case": "browser.focus.acknowledge/request/wrong-type",
+    "expectedValid": false,
+    "value": 42
+  },
+  {
+    "case": "browser.focus.acknowledge/request/null",
+    "expectedValid": false,
+    "value": null
+  },
+  {
+    "case": "browser.focus.acknowledge/request/unknown-field",
+    "expectedValid": false,
+    "value": {
+      "expectedStateVersion": "0",
+      "kind": "SEEN",
+      "message": "sample",
+      "NOT_A_DECLARED_FIELD": true
+    }
+  },
+  {
+    "case": "browser.focus.acknowledge/request/missing-required",
+    "expectedValid": false,
+    "value": {
+      "kind": "SEEN",
+      "message": "sample"
+    }
+  },
+  {
+    "case": "browser.focus.acknowledge/response/positive",
+    "expectedValid": true,
+    "value": {
+      "focusRequestId": "00000000-0000-4000-8000-000000000001",
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "requesterKind": "OWNER",
+      "requesterConsumerId": "00000000-0000-4000-8000-000000000001",
+      "recipientKind": "OWNER",
+      "recipientConsumerId": "00000000-0000-4000-8000-000000000001",
+      "annotationIds": [
+        "00000000-0000-4000-8000-000000000001"
+      ],
+      "message": "sample",
+      "requiresAcknowledgement": false,
+      "status": "OPEN",
+      "createdAt": "2026-09-23T12:00:00.000Z",
+      "acknowledgedAt": "2026-09-23T12:00:00.000Z",
+      "resolvedAt": "2026-09-23T12:00:00.000Z",
+      "requestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "case": "browser.focus.acknowledge/response/wrong-type",
+    "expectedValid": false,
+    "value": 42
+  },
+  {
+    "case": "browser.focus.acknowledge/response/null",
+    "expectedValid": false,
+    "value": null
+  },
+  {
+    "case": "browser.focus.acknowledge/response/unknown-field",
+    "expectedValid": false,
+    "value": {
+      "focusRequestId": "00000000-0000-4000-8000-000000000001",
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "requesterKind": "OWNER",
+      "requesterConsumerId": "00000000-0000-4000-8000-000000000001",
+      "recipientKind": "OWNER",
+      "recipientConsumerId": "00000000-0000-4000-8000-000000000001",
+      "annotationIds": [
+        "00000000-0000-4000-8000-000000000001"
+      ],
+      "message": "sample",
+      "requiresAcknowledgement": false,
+      "status": "OPEN",
+      "createdAt": "2026-09-23T12:00:00.000Z",
+      "acknowledgedAt": "2026-09-23T12:00:00.000Z",
+      "resolvedAt": "2026-09-23T12:00:00.000Z",
+      "requestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "NOT_A_DECLARED_FIELD": true
+    }
+  },
+  {
+    "case": "browser.focus.acknowledge/response/missing-required",
+    "expectedValid": false,
+    "value": {
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "requesterKind": "OWNER",
+      "requesterConsumerId": "00000000-0000-4000-8000-000000000001",
+      "recipientKind": "OWNER",
+      "recipientConsumerId": "00000000-0000-4000-8000-000000000001",
+      "annotationIds": [
+        "00000000-0000-4000-8000-000000000001"
+      ],
+      "message": "sample",
+      "requiresAcknowledgement": false,
+      "status": "OPEN",
+      "createdAt": "2026-09-23T12:00:00.000Z",
+      "acknowledgedAt": "2026-09-23T12:00:00.000Z",
+      "resolvedAt": "2026-09-23T12:00:00.000Z",
+      "requestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "case": "browser.focus.resolve/request/positive",
+    "expectedValid": true,
+    "value": {
+      "expectedStateVersion": "0",
+      "message": "sample"
+    }
+  },
+  {
+    "case": "browser.focus.resolve/request/wrong-type",
+    "expectedValid": false,
+    "value": 42
+  },
+  {
+    "case": "browser.focus.resolve/request/null",
+    "expectedValid": false,
+    "value": null
+  },
+  {
+    "case": "browser.focus.resolve/request/unknown-field",
+    "expectedValid": false,
+    "value": {
+      "expectedStateVersion": "0",
+      "message": "sample",
+      "NOT_A_DECLARED_FIELD": true
+    }
+  },
+  {
+    "case": "browser.focus.resolve/request/missing-required",
+    "expectedValid": false,
+    "value": {
+      "message": "sample"
+    }
+  },
+  {
+    "case": "browser.focus.resolve/response/positive",
+    "expectedValid": true,
+    "value": {
+      "focusRequestId": "00000000-0000-4000-8000-000000000001",
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "requesterKind": "OWNER",
+      "requesterConsumerId": "00000000-0000-4000-8000-000000000001",
+      "recipientKind": "OWNER",
+      "recipientConsumerId": "00000000-0000-4000-8000-000000000001",
+      "annotationIds": [
+        "00000000-0000-4000-8000-000000000001"
+      ],
+      "message": "sample",
+      "requiresAcknowledgement": false,
+      "status": "OPEN",
+      "createdAt": "2026-09-23T12:00:00.000Z",
+      "acknowledgedAt": "2026-09-23T12:00:00.000Z",
+      "resolvedAt": "2026-09-23T12:00:00.000Z",
+      "requestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "case": "browser.focus.resolve/response/wrong-type",
+    "expectedValid": false,
+    "value": 42
+  },
+  {
+    "case": "browser.focus.resolve/response/null",
+    "expectedValid": false,
+    "value": null
+  },
+  {
+    "case": "browser.focus.resolve/response/unknown-field",
+    "expectedValid": false,
+    "value": {
+      "focusRequestId": "00000000-0000-4000-8000-000000000001",
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "requesterKind": "OWNER",
+      "requesterConsumerId": "00000000-0000-4000-8000-000000000001",
+      "recipientKind": "OWNER",
+      "recipientConsumerId": "00000000-0000-4000-8000-000000000001",
+      "annotationIds": [
+        "00000000-0000-4000-8000-000000000001"
+      ],
+      "message": "sample",
+      "requiresAcknowledgement": false,
+      "status": "OPEN",
+      "createdAt": "2026-09-23T12:00:00.000Z",
+      "acknowledgedAt": "2026-09-23T12:00:00.000Z",
+      "resolvedAt": "2026-09-23T12:00:00.000Z",
+      "requestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "NOT_A_DECLARED_FIELD": true
+    }
+  },
+  {
+    "case": "browser.focus.resolve/response/missing-required",
+    "expectedValid": false,
+    "value": {
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "requesterKind": "OWNER",
+      "requesterConsumerId": "00000000-0000-4000-8000-000000000001",
+      "recipientKind": "OWNER",
+      "recipientConsumerId": "00000000-0000-4000-8000-000000000001",
+      "annotationIds": [
+        "00000000-0000-4000-8000-000000000001"
+      ],
+      "message": "sample",
+      "requiresAcknowledgement": false,
+      "status": "OPEN",
+      "createdAt": "2026-09-23T12:00:00.000Z",
+      "acknowledgedAt": "2026-09-23T12:00:00.000Z",
+      "resolvedAt": "2026-09-23T12:00:00.000Z",
+      "requestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "case": "browser.focus.open/request/positive",
+    "expectedValid": true,
+    "value": {
+      "expectedDocumentEpoch": "0",
+      "expectedViewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "allowSnapshotOnly": false
+    }
+  },
+  {
+    "case": "browser.focus.open/request/wrong-type",
+    "expectedValid": false,
+    "value": 42
+  },
+  {
+    "case": "browser.focus.open/request/null",
+    "expectedValid": false,
+    "value": null
+  },
+  {
+    "case": "browser.focus.open/request/unknown-field",
+    "expectedValid": false,
+    "value": {
+      "expectedDocumentEpoch": "0",
+      "expectedViewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "allowSnapshotOnly": false,
+      "NOT_A_DECLARED_FIELD": true
+    }
+  },
+  {
+    "case": "browser.focus.open/request/missing-required",
+    "expectedValid": false,
+    "value": {
+      "expectedViewportTransformDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "allowSnapshotOnly": false
+    }
+  },
+  {
+    "case": "browser.focus.open/response/positive",
+    "expectedValid": true,
+    "value": {
+      "focusRequestId": "00000000-0000-4000-8000-000000000001",
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "message": "sample",
+      "annotations": [
+        {
+          "annotationId": "00000000-0000-4000-8000-000000000001",
+          "resolutionStatus": "EXACT",
+          "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+          "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+          "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "annotationDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "contextDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "case": "browser.focus.open/response/wrong-type",
+    "expectedValid": false,
+    "value": 42
+  },
+  {
+    "case": "browser.focus.open/response/null",
+    "expectedValid": false,
+    "value": null
+  },
+  {
+    "case": "browser.focus.open/response/unknown-field",
+    "expectedValid": false,
+    "value": {
+      "focusRequestId": "00000000-0000-4000-8000-000000000001",
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "message": "sample",
+      "annotations": [
+        {
+          "annotationId": "00000000-0000-4000-8000-000000000001",
+          "resolutionStatus": "EXACT",
+          "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+          "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+          "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "annotationDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "contextDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "NOT_A_DECLARED_FIELD": true
+    }
+  },
+  {
+    "case": "browser.focus.open/response/missing-required",
+    "expectedValid": false,
+    "value": {
+      "sessionId": "00000000-0000-4000-8000-000000000001",
+      "message": "sample",
+      "annotations": [
+        {
+          "annotationId": "00000000-0000-4000-8000-000000000001",
+          "resolutionStatus": "EXACT",
+          "targetReferenceId": "00000000-0000-4000-8000-000000000001",
+          "snapshotArtifactId": "00000000-0000-4000-8000-000000000001",
+          "snapshotArtifactDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "annotationDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "contextDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  {
+    "case": "generation.job.create/envelope-witness",
+    "expectedValid": true,
+    "value": {
+      "routeId": "route.0215",
+      "operationId": "generation.job.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "schemaId": "urn:kcml:r9:semantic:route.0215:body",
+        "values": [
+          {
+            "requirementId": "KCML-REQ-CH12-0075742c0652ce09d72835f62457776f109a08829b1f8b7c70c8580b2d3fbe73",
+            "slot": "sample",
+            "value": false,
+            "canonicalJson": "sample",
+            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "generation.job.create/empty-values",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0215",
+      "operationId": "generation.job.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "schemaId": "urn:kcml:r9:semantic:route.0215:body",
+        "values": []
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "generation.job.create/null-body",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0215",
+      "operationId": "generation.job.create",
+      "pathParameters": {},
+      "query": [],
+      "body": null,
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "generation.job.create/null-idempotency-key",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0215",
+      "operationId": "generation.job.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "schemaId": "urn:kcml:r9:semantic:route.0215:body",
+        "values": [
+          {
+            "requirementId": "KCML-REQ-CH12-0075742c0652ce09d72835f62457776f109a08829b1f8b7c70c8580b2d3fbe73",
+            "slot": "sample",
+            "value": false,
+            "canonicalJson": "sample",
+            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "guards": {
+        "idempotencyKey": null,
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "generation.job.create/missing-body",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0215",
+      "operationId": "generation.job.create",
+      "pathParameters": {},
+      "query": [],
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "generation.job.create/wrong-values-type",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0215",
+      "operationId": "generation.job.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "schemaId": "urn:kcml:r9:semantic:route.0215:body",
+        "values": "wrong"
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "generation.job.create/unknown-query",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0215",
+      "operationId": "generation.job.create",
+      "pathParameters": {},
+      "query": [
+        {
+          "name": "NOT_A_DECLARED_FILTER",
+          "value": "x"
+        }
+      ],
+      "body": {
+        "schemaId": "urn:kcml:r9:semantic:route.0215:body",
+        "values": [
+          {
+            "requirementId": "KCML-REQ-CH12-0075742c0652ce09d72835f62457776f109a08829b1f8b7c70c8580b2d3fbe73",
+            "slot": "sample",
+            "value": false,
+            "canonicalJson": "sample",
+            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "generation.job.create/malformed-canonicalJson",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0215",
+      "operationId": "generation.job.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "schemaId": "urn:kcml:r9:semantic:route.0215:body",
+        "values": [
+          {
+            "requirementId": "KCML-REQ-CH12-0075742c0652ce09d72835f62457776f109a08829b1f8b7c70c8580b2d3fbe73",
+            "slot": "sample",
+            "value": false,
+            "canonicalJson": "{not JSON",
+            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "generation.job.create/unknown-domain-field",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0215",
+      "operationId": "generation.job.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "schemaId": "urn:kcml:r9:semantic:route.0215:body",
+        "values": [
+          {
+            "requirementId": "KCML-REQ-CH12-0075742c0652ce09d72835f62457776f109a08829b1f8b7c70c8580b2d3fbe73",
+            "slot": "NOT_A_DOMAIN_FIELD",
+            "value": false,
+            "canonicalJson": "sample",
+            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "generation.job.create/duplicate-domain-slot",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0215",
+      "operationId": "generation.job.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "schemaId": "urn:kcml:r9:semantic:route.0215:body",
+        "values": [
+          {
+            "requirementId": "KCML-REQ-CH12-0075742c0652ce09d72835f62457776f109a08829b1f8b7c70c8580b2d3fbe73",
+            "slot": "sample",
+            "value": false,
+            "canonicalJson": "sample",
+            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "requirementId": "KCML-REQ-CH12-0075742c0652ce09d72835f62457776f109a08829b1f8b7c70c8580b2d3fbe73",
+            "slot": "sample",
+            "value": false,
+            "canonicalJson": "sample",
+            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "secret.create/envelope-witness",
+    "expectedValid": true,
+    "value": {
+      "routeId": "route.0386",
+      "operationId": "secret.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "schemaId": "urn:kcml:r9:semantic:route.0386:body",
+        "values": [
+          {
+            "requirementId": "__ROUTE_CONTRACT_ONLY__",
+            "slot": "sample",
+            "value": false,
+            "canonicalJson": "sample",
+            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "secret.create/empty-values",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0386",
+      "operationId": "secret.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "schemaId": "urn:kcml:r9:semantic:route.0386:body",
+        "values": []
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "secret.create/null-body",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0386",
+      "operationId": "secret.create",
+      "pathParameters": {},
+      "query": [],
+      "body": null,
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "secret.create/null-idempotency-key",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0386",
+      "operationId": "secret.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "schemaId": "urn:kcml:r9:semantic:route.0386:body",
+        "values": [
+          {
+            "requirementId": "__ROUTE_CONTRACT_ONLY__",
+            "slot": "sample",
+            "value": false,
+            "canonicalJson": "sample",
+            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "guards": {
+        "idempotencyKey": null,
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "secret.create/missing-body",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0386",
+      "operationId": "secret.create",
+      "pathParameters": {},
+      "query": [],
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "secret.create/wrong-values-type",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0386",
+      "operationId": "secret.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "schemaId": "urn:kcml:r9:semantic:route.0386:body",
+        "values": "wrong"
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "secret.create/unknown-query",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0386",
+      "operationId": "secret.create",
+      "pathParameters": {},
+      "query": [
+        {
+          "name": "NOT_A_DECLARED_FILTER",
+          "value": "x"
+        }
+      ],
+      "body": {
+        "schemaId": "urn:kcml:r9:semantic:route.0386:body",
+        "values": [
+          {
+            "requirementId": "__ROUTE_CONTRACT_ONLY__",
+            "slot": "sample",
+            "value": false,
+            "canonicalJson": "sample",
+            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "secret.create/malformed-canonicalJson",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0386",
+      "operationId": "secret.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "schemaId": "urn:kcml:r9:semantic:route.0386:body",
+        "values": [
+          {
+            "requirementId": "__ROUTE_CONTRACT_ONLY__",
+            "slot": "sample",
+            "value": false,
+            "canonicalJson": "{not JSON",
+            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "secret.create/unknown-domain-field",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0386",
+      "operationId": "secret.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "schemaId": "urn:kcml:r9:semantic:route.0386:body",
+        "values": [
+          {
+            "requirementId": "__ROUTE_CONTRACT_ONLY__",
+            "slot": "NOT_A_DOMAIN_FIELD",
+            "value": false,
+            "canonicalJson": "sample",
+            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "secret.create/duplicate-domain-slot",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0386",
+      "operationId": "secret.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "schemaId": "urn:kcml:r9:semantic:route.0386:body",
+        "values": [
+          {
+            "requirementId": "__ROUTE_CONTRACT_ONLY__",
+            "slot": "sample",
+            "value": false,
+            "canonicalJson": "sample",
+            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "requirementId": "__ROUTE_CONTRACT_ONLY__",
+            "slot": "sample",
+            "value": false,
+            "canonicalJson": "sample",
+            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": "0",
+        "expectedRevisionId": "sample",
+        "expectedReleaseId": "sample",
+        "expectedBindingSetRevision": "sample",
+        "expectedActivationEpoch": "0",
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "format/uuid",
+    "expectedValid": false,
+    "value": "not-a-uuid"
+  },
+  {
+    "case": "format/date-time",
+    "expectedValid": false,
+    "value": "2026-99-99T00:00:00Z"
+  },
+  {
+    "case": "format-property-is-not-schema-keyword",
+    "expectedValid": true,
+    "value": {
+      "runId": "00000000-0000-4000-8000-000000000001",
+      "selection": [],
+      "format": "JSON"
+    }
+  }
+]

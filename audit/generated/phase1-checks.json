@@ -1,0 +1,97 @@
+{
+  "scope": "Actual commands; failing closure/negative probes remain failing.",
+  "ssotSha256": "cc72d9719a936574c2c2c550fad66f2c330cd43843b19962eadf66edeea402ee",
+  "commands": [
+    {
+      "command": "python scripts/phase1_schema_closure.py --baseline",
+      "exitCode": 1,
+      "stdout": "Inventoried documents: 402\n{\"operations\": 619, \"routes\": 542, \"unresolvedOperationReferences\": 260, \"operationsWithUnresolvedReferences\": 130, \"conflictingOperationReferences\": 0, \"genericRoutes\": 509, \"genericBoundaryDefinitions\": 1527, \"nestedReferenceFailures\": 0, \"unreviewedConcreteBoundaryDefinitions\": 74, \"conflictingSchemaIdentities\": 0, \"unspecifiedEventApplicability\": 152, \"unparsedResources\": 0}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/phase1_schema_closure.py",
+      "exitCode": 1,
+      "stdout": "Inventoried documents: 402\n{\"operations\": 619, \"routes\": 542, \"unresolvedOperationReferences\": 260, \"operationsWithUnresolvedReferences\": 130, \"conflictingOperationReferences\": 0, \"genericRoutes\": 509, \"genericBoundaryDefinitions\": 1527, \"nestedReferenceFailures\": 0, \"unreviewedConcreteBoundaryDefinitions\": 74, \"conflictingSchemaIdentities\": 0, \"unspecifiedEventApplicability\": 152, \"unparsedResources\": 0}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/verify_schema_references.py",
+      "exitCode": 1,
+      "stdout": "Inventoried documents: 402\n{\"scope\": \"Effective operation bindings, request/response/event schemas, dialect and scoped nested refs; not semantic completeness.\", \"checked\": 2932, \"failed\": 260, \"unparsedResources\": []}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/verify_phase1_contracts.py --baseline",
+      "exitCode": 1,
+      "stdout": "{\"scope\": \"Schema fixtures and necessary create conditions, not domain closure or runtime evidence\", \"failed\": 14, \"checked\": 108}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/verify_phase1_contracts.py",
+      "exitCode": 1,
+      "stdout": "{\"scope\": \"Schema fixtures and necessary create conditions, not domain closure or runtime evidence\", \"failed\": 8, \"checked\": 108}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/phase1_repair_contracts.py --check",
+      "exitCode": 0,
+      "stdout": "{\"reproducible\": true, \"pending\": []}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/phase1_repair_contracts.py --verify-from-baseline",
+      "exitCode": 0,
+      "stdout": "{\"reproducedFromCommit\": \"6180d9fe67dfaa5365190301dfd58cc8d9812f3d\", \"resources\": [{\"resource\": \"r16/contracts/r15-visual-operation-closure.json\", \"beforeSha256\": \"03c0aa2de1f8cb6e25c962daaf931a8eb5d891ede5fbf8d886e709bf58d1d168\", \"afterSha256\": \"02ee90057d2cbb77ad0d0c0cd5b288b64dca7502d77757ab1d47363c75130b7f\"}, {\"resource\": \"contracts/payload-contracts.json\", \"beforeSha256\": \"5e2444a83c4354aa452f225bdc40f830623df8d9212f96f9b9af2e4c4e9ca23a\", \"afterSha256\": \"719882ba9fbb3026297eb6eea28f88593b7ab770cbd1a59a4e57bf7d810531e8\"}], \"onlyAdditionalChange\": \"R9 embedded manifest resource bytes/hash\", \"status\": \"PASS\"}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/run_baseline_gates.py",
+      "exitCode": 0,
+      "stdout": "[[\"r10/scripts/verify_r10.py\", \"PASS\"], [\"r16/scripts/verify_r16.py\", \"PASS\"], [\"ui/scripts/verify_ui.py\", \"PASS\"], [\"closure/scripts/verify_final_closure.py\", \"PASS\"], [\"r17/scripts/verify_r17.py\", \"PASS\"]]",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/phase1_run_checks.py --embedded-r9",
+      "exitCode": 0,
+      "stdout": "{\"architectureGates\": 18, \"openObligations\": 0, \"operationContracts\": 586, \"postgresPlans\": 262, \"recoveryOracles\": 586, \"requirementsClosed\": 17482, \"resources\": 21, \"routePayloads\": 509, \"status\": \"PASS\"}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/project_experience.py --check",
+      "exitCode": 0,
+      "stdout": "{\"projections\": [\"01_UI_CONTRACT/ui/contracts/live-experience.json\", \"01_UI_CONTRACT/ui/contracts/error-presentation.json\", \"01_UI_CONTRACT/ui/contracts/error-presentation.schema.json\", \"01_UI_CONTRACT/ui/locales/cs.json\", \"01_UI_CONTRACT/ui/locales/en.json\", \"01_UI_CONTRACT/LIVE_VIEW_MATRIX.csv\"]}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/verify_preserved_policy.py",
+      "exitCode": 0,
+      "stdout": "{\"sections\": 40, \"failures\": 0}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/verify_experience.py",
+      "exitCode": 0,
+      "stdout": "{\"scope\": \"Static contract validation and reference-oracle fixtures; no backend or provider call.\", \"checks\": [{\"id\": \"states.transitions-and-terminal-reachability\", \"status\": \"PASS\"}, {\"id\": \"locales.keys-and-placeholders\", \"status\": \"PASS\"}, {\"id\": \"projections.exact-source-match\", \"status\": \"PASS\"}, {\"id\": \"authority.no-implicit-last-wins\", \"status\": \"PASS\"}, {\"id\": \"references.operations-process-families\", \"status\": \"PASS\"}, {\"id\": \"dispatchers.exact-owner-allowlist-and-internal-denial\", \"status\": \"PASS\"}, {\"id\": \"dashboard.complete-action-placement-and-command-identity\", \"status\": \"PASS\"}, {\"id\": \"event.schema-meta\", \"status\": \"PASS\"}, {\"id\": \"event.valid-fixture\", \"status\": \"PASS\"}, {\"id\": \"event.reject-unknown-state\", \"status\": \"PASS\"}, {\"id\": \"event.reject-missing-correlation\", \"status\": \"PASS\"}, {\"id\": \"event.reject-negative-sequence\", \"status\": \"PASS\"}, {\"id\": \"event.reject-invalid-time\", \"status\": \"PASS\"}, {\"id\": \"event.reject-reserved-field\", \"status\": \"PASS\"}, {\"id\": \"oracle.duplicate\", \"status\": \"PASS\"}, {\"id\": \"oracle.late\", \"status\": \"PASS\"}, {\"id\": \"oracle.gap\", \"status\": \"PASS\"}, {\"id\": \"oracle.regression\", \"status\": \"PASS\"}, {\"id\": \"oracle.production-demo\", \"status\": \"PASS\"}, {\"id\": \"oracle.wrong-stream\", \"status\": \"PASS\"}, {\"id\": \"oracle.snapshot-watermark\", \"status\": \"PASS\"}]}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/build_parity.py",
+      "exitCode": 0,
+      "stdout": "{\"functions\": 136, \"operations\": 619, \"explicitlyReachedOperations\": 495, \"withoutExplicitUiBinding\": 124, \"operationsWithSpecificAction\": 126, \"broadDispatcherOnly\": 369, \"note\": \"Internal operations need no direct OWNER button. Unbound OWNER operations require semantic review; counts alone do not prove parity.\"}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/audit_inventory.py",
+      "exitCode": 0,
+      "stdout": "{\"files\": 467, \"directEmbeddedResources\": 320, \"decodedCapsuleFiles\": 21, \"structuralFailures\": 0, \"historicalFailuresPreserved\": 1, \"families\": {\"KCML-ERRORS-RESOURCE\": 2, \"KCML-EMBEDDED\": 83, \"KCML-R5-RESOURCE\": 69, \"KCML-R7-RESOURCE\": 8, \"KCML-R8-RESOURCE\": 10, \"KCML-R9-RESOURCE\": 21, \"KCML-R10-RESOURCE\": 10, \"KCML-R11-RESOURCE\": 15, \"KCML-R12-RESOURCE\": 20, \"KCML-R13-RESOURCE\": 15, \"KCML-R14-RESOURCE\": 16, \"KCML-R15-RESOURCE\": 12, \"KCML-R16-RESOURCE\": 21, \"KCML-UI-RESOURCE\": 4, \"KCML-CLOSURE-RESOURCE\": 6, \"KCML-EXPERIENCE-RESOURCE\": 1, \"KCML-R17-RESOURCE\": 7}}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/phase1_search_history.py",
+      "exitCode": 0,
+      "stdout": "{\"commit\": \"6180d9fe67dfaa5365190301dfd58cc8d9812f3d\", \"identityDeclarations\": 0, \"unparsedResourceHeaders\": 0}\n{\"commit\": \"d7e121bdc5f9c0b4aa0cc476f35178bacdfadd2e\", \"identityDeclarations\": 0, \"unparsedResourceHeaders\": 0}\n{\"commit\": \"0ea5bf6b90ae4246956d1d76387ab540dc842f79\", \"identityDeclarations\": 0, \"unparsedResourceHeaders\": 0}",
+      "stderr": ""
+    }
+  ],
+  "nonzeroCommands": 5
+}

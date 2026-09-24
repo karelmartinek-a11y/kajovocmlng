@@ -1,0 +1,127 @@
+{
+  "status": "PASS",
+  "scope": "Structural source/projection checks only; no production application or backend is present.",
+  "checks": [
+    {
+      "id": "projections.exact-canonical-source",
+      "status": "PASS",
+      "detail": {
+        "stale": [],
+        "actions": 152,
+        "controls": 242
+      }
+    },
+    {
+      "id": "matrix.exact-current-source-inventory",
+      "status": "PASS",
+      "detail": {
+        "canonical": 152,
+        "missingBindings": 0
+      }
+    },
+    {
+      "id": "actions.unique-and-resolved",
+      "status": "PASS",
+      "detail": {
+        "actions": 152,
+        "missing": []
+      }
+    },
+    {
+      "id": "exposure.bypass-is-visible-not-hidden",
+      "status": "PASS",
+      "detail": {
+        "blockedActions": [
+          "dashboard.start",
+          "dashboard.stop",
+          "gen.editSpec"
+        ]
+      }
+    },
+    {
+      "id": "direct-internal-and-maintenance-actions-remain-blocked",
+      "status": "PASS",
+      "detail": {
+        "blockedActionIds": [
+          "dashboard.start",
+          "dashboard.stop",
+          "gen.editSpec"
+        ]
+      }
+    },
+    {
+      "id": "monitoring.repair-uses-owner-facade",
+      "status": "PASS",
+      "detail": {
+        "status": "NOT_VERIFIED_ARGUMENT_MAPPING_AND_RESPONSE_USE"
+      }
+    },
+    {
+      "id": "dynamic-repair-excludes-automated-maintenance-target",
+      "status": "PASS",
+      "detail": {
+        "status": "NOT_VERIFIED_DYNAMIC_DISPATCH_AND_ARGUMENT_MAPPING",
+        "targets": [
+          "agent.repair.request",
+          "browser.automation.repair",
+          "component.repair.request"
+        ]
+      }
+    },
+    {
+      "id": "historical-16-functions-preserved-and-promoted-with-evidence",
+      "status": "PASS",
+      "detail": {
+        "promoted": 16,
+        "currentProjectionExcess": 0
+      }
+    },
+    {
+      "id": "current-handoff-matrix-exact-current-content-and-source",
+      "status": "PASS",
+      "detail": {
+        "exactRebuild": true,
+        "sourceSha256": "sha256:e5ea095d389a2bb6cdc261e001f194db7885a2ec6ec031a80ca318832b375b7d",
+        "head": "6180d9fe67dfaa5365190301dfd58cc8d9812f3d"
+      }
+    },
+    {
+      "id": "unresolved-summary-includes-every-exposure-blocker",
+      "status": "PASS",
+      "detail": {
+        "actionIds": [
+          "dashboard.start",
+          "dashboard.stop",
+          "gen.editSpec"
+        ],
+        "reported": [
+          "dashboard.start",
+          "dashboard.stop",
+          "gen.editSpec"
+        ]
+      }
+    },
+    {
+      "id": "operation-payload-semantics-not-overclaimed",
+      "status": "PASS",
+      "detail": {
+        "fullySemanticallyVerified": 0,
+        "notVerifiedArgumentOrResponseMapping": 121,
+        "notVerifiedDynamicDispatch": 12
+      }
+    },
+    {
+      "id": "negative-missing-or-unmapped-action-is-detected",
+      "status": "PASS",
+      "detail": {
+        "unbound": [],
+        "orphanBindings": []
+      }
+    }
+  ],
+  "knownClosureBlockers": [
+    "dashboard.start",
+    "dashboard.stop",
+    "gen.editSpec"
+  ]
+}

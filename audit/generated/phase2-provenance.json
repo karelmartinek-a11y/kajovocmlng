@@ -1,0 +1,3488 @@
+{
+  "head": "6180d9fe67dfaa5365190301dfd58cc8d9812f3d",
+  "currentHead": "6180d9fe67dfaa5365190301dfd58cc8d9812f3d",
+  "currentStatus": " M 00_SSOT/KajovoCMLNG_SSOT.md\n M 01_UI_CONTRACT/FUNCTION_PARITY.csv\n M QUALITY_ASSURANCE.md\n M audit/generated/baseline-gates.json\n M audit/generated/experience-validation.json\n M audit/generated/function-parity.json\n M audit/generated/inventory.json\n M audit/generated/preserved-policy.json\n M audit/generated/schema-reference-validation.json\n M requirements-audit.txt\n M scripts/verify_schema_references.py\n?? audit/generated/phase1-checks.json\n?? audit/generated/phase1-contract-tests-before.json\n?? audit/generated/phase1-contract-tests.json\n?? audit/generated/phase1-fixtures-before.json\n?? audit/generated/phase1-fixtures.json\n?? audit/generated/phase1-history-search.json\n?? audit/generated/phase1-reproduction.json\n?? audit/generated/phase2-checks-after.json\n?? audit/generated/phase2-checks-before.json\n?? audit/generated/phase2-content-tests-after.json\n?? audit/generated/phase2-content-tests-before.json\n?? audit/generated/phase2-entry.json\n?? audit/generated/phase2-provenance.json\n?? audit/phase1-operation-schema-matrix-before.json\n?? audit/phase1-operation-schema-matrix.json\n?? audit/phase1-schema-closure.md\n?? audit/phase1-unresolved.json\n?? audit/phase2-handoff-closure.md\n?? audit/phase2-handoff-matrix-before.json\n?? audit/phase2-handoff-matrix.json\n?? audit/phase2-unresolved.json\n?? scripts/phase1_repair_contracts.py\n?? scripts/phase1_run_checks.py\n?? scripts/phase1_schema_closure.py\n?? scripts/phase1_search_history.py\n?? scripts/phase2_evidence.py\n?? scripts/phase2_handoff_closure.py\n?? scripts/phase2_repair_handoffs.py\n?? scripts/phase2_run_checks.py\n?? scripts/phase2_snapshot.py\n?? scripts/verify_phase1_contracts.py\n?? scripts/verify_phase2_handoffs.py\n",
+  "ssotSha256": "dc70b68c27dfae40e5836ce7913d819c336a8d22df48c585c147e877cdea011d",
+  "preservation": [
+    {
+      "path": "audit/generated/phase1-checks.json",
+      "unchanged": true,
+      "entrySha256": "480d221e40d8b4e22771cd69a2566d66b61a19edd66e1287d99e4782bce7b871",
+      "currentSha256": "480d221e40d8b4e22771cd69a2566d66b61a19edd66e1287d99e4782bce7b871"
+    },
+    {
+      "path": "audit/generated/phase1-contract-tests-before.json",
+      "unchanged": true,
+      "entrySha256": "44af516daeeffdf92480df3124851da03079614d62d02ad9a1c92220963b750b",
+      "currentSha256": "44af516daeeffdf92480df3124851da03079614d62d02ad9a1c92220963b750b"
+    },
+    {
+      "path": "audit/generated/phase1-contract-tests.json",
+      "unchanged": true,
+      "entrySha256": "194728e356b4f86cf4adaa93ce1d8035ec52ef169809c817da54e6be2b3d5f90",
+      "currentSha256": "194728e356b4f86cf4adaa93ce1d8035ec52ef169809c817da54e6be2b3d5f90"
+    },
+    {
+      "path": "audit/generated/phase1-fixtures-before.json",
+      "unchanged": true,
+      "entrySha256": "dcd8ba2f83aed9d891af8785b472ddacd2479c0aa4dcc6bb1f70ac533923929b",
+      "currentSha256": "dcd8ba2f83aed9d891af8785b472ddacd2479c0aa4dcc6bb1f70ac533923929b"
+    },
+    {
+      "path": "audit/generated/phase1-fixtures.json",
+      "unchanged": true,
+      "entrySha256": "dcd8ba2f83aed9d891af8785b472ddacd2479c0aa4dcc6bb1f70ac533923929b",
+      "currentSha256": "dcd8ba2f83aed9d891af8785b472ddacd2479c0aa4dcc6bb1f70ac533923929b"
+    },
+    {
+      "path": "audit/generated/phase1-history-search.json",
+      "unchanged": true,
+      "entrySha256": "dfde1b97507025ce34a5e94a615459ecf09d90c3e79802f96812c0eb6e7ddc67",
+      "currentSha256": "dfde1b97507025ce34a5e94a615459ecf09d90c3e79802f96812c0eb6e7ddc67"
+    },
+    {
+      "path": "audit/generated/phase1-reproduction.json",
+      "unchanged": true,
+      "entrySha256": "ade529236dedab229c7af42130c71dc1bb07e52a647cad2537dd6d448cb984b3",
+      "currentSha256": "ade529236dedab229c7af42130c71dc1bb07e52a647cad2537dd6d448cb984b3"
+    },
+    {
+      "path": "audit/phase1-operation-schema-matrix-before.json",
+      "unchanged": true,
+      "entrySha256": "718d834fd297e606ada49bc4601a67ea6c615fff08717e239b66b9b237538680",
+      "currentSha256": "718d834fd297e606ada49bc4601a67ea6c615fff08717e239b66b9b237538680"
+    },
+    {
+      "path": "audit/phase1-operation-schema-matrix.json",
+      "unchanged": true,
+      "entrySha256": "8f74bfd9f6cc47ab39614bd392938e432e86b44d00165bef58e4378ac83ebae8",
+      "currentSha256": "8f74bfd9f6cc47ab39614bd392938e432e86b44d00165bef58e4378ac83ebae8"
+    },
+    {
+      "path": "audit/phase1-schema-closure.md",
+      "unchanged": true,
+      "entrySha256": "35b2faa76e811595ece9469bf5d636d896ab941cc013472354e7aa523bbf6c66",
+      "currentSha256": "35b2faa76e811595ece9469bf5d636d896ab941cc013472354e7aa523bbf6c66"
+    },
+    {
+      "path": "audit/phase1-unresolved.json",
+      "unchanged": true,
+      "entrySha256": "c276277c3e8bd5cf1c446aa0d981837bf2b2a22658ba5ed98fb7ba603d0ff333",
+      "currentSha256": "c276277c3e8bd5cf1c446aa0d981837bf2b2a22658ba5ed98fb7ba603d0ff333"
+    },
+    {
+      "path": "scripts/phase1_repair_contracts.py",
+      "unchanged": true,
+      "entrySha256": "8cf51e0175c1d953785893dfdb84622b5fb43bb8c8bd82021dc830f5344e45d2",
+      "currentSha256": "8cf51e0175c1d953785893dfdb84622b5fb43bb8c8bd82021dc830f5344e45d2"
+    },
+    {
+      "path": "scripts/phase1_run_checks.py",
+      "unchanged": true,
+      "entrySha256": "0cc047778490244b8646933ca0efc1d565a56197bba32a7a9e6cb90cff7a8a5a",
+      "currentSha256": "0cc047778490244b8646933ca0efc1d565a56197bba32a7a9e6cb90cff7a8a5a"
+    },
+    {
+      "path": "scripts/phase1_schema_closure.py",
+      "unchanged": true,
+      "entrySha256": "5a3703b497bbdeffcd08129f4dae2df983b42443034a7d0a31f3f4e6a5a2f3b9",
+      "currentSha256": "5a3703b497bbdeffcd08129f4dae2df983b42443034a7d0a31f3f4e6a5a2f3b9"
+    },
+    {
+      "path": "scripts/phase1_search_history.py",
+      "unchanged": true,
+      "entrySha256": "c5b57e4d4562b52ec6b1a2b6c42f5629c8eaecfff68fd13fabc4d7ca49638ae7",
+      "currentSha256": "c5b57e4d4562b52ec6b1a2b6c42f5629c8eaecfff68fd13fabc4d7ca49638ae7"
+    },
+    {
+      "path": "scripts/phase2_snapshot.py",
+      "unchanged": true,
+      "entrySha256": "d7e6d014f9f62355597f84aa4ad3390821132f85b8b8f7278afa7eb344f75fdf",
+      "currentSha256": "d7e6d014f9f62355597f84aa4ad3390821132f85b8b8f7278afa7eb344f75fdf"
+    },
+    {
+      "path": "scripts/verify_phase1_contracts.py",
+      "unchanged": true,
+      "entrySha256": "3bf04376c4ae538fc4c910150810333777f8ad10e5acafa1574e8e071974b5f6",
+      "currentSha256": "3bf04376c4ae538fc4c910150810333777f8ad10e5acafa1574e8e071974b5f6"
+    },
+    {
+      "path": "01_UI_CONTRACT/FUNCTION_PARITY.csv",
+      "unchanged": true,
+      "entrySha256": "d27d1e504199281c8485c983d6474f9b6346c3251d2aa8ddaf0a58803dc09880",
+      "currentSha256": "d27d1e504199281c8485c983d6474f9b6346c3251d2aa8ddaf0a58803dc09880"
+    },
+    {
+      "path": "QUALITY_ASSURANCE.md",
+      "unchanged": true,
+      "entrySha256": "5027688fea89919db8d7b4d25e5d4f32737489b5a8514d18483a2224e966c0fd",
+      "currentSha256": "5027688fea89919db8d7b4d25e5d4f32737489b5a8514d18483a2224e966c0fd"
+    },
+    {
+      "path": "audit/generated/baseline-gates.json",
+      "unchanged": true,
+      "entrySha256": "9d58256315ff51378c7ef1a7271e846db3a401bf45b2f4dfdb421050f5d663b0",
+      "currentSha256": "9d58256315ff51378c7ef1a7271e846db3a401bf45b2f4dfdb421050f5d663b0"
+    },
+    {
+      "path": "audit/generated/experience-validation.json",
+      "unchanged": true,
+      "entrySha256": "f6aa1b6cece6d56408e5f02a32d9217d14b957a1411263dfa58a76385a191fd9",
+      "currentSha256": "f6aa1b6cece6d56408e5f02a32d9217d14b957a1411263dfa58a76385a191fd9"
+    },
+    {
+      "path": "audit/generated/function-parity.json",
+      "unchanged": true,
+      "entrySha256": "b3a761c46302ef05e1229caa283a78d009248327233d3e38b3605f902ebbb091",
+      "currentSha256": "b3a761c46302ef05e1229caa283a78d009248327233d3e38b3605f902ebbb091"
+    },
+    {
+      "path": "audit/generated/inventory.json",
+      "unchanged": true,
+      "entrySha256": "bc9f00d9d77abc4ba19043749503d43eed34d12121ed045364d20bfe1b70af14",
+      "currentSha256": "bc9f00d9d77abc4ba19043749503d43eed34d12121ed045364d20bfe1b70af14"
+    },
+    {
+      "path": "audit/generated/preserved-policy.json",
+      "unchanged": true,
+      "entrySha256": "5870ee0b42443819bdbd090fe91193ec57b0a40a7ada6fbf7b6cfa1de095ffe1",
+      "currentSha256": "5870ee0b42443819bdbd090fe91193ec57b0a40a7ada6fbf7b6cfa1de095ffe1"
+    },
+    {
+      "path": "audit/generated/schema-reference-validation.json",
+      "unchanged": true,
+      "entrySha256": "4caa22b3813156a99c0d4b15fecd3d15e789f949d067c202fb6af56fc8b746f2",
+      "currentSha256": "4caa22b3813156a99c0d4b15fecd3d15e789f949d067c202fb6af56fc8b746f2"
+    },
+    {
+      "path": "requirements-audit.txt",
+      "unchanged": true,
+      "entrySha256": "9e827b85f60bdd5426e76d0016c915c4805cee40619affce98e7ff0c4e4371cc",
+      "currentSha256": "9e827b85f60bdd5426e76d0016c915c4805cee40619affce98e7ff0c4e4371cc"
+    },
+    {
+      "path": "scripts/verify_schema_references.py",
+      "unchanged": true,
+      "entrySha256": "c8a26afc541a45833e6b922a42f85630fc759f09acab85911c71e7325fd28e87",
+      "currentSha256": "c8a26afc541a45833e6b922a42f85630fc759f09acab85911c71e7325fd28e87"
+    }
+  ],
+  "allPriorNonSsotDirtyFilesUnchanged": true,
+  "matrixAntiOmissionTests": [
+    {
+      "case": "omit-edge",
+      "rejected": true
+    },
+    {
+      "case": "omit-source-candidate",
+      "rejected": true
+    },
+    {
+      "case": "omit-source",
+      "rejected": true
+    }
+  ],
+  "phase1BrowserReferenceEvidence": [
+    {
+      "operationId": "browser.annotation.create",
+      "source": "r16/contracts/r15-visual-operation-closure.json",
+      "before": {
+        "requestDefinition": "R16BrowserAnnotationCreateCommand",
+        "requestSchemaAuthority": "r16/contracts/r15-visual-route-schemas.json",
+        "responseDefinition": "BrowserAnnotationCreateResponse",
+        "responseSchemaAuthority": "r15/contracts/browser-visual-collaboration.schema.json + r16/contracts/r15-visual-route-schemas.json"
+      },
+      "after": {
+        "requestDefinition": "R16BrowserAnnotationCreateCommand",
+        "requestSchemaAuthority": "r16/contracts/r15-visual-route-schemas.json",
+        "requestSchemaRef": "r16/contracts/r15-visual-route-schemas.json#/$defs/R16BrowserAnnotationCreateCommand",
+        "responseDefinition": "BrowserAnnotationCreateResponse",
+        "responseSchemaAuthority": "r15/contracts/browser-visual-collaboration.schema.json + r16/contracts/r15-visual-route-schemas.json",
+        "responseSchemaRef": "r15/contracts/browser-visual-collaboration.schema.json#/$defs/BrowserAnnotationCreateResponse"
+      }
+    },
+    {
+      "operationId": "browser.annotation.list",
+      "source": "r16/contracts/r15-visual-operation-closure.json",
+      "before": {
+        "requestDefinition": "R16BrowserAnnotationListQuery",
+        "requestSchemaAuthority": "r16/contracts/r15-visual-route-schemas.json",
+        "responseDefinition": "R16BrowserAnnotationListResponse",
+        "responseSchemaAuthority": "r15/contracts/browser-visual-collaboration.schema.json + r16/contracts/r15-visual-route-schemas.json"
+      },
+      "after": {
+        "requestDefinition": "R16BrowserAnnotationListQuery",
+        "requestSchemaAuthority": "r16/contracts/r15-visual-route-schemas.json",
+        "requestSchemaRef": "r16/contracts/r15-visual-route-schemas.json#/$defs/R16BrowserAnnotationListQuery",
+        "responseDefinition": "R16BrowserAnnotationListResponse",
+        "responseSchemaAuthority": "r15/contracts/browser-visual-collaboration.schema.json + r16/contracts/r15-visual-route-schemas.json",
+        "responseSchemaRef": "r16/contracts/r15-visual-route-schemas.json#/$defs/R16BrowserAnnotationListResponse"
+      }
+    },
+    {
+      "operationId": "browser.annotation.tombstone",
+      "source": "r16/contracts/r15-visual-operation-closure.json",
+      "before": {
+        "requestDefinition": "R16BrowserAnnotationTombstoneCommand",
+        "requestSchemaAuthority": "r16/contracts/r15-visual-route-schemas.json",
+        "responseDefinition": "BrowserVisualAnnotation",
+        "responseSchemaAuthority": "r15/contracts/browser-visual-collaboration.schema.json + r16/contracts/r15-visual-route-schemas.json"
+      },
+      "after": {
+        "requestDefinition": "R16BrowserAnnotationTombstoneCommand",
+        "requestSchemaAuthority": "r16/contracts/r15-visual-route-schemas.json",
+        "requestSchemaRef": "r16/contracts/r15-visual-route-schemas.json#/$defs/R16BrowserAnnotationTombstoneCommand",
+        "responseDefinition": "BrowserVisualAnnotation",
+        "responseSchemaAuthority": "r15/contracts/browser-visual-collaboration.schema.json + r16/contracts/r15-visual-route-schemas.json",
+        "responseSchemaRef": "r15/contracts/browser-visual-collaboration.schema.json#/$defs/BrowserVisualAnnotation"
+      }
+    },
+    {
+      "operationId": "browser.annotation.reanchor",
+      "source": "r16/contracts/r15-visual-operation-closure.json",
+      "before": {
+        "requestDefinition": "R16BrowserAnnotationReanchorCommand",
+        "requestSchemaAuthority": "r16/contracts/r15-visual-route-schemas.json",
+        "responseDefinition": "BrowserVisualAnnotation",
+        "responseSchemaAuthority": "r15/contracts/browser-visual-collaboration.schema.json + r16/contracts/r15-visual-route-schemas.json"
+      },
+      "after": {
+        "requestDefinition": "R16BrowserAnnotationReanchorCommand",
+        "requestSchemaAuthority": "r16/contracts/r15-visual-route-schemas.json",
+        "requestSchemaRef": "r16/contracts/r15-visual-route-schemas.json#/$defs/R16BrowserAnnotationReanchorCommand",
+        "responseDefinition": "BrowserVisualAnnotation",
+        "responseSchemaAuthority": "r15/contracts/browser-visual-collaboration.schema.json + r16/contracts/r15-visual-route-schemas.json",
+        "responseSchemaRef": "r15/contracts/browser-visual-collaboration.schema.json#/$defs/BrowserVisualAnnotation"
+      }
+    },
+    {
+      "operationId": "browser.focus.request",
+      "source": "r16/contracts/r15-visual-operation-closure.json",
+      "before": {
+        "requestDefinition": "R16BrowserFocusCreateCommand",
+        "requestSchemaAuthority": "r16/contracts/r15-visual-route-schemas.json",
+        "responseDefinition": "BrowserFocusRequest",
+        "responseSchemaAuthority": "r15/contracts/browser-visual-collaboration.schema.json + r16/contracts/r15-visual-route-schemas.json"
+      },
+      "after": {
+        "requestDefinition": "R16BrowserFocusCreateCommand",
+        "requestSchemaAuthority": "r16/contracts/r15-visual-route-schemas.json",
+        "requestSchemaRef": "r16/contracts/r15-visual-route-schemas.json#/$defs/R16BrowserFocusCreateCommand",
+        "responseDefinition": "BrowserFocusRequest",
+        "responseSchemaAuthority": "r15/contracts/browser-visual-collaboration.schema.json + r16/contracts/r15-visual-route-schemas.json",
+        "responseSchemaRef": "r15/contracts/browser-visual-collaboration.schema.json#/$defs/BrowserFocusRequest"
+      }
+    },
+    {
+      "operationId": "browser.focus.acknowledge",
+      "source": "r16/contracts/r15-visual-operation-closure.json",
+      "before": {
+        "requestDefinition": "R16BrowserFocusAcknowledgeCommand",
+        "requestSchemaAuthority": "r16/contracts/r15-visual-route-schemas.json",
+        "responseDefinition": "BrowserFocusRequest",
+        "responseSchemaAuthority": "r15/contracts/browser-visual-collaboration.schema.json + r16/contracts/r15-visual-route-schemas.json"
+      },
+      "after": {
+        "requestDefinition": "R16BrowserFocusAcknowledgeCommand",
+        "requestSchemaAuthority": "r16/contracts/r15-visual-route-schemas.json",
+        "requestSchemaRef": "r16/contracts/r15-visual-route-schemas.json#/$defs/R16BrowserFocusAcknowledgeCommand",
+        "responseDefinition": "BrowserFocusRequest",
+        "responseSchemaAuthority": "r15/contracts/browser-visual-collaboration.schema.json + r16/contracts/r15-visual-route-schemas.json",
+        "responseSchemaRef": "r15/contracts/browser-visual-collaboration.schema.json#/$defs/BrowserFocusRequest"
+      }
+    },
+    {
+      "operationId": "browser.focus.resolve",
+      "source": "r16/contracts/r15-visual-operation-closure.json",
+      "before": {
+        "requestDefinition": "R16BrowserFocusResolveCommand",
+        "requestSchemaAuthority": "r16/contracts/r15-visual-route-schemas.json",
+        "responseDefinition": "BrowserFocusRequest",
+        "responseSchemaAuthority": "r15/contracts/browser-visual-collaboration.schema.json + r16/contracts/r15-visual-route-schemas.json"
+      },
+      "after": {
+        "requestDefinition": "R16BrowserFocusResolveCommand",
+        "requestSchemaAuthority": "r16/contracts/r15-visual-route-schemas.json",
+        "requestSchemaRef": "r16/contracts/r15-visual-route-schemas.json#/$defs/R16BrowserFocusResolveCommand",
+        "responseDefinition": "BrowserFocusRequest",
+        "responseSchemaAuthority": "r15/contracts/browser-visual-collaboration.schema.json + r16/contracts/r15-visual-route-schemas.json",
+        "responseSchemaRef": "r15/contracts/browser-visual-collaboration.schema.json#/$defs/BrowserFocusRequest"
+      }
+    },
+    {
+      "operationId": "browser.focus.open",
+      "source": "r16/contracts/r15-visual-operation-closure.json",
+      "before": {
+        "requestDefinition": "R16BrowserFocusOpenQuery",
+        "requestSchemaAuthority": "r16/contracts/r15-visual-route-schemas.json",
+        "responseDefinition": "BrowserFocusContext",
+        "responseSchemaAuthority": "r15/contracts/browser-visual-collaboration.schema.json + r16/contracts/r15-visual-route-schemas.json"
+      },
+      "after": {
+        "requestDefinition": "R16BrowserFocusOpenQuery",
+        "requestSchemaAuthority": "r16/contracts/r15-visual-route-schemas.json",
+        "requestSchemaRef": "r16/contracts/r15-visual-route-schemas.json#/$defs/R16BrowserFocusOpenQuery",
+        "responseDefinition": "BrowserFocusContext",
+        "responseSchemaAuthority": "r15/contracts/browser-visual-collaboration.schema.json + r16/contracts/r15-visual-route-schemas.json",
+        "responseSchemaRef": "r15/contracts/browser-visual-collaboration.schema.json#/$defs/BrowserFocusContext"
+      }
+    }
+  ],
+  "phase1UnresolvedReferences": [
+    {
+      "operationId": "agent.approval.request",
+      "source": "contracts/operation-contracts.json#/records/3",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:agent.approval.request:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.approval.request:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.approval.request",
+      "source": "contracts/operation-contracts.json#/records/3",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:agent.approval.request:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.approval.request:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.checkpoint.created",
+      "source": "contracts/operation-contracts.json#/records/4",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:agent.checkpoint.created:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.checkpoint.created:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.checkpoint.created",
+      "source": "contracts/operation-contracts.json#/records/4",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:agent.checkpoint.created:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.checkpoint.created:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.delegate.request",
+      "source": "contracts/operation-contracts.json#/records/9",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:agent.delegate.request:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.delegate.request:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.delegate.request",
+      "source": "contracts/operation-contracts.json#/records/9",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:agent.delegate.request:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.delegate.request:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.delegate.result",
+      "source": "contracts/operation-contracts.json#/records/10",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:agent.delegate.result:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.delegate.result:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.delegate.result",
+      "source": "contracts/operation-contracts.json#/records/10",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:agent.delegate.result:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.delegate.result:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.eval.result",
+      "source": "contracts/operation-contracts.json#/records/11",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:agent.eval.result:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.eval.result:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.eval.result",
+      "source": "contracts/operation-contracts.json#/records/11",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:agent.eval.result:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.eval.result:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.model.completed",
+      "source": "contracts/operation-contracts.json#/records/22",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:agent.model.completed:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.model.completed:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.model.completed",
+      "source": "contracts/operation-contracts.json#/records/22",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:agent.model.completed:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.model.completed:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.model.started",
+      "source": "contracts/operation-contracts.json#/records/23",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:agent.model.started:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.model.started:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.model.started",
+      "source": "contracts/operation-contracts.json#/records/23",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:agent.model.started:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.model.started:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.run.complete",
+      "source": "contracts/operation-contracts.json#/records/40",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:agent.run.complete:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.run.complete:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.run.complete",
+      "source": "contracts/operation-contracts.json#/records/40",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:agent.run.complete:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.run.complete:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.run.fail",
+      "source": "contracts/operation-contracts.json#/records/42",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:agent.run.fail:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.run.fail:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.run.fail",
+      "source": "contracts/operation-contracts.json#/records/42",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:agent.run.fail:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.run.fail:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.run.manualReview",
+      "source": "contracts/operation-contracts.json#/records/45",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:agent.run.manualReview:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.run.manualReview:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.run.manualReview",
+      "source": "contracts/operation-contracts.json#/records/45",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:agent.run.manualReview:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.run.manualReview:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.state.report",
+      "source": "contracts/operation-contracts.json#/records/56",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:agent.state.report:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.state.report:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.state.report",
+      "source": "contracts/operation-contracts.json#/records/56",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:agent.state.report:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.state.report:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.tool.failed",
+      "source": "contracts/operation-contracts.json#/records/57",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:agent.tool.failed:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.tool.failed:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.tool.failed",
+      "source": "contracts/operation-contracts.json#/records/57",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:agent.tool.failed:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.tool.failed:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.tool.request",
+      "source": "contracts/operation-contracts.json#/records/58",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:agent.tool.request:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.tool.request:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.tool.request",
+      "source": "contracts/operation-contracts.json#/records/58",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:agent.tool.request:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.tool.request:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.tool.result",
+      "source": "contracts/operation-contracts.json#/records/59",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:agent.tool.result:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.tool.result:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agent.tool.result",
+      "source": "contracts/operation-contracts.json#/records/59",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:agent.tool.result:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agent.tool.result:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agentic.security.event.record",
+      "source": "contracts/operation-contracts.json#/records/66",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:agentic.security.event.record:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agentic.security.event.record:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "agentic.security.event.record",
+      "source": "contracts/operation-contracts.json#/records/66",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:agentic.security.event.record:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:agentic.security.event.record:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "audit.archive.complete",
+      "source": "contracts/operation-contracts.json#/records/68",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:audit.archive.complete:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:audit.archive.complete:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "audit.archive.complete",
+      "source": "contracts/operation-contracts.json#/records/68",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:audit.archive.complete:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:audit.archive.complete:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "audit.archive.enqueue",
+      "source": "contracts/operation-contracts.json#/records/69",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:audit.archive.enqueue:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:audit.archive.enqueue:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "audit.archive.enqueue",
+      "source": "contracts/operation-contracts.json#/records/69",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:audit.archive.enqueue:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:audit.archive.enqueue:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "audit.event.append",
+      "source": "contracts/operation-contracts.json#/records/71",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:audit.event.append:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:audit.event.append:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "audit.event.append",
+      "source": "contracts/operation-contracts.json#/records/71",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:audit.event.append:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:audit.event.append:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "audit.stream.ack",
+      "source": "contracts/operation-contracts.json#/records/76",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:audit.stream.ack:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:audit.stream.ack:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "audit.stream.ack",
+      "source": "contracts/operation-contracts.json#/records/76",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:audit.stream.ack:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:audit.stream.ack:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "audit.stream.replay.request",
+      "source": "contracts/operation-contracts.json#/records/77",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:audit.stream.replay.request:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:audit.stream.replay.request:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "audit.stream.replay.request",
+      "source": "contracts/operation-contracts.json#/records/77",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:audit.stream.replay.request:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:audit.stream.replay.request:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "audit.stream.replay.result",
+      "source": "contracts/operation-contracts.json#/records/78",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:audit.stream.replay.result:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:audit.stream.replay.result:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "audit.stream.replay.result",
+      "source": "contracts/operation-contracts.json#/records/78",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:audit.stream.replay.result:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:audit.stream.replay.result:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "authority.actionPlan.compile",
+      "source": "contracts/operation-contracts.json#/records/79",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:authority.actionPlan.compile:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:authority.actionPlan.compile:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "authority.actionPlan.compile",
+      "source": "contracts/operation-contracts.json#/records/79",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:authority.actionPlan.compile:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:authority.actionPlan.compile:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "authority.actionPlan.validate",
+      "source": "contracts/operation-contracts.json#/records/81",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:authority.actionPlan.validate:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:authority.actionPlan.validate:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "authority.actionPlan.validate",
+      "source": "contracts/operation-contracts.json#/records/81",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:authority.actionPlan.validate:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:authority.actionPlan.validate:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "authority.context.create",
+      "source": "contracts/operation-contracts.json#/records/82",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:authority.context.create:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:authority.context.create:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "authority.context.create",
+      "source": "contracts/operation-contracts.json#/records/82",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:authority.context.create:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:authority.context.create:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "authority.context.validate",
+      "source": "contracts/operation-contracts.json#/records/84",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:authority.context.validate:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:authority.context.validate:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "authority.context.validate",
+      "source": "contracts/operation-contracts.json#/records/84",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:authority.context.validate:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:authority.context.validate:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "authority.intent.compile",
+      "source": "contracts/operation-contracts.json#/records/85",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:authority.intent.compile:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:authority.intent.compile:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "authority.intent.compile",
+      "source": "contracts/operation-contracts.json#/records/85",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:authority.intent.compile:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:authority.intent.compile:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "authority.intent.validate",
+      "source": "contracts/operation-contracts.json#/records/87",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:authority.intent.validate:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:authority.intent.validate:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "authority.intent.validate",
+      "source": "contracts/operation-contracts.json#/records/87",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:authority.intent.validate:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:authority.intent.validate:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "authority.lineage.append",
+      "source": "contracts/operation-contracts.json#/records/88",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:authority.lineage.append:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:authority.lineage.append:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "authority.lineage.append",
+      "source": "contracts/operation-contracts.json#/records/88",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:authority.lineage.append:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:authority.lineage.append:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.account.authEpoch.increment",
+      "source": "contracts/operation-contracts.json#/records/101",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.account.authEpoch.increment:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.account.authEpoch.increment:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.account.authEpoch.increment",
+      "source": "contracts/operation-contracts.json#/records/101",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.account.authEpoch.increment:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.account.authEpoch.increment:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.action.complete",
+      "source": "contracts/operation-contracts.json#/records/111",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.action.complete:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.action.complete:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.action.complete",
+      "source": "contracts/operation-contracts.json#/records/111",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.action.complete:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.action.complete:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.action.dispatchPhase",
+      "source": "contracts/operation-contracts.json#/records/112",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.action.dispatchPhase:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.action.dispatchPhase:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.action.dispatchPhase",
+      "source": "contracts/operation-contracts.json#/records/112",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.action.dispatchPhase:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.action.dispatchPhase:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.action.fail",
+      "source": "contracts/operation-contracts.json#/records/113",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.action.fail:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.action.fail:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.action.fail",
+      "source": "contracts/operation-contracts.json#/records/113",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.action.fail:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.action.fail:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.artifact.created",
+      "source": "contracts/operation-contracts.json#/records/118",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.artifact.created:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.artifact.created:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.artifact.created",
+      "source": "contracts/operation-contracts.json#/records/118",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.artifact.created:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.artifact.created:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.bridge.assign",
+      "source": "contracts/operation-contracts.json#/records/149",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.bridge.assign:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.bridge.assign:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.bridge.assign",
+      "source": "contracts/operation-contracts.json#/records/149",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.bridge.assign:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.bridge.assign:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.bridge.connect",
+      "source": "contracts/operation-contracts.json#/records/150",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.bridge.connect:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.bridge.connect:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.bridge.connect",
+      "source": "contracts/operation-contracts.json#/records/150",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.bridge.connect:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.bridge.connect:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.bridge.release",
+      "source": "contracts/operation-contracts.json#/records/157",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.bridge.release:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.bridge.release:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.bridge.release",
+      "source": "contracts/operation-contracts.json#/records/157",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.bridge.release:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.bridge.release:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.challenge.required",
+      "source": "contracts/operation-contracts.json#/records/161",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.challenge.required:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.challenge.required:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.challenge.required",
+      "source": "contracts/operation-contracts.json#/records/161",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.challenge.required:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.challenge.required:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.cleanup.resume",
+      "source": "contracts/operation-contracts.json#/records/163",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.cleanup.resume:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.cleanup.resume:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.cleanup.resume",
+      "source": "contracts/operation-contracts.json#/records/163",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.cleanup.resume:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.cleanup.resume:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.control.changed",
+      "source": "contracts/operation-contracts.json#/records/166",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.control.changed:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.control.changed:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.control.changed",
+      "source": "contracts/operation-contracts.json#/records/166",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.control.changed:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.control.changed:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.dialog.opened",
+      "source": "contracts/operation-contracts.json#/records/171",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.dialog.opened:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.dialog.opened:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.dialog.opened",
+      "source": "contracts/operation-contracts.json#/records/171",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.dialog.opened:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.dialog.opened:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.document.changed",
+      "source": "contracts/operation-contracts.json#/records/173",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.document.changed:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.document.changed:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.document.changed",
+      "source": "contracts/operation-contracts.json#/records/173",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.document.changed:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.document.changed:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.download.persist",
+      "source": "contracts/operation-contracts.json#/records/176",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.download.persist:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.download.persist:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.download.persist",
+      "source": "contracts/operation-contracts.json#/records/176",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.download.persist:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.download.persist:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.download.started",
+      "source": "contracts/operation-contracts.json#/records/177",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.download.started:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.download.started:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.download.started",
+      "source": "contracts/operation-contracts.json#/records/177",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.download.started:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.download.started:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.download.verify",
+      "source": "contracts/operation-contracts.json#/records/178",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.download.verify:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.download.verify:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.download.verify",
+      "source": "contracts/operation-contracts.json#/records/178",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.download.verify:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.download.verify:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.frame.observed",
+      "source": "contracts/operation-contracts.json#/records/180",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.frame.observed:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.frame.observed:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.frame.observed",
+      "source": "contracts/operation-contracts.json#/records/180",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.frame.observed:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.frame.observed:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.host.drain",
+      "source": "contracts/operation-contracts.json#/records/181",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.host.drain:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.host.drain:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.host.drain",
+      "source": "contracts/operation-contracts.json#/records/181",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.host.drain:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.host.drain:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.host.ready",
+      "source": "contracts/operation-contracts.json#/records/182",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.host.ready:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.host.ready:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.host.ready",
+      "source": "contracts/operation-contracts.json#/records/182",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.host.ready:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.host.ready:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.host.recover",
+      "source": "contracts/operation-contracts.json#/records/183",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.host.recover:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.host.recover:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.host.recover",
+      "source": "contracts/operation-contracts.json#/records/183",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.host.recover:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.host.recover:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.navigation.observed",
+      "source": "contracts/operation-contracts.json#/records/185",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.navigation.observed:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.navigation.observed:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.navigation.observed",
+      "source": "contracts/operation-contracts.json#/records/185",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.navigation.observed:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.navigation.observed:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.page.observed",
+      "source": "contracts/operation-contracts.json#/records/191",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.page.observed:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.page.observed:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.page.observed",
+      "source": "contracts/operation-contracts.json#/records/191",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.page.observed:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.page.observed:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.permission.request",
+      "source": "contracts/operation-contracts.json#/records/194",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.permission.request:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.permission.request:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.permission.request",
+      "source": "contracts/operation-contracts.json#/records/194",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.permission.request:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.permission.request:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.preview.resync",
+      "source": "contracts/operation-contracts.json#/records/198",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.preview.resync:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.preview.resync:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.preview.resync",
+      "source": "contracts/operation-contracts.json#/records/198",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.preview.resync:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.preview.resync:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.preview.viewer.connected",
+      "source": "contracts/operation-contracts.json#/records/200",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.preview.viewer.connected:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.preview.viewer.connected:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.preview.viewer.connected",
+      "source": "contracts/operation-contracts.json#/records/200",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.preview.viewer.connected:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.preview.viewer.connected:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.preview.viewer.disconnected",
+      "source": "contracts/operation-contracts.json#/records/201",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.preview.viewer.disconnected:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.preview.viewer.disconnected:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.preview.viewer.disconnected",
+      "source": "contracts/operation-contracts.json#/records/201",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.preview.viewer.disconnected:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.preview.viewer.disconnected:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.profile.acquire",
+      "source": "contracts/operation-contracts.json#/records/202",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.profile.acquire:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.profile.acquire:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.profile.acquire",
+      "source": "contracts/operation-contracts.json#/records/202",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.profile.acquire:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.profile.acquire:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.profile.release",
+      "source": "contracts/operation-contracts.json#/records/203",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.profile.release:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.profile.release:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.profile.release",
+      "source": "contracts/operation-contracts.json#/records/203",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.profile.release:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.profile.release:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.runtimeBuild.register",
+      "source": "contracts/operation-contracts.json#/records/205",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.runtimeBuild.register:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.runtimeBuild.register:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.runtimeBuild.register",
+      "source": "contracts/operation-contracts.json#/records/205",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.runtimeBuild.register:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.runtimeBuild.register:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.runtimeBuild.verify",
+      "source": "contracts/operation-contracts.json#/records/206",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.runtimeBuild.verify:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.runtimeBuild.verify:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.runtimeBuild.verify",
+      "source": "contracts/operation-contracts.json#/records/206",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.runtimeBuild.verify:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.runtimeBuild.verify:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.schedule.evaluate",
+      "source": "contracts/operation-contracts.json#/records/207",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.schedule.evaluate:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.schedule.evaluate:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.schedule.evaluate",
+      "source": "contracts/operation-contracts.json#/records/207",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.schedule.evaluate:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.schedule.evaluate:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.session.observe",
+      "source": "contracts/operation-contracts.json#/records/215",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.session.observe:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.session.observe:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.session.observe",
+      "source": "contracts/operation-contracts.json#/records/215",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.session.observe:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.session.observe:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.upload.consume",
+      "source": "contracts/operation-contracts.json#/records/235",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:browser.upload.consume:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.upload.consume:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "browser.upload.consume",
+      "source": "contracts/operation-contracts.json#/records/235",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:browser.upload.consume:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:browser.upload.consume:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "chat.browser.control.acquire",
+      "source": "contracts/operation-contracts.json#/records/238",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:chat.browser.control.acquire:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:chat.browser.control.acquire:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "chat.browser.control.acquire",
+      "source": "contracts/operation-contracts.json#/records/238",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:chat.browser.control.acquire:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:chat.browser.control.acquire:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "chat.browser.target.attach",
+      "source": "contracts/operation-contracts.json#/records/243",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:chat.browser.target.attach:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:chat.browser.target.attach:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "chat.browser.target.attach",
+      "source": "contracts/operation-contracts.json#/records/243",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:chat.browser.target.attach:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:chat.browser.target.attach:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "chat.command.execute",
+      "source": "contracts/operation-contracts.json#/records/244",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:chat.command.execute:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:chat.command.execute:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "chat.command.execute",
+      "source": "contracts/operation-contracts.json#/records/244",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:chat.command.execute:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:chat.command.execute:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "component.state.report",
+      "source": "contracts/operation-contracts.json#/records/277",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:component.state.report:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:component.state.report:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "component.state.report",
+      "source": "contracts/operation-contracts.json#/records/277",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:component.state.report:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:component.state.report:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.activation.prepare",
+      "source": "contracts/operation-contracts.json#/records/313",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:generation.activation.prepare:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.activation.prepare:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.activation.prepare",
+      "source": "contracts/operation-contracts.json#/records/313",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:generation.activation.prepare:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.activation.prepare:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.activation.rollback",
+      "source": "contracts/operation-contracts.json#/records/314",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:generation.activation.rollback:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.activation.rollback:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.activation.rollback",
+      "source": "contracts/operation-contracts.json#/records/314",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:generation.activation.rollback:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.activation.rollback:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.activation.switch",
+      "source": "contracts/operation-contracts.json#/records/315",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:generation.activation.switch:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.activation.switch:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.activation.switch",
+      "source": "contracts/operation-contracts.json#/records/315",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:generation.activation.switch:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.activation.switch:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.blocker.open",
+      "source": "contracts/operation-contracts.json#/records/321",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:generation.blocker.open:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.blocker.open:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.blocker.open",
+      "source": "contracts/operation-contracts.json#/records/321",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:generation.blocker.open:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.blocker.open:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.candidate.publish",
+      "source": "contracts/operation-contracts.json#/records/323",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:generation.candidate.publish:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.candidate.publish:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.candidate.publish",
+      "source": "contracts/operation-contracts.json#/records/323",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:generation.candidate.publish:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.candidate.publish:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.integration.step",
+      "source": "contracts/operation-contracts.json#/records/329",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:generation.integration.step:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.integration.step:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.integration.step",
+      "source": "contracts/operation-contracts.json#/records/329",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:generation.integration.step:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.integration.step:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.job.complete",
+      "source": "contracts/operation-contracts.json#/records/331",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:generation.job.complete:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.job.complete:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.job.complete",
+      "source": "contracts/operation-contracts.json#/records/331",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:generation.job.complete:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.job.complete:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.model.execute",
+      "source": "contracts/operation-contracts.json#/records/342",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:generation.model.execute:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.model.execute:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.model.execute",
+      "source": "contracts/operation-contracts.json#/records/342",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:generation.model.execute:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.model.execute:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.phase.start",
+      "source": "contracts/operation-contracts.json#/records/346",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:generation.phase.start:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.phase.start:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.phase.start",
+      "source": "contracts/operation-contracts.json#/records/346",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:generation.phase.start:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.phase.start:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.plan.create",
+      "source": "contracts/operation-contracts.json#/records/347",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:generation.plan.create:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.plan.create:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.plan.create",
+      "source": "contracts/operation-contracts.json#/records/347",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:generation.plan.create:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.plan.create:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.spec.propose",
+      "source": "contracts/operation-contracts.json#/records/357",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:generation.spec.propose:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.spec.propose:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.spec.propose",
+      "source": "contracts/operation-contracts.json#/records/357",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:generation.spec.propose:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.spec.propose:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.turn.interrupt",
+      "source": "contracts/operation-contracts.json#/records/361",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:generation.turn.interrupt:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.turn.interrupt:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.turn.interrupt",
+      "source": "contracts/operation-contracts.json#/records/361",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:generation.turn.interrupt:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.turn.interrupt:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.workspace.patch",
+      "source": "contracts/operation-contracts.json#/records/367",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:generation.workspace.patch:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.workspace.patch:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.workspace.patch",
+      "source": "contracts/operation-contracts.json#/records/367",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:generation.workspace.patch:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.workspace.patch:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.workspace.validate",
+      "source": "contracts/operation-contracts.json#/records/371",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:generation.workspace.validate:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.workspace.validate:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "generation.workspace.validate",
+      "source": "contracts/operation-contracts.json#/records/371",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:generation.workspace.validate:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:generation.workspace.validate:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.cache.invalidate",
+      "source": "contracts/operation-contracts.json#/records/381",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.cache.invalidate:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.cache.invalidate:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.cache.invalidate",
+      "source": "contracts/operation-contracts.json#/records/381",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.cache.invalidate:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.cache.invalidate:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.contract.validate",
+      "source": "contracts/operation-contracts.json#/records/399",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.contract.validate:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.contract.validate:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.contract.validate",
+      "source": "contracts/operation-contracts.json#/records/399",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.contract.validate:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.contract.validate:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.discovery.invalidate",
+      "source": "contracts/operation-contracts.json#/records/400",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.discovery.invalidate:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.discovery.invalidate:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.discovery.invalidate",
+      "source": "contracts/operation-contracts.json#/records/400",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.discovery.invalidate:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.discovery.invalidate:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.era.invalidate",
+      "source": "contracts/operation-contracts.json#/records/405",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.era.invalidate:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.era.invalidate:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.era.invalidate",
+      "source": "contracts/operation-contracts.json#/records/405",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.era.invalidate:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.era.invalidate:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.input.required",
+      "source": "contracts/operation-contracts.json#/records/407",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.input.required:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.input.required:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.input.required",
+      "source": "contracts/operation-contracts.json#/records/407",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.input.required:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.input.required:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.legacy.adapt",
+      "source": "contracts/operation-contracts.json#/records/411",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.legacy.adapt:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.legacy.adapt:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.legacy.adapt",
+      "source": "contracts/operation-contracts.json#/records/411",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.legacy.adapt:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.legacy.adapt:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.legacy.probe",
+      "source": "contracts/operation-contracts.json#/records/412",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.legacy.probe:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.legacy.probe:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.legacy.probe",
+      "source": "contracts/operation-contracts.json#/records/412",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.legacy.probe:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.legacy.probe:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.prompts.get",
+      "source": "contracts/operation-contracts.json#/records/413",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.prompts.get:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.prompts.get:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.prompts.get",
+      "source": "contracts/operation-contracts.json#/records/413",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.prompts.get:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.prompts.get:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.prompts.list",
+      "source": "contracts/operation-contracts.json#/records/414",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.prompts.list:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.prompts.list:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.prompts.list",
+      "source": "contracts/operation-contracts.json#/records/414",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.prompts.list:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.prompts.list:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.request.finalize",
+      "source": "contracts/operation-contracts.json#/records/416",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.request.finalize:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.request.finalize:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.request.finalize",
+      "source": "contracts/operation-contracts.json#/records/416",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.request.finalize:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.request.finalize:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.request.reserveId",
+      "source": "contracts/operation-contracts.json#/records/417",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.request.reserveId:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.request.reserveId:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.request.reserveId",
+      "source": "contracts/operation-contracts.json#/records/417",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.request.reserveId:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.request.reserveId:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.request.validateJsonRpc",
+      "source": "contracts/operation-contracts.json#/records/418",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.request.validateJsonRpc:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.request.validateJsonRpc:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.request.validateJsonRpc",
+      "source": "contracts/operation-contracts.json#/records/418",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.request.validateJsonRpc:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.request.validateJsonRpc:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.request.validateTransport",
+      "source": "contracts/operation-contracts.json#/records/419",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.request.validateTransport:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.request.validateTransport:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.request.validateTransport",
+      "source": "contracts/operation-contracts.json#/records/419",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.request.validateTransport:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.request.validateTransport:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.resources.list",
+      "source": "contracts/operation-contracts.json#/records/423",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.resources.list:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.resources.list:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.resources.list",
+      "source": "contracts/operation-contracts.json#/records/423",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.resources.list:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.resources.list:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.resources.read",
+      "source": "contracts/operation-contracts.json#/records/424",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.resources.read:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.resources.read:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.resources.read",
+      "source": "contracts/operation-contracts.json#/records/424",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.resources.read:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.resources.read:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.resources.templates.list",
+      "source": "contracts/operation-contracts.json#/records/425",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.resources.templates.list:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.resources.templates.list:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.resources.templates.list",
+      "source": "contracts/operation-contracts.json#/records/425",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.resources.templates.list:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.resources.templates.list:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.stateHandle.create",
+      "source": "contracts/operation-contracts.json#/records/428",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.stateHandle.create:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.stateHandle.create:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.stateHandle.create",
+      "source": "contracts/operation-contracts.json#/records/428",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.stateHandle.create:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.stateHandle.create:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.stateHandle.resolve",
+      "source": "contracts/operation-contracts.json#/records/431",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.stateHandle.resolve:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.stateHandle.resolve:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.stateHandle.resolve",
+      "source": "contracts/operation-contracts.json#/records/431",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.stateHandle.resolve:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.stateHandle.resolve:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.subscription.acknowledge",
+      "source": "contracts/operation-contracts.json#/records/432",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.subscription.acknowledge:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.subscription.acknowledge:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.subscription.acknowledge",
+      "source": "contracts/operation-contracts.json#/records/432",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.subscription.acknowledge:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.subscription.acknowledge:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.subscription.complete",
+      "source": "contracts/operation-contracts.json#/records/434",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.subscription.complete:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.subscription.complete:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.subscription.complete",
+      "source": "contracts/operation-contracts.json#/records/434",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.subscription.complete:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.subscription.complete:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.subscription.listen",
+      "source": "contracts/operation-contracts.json#/records/436",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.subscription.listen:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.subscription.listen:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.subscription.listen",
+      "source": "contracts/operation-contracts.json#/records/436",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.subscription.listen:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.subscription.listen:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.subscription.notify",
+      "source": "contracts/operation-contracts.json#/records/438",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.subscription.notify:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.subscription.notify:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.subscription.notify",
+      "source": "contracts/operation-contracts.json#/records/438",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.subscription.notify:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.subscription.notify:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.task.create",
+      "source": "contracts/operation-contracts.json#/records/441",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.task.create:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.task.create:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.task.create",
+      "source": "contracts/operation-contracts.json#/records/441",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.task.create:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.task.create:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.task.expire",
+      "source": "contracts/operation-contracts.json#/records/443",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.task.expire:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.task.expire:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.task.expire",
+      "source": "contracts/operation-contracts.json#/records/443",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.task.expire:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.task.expire:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.task.notify",
+      "source": "contracts/operation-contracts.json#/records/446",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.task.notify:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.task.notify:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.task.notify",
+      "source": "contracts/operation-contracts.json#/records/446",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.task.notify:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.task.notify:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.tools.call",
+      "source": "contracts/operation-contracts.json#/records/448",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.tools.call:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.tools.call:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.tools.call",
+      "source": "contracts/operation-contracts.json#/records/448",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.tools.call:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.tools.call:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.tools.list",
+      "source": "contracts/operation-contracts.json#/records/450",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.tools.list:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.tools.list:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.tools.list",
+      "source": "contracts/operation-contracts.json#/records/450",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.tools.list:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.tools.list:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.tools.progress",
+      "source": "contracts/operation-contracts.json#/records/451",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:mcp.tools.progress:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.tools.progress:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "mcp.tools.progress",
+      "source": "contracts/operation-contracts.json#/records/451",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:mcp.tools.progress:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.tools.progress:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "monitor.alert.open",
+      "source": "contracts/operation-contracts.json#/records/458",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:monitor.alert.open:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:monitor.alert.open:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "monitor.alert.open",
+      "source": "contracts/operation-contracts.json#/records/458",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:monitor.alert.open:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:monitor.alert.open:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "monitor.alert.update",
+      "source": "contracts/operation-contracts.json#/records/461",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:monitor.alert.update:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:monitor.alert.update:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "monitor.alert.update",
+      "source": "contracts/operation-contracts.json#/records/461",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:monitor.alert.update:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:monitor.alert.update:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "monitor.heartbeat.observe",
+      "source": "contracts/operation-contracts.json#/records/463",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:monitor.heartbeat.observe:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:monitor.heartbeat.observe:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "monitor.heartbeat.observe",
+      "source": "contracts/operation-contracts.json#/records/463",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:monitor.heartbeat.observe:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:monitor.heartbeat.observe:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "monitor.probe.result",
+      "source": "contracts/operation-contracts.json#/records/467",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:monitor.probe.result:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:monitor.probe.result:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "monitor.probe.result",
+      "source": "contracts/operation-contracts.json#/records/467",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:monitor.probe.result:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:monitor.probe.result:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "monitor.repair.enqueue",
+      "source": "contracts/operation-contracts.json#/records/470",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:monitor.repair.enqueue:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:monitor.repair.enqueue:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "monitor.repair.enqueue",
+      "source": "contracts/operation-contracts.json#/records/470",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:monitor.repair.enqueue:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:monitor.repair.enqueue:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "monitor.state.transition",
+      "source": "contracts/operation-contracts.json#/records/471",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:monitor.state.transition:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:monitor.state.transition:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "monitor.state.transition",
+      "source": "contracts/operation-contracts.json#/records/471",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:monitor.state.transition:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:monitor.state.transition:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "provenance.content.register",
+      "source": "contracts/operation-contracts.json#/records/510",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:provenance.content.register:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:provenance.content.register:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "provenance.content.register",
+      "source": "contracts/operation-contracts.json#/records/510",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:provenance.content.register:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:provenance.content.register:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "provenance.segment.compile",
+      "source": "contracts/operation-contracts.json#/records/511",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:provenance.segment.compile:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:provenance.segment.compile:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "provenance.segment.compile",
+      "source": "contracts/operation-contracts.json#/records/511",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:provenance.segment.compile:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:provenance.segment.compile:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "provenance.valueDerivation.create",
+      "source": "contracts/operation-contracts.json#/records/512",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:provenance.valueDerivation.create:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:provenance.valueDerivation.create:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "provenance.valueDerivation.create",
+      "source": "contracts/operation-contracts.json#/records/512",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:provenance.valueDerivation.create:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:provenance.valueDerivation.create:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.cancel",
+      "source": "contracts/operation-contracts.json#/records/520",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:runtime.cancel:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.cancel:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.cancel",
+      "source": "contracts/operation-contracts.json#/records/520",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:runtime.cancel:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.cancel:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.cleanup.resume",
+      "source": "contracts/operation-contracts.json#/records/522",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:runtime.cleanup.resume:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.cleanup.resume:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.cleanup.resume",
+      "source": "contracts/operation-contracts.json#/records/522",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:runtime.cleanup.resume:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.cleanup.resume:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.connection.inspect",
+      "source": "contracts/operation-contracts.json#/records/523",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:runtime.connection.inspect:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.connection.inspect:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.connection.inspect",
+      "source": "contracts/operation-contracts.json#/records/523",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:runtime.connection.inspect:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.connection.inspect:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.heartbeat",
+      "source": "contracts/operation-contracts.json#/records/528",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:runtime.heartbeat:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.heartbeat:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.heartbeat",
+      "source": "contracts/operation-contracts.json#/records/528",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:runtime.heartbeat:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.heartbeat:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.instance.start",
+      "source": "contracts/operation-contracts.json#/records/533",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:runtime.instance.start:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.instance.start:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.instance.start",
+      "source": "contracts/operation-contracts.json#/records/533",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:runtime.instance.start:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.instance.start:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.invoke",
+      "source": "contracts/operation-contracts.json#/records/534",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:runtime.invoke:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.invoke:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.invoke",
+      "source": "contracts/operation-contracts.json#/records/534",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:runtime.invoke:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.invoke:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.prepare",
+      "source": "contracts/operation-contracts.json#/records/535",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:runtime.prepare:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.prepare:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.prepare",
+      "source": "contracts/operation-contracts.json#/records/535",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:runtime.prepare:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.prepare:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.ready.report",
+      "source": "contracts/operation-contracts.json#/records/537",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:runtime.ready.report:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.ready.report:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.ready.report",
+      "source": "contracts/operation-contracts.json#/records/537",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:runtime.ready.report:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.ready.report:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.state.report",
+      "source": "contracts/operation-contracts.json#/records/539",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:runtime.state.report:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.state.report:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.state.report",
+      "source": "contracts/operation-contracts.json#/records/539",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:runtime.state.report:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.state.report:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.stop",
+      "source": "contracts/operation-contracts.json#/records/540",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:runtime.stop:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.stop:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "runtime.stop",
+      "source": "contracts/operation-contracts.json#/records/540",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:runtime.stop:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:runtime.stop:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "secret.resolve",
+      "source": "contracts/operation-contracts.json#/records/554",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:secret.resolve:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:secret.resolve:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "secret.resolve",
+      "source": "contracts/operation-contracts.json#/records/554",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:secret.resolve:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:secret.resolve:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "secret.usage.report",
+      "source": "contracts/operation-contracts.json#/records/559",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:secret.usage.report:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:secret.usage.report:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "secret.usage.report",
+      "source": "contracts/operation-contracts.json#/records/559",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:secret.usage.report:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:secret.usage.report:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "secret.useContext.create",
+      "source": "contracts/operation-contracts.json#/records/560",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:secret.useContext.create:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:secret.useContext.create:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "secret.useContext.create",
+      "source": "contracts/operation-contracts.json#/records/560",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:secret.useContext.create:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:secret.useContext.create:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "selfTest.registeredElement.run",
+      "source": "contracts/operation-contracts.json#/records/570",
+      "boundary": {
+        "role": "request",
+        "reference": "urn:kcml:r9:operation:selfTest.registeredElement.run:command",
+        "mechanism": "commandSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:selfTest.registeredElement.run:command",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    },
+    {
+      "operationId": "selfTest.registeredElement.run",
+      "source": "contracts/operation-contracts.json#/records/570",
+      "boundary": {
+        "role": "response",
+        "reference": "urn:kcml:r9:operation:selfTest.registeredElement.run:response",
+        "mechanism": "responseSchemaRef.schemaId",
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:selfTest.registeredElement.run:response",
+        "issueKind": "MISSING_DEFINITION"
+      }
+    }
+  ],
+  "browserOperationIntersectionWithUnresolved": [],
+  "eventCoverage": {
+    "phase1": 152,
+    "phase2": 152,
+    "identicalOperationSet": true
+  },
+  "phase2ChangedResources": [
+    {
+      "path": "contracts/generation/artifact-schema-map.json",
+      "beforeSha256": "d6707ab2709af25bdb4fe359b37f7880fbfaaedc54f9e69b56c6a5af2adc6091",
+      "afterSha256": "6ae42e26d18cdf5541ab63555c38bd36a5a323dd27dac3d9e40661e0bea46f9c",
+      "occurrences": [
+        {
+          "family": "KCML-EMBEDDED",
+          "line": 84149
+        },
+        {
+          "family": "KCML-R5-RESOURCE",
+          "line": 177653
+        }
+      ]
+    },
+    {
+      "path": "contracts/execution/embedded-manifest.json",
+      "beforeSha256": "167801022fb218fb237b77a7e65be5407a2cb0928234817c209c0859333ff820",
+      "afterSha256": "1ec21bc451de820898eecc64644c901343068fc431500c596c7ee56cdac67bd7",
+      "occurrences": [
+        {
+          "family": "KCML-EMBEDDED",
+          "line": 103249
+        }
+      ]
+    }
+  ],
+  "changedMapManifestEntryValid": true
+}

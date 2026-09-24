@@ -1,6 +1,7 @@
 {
   "checks": [
     {
+      "locale": "cs",
       "viewport": {
         "width": 1366,
         "height": 768
@@ -8,9 +9,12 @@
       "status": "PASS",
       "checks": [
         "visible-menu",
+        "touch-tap-or-click",
         "arrow-navigation",
         "escape",
         "shift-f10",
+        "right-click",
+        "nested-dialog-focus-return",
         "help-dialog",
         "focus-return",
         "sample-label",
@@ -19,6 +23,29 @@
       ]
     },
     {
+      "locale": "cs",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "status": "PASS",
+      "checks": [
+        "visible-menu",
+        "touch-tap-or-click",
+        "arrow-navigation",
+        "escape",
+        "shift-f10",
+        "right-click",
+        "nested-dialog-focus-return",
+        "help-dialog",
+        "focus-return",
+        "sample-label",
+        "no-horizontal-overflow",
+        "no-js-error"
+      ]
+    },
+    {
+      "locale": "cs",
       "viewport": {
         "width": 390,
         "height": 844
@@ -26,9 +53,78 @@
       "status": "PASS",
       "checks": [
         "visible-menu",
+        "touch-tap-or-click",
         "arrow-navigation",
         "escape",
         "shift-f10",
+        "right-click",
+        "nested-dialog-focus-return",
+        "help-dialog",
+        "focus-return",
+        "sample-label",
+        "no-horizontal-overflow",
+        "no-js-error"
+      ]
+    },
+    {
+      "locale": "en",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "status": "PASS",
+      "checks": [
+        "visible-menu",
+        "touch-tap-or-click",
+        "arrow-navigation",
+        "escape",
+        "shift-f10",
+        "right-click",
+        "nested-dialog-focus-return",
+        "help-dialog",
+        "focus-return",
+        "sample-label",
+        "no-horizontal-overflow",
+        "no-js-error"
+      ]
+    },
+    {
+      "locale": "en",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "status": "PASS",
+      "checks": [
+        "visible-menu",
+        "touch-tap-or-click",
+        "arrow-navigation",
+        "escape",
+        "shift-f10",
+        "right-click",
+        "nested-dialog-focus-return",
+        "help-dialog",
+        "focus-return",
+        "sample-label",
+        "no-horizontal-overflow",
+        "no-js-error"
+      ]
+    },
+    {
+      "locale": "en",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": "PASS",
+      "checks": [
+        "visible-menu",
+        "touch-tap-or-click",
+        "arrow-navigation",
+        "escape",
+        "shift-f10",
+        "right-click",
+        "nested-dialog-focus-return",
         "help-dialog",
         "focus-return",
         "sample-label",

@@ -85,25 +85,28 @@ def run():
     check('event.schema-meta',lambda:Draft202012Validator.check_schema(schema))
     event={'eventId':'e1','streamId':'s1','runId':'r1','correlationId':'c1','operationId':'component.read',
         'nodeId':'n1','attemptId':'a1','sourceId':'n1','targetId':'n2','edgeId':'edge1',
-        'occurredAt':'2026-09-23T12:00:00Z','recordedAt':'2026-09-23T12:00:01Z','sequence':1,'stateVersion':1,
+        'occurredAt':'2026-09-23T12:00:00Z','recordedAt':'2026-09-23T12:00:01Z','sequence':'1','stateVersion':'1',
         'kind':'request','state_id':'ACTIVE','payloadRef':None,'demo':False}
     check('event.valid-fixture',lambda:validator.validate(event))
     for name,mutate in [('unknown-state',lambda e:e.update(state_id='INVENTED')),('missing-correlation',lambda e:e.pop('correlationId')),
-                        ('negative-sequence',lambda e:e.update(sequence=-1)),('invalid-time',lambda e:e.update(occurredAt='yesterday')),
+                        ('negative-sequence',lambda e:e.update(sequence='-1')),('invalid-time',lambda e:e.update(occurredAt='yesterday')),
                         ('reserved-field',lambda e:e.update(secret='not-a-secret'))]:
         broken=copy.deepcopy(event);mutate(broken)
         check('event.reject-'+name,lambda b=broken:require(bool(list(validator.iter_errors(b))),'invalid event accepted'))
     # Small oracle of presentation admission. Business effects are deliberately absent.
     def admission(e,seen,cursor,version,stream='s1'):
         if e['demo'] or e['streamId']!=stream:return 'REJECT'
-        if e['eventId'] in seen or e['sequence']<=cursor:return 'HISTORY_ONLY'
-        if e['sequence']!=cursor+1:return 'REPLAY_REQUIRED'
-        if e['stateVersion']<version:return 'SNAPSHOT_REQUIRED'
+        # Python's arbitrary-precision int models exact decimal comparison;
+        # production adapters must not route these wire values through JS Number.
+        sequence=int(e['sequence']); cursor=int(cursor)
+        if e['eventId'] in seen or sequence<=cursor:return 'HISTORY_ONLY'
+        if sequence!=cursor+1:return 'REPLAY_REQUIRED'
+        if int(e['stateVersion'])<int(version):return 'SNAPSHOT_REQUIRED'
         return 'APPLY'
-    cases=[('duplicate',{}, {'e1'},0,0,'HISTORY_ONLY'),('late',{},set(),2,2,'HISTORY_ONLY'),
-           ('gap',{'sequence':3},set(),0,0,'REPLAY_REQUIRED'),('regression',{},set(),0,2,'SNAPSHOT_REQUIRED'),
-           ('production-demo',{'demo':True},set(),0,0,'REJECT'),('wrong-stream',{'streamId':'s2'},set(),0,0,'REJECT'),
-           ('snapshot-watermark',{'sequence':11,'stateVersion':8},set(),10,8,'APPLY')]
+    cases=[('duplicate',{}, {'e1'},'0','0','HISTORY_ONLY'),('late',{},set(),'2','2','HISTORY_ONLY'),
+           ('gap',{'sequence':'3'},set(),'0','0','REPLAY_REQUIRED'),('regression',{},set(),'0','2','SNAPSHOT_REQUIRED'),
+           ('production-demo',{'demo':True},set(),'0','0','REJECT'),('wrong-stream',{'streamId':'s2'},set(),'0','0','REJECT'),
+           ('snapshot-watermark',{'sequence':'11','stateVersion':'8'},set(),'10','8','APPLY')]
     for name,patch,seen,cursor,version,expected in cases:
         e={**event,**patch};check('oracle.'+name,lambda e=e,se=seen,cu=cursor,ve=version,ex=expected:require(admission(e,se,cu,ve)==ex,'wrong admission'))
     result={'scope':'Static contract validation and reference-oracle fixtures; no backend or provider call.', 'checks':checks}

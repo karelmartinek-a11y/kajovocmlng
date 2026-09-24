@@ -1,0 +1,992 @@
+{
+  "scope": "Schema fixtures and necessary create conditions, not domain closure or runtime evidence",
+  "checks": [
+    {
+      "case": "browser.annotation.create/request/positive",
+      "category": "repaired-contract",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "browser.annotation.create/request/wrong-type",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "42 is not valid under any of the given schemas"
+      ]
+    },
+    {
+      "case": "browser.annotation.create/request/null",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "None is not valid under any of the given schemas"
+      ]
+    },
+    {
+      "case": "browser.annotation.create/request/unknown-field",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "{'sourceKind': 'OWNER', 'purpose': 'LOOK_HERE', 'markType': 'FREEHAND', 'styleToken': 'AUTHOR_DEFAULT', 'note': 'sample', 'anchor': {'sessionId': '00000000-0000-4000-8000-000000000001', 'allocationGeneration': '0', 'hostGeneration': '0', 'streamEpoch"
+      ]
+    },
+    {
+      "case": "browser.annotation.create/request/missing-required",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "{'purpose': 'LOOK_HERE', 'markType': 'FREEHAND', 'styleToken': 'AUTHOR_DEFAULT', 'note': 'sample', 'anchor': {'sessionId': '00000000-0000-4000-8000-000000000001', 'allocationGeneration': '0', 'hostGeneration': '0', 'streamEpoch': '0', 'pageId': '0000"
+      ]
+    },
+    {
+      "case": "browser.annotation.create/request/variant",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "{'sourceKind': 'NOT_A_DECLARED_VARIANT', 'purpose': 'LOOK_HERE', 'markType': 'FREEHAND', 'styleToken': 'AUTHOR_DEFAULT', 'note': 'sample', 'anchor': {'sessionId': '00000000-0000-4000-8000-000000000001', 'allocationGeneration': '0', 'hostGeneration': "
+      ]
+    },
+    {
+      "case": "browser.annotation.create/response/positive",
+      "category": "repaired-contract",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "browser.annotation.create/response/wrong-type",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "42 is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.annotation.create/response/null",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "None is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.annotation.create/response/unknown-field",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('NOT_A_DECLARED_FIELD' was unexpected)"
+      ]
+    },
+    {
+      "case": "browser.annotation.create/response/missing-required",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'annotation' is a required property"
+      ]
+    },
+    {
+      "case": "browser.annotation.list/request/positive",
+      "category": "repaired-contract",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "browser.annotation.list/request/wrong-type",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "42 is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.annotation.list/request/null",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "None is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.annotation.list/request/unknown-field",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('NOT_A_DECLARED_FIELD' was unexpected)"
+      ]
+    },
+    {
+      "case": "browser.annotation.list/request/unknown-query",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('NOT_A_DECLARED_FILTER' was unexpected)"
+      ]
+    },
+    {
+      "case": "browser.annotation.list/response/positive",
+      "category": "repaired-contract",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "browser.annotation.list/response/wrong-type",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "42 is not of type 'array'"
+      ]
+    },
+    {
+      "case": "browser.annotation.list/response/null",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "None is not of type 'array'"
+      ]
+    },
+    {
+      "case": "browser.annotation.tombstone/request/positive",
+      "category": "repaired-contract",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "browser.annotation.tombstone/request/wrong-type",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "42 is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.annotation.tombstone/request/null",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "None is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.annotation.tombstone/request/unknown-field",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('NOT_A_DECLARED_FIELD' was unexpected)"
+      ]
+    },
+    {
+      "case": "browser.annotation.tombstone/request/missing-required",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'expectedStateVersion' is a required property"
+      ]
+    },
+    {
+      "case": "browser.annotation.tombstone/response/positive",
+      "category": "repaired-contract",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "browser.annotation.tombstone/response/wrong-type",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "42 is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.annotation.tombstone/response/null",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "None is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.annotation.tombstone/response/unknown-field",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('NOT_A_DECLARED_FIELD' was unexpected)"
+      ]
+    },
+    {
+      "case": "browser.annotation.tombstone/response/missing-required",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'annotationId' is a required property"
+      ]
+    },
+    {
+      "case": "browser.annotation.reanchor/request/positive",
+      "category": "repaired-contract",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "browser.annotation.reanchor/request/wrong-type",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "42 is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.annotation.reanchor/request/null",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "None is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.annotation.reanchor/request/unknown-field",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('NOT_A_DECLARED_FIELD' was unexpected)"
+      ]
+    },
+    {
+      "case": "browser.annotation.reanchor/request/missing-required",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'expectedSourceStateVersion' is a required property"
+      ]
+    },
+    {
+      "case": "browser.annotation.reanchor/response/positive",
+      "category": "repaired-contract",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "browser.annotation.reanchor/response/wrong-type",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "42 is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.annotation.reanchor/response/null",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "None is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.annotation.reanchor/response/unknown-field",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('NOT_A_DECLARED_FIELD' was unexpected)"
+      ]
+    },
+    {
+      "case": "browser.annotation.reanchor/response/missing-required",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'annotationId' is a required property"
+      ]
+    },
+    {
+      "case": "browser.focus.request/request/positive",
+      "category": "repaired-contract",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "browser.focus.request/request/wrong-type",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "42 is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.focus.request/request/null",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "None is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.focus.request/request/unknown-field",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('NOT_A_DECLARED_FIELD' was unexpected)"
+      ]
+    },
+    {
+      "case": "browser.focus.request/request/missing-required",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'annotations' is a required property"
+      ]
+    },
+    {
+      "case": "browser.focus.request/response/positive",
+      "category": "repaired-contract",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "browser.focus.request/response/wrong-type",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "42 is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.focus.request/response/null",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "None is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.focus.request/response/unknown-field",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('NOT_A_DECLARED_FIELD' was unexpected)"
+      ]
+    },
+    {
+      "case": "browser.focus.request/response/missing-required",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'focusRequestId' is a required property"
+      ]
+    },
+    {
+      "case": "browser.focus.acknowledge/request/positive",
+      "category": "repaired-contract",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "browser.focus.acknowledge/request/wrong-type",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "42 is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.focus.acknowledge/request/null",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "None is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.focus.acknowledge/request/unknown-field",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('NOT_A_DECLARED_FIELD' was unexpected)"
+      ]
+    },
+    {
+      "case": "browser.focus.acknowledge/request/missing-required",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'expectedStateVersion' is a required property"
+      ]
+    },
+    {
+      "case": "browser.focus.acknowledge/response/positive",
+      "category": "repaired-contract",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "browser.focus.acknowledge/response/wrong-type",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "42 is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.focus.acknowledge/response/null",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "None is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.focus.acknowledge/response/unknown-field",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('NOT_A_DECLARED_FIELD' was unexpected)"
+      ]
+    },
+    {
+      "case": "browser.focus.acknowledge/response/missing-required",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'focusRequestId' is a required property"
+      ]
+    },
+    {
+      "case": "browser.focus.resolve/request/positive",
+      "category": "repaired-contract",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "browser.focus.resolve/request/wrong-type",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "42 is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.focus.resolve/request/null",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "None is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.focus.resolve/request/unknown-field",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('NOT_A_DECLARED_FIELD' was unexpected)"
+      ]
+    },
+    {
+      "case": "browser.focus.resolve/request/missing-required",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'expectedStateVersion' is a required property"
+      ]
+    },
+    {
+      "case": "browser.focus.resolve/response/positive",
+      "category": "repaired-contract",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "browser.focus.resolve/response/wrong-type",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "42 is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.focus.resolve/response/null",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "None is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.focus.resolve/response/unknown-field",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('NOT_A_DECLARED_FIELD' was unexpected)"
+      ]
+    },
+    {
+      "case": "browser.focus.resolve/response/missing-required",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'focusRequestId' is a required property"
+      ]
+    },
+    {
+      "case": "browser.focus.open/request/positive",
+      "category": "repaired-contract",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "browser.focus.open/request/wrong-type",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "42 is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.focus.open/request/null",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "None is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.focus.open/request/unknown-field",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('NOT_A_DECLARED_FIELD' was unexpected)"
+      ]
+    },
+    {
+      "case": "browser.focus.open/request/missing-required",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'expectedDocumentEpoch' is a required property"
+      ]
+    },
+    {
+      "case": "browser.focus.open/response/positive",
+      "category": "repaired-contract",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "browser.focus.open/response/wrong-type",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "42 is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.focus.open/response/null",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "None is not of type 'object'"
+      ]
+    },
+    {
+      "case": "browser.focus.open/response/unknown-field",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('NOT_A_DECLARED_FIELD' was unexpected)"
+      ]
+    },
+    {
+      "case": "browser.focus.open/response/missing-required",
+      "category": "repaired-contract",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'focusRequestId' is a required property"
+      ]
+    },
+    {
+      "case": "generation.job.create/envelope-witness",
+      "category": "envelope-only",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "generation.job.create/empty-values",
+      "category": "necessary-create-condition",
+      "expectedValid": false,
+      "actualValid": true,
+      "status": "FAIL",
+      "validationErrors": []
+    },
+    {
+      "case": "generation.job.create/null-body",
+      "category": "necessary-create-condition",
+      "expectedValid": false,
+      "actualValid": true,
+      "status": "FAIL",
+      "validationErrors": []
+    },
+    {
+      "case": "generation.job.create/null-idempotency-key",
+      "category": "necessary-create-condition",
+      "expectedValid": false,
+      "actualValid": true,
+      "status": "FAIL",
+      "validationErrors": []
+    },
+    {
+      "case": "generation.job.create/missing-body",
+      "category": "necessary-create-condition",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'body' is a required property"
+      ]
+    },
+    {
+      "case": "generation.job.create/wrong-values-type",
+      "category": "necessary-create-condition",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "{'schemaId': 'urn:kcml:r9:semantic:route.0215:body', 'values': 'wrong'} is not valid under any of the given schemas"
+      ]
+    },
+    {
+      "case": "generation.job.create/unknown-query",
+      "category": "open-domain-gap",
+      "expectedValid": false,
+      "actualValid": true,
+      "status": "FAIL",
+      "validationErrors": []
+    },
+    {
+      "case": "generation.job.create/malformed-canonicalJson",
+      "category": "open-domain-gap",
+      "expectedValid": false,
+      "actualValid": true,
+      "status": "FAIL",
+      "validationErrors": []
+    },
+    {
+      "case": "generation.job.create/unknown-domain-field",
+      "category": "open-domain-gap",
+      "expectedValid": false,
+      "actualValid": true,
+      "status": "FAIL",
+      "validationErrors": []
+    },
+    {
+      "case": "generation.job.create/duplicate-domain-slot",
+      "category": "open-domain-gap",
+      "expectedValid": false,
+      "actualValid": true,
+      "status": "FAIL",
+      "validationErrors": []
+    },
+    {
+      "case": "secret.create/envelope-witness",
+      "category": "envelope-only",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "secret.create/empty-values",
+      "category": "necessary-create-condition",
+      "expectedValid": false,
+      "actualValid": true,
+      "status": "FAIL",
+      "validationErrors": []
+    },
+    {
+      "case": "secret.create/null-body",
+      "category": "necessary-create-condition",
+      "expectedValid": false,
+      "actualValid": true,
+      "status": "FAIL",
+      "validationErrors": []
+    },
+    {
+      "case": "secret.create/null-idempotency-key",
+      "category": "necessary-create-condition",
+      "expectedValid": false,
+      "actualValid": true,
+      "status": "FAIL",
+      "validationErrors": []
+    },
+    {
+      "case": "secret.create/missing-body",
+      "category": "necessary-create-condition",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'body' is a required property"
+      ]
+    },
+    {
+      "case": "secret.create/wrong-values-type",
+      "category": "necessary-create-condition",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "{'schemaId': 'urn:kcml:r9:semantic:route.0386:body', 'values': 'wrong'} is not valid under any of the given schemas"
+      ]
+    },
+    {
+      "case": "secret.create/unknown-query",
+      "category": "open-domain-gap",
+      "expectedValid": false,
+      "actualValid": true,
+      "status": "FAIL",
+      "validationErrors": []
+    },
+    {
+      "case": "secret.create/malformed-canonicalJson",
+      "category": "open-domain-gap",
+      "expectedValid": false,
+      "actualValid": true,
+      "status": "FAIL",
+      "validationErrors": []
+    },
+    {
+      "case": "secret.create/unknown-domain-field",
+      "category": "open-domain-gap",
+      "expectedValid": false,
+      "actualValid": true,
+      "status": "FAIL",
+      "validationErrors": []
+    },
+    {
+      "case": "secret.create/duplicate-domain-slot",
+      "category": "open-domain-gap",
+      "expectedValid": false,
+      "actualValid": true,
+      "status": "FAIL",
+      "validationErrors": []
+    },
+    {
+      "case": "format/uuid",
+      "category": "validator",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'not-a-uuid' is not a 'uuid'"
+      ]
+    },
+    {
+      "case": "format/date-time",
+      "category": "validator",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'2026-99-99T00:00:00Z' is not a 'date-time'"
+      ]
+    },
+    {
+      "case": "offline-missing-reference",
+      "category": "validator",
+      "status": "PASS"
+    },
+    {
+      "case": "conflicting-id-order-False",
+      "category": "validator",
+      "status": "PASS"
+    },
+    {
+      "case": "conflicting-id-order-True",
+      "category": "validator",
+      "status": "PASS"
+    },
+    {
+      "case": "unknown-dialect",
+      "category": "validator",
+      "status": "PASS"
+    },
+    {
+      "case": "unknown-format",
+      "category": "validator",
+      "status": "PASS"
+    },
+    {
+      "case": "format-property-is-not-schema-keyword",
+      "category": "validator",
+      "expectedValid": true,
+      "actualValid": true,
+      "status": "PASS",
+      "validationErrors": []
+    },
+    {
+      "case": "missing-jsonschema-dependency",
+      "category": "validator",
+      "status": "PASS",
+      "exitCode": 1
+    }
+  ],
+  "failed": 14,
+  "checked": 108
+}

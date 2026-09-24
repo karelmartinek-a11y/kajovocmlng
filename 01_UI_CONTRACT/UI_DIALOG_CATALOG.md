@@ -15,6 +15,8 @@ Kapitola 72 does not create a separate dialog namespace. Bounded entry may use a
 |---|---|---|---|---|---|
 | `/dashboard` | `dashboard.disconnect` | Odpojit | `BINDING.DISCONNECT` | active binding selected and impact preview complete | Fresh affected objects/bindings/runs preview and current stateVersion before confirm. |
 | `/dashboard` | `dashboard.disable` | Vypnout | `COMPONENT.DISABLE` | action registry enables for current state | Fresh affected objects/bindings/runs preview and current stateVersion before confirm. |
+| `/dashboard` | `dashboard.stop` | Zastavit | `runtime.stop` | only after a permitted OWNER-facing facade and current runtime state are verified | Fresh affected runtime/work state and current stateVersion before confirm; do not enable while exposure is unresolved. |
+| `/dashboard` | `dashboard.restart` | Restartovat | `runtime.instance.start` | only after permitted OWNER-facing start/stop facade and restart semantics are verified | Fresh affected runtime/work state and current stateVersion before confirm; do not enable while exposure is unresolved. |
 | `/agents` | `agent.rollback` | Rollback | `AGENT.ROLLBACK` | valid rollback point exists and safety checks PASS | Fresh affected objects/bindings/runs preview and current stateVersion before confirm. |
 | `/components` | `component.rollback` | Rollback | `COMPONENT.ROLLBACK` | rollback point valid | Fresh affected objects/bindings/runs preview and current stateVersion before confirm. |
 | `/secrets` | `secret.unbind` | Odpojit | `SECRET.UNBIND` | binding removable | Fresh affected objects/bindings/runs preview and current stateVersion before confirm. |
@@ -32,6 +34,7 @@ Kapitola 72 does not create a separate dialog namespace. Bounded entry may use a
 | Route | Action | Label | Operation binding | Enabled when | Required content |
 |---|---|---|---|---|---|
 | `/components` | `component.deregister` | Deregistrovat | `COMPONENT.DEREGISTER` | all required detach/cleanup preconditions PASS | Same as IMPACT_PREVIEW; confirm disabled until preview is current and complete. |
+| `/dashboard` | `dashboard.remove` | Odebrat | `COMPONENT.DEREGISTER` | selected component is removable and detach/cleanup preconditions PASS | Fresh affected objects/bindings/runs preview and current stateVersion; confirm disabled until preview is current and complete. |
 | `/releases` | `release.restore` | Obnovit ze zálohy | `BACKUP.RESTORE` | selected backup verified and restore preflight PASS | Same as IMPACT_PREVIEW; confirm disabled until preview is current and complete. |
 
 ## EXPLICIT_CONFIRM

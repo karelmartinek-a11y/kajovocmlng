@@ -1,0 +1,110 @@
+{
+  "scope": "Isolated copies; original Phase 1/2 generated evidence was not overwritten.",
+  "workspace": "D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-p42tz5np",
+  "checks": [
+    {
+      "command": "python scripts/verify_schema_references.py",
+      "exitCode": 1,
+      "stdout": "Inventoried documents: 402\n{\"scope\": \"Effective operation bindings, request/response/event schemas, dialect and scoped nested refs; not semantic completeness.\", \"checked\": 2932, \"failed\": 260, \"unparsedResources\": []}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/verify_phase1_contracts.py",
+      "exitCode": 1,
+      "stdout": "{\"scope\": \"Schema fixtures and necessary create conditions, not domain closure or runtime evidence\", \"failed\": 8, \"checked\": 108}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/phase1_repair_contracts.py --check",
+      "exitCode": 0,
+      "stdout": "{\"reproducible\": true, \"pending\": []}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/phase2_repair_handoffs.py --check",
+      "exitCode": 0,
+      "stdout": "{\"pending\": []}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/verify_phase2_handoffs.py",
+      "exitCode": 0,
+      "stdout": "{\"checked\": 77, \"failed\": 0, \"failures\": []}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/project_experience.py --check",
+      "exitCode": 0,
+      "stdout": "{\"projections\": [\"01_UI_CONTRACT/ui/contracts/live-experience.json\", \"01_UI_CONTRACT/ui/contracts/live-event.schema.json\", \"01_UI_CONTRACT/ui/contracts/history-query.schema.json\", \"01_UI_CONTRACT/ui/contracts/error-presentation.json\", \"01_UI_CONTRACT/ui/contracts/error-presentation.schema.json\", \"01_UI_CONTRACT/ui/locales/cs.json\", \"01_UI_CONTRACT/ui/locales/en.json\", \"01_UI_CONTRACT/LIVE_VIEW_MATRIX.csv\"]}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/verify_experience.py",
+      "exitCode": 0,
+      "stdout": "{\"scope\": \"Static contract validation and reference-oracle fixtures; no backend or provider call.\", \"checks\": [{\"id\": \"states.transitions-and-terminal-reachability\", \"status\": \"PASS\"}, {\"id\": \"locales.keys-and-placeholders\", \"status\": \"PASS\"}, {\"id\": \"projections.exact-source-match\", \"status\": \"PASS\"}, {\"id\": \"authority.no-implicit-last-wins\", \"status\": \"PASS\"}, {\"id\": \"references.operations-process-families\", \"status\": \"PASS\"}, {\"id\": \"dispatchers.exact-owner-allowlist-and-internal-denial\", \"status\": \"PASS\"}, {\"id\": \"dashboard.complete-action-placement-and-command-identity\", \"status\": \"PASS\"}, {\"id\": \"event.schema-meta\", \"status\": \"PASS\"}, {\"id\": \"event.valid-fixture\", \"status\": \"PASS\"}, {\"id\": \"event.reject-unknown-state\", \"status\": \"PASS\"}, {\"id\": \"event.reject-missing-correlation\", \"status\": \"PASS\"}, {\"id\": \"event.reject-negative-sequence\", \"status\": \"PASS\"}, {\"id\": \"event.reject-invalid-time\", \"status\": \"PASS\"}, {\"id\": \"event.reject-reserved-field\", \"status\": \"PASS\"}, {\"id\": \"oracle.duplicate\", \"status\": \"PASS\"}, {\"id\": \"oracle.late\", \"status\": \"PASS\"}, {\"id\": \"oracle.gap\", \"status\": \"PASS\"}, {\"id\": \"oracle.regression\", \"status\": \"PASS\"}, {\"id\": \"oracle.production-demo\", \"status\": \"PASS\"}, {\"id\": \"oracle.wrong-stream\", \"status\": \"PASS\"}, {\"id\": \"oracle.snapshot-watermark\", \"status\": \"PASS\"}]}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/verify_observability.py",
+      "exitCode": 0,
+      "stdout": "{\"scope\": \"Schema fixtures and reference semantic checks, not a live history backend query. IANA-zone admission and cursor signing remain product integration checks.\", \"checks\": [{\"id\": \"query.valid-fixture\", \"status\": \"PASS\"}, {\"id\": \"result.unavailable-explicit\", \"status\": \"PASS\"}, {\"id\": \"query.reject-bad-date\", \"status\": \"PASS\"}, {\"id\": \"query.reject-unbounded-page\", \"status\": \"PASS\"}, {\"id\": \"query.reject-unknown-filter\", \"status\": \"PASS\"}, {\"id\": \"query.reject-invalid-channel\", \"status\": \"PASS\"}, {\"id\": \"result.reject-complete-without-coverage\", \"status\": \"PASS\"}, {\"id\": \"result.reject-unavailable-without-source\", \"status\": \"PASS\"}, {\"id\": \"result.empty-complete-with-evidence\", \"status\": \"PASS\"}, {\"id\": \"result.reject-partial-without-missing-source\", \"status\": \"PASS\"}, {\"id\": \"semantic.ordered-interval\", \"status\": \"PASS\"}, {\"id\": \"semantic.empty-interval-rejected\", \"status\": \"PASS\"}]}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/phase2_handoff_closure.py --check",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-p42tz5np\\scripts\\phase2_handoff_closure.py\", line 187, in <module>\n    if __name__=='__main__':raise SystemExit(main())\n                                             ^^^^^^\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-p42tz5np\\scripts\\phase2_handoff_closure.py\", line 174, in main\n    verify_matrix(stored,matrix)\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-p42tz5np\\scripts\\phase2_handoff_closure.py\", line 165, in verify_matrix\n    if stored!=current:raise ValueError('MATRIX_COVERAGE_OR_CONTENT_DRIFT')\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: MATRIX_COVERAGE_OR_CONTENT_DRIFT"
+    },
+    {
+      "command": "python r11/scripts/verify_r11.py 00_SSOT/KajovoCMLNG_SSOT.md",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "NO_PRESERVED_R10_MARKER"
+    },
+    {
+      "command": "python scripts/ssot/ssot_control.py 00_SSOT/KajovoCMLNG_SSOT.md --check",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "{\"scope\": \"STATIC_EMBEDDED_CONTRACT_CHECK\", \"status\": \"FAIL\", \"detail\": \"CONTRACT_PACK_DRIFT scripts/ssot/audit_checks.py: Embedded bytes differ\"}"
+    },
+    {
+      "command": "python scripts/verify_phase3_semantics.py",
+      "exitCode": 0,
+      "stdout": "{\"scope\": \"Schema identity, counter and named status/outcome probes; state dictionaries and hydration remain open.\", \"checks\": [{\"id\": \"identity.distinct-and-projections-exact\", \"status\": \"PASS\"}, {\"id\": \"counter.int64-range-and-wire-type\", \"status\": \"PASS\"}, {\"id\": \"response.status-terminal-error-branches\", \"status\": \"PASS\"}, {\"id\": \"state-fields-confirmed-open-unbounded-identifiers\", \"status\": \"PASS\"}]}",
+      "stderr": ""
+    }
+  ],
+  "nonzero": [
+    {
+      "command": "python scripts/verify_schema_references.py",
+      "exitCode": 1,
+      "stdout": "Inventoried documents: 402\n{\"scope\": \"Effective operation bindings, request/response/event schemas, dialect and scoped nested refs; not semantic completeness.\", \"checked\": 2932, \"failed\": 260, \"unparsedResources\": []}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/verify_phase1_contracts.py",
+      "exitCode": 1,
+      "stdout": "{\"scope\": \"Schema fixtures and necessary create conditions, not domain closure or runtime evidence\", \"failed\": 8, \"checked\": 108}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/phase2_handoff_closure.py --check",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-p42tz5np\\scripts\\phase2_handoff_closure.py\", line 187, in <module>\n    if __name__=='__main__':raise SystemExit(main())\n                                             ^^^^^^\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-p42tz5np\\scripts\\phase2_handoff_closure.py\", line 174, in main\n    verify_matrix(stored,matrix)\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-p42tz5np\\scripts\\phase2_handoff_closure.py\", line 165, in verify_matrix\n    if stored!=current:raise ValueError('MATRIX_COVERAGE_OR_CONTENT_DRIFT')\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: MATRIX_COVERAGE_OR_CONTENT_DRIFT"
+    },
+    {
+      "command": "python r11/scripts/verify_r11.py 00_SSOT/KajovoCMLNG_SSOT.md",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "NO_PRESERVED_R10_MARKER"
+    },
+    {
+      "command": "python scripts/ssot/ssot_control.py 00_SSOT/KajovoCMLNG_SSOT.md --check",
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "{\"scope\": \"STATIC_EMBEDDED_CONTRACT_CHECK\", \"status\": \"FAIL\", \"detail\": \"CONTRACT_PACK_DRIFT scripts/ssot/audit_checks.py: Embedded bytes differ\"}"
+    }
+  ]
+}
