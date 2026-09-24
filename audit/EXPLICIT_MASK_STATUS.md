@@ -14,9 +14,22 @@
 | Response s obecným `values` slotem | 509 | Výstupní doménová maska není určená |
 | Eventy s obecným `values` slotem | 509 | Událostní doménová maska není určená |
 | Request `body` dovolující `null` | 507 | Nutná věcná revize pro každou operaci, u níž je tělo povinné |
+| Trasy bez `sourceRequirementIds` i bez `authoritySourceRefs` operace | 341 | R9 neuvádí ani přesnou zdrojovou vazbu pro odvození polí |
 | Nesoulad deklarovaných digestů R9 | 0 | Potvrzuje integritu bytes, nikoli úplnost masek |
 
 § 64.2 výslovně tvrdí, že každá route má vlastní request, response a event schéma se source-bound business payloadem. R9 skutečně obsahuje tři JSON Schema objekty pro každou route, avšak v každé z 1 527 hranic mají jejich hodnoty obecný `slot` bez `enum` či `const`; `canonicalJson` nemá doménové vnořené schéma. To je konkrétní nesoulad mezi textovým významem tvrzení a tím, co samotná maska přijímá. Bez rozhodnutí o přesných doménových polích, variantách a nullabilitě nelze bezpečně přepsat všech 509 tras.
+
+### První kontrakt po jednotlivých hranicích: `route.0000` / `component.control.enable`
+
+Autorita textu: § 44.4 vyjmenovává command ID, logical operation ID, desired state, reason, correlation/causation, deadline, digest, idempotency key, target component/revision/release/runtime generation, binding-set revision, activation epoch a očekávané verze stavu. § 49.22 zpřesňuje CAS, outbox a význam ACK. R8 určuje `POST /v1/kcml/control/enable` na `COMPONENT_ORIGIN`, ale neobsahuje payload binding. R9 `sourceRequirementIds` obsahuje 53 atomů včetně pravidel heartbeat, state query, probe a secret rotation, které nejsou mapováním polí tohoto příkazu.
+
+| Hranice | Stav aktuální R9 masky | Chybějící rozhodnutí v autoritě |
+| --- | --- | --- |
+| Request | `body` smí být `null`, `query` je libovolné pole dvojic name/value a většina hodnot `guards` smí být `null` | Přesné rozdělení uvedených údajů mezi path/query/body/guards, typy, povinnost a povolené varianty |
+| Response | `status` má obecnou algebru a `output.values` libovolné sloty | Přesný tvar `ACCEPTED` výsledku, případného erroru a jejich doménových polí |
+| Event | `payload.values` libovolné sloty | Konkrétní event varianty, jejich pole a vztah k pozdějšímu admission/outcome ACK |
+
+Přímý negativní svědek: `jsonschema.Draft202012Validator` přijme request s `routeId=route.0000`, `operationId=component.control.enable`, `pathParameters={}`, `query=[]`, `body=null` a všemi nullable `guards` nastavenými na `null` (kromě syntakticky platného `clientRequestDigest`). Tím je prokázáno, že maska nevyžaduje ani `desired state` a `target` z § 44.4. Uvedené části textu neurčují kompletní wire reprezentaci ani response/event masku. Pouhé doplnění `body != null` by tuto operaci neuzavřelo.
 
 ## Rozšíření na současné efektivní operace a předávky
 

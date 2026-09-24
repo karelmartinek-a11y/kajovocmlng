@@ -68,6 +68,9 @@ def audit():
             documents[path] = json.loads(item["raw"], object_pairs_hook=unique_pairs)
     operations = documents["contracts/operation-contracts.json"]["records"]
     routes = documents["contracts/payload-contracts.json"]["records"]
+    operations_by_id = {operation["operationId"]: operation for operation in operations}
+    if len(operations_by_id) != len(operations):
+        raise ValueError("Duplicitní operation ID v R9")
     operation_lines = record_lines(by_path["contracts/operation-contracts.json"]["raw"],
                                    "acceptanceGateIds", len(operations))
     route_lines = record_lines(by_path["contracts/payload-contracts.json"]["raw"],
@@ -85,6 +88,7 @@ def audit():
                                 "source": f"contracts/operation-contracts.json#/records/{index}/{field}"})
     route_rows = []
     role_generic = Counter()
+    source_links = Counter()
     nullable_bodies = 0
     for index, route in enumerate(routes):
         roles = {}
@@ -101,11 +105,17 @@ def audit():
         body = route.get("requestSchema", {}).get("properties", {}).get("body", {})
         nullable = any(variant.get("type") == "null" for variant in body.get("oneOf", []))
         nullable_bodies += nullable
+        operation = operations_by_id.get(route["operationId"], {})
+        requirement_refs = route.get("sourceRequirementIds", [])
+        authority_refs = operation.get("authoritySourceRefs", [])
+        source_links[(bool(requirement_refs), bool(authority_refs))] += 1
         route_rows.append({"routeId": route["routeId"], "operationId": route["operationId"],
                            "method": route["method"],
                            "decodedResourceLine": route_lines[index],
                            "source": f"contracts/payload-contracts.json#/records/{index}",
-                           "bodyAcceptsNull": nullable, "roles": roles})
+                           "bodyAcceptsNull": nullable, "roles": roles,
+                           "sourceRequirementCount": len(requirement_refs),
+                           "operationAuthoritySections": sorted({ref["section"] for ref in authority_refs})})
     report = {
         "status": "BLOCKED",
         "source": "00_SSOT/KajovoCMLNG_SSOT.md",
@@ -118,6 +128,12 @@ def audit():
         "missingOperationSchemaRefs": missing,
         "routesWithGenericSlotContainerByRole": dict(role_generic),
         "routesWithNullableBody": nullable_bodies,
+        "routeSourceLinkCounts": {
+            "noRequirementOrOperationAuthority": source_links[(False, False)],
+            "requirementAndOperationAuthority": source_links[(True, True)],
+            "requirementOnly": source_links[(True, False)],
+            "operationAuthorityOnly": source_links[(False, True)],
+        },
         "routeMethodCounts": dict(Counter(route["method"] for route in routes)),
         "routes": route_rows,
         "interpretation": "Trojice schémat pro route existuje, avšak volný slot/value/canonicalJson "
