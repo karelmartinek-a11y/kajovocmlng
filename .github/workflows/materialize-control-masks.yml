@@ -1,0 +1,51 @@
+name: Materialize component control masks in SSOT
+
+on:
+  push:
+    branches:
+      - audit/explicit-mask-parity
+    paths:
+      - scripts/close_component_control_masks.py
+      - .github/workflows/materialize-control-masks.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply exact R9 edit
+        run: python scripts/close_component_control_masks.py
+      - name: Verify mask coverage and digest integrity
+        run: |
+          python scripts/audit_r9_masks.py > /tmp/r9-audit-result.json || test "$?" -eq 1
+          python - <<'PY'
+          import json
+          import sys
+          sys.path.insert(0, 'scripts')
+          from ssot_sources import load_resource
+          payload = json.loads(load_resource('contracts/payload-contracts.json')['raw'])
+          routes = [r for r in payload['records'] if r['routeId'] in ('route.0000', 'route.0001')]
+          assert len(routes) == 2
+          for route in routes:
+              body = route['requestSchema']['properties']['body']
+              result = route['responseSchema']['properties']['output']['oneOf'][1]
+              assert body['type'] == 'object' and 'values' not in body['properties']
+              assert result == route['eventSchema']['properties']['payload']
+          report = json.load(open('audit/generated/current-r9-mask-inventory.json'))
+          print('Two control masks materialized; remaining R9 coverage is BLOCKED.')
+          PY
+      - name: Commit authoritative SSOT and refreshed inventory
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 00_SSOT/KajovoCMLNG_SSOT.md audit/generated/current-r9-mask-inventory.json
+          git diff --cached --quiet || git commit -m 'Materialize explicit component control masks in embedded R9'
+          git push
