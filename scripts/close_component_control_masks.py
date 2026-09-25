@@ -27,7 +27,11 @@ def exact(schema_id, fields):
             'required': list(properties)}
 
 
-def close(route):
+def close(route, defs):
+    # SSOT 56.3 and 56.13 bind platform counters to the native bounded
+    # PostgreSQL bigint string; bindingSetRevision is not an arbitrary Id.
+    UUID, DIGEST, ID, COUNTER, STAMP = (
+        copy.deepcopy(defs[k]) for k in ('Uuid', 'Digest', 'Id', 'Counter', 'Timestamp'))
     rid = route['routeId']
     desired = 'ENABLED' if route['operationId'].endswith('.enable') else 'DISABLED'
     req = route['requestSchema']
@@ -45,6 +49,9 @@ def close(route):
                 'idempotencyKey'):
         guards[key]['type'] = 'string'
     req['properties']['guards']['required'] = list(guards)
+    for key in ('expectedStateVersion', 'expectedBindingSetRevision', 'expectedActivationEpoch'):
+        guards[key] = copy.deepcopy(COUNTER)
+    guards['deadlineAt'] = copy.deepcopy(STAMP)
     fields = {
         'commandId': UUID, 'logicalOperationId': UUID, 'requestDigest': DIGEST,
         'desiredState': {'const': desired},
@@ -52,7 +59,7 @@ def close(route):
         'outcome': {'enum': ['PENDING', 'COMPLETED', 'FAILED', 'UNKNOWN']},
         'componentStateVersion': COUNTER, 'activationStateVersion': COUNTER,
         'runtimeGeneration': COUNTER, 'releaseId': ID,
-        'bindingSetRevision': ID, 'activationEpoch': COUNTER,
+        'bindingSetRevision': COUNTER, 'activationEpoch': COUNTER,
         'recordedAt': STAMP,
     }
     result = exact('urn:kcml:r9:semantic:'+rid+':control-result', fields)
@@ -89,7 +96,7 @@ def close(route):
         'CONTROL_RESULT_IDENTICAL_SCHEMA_FOR_RESPONSE_AND_EVENT',
         'CONTROL_TARGET_IDENTITY_FROM_TRUSTED_COMPONENT_ORIGIN_ONLY',
     ]
-    route['maskAuthoritySections'] = ['42.1.1', '44.4', '44.5', '49.22']
+    route['maskAuthoritySections'] = ['42.1.1', '44.4', '44.5', '49.22', '56.3', '56.13']
 
 
 def main():
@@ -97,11 +104,12 @@ def main():
     rs = resource_index(list(resources(text)))
     name = 'contracts/payload-contracts.json'
     payload = json.loads(rs[name]['raw'])
+    defs = json.loads(rs['contracts/generation/generation-contracts.schema.json']['raw'])['$defs']
     selected = [r for r in payload['records'] if r['operationId'] in
                 ('component.control.enable', 'component.control.disable')]
     assert len(selected) == 2
     for route in selected:
-        close(route)
+        close(route, defs)
     original = json.loads(rs[name]['raw'])
     old = original.pop('canonicalDigest')
     assert old == canonical_digest({**original, 'canonicalDigest': None})

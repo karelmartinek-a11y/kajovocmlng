@@ -1,0 +1,116 @@
+{
+  "scope": "Record actual child exit codes and exact inputs for the current repaired groups.\n\nThis suite is deliberately scoped; it is not the complete package readiness gate.\nHistorical generated reports from the entry tree are not overwritten.\n",
+  "sourceSha256": "dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e",
+  "baselineSha256": "4ee82539e50ce3b538f58d18b03206aef28ab7607201e878f15a61e8cb783450",
+  "changedResources": [
+    {
+      "path": "contracts/operation-contracts.json",
+      "beforeSha256": "4e3f5ad23913df24f43645cfcca056d6984060ea77753345401e632ff6fc6030",
+      "afterSha256": "a7c706d8547854fce50a05c697978e71c2bfa97755de4dd9a975e73eab326778"
+    },
+    {
+      "path": "contracts/payload-contracts.json",
+      "beforeSha256": "08315953190fccee2c2244d45bb22f0ab350db8449e188bedf4d446eabac1265",
+      "afterSha256": "9ee45bffc9034dcec3387053c2a7cf3fb6dfe03fa85cba3effd0609a9641a86d"
+    },
+    {
+      "path": "manifest.json",
+      "beforeSha256": "051ff5f0fe997b4fef823b2ce536f36fd59523745ced825c0123a94d33213400",
+      "afterSha256": "27fe1c04e7e741df806a5176618fea02d83ea32d0fbb80f750f4e76f27d92bf9"
+    }
+  ],
+  "resourceDigestFailures": [],
+  "commands": [
+    {
+      "command": "python scripts/verify_control_counter_masks.py --baseline",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "stdout": "{\"sourceSha256\": \"4ee82539e50ce3b538f58d18b03206aef28ab7607201e878f15a61e8cb783450\", \"baseline\": true, \"checked\": 272, \"failed\": 48}\n",
+      "stderr": "",
+      "durationSeconds": 3.829,
+      "currentSsotSha256": "dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e",
+      "testInputSha256": "4ee82539e50ce3b538f58d18b03206aef28ab7607201e878f15a61e8cb783450",
+      "scriptSha256": "3529fa6c45a3679258c74499474dfea6b173d789c2afe646913a2671e73be585"
+    },
+    {
+      "command": "python scripts/close_generation_operation_masks.py --check",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "stdout": "{\"pending\": false, \"identities\": [\"generation.workspace.patch:command\", \"generation.workspace.patch:response\", \"generation.workspace.validate:command\", \"generation.workspace.validate:response\", \"generation.activation.switch:command\", \"generation.activation.switch:response\", \"generation.integration.step:command\", \"generation.integration.step:response\"]}\n",
+      "stderr": "",
+      "durationSeconds": 2.859,
+      "currentSsotSha256": "dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e",
+      "testInputSha256": "dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e",
+      "scriptSha256": "4052b33185f69aa65cce189ac5aa85e913b9ca074532f112dd1a8e0d1102a58b"
+    },
+    {
+      "command": "python scripts/verify_transitive_mask_detection.py",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "stdout": "{\"sourceSha256\": \"dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e\", \"scope\": \"Regression: a $ref wrapper must not hide an unbound domain slot.\", \"checks\": [{\"case\": \"generic\", \"expectedGeneric\": true, \"actualGeneric\": true, \"passed\": true}, {\"case\": \"wrapper\", \"expectedGeneric\": true, \"actualGeneric\": true, \"passed\": true}, {\"case\": \"nested\", \"expectedGeneric\": true, \"actualGeneric\": true, \"passed\": true}, {\"case\": \"exact\", \"expectedGeneric\": false, \"actualGeneric\": false, \"passed\": true}, {\"case\": \"unresolved-transitive-ref\", \"passed\": true}], \"failed\": 0}\n",
+      "stderr": "",
+      "durationSeconds": 0.625,
+      "currentSsotSha256": "dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e",
+      "testInputSha256": "dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e",
+      "scriptSha256": "f5f4f8713acfc6cf10dbda5b06fc8442306f0d05467f983bfada6f858da16ce1"
+    },
+    {
+      "command": "python scripts/verify_control_counter_masks.py",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "stdout": "{\"sourceSha256\": \"dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e\", \"baseline\": false, \"checked\": 272, \"failed\": 0}\n",
+      "stderr": "",
+      "durationSeconds": 3.281,
+      "currentSsotSha256": "dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e",
+      "testInputSha256": "dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e",
+      "scriptSha256": "3529fa6c45a3679258c74499474dfea6b173d789c2afe646913a2671e73be585"
+    },
+    {
+      "command": "python scripts/verify_component_protocol_examples.py",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "stdout": "PASS: four component request/result examples and negative controls\n",
+      "stderr": "",
+      "durationSeconds": 3.781,
+      "currentSsotSha256": "dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e",
+      "testInputSha256": "dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e",
+      "scriptSha256": "c48890b1f7ac91029b78f9adb689b7067245c4a90a1bfe94fcd12928f5232856"
+    },
+    {
+      "command": "python scripts/verify_generation_operation_masks.py",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "stdout": "{\"sourceSha256\": \"dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e\", \"checked\": 658, \"failed\": 0}\n",
+      "stderr": "",
+      "durationSeconds": 39.219,
+      "currentSsotSha256": "dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e",
+      "testInputSha256": "dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e",
+      "scriptSha256": "5a1875792064aa7a8759c85b8aa6e956021e29a60095e878a823d2de6d52efe4"
+    },
+    {
+      "command": "python scripts/project_experience.py --check",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "stdout": "{\"projections\": [\"01_UI_CONTRACT/ui/contracts/live-experience.json\", \"01_UI_CONTRACT/ui/contracts/live-event.schema.json\", \"01_UI_CONTRACT/ui/contracts/history-query.schema.json\", \"01_UI_CONTRACT/ui/contracts/error-presentation.json\", \"01_UI_CONTRACT/ui/contracts/error-presentation.schema.json\", \"01_UI_CONTRACT/ui/locales/cs.json\", \"01_UI_CONTRACT/ui/locales/en.json\", \"01_UI_CONTRACT/LIVE_VIEW_MATRIX.csv\"]}\n",
+      "stderr": "",
+      "durationSeconds": 8.531,
+      "currentSsotSha256": "dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e",
+      "testInputSha256": "dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e",
+      "scriptSha256": "54234d4e1f6f039cc1df6788e84a7e9b9006c23b2205cb07cc83a3c136123aa6"
+    },
+    {
+      "command": "python scripts/investigate_missing_operation_masks.py",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "stdout": "Inventoried documents: 402\n{\"sourceSha256\": \"dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e\", \"baselineOperations\": 130, \"currentSummary\": {\"operations\": 619, \"routes\": 542, \"unresolvedOperationReferences\": 252, \"operationsWithUnresolvedReferences\": 126, \"conflictingOperationReferences\": 0, \"genericRoutes\": 505, \"genericBoundaryDefinitions\": 1515, \"nestedReferenceFailures\": 0, \"unreviewedConcreteBoundaryDefinitions\": 94, \"conflictingSchemaIdentities\": 0, \"unspecifiedEventApplicability\": 152, \"unparsedResources\": 0}, \"reviewedOperationBindings\": 4, \"unclassifiedOperations\": 126}\n",
+      "stderr": "",
+      "durationSeconds": 140.156,
+      "currentSsotSha256": "dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e",
+      "testInputSha256": "dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e",
+      "scriptSha256": "c865af6d963daee888d334c1db668a51304e3fb719db5b057cefff2b22753103"
+    }
+  ],
+  "allCommandsFinished": true,
+  "packageStatus": "BLOCKED",
+  "remaining": "126 operation pairs still require investigation; generic route masks and runtime handoff closure remain open."
+}

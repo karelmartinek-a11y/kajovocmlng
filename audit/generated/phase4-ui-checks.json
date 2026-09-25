@@ -1,5 +1,5 @@
 {
-  "status": "PASS",
+  "status": "FAIL",
   "scope": "Structural source/projection checks only; no production application or backend is present.",
   "checks": [
     {
@@ -13,7 +13,7 @@
     },
     {
       "id": "matrix.exact-current-source-inventory",
-      "status": "PASS",
+      "status": "FAIL",
       "detail": {
         "canonical": 152,
         "missingBindings": 0
@@ -70,17 +70,17 @@
     },
     {
       "id": "historical-16-functions-preserved-and-promoted-with-evidence",
-      "status": "PASS",
+      "status": "FAIL",
       "detail": {
-        "promoted": 16,
+        "promoted": 0,
         "currentProjectionExcess": 0
       }
     },
     {
       "id": "current-handoff-matrix-exact-current-content-and-source",
-      "status": "PASS",
+      "status": "FAIL",
       "detail": {
-        "exactRebuild": true,
+        "exactRebuild": false,
         "sourceSha256": "sha256:e5ea095d389a2bb6cdc261e001f194db7885a2ec6ec031a80ca318832b375b7d",
         "head": "6180d9fe67dfaa5365190301dfd58cc8d9812f3d"
       }

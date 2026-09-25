@@ -1,0 +1,539 @@
+{
+  "sourceSha256": "709cd67a7f4d131d2fd0ff482a38e61105453febaa0793f7a456581bbcea15e4",
+  "baselineCommit": "5d72ccd",
+  "baseline": false,
+  "scriptSha256": "2564cede3d22f14caacbecbab054cb6790b4b3a07370dabc985e25d7799dd348",
+  "resourceVersions": {
+    "contracts/generation/generation-contracts.schema.json": "d51aa2823977360e7c65acf958a63e712c31a9a42c2fefd53d5c3ea2ec65a235",
+    "contracts/payload-contracts.json": "8f5f742e27abf3775d5535fc0a7d00a7da56a29a172bf1cae34dbcec8e6075d7",
+    "scripts/ssot/ssot_control.py": "48cf9ed88bbbc9bc5828063403638c8d85ca8bf4fe8e4ae2f1a99fe564618f74"
+  },
+  "scope": "12.44.1 explicit read failure; preserves existing error shape/taxonomy.\n\nSynthetic contract and handoff evidence only. Error-code applicability and\nHTTP mapping remain separate semantic investigation, not closed by this test.\n",
+  "checks": [
+    {
+      "case": "only-two-explicit-failure-rules-added",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "native-masks-unchanged",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "native-predicates-unchanged",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0232/exact-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0232/exact-document-consumed",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/typed-error",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/no-downstream-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/reject-error/None",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/reject-error/{}",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/reject-error/error",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/reject-error/False",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/reject-error/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/reject-error/[]",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/missing-error-field/stableCode",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/missing-error-field/classification",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/missing-error-field/retryDirective",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/missing-error-field/message",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/missing-error-field/detailsDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/invalid-error-field/stableCode",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/invalid-error-field/retryDirective",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/invalid-error-field/classification",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/invalid-error-field/detailsDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/error-cannot-carry-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/refetch-recovery-schema",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0232/FAILED/refetch-recovery-handoff",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/typed-error",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/no-downstream-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/reject-error/None",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/reject-error/{}",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/reject-error/error",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/reject-error/False",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/reject-error/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/reject-error/[]",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/missing-error-field/stableCode",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/missing-error-field/classification",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/missing-error-field/retryDirective",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/missing-error-field/message",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/missing-error-field/detailsDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/invalid-error-field/stableCode",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/invalid-error-field/retryDirective",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/invalid-error-field/classification",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/invalid-error-field/detailsDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/error-cannot-carry-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/refetch-recovery-schema",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0232/CANCELLED/refetch-recovery-handoff",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0237/exact-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0237/exact-document-consumed",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/typed-error",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/no-downstream-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/reject-error/None",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/reject-error/{}",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/reject-error/error",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/reject-error/False",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/reject-error/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/reject-error/[]",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/missing-error-field/stableCode",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/missing-error-field/classification",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/missing-error-field/retryDirective",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/missing-error-field/message",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/missing-error-field/detailsDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/invalid-error-field/stableCode",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/invalid-error-field/retryDirective",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/invalid-error-field/classification",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/invalid-error-field/detailsDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/error-cannot-carry-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/refetch-recovery-schema",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0237/FAILED/refetch-recovery-handoff",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/typed-error",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/no-downstream-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/reject-error/None",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/reject-error/{}",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/reject-error/error",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/reject-error/False",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/reject-error/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/reject-error/[]",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/missing-error-field/stableCode",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/missing-error-field/classification",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/missing-error-field/retryDirective",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/missing-error-field/message",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/missing-error-field/detailsDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/invalid-error-field/stableCode",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/invalid-error-field/retryDirective",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/invalid-error-field/classification",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/invalid-error-field/detailsDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/error-cannot-carry-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/refetch-recovery-schema",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0237/CANCELLED/refetch-recovery-handoff",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    }
+  ],
+  "checked": 87,
+  "failed": 0,
+  "wholeRoutesClosed": []
+}

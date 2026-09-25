@@ -1,0 +1,858 @@
+{
+  "sourceSha256": "709cd67a7f4d131d2fd0ff482a38e61105453febaa0793f7a456581bbcea15e4",
+  "baselineCommit": "664d617",
+  "resourceVersions": {
+    "contracts/operation-contracts.json": "9bfc957372b2eb28a8a78808eef8dc20a07c18134cd139cc97f536518b0414a5",
+    "contracts/mcp/native-2026-07-28.schema.json": "ef70b61f99b6d2e5e3b46863822eab08dff6a45bedc7a08914e0e5b133f40203",
+    "contracts/mcp-native-schema-artifact.json": "068b37c9d873ffeea1299fec37aee5b28644da29aa64d15fabc8ceb77c9769f7",
+    "contracts/payload-contracts.json": "8f5f742e27abf3775d5535fc0a7d00a7da56a29a172bf1cae34dbcec8e6075d7",
+    "scripts/ssot/ssot_control.py": "48cf9ed88bbbc9bc5828063403638c8d85ca8bf4fe8e4ae2f1a99fe564618f74"
+  },
+  "status": "BLOCKED",
+  "wholeRoutesClosed": [],
+  "operationRecordsAndPreviousSchemasUnchanged": true,
+  "newOperationMasks": {
+    "mcp.prompts.list:command": {
+      "$id": "urn:kcml:r9:operation:mcp.prompts.list:command",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "allOf": [
+        {
+          "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ListPromptsRequest"
+        },
+        {
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "result"
+                ]
+              },
+              {
+                "required": [
+                  "error"
+                ]
+              }
+            ]
+          },
+          "properties": {
+            "params": {
+              "properties": {
+                "_meta": {
+                  "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestMetaObject"
+                }
+              },
+              "required": [
+                "_meta"
+              ]
+            }
+          }
+        }
+      ],
+      "description": "Public JSON-RPC command; SSOT 10.3/10.4/10.7/10.11/10.14/10.16.1. Native definitions materialized from the exact SSOT-pinned artifact. List methods cannot return MRTR or Tasks; HTTP admission and request-scoped notifications remain distinct boundaries. Cross-message ID/cache/context checks are mandatory."
+    },
+    "mcp.prompts.list:response": {
+      "$id": "urn:kcml:r9:operation:mcp.prompts.list:response",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "description": "Public JSON-RPC response; SSOT 10.3/10.4/10.7/10.11/10.14/10.16.1. Native definitions materialized from the exact SSOT-pinned artifact. List methods cannot return MRTR or Tasks; HTTP admission and request-scoped notifications remain distinct boundaries. Cross-message ID/cache/context checks are mandatory.",
+      "oneOf": [
+        {
+          "allOf": [
+            {
+              "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ListPromptsResultResponse"
+            },
+            {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "error"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "method"
+                    ]
+                  }
+                ]
+              },
+              "properties": {
+                "result": {
+                  "properties": {
+                    "_meta": {
+                      "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ResultMetaObject"
+                    },
+                    "resultType": {
+                      "const": "complete"
+                    }
+                  },
+                  "required": [
+                    "_meta"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/JSONRPCErrorResponse"
+            },
+            {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "result"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "method"
+                    ]
+                  }
+                ]
+              },
+              "properties": {
+                "error": {
+                  "properties": {
+                    "code": {
+                      "not": {
+                        "maximum": -32023,
+                        "minimum": -32099,
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "mcp.resources.list:command": {
+      "$id": "urn:kcml:r9:operation:mcp.resources.list:command",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "allOf": [
+        {
+          "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ListResourcesRequest"
+        },
+        {
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "result"
+                ]
+              },
+              {
+                "required": [
+                  "error"
+                ]
+              }
+            ]
+          },
+          "properties": {
+            "params": {
+              "properties": {
+                "_meta": {
+                  "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestMetaObject"
+                }
+              },
+              "required": [
+                "_meta"
+              ]
+            }
+          }
+        }
+      ],
+      "description": "Public JSON-RPC command; SSOT 10.3/10.4/10.7/10.11/10.14/10.16.1. Native definitions materialized from the exact SSOT-pinned artifact. List methods cannot return MRTR or Tasks; HTTP admission and request-scoped notifications remain distinct boundaries. Cross-message ID/cache/context checks are mandatory."
+    },
+    "mcp.resources.list:response": {
+      "$id": "urn:kcml:r9:operation:mcp.resources.list:response",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "description": "Public JSON-RPC response; SSOT 10.3/10.4/10.7/10.11/10.14/10.16.1. Native definitions materialized from the exact SSOT-pinned artifact. List methods cannot return MRTR or Tasks; HTTP admission and request-scoped notifications remain distinct boundaries. Cross-message ID/cache/context checks are mandatory.",
+      "oneOf": [
+        {
+          "allOf": [
+            {
+              "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ListResourcesResultResponse"
+            },
+            {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "error"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "method"
+                    ]
+                  }
+                ]
+              },
+              "properties": {
+                "result": {
+                  "properties": {
+                    "_meta": {
+                      "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ResultMetaObject"
+                    },
+                    "resultType": {
+                      "const": "complete"
+                    }
+                  },
+                  "required": [
+                    "_meta"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/JSONRPCErrorResponse"
+            },
+            {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "result"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "method"
+                    ]
+                  }
+                ]
+              },
+              "properties": {
+                "error": {
+                  "properties": {
+                    "code": {
+                      "not": {
+                        "maximum": -32023,
+                        "minimum": -32099,
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "mcp.resources.templates.list:command": {
+      "$id": "urn:kcml:r9:operation:mcp.resources.templates.list:command",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "allOf": [
+        {
+          "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ListResourceTemplatesRequest"
+        },
+        {
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "result"
+                ]
+              },
+              {
+                "required": [
+                  "error"
+                ]
+              }
+            ]
+          },
+          "properties": {
+            "params": {
+              "properties": {
+                "_meta": {
+                  "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestMetaObject"
+                }
+              },
+              "required": [
+                "_meta"
+              ]
+            }
+          }
+        }
+      ],
+      "description": "Public JSON-RPC command; SSOT 10.3/10.4/10.7/10.11/10.14/10.16.1. Native definitions materialized from the exact SSOT-pinned artifact. List methods cannot return MRTR or Tasks; HTTP admission and request-scoped notifications remain distinct boundaries. Cross-message ID/cache/context checks are mandatory."
+    },
+    "mcp.resources.templates.list:response": {
+      "$id": "urn:kcml:r9:operation:mcp.resources.templates.list:response",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "description": "Public JSON-RPC response; SSOT 10.3/10.4/10.7/10.11/10.14/10.16.1. Native definitions materialized from the exact SSOT-pinned artifact. List methods cannot return MRTR or Tasks; HTTP admission and request-scoped notifications remain distinct boundaries. Cross-message ID/cache/context checks are mandatory.",
+      "oneOf": [
+        {
+          "allOf": [
+            {
+              "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ListResourceTemplatesResultResponse"
+            },
+            {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "error"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "method"
+                    ]
+                  }
+                ]
+              },
+              "properties": {
+                "result": {
+                  "properties": {
+                    "_meta": {
+                      "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ResultMetaObject"
+                    },
+                    "resultType": {
+                      "const": "complete"
+                    }
+                  },
+                  "required": [
+                    "_meta"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/JSONRPCErrorResponse"
+            },
+            {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "result"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "method"
+                    ]
+                  }
+                ]
+              },
+              "properties": {
+                "error": {
+                  "properties": {
+                    "code": {
+                      "not": {
+                        "maximum": -32023,
+                        "minimum": -32099,
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "mcp.tools.list:command": {
+      "$id": "urn:kcml:r9:operation:mcp.tools.list:command",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "allOf": [
+        {
+          "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ListToolsRequest"
+        },
+        {
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "result"
+                ]
+              },
+              {
+                "required": [
+                  "error"
+                ]
+              }
+            ]
+          },
+          "properties": {
+            "params": {
+              "properties": {
+                "_meta": {
+                  "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestMetaObject"
+                }
+              },
+              "required": [
+                "_meta"
+              ]
+            }
+          }
+        }
+      ],
+      "description": "Public JSON-RPC command; SSOT 10.3/10.4/10.7/10.11/10.14/10.16.1. Native definitions materialized from the exact SSOT-pinned artifact. List methods cannot return MRTR or Tasks; HTTP admission and request-scoped notifications remain distinct boundaries. Cross-message ID/cache/context checks are mandatory."
+    },
+    "mcp.tools.list:response": {
+      "$id": "urn:kcml:r9:operation:mcp.tools.list:response",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "description": "Public JSON-RPC response; SSOT 10.3/10.4/10.7/10.11/10.14/10.16.1. Native definitions materialized from the exact SSOT-pinned artifact. List methods cannot return MRTR or Tasks; HTTP admission and request-scoped notifications remain distinct boundaries. Cross-message ID/cache/context checks are mandatory.",
+      "oneOf": [
+        {
+          "allOf": [
+            {
+              "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ListToolsResultResponse"
+            },
+            {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "error"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "method"
+                    ]
+                  }
+                ]
+              },
+              "properties": {
+                "result": {
+                  "properties": {
+                    "_meta": {
+                      "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ResultMetaObject"
+                    },
+                    "resultType": {
+                      "const": "complete"
+                    }
+                  },
+                  "required": [
+                    "_meta"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/JSONRPCErrorResponse"
+            },
+            {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "result"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "method"
+                    ]
+                  }
+                ]
+              },
+              "properties": {
+                "error": {
+                  "properties": {
+                    "code": {
+                      "not": {
+                        "maximum": -32023,
+                        "minimum": -32099,
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceExcerpts": {
+    "12.19": [
+      {
+        "line": 3433,
+        "title": "GenerationSpecification",
+        "text": "### 12.19 GenerationSpecification\n\nGenerationSpecification je úplný immutable funkční kontrakt. Obsahuje nejméně:\n\n```json\n{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"$ref\": \"urn:kcml:generation-contracts:2#/$defs/GenerationSpecification\"\n}\n```\n\nKaždý behavioral requirement má stable requirement ID. `authorityModel` určuje OWNER-intent roots, delegated specification sources, target/argument derivation slots, side-effect ceiling, delegation containment a Secret-use purposes. `contentProvenance`, `dataDerivations` a `secretUseRequirements` jsou normativní a nesmějí být vypuštěny z renderu ani generation planu. Každý MCP element obsahuje exact contract z kapitoly 10. Každý agent obsahuje exact revision contract z kapitoly 11. Každá browser requirement obsahuje parent/use case, origins, auth/account policy, OWNER handoff, target precision, side-effect ceiling, teaching/replay, outputs a acceptance. Každá integrační vazba obsahuje source revision, target revision, operation, contract digest, operation scope, secret/external dependency a E2E expectation.\n\nSpecifikace se serializuje jako canonical UTF-8 JSON se seřazenými klíči a kompaktními separátory. Revision ukládá SHA-256 digest a věrný Markdown render. Render nesmí vypustit žádné normative field."
+      }
+    ],
+    "12.21": [
+      {
+        "line": 3469,
+        "title": "Approval",
+        "text": "### 12.21 Approval\n\nOWNER schvaluje exact current specification revision a digest. Approval request zobrazuje revision, digest, diff, capability decision, target graph, MCP/agent contracts, exact bindings/secrets, acceptance a rollback plán.\n\nApproval command obsahuje expected job state version, current turn ID/status, spec revision/digest, capability snapshot/digest a idempotency key. Dvě approvals nad stejnou expected version nemohou obě změnit pointer.\n\nApproval uspěje pouze při completed discussion turnu, current approvable revision, current capability snapshotu a prázdných blocking questions. Jedna transakce:\n\n1. claimne approval idempotency record,\n2. vytvoří immutable `generation_execution_authority`,\n3. zmrazí approved specification pointer/digest,\n4. uloží OWNER approval event a audit,\n5. přepne job `DISCUSSING → ANALYZING`,\n6. vytvoří planning phase run a queue/outbox.\n\nCrash před commitem nevytvoří authority ani planning. Crash po commitu je obnoven z outboxu. Před approval nevzniká target identity, runtime, binding, release ani produkční side effect."
+      }
+    ],
+    "12.23": [
+      {
+        "line": 3497,
+        "title": "GenerationPlan",
+        "text": "### 12.23 GenerationPlan\n\nPlanner vytvoří immutable `GenerationPlan` jako directed acyclic graph. Plan node obsahuje:\n\n- node ID a kind,\n- purpose,\n- requirement IDs,\n- input artifact references a digests,\n- expected output schema,\n- dependencies,\n- execution role,\n- side-effect class,\n- retry class,\n- idempotency key template,\n- timeout a budget,\n- required gates,\n- checkpoint a compensation policy.\n\nPlan node kinds zahrnují:\n\n```json\n{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"$ref\": \"urn:kcml:generation-contracts:2#/$defs/SourceEnum041\"\n}\n```\n\nPlan validator ověří acyclic graph, úplné requirement coverage, existenci output produceru pro každý input, side-effect ordering, compensation a activation dependency. Neplatný plan nevstoupí do `IMPLEMENTING`."
+      }
+    ],
+    "12.44": [
+      {
+        "line": 3894,
+        "title": "Generation events a SSE",
+        "text": "### 12.44 Generation events a SSE\n\nKaždý job má monotonic event sequence. Eventy zahrnují:\n\n```json\n{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"$ref\": \"urn:kcml:generation-contracts:2#/$defs/SourceEnum044\"\n}\n```\n\nSSE publikuje až persistované events. Reconnect používá `Last-Event-ID`, replay a snapshot. Klientská delta není autoritativní bez server event sequence.\n\n#### 12.44.1 OWNER rozhodnutí 2026-09-25: approval a immutable reads\n\nVeřejná event hranice `generation.spec.approve` je agregátová událost\n`generation.spec.approved` v generation streamu jobu. Vzniká ve stejné\nautoritativní transakci jako šest zápisů §12.21 a publikuje se až po commitu\nprostřednictvím outboxu (§49.5). Používá `SseEnvelope`, monotonic sequence,\n`Last-Event-ID`, replay a snapshot podle §26.15. Obecné R9 lifecycle hodnoty\n`ACCEPTED/PROGRESS/WAITING_FOR_INPUT/RECONCILING/TERMINAL` nejsou touto událostí\nani neukládají druhý veřejný lifecycle stream. Command outcome a interní stav\noperace zůstávají na vlastních hranicích.\n\nTechnická specializace masky podle §12.18: `type` je přesně\n`generation.spec.approved`; `objectId` je UUID jobu; `eventId` je jeho\ncommitnutá aggregate-local sequence typu `Counter`; `emittedAt` je uložený\nčas události typu `Timestamp`, nikoli čas nového pokusu o delivery.\n`payload` má právě dvě povinná nenullová pole: `specificationRevisionId`\ntypu `Uuid` a `specificationDigest` typu `Digest`. Jde o immutable pointer\na canonical digest zmrazené bodem 3 §12.21, ne o klientský návrh. Job je\nidentifikován `objectId`, proto se v payloadu neduplikuje. Envelope má právě\npět povinných nenullových polí `SseEnvelope`; jiné payload/envelope klíče\nnejsou přípustné. Konkrétní maska je R9 `route.0234/eventSchema`.\n\nPublikující server porovná událost s persistovaným eventem a snapshotem\njejího approval commitu: job, schválená revision/digest, event sequence a stav\n`ANALYZING`. Snapshot novějšího stavu jobu nesmí být zaměněn za tento commit\nsnapshot. Read dané revision vrací dokument stejného jobu a canonical\ndigestu; samotný `GenerationSpecification` neobsahuje revision ID, proto\nmusí identita pocházet z trusted immutable repository pointeru (§12.19).\nCrash před commitem nesmí publikovat; crash po commitu opakuje delivery\nstejného uloženého eventu. Duplicate se neaplikuje podruhé, gap vyžaduje\nreplay/snapshot; nedostupný replay range vede na `resync.required` (§26.15).\nSSE disconnect/cancellation neruší již commitnuté approval ani planning.\n\n`generation.spec.revision.read` a `generation.plan.read` mají veřejně jen\nrequest/response. Samy neemitují persistovaný generation event ani vlastní\nreplayable SSE událost. Jejich R9 event hranice je výslovně nepoužitelná:\n`eventApplicability=NOT_APPLICABLE`, `eventSchema` odmítá každý payload.\nAudit čtení podle obecných auditních pravidel je oddělený a není generation\neventem. Klient sleduje změny v samostatném generation streamu pomocí\n`generation.spec.proposed`, `generation.spec.approved` a\n`generation.plan.created` a následně načte konkrétní immutable revision či\nplan. Read vrátí přesně požadovaný dokument, nebo jednoznačnou chybu; chyba\nnení dokumentem pro navazující krok. Toto rozhodnutí neurčuje dosud\nnedoložené payloady `generation.spec.proposed` a `generation.plan.created`."
+      }
+    ],
+    "26.15": [
+      {
+        "line": 18510,
+        "title": "SSE",
+        "text": "### 26.15 SSE\n\nKájovoCML rozlišuje dvě neslučitelné SSE sémantiky:\n\n1. **Domain/UI replayable SSE** pro generation, audit, monitoring, chat a jiné platformní streams.\n2. **MCP request-scoped SSE** podle kapitoly 10, které není replayable a nepoužívá event IDs.\n\nDomain/UI SSE endpointy používají envelope:\n\n```json\n{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"$ref\": \"urn:kcml:generation-contracts:2#/$defs/SseEnvelope\"\n}\n```\n\nPersistentní domain event IDs jsou monotonic v deklarovaném stream namespace. Heartbeat a resync notice používají nepersistentní frame. Klient MAY poslat `Last-Event-ID`; server provede snapshot + bounded replay. Nedostupný range vrací `resync.required` a klient načte authoritative snapshot.\n\nTato replay pravidla MUST NOT být použita na MCP endpoint `/mcp`. MCP SSE:\n\n- patří právě jednomu JSON-RPC requestu nebo `subscriptions/listen`,\n- nemá `eventId`, SSE `id:` ani `Last-Event-ID` resume,\n- po disconnectu se neobnovuje od poslední zprávy,\n- u běžného requestu končí jednou finální JSON-RPC response,\n- u subscription po reconnectu vyžaduje nový `subscriptions/listen` a full refresh,\n- u mutujícího callu řeší ztracenou response business idempotency/reconciliation, nikoli SSE replay.\n\nReverse proxy a client libraries musí mít pro oba profily oddělenou konfiguraci a testy. Přidání domain event ID do MCP streamu nebo aplikace MCP no-replay semantics na audit/generation stream je blocking protocol failure."
+      }
+    ],
+    "49.5": [
+      {
+        "line": 40693,
+        "title": "Události, pořadí, audit a transactional outbox",
+        "text": "### 49.5 Události, pořadí, audit a transactional outbox\n\nKaždý aggregate root obsahuje vlastní poslední `eventSequence`. Následující sequence se alokuje změnou root řádku v téže transakci jako stav. Tím vzniká bezmezerové pořadí commitnutých doménových eventů v rámci agregátu. PostgreSQL sequence objekt se pro tento bezmezerový aggregate-local čítač nepoužívá.\n\nGlobální auditní hash chain alokuje `chainSequence` pod row lockem singletonu `audit_head`. Doménová transakce, která vyžaduje audit, současně uloží audit event, nový hash a nový audit head. Pokud audit write selže, doménová změna se necommitne.\n\nCross-aggregate globální business pořadí se nepředstírá. Vztah mezi různými agregáty vyjadřují `correlationId`, `causationId`, logical operation ID, activation epoch a transactional commit evidence. Časové razítko není concurrency guard.\n\nKaždý event určený pro SSE, queue, webhook delivery, cache invalidaci, runtime reconcile nebo jiného consumera má ve stejné transakci `transactional_outbox` řádek. Publisher používá at-least-once delivery. Consumer deduplikuje podle immutable event ID a pro jeden stream přijímá pouze následující expected sequence; duplicate ignoruje, gap vyvolá snapshot/replay nebo `SEQUENCE_GAP`, nikoli tiché přeskočení.\n\n`LISTEN/NOTIFY`, condition variable, in-memory signal a socket wakeup jsou pouze optimalizace. Worker vždy polluje persistentní queue/outbox podle `availableAt`, takže ztracená notification nezpůsobí lost wakeup.\n\nEvent se publikuje až po commitu. Crash po commitu a před publikací zanechá outbox row k pozdějšímu doručení. Crash po publikaci a před označením delivery může způsobit duplicate delivery, nikoli ztrátu eventu.\n\nPULSE, webhook, provider callback a jiný at-least-once inbound event používá `transactional_inbox`. Consumer v jedné transakci vloží unique `(consumerScope,eventId)`, ověří payload/schema/sequence digest, provede doménovou změnu a uloží outcome/event/audit/outbox. Duplicate stejného eventu vrátí původní outcome; stejné event ID s jiným digestem je protocol conflict.\n\nPULSE stream s ordered delivery udržuje source stream ID a expected sequence. Event vyšší než expected se nedispatchne mimo pořadí; uloží se jako pending gap, vyžádá replay/snapshot nebo přejde do dead letter podle port contractu. Unordered port stále deduplikuje event ID a nesmí stejný event aplikovat dvakrát."
+      }
+    ],
+    "10.3": [
+      {
+        "line": 1176,
+        "title": "Streamable HTTP transport a HTTP/JSON-RPC hranice",
+        "text": "### 10.3 Streamable HTTP transport a HTTP/JSON-RPC hranice\n\nVeřejná kanonická hranice moderního serveru je:\n\n```json\n{\n  \"inputDefinition\": \"PositiveCounter\",\n  \"implementation\": \"scripts/ssot/boundary_codecs.py:component_endpoint\",\n  \"sourceOfNumber\": \"CANONICAL_COMPONENT_REGISTRY\",\n  \"transport\": \"HTTPS\",\n  \"method\": \"POST\",\n  \"fixedDomain\": \"kaja.hcasc.cz\"\n}\n```\n\nKaždá JSON-RPC request nebo transportem přípustná notification používá vlastní HTTP `POST`. Body obsahuje právě jednu JSON-RPC zprávu. Batch array, více konkatenovaných objektů, JSON-RPC response od klienta, request s `id = null` a objekt obsahující současně `result`/`error` s `method` jsou neplatné.\n\nKlient pro request posílá nejméně:\n\n```json\n{\n  \"Content-Type\": \"application/json\",\n  \"Accept\": \"application/json, text/event-stream\",\n  \"MCP-Protocol-Version\": \"2026-07-28\",\n  \"Mcp-Method\": {\n    \"sourcePointer\": \"/method\"\n  },\n  \"Mcp-Name\": {\n    \"sourceSelection\": \"EXACT_METHOD_ROUTING_SCHEMA\",\n    \"encoder\": \"scripts/ssot/boundary_codecs.py:encode_header\"\n  },\n  \"Authorization\": {\n    \"implementation\": \"scripts/ssot/boundary_codecs.py:authorization\"\n  }\n}\n```\n\n`Mcp-Name` je povinný pro:\n\n- `tools/call` a odpovídá `params.name`,\n- `resources/read` a odpovídá `params.uri`,\n- `prompts/get` a odpovídá `params.name`,\n- `tasks/get`, `tasks/update` a `tasks/cancel`, pokud je Tasks extension aktivní, a odpovídá `params.taskId`.\n\n`MCP-Protocol-Version`, `Mcp-Method`, `Mcp-Name` a každý schema-recognized `Mcp-Param-*` jsou singleton routing fields. Dvě instance s rozdílnými hodnotami, comma-joined více hodnot, neplatné znaky, neplatný Base64 sentinel nebo chybějící required field jsou `HeaderMismatch`. Header names se porovnávají case-insensitively; method, name, URI a decoded values case-sensitively, s výjimkou numerického porovnání integer argumentu.\n\nServer odpoví na JSON-RPC request právě jedním z profilů:\n\n- `Content-Type: application/json` s jedním JSON-RPC result nebo error objektem,\n- `Content-Type: text/event-stream` s request-scoped JSON-RPC notifications a jednou finální JSON-RPC response.\n\nKlient MUST podporovat oba profily. Server nesmí podle `Accept` vybrat jiný business význam nebo side-effect semantics. `406 Not Acceptable` se vrací, pokud `Accept` neumožňuje oba povinné typy. `415 Unsupported Media Type` se vrací pro nepodporovaný request content type. `413 Content Too Large` se vrací před JSON parse, pokud request překročí bounded limit.\n\nKanonická HTTP/JSON-RPC mapa je:\n\n| Stav | HTTP | JSON-RPC body | Handler |\n|---|---:|---|---|\n| success nebo běžný RPC error validního requestu | `200` | result nebo error se stejným exact ID | podle pipeline |\n| přijatá JSON-RPC notification | `202` | žádné body | notification contract |\n| odmítnutá notification | relevantní `4xx/5xx` | MAY error bez `id` | ne |\n| neplatný `Origin` | `403` | volitelný error bez `id` | ne |\n| chybějící/neplatný credential | `401` nebo `403` | HTTP auth error; nesmí předstírat peer MCP outcome | ne |\n| malformed JSON | `400` | `-32700 Parse error`, `id` se vynechá | ne |\n| neplatný JSON-RPC shape, batch, response, `id=null` | `400` | `-32600 Invalid Request`; čitelné validní ID se echo, jinak se vynechá | ne |\n| missing/malformed/mismatched routing header | `400` | `-32020 HeaderMismatch` | ne |\n| unsupported protocol version | `400` | `-32022 UnsupportedProtocolVersion` | ne |\n| missing required current-request capability | `400` | `-32021 MissingRequiredClientCapability` | ne |\n| neimplementovaná RPC method | `404` | `-32601 Method not found` se stejným ID | ne |\n| validní method, neplatné params/cursor/taskId/unknown tool | `200` | `-32602 Invalid params` nebo method-specific protocol error | ne |\n| runtime JSON-RPC internal failure po přijetí requestu | `200` | `-32603 Internal error` | možná; podle evidence |\n| route mimo MCP endpoint | `404` | běžná HTTP chyba, nikoli MCP era důkaz | ne |\n| HTTP method jiná než POST | `405` | žádný MCP success | ne |\n| rate/capacity před přijetím RPC | `429` nebo `503` | transport error s retry metadata | ne |\n\nMCP-aware klient MUST vyhodnotit HTTP status i případné JSON-RPC body. HTTP status popisuje transportní přijetí; JSON-RPC error popisuje protocol outcome. Klient nesmí z HTTP `400`, `404` nebo `405` bez analýzy body automaticky usoudit na legacy era ani bezpečně opakovat mutující operaci.\n\nModerní core revision nedefinuje žádnou client-to-server core notification pro Streamable HTTP. `notifications/cancelled` se na HTTP neposílá; zavření příslušného SSE response streamu je cancellation signal. Pokud budoucí extension výslovně povolí notification POST, přijatá notification MUST vrátit `202 Accepted` bez body a receiver nesmí poslat JSON-RPC response.\n\n#### 10.3.1 Request-scoped SSE framing\n\nKaždý SSE stream náleží právě jednomu původnímu JSON-RPC requestu. Server:\n\n- používá `X-Accel-Buffering: no`,\n- každý `data:` event obsahuje právě jednu úplnou JSON-RPC zprávu,\n- může vysílat pouze request-related notifications, například `notifications/progress` nebo `notifications/message`,\n- nesmí vyslat independent JSON-RPC request, response s jiným ID ani notification patřící jinému requestu,\n- jako poslední aplikační zprávu odešle finální response se stejným exact ID a poté stream ukončí,\n- může vysílat SSE comment keep-alive lines, které nemají protocol význam,\n- nesmí emitovat SSE `id:` ani `retry:` fields a nepodporuje `Last-Event-ID`.\n\nKlient odmítne malformed SSE data, wrong response ID, více finálních responses, zprávu po finální response, server-initiated JSON-RPC request nebo independent notification jako protocol violation. U mutujícího callu taková chyba nespouští blind retry; klient nejprve použije business idempotency/outcome endpoint nebo reconciliation.\n\nDisconnect má jediný význam podle persistovaného call state:\n\n1. před dispatch intentem — call lze uzavřít bez effectu,\n2. po intentu před dispatch claimem — cancellation zablokuje dispatch,\n3. během read-only handleru — práce se abortuje,\n4. po možném mutujícím dispatchi — vzniká reconciliation, nikoli předpoklad success/failure,\n5. po terminal DB commitu před doručením frame — canonical outcome zůstává terminal a retry se stejným business key jej načte.\n\nPo disconnectu server MUST přestat emitovat frames. Cancellation se propaguje do handleru, child KCIP calls a nonterminal task pouze podle jejich vlastního cancellation contractu. Durable Task přežije transportní disconnect; zavření původního streamu nesmí task automaticky smazat ani falšovat jeho terminal status.\n\n#### 10.3.2 HTTP Origin, session headers a legacy traffic\n\nPřítomný `Origin` MUST odpovídat explicitní origin policy; invalid origin vrací `403` před handlerem. Moderní endpoint na `GET` a `DELETE` vrací `405 Method Not Allowed`. `Mcp-Session-Id` a `Last-Event-ID` nemají moderní význam, negenerují se, neechojí se a nesmí ovlivnit routing, cache, authorization nebo continuity. Jejich přítomnost se auditně zaznamená a jinak ignoruje, pokud request není zpracováván explicitním legacy adapterem.\n\n**Doplnění HTTP mapy:** chybějící povinné per-request `_meta` z 10.4 je `-32602 Invalid params` s HTTP `400` před handlerem. Obecný řádek pro neplatné method-specific params s HTTP `200` se na tuto metadata chybu nevztahuje. Chybějící routing header je nadále `HeaderMismatch`; rozhoduje již stanovené pořadí transportní validace."
+      }
+    ],
+    "10.4": [
+      {
+        "line": 1284,
+        "title": "JSON-RPC IDs, per-request metadata, identity a capabilities",
+        "text": "### 10.4 JSON-RPC IDs, per-request metadata, identity a capabilities\n\nKaždý moderní request obsahuje v `params._meta` povinné `io.modelcontextprotocol/protocolVersion` a `io.modelcontextprotocol/clientCapabilities`. `io.modelcontextprotocol/clientInfo` je podle MCP volitelné diagnostické metadata; vlastní KájovoCML klient je standardně posílá, ale jeho absence u externího klienta není chyba protokolu. Následující ukázka zahrnuje i tato volitelná metadata:\n\n```json\n{\n  \"contractId\": \"mcp.native.RequestMetaObject\",\n  \"protocolVersion\": \"2026-07-28\",\n  \"sourcePath\": \"schema/2026-07-28/schema.json\",\n  \"nativeDefinition\": \"RequestMetaObject\",\n  \"sdkLockBinding\": \"nativeSchemaArtifact.contentDigest\",\n  \"compiler\": \"scripts/ssot/ssot_control.py:compile_native_schema\",\n  \"envelope\": \"NATIVE_DEFINITION\",\n  \"platformMeta\": false,\n  \"noUndeclaredExtension\": true\n}\n```\n\nPodle operation contractu může obsahovat:\n\n- `progressToken`,\n- negotiated extension capabilities,\n- `traceparent`, `tracestate` a `baggage`,\n- KájovoCML vendor metadata pouze pod prefixem `cz.hcasc.kajovocml/`.\n\n`io.modelcontextprotocol/*` a jiné MCP-reserved prefixes nesmí KájovoCML použít pro vendor hodnotu. Unknown vendor `_meta` se zachová pouze jako bounded untrusted metadata, nesmí změnit identity, access, binding, idempotency, side-effect, retry, deadline nebo schema.\n\nProtocol version a capabilities se vyhodnocují pro každý request samostatně. `clientInfo` a `serverInfo` jsou self-reported diagnostická metadata a nesmí být security, routing, collision, idempotency ani compatibility autoritou. Veřejný request získá access context z ověřeného OWNER API klíče nebo endpoint-local credentialu; interní request výhradně z trusted runtime gateway.\n\nJSON-RPC request ID:\n\n- MUST být string nebo integer a MUST NOT být `null`, boolean, float, object nebo array,\n- MUST být unikátní mezi všemi requests, které stejný sender v daném exact source/access contextu vydal a dosud pro ně neobdržel response,\n- string `\"1\"` a integer `1` jsou rozdílná ID; server MUST echo exact JSON type a value,\n- `subscriptions/listen` ID zůstává in-flight po celou dobu subscription streamu,\n- reuse ID po finální response je povoleno, ale vzniká nový transport request; nesmí replayovat starý business outcome pouze podle ID,\n- duplicate in-flight ID se odmítne `-32600` s `error.data.stableCode = MCP_DUPLICATE_IN_FLIGHT_REQUEST_ID`; druhý request se nespustí,\n- není idempotency key, logical operation ID, task ID, state handle ani correlation ID.\n\nKaždý moderní result obsahuje známý `resultType`. Core hodnoty jsou `complete` a `input_required`; negotiated extension může přidat další hodnotu, například `task`. Neznámý nebo nevyjednaný `resultType` je invalid response. Pouze compatibility adapter při čtení explicitně legacy response může chybějící `resultType` normalizovat na `complete`; generated moderní server jej MUST vždy emitovat.\n\nServer v result `_meta` uvádí nejméně:\n\n```json\n{\n  \"contractId\": \"mcp.native.ResultMetaObject\",\n  \"protocolVersion\": \"2026-07-28\",\n  \"sourcePath\": \"schema/2026-07-28/schema.json\",\n  \"nativeDefinition\": \"ResultMetaObject\",\n  \"sdkLockBinding\": \"nativeSchemaArtifact.contentDigest\",\n  \"compiler\": \"scripts/ssot/ssot_control.py:compile_native_schema\",\n  \"envelope\": \"NATIVE_DEFINITION\",\n  \"platformMeta\": false,\n  \"noUndeclaredExtension\": true\n}\n```\n\nNepodporovaná version vrací `-32022` a `error.data` obsahuje `requested` a deterministicky seřazené `supported`. Chybějící capability vrací `-32021` a exact `requiredCapabilities`. Header/body mismatch vrací `-32020`. Všechny tyto chyby vznikají před doménovým side effectem."
+      }
+    ],
+    "10.7": [
+      {
+        "line": 1389,
+        "title": "Discovery snapshots, cache a pagination",
+        "text": "### 10.7 Discovery snapshots, cache a pagination\n\nKájovoCML ukládá immutable discovery/read snapshot pro:\n\n- `server/discover`,\n- `tools/list`,\n- `resources/list`,\n- `resources/templates/list`,\n- `prompts/list`,\n- `resources/read`.\n\nSnapshot obsahuje exact endpoint/server/release, protocol version, full request-parameter digest, client capability digest, extension digest, access-channel/binding fingerprint, result payload, jednotlivé contract digests, `ttlMs`, `cacheScope`, received time, latency, page cursor lineage a aggregate digest.\n\nCache key MUST obsahovat method a všechny request parameters ovlivňující result, zejména cursor, URI, exact endpoint, protocol version, client capability/extension digest a access/binding fingerprint. Request obsahující `inputResponses` nebo `requestState` se nikdy necachuje. `input_required` a `task` create result se necachují jako běžný method result.\n\nKaždý `complete` result uvedených cacheable methods MUST obsahovat integer `ttlMs >= 0` a `cacheScope = public | private`:\n\n- `ttlMs = 0` znamená okamžitě stale,\n- positive TTL se počítá od lokálního času přijetí response; je freshness hint, nikoli garance nezměnitelnosti,\n- server nesmí emitovat negative TTL,\n- `public` lze sdílet pouze tehdy, pokud je výsledek skutečně nezávislý na credentialu, endpoint bindingu, OWNER contextu a confidential data,\n- `private` se smí reuse pouze pro stejný exact authorization/access-binding context.\n\nRelevantní notification invaliduje cache okamžitě i před TTL. Cache se dále invaliduje změnou active server/tool/resource/prompt revision, release, contract digestu, binding-set revision, activation epoch, capability/extension profile, invalidním cursorem, schema drift chybou a explicitním verify/repair během.\n\nKájovoCML může po refresh failure zobrazit poslední snapshot jako označenou stale diagnostickou evidence. Agent binding, generation verification, activation a nový mutující run jej nesmí použít jako current execution contract. Před tool call se i při cache hitu znovu ověří current active revision, readiness, binding digest a activation epoch.\n\nList results jsou deterministicky seřazené podle stable key definovaného revision contractem. Set ani pořadí se nesmí měnit podle HTTP connection, stdio processu nebo side effectu jiného requestu. Může se lišit pouze podle explicitního per-request capability a exact access/binding contextu zahrnutého v cache key.\n\nPagination používá opaque string `cursor`:\n\n- klient jej nesmí parse, modifikovat ani odvozovat z něj pořadí,\n- page size určuje server,\n- chybějící `nextCursor` znamená konec; empty string je validní cursor a nesmí být zaměněn za konec,\n- každá page je samostatná cache entry se svým TTL; všechny pages stejného list requestu MUST mít stejný `cacheScope`,\n- protocol neposkytuje cross-page snapshot consistency. KájovoCML registration a activation workflow, které vyžadují úplný konzistentní seznam, používají serverem podporovaný snapshot digest nebo provedou bounded refetch od první page a ověří aggregate digest,\n- invalid/expired/wrong-context cursor vrací `-32602` s `MCP_CURSOR_INVALID`; klient zahodí všechny pages daného traversal a začne bez cursoru,\n- cursor je svázán s method, server/release, access/binding fingerprintem, protocol version a relevantním list snapshotem; reuse v jiné souvislosti se odmítne."
+      }
+    ],
+    "10.11": [
+      {
+        "line": 1579,
+        "title": "Multi Round-Trip Requests — MRTR",
+        "text": "### 10.11 Multi Round-Trip Requests — MRTR\n\n`InputRequiredResult` lze vrátit pouze z:\n\n- `tools/call`,\n- `resources/read`,\n- `prompts/get`.\n\nJiná method nesmí vrátit `resultType=input_required`. Result obsahuje alespoň jedno z `inputRequests` nebo `requestState`:\n\n```json\n{\n  \"contractId\": \"mcp.native.InputRequiredResult\",\n  \"protocolVersion\": \"2026-07-28\",\n  \"sourcePath\": \"schema/2026-07-28/schema.json\",\n  \"nativeDefinition\": \"InputRequiredResult\",\n  \"sdkLockBinding\": \"nativeSchemaArtifact.contentDigest\",\n  \"compiler\": \"scripts/ssot/ssot_control.py:compile_native_schema\",\n  \"envelope\": \"NATIVE_DEFINITION\",\n  \"platformMeta\": false,\n  \"noUndeclaredExtension\": true\n}\n```\n\n`inputRequests` je mapa unique string keys v rámci jednoho MRTR resultu. Value je pouze request shape povolený current protocol revision, zejména `elicitation/create`, `sampling/createMessage` nebo `roots/list`. Server nesmí vložit request, pro který klient v aktuálním requestu nedeklaroval capability. Generated KájovoCML server pro nový business tok používá standardně `elicitation/create`; Sampling nebo Roots použije pouze explicitní revision contract a negotiated capability, nikdy jako skrytou platformní závislost.\n\nClient retry:\n\n- používá nové JSON-RPC ID,\n- znovu posílá původní method a nezměněné salient business arguments,\n- posílá `inputResponses` ke známým keys,\n- echo přesně stejný `requestState`, pokud byl vydán,\n- nesmí poslat `requestState`, pokud původní result žádný neobsahoval,\n- zůstává součástí stejné interní logical operation a business idempotency scope; změna původních arguments vytváří conflict, nikoli jinou větev stejného MRTR.\n\n`requestState` je opaque string. Klient jej nesmí inspect, parse, normalize ani modifikovat. KájovoCML jej chrání AEAD/HMAC nebo ukládá server-side pod cryptographically random handlem a ověřuje exact source/access context, server/tool revision, method, target, original salient-argument digest, binding-set revision, activation epoch, logical operation, expiration a consumption state.\n\nMRTR pre-side-effect invariant:\n\n- server MUST vrátit `input_required` před prvním external/non-idempotent side effectem daného continuation,\n- nelze-li tento invariant splnit, operation použije negotiated durable Task nebo samostatný explicitní command workflow,\n- `requestState` nikdy nedokazuje, že side effect nebyl proveden.\n\nPři retry server:\n\n1. validuje requestState a original request digest,\n2. ignoruje a auditně eviduje unknown response keys, already-satisfied keys a keys, které nejsou v current outstanding setu,\n3. přijme partial known responses; pokud nezbytný input chybí, vrátí nový `InputRequiredResult`,\n4. canonicalizuje accepted responses a atomicky je consume s enqueue resume,\n5. exact replay již consumed state se stejným response digestem vrátí current/terminal canonical outcome,\n6. reuse consumed state s jiným recognized response digestem vrátí `MCP_REQUEST_STATE_CONSUMED`,\n7. invalid signature/context/method/digest vrátí `MCP_REQUEST_STATE_INVALID`; expiry vrátí `MCP_REQUEST_STATE_EXPIRED`.\n\nKájovoCML mapuje MRTR na persistentní `mcp_input_exchange`. OWNER approval, credential doplnění nebo challenge vytváří exact input request s immutable digestem. Agent run přejde do `WAITING_FOR_MCP_INPUT` nebo `WAITING_FOR_OWNER`, uloží checkpoint a po atomic consume pokračuje právě jednou. MRTR result a každý retry s `inputResponses`/`requestState` se nesmí cacheovat."
+      }
+    ],
+    "10.14": [
+      {
+        "line": 1680,
+        "title": "Resources a prompts",
+        "text": "### 10.14 Resources a prompts\n\nMCP resource contract deklaruje:\n\n- stabilní resource ID,\n- URI nebo URI template,\n- MIME type a optional size,\n- read/output contract,\n- `resources/list`, `resources/templates/list` a `resources/read` capability,\n- operation scope a access binding,\n- pagination a cursor policy,\n- `ttlMs` a `cacheScope` policy,\n- resource update capability,\n- owner revision a digest.\n\nResource read vrací `resultType = complete`, content, `ttlMs` a `cacheScope`. Text a binary content odpovídá URI a MIME kontraktu. URI template používá validovaný RFC 6570 profil a bounded parameter expansion.\n\nMCP prompt contract deklaruje:\n\n- stabilní prompt ID a case-sensitive jméno,\n- title a popis účelu,\n- typed argument contract,\n- immutable template revision,\n- role/content strukturu,\n- povolené resource references,\n- model hints bez vynucení provideru,\n- output rendering testy,\n- owner revision a digest.\n\nPrompt renderer odmítne chybějící nebo neznámé argumenty podle contractu a nevkládá Secret hodnotu bez explicitního bindingu. `prompts/list` je deterministic a cacheable; `prompts/get` vrací `resultType = complete` a server identity metadata."
+      }
+    ],
+    "10.16.1": [
+      {
+        "line": 1757,
+        "title": "Tasks capability a vytvoření tasku",
+        "text": "#### 10.16.1 Tasks capability a vytvoření tasku\n\nDlouhotrvající `tools/call` MAY použít extension `io.modelcontextprotocol/tasks` pouze tehdy, když:\n\n- server ji deklaruje v `server/discover`,\n- client ji deklaruje v capabilities konkrétního `tools/call`,\n- tool revision task augmentation povoluje,\n- durable task je commitnutý před vydáním task ID.\n\nV revision `2026-07-28` task augmentation podporuje pouze `tools/call`. Client task nevyžaduje ani nevynucuje; server rozhoduje per request a client musí umět přijmout běžný `complete|input_required` result i `resultType=task`. Server nesmí vrátit task bez current-request capability. Nemůže-li bez tasku operation obsloužit, vrátí `-32021` s required extension.\n\nCreateTaskResult má `resultType=task` a obsahuje:\n\n- `taskId`,\n- lowercase status `working|input_required|completed|failed|cancelled`,\n- `createdAt`, `lastUpdatedAt`,\n- `ttlMs` jako integer duration od creation nebo `null`,\n- volitelný integer `pollIntervalMs`,\n- volitelný `statusMessage`.\n\nTask je před response durable a okamžitě resolvable přes `tasks/get`. Potřebuje-li server client input ještě před rozhodnutím o vytvoření tasku, dokončí tento MRTR synchronně na původní methodě před CreateTaskResult; po vydání tasku se další input přenáší pouze přes task `inputRequests` v `tasks/get` a `inputResponses` v `tasks/update`, nikoli MRTR retry původního callu. Je svázán s exact source/access contextem, original tool/revision/request digestem, binding-set revision, activation epoch, logical operation ID a idempotency key. Přežije HTTP disconnect, worker restart a process replacement. Task ID není credential ani business idempotency key."
+      }
+    ]
+  },
+  "generationRoutes": [
+    {
+      "routeId": "route.0234",
+      "operationId": "generation.spec.approve",
+      "status": "BLOCKED",
+      "subtractFromGenericRoutes": false,
+      "operationRecordEvidence": {
+        "sideEffectClass": "LOCAL_STATE",
+        "possibleEffectTrigger": "FIRST_AUTHORITATIVE_DOMAIN_WRITE",
+        "outboxPurposes": [
+          "DOMAIN_EVENT",
+          "SIDE_EFFECT_DISPATCH_IF_APPLICABLE"
+        ],
+        "auditEventTypes": [
+          "OPERATION_ADMITTED",
+          "OPERATION_STATE_CHANGED",
+          "OPERATION_TERMINAL"
+        ],
+        "authoritySourceRefs": [
+          {
+            "anchor": "section.12",
+            "relation": "AUTHORITY",
+            "section": "12",
+            "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+          },
+          {
+            "anchor": "section.49.15",
+            "relation": "AUTHORITY",
+            "section": "49.15",
+            "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+          }
+        ]
+      },
+      "request": {
+        "source": "contracts/payload-contracts.json#/records/234/requestSchema",
+        "remaining": "Approval business fields are precise; query/transport review remains."
+      },
+      "response": {
+        "source": "contracts/payload-contracts.json#/records/234/responseSchema",
+        "remaining": "Public projection of atomic approval outcome is not established; StepOutput/ApprovedGenerationSpecification is not a receipt."
+      },
+      "event": {
+        "source": "contracts/payload-contracts.json#/records/234/eventSchema",
+        "eventApplicability": "AGGREGATE_STREAM",
+        "effectiveSchema": {
+          "$id": "urn:kcml:r9:route:route.0234:event",
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "description": "12.21 / 12.44.1 / 26.15 / 49.5: persisted job aggregate approval, not command lifecycle.",
+          "properties": {
+            "emittedAt": {
+              "$ref": "urn:kcml:generation-contracts:2#/$defs/Timestamp"
+            },
+            "eventId": {
+              "$ref": "urn:kcml:generation-contracts:2#/$defs/Counter"
+            },
+            "objectId": {
+              "$ref": "urn:kcml:generation-contracts:2#/$defs/Uuid"
+            },
+            "payload": {
+              "$id": "urn:kcml:r9:semantic:route.0234:event-payload",
+              "additionalProperties": false,
+              "properties": {
+                "specificationDigest": {
+                  "$ref": "urn:kcml:generation-contracts:2#/$defs/Digest"
+                },
+                "specificationRevisionId": {
+                  "$ref": "urn:kcml:generation-contracts:2#/$defs/Uuid"
+                }
+              },
+              "required": [
+                "specificationRevisionId",
+                "specificationDigest"
+              ],
+              "type": "object"
+            },
+            "type": {
+              "const": "generation.spec.approved"
+            }
+          },
+          "required": [
+            "eventId",
+            "type",
+            "objectId",
+            "emittedAt",
+            "payload"
+          ],
+          "type": "object"
+        },
+        "sourceSections": [
+          "12.21",
+          "12.44",
+          "26.15",
+          "49.5"
+        ],
+        "proven": "OWNER 12.44.1: exact aggregate approval envelope and pointer/digest; no second lifecycle stream.",
+        "missingMeaning": null,
+        "remainingVerification": "Actual atomic DB/outbox and persisted snapshot provenance; approval->revision predicate covered separately.",
+        "noSchemaSubstitution": "SseEnvelope.payload is JsonValue; referencing it alone would not close the domain mask."
+      }
+    },
+    {
+      "routeId": "route.0232",
+      "operationId": "generation.spec.revision.read",
+      "status": "BLOCKED",
+      "subtractFromGenericRoutes": false,
+      "operationRecordEvidence": {
+        "sideEffectClass": "READ_ONLY",
+        "possibleEffectTrigger": "NONE",
+        "outboxPurposes": [],
+        "auditEventTypes": [
+          "OPERATION_ADMITTED",
+          "OPERATION_STATE_CHANGED",
+          "OPERATION_TERMINAL"
+        ],
+        "authoritySourceRefs": []
+      },
+      "request": {
+        "source": "contracts/payload-contracts.json#/records/232/requestSchema",
+        "remaining": "Path identifiers are precise; generic body/query remains without a proven no-input transport mapping."
+      },
+      "response": {
+        "source": "contracts/payload-contracts.json#/records/232/responseSchema",
+        "remaining": "Native domain document and trusted persisted ID/digest now checked; real DB lookup, artifact hydration and full semantic validation remain."
+      },
+      "event": {
+        "source": "contracts/payload-contracts.json#/records/232/eventSchema",
+        "eventApplicability": "NOT_APPLICABLE",
+        "effectiveSchema": {
+          "$defs": {
+            "inapplicablePayload": {
+              "$id": "urn:kcml:r9:semantic:route.0232:event-payload",
+              "not": {}
+            }
+          },
+          "$id": "urn:kcml:r9:route:route.0232:event",
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "description": "12.44.1 OWNER: no generation event for this read; audit remains separate.",
+          "not": {}
+        },
+        "sourceSections": [
+          "12.44",
+          "26.15",
+          "49.5"
+        ],
+        "proven": "OWNER 12.44.1: request/response only; rejecting eventSchema; audit separate.",
+        "missingMeaning": null,
+        "remainingVerification": "Exact proposed/plan.created payloads and stream-to-read identity mappings remain unproven; request transport still open.",
+        "noSchemaSubstitution": "SseEnvelope.payload is JsonValue; referencing it alone would not close the domain mask."
+      }
+    },
+    {
+      "routeId": "route.0237",
+      "operationId": "generation.plan.read",
+      "status": "BLOCKED",
+      "subtractFromGenericRoutes": false,
+      "operationRecordEvidence": {
+        "sideEffectClass": "READ_ONLY",
+        "possibleEffectTrigger": "NONE",
+        "outboxPurposes": [],
+        "auditEventTypes": [
+          "OPERATION_ADMITTED",
+          "OPERATION_STATE_CHANGED",
+          "OPERATION_TERMINAL"
+        ],
+        "authoritySourceRefs": []
+      },
+      "request": {
+        "source": "contracts/payload-contracts.json#/records/237/requestSchema",
+        "remaining": "Path identifiers are precise; generic body/query remains without a proven no-input transport mapping."
+      },
+      "response": {
+        "source": "contracts/payload-contracts.json#/records/237/responseSchema",
+        "remaining": "Native domain document and trusted persisted ID/digest now checked; real DB lookup, artifact hydration and full semantic validation remain."
+      },
+      "event": {
+        "source": "contracts/payload-contracts.json#/records/237/eventSchema",
+        "eventApplicability": "NOT_APPLICABLE",
+        "effectiveSchema": {
+          "$defs": {
+            "inapplicablePayload": {
+              "$id": "urn:kcml:r9:semantic:route.0237:event-payload",
+              "not": {}
+            }
+          },
+          "$id": "urn:kcml:r9:route:route.0237:event",
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "description": "12.44.1 OWNER: no generation event for this read; audit remains separate.",
+          "not": {}
+        },
+        "sourceSections": [
+          "12.44",
+          "26.15",
+          "49.5"
+        ],
+        "proven": "OWNER 12.44.1: request/response only; rejecting eventSchema; audit separate.",
+        "missingMeaning": null,
+        "remainingVerification": "Exact proposed/plan.created payloads and stream-to-read identity mappings remain unproven; request transport still open.",
+        "noSchemaSubstitution": "SseEnvelope.payload is JsonValue; referencing it alone would not close the domain mask."
+      }
+    }
+  ],
+  "handoffs": [
+    {
+      "producer": "Persisted immutable specification revision",
+      "consumer": "generation.spec.revision.read response -> native GenerationSpecification validator",
+      "sameMask": "GenerationSpecification",
+      "checks": "trusted job + persisted document ID + canonical content digest; failure/cancel/pending is not a document",
+      "failureRecovery": "No downstream document on failure; a new confirmed read must match the trusted persisted snapshot.",
+      "remaining": "Actual repository transaction/provenance and full downstream semantic validation; no whole-route closure"
+    },
+    {
+      "producer": "Persisted immutable plan",
+      "consumer": "generation.plan.read response -> native GenerationPlan validator",
+      "sameMask": "GenerationPlan",
+      "checks": "trusted job + persisted document ID + canonical content digest; failure/cancel/pending is not a document",
+      "failureRecovery": "No downstream document on failure; a new confirmed read must match the trusted persisted snapshot.",
+      "remaining": "Actual repository transaction/provenance and full downstream semantic validation; no whole-route closure"
+    },
+    {
+      "producer": "prompts/list server response",
+      "consumer": "list client -> immutable discovery snapshot admission",
+      "requestMask": "urn:kcml:r9:operation:mcp.prompts.list:command",
+      "responseMask": "urn:kcml:r9:operation:mcp.prompts.list:response",
+      "sameMask": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ListPromptsResultResponse",
+      "checks": "exact RPC ID type/value; complete result; typed prompts entries; TTL/cacheScope; empty nextCursor retained; no MRTR/Tasks",
+      "failureRecovery": "Protocol error is not a snapshot; MCP_CURSOR_INVALID requires discarding traversal and starting without cursor (10.7). Read-only disconnect may abort, then a fresh request (10.3.1/10.12).",
+      "eventBoundary": "No dedicated HTTP route. Request-scoped SSE under 10.3.1 is distinct from replayable aggregate events, and remains an integration obligation.",
+      "remaining": "HTTP admission/header parity; actual persisted snapshot/cache key context and bounded refetch/aggregate consistency; notification/cancellation integration"
+    },
+    {
+      "producer": "tools/list server response",
+      "consumer": "list client -> immutable discovery snapshot admission",
+      "requestMask": "urn:kcml:r9:operation:mcp.tools.list:command",
+      "responseMask": "urn:kcml:r9:operation:mcp.tools.list:response",
+      "sameMask": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ListToolsResultResponse",
+      "checks": "exact RPC ID type/value; complete result; typed tools entries; TTL/cacheScope; empty nextCursor retained; no MRTR/Tasks",
+      "failureRecovery": "Protocol error is not a snapshot; MCP_CURSOR_INVALID requires discarding traversal and starting without cursor (10.7). Read-only disconnect may abort, then a fresh request (10.3.1/10.12).",
+      "eventBoundary": "No dedicated HTTP route. Request-scoped SSE under 10.3.1 is distinct from replayable aggregate events, and remains an integration obligation.",
+      "remaining": "HTTP admission/header parity; actual persisted snapshot/cache key context and bounded refetch/aggregate consistency; notification/cancellation integration"
+    },
+    {
+      "producer": "resources/list server response",
+      "consumer": "list client -> immutable discovery snapshot admission",
+      "requestMask": "urn:kcml:r9:operation:mcp.resources.list:command",
+      "responseMask": "urn:kcml:r9:operation:mcp.resources.list:response",
+      "sameMask": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ListResourcesResultResponse",
+      "checks": "exact RPC ID type/value; complete result; typed resources entries; TTL/cacheScope; empty nextCursor retained; no MRTR/Tasks",
+      "failureRecovery": "Protocol error is not a snapshot; MCP_CURSOR_INVALID requires discarding traversal and starting without cursor (10.7). Read-only disconnect may abort, then a fresh request (10.3.1/10.12).",
+      "eventBoundary": "No dedicated HTTP route. Request-scoped SSE under 10.3.1 is distinct from replayable aggregate events, and remains an integration obligation.",
+      "remaining": "HTTP admission/header parity; actual persisted snapshot/cache key context and bounded refetch/aggregate consistency; notification/cancellation integration"
+    },
+    {
+      "producer": "resources/templates/list server response",
+      "consumer": "list client -> immutable discovery snapshot admission",
+      "requestMask": "urn:kcml:r9:operation:mcp.resources.templates.list:command",
+      "responseMask": "urn:kcml:r9:operation:mcp.resources.templates.list:response",
+      "sameMask": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ListResourceTemplatesResultResponse",
+      "checks": "exact RPC ID type/value; complete result; typed resourceTemplates entries; TTL/cacheScope; empty nextCursor retained; no MRTR/Tasks",
+      "failureRecovery": "Protocol error is not a snapshot; MCP_CURSOR_INVALID requires discarding traversal and starting without cursor (10.7). Read-only disconnect may abort, then a fresh request (10.3.1/10.12).",
+      "eventBoundary": "No dedicated HTTP route. Request-scoped SSE under 10.3.1 is distinct from replayable aggregate events, and remains an integration obligation.",
+      "remaining": "HTTP admission/header parity; actual persisted snapshot/cache key context and bounded refetch/aggregate consistency; notification/cancellation integration"
+    }
+  ],
+  "nextIndividuallyInvestigated": [
+    {
+      "operationId": "mcp.prompts.get",
+      "classification": "INVESTIGATION_OPEN",
+      "ownerDecisionRequired": false,
+      "source": "10.11/10.14; native GetPromptRequestParams/GetPromptResultResponse/InputRequiredResult",
+      "concreteRemaining": "Native arguments is a string map, not the exact selected immutable prompt argument contract. Prove name/revision binding and domain argument validation, allowed resource references, MRTR state/recognized responses before binding the whole pair."
+    },
+    {
+      "operationId": "mcp.resources.read",
+      "classification": "INVESTIGATION_OPEN",
+      "ownerDecisionRequired": false,
+      "source": "10.7/10.11/10.14; native ReadResourceRequestParams/ReadResourceResultResponse/InputRequiredResult",
+      "concreteRemaining": "Resolve URI/template to exact revision/MIME/output contract. Text/blob wire content alone is not proof of domain content compatibility; MRTR and cache exclusions must also be implemented."
+    }
+  ]
+}

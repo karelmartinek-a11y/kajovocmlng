@@ -1,0 +1,207 @@
+{
+  "sourceSha256": "98dfcebd89aee508982a87847fd347ec89307fe54d2662d7b8c8b64c251f548f",
+  "baselineCommit": "664d617",
+  "resourceVersions": {
+    "contracts/operation-contracts.json": "65fe5c3ce7204a5089de25acc3aba89dc66f02206ee2d0912e546c002da922c1",
+    "contracts/mcp-native-schema-artifact.json": "068b37c9d873ffeea1299fec37aee5b28644da29aa64d15fabc8ceb77c9769f7",
+    "scripts/ssot/ssot_control.py": "c15abc4c47d3e1f6226c5b265d2597c16e3c1f071216e8f2b7732838530475f5"
+  },
+  "scope": "Current-mask and producer/consumer regressions; not DB/SSE integration proof.",
+  "checked": 32,
+  "failed": 22,
+  "checks": [
+    {
+      "case": "generation.spec.revision.read/persisted-consumer-present",
+      "actual": false,
+      "expected": true,
+      "passed": false
+    },
+    {
+      "case": "generation.spec.revision.read/persisted-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.revision.read/missing-trusted-snapshot",
+      "actual": true,
+      "expected": false,
+      "passed": false
+    },
+    {
+      "case": "generation.spec.revision.read/wrong-persisted/persisted_job_id",
+      "actual": true,
+      "expected": false,
+      "passed": false
+    },
+    {
+      "case": "generation.spec.revision.read/wrong-persisted/persisted_document_id",
+      "actual": true,
+      "expected": false,
+      "passed": false
+    },
+    {
+      "case": "generation.spec.revision.read/wrong-persisted/persisted_document_digest",
+      "actual": true,
+      "expected": false,
+      "passed": false
+    },
+    {
+      "case": "generation.spec.revision.read/valid-shape-wrong-content",
+      "actual": true,
+      "expected": false,
+      "passed": false
+    },
+    {
+      "case": "generation.spec.revision.read/recovery-confirmed-new-read",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.revision.read/FAILED-no-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.revision.read/CANCELLED-no-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.revision.read/ACCEPTED-no-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.read/persisted-consumer-present",
+      "actual": false,
+      "expected": true,
+      "passed": false
+    },
+    {
+      "case": "generation.plan.read/persisted-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.read/missing-trusted-snapshot",
+      "actual": true,
+      "expected": false,
+      "passed": false
+    },
+    {
+      "case": "generation.plan.read/wrong-persisted/persisted_job_id",
+      "actual": true,
+      "expected": false,
+      "passed": false
+    },
+    {
+      "case": "generation.plan.read/wrong-persisted/persisted_document_id",
+      "actual": true,
+      "expected": false,
+      "passed": false
+    },
+    {
+      "case": "generation.plan.read/wrong-persisted/persisted_document_digest",
+      "actual": true,
+      "expected": false,
+      "passed": false
+    },
+    {
+      "case": "generation.plan.read/valid-shape-wrong-content",
+      "actual": true,
+      "expected": false,
+      "passed": false
+    },
+    {
+      "case": "generation.plan.read/recovery-confirmed-new-read",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.read/FAILED-no-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.read/CANCELLED-no-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.read/ACCEPTED-no-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "pinned-native-bytes-present",
+      "actual": false,
+      "expected": true,
+      "passed": false
+    },
+    {
+      "case": "mcp-handoff-present",
+      "actual": false,
+      "expected": true,
+      "passed": false
+    },
+    {
+      "case": "mcp.prompts.list/command-mask-present",
+      "actual": false,
+      "expected": true,
+      "passed": false
+    },
+    {
+      "case": "mcp.prompts.list/response-mask-present",
+      "actual": false,
+      "expected": true,
+      "passed": false
+    },
+    {
+      "case": "mcp.tools.list/command-mask-present",
+      "actual": false,
+      "expected": true,
+      "passed": false
+    },
+    {
+      "case": "mcp.tools.list/response-mask-present",
+      "actual": false,
+      "expected": true,
+      "passed": false
+    },
+    {
+      "case": "mcp.resources.list/command-mask-present",
+      "actual": false,
+      "expected": true,
+      "passed": false
+    },
+    {
+      "case": "mcp.resources.list/response-mask-present",
+      "actual": false,
+      "expected": true,
+      "passed": false
+    },
+    {
+      "case": "mcp.resources.templates.list/command-mask-present",
+      "actual": false,
+      "expected": true,
+      "passed": false
+    },
+    {
+      "case": "mcp.resources.templates.list/response-mask-present",
+      "actual": false,
+      "expected": true,
+      "passed": false
+    }
+  ],
+  "remaining": "DB provenance, actual snapshot persistence, transport/header/SSE integration and generation events are not proven by these fixtures."
+}

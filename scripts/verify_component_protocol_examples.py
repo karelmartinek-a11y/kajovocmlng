@@ -24,7 +24,7 @@ def envelope(route, body):
     guards = {
         'idempotencyKey': 'control-1', 'expectedStateVersion': '1',
         'expectedRevisionId': 'revision-1', 'expectedReleaseId': 'release-1',
-        'expectedBindingSetRevision': 'binding-1', 'expectedActivationEpoch': '1',
+        'expectedBindingSetRevision': '1', 'expectedActivationEpoch': '1',
         'deadlineAt': TIME, 'clientRequestDigest': DIGEST,
     }
     # Other protocol routes retain the existing nullable common guards.
@@ -54,7 +54,7 @@ def control(route):
         'desiredState': body['desiredState'], 'admission': 'ACCEPTED',
         'outcome': 'PENDING', 'componentStateVersion': '1',
         'activationStateVersion': '1', 'runtimeGeneration': '1',
-        'releaseId': 'release-1', 'bindingSetRevision': 'binding-1',
+        'releaseId': 'release-1', 'bindingSetRevision': '1',
         'activationEpoch': '1', 'recordedAt': TIME,
     }
     response = {'routeId': route['routeId'], 'operationId': route['operationId'],

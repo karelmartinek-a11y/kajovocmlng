@@ -1,0 +1,35 @@
+{
+  "sourceSha256": "dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e",
+  "scope": "Regression: a $ref wrapper must not hide an unbound domain slot.",
+  "checks": [
+    {
+      "case": "generic",
+      "expectedGeneric": true,
+      "actualGeneric": true,
+      "passed": true
+    },
+    {
+      "case": "wrapper",
+      "expectedGeneric": true,
+      "actualGeneric": true,
+      "passed": true
+    },
+    {
+      "case": "nested",
+      "expectedGeneric": true,
+      "actualGeneric": true,
+      "passed": true
+    },
+    {
+      "case": "exact",
+      "expectedGeneric": false,
+      "actualGeneric": false,
+      "passed": true
+    },
+    {
+      "case": "unresolved-transitive-ref",
+      "passed": true
+    }
+  ],
+  "failed": 0
+}

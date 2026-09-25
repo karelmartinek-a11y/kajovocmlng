@@ -1,0 +1,39 @@
+{
+  "sourceSha256": "3dadc71dde9c48dc9a8b34bec31400ce95b44c1671a6df8920caa3285450bdff",
+  "baselineCommit": "5b60c8a",
+  "scope": "Verify exact native asset closure, with independent manifest mutations.\n\nThis is byte integrity, not semantic closure or whole-package readiness.\n",
+  "nativeAssets": 34,
+  "mismatches": [
+    {
+      "entry": {
+        "path": "scripts/ssot/audit_checks.py",
+        "authority": "NORMATIVE",
+        "sizeBytes": 22122,
+        "rawDigest": "sha256:765dbb6c5a9602d3e52549703b6c5387fc439aa71d9246c38406bd53e3d0818a"
+      },
+      "actualSha256": "sha256:ea85836873ed659c5c2d862e0ddadfcf2cedec25fcfa70787c6645d0a25dc6f2",
+      "actualSizeBytes": 22124
+    }
+  ],
+  "missingAssets": [
+    "r6-final/active-manifest.json",
+    "r6-final/registries/current-route-bindings.json",
+    "r6-final/registries/terminal-write-guards.json",
+    "r6-final/scripts/verify_deliverable.py",
+    "r6-final/sql/terminal-ledger-guards.sql"
+  ],
+  "extraAssets": [],
+  "checked": 1,
+  "failed": 1,
+  "cases": [
+    {
+      "name": "exact_current_manifest",
+      "expectedValid": true,
+      "actualValid": false,
+      "passed": false,
+      "error": "CONTRACT_PACK_DRIFT scripts/ssot/audit_checks.py: Embedded bytes differ"
+    }
+  ],
+  "nativeScriptSha256": "e1b5883636c5f638a43a4a6894d8ee7016f71f3da8649612453082e4e7bf195b",
+  "nativeManifestSha256": "c6dabeeed98d8addfb1b4acb3c3b98f0c3b5cf63c133090087ee67ddbfedff71"
+}

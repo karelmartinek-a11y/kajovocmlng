@@ -189,9 +189,15 @@ class Inventory:
             v = self.validator(reference)
             unresolved = []
             # Resolve nested references with the library's actual scoped resolver.
-            def visit(s, resolver, seen):
+            def visit(s, resolver, seen, location='resolved-schema'):
                 if not isinstance(s, dict):
                     return
+                properties = s.get('properties', {})
+                if isinstance(properties, dict) and ('canonicalJson' in properties or
+                        {'schemaId', 'values'} <= set(properties)):
+                    marker = '@' + location
+                    if marker not in generic:
+                        generic.append(marker)
                 if '$id' in s:
                     resolver = resolver.in_subresource(Resource.from_contents(s, default_specification=DRAFT202012))
                 if 'format' in s and s['format'] not in FormatChecker.checkers:
@@ -204,12 +210,18 @@ class Inventory:
                         seen.add(key)
                         try:
                             resolved = resolver.lookup(ref)
-                            visit(resolved.contents, resolved.resolver, seen)
+                            visit(resolved.contents, resolved.resolver, seen,
+                                  location + '/' + keyword + '=' + ref)
                         except Exception as exc:
                             unresolved.append({'reference': ref, 'reason': str(exc)})
-                for child in schema_children(s):visit(child,resolver,seen)
+                for index, child in enumerate(schema_children(s)):
+                    visit(child,resolver,seen,location + '/schema-child/' + str(index))
             visit(v.schema, self.registry.resolver(), set())
             result['nestedReferenceFailures'] = unresolved
+            result['genericLocations'] = generic
+            if generic:
+                result['concreteness'] = 'GENERIC_ENVELOPE'
+                result['reason'] = 'Unbound values/canonicalJson domain slots, including resolved references'
         except Exception as exc:
             reason=str(exc)
             kind=('CONFLICTING_DEFINITION' if 'CONFLICT' in reason else
@@ -218,6 +230,21 @@ class Inventory:
             result.update(resolution='CONFLICT' if 'CONFLICT' in reason else 'UNRESOLVED', reason=reason,issueKind=kind)
         self.boundary_cache[reference] = result
         return result
+
+
+def route_event_applicability(record):
+    """Explicit inapplicability is a rejecting contract, never a missing schema."""
+    value=record.get('eventApplicability')
+    if value=='NOT_APPLICABLE':
+        schema=record.get('eventSchema')
+        if not isinstance(schema,dict) or schema.get('not')!={}:
+            raise ValueError('EVENT_INAPPLICABILITY_NOT_ENFORCED:'+record['routeId'])
+        return value
+    if value=='AGGREGATE_STREAM':
+        if 'eventSchema' not in record:raise ValueError('MISSING_AGGREGATE_EVENT_SCHEMA')
+        return value
+    if value is not None:raise ValueError('UNKNOWN_EVENT_APPLICABILITY:'+str(value))
+    return 'ROUTE_EVENT_SCHEMA' if 'eventSchema' in record else 'UNSPECIFIED_NOT_ASSUMED_ABSENT'
 
 
 def build(text):
@@ -244,8 +271,12 @@ def build(text):
             route['source'] = path+'#/records/'+str(i)
             route['boundaries'] = [inv.boundary(role, route['source']+'/'+field, 'inline '+field)
                 for role, field in [('request', 'requestSchema'), ('response', 'responseSchema'), ('event', 'eventSchema')] if field in r]
-            if 'eventSchema' not in r:
-                route['eventApplicability'] = 'UNSPECIFIED_NOT_ASSUMED_ABSENT'
+            route['eventApplicability'] = route_event_applicability(r)
+            if route['eventApplicability']=='NOT_APPLICABLE':
+                for boundary in route['boundaries']:
+                    if boundary['role']=='event':
+                        boundary['concreteness']='NOT_APPLICABLE_REJECT_ALL'
+                        boundary['reason']='Explicit rejecting contract; not an emitted event or semantic PASS'
             row['routes'].append(route)
         for role, fields in [('request', ['commandSchemaRef', 'requestSchemaRef']), ('response', ['responseSchemaRef']), ('event', ['eventSchemaRef'])]:
             for field in fields:
@@ -268,7 +299,9 @@ def build(text):
                 row['boundaries'].append(inv.boundary(role, matches[0]+'#/$defs/'+definition, role+'Definition + '+role+'SchemaAuthority'))
         if 'route' in op:
             row['routes'].append({'routeId': None, 'method':op['method'], 'path':op['route'], 'source':op['sourceRef'], 'boundaries':[]})
-        row['eventApplicability'] = 'ROUTE_EVENT_SCHEMA' if any(b['role']=='event' for r in row['routes'] for b in r['boundaries']) else 'UNSPECIFIED_NOT_ASSUMED_ABSENT'
+        actual_routes=[r for r in row['routes'] if r['boundaries']]
+        row['eventApplicability'] = ('NOT_APPLICABLE' if actual_routes and all(r.get('eventApplicability')=='NOT_APPLICABLE' for r in actual_routes) else
+            'ROUTE_EVENT_SCHEMA' if any(b['role']=='event' for r in row['routes'] for b in r['boundaries']) else 'UNSPECIFIED_NOT_ASSUMED_ABSENT')
         rows.append(row)
     boundaries = [b for r in rows for b in r['boundaries']]
     route_rows = [rt for r in rows for rt in r['routes']]
