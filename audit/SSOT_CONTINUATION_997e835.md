@@ -85,10 +85,61 @@ operace v aktuální `missing-operation-investigation.json` tohoto běhu.
 
 Žádná z těchto mezer dosud není doložena jako chybějící business volba OWNERa.
 
+## Skupina 2: přesná doména transportních guardů
+
+Vstup skupiny: commit `5b60c8a`, SSOT hash uvedený u skupiny 1.
+Výstupní SSOT SHA-256:
+`93c5250de7a30199aedc404ee135b3bc525d4255ff532d90c724e66be23750c2`.
+
+Opora: §56.3 definuje `Counter` jako desetinný řetězec v rozsahu
+`0..9223372036854775807`, bez znaménka a úvodních nul; pravidlo platí také pro
+`stateVersion`, `bindingSetRevision` a `activationEpoch`. Přesná existující maska:
+`contracts/generation/generation-contracts.schema.json#/$defs/Counter`.
+
+V autoritativním `contracts/payload-contracts.json` byly opraveny masky
+`/records/*/requestSchema/properties/guards/properties/{expectedStateVersion,expectedBindingSetRevision,expectedActivationEpoch}`.
+Původní epoch/version řetězce neměly horní mez; binding revision dovolovala
+libovolný text do 256 znaků. Jde o technický nesoulad se stanoveným číselným
+významem, nikoli chybějící business rozhodnutí. Opraveno **1 521 definic polí
+na 507 trasách**. Dvě další trasy už měly správnou doménu z předchozího běhu.
+Zachovány jsou původní required seznamy a nullable pravidla: tato skupina
+nepřidává oprávnění volajícího ani neprokazuje aktuálnost DB guardu.
+
+Test kontroluje všech **509 R9 route records × 3 guard definice × 13 hodnot =
+19 851 případů**. Na commitu `997e835` reprodukuje 7 098 chybných přijetí;
+aktuální masky odmítají všechny testované neplatné hodnoty. Obsah každé trasy
+mimo tyto tři definice se navíc porovnává s původním záznamem. Kontroluje se
+identita celé množiny tras, nikoli pouze počet. Testy zahrnují horní mez a její
+překročení, nulové prefixy, znaménko, newline, text, číslo místo řetězce,
+boolean a zachování nullability.
+
+Propojení: caller-supplied optimistic guard → R9 request validator → porovnání
+se serverovým Counter. Tato oprava zajišťuje shodnou číselnou doménu, **nikoli**
+důkaz konkrétního DB porovnání, retry, cancellation nebo recovery implementace.
+Do 505 obecných business tras se proto žádné snížení nezapočítává.
+R9 payload canonicalDigest i resource manifest byly přepočítány.
+
+Příkazy a návratové kódy jsou odděleně v
+[`guard-counters/commands.json`](generated/continuation-997e835/guard-counters/commands.json).
+Reprodukce v PowerShellu:
+
+```powershell
+$env:PYTHONUTF8='1'
+$env:KCML_AUDIT_OUTPUT='audit/generated/continuation-997e835/guard-counters'
+python scripts/run_continuation_checks.py --guard-counters
+```
+
+Jednotky základních čítačů: unresolved reference je jedna nedohledaná schema
+identita konkrétní request/response hranice účinné operace; affected operation
+je unikátní operationId s alespoň jednou takovou hranicí; generic route je
+unikátní účinná trasa, jejíž povinná doménová maska zůstává obecná i po
+tranzitivním rozlišení odkazů. 509 zde znamená záznamy R9 payload katalogu,
+nikoli všech 542 efektivních tras ani počet runtime předávek.
+
 ## Navázání práce
 
 Aktuální otevřený seznam je
-[`generated/continuation-997e835/missing-operation-investigation.json`](generated/continuation-997e835/missing-operation-investigation.json).
+[`generated/continuation-997e835/guard-counters/missing-operation-investigation.json`](generated/continuation-997e835/guard-counters/missing-operation-investigation.json).
 Pět dvojic od počátku této větve má doložené schema bindingy; zbývá 125 dvojic.
 Úplná sémantika 505 obecných tras a skutečný procesní graf zůstávají další prací.
 Historických 3 204 řádků se nepovažuje za počet unikátních runtime předávek.

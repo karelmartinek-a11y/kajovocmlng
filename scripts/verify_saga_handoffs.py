@@ -133,7 +133,8 @@ def main():
                 'verified':'Identity, native payload, predecessor membership, output kind, known outcome, readback bytes',
                 'remaining':'Current DB guards, semantic postcondition evaluation, compensation record and actual external execution'},
             'fixtures':{'input':request,'predecessor':predecessor,'manualReview':pending}}
-    out=ROOT/'audit/generated/continuation-997e835';out.mkdir(parents=True,exist_ok=True)
+    import os
+    out=ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/continuation-997e835');out.mkdir(parents=True,exist_ok=True)
     (out/('saga-baseline.json' if args.baseline else 'saga-current.json')).write_text(json.dumps(report,indent=2)+'\n',encoding='utf8')
     print(json.dumps({k:report[k] for k in ('sourceSha256','baseline','checked','failed')}))
     for check in checks:

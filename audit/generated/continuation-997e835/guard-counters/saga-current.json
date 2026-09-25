@@ -1,0 +1,387 @@
+{
+  "sourceSha256": "93c5250de7a30199aedc404ee135b3bc525d4255ff532d90c724e66be23750c2",
+  "baseline": false,
+  "scope": "Exercise the embedded saga validator with real in-memory artifact bytes.\n\nOnly filesystem byte loading is replaced. Inventory identity, byte digests,\nnative schemas, typed evidence and predecessor content validation execute.\nThis is offline conformance, not proof of PostgreSQL/runtime execution.\n",
+  "scriptResourceSha256": "e1b5883636c5f638a43a4a6894d8ee7016f71f3da8649612453082e4e7bf195b",
+  "checks": [
+    {
+      "case": "input-validator-exists",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true,
+      "error": null,
+      "returnValue": null
+    },
+    {
+      "case": "S02-content-to-S03-input",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true,
+      "error": null,
+      "returnValue": null
+    },
+    {
+      "case": "missing-predecessor",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true,
+      "error": "GENERATION_PLAN_INVALID /predecessorReceipts: Missing required predecessor",
+      "returnValue": null
+    },
+    {
+      "case": "duplicate-predecessor",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true,
+      "error": "GENERATION_PLAN_INVALID /predecessorReceipts: Duplicate predecessor step",
+      "returnValue": null
+    },
+    {
+      "case": "another-job",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true,
+      "error": "GENERATION_PLAN_INVALID /predecessorReceipts: Another job/saga predecessor",
+      "returnValue": null
+    },
+    {
+      "case": "another-saga",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true,
+      "error": "GENERATION_PLAN_INVALID /predecessorReceipts: Another job/saga predecessor",
+      "returnValue": null
+    },
+    {
+      "case": "forward-predecessor",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true,
+      "error": "GENERATION_PLAN_INVALID /predecessorReceipts: Predecessor must precede current step",
+      "returnValue": null
+    },
+    {
+      "case": "S02-wrong-result-kind",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true,
+      "error": "CONTRACT_PACK_REFERENCE_INVALID /predecessorReceipts/result: Wrong predecessor output kind",
+      "returnValue": null
+    },
+    {
+      "case": "unknown-predecessor-cannot-admit-S03",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true,
+      "error": "GENERATION_PLAN_INVALID /predecessorReceipts: Unconfirmed predecessor",
+      "returnValue": null
+    },
+    {
+      "case": "untrusted-peer-reference",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true,
+      "error": "CONTRACT_PACK_REFERENCE_INVALID /artifactId: Reference does not match trusted inventory",
+      "returnValue": null
+    },
+    {
+      "case": "corrupt-predecessor-bytes",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /contentDigest: Artifact bytes mismatch",
+      "returnValue": null
+    },
+    {
+      "case": "unknown-recovery-remains-S01",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true,
+      "error": null,
+      "returnValue": "S01"
+    },
+    {
+      "case": "unknown-recovery-corrupt-readback",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /contentDigest: Artifact bytes mismatch",
+      "returnValue": null
+    }
+  ],
+  "failed": 0,
+  "checked": 13,
+  "handoff": {
+    "producer": "S02/component.revision.publish",
+    "consumer": "S03/generation.candidate.publish",
+    "sourceMask": "IntegrationStepReceipt",
+    "targetSlot": "IntegrationStepInput/predecessorReceipts",
+    "transfer": "Trusted ArtifactRef -> exact bytes -> IntegrationStepReceipt",
+    "verified": "Identity, native payload, predecessor membership, output kind, known outcome, readback bytes",
+    "remaining": "Current DB guards, semantic postcondition evaluation, compensation record and actual external execution"
+  },
+  "fixtures": {
+    "input": {
+      "schemaVersion": "1.0",
+      "jobId": "00000000-0000-4000-8000-000000000001",
+      "sagaId": "00000000-0000-4000-8000-000000000001",
+      "stepId": "S03",
+      "snapshot": {
+        "platformIncarnation": "00000000-0000-4000-8000-000000000001",
+        "applicationDeploymentEpoch": "0",
+        "jobStateVersion": "0",
+        "phaseRunId": "00000000-0000-4000-8000-000000000001",
+        "fencingToken": "0",
+        "cancellationVersion": "0",
+        "specificationDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "planDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "pathPlanDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "sdkLockDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "bindingSetRevision": "0",
+        "activationEpoch": "0",
+        "authorityLineageId": "00000000-0000-4000-8000-000000000001",
+        "authorityLineageDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "operationContextId": "00000000-0000-4000-8000-000000000001",
+        "operationContextDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "deadlineAt": "2026-09-25T00:00:00.000Z",
+        "recoveryEpoch": "0",
+        "phaseStateVersion": "0",
+        "workspaceRevision": null,
+        "workspaceDigest": null,
+        "candidateDigest": null
+      },
+      "logicalOperationId": "00000000-0000-4000-8000-000000000001",
+      "beforeInventory": {
+        "artifactId": "00000000-0000-4000-8000-000000000002",
+        "kind": "INTEGRATION_INVENTORY",
+        "schema": {
+          "schemaId": "urn:kcml:generation-contracts:2",
+          "definition": "EvidenceRecord",
+          "bundleDigest": "sha256:5e7c1e7b1586303c325829c51111eb615a6170b167bbca24047a5f27eaeb4e44"
+        },
+        "mediaType": "application/json",
+        "path": "2.json",
+        "contentDigest": "sha256:20ba278373adf21720521e6a10ffbfe34e86099ceb7afc51a1d926a2566b5c86",
+        "sizeBytes": 1227,
+        "producerNodeId": null,
+        "provenanceDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "expectedAfterContract": {
+        "recordId": "sample",
+        "recordKind": "INTEGRATION_POSTCONDITION",
+        "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "schema": {
+          "schemaId": "urn:kcml:test",
+          "definition": "sample",
+          "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "artifact": {
+          "artifactId": "00000000-0000-4000-8000-000000000001",
+          "kind": "sample",
+          "schema": null,
+          "mediaType": "application/json",
+          "path": "fixture.json",
+          "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "sizeBytes": 0,
+          "producerNodeId": null,
+          "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      },
+      "candidateSetDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "predecessorReceipts": [
+        {
+          "artifactId": "00000000-0000-4000-8000-000000000006",
+          "kind": "INTEGRATION_STEP_RECEIPT",
+          "schema": {
+            "schemaId": "urn:kcml:generation-contracts:2",
+            "definition": "IntegrationStepReceipt",
+            "bundleDigest": "sha256:5e7c1e7b1586303c325829c51111eb615a6170b167bbca24047a5f27eaeb4e44"
+          },
+          "mediaType": "application/json",
+          "path": "6.json",
+          "contentDigest": "sha256:2a7a34f22f21125894129c5b037dcfb7ce886acc83eaae05b69da62fdfff7bb9",
+          "sizeBytes": 2958,
+          "producerNodeId": null,
+          "provenanceDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      ]
+    },
+    "predecessor": {
+      "schemaVersion": "1.0",
+      "jobId": "00000000-0000-4000-8000-000000000001",
+      "sagaId": "00000000-0000-4000-8000-000000000001",
+      "stepId": "S02",
+      "logicalOperationId": "00000000-0000-4000-8000-000000000001",
+      "beforeInventoryDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "compensationContract": {
+        "recordId": "sample",
+        "recordKind": "COMPENSATION_CONTRACT",
+        "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "schema": {
+          "schemaId": "urn:kcml:test",
+          "definition": "sample",
+          "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "artifact": {
+          "artifactId": "00000000-0000-4000-8000-000000000001",
+          "kind": "sample",
+          "schema": null,
+          "mediaType": "application/json",
+          "path": "fixture.json",
+          "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "sizeBytes": 0,
+          "producerNodeId": null,
+          "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      },
+      "commit": {
+        "logicalOperationId": "00000000-0000-4000-8000-000000000001",
+        "stateVersion": "0",
+        "eventSequence": "0",
+        "auditEventId": "00000000-0000-4000-8000-000000000001",
+        "checkpointId": "00000000-0000-4000-8000-000000000001",
+        "commitObservedAt": "2026-09-25T00:00:00.000Z"
+      },
+      "state": "SUCCEEDED",
+      "result": {
+        "artifactId": "00000000-0000-4000-8000-000000000005",
+        "kind": "CANDIDATE_REVISION_RECEIPT",
+        "schema": {
+          "schemaId": "urn:kcml:generation-contracts:2",
+          "definition": "CandidateRevisionReceipt",
+          "bundleDigest": "sha256:5e7c1e7b1586303c325829c51111eb615a6170b167bbca24047a5f27eaeb4e44"
+        },
+        "mediaType": "application/json",
+        "path": "5.json",
+        "contentDigest": "sha256:b0321883b00f729f6bc6d81062daa33eb02cf06846d1ac106c49491eb20d868a",
+        "sizeBytes": 567,
+        "producerNodeId": null,
+        "provenanceDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "afterInventory": {
+        "artifactId": "00000000-0000-4000-8000-000000000003",
+        "kind": "INTEGRATION_INVENTORY",
+        "schema": {
+          "schemaId": "urn:kcml:generation-contracts:2",
+          "definition": "EvidenceRecord",
+          "bundleDigest": "sha256:5e7c1e7b1586303c325829c51111eb615a6170b167bbca24047a5f27eaeb4e44"
+        },
+        "mediaType": "application/json",
+        "path": "3.json",
+        "contentDigest": "sha256:20ba278373adf21720521e6a10ffbfe34e86099ceb7afc51a1d926a2566b5c86",
+        "sizeBytes": 1227,
+        "producerNodeId": null,
+        "provenanceDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "readBackEvidence": [
+        {
+          "artifactId": "00000000-0000-4000-8000-000000000004",
+          "kind": "INTEGRATION_INVENTORY",
+          "schema": {
+            "schemaId": "urn:kcml:generation-contracts:2",
+            "definition": "EvidenceRecord",
+            "bundleDigest": "sha256:5e7c1e7b1586303c325829c51111eb615a6170b167bbca24047a5f27eaeb4e44"
+          },
+          "mediaType": "application/json",
+          "path": "4.json",
+          "contentDigest": "sha256:20ba278373adf21720521e6a10ffbfe34e86099ceb7afc51a1d926a2566b5c86",
+          "sizeBytes": 1227,
+          "producerNodeId": null,
+          "provenanceDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      ],
+      "effectOutcome": "NOT_DISPATCHED",
+      "problem": null
+    },
+    "manualReview": {
+      "schemaVersion": "1.0",
+      "jobId": "00000000-0000-4000-8000-000000000001",
+      "sagaId": "00000000-0000-4000-8000-000000000001",
+      "stepId": "S01",
+      "logicalOperationId": "00000000-0000-4000-8000-000000000001",
+      "beforeInventoryDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "compensationContract": {
+        "recordId": "sample",
+        "recordKind": "COMPENSATION_CONTRACT",
+        "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "schema": {
+          "schemaId": "urn:kcml:test",
+          "definition": "sample",
+          "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "artifact": {
+          "artifactId": "00000000-0000-4000-8000-000000000001",
+          "kind": "sample",
+          "schema": null,
+          "mediaType": "application/json",
+          "path": "fixture.json",
+          "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "sizeBytes": 0,
+          "producerNodeId": null,
+          "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      },
+      "commit": {
+        "logicalOperationId": "00000000-0000-4000-8000-000000000001",
+        "stateVersion": "0",
+        "eventSequence": "0",
+        "auditEventId": "00000000-0000-4000-8000-000000000001",
+        "checkpointId": "00000000-0000-4000-8000-000000000001",
+        "commitObservedAt": "2026-09-25T00:00:00.000Z"
+      },
+      "state": "MANUAL_REVIEW",
+      "result": null,
+      "afterInventory": null,
+      "readBackEvidence": [
+        {
+          "artifactId": "00000000-0000-4000-8000-000000000004",
+          "kind": "INTEGRATION_INVENTORY",
+          "schema": {
+            "schemaId": "urn:kcml:generation-contracts:2",
+            "definition": "EvidenceRecord",
+            "bundleDigest": "sha256:5e7c1e7b1586303c325829c51111eb615a6170b167bbca24047a5f27eaeb4e44"
+          },
+          "mediaType": "application/json",
+          "path": "4.json",
+          "contentDigest": "sha256:20ba278373adf21720521e6a10ffbfe34e86099ceb7afc51a1d926a2566b5c86",
+          "sizeBytes": 1227,
+          "producerNodeId": null,
+          "provenanceDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      ],
+      "effectOutcome": "UNKNOWN",
+      "problem": {
+        "code": "sample",
+        "classification": "AUTHENTICATION",
+        "message": "sample",
+        "instancePointer": "",
+        "schemaPointer": "",
+        "retryDirective": "MANUAL_REVIEW",
+        "logicalOperationId": "00000000-0000-4000-8000-000000000001",
+        "effectOutcome": "NOT_DISPATCHED",
+        "evidence": [],
+        "canonicalErrorRecord": {
+          "recordId": "sample",
+          "recordKind": "ERROR_RETRY",
+          "recordDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "schema": {
+            "schemaId": "urn:kcml:test",
+            "definition": "sample",
+            "bundleDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "artifact": {
+            "artifactId": "00000000-0000-4000-8000-000000000001",
+            "kind": "sample",
+            "schema": null,
+            "mediaType": "application/json",
+            "path": "fixture.json",
+            "contentDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+            "sizeBytes": 0,
+            "producerNodeId": null,
+            "provenanceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        }
+      }
+    }
+  }
+}

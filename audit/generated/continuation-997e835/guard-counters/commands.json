@@ -1,0 +1,159 @@
+{
+  "baselineCommit": "997e835",
+  "sourceSha256": "93c5250de7a30199aedc404ee135b3bc525d4255ff532d90c724e66be23750c2",
+  "scope": "Record scoped continuation checks without overwriting the 997e835 evidence.",
+  "changedResources": [
+    {
+      "path": "scripts/ssot/ssot_control.py",
+      "beforeSha256": "941d92e0e4098473e9cfce889617b8866fee4af94f05ef85b0fbf40558b07462",
+      "afterSha256": "e1b5883636c5f638a43a4a6894d8ee7016f71f3da8649612453082e4e7bf195b"
+    },
+    {
+      "path": "contracts/execution/embedded-manifest.json",
+      "beforeSha256": "1ec21bc451de820898eecc64644c901343068fc431500c596c7ee56cdac67bd7",
+      "afterSha256": "c6dabeeed98d8addfb1b4acb3c3b98f0c3b5cf63c133090087ee67ddbfedff71"
+    },
+    {
+      "path": "contracts/operation-contracts.json",
+      "beforeSha256": "a7c706d8547854fce50a05c697978e71c2bfa97755de4dd9a975e73eab326778",
+      "afterSha256": "65fe5c3ce7204a5089de25acc3aba89dc66f02206ee2d0912e546c002da922c1"
+    },
+    {
+      "path": "contracts/payload-contracts.json",
+      "beforeSha256": "9ee45bffc9034dcec3387053c2a7cf3fb6dfe03fa85cba3effd0609a9641a86d",
+      "afterSha256": "c99982b7f46f88271ad421f9edf7f506acb15e9d0bb95d4eea93712f38e809d1"
+    },
+    {
+      "path": "manifest.json",
+      "beforeSha256": "27fe1c04e7e741df806a5176618fea02d83ea32d0fbb80f750f4e76f27d92bf9",
+      "afterSha256": "0a27988a222e138c07149aef3c70e0d6e05d6b518879e1f3f59256da3bb73d9b"
+    }
+  ],
+  "commands": [
+    {
+      "command": "python scripts/close_route_guard_counters.py --check",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "durationSeconds": 3.36,
+      "currentSsotSha256": "93c5250de7a30199aedc404ee135b3bc525d4255ff532d90c724e66be23750c2",
+      "inputCommit": null,
+      "scriptSha256": "e380ae082b72530a93c5f077a3d65086b899e1ddde77ebb31eb51f4a8d933651",
+      "stdout": "{\"pending\": 0}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/verify_route_guard_counters.py --baseline",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "durationSeconds": 8.89,
+      "currentSsotSha256": "93c5250de7a30199aedc404ee135b3bc525d4255ff532d90c724e66be23750c2",
+      "inputCommit": "997e835",
+      "scriptSha256": "c987b6e720f6b9a57b1362c8155e020b5f955d6c71bd44d4f3a117ba0e512481",
+      "stdout": "{\"sourceSha256\": \"dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e\", \"baseline\": true, \"routes\": 509, \"guardDefinitions\": 1527, \"checked\": 19851, \"failed\": 7098}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/verify_route_guard_counters.py",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "durationSeconds": 9.079,
+      "currentSsotSha256": "93c5250de7a30199aedc404ee135b3bc525d4255ff532d90c724e66be23750c2",
+      "inputCommit": null,
+      "scriptSha256": "c987b6e720f6b9a57b1362c8155e020b5f955d6c71bd44d4f3a117ba0e512481",
+      "stdout": "{\"sourceSha256\": \"93c5250de7a30199aedc404ee135b3bc525d4255ff532d90c724e66be23750c2\", \"baseline\": false, \"routes\": 509, \"guardDefinitions\": 1527, \"checked\": 19851, \"failed\": 0}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/verify_saga_handoffs.py --baseline",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "durationSeconds": 10.281,
+      "currentSsotSha256": "93c5250de7a30199aedc404ee135b3bc525d4255ff532d90c724e66be23750c2",
+      "inputCommit": "997e835",
+      "scriptSha256": "54fc89d97a3390b8fda0827cceb970f9ba4d5a9bb31831e7a8f8d04405448153",
+      "stdout": "{\"sourceSha256\": \"dd21d569eee6c54648414272e0405cc03b6f4ce9c29d1ac97aa27eb69431af1e\", \"baseline\": true, \"checked\": 3, \"failed\": 2}\n{\"case\": \"input-validator-exists\", \"expectedValid\": true, \"actualValid\": false, \"passed\": false, \"error\": \"MISSING_VALIDATOR : No integration input validation\", \"returnValue\": null}\n{\"case\": \"unknown-recovery-corrupt-readback\", \"expectedValid\": false, \"actualValid\": true, \"passed\": false, \"error\": null, \"returnValue\": \"S01\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/verify_saga_handoffs.py",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "durationSeconds": 14.515,
+      "currentSsotSha256": "93c5250de7a30199aedc404ee135b3bc525d4255ff532d90c724e66be23750c2",
+      "inputCommit": null,
+      "scriptSha256": "54fc89d97a3390b8fda0827cceb970f9ba4d5a9bb31831e7a8f8d04405448153",
+      "stdout": "{\"sourceSha256\": \"93c5250de7a30199aedc404ee135b3bc525d4255ff532d90c724e66be23750c2\", \"baseline\": false, \"checked\": 13, \"failed\": 0}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/close_generation_operation_masks.py --check",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "durationSeconds": 9.75,
+      "currentSsotSha256": "93c5250de7a30199aedc404ee135b3bc525d4255ff532d90c724e66be23750c2",
+      "inputCommit": null,
+      "scriptSha256": "b4a92df4fba5dbe8b1e1e0ed71710d28a6b4ae2e95a85dc601240d84957086ac",
+      "stdout": "{\"pending\": false, \"identities\": [\"generation.workspace.patch:command\", \"generation.workspace.patch:response\", \"generation.workspace.validate:command\", \"generation.workspace.validate:response\", \"generation.activation.switch:command\", \"generation.activation.switch:response\", \"generation.integration.step:command\", \"generation.integration.step:response\", \"generation.candidate.publish:command\", \"generation.candidate.publish:response\"]}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/verify_generation_operation_masks.py",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "durationSeconds": 66.141,
+      "currentSsotSha256": "93c5250de7a30199aedc404ee135b3bc525d4255ff532d90c724e66be23750c2",
+      "inputCommit": null,
+      "scriptSha256": "07d200064cfe640f577aa20e4535f8afff6cd91d9ca1c0f2e991d759696e8375",
+      "stdout": "{\"sourceSha256\": \"93c5250de7a30199aedc404ee135b3bc525d4255ff532d90c724e66be23750c2\", \"checked\": 669, \"failed\": 0}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/project_experience.py --check",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "durationSeconds": 12.469,
+      "currentSsotSha256": "93c5250de7a30199aedc404ee135b3bc525d4255ff532d90c724e66be23750c2",
+      "inputCommit": null,
+      "scriptSha256": "54234d4e1f6f039cc1df6788e84a7e9b9006c23b2205cb07cc83a3c136123aa6",
+      "stdout": "{\"projections\": [\"01_UI_CONTRACT/ui/contracts/live-experience.json\", \"01_UI_CONTRACT/ui/contracts/live-event.schema.json\", \"01_UI_CONTRACT/ui/contracts/history-query.schema.json\", \"01_UI_CONTRACT/ui/contracts/error-presentation.json\", \"01_UI_CONTRACT/ui/contracts/error-presentation.schema.json\", \"01_UI_CONTRACT/ui/locales/cs.json\", \"01_UI_CONTRACT/ui/locales/en.json\", \"01_UI_CONTRACT/LIVE_VIEW_MATRIX.csv\"]}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/investigate_missing_operation_masks.py",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "durationSeconds": 159.485,
+      "currentSsotSha256": "93c5250de7a30199aedc404ee135b3bc525d4255ff532d90c724e66be23750c2",
+      "inputCommit": null,
+      "scriptSha256": "849d4d87a1d391eba053d1d364e36d62ae6b90f3d9aa4193e0351fbcdf3c5210",
+      "stdout": "Inventoried documents: 402\n{\"sourceSha256\": \"93c5250de7a30199aedc404ee135b3bc525d4255ff532d90c724e66be23750c2\", \"baselineOperations\": 130, \"currentSummary\": {\"operations\": 619, \"routes\": 542, \"unresolvedOperationReferences\": 250, \"operationsWithUnresolvedReferences\": 125, \"conflictingOperationReferences\": 0, \"genericRoutes\": 505, \"genericBoundaryDefinitions\": 1515, \"nestedReferenceFailures\": 0, \"unreviewedConcreteBoundaryDefinitions\": 96, \"conflictingSchemaIdentities\": 0, \"unspecifiedEventApplicability\": 152, \"unparsedResources\": 0}, \"reviewedOperationBindings\": 5, \"unclassifiedOperations\": 125}\n",
+      "stderr": ""
+    }
+  ],
+  "baselineCounts": {
+    "unresolvedOperationReferences": 252,
+    "operationsWithUnresolvedReferences": 126,
+    "genericRoutes": 505
+  },
+  "allCommandsFinished": true,
+  "packageStatus": "BLOCKED",
+  "currentSummary": {
+    "operations": 619,
+    "routes": 542,
+    "unresolvedOperationReferences": 250,
+    "operationsWithUnresolvedReferences": 125,
+    "conflictingOperationReferences": 0,
+    "genericRoutes": 505,
+    "genericBoundaryDefinitions": 1515,
+    "nestedReferenceFailures": 0,
+    "unreviewedConcreteBoundaryDefinitions": 96,
+    "conflictingSchemaIdentities": 0,
+    "unspecifiedEventApplicability": 152,
+    "unparsedResources": 0
+  },
+  "delta": {
+    "unresolvedOperationReferences": -2,
+    "operationsWithUnresolvedReferences": -1,
+    "genericRoutes": 0
+  }
+}

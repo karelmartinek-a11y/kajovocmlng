@@ -12,7 +12,7 @@ from ssot_sources import ROOT, SSOT, resource_index, resources
 def main():
     raw = SSOT.read_bytes()
     ssot_hash = hashlib.sha256(raw).hexdigest()
-    output = ROOT/'audit/generated/continuation-997e835'
+    output = ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/continuation-997e835')
     output.mkdir(parents=True,exist_ok=True)
     original = resource_index(resources(subprocess.check_output([
         'git','show','997e835:00_SSOT/KajovoCMLNG_SSOT.md']).decode()))
@@ -25,6 +25,10 @@ def main():
                 (['scripts/verify_generation_operation_masks.py'],0),
                 (['scripts/project_experience.py','--check'],0),
                 (['scripts/investigate_missing_operation_masks.py'],0)]
+    if '--guard-counters' in sys.argv:
+        commands = [(['scripts/close_route_guard_counters.py','--check'],0),
+                    (['scripts/verify_route_guard_counters.py','--baseline'],1),
+                    (['scripts/verify_route_guard_counters.py'],0)] + commands
     report = {'baselineCommit':'997e835','sourceSha256':ssot_hash,
               'scope':__doc__,'changedResources':changed,'commands':[],
               'baselineCounts':{'unresolvedOperationReferences':252,
