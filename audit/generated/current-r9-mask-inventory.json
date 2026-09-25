@@ -1,7 +1,7 @@
 {
   "status": "BLOCKED",
   "source": "00_SSOT/KajovoCMLNG_SSOT.md",
-  "sourceSha256": "sha256:e5ea095d389a2bb6cdc261e001f194db7885a2ec6ec031a80ca318832b375b7d",
+  "sourceSha256": "sha256:115ef4a1c530e7abd6f36cc79c54da9831dcbd1a668d44e9cf15ece882817cb9",
   "r9Resources": [
     {
       "path": "audit/architecture-gates.json",
@@ -55,97 +55,97 @@
     {
       "path": "contracts/payload-contracts.json",
       "ssotLine": 437236,
-      "decodedLines": 519604,
-      "bytes": 32316950,
-      "sha256": "328b6d49e46f6fdf175bac8c79cdaad727ca0422ab5d9f6d113d534b76582f4c"
+      "decodedLines": 519788,
+      "bytes": 32297718,
+      "sha256": "d61c6c0eb5d2797ba0aaba035c8b8987824d06947350a67d611cd4b792ea88a0"
     },
     {
       "path": "contracts/recovery-oracles.json",
-      "ssotLine": 534210,
+      "ssotLine": 534190,
       "decodedLines": 32973,
       "bytes": 1275492,
       "sha256": "e56d84fe0b839c30818130cd8f0ef14227f89daf118fc4e6f10e60e0b3733992"
     },
     {
       "path": "contracts/requirement-closure-map.json",
-      "ssotLine": 534621,
+      "ssotLine": 534601,
       "decodedLines": 638408,
       "bytes": 23631115,
       "sha256": "17a6661033fbe8f82b1d6ce1a593676475710fabb49f2f7f4ed94a28034252cf"
     },
     {
       "path": "contracts/state-machine-bindings.json",
-      "ssotLine": 549713,
+      "ssotLine": 549693,
       "decodedLines": 2430,
       "bytes": 116614,
       "sha256": "019e9ef3094b36561fe01da379427fe7407cbef434c53ca685c0cf343dbada74"
     },
     {
       "path": "contracts/state-machines.json",
-      "ssotLine": 549890,
+      "ssotLine": 549870,
       "decodedLines": 82,
       "bytes": 1879,
       "sha256": "4af2363dfe9b118b362a60e2f78b5d4dcc0859a09b1bbc3647e7859cb774210b"
     },
     {
       "path": "database/explicit-entities.json",
-      "ssotLine": 549901,
+      "ssotLine": 549881,
       "decodedLines": 29,
       "bytes": 724,
       "sha256": "378aa49737ee8ea91f0466b7ff902322423dc15f7d6b87809c25bec491a72499"
     },
     {
       "path": "database/explicit-entities.sql",
-      "ssotLine": 549910,
+      "ssotLine": 549890,
       "decodedLines": 35,
       "bytes": 1969,
       "sha256": "b5bd3eab2da7d271a9112d5168d470ab5f8cc7bfa24cdcf9437a1c30e3db09d7"
     },
     {
       "path": "database/operation-functions.sql",
-      "ssotLine": 549923,
+      "ssotLine": 549903,
       "decodedLines": 2619,
       "bytes": 1140407,
       "sha256": "d782729c0bb6bffe6782ba4e31d7b9c26bfc697d64ae598aa4a3ae62a9490f19"
     },
     {
       "path": "database/operation-statements.json",
-      "ssotLine": 550540,
+      "ssotLine": 550520,
       "decodedLines": 34438,
       "bytes": 1553263,
       "sha256": "f3396c1621a0423195474c5bcb581adb63d7f5b4dc9eaec05a45bc8dabfcdcad"
     },
     {
       "path": "database/physical-relations.json",
-      "ssotLine": 551278,
+      "ssotLine": 551258,
       "decodedLines": 21,
       "bytes": 804,
       "sha256": "1521cdd62f626e327d60efd8100608b16f3d7c851f31fae4c263688589d6eeab"
     },
     {
       "path": "database/physical-relations.sql",
-      "ssotLine": 551288,
+      "ssotLine": 551268,
       "decodedLines": 32,
       "bytes": 2123,
       "sha256": "ad47d2238be806db0257429bf60f4023fd73aa8f218758a27ff311ea1b2ed774"
     },
     {
       "path": "database/root-resolution.json",
-      "ssotLine": 551301,
+      "ssotLine": 551281,
       "decodedLines": 652,
       "bytes": 19207,
       "sha256": "eba7430191c77f8b0b6e31f1d0453db772eec9a7c1339eedc99ed6891e150bf7"
     },
     {
       "path": "manifest.json",
-      "ssotLine": 551325,
+      "ssotLine": 551305,
       "decodedLines": 89,
       "bytes": 3579,
-      "sha256": "012bfa14bf3e75721fd8b0f270f897aaff4367720e186e2cc6f455d0dd6a0310"
+      "sha256": "fe4c95abebad457c139bf7d5d1621ed5315f8048e204d1615fd05f71f3ad46ec"
     },
     {
       "path": "verify_r9.py",
-      "ssotLine": 551346,
+      "ssotLine": 551326,
       "decodedLines": 28,
       "bytes": 4317,
       "sha256": "67c6daf4c18338f105779df67369dee40a5ab02f4412b28d0d03cc13364090e3"
@@ -1977,11 +1977,11 @@
     }
   ],
   "routesWithGenericSlotContainerByRole": {
-    "request": 509,
-    "response": 509,
-    "event": 509
+    "request": 507,
+    "response": 507,
+    "event": 507
   },
-  "routesWithNullableBody": 507,
+  "routesWithNullableBody": 505,
   "routeSourceLinkCounts": {
     "noRequirementOrOperationAuthority": 341,
     "requirementAndOperationAuthority": 168,
@@ -2003,42 +2003,21 @@
       "method": "POST",
       "decodedResourceLine": 5,
       "source": "contracts/payload-contracts.json#/records/0",
-      "bodyAcceptsNull": true,
+      "bodyAcceptsNull": false,
       "roles": {
         "request": {
           "schemaId": "urn:kcml:r9:route:route.0000:request",
-          "genericLocations": [
-            {
-              "pointer": "/properties/body/oneOf/1",
-              "slotEnum": null,
-              "slotConst": null,
-              "slotPattern": "^[A-Za-z0-9_.:/-]+$"
-            }
-          ],
+          "genericLocations": [],
           "explicitDomainSlots": false
         },
         "response": {
           "schemaId": "urn:kcml:r9:route:route.0000:response",
-          "genericLocations": [
-            {
-              "pointer": "/properties/output/oneOf/1",
-              "slotEnum": null,
-              "slotConst": null,
-              "slotPattern": "^[A-Za-z0-9_.:/-]+$"
-            }
-          ],
+          "genericLocations": [],
           "explicitDomainSlots": false
         },
         "event": {
           "schemaId": "urn:kcml:r9:route:route.0000:event",
-          "genericLocations": [
-            {
-              "pointer": "/properties/payload",
-              "slotEnum": null,
-              "slotConst": null,
-              "slotPattern": "^[A-Za-z0-9_.:/-]+$"
-            }
-          ],
+          "genericLocations": [],
           "explicitDomainSlots": false
         }
       },
@@ -2052,44 +2031,23 @@
       "routeId": "route.0001",
       "operationId": "component.control.disable",
       "method": "POST",
-      "decodedResourceLine": 795,
+      "decodedResourceLine": 887,
       "source": "contracts/payload-contracts.json#/records/1",
-      "bodyAcceptsNull": true,
+      "bodyAcceptsNull": false,
       "roles": {
         "request": {
           "schemaId": "urn:kcml:r9:route:route.0001:request",
-          "genericLocations": [
-            {
-              "pointer": "/properties/body/oneOf/1",
-              "slotEnum": null,
-              "slotConst": null,
-              "slotPattern": "^[A-Za-z0-9_.:/-]+$"
-            }
-          ],
+          "genericLocations": [],
           "explicitDomainSlots": false
         },
         "response": {
           "schemaId": "urn:kcml:r9:route:route.0001:response",
-          "genericLocations": [
-            {
-              "pointer": "/properties/output/oneOf/1",
-              "slotEnum": null,
-              "slotConst": null,
-              "slotPattern": "^[A-Za-z0-9_.:/-]+$"
-            }
-          ],
+          "genericLocations": [],
           "explicitDomainSlots": false
         },
         "event": {
           "schemaId": "urn:kcml:r9:route:route.0001:event",
-          "genericLocations": [
-            {
-              "pointer": "/properties/payload",
-              "slotEnum": null,
-              "slotConst": null,
-              "slotPattern": "^[A-Za-z0-9_.:/-]+$"
-            }
-          ],
+          "genericLocations": [],
           "explicitDomainSlots": false
         }
       },
@@ -2103,7 +2061,7 @@
       "routeId": "route.0002",
       "operationId": "component.state.query",
       "method": "POST",
-      "decodedResourceLine": 1585,
+      "decodedResourceLine": 1769,
       "source": "contracts/payload-contracts.json#/records/2",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2154,7 +2112,7 @@
       "routeId": "route.0003",
       "operationId": "component.heartbeat",
       "method": "POST",
-      "decodedResourceLine": 2459,
+      "decodedResourceLine": 2643,
       "source": "contracts/payload-contracts.json#/records/3",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2205,7 +2163,7 @@
       "routeId": "route.0004",
       "operationId": "component.control.ack",
       "method": "POST",
-      "decodedResourceLine": 3333,
+      "decodedResourceLine": 3517,
       "source": "contracts/payload-contracts.json#/records/4",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2256,7 +2214,7 @@
       "routeId": "route.0005",
       "operationId": "browser.preview.connect",
       "method": "WSS",
-      "decodedResourceLine": 4123,
+      "decodedResourceLine": 4307,
       "source": "contracts/payload-contracts.json#/records/5",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2304,7 +2262,7 @@
       "routeId": "route.0006",
       "operationId": "operation.catalog.list",
       "method": "GET",
-      "decodedResourceLine": 4712,
+      "decodedResourceLine": 4896,
       "source": "contracts/payload-contracts.json#/records/6",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2352,7 +2310,7 @@
       "routeId": "route.0007",
       "operationId": "operation.invoke",
       "method": "POST",
-      "decodedResourceLine": 5292,
+      "decodedResourceLine": 5476,
       "source": "contracts/payload-contracts.json#/records/7",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2400,7 +2358,7 @@
       "routeId": "route.0008",
       "operationId": "owner.auth.login",
       "method": "POST",
-      "decodedResourceLine": 5881,
+      "decodedResourceLine": 6065,
       "source": "contracts/payload-contracts.json#/records/8",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2448,7 +2406,7 @@
       "routeId": "route.0009",
       "operationId": "owner.auth.loginMfa",
       "method": "POST",
-      "decodedResourceLine": 6461,
+      "decodedResourceLine": 6645,
       "source": "contracts/payload-contracts.json#/records/9",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2496,7 +2454,7 @@
       "routeId": "route.0010",
       "operationId": "owner.auth.logout",
       "method": "POST",
-      "decodedResourceLine": 7041,
+      "decodedResourceLine": 7225,
       "source": "contracts/payload-contracts.json#/records/10",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2544,7 +2502,7 @@
       "routeId": "route.0011",
       "operationId": "ownerApiKey.session.exchange",
       "method": "POST",
-      "decodedResourceLine": 7621,
+      "decodedResourceLine": 7805,
       "source": "contracts/payload-contracts.json#/records/11",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2594,7 +2552,7 @@
       "routeId": "route.0012",
       "operationId": "owner.session.current",
       "method": "GET",
-      "decodedResourceLine": 8263,
+      "decodedResourceLine": 8447,
       "source": "contracts/payload-contracts.json#/records/12",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2642,7 +2600,7 @@
       "routeId": "route.0013",
       "operationId": "owner.session.reauthenticate",
       "method": "POST",
-      "decodedResourceLine": 8843,
+      "decodedResourceLine": 9027,
       "source": "contracts/payload-contracts.json#/records/13",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2690,7 +2648,7 @@
       "routeId": "route.0014",
       "operationId": "owner.security.read",
       "method": "GET",
-      "decodedResourceLine": 9423,
+      "decodedResourceLine": 9607,
       "source": "contracts/payload-contracts.json#/records/14",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2738,7 +2696,7 @@
       "routeId": "route.0015",
       "operationId": "owner.mfa.enroll",
       "method": "POST",
-      "decodedResourceLine": 10003,
+      "decodedResourceLine": 10187,
       "source": "contracts/payload-contracts.json#/records/15",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2786,7 +2744,7 @@
       "routeId": "route.0016",
       "operationId": "owner.mfa.verify",
       "method": "POST",
-      "decodedResourceLine": 10583,
+      "decodedResourceLine": 10767,
       "source": "contracts/payload-contracts.json#/records/16",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2834,7 +2792,7 @@
       "routeId": "route.0017",
       "operationId": "owner.recoveryCodes.rotate",
       "method": "POST",
-      "decodedResourceLine": 11163,
+      "decodedResourceLine": 11347,
       "source": "contracts/payload-contracts.json#/records/17",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2882,7 +2840,7 @@
       "routeId": "route.0018",
       "operationId": "owner.session.list",
       "method": "GET",
-      "decodedResourceLine": 11743,
+      "decodedResourceLine": 11927,
       "source": "contracts/payload-contracts.json#/records/18",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2930,7 +2888,7 @@
       "routeId": "route.0019",
       "operationId": "owner.session.revoke",
       "method": "DELETE",
-      "decodedResourceLine": 12323,
+      "decodedResourceLine": 12507,
       "source": "contracts/payload-contracts.json#/records/19",
       "bodyAcceptsNull": true,
       "roles": {
@@ -2978,7 +2936,7 @@
       "routeId": "route.0020",
       "operationId": "owner.session.revokeOthers",
       "method": "POST",
-      "decodedResourceLine": 12912,
+      "decodedResourceLine": 13096,
       "source": "contracts/payload-contracts.json#/records/20",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3026,7 +2984,7 @@
       "routeId": "route.0021",
       "operationId": "owner.session.revokeAll",
       "method": "POST",
-      "decodedResourceLine": 13492,
+      "decodedResourceLine": 13676,
       "source": "contracts/payload-contracts.json#/records/21",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3074,7 +3032,7 @@
       "routeId": "route.0022",
       "operationId": "ownerApiKey.read",
       "method": "GET",
-      "decodedResourceLine": 14072,
+      "decodedResourceLine": 14256,
       "source": "contracts/payload-contracts.json#/records/22",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3124,7 +3082,7 @@
       "routeId": "route.0023",
       "operationId": "ownerApiKey.reveal",
       "method": "GET",
-      "decodedResourceLine": 14714,
+      "decodedResourceLine": 14898,
       "source": "contracts/payload-contracts.json#/records/23",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3174,7 +3132,7 @@
       "routeId": "route.0024",
       "operationId": "ownerApiKey.rotate",
       "method": "POST",
-      "decodedResourceLine": 15356,
+      "decodedResourceLine": 15540,
       "source": "contracts/payload-contracts.json#/records/24",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3225,7 +3183,7 @@
       "routeId": "route.0025",
       "operationId": "ownerApiKey.usage.read",
       "method": "GET",
-      "decodedResourceLine": 16126,
+      "decodedResourceLine": 16310,
       "source": "contracts/payload-contracts.json#/records/25",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3273,7 +3231,7 @@
       "routeId": "route.0026",
       "operationId": "dashboard.topology.read",
       "method": "GET",
-      "decodedResourceLine": 16706,
+      "decodedResourceLine": 16890,
       "source": "contracts/payload-contracts.json#/records/26",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3321,7 +3279,7 @@
       "routeId": "route.0027",
       "operationId": "dashboard.layout.replace",
       "method": "PUT",
-      "decodedResourceLine": 17286,
+      "decodedResourceLine": 17470,
       "source": "contracts/payload-contracts.json#/records/27",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3369,7 +3327,7 @@
       "routeId": "route.0028",
       "operationId": "dashboard.events.read",
       "method": "GET",
-      "decodedResourceLine": 17866,
+      "decodedResourceLine": 18050,
       "source": "contracts/payload-contracts.json#/records/28",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3417,7 +3375,7 @@
       "routeId": "route.0029",
       "operationId": "dashboard.identityCards.list",
       "method": "GET",
-      "decodedResourceLine": 18446,
+      "decodedResourceLine": 18630,
       "source": "contracts/payload-contracts.json#/records/29",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3465,7 +3423,7 @@
       "routeId": "route.0030",
       "operationId": "binding.preview",
       "method": "POST",
-      "decodedResourceLine": 19026,
+      "decodedResourceLine": 19210,
       "source": "contracts/payload-contracts.json#/records/30",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3513,7 +3471,7 @@
       "routeId": "route.0031",
       "operationId": "binding.create",
       "method": "POST",
-      "decodedResourceLine": 19606,
+      "decodedResourceLine": 19790,
       "source": "contracts/payload-contracts.json#/records/31",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3561,7 +3519,7 @@
       "routeId": "route.0032",
       "operationId": "binding.replace",
       "method": "PUT",
-      "decodedResourceLine": 20186,
+      "decodedResourceLine": 20370,
       "source": "contracts/payload-contracts.json#/records/32",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3609,7 +3567,7 @@
       "routeId": "route.0033",
       "operationId": "binding.remove",
       "method": "DELETE",
-      "decodedResourceLine": 20775,
+      "decodedResourceLine": 20959,
       "source": "contracts/payload-contracts.json#/records/33",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3657,7 +3615,7 @@
       "routeId": "route.0034",
       "operationId": "component.suspension.set",
       "method": "PUT",
-      "decodedResourceLine": 21364,
+      "decodedResourceLine": 21548,
       "source": "contracts/payload-contracts.json#/records/34",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3705,7 +3663,7 @@
       "routeId": "route.0035",
       "operationId": "component.deregistration.preview",
       "method": "GET",
-      "decodedResourceLine": 21953,
+      "decodedResourceLine": 22137,
       "source": "contracts/payload-contracts.json#/records/35",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3753,7 +3711,7 @@
       "routeId": "route.0036",
       "operationId": "component.deregister",
       "method": "POST",
-      "decodedResourceLine": 22542,
+      "decodedResourceLine": 22726,
       "source": "contracts/payload-contracts.json#/records/36",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3804,7 +3762,7 @@
       "routeId": "route.0037",
       "operationId": "secret.bind",
       "method": "POST",
-      "decodedResourceLine": 23353,
+      "decodedResourceLine": 23537,
       "source": "contracts/payload-contracts.json#/records/37",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3855,7 +3813,7 @@
       "routeId": "route.0038",
       "operationId": "secret.unbind",
       "method": "DELETE",
-      "decodedResourceLine": 24436,
+      "decodedResourceLine": 24620,
       "source": "contracts/payload-contracts.json#/records/38",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3906,7 +3864,7 @@
       "routeId": "route.0039",
       "operationId": "secret.binding.bulkPreview",
       "method": "GET",
-      "decodedResourceLine": 25526,
+      "decodedResourceLine": 25710,
       "source": "contracts/payload-contracts.json#/records/39",
       "bodyAcceptsNull": true,
       "roles": {
@@ -3954,7 +3912,7 @@
       "routeId": "route.0040",
       "operationId": "secret.binding.bulkApply",
       "method": "POST",
-      "decodedResourceLine": 26115,
+      "decodedResourceLine": 26299,
       "source": "contracts/payload-contracts.json#/records/40",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4002,7 +3960,7 @@
       "routeId": "route.0041",
       "operationId": "component.list",
       "method": "GET",
-      "decodedResourceLine": 26704,
+      "decodedResourceLine": 26888,
       "source": "contracts/payload-contracts.json#/records/41",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4050,7 +4008,7 @@
       "routeId": "route.0042",
       "operationId": "component.register",
       "method": "POST",
-      "decodedResourceLine": 27284,
+      "decodedResourceLine": 27468,
       "source": "contracts/payload-contracts.json#/records/42",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4103,7 +4061,7 @@
       "routeId": "route.0043",
       "operationId": "component.read",
       "method": "GET",
-      "decodedResourceLine": 28322,
+      "decodedResourceLine": 28506,
       "source": "contracts/payload-contracts.json#/records/43",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4151,7 +4109,7 @@
       "routeId": "route.0044",
       "operationId": "component.metadata.patch",
       "method": "PATCH",
-      "decodedResourceLine": 28911,
+      "decodedResourceLine": 29095,
       "source": "contracts/payload-contracts.json#/records/44",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4199,7 +4157,7 @@
       "routeId": "route.0045",
       "operationId": "component.revision.list",
       "method": "GET",
-      "decodedResourceLine": 29500,
+      "decodedResourceLine": 29684,
       "source": "contracts/payload-contracts.json#/records/45",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4247,7 +4205,7 @@
       "routeId": "route.0046",
       "operationId": "component.revision.publish",
       "method": "POST",
-      "decodedResourceLine": 30089,
+      "decodedResourceLine": 30273,
       "source": "contracts/payload-contracts.json#/records/46",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4299,7 +4257,7 @@
       "routeId": "route.0047",
       "operationId": "component.release.list",
       "method": "GET",
-      "decodedResourceLine": 30928,
+      "decodedResourceLine": 31112,
       "source": "contracts/payload-contracts.json#/records/47",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4347,7 +4305,7 @@
       "routeId": "route.0048",
       "operationId": "component.validate",
       "method": "POST",
-      "decodedResourceLine": 31517,
+      "decodedResourceLine": 31701,
       "source": "contracts/payload-contracts.json#/records/48",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4399,7 +4357,7 @@
       "routeId": "route.0049",
       "operationId": "component.verify",
       "method": "POST",
-      "decodedResourceLine": 33228,
+      "decodedResourceLine": 33412,
       "source": "contracts/payload-contracts.json#/records/49",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4451,7 +4409,7 @@
       "routeId": "route.0050",
       "operationId": "component.activate",
       "method": "POST",
-      "decodedResourceLine": 35047,
+      "decodedResourceLine": 35231,
       "source": "contracts/payload-contracts.json#/records/50",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4502,7 +4460,7 @@
       "routeId": "route.0051",
       "operationId": "component.enable",
       "method": "POST",
-      "decodedResourceLine": 35966,
+      "decodedResourceLine": 36150,
       "source": "contracts/payload-contracts.json#/records/51",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4554,7 +4512,7 @@
       "routeId": "route.0052",
       "operationId": "component.disable",
       "method": "POST",
-      "decodedResourceLine": 36917,
+      "decodedResourceLine": 37101,
       "source": "contracts/payload-contracts.json#/records/52",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4606,7 +4564,7 @@
       "routeId": "route.0053",
       "operationId": "component.suspend",
       "method": "POST",
-      "decodedResourceLine": 37868,
+      "decodedResourceLine": 38052,
       "source": "contracts/payload-contracts.json#/records/53",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4656,7 +4614,7 @@
       "routeId": "route.0054",
       "operationId": "component.quarantine",
       "method": "POST",
-      "decodedResourceLine": 38619,
+      "decodedResourceLine": 38803,
       "source": "contracts/payload-contracts.json#/records/54",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4706,7 +4664,7 @@
       "routeId": "route.0055",
       "operationId": "component.restore",
       "method": "POST",
-      "decodedResourceLine": 39370,
+      "decodedResourceLine": 39554,
       "source": "contracts/payload-contracts.json#/records/55",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4757,7 +4715,7 @@
       "routeId": "route.0056",
       "operationId": "component.rollback",
       "method": "POST",
-      "decodedResourceLine": 40337,
+      "decodedResourceLine": 40521,
       "source": "contracts/payload-contracts.json#/records/56",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4809,7 +4767,7 @@
       "routeId": "route.0057",
       "operationId": "component.repair.request",
       "method": "POST",
-      "decodedResourceLine": 41280,
+      "decodedResourceLine": 41464,
       "source": "contracts/payload-contracts.json#/records/57",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4857,7 +4815,7 @@
       "routeId": "route.0058",
       "operationId": "component.recertify",
       "method": "POST",
-      "decodedResourceLine": 41869,
+      "decodedResourceLine": 42053,
       "source": "contracts/payload-contracts.json#/records/58",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4908,7 +4866,7 @@
       "routeId": "route.0059",
       "operationId": "component.e2e.start",
       "method": "POST",
-      "decodedResourceLine": 43524,
+      "decodedResourceLine": 43708,
       "source": "contracts/payload-contracts.json#/records/59",
       "bodyAcceptsNull": true,
       "roles": {
@@ -4956,7 +4914,7 @@
       "routeId": "route.0060",
       "operationId": "component.state.request",
       "method": "POST",
-      "decodedResourceLine": 44113,
+      "decodedResourceLine": 44297,
       "source": "contracts/payload-contracts.json#/records/60",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5004,7 +4962,7 @@
       "routeId": "route.0061",
       "operationId": "component.heartbeat.challenge",
       "method": "POST",
-      "decodedResourceLine": 44702,
+      "decodedResourceLine": 44886,
       "source": "contracts/payload-contracts.json#/records/61",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5052,7 +5010,7 @@
       "routeId": "route.0062",
       "operationId": "log.query",
       "method": "GET",
-      "decodedResourceLine": 45291,
+      "decodedResourceLine": 45475,
       "source": "contracts/payload-contracts.json#/records/62",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5100,7 +5058,7 @@
       "routeId": "route.0063",
       "operationId": "audit.event.list",
       "method": "GET",
-      "decodedResourceLine": 45880,
+      "decodedResourceLine": 46064,
       "source": "contracts/payload-contracts.json#/records/63",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5148,7 +5106,7 @@
       "routeId": "route.0064",
       "operationId": "binding.list",
       "method": "GET",
-      "decodedResourceLine": 46469,
+      "decodedResourceLine": 46653,
       "source": "contracts/payload-contracts.json#/records/64",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5196,7 +5154,7 @@
       "routeId": "route.0065",
       "operationId": "secret.binding.list",
       "method": "GET",
-      "decodedResourceLine": 47058,
+      "decodedResourceLine": 47242,
       "source": "contracts/payload-contracts.json#/records/65",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5244,7 +5202,7 @@
       "routeId": "route.0066",
       "operationId": "component.usage.read",
       "method": "GET",
-      "decodedResourceLine": 47647,
+      "decodedResourceLine": 47831,
       "source": "contracts/payload-contracts.json#/records/66",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5292,7 +5250,7 @@
       "routeId": "route.0067",
       "operationId": "component.list",
       "method": "GET",
-      "decodedResourceLine": 48236,
+      "decodedResourceLine": 48420,
       "source": "contracts/payload-contracts.json#/records/67",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5340,7 +5298,7 @@
       "routeId": "route.0068",
       "operationId": "component.register",
       "method": "POST",
-      "decodedResourceLine": 48816,
+      "decodedResourceLine": 49000,
       "source": "contracts/payload-contracts.json#/records/68",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5393,7 +5351,7 @@
       "routeId": "route.0069",
       "operationId": "component.read",
       "method": "GET",
-      "decodedResourceLine": 49854,
+      "decodedResourceLine": 50038,
       "source": "contracts/payload-contracts.json#/records/69",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5441,7 +5399,7 @@
       "routeId": "route.0070",
       "operationId": "component.metadata.patch",
       "method": "PATCH",
-      "decodedResourceLine": 50443,
+      "decodedResourceLine": 50627,
       "source": "contracts/payload-contracts.json#/records/70",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5489,7 +5447,7 @@
       "routeId": "route.0071",
       "operationId": "component.revision.list",
       "method": "GET",
-      "decodedResourceLine": 51032,
+      "decodedResourceLine": 51216,
       "source": "contracts/payload-contracts.json#/records/71",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5537,7 +5495,7 @@
       "routeId": "route.0072",
       "operationId": "component.revision.publish",
       "method": "POST",
-      "decodedResourceLine": 51621,
+      "decodedResourceLine": 51805,
       "source": "contracts/payload-contracts.json#/records/72",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5589,7 +5547,7 @@
       "routeId": "route.0073",
       "operationId": "component.revision.read",
       "method": "GET",
-      "decodedResourceLine": 52460,
+      "decodedResourceLine": 52644,
       "source": "contracts/payload-contracts.json#/records/73",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5637,7 +5595,7 @@
       "routeId": "route.0074",
       "operationId": "component.validate",
       "method": "POST",
-      "decodedResourceLine": 53056,
+      "decodedResourceLine": 53240,
       "source": "contracts/payload-contracts.json#/records/74",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5689,7 +5647,7 @@
       "routeId": "route.0075",
       "operationId": "component.verify",
       "method": "POST",
-      "decodedResourceLine": 54774,
+      "decodedResourceLine": 54958,
       "source": "contracts/payload-contracts.json#/records/75",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5741,7 +5699,7 @@
       "routeId": "route.0076",
       "operationId": "component.activate",
       "method": "POST",
-      "decodedResourceLine": 56600,
+      "decodedResourceLine": 56784,
       "source": "contracts/payload-contracts.json#/records/76",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5792,7 +5750,7 @@
       "routeId": "route.0077",
       "operationId": "mcp.contract.compatibility",
       "method": "POST",
-      "decodedResourceLine": 57526,
+      "decodedResourceLine": 57710,
       "source": "contracts/payload-contracts.json#/records/77",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5842,7 +5800,7 @@
       "routeId": "route.0078",
       "operationId": "mcp.discovery.snapshot.list",
       "method": "GET",
-      "decodedResourceLine": 60508,
+      "decodedResourceLine": 60692,
       "source": "contracts/payload-contracts.json#/records/78",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5890,7 +5848,7 @@
       "routeId": "route.0079",
       "operationId": "mcp.discovery.snapshot",
       "method": "POST",
-      "decodedResourceLine": 61097,
+      "decodedResourceLine": 61281,
       "source": "contracts/payload-contracts.json#/records/79",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5940,7 +5898,7 @@
       "routeId": "route.0080",
       "operationId": "mcp.discovery.snapshot.read",
       "method": "GET",
-      "decodedResourceLine": 64072,
+      "decodedResourceLine": 64256,
       "source": "contracts/payload-contracts.json#/records/80",
       "bodyAcceptsNull": true,
       "roles": {
@@ -5988,7 +5946,7 @@
       "routeId": "route.0081",
       "operationId": "mcp.discovery.snapshot.diff",
       "method": "GET",
-      "decodedResourceLine": 64668,
+      "decodedResourceLine": 64852,
       "source": "contracts/payload-contracts.json#/records/81",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6036,7 +5994,7 @@
       "routeId": "route.0082",
       "operationId": "mcp.registrationProbe.list",
       "method": "GET",
-      "decodedResourceLine": 65264,
+      "decodedResourceLine": 65448,
       "source": "contracts/payload-contracts.json#/records/82",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6084,7 +6042,7 @@
       "routeId": "route.0083",
       "operationId": "mcp.era.probe",
       "method": "POST",
-      "decodedResourceLine": 65853,
+      "decodedResourceLine": 66037,
       "source": "contracts/payload-contracts.json#/records/83",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6134,7 +6092,7 @@
       "routeId": "route.0084",
       "operationId": "mcp.server.discover",
       "method": "POST",
-      "decodedResourceLine": 66536,
+      "decodedResourceLine": 66720,
       "source": "contracts/payload-contracts.json#/records/84",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6185,7 +6143,7 @@
       "routeId": "route.0085",
       "operationId": "mcp.wire.verify",
       "method": "POST",
-      "decodedResourceLine": 69523,
+      "decodedResourceLine": 69707,
       "source": "contracts/payload-contracts.json#/records/85",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6236,7 +6194,7 @@
       "routeId": "route.0086",
       "operationId": "mcp.wire.verify",
       "method": "POST",
-      "decodedResourceLine": 73402,
+      "decodedResourceLine": 73586,
       "source": "contracts/payload-contracts.json#/records/86",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6287,7 +6245,7 @@
       "routeId": "route.0087",
       "operationId": "mcp.wire.verify",
       "method": "POST",
-      "decodedResourceLine": 77281,
+      "decodedResourceLine": 77465,
       "source": "contracts/payload-contracts.json#/records/87",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6338,7 +6296,7 @@
       "routeId": "route.0088",
       "operationId": "mcp.wire.verify",
       "method": "POST",
-      "decodedResourceLine": 81160,
+      "decodedResourceLine": 81344,
       "source": "contracts/payload-contracts.json#/records/88",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6389,7 +6347,7 @@
       "routeId": "route.0089",
       "operationId": "mcp.wire.verify",
       "method": "POST",
-      "decodedResourceLine": 85039,
+      "decodedResourceLine": 85223,
       "source": "contracts/payload-contracts.json#/records/89",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6440,7 +6398,7 @@
       "routeId": "route.0090",
       "operationId": "mcp.wire.verify",
       "method": "POST",
-      "decodedResourceLine": 88918,
+      "decodedResourceLine": 89102,
       "source": "contracts/payload-contracts.json#/records/90",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6491,7 +6449,7 @@
       "routeId": "route.0091",
       "operationId": "mcp.wire.verify",
       "method": "POST",
-      "decodedResourceLine": 92797,
+      "decodedResourceLine": 92981,
       "source": "contracts/payload-contracts.json#/records/91",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6542,7 +6500,7 @@
       "routeId": "route.0092",
       "operationId": "mcp.wire.verify",
       "method": "POST",
-      "decodedResourceLine": 96676,
+      "decodedResourceLine": 96860,
       "source": "contracts/payload-contracts.json#/records/92",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6593,7 +6551,7 @@
       "routeId": "route.0093",
       "operationId": "mcp.wire.verify",
       "method": "POST",
-      "decodedResourceLine": 100555,
+      "decodedResourceLine": 100739,
       "source": "contracts/payload-contracts.json#/records/93",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6644,7 +6602,7 @@
       "routeId": "route.0094",
       "operationId": "mcp.wire.verify",
       "method": "POST",
-      "decodedResourceLine": 104434,
+      "decodedResourceLine": 104618,
       "source": "contracts/payload-contracts.json#/records/94",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6695,7 +6653,7 @@
       "routeId": "route.0095",
       "operationId": "mcp.wire.verify",
       "method": "POST",
-      "decodedResourceLine": 108313,
+      "decodedResourceLine": 108497,
       "source": "contracts/payload-contracts.json#/records/95",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6746,7 +6704,7 @@
       "routeId": "route.0096",
       "operationId": "mcp.wire.verify",
       "method": "POST",
-      "decodedResourceLine": 112198,
+      "decodedResourceLine": 112382,
       "source": "contracts/payload-contracts.json#/records/96",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6797,7 +6755,7 @@
       "routeId": "route.0097",
       "operationId": "mcp.requestEvent.list",
       "method": "GET",
-      "decodedResourceLine": 116077,
+      "decodedResourceLine": 116261,
       "source": "contracts/payload-contracts.json#/records/97",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6845,7 +6803,7 @@
       "routeId": "route.0098",
       "operationId": "mcp.requestEvent.read",
       "method": "GET",
-      "decodedResourceLine": 116657,
+      "decodedResourceLine": 116841,
       "source": "contracts/payload-contracts.json#/records/98",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6893,7 +6851,7 @@
       "routeId": "route.0099",
       "operationId": "mcp.requestEvent.raw.read",
       "method": "GET",
-      "decodedResourceLine": 117246,
+      "decodedResourceLine": 117430,
       "source": "contracts/payload-contracts.json#/records/99",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6941,7 +6899,7 @@
       "routeId": "route.0100",
       "operationId": "mcp.callRun.list",
       "method": "GET",
-      "decodedResourceLine": 117835,
+      "decodedResourceLine": 118019,
       "source": "contracts/payload-contracts.json#/records/100",
       "bodyAcceptsNull": true,
       "roles": {
@@ -6989,7 +6947,7 @@
       "routeId": "route.0101",
       "operationId": "mcp.callRun.read",
       "method": "GET",
-      "decodedResourceLine": 118415,
+      "decodedResourceLine": 118599,
       "source": "contracts/payload-contracts.json#/records/101",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7037,7 +6995,7 @@
       "routeId": "route.0102",
       "operationId": "mcp.callRun.events.read",
       "method": "GET",
-      "decodedResourceLine": 119004,
+      "decodedResourceLine": 119188,
       "source": "contracts/payload-contracts.json#/records/102",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7085,7 +7043,7 @@
       "routeId": "route.0103",
       "operationId": "mcp.callRun.outcome.read",
       "method": "GET",
-      "decodedResourceLine": 119593,
+      "decodedResourceLine": 119777,
       "source": "contracts/payload-contracts.json#/records/103",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7133,7 +7091,7 @@
       "routeId": "route.0104",
       "operationId": "mcp.tools.cancel",
       "method": "POST",
-      "decodedResourceLine": 120182,
+      "decodedResourceLine": 120366,
       "source": "contracts/payload-contracts.json#/records/104",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7183,7 +7141,7 @@
       "routeId": "route.0105",
       "operationId": "mcp.tools.reconcile",
       "method": "POST",
-      "decodedResourceLine": 120829,
+      "decodedResourceLine": 121013,
       "source": "contracts/payload-contracts.json#/records/105",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7233,7 +7191,7 @@
       "routeId": "route.0106",
       "operationId": "mcp.inputExchange.list",
       "method": "GET",
-      "decodedResourceLine": 121476,
+      "decodedResourceLine": 121660,
       "source": "contracts/payload-contracts.json#/records/106",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7281,7 +7239,7 @@
       "routeId": "route.0107",
       "operationId": "mcp.inputExchange.read",
       "method": "GET",
-      "decodedResourceLine": 122065,
+      "decodedResourceLine": 122249,
       "source": "contracts/payload-contracts.json#/records/107",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7329,7 +7287,7 @@
       "routeId": "route.0108",
       "operationId": "mcp.input.respond",
       "method": "POST",
-      "decodedResourceLine": 122654,
+      "decodedResourceLine": 122838,
       "source": "contracts/payload-contracts.json#/records/108",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7380,7 +7338,7 @@
       "routeId": "route.0109",
       "operationId": "mcp.subscription.list",
       "method": "GET",
-      "decodedResourceLine": 123381,
+      "decodedResourceLine": 123565,
       "source": "contracts/payload-contracts.json#/records/109",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7428,7 +7386,7 @@
       "routeId": "route.0110",
       "operationId": "mcp.subscription.read",
       "method": "GET",
-      "decodedResourceLine": 123961,
+      "decodedResourceLine": 124145,
       "source": "contracts/payload-contracts.json#/records/110",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7476,7 +7434,7 @@
       "routeId": "route.0111",
       "operationId": "mcp.subscription.cancel",
       "method": "POST",
-      "decodedResourceLine": 124550,
+      "decodedResourceLine": 124734,
       "source": "contracts/payload-contracts.json#/records/111",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7527,7 +7485,7 @@
       "routeId": "route.0112",
       "operationId": "mcp.subscription.notifications.read",
       "method": "GET",
-      "decodedResourceLine": 125201,
+      "decodedResourceLine": 125385,
       "source": "contracts/payload-contracts.json#/records/112",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7575,7 +7533,7 @@
       "routeId": "route.0113",
       "operationId": "mcp.stateHandle.list",
       "method": "GET",
-      "decodedResourceLine": 125790,
+      "decodedResourceLine": 125974,
       "source": "contracts/payload-contracts.json#/records/113",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7623,7 +7581,7 @@
       "routeId": "route.0114",
       "operationId": "mcp.stateHandle.read",
       "method": "GET",
-      "decodedResourceLine": 126370,
+      "decodedResourceLine": 126554,
       "source": "contracts/payload-contracts.json#/records/114",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7671,7 +7629,7 @@
       "routeId": "route.0115",
       "operationId": "mcp.stateHandle.close",
       "method": "POST",
-      "decodedResourceLine": 126959,
+      "decodedResourceLine": 127143,
       "source": "contracts/payload-contracts.json#/records/115",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7722,7 +7680,7 @@
       "routeId": "route.0116",
       "operationId": "mcp.task.list",
       "method": "GET",
-      "decodedResourceLine": 127562,
+      "decodedResourceLine": 127746,
       "source": "contracts/payload-contracts.json#/records/116",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7770,7 +7728,7 @@
       "routeId": "route.0117",
       "operationId": "mcp.task.get",
       "method": "GET",
-      "decodedResourceLine": 128142,
+      "decodedResourceLine": 128326,
       "source": "contracts/payload-contracts.json#/records/117",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7821,7 +7779,7 @@
       "routeId": "route.0118",
       "operationId": "mcp.task.update",
       "method": "POST",
-      "decodedResourceLine": 128889,
+      "decodedResourceLine": 129073,
       "source": "contracts/payload-contracts.json#/records/118",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7872,7 +7830,7 @@
       "routeId": "route.0119",
       "operationId": "mcp.task.cancel",
       "method": "POST",
-      "decodedResourceLine": 129636,
+      "decodedResourceLine": 129820,
       "source": "contracts/payload-contracts.json#/records/119",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7923,7 +7881,7 @@
       "routeId": "route.0120",
       "operationId": "mcp.task.events.read",
       "method": "GET",
-      "decodedResourceLine": 130383,
+      "decodedResourceLine": 130567,
       "source": "contracts/payload-contracts.json#/records/120",
       "bodyAcceptsNull": true,
       "roles": {
@@ -7971,7 +7929,7 @@
       "routeId": "route.0121",
       "operationId": "mcp.catalog.tool.list",
       "method": "GET",
-      "decodedResourceLine": 130972,
+      "decodedResourceLine": 131156,
       "source": "contracts/payload-contracts.json#/records/121",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8019,7 +7977,7 @@
       "routeId": "route.0122",
       "operationId": "mcp.catalog.tool.register",
       "method": "POST",
-      "decodedResourceLine": 131552,
+      "decodedResourceLine": 131736,
       "source": "contracts/payload-contracts.json#/records/122",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8067,7 +8025,7 @@
       "routeId": "route.0123",
       "operationId": "mcp.catalog.tool.read",
       "method": "GET",
-      "decodedResourceLine": 132132,
+      "decodedResourceLine": 132316,
       "source": "contracts/payload-contracts.json#/records/123",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8115,7 +8073,7 @@
       "routeId": "route.0124",
       "operationId": "mcp.catalog.tool.revision.list",
       "method": "GET",
-      "decodedResourceLine": 132721,
+      "decodedResourceLine": 132905,
       "source": "contracts/payload-contracts.json#/records/124",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8163,7 +8121,7 @@
       "routeId": "route.0125",
       "operationId": "mcp.catalog.tool.callers.list",
       "method": "GET",
-      "decodedResourceLine": 133310,
+      "decodedResourceLine": 133494,
       "source": "contracts/payload-contracts.json#/records/125",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8211,7 +8169,7 @@
       "routeId": "route.0126",
       "operationId": "mcp.catalog.tool.usage.read",
       "method": "GET",
-      "decodedResourceLine": 133899,
+      "decodedResourceLine": 134083,
       "source": "contracts/payload-contracts.json#/records/126",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8259,7 +8217,7 @@
       "routeId": "route.0127",
       "operationId": "mcp.catalog.resource.list",
       "method": "GET",
-      "decodedResourceLine": 134488,
+      "decodedResourceLine": 134672,
       "source": "contracts/payload-contracts.json#/records/127",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8307,7 +8265,7 @@
       "routeId": "route.0128",
       "operationId": "mcp.catalog.resource.read",
       "method": "GET",
-      "decodedResourceLine": 135068,
+      "decodedResourceLine": 135252,
       "source": "contracts/payload-contracts.json#/records/128",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8355,7 +8313,7 @@
       "routeId": "route.0129",
       "operationId": "mcp.catalog.resourceTemplate.list",
       "method": "GET",
-      "decodedResourceLine": 135657,
+      "decodedResourceLine": 135841,
       "source": "contracts/payload-contracts.json#/records/129",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8403,7 +8361,7 @@
       "routeId": "route.0130",
       "operationId": "mcp.catalog.resourceTemplate.read",
       "method": "GET",
-      "decodedResourceLine": 136237,
+      "decodedResourceLine": 136421,
       "source": "contracts/payload-contracts.json#/records/130",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8451,7 +8409,7 @@
       "routeId": "route.0131",
       "operationId": "mcp.catalog.prompt.list",
       "method": "GET",
-      "decodedResourceLine": 136826,
+      "decodedResourceLine": 137010,
       "source": "contracts/payload-contracts.json#/records/131",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8499,7 +8457,7 @@
       "routeId": "route.0132",
       "operationId": "mcp.catalog.prompt.read",
       "method": "GET",
-      "decodedResourceLine": 137406,
+      "decodedResourceLine": 137590,
       "source": "contracts/payload-contracts.json#/records/132",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8547,7 +8505,7 @@
       "routeId": "route.0133",
       "operationId": "mcp.alias.list",
       "method": "GET",
-      "decodedResourceLine": 137995,
+      "decodedResourceLine": 138179,
       "source": "contracts/payload-contracts.json#/records/133",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8595,7 +8553,7 @@
       "routeId": "route.0134",
       "operationId": "mcp.alias.preview",
       "method": "POST",
-      "decodedResourceLine": 138575,
+      "decodedResourceLine": 138759,
       "source": "contracts/payload-contracts.json#/records/134",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8643,7 +8601,7 @@
       "routeId": "route.0135",
       "operationId": "mcp.alias.create",
       "method": "POST",
-      "decodedResourceLine": 139155,
+      "decodedResourceLine": 139339,
       "source": "contracts/payload-contracts.json#/records/135",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8691,7 +8649,7 @@
       "routeId": "route.0136",
       "operationId": "mcp.alias.remove",
       "method": "DELETE",
-      "decodedResourceLine": 139735,
+      "decodedResourceLine": 139919,
       "source": "contracts/payload-contracts.json#/records/136",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8739,7 +8697,7 @@
       "routeId": "route.0137",
       "operationId": "agent.definition.list",
       "method": "GET",
-      "decodedResourceLine": 140324,
+      "decodedResourceLine": 140508,
       "source": "contracts/payload-contracts.json#/records/137",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8787,7 +8745,7 @@
       "routeId": "route.0138",
       "operationId": "agent.definition.create",
       "method": "POST",
-      "decodedResourceLine": 140904,
+      "decodedResourceLine": 141088,
       "source": "contracts/payload-contracts.json#/records/138",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8835,7 +8793,7 @@
       "routeId": "route.0139",
       "operationId": "agent.definition.read",
       "method": "GET",
-      "decodedResourceLine": 141484,
+      "decodedResourceLine": 141668,
       "source": "contracts/payload-contracts.json#/records/139",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8883,7 +8841,7 @@
       "routeId": "route.0140",
       "operationId": "agent.definition.patch",
       "method": "PATCH",
-      "decodedResourceLine": 142073,
+      "decodedResourceLine": 142257,
       "source": "contracts/payload-contracts.json#/records/140",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8931,7 +8889,7 @@
       "routeId": "route.0141",
       "operationId": "agent.revision.list",
       "method": "GET",
-      "decodedResourceLine": 142662,
+      "decodedResourceLine": 142846,
       "source": "contracts/payload-contracts.json#/records/141",
       "bodyAcceptsNull": true,
       "roles": {
@@ -8979,7 +8937,7 @@
       "routeId": "route.0142",
       "operationId": "agent.revision.publish",
       "method": "POST",
-      "decodedResourceLine": 143251,
+      "decodedResourceLine": 143435,
       "source": "contracts/payload-contracts.json#/records/142",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9027,7 +8985,7 @@
       "routeId": "route.0143",
       "operationId": "agent.revision.read",
       "method": "GET",
-      "decodedResourceLine": 143840,
+      "decodedResourceLine": 144024,
       "source": "contracts/payload-contracts.json#/records/143",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9075,7 +9033,7 @@
       "routeId": "route.0144",
       "operationId": "agent.revision.validate",
       "method": "POST",
-      "decodedResourceLine": 144436,
+      "decodedResourceLine": 144620,
       "source": "contracts/payload-contracts.json#/records/144",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9123,7 +9081,7 @@
       "routeId": "route.0145",
       "operationId": "agent.revision.verify",
       "method": "POST",
-      "decodedResourceLine": 145032,
+      "decodedResourceLine": 145216,
       "source": "contracts/payload-contracts.json#/records/145",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9171,7 +9129,7 @@
       "routeId": "route.0146",
       "operationId": "agent.revision.activate",
       "method": "POST",
-      "decodedResourceLine": 145628,
+      "decodedResourceLine": 145812,
       "source": "contracts/payload-contracts.json#/records/146",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9219,7 +9177,7 @@
       "routeId": "route.0147",
       "operationId": "agent.revision.compatibility",
       "method": "POST",
-      "decodedResourceLine": 146224,
+      "decodedResourceLine": 146408,
       "source": "contracts/payload-contracts.json#/records/147",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9267,7 +9225,7 @@
       "routeId": "route.0148",
       "operationId": "agent.revision.toolBinding.list",
       "method": "GET",
-      "decodedResourceLine": 146820,
+      "decodedResourceLine": 147004,
       "source": "contracts/payload-contracts.json#/records/148",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9315,7 +9273,7 @@
       "routeId": "route.0149",
       "operationId": "agent.revision.toolBinding.preview",
       "method": "POST",
-      "decodedResourceLine": 147416,
+      "decodedResourceLine": 147600,
       "source": "contracts/payload-contracts.json#/records/149",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9363,7 +9321,7 @@
       "routeId": "route.0150",
       "operationId": "agent.revision.handoff.list",
       "method": "GET",
-      "decodedResourceLine": 148012,
+      "decodedResourceLine": 148196,
       "source": "contracts/payload-contracts.json#/records/150",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9411,7 +9369,7 @@
       "routeId": "route.0151",
       "operationId": "agent.revision.guardrail.list",
       "method": "GET",
-      "decodedResourceLine": 148608,
+      "decodedResourceLine": 148792,
       "source": "contracts/payload-contracts.json#/records/151",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9459,7 +9417,7 @@
       "routeId": "route.0152",
       "operationId": "agent.revision.promotionGate.list",
       "method": "GET",
-      "decodedResourceLine": 149204,
+      "decodedResourceLine": 149388,
       "source": "contracts/payload-contracts.json#/records/152",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9507,7 +9465,7 @@
       "routeId": "route.0153",
       "operationId": "component.enable",
       "method": "POST",
-      "decodedResourceLine": 149800,
+      "decodedResourceLine": 149984,
       "source": "contracts/payload-contracts.json#/records/153",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9559,7 +9517,7 @@
       "routeId": "route.0154",
       "operationId": "component.disable",
       "method": "POST",
-      "decodedResourceLine": 150751,
+      "decodedResourceLine": 150935,
       "source": "contracts/payload-contracts.json#/records/154",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9611,7 +9569,7 @@
       "routeId": "route.0155",
       "operationId": "agent.repair.request",
       "method": "POST",
-      "decodedResourceLine": 151702,
+      "decodedResourceLine": 151886,
       "source": "contracts/payload-contracts.json#/records/155",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9659,7 +9617,7 @@
       "routeId": "route.0156",
       "operationId": "agent.run.start",
       "method": "POST",
-      "decodedResourceLine": 152291,
+      "decodedResourceLine": 152475,
       "source": "contracts/payload-contracts.json#/records/156",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9711,7 +9669,7 @@
       "routeId": "route.0157",
       "operationId": "agent.run.list",
       "method": "GET",
-      "decodedResourceLine": 154362,
+      "decodedResourceLine": 154546,
       "source": "contracts/payload-contracts.json#/records/157",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9759,7 +9717,7 @@
       "routeId": "route.0158",
       "operationId": "agent.run.status",
       "method": "GET",
-      "decodedResourceLine": 154951,
+      "decodedResourceLine": 155135,
       "source": "contracts/payload-contracts.json#/records/158",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9810,7 +9768,7 @@
       "routeId": "route.0159",
       "operationId": "agent.run.events.read",
       "method": "GET",
-      "decodedResourceLine": 156978,
+      "decodedResourceLine": 157162,
       "source": "contracts/payload-contracts.json#/records/159",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9858,7 +9816,7 @@
       "routeId": "route.0160",
       "operationId": "agent.run.checkpoint.list",
       "method": "GET",
-      "decodedResourceLine": 157567,
+      "decodedResourceLine": 157751,
       "source": "contracts/payload-contracts.json#/records/160",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9906,7 +9864,7 @@
       "routeId": "route.0161",
       "operationId": "agent.message.append",
       "method": "POST",
-      "decodedResourceLine": 158156,
+      "decodedResourceLine": 158340,
       "source": "contracts/payload-contracts.json#/records/161",
       "bodyAcceptsNull": true,
       "roles": {
@@ -9957,7 +9915,7 @@
       "routeId": "route.0162",
       "operationId": "agent.run.pause",
       "method": "POST",
-      "decodedResourceLine": 159003,
+      "decodedResourceLine": 159187,
       "source": "contracts/payload-contracts.json#/records/162",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10007,7 +9965,7 @@
       "routeId": "route.0163",
       "operationId": "agent.run.resume",
       "method": "POST",
-      "decodedResourceLine": 159806,
+      "decodedResourceLine": 159990,
       "source": "contracts/payload-contracts.json#/records/163",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10058,7 +10016,7 @@
       "routeId": "route.0164",
       "operationId": "agent.run.cancel",
       "method": "POST",
-      "decodedResourceLine": 160657,
+      "decodedResourceLine": 160841,
       "source": "contracts/payload-contracts.json#/records/164",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10108,7 +10066,7 @@
       "routeId": "route.0165",
       "operationId": "agent.run.toolCall.list",
       "method": "GET",
-      "decodedResourceLine": 161460,
+      "decodedResourceLine": 161644,
       "source": "contracts/payload-contracts.json#/records/165",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10156,7 +10114,7 @@
       "routeId": "route.0166",
       "operationId": "agent.run.handoff.list",
       "method": "GET",
-      "decodedResourceLine": 162049,
+      "decodedResourceLine": 162233,
       "source": "contracts/payload-contracts.json#/records/166",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10204,7 +10162,7 @@
       "routeId": "route.0167",
       "operationId": "agent.run.approval.list",
       "method": "GET",
-      "decodedResourceLine": 162638,
+      "decodedResourceLine": 162822,
       "source": "contracts/payload-contracts.json#/records/167",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10252,7 +10210,7 @@
       "routeId": "route.0168",
       "operationId": "agent.approval.approve",
       "method": "POST",
-      "decodedResourceLine": 163227,
+      "decodedResourceLine": 163411,
       "source": "contracts/payload-contracts.json#/records/168",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10303,7 +10261,7 @@
       "routeId": "route.0169",
       "operationId": "agent.approval.reject",
       "method": "POST",
-      "decodedResourceLine": 164085,
+      "decodedResourceLine": 164269,
       "source": "contracts/payload-contracts.json#/records/169",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10354,7 +10312,7 @@
       "routeId": "route.0170",
       "operationId": "agent.session.list",
       "method": "GET",
-      "decodedResourceLine": 164943,
+      "decodedResourceLine": 165127,
       "source": "contracts/payload-contracts.json#/records/170",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10402,7 +10360,7 @@
       "routeId": "route.0171",
       "operationId": "agent.session.read",
       "method": "GET",
-      "decodedResourceLine": 165532,
+      "decodedResourceLine": 165716,
       "source": "contracts/payload-contracts.json#/records/171",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10450,7 +10408,7 @@
       "routeId": "route.0172",
       "operationId": "agent.session.items.read",
       "method": "GET",
-      "decodedResourceLine": 166121,
+      "decodedResourceLine": 166305,
       "source": "contracts/payload-contracts.json#/records/172",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10498,7 +10456,7 @@
       "routeId": "route.0173",
       "operationId": "agent.session.compact",
       "method": "POST",
-      "decodedResourceLine": 166710,
+      "decodedResourceLine": 166894,
       "source": "contracts/payload-contracts.json#/records/173",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10549,7 +10507,7 @@
       "routeId": "route.0174",
       "operationId": "agent.session.close",
       "method": "POST",
-      "decodedResourceLine": 170145,
+      "decodedResourceLine": 170329,
       "source": "contracts/payload-contracts.json#/records/174",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10597,7 +10555,7 @@
       "routeId": "route.0175",
       "operationId": "agent.memory.read",
       "method": "GET",
-      "decodedResourceLine": 170734,
+      "decodedResourceLine": 170918,
       "source": "contracts/payload-contracts.json#/records/175",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10648,7 +10606,7 @@
       "routeId": "route.0176",
       "operationId": "agent.memory.read",
       "method": "POST",
-      "decodedResourceLine": 171581,
+      "decodedResourceLine": 171765,
       "source": "contracts/payload-contracts.json#/records/176",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10699,7 +10657,7 @@
       "routeId": "route.0177",
       "operationId": "agent.memory.write",
       "method": "POST",
-      "decodedResourceLine": 172428,
+      "decodedResourceLine": 172612,
       "source": "contracts/payload-contracts.json#/records/177",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10750,7 +10708,7 @@
       "routeId": "route.0178",
       "operationId": "agent.memory.item.remove",
       "method": "DELETE",
-      "decodedResourceLine": 173275,
+      "decodedResourceLine": 173459,
       "source": "contracts/payload-contracts.json#/records/178",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10798,7 +10756,7 @@
       "routeId": "route.0179",
       "operationId": "agent.evalSuite.list",
       "method": "GET",
-      "decodedResourceLine": 173871,
+      "decodedResourceLine": 174055,
       "source": "contracts/payload-contracts.json#/records/179",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10846,7 +10804,7 @@
       "routeId": "route.0180",
       "operationId": "agent.evalSuite.create",
       "method": "POST",
-      "decodedResourceLine": 174460,
+      "decodedResourceLine": 174644,
       "source": "contracts/payload-contracts.json#/records/180",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10894,7 +10852,7 @@
       "routeId": "route.0181",
       "operationId": "agent.evalSuite.read",
       "method": "GET",
-      "decodedResourceLine": 175049,
+      "decodedResourceLine": 175233,
       "source": "contracts/payload-contracts.json#/records/181",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10942,7 +10900,7 @@
       "routeId": "route.0182",
       "operationId": "agent.eval.start",
       "method": "POST",
-      "decodedResourceLine": 175638,
+      "decodedResourceLine": 175822,
       "source": "contracts/payload-contracts.json#/records/182",
       "bodyAcceptsNull": true,
       "roles": {
@@ -10993,7 +10951,7 @@
       "routeId": "route.0183",
       "operationId": "agent.evalRun.read",
       "method": "GET",
-      "decodedResourceLine": 177665,
+      "decodedResourceLine": 177849,
       "source": "contracts/payload-contracts.json#/records/183",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11041,7 +10999,7 @@
       "routeId": "route.0184",
       "operationId": "agent.evalRun.cases.read",
       "method": "GET",
-      "decodedResourceLine": 178254,
+      "decodedResourceLine": 178438,
       "source": "contracts/payload-contracts.json#/records/184",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11089,7 +11047,7 @@
       "routeId": "route.0185",
       "operationId": "agent.trigger.list",
       "method": "GET",
-      "decodedResourceLine": 178843,
+      "decodedResourceLine": 179027,
       "source": "contracts/payload-contracts.json#/records/185",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11137,7 +11095,7 @@
       "routeId": "route.0186",
       "operationId": "agent.trigger.create",
       "method": "POST",
-      "decodedResourceLine": 179432,
+      "decodedResourceLine": 179616,
       "source": "contracts/payload-contracts.json#/records/186",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11185,7 +11143,7 @@
       "routeId": "route.0187",
       "operationId": "agent.trigger.patch",
       "method": "PATCH",
-      "decodedResourceLine": 180021,
+      "decodedResourceLine": 180205,
       "source": "contracts/payload-contracts.json#/records/187",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11233,7 +11191,7 @@
       "routeId": "route.0188",
       "operationId": "agent.trigger.remove",
       "method": "DELETE",
-      "decodedResourceLine": 180617,
+      "decodedResourceLine": 180801,
       "source": "contracts/payload-contracts.json#/records/188",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11281,7 +11239,7 @@
       "routeId": "route.0189",
       "operationId": "chat.conversation.list",
       "method": "GET",
-      "decodedResourceLine": 181213,
+      "decodedResourceLine": 181397,
       "source": "contracts/payload-contracts.json#/records/189",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11329,7 +11287,7 @@
       "routeId": "route.0190",
       "operationId": "chat.conversation.create",
       "method": "POST",
-      "decodedResourceLine": 181793,
+      "decodedResourceLine": 181977,
       "source": "contracts/payload-contracts.json#/records/190",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11380,7 +11338,7 @@
       "routeId": "route.0191",
       "operationId": "chat.conversation.read",
       "method": "GET",
-      "decodedResourceLine": 184715,
+      "decodedResourceLine": 184899,
       "source": "contracts/payload-contracts.json#/records/191",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11428,7 +11386,7 @@
       "routeId": "route.0192",
       "operationId": "chat.message.list",
       "method": "GET",
-      "decodedResourceLine": 185304,
+      "decodedResourceLine": 185488,
       "source": "contracts/payload-contracts.json#/records/192",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11476,7 +11434,7 @@
       "routeId": "route.0193",
       "operationId": "chat.message.append",
       "method": "POST",
-      "decodedResourceLine": 185893,
+      "decodedResourceLine": 186077,
       "source": "contracts/payload-contracts.json#/records/193",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11528,7 +11486,7 @@
       "routeId": "route.0194",
       "operationId": "chat.response.stream",
       "method": "GET",
-      "decodedResourceLine": 191456,
+      "decodedResourceLine": 191640,
       "source": "contracts/payload-contracts.json#/records/194",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11580,7 +11538,7 @@
       "routeId": "route.0195",
       "operationId": "chat.conversation.cancel",
       "method": "POST",
-      "decodedResourceLine": 197019,
+      "decodedResourceLine": 197203,
       "source": "contracts/payload-contracts.json#/records/195",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11628,7 +11586,7 @@
       "routeId": "route.0196",
       "operationId": "chat.browser.session.list",
       "method": "GET",
-      "decodedResourceLine": 197608,
+      "decodedResourceLine": 197792,
       "source": "contracts/payload-contracts.json#/records/196",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11676,7 +11634,7 @@
       "routeId": "route.0197",
       "operationId": "chat.browser.session.create",
       "method": "POST",
-      "decodedResourceLine": 198197,
+      "decodedResourceLine": 198381,
       "source": "contracts/payload-contracts.json#/records/197",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11727,7 +11685,7 @@
       "routeId": "route.0198",
       "operationId": "chat.browser.session.attach",
       "method": "POST",
-      "decodedResourceLine": 199892,
+      "decodedResourceLine": 200076,
       "source": "contracts/payload-contracts.json#/records/198",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11778,7 +11736,7 @@
       "routeId": "route.0199",
       "operationId": "chat.ask",
       "method": "POST",
-      "decodedResourceLine": 201594,
+      "decodedResourceLine": 201778,
       "source": "contracts/payload-contracts.json#/records/199",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11826,7 +11784,7 @@
       "routeId": "route.0200",
       "operationId": "openai.modelCall.list",
       "method": "GET",
-      "decodedResourceLine": 202174,
+      "decodedResourceLine": 202358,
       "source": "contracts/payload-contracts.json#/records/200",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11874,7 +11832,7 @@
       "routeId": "route.0201",
       "operationId": "openai.modelCall.read",
       "method": "GET",
-      "decodedResourceLine": 202754,
+      "decodedResourceLine": 202938,
       "source": "contracts/payload-contracts.json#/records/201",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11922,7 +11880,7 @@
       "routeId": "route.0202",
       "operationId": "openai.modelCall.requestDescriptor.read",
       "method": "GET",
-      "decodedResourceLine": 203343,
+      "decodedResourceLine": 203527,
       "source": "contracts/payload-contracts.json#/records/202",
       "bodyAcceptsNull": true,
       "roles": {
@@ -11970,7 +11928,7 @@
       "routeId": "route.0203",
       "operationId": "openai.modelCall.events.read",
       "method": "GET",
-      "decodedResourceLine": 203932,
+      "decodedResourceLine": 204116,
       "source": "contracts/payload-contracts.json#/records/203",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12018,7 +11976,7 @@
       "routeId": "route.0204",
       "operationId": "openai.modelCall.outputItem.list",
       "method": "GET",
-      "decodedResourceLine": 204521,
+      "decodedResourceLine": 204705,
       "source": "contracts/payload-contracts.json#/records/204",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12066,7 +12024,7 @@
       "routeId": "route.0205",
       "operationId": "openai.modelCall.toolDispatch.list",
       "method": "GET",
-      "decodedResourceLine": 205110,
+      "decodedResourceLine": 205294,
       "source": "contracts/payload-contracts.json#/records/205",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12114,7 +12072,7 @@
       "routeId": "route.0206",
       "operationId": "openai.modelCall.continuation.list",
       "method": "GET",
-      "decodedResourceLine": 205699,
+      "decodedResourceLine": 205883,
       "source": "contracts/payload-contracts.json#/records/206",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12162,7 +12120,7 @@
       "routeId": "route.0207",
       "operationId": "openai.modelCall.checkpoint.list",
       "method": "GET",
-      "decodedResourceLine": 206288,
+      "decodedResourceLine": 206472,
       "source": "contracts/payload-contracts.json#/records/207",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12210,7 +12168,7 @@
       "routeId": "route.0208",
       "operationId": "openai.modelCall.retrieve",
       "method": "POST",
-      "decodedResourceLine": 206877,
+      "decodedResourceLine": 207061,
       "source": "contracts/payload-contracts.json#/records/208",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12258,7 +12216,7 @@
       "routeId": "route.0209",
       "operationId": "openai.modelCall.resumeStream",
       "method": "POST",
-      "decodedResourceLine": 207466,
+      "decodedResourceLine": 207650,
       "source": "contracts/payload-contracts.json#/records/209",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12306,7 +12264,7 @@
       "routeId": "route.0210",
       "operationId": "openai.modelCall.requestCancel",
       "method": "POST",
-      "decodedResourceLine": 208055,
+      "decodedResourceLine": 208239,
       "source": "contracts/payload-contracts.json#/records/210",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12354,7 +12312,7 @@
       "routeId": "route.0211",
       "operationId": "openai.modelCall.reconcile",
       "method": "POST",
-      "decodedResourceLine": 208644,
+      "decodedResourceLine": 208828,
       "source": "contracts/payload-contracts.json#/records/211",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12402,7 +12360,7 @@
       "routeId": "route.0212",
       "operationId": "openai.modelCapability.list",
       "method": "GET",
-      "decodedResourceLine": 209233,
+      "decodedResourceLine": 209417,
       "source": "contracts/payload-contracts.json#/records/212",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12450,7 +12408,7 @@
       "routeId": "route.0213",
       "operationId": "openai.modelCapability.read",
       "method": "GET",
-      "decodedResourceLine": 209813,
+      "decodedResourceLine": 209997,
       "source": "contracts/payload-contracts.json#/records/213",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12498,7 +12456,7 @@
       "routeId": "route.0214",
       "operationId": "openai.modelCapability.refresh",
       "method": "POST",
-      "decodedResourceLine": 210402,
+      "decodedResourceLine": 210586,
       "source": "contracts/payload-contracts.json#/records/214",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12546,7 +12504,7 @@
       "routeId": "route.0215",
       "operationId": "generation.job.create",
       "method": "POST",
-      "decodedResourceLine": 210982,
+      "decodedResourceLine": 211166,
       "source": "contracts/payload-contracts.json#/records/215",
       "bodyAcceptsNull": false,
       "roles": {
@@ -12597,7 +12555,7 @@
       "routeId": "route.0216",
       "operationId": "generation.job.list",
       "method": "GET",
-      "decodedResourceLine": 214195,
+      "decodedResourceLine": 214379,
       "source": "contracts/payload-contracts.json#/records/216",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12645,7 +12603,7 @@
       "routeId": "route.0217",
       "operationId": "generation.job.read",
       "method": "GET",
-      "decodedResourceLine": 214775,
+      "decodedResourceLine": 214959,
       "source": "contracts/payload-contracts.json#/records/217",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12693,7 +12651,7 @@
       "routeId": "route.0218",
       "operationId": "generation.job.snapshot.read",
       "method": "GET",
-      "decodedResourceLine": 215364,
+      "decodedResourceLine": 215548,
       "source": "contracts/payload-contracts.json#/records/218",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12741,7 +12699,7 @@
       "routeId": "route.0219",
       "operationId": "generation.message.list",
       "method": "GET",
-      "decodedResourceLine": 215953,
+      "decodedResourceLine": 216137,
       "source": "contracts/payload-contracts.json#/records/219",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12789,7 +12747,7 @@
       "routeId": "route.0220",
       "operationId": "generation.message.append",
       "method": "POST",
-      "decodedResourceLine": 216542,
+      "decodedResourceLine": 216726,
       "source": "contracts/payload-contracts.json#/records/220",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12840,7 +12798,7 @@
       "routeId": "route.0221",
       "operationId": "generation.turn.list",
       "method": "GET",
-      "decodedResourceLine": 219773,
+      "decodedResourceLine": 219957,
       "source": "contracts/payload-contracts.json#/records/221",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12888,7 +12846,7 @@
       "routeId": "route.0222",
       "operationId": "generation.job.events.read",
       "method": "GET",
-      "decodedResourceLine": 220362,
+      "decodedResourceLine": 220546,
       "source": "contracts/payload-contracts.json#/records/222",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12936,7 +12894,7 @@
       "routeId": "route.0223",
       "operationId": "generation.source.list",
       "method": "GET",
-      "decodedResourceLine": 220951,
+      "decodedResourceLine": 221135,
       "source": "contracts/payload-contracts.json#/records/223",
       "bodyAcceptsNull": true,
       "roles": {
@@ -12984,7 +12942,7 @@
       "routeId": "route.0224",
       "operationId": "generation.source.add",
       "method": "POST",
-      "decodedResourceLine": 221540,
+      "decodedResourceLine": 221724,
       "source": "contracts/payload-contracts.json#/records/224",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13035,7 +12993,7 @@
       "routeId": "route.0225",
       "operationId": "generation.source.read",
       "method": "GET",
-      "decodedResourceLine": 224771,
+      "decodedResourceLine": 224955,
       "source": "contracts/payload-contracts.json#/records/225",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13083,7 +13041,7 @@
       "routeId": "route.0226",
       "operationId": "generation.fact.list",
       "method": "GET",
-      "decodedResourceLine": 225367,
+      "decodedResourceLine": 225551,
       "source": "contracts/payload-contracts.json#/records/226",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13131,7 +13089,7 @@
       "routeId": "route.0227",
       "operationId": "generation.ownerDecision.list",
       "method": "GET",
-      "decodedResourceLine": 225956,
+      "decodedResourceLine": 226140,
       "source": "contracts/payload-contracts.json#/records/227",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13179,7 +13137,7 @@
       "routeId": "route.0228",
       "operationId": "generation.capabilitySnapshot.list",
       "method": "GET",
-      "decodedResourceLine": 226545,
+      "decodedResourceLine": 226729,
       "source": "contracts/payload-contracts.json#/records/228",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13227,7 +13185,7 @@
       "routeId": "route.0229",
       "operationId": "generation.capability.resolve",
       "method": "POST",
-      "decodedResourceLine": 227134,
+      "decodedResourceLine": 227318,
       "source": "contracts/payload-contracts.json#/records/229",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13278,7 +13236,7 @@
       "routeId": "route.0230",
       "operationId": "generation.spec.current",
       "method": "GET",
-      "decodedResourceLine": 230365,
+      "decodedResourceLine": 230549,
       "source": "contracts/payload-contracts.json#/records/230",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13326,7 +13284,7 @@
       "routeId": "route.0231",
       "operationId": "generation.spec.revision.list",
       "method": "GET",
-      "decodedResourceLine": 230954,
+      "decodedResourceLine": 231138,
       "source": "contracts/payload-contracts.json#/records/231",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13374,7 +13332,7 @@
       "routeId": "route.0232",
       "operationId": "generation.spec.revision.read",
       "method": "GET",
-      "decodedResourceLine": 231543,
+      "decodedResourceLine": 231727,
       "source": "contracts/payload-contracts.json#/records/232",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13422,7 +13380,7 @@
       "routeId": "route.0233",
       "operationId": "generation.spec.precheck",
       "method": "POST",
-      "decodedResourceLine": 232139,
+      "decodedResourceLine": 232323,
       "source": "contracts/payload-contracts.json#/records/233",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13473,7 +13431,7 @@
       "routeId": "route.0234",
       "operationId": "generation.spec.approve",
       "method": "POST",
-      "decodedResourceLine": 235377,
+      "decodedResourceLine": 235561,
       "source": "contracts/payload-contracts.json#/records/234",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13524,7 +13482,7 @@
       "routeId": "route.0235",
       "operationId": "generation.authority.read",
       "method": "GET",
-      "decodedResourceLine": 238608,
+      "decodedResourceLine": 238792,
       "source": "contracts/payload-contracts.json#/records/235",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13572,7 +13530,7 @@
       "routeId": "route.0236",
       "operationId": "generation.plan.list",
       "method": "GET",
-      "decodedResourceLine": 239197,
+      "decodedResourceLine": 239381,
       "source": "contracts/payload-contracts.json#/records/236",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13620,7 +13578,7 @@
       "routeId": "route.0237",
       "operationId": "generation.plan.read",
       "method": "GET",
-      "decodedResourceLine": 239786,
+      "decodedResourceLine": 239970,
       "source": "contracts/payload-contracts.json#/records/237",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13668,7 +13626,7 @@
       "routeId": "route.0238",
       "operationId": "generation.plan.validate",
       "method": "POST",
-      "decodedResourceLine": 240382,
+      "decodedResourceLine": 240566,
       "source": "contracts/payload-contracts.json#/records/238",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13719,7 +13677,7 @@
       "routeId": "route.0239",
       "operationId": "generation.phase.list",
       "method": "GET",
-      "decodedResourceLine": 243464,
+      "decodedResourceLine": 243648,
       "source": "contracts/payload-contracts.json#/records/239",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13767,7 +13725,7 @@
       "routeId": "route.0240",
       "operationId": "generation.phase.read",
       "method": "GET",
-      "decodedResourceLine": 244053,
+      "decodedResourceLine": 244237,
       "source": "contracts/payload-contracts.json#/records/240",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13815,7 +13773,7 @@
       "routeId": "route.0241",
       "operationId": "generation.checkpoint.list",
       "method": "GET",
-      "decodedResourceLine": 244649,
+      "decodedResourceLine": 244833,
       "source": "contracts/payload-contracts.json#/records/241",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13863,7 +13821,7 @@
       "routeId": "route.0242",
       "operationId": "openai.modelCall.list",
       "method": "GET",
-      "decodedResourceLine": 245238,
+      "decodedResourceLine": 245422,
       "source": "contracts/payload-contracts.json#/records/242",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13911,7 +13869,7 @@
       "routeId": "route.0243",
       "operationId": "generation.toolEvent.list",
       "method": "GET",
-      "decodedResourceLine": 245827,
+      "decodedResourceLine": 246011,
       "source": "contracts/payload-contracts.json#/records/243",
       "bodyAcceptsNull": true,
       "roles": {
@@ -13959,7 +13917,7 @@
       "routeId": "route.0244",
       "operationId": "generation.workspace.revision.list",
       "method": "GET",
-      "decodedResourceLine": 246416,
+      "decodedResourceLine": 246600,
       "source": "contracts/payload-contracts.json#/records/244",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14007,7 +13965,7 @@
       "routeId": "route.0245",
       "operationId": "generation.workspace.revision.read",
       "method": "GET",
-      "decodedResourceLine": 247005,
+      "decodedResourceLine": 247189,
       "source": "contracts/payload-contracts.json#/records/245",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14055,7 +14013,7 @@
       "routeId": "route.0246",
       "operationId": "generation.workspace.file.list",
       "method": "GET",
-      "decodedResourceLine": 247601,
+      "decodedResourceLine": 247785,
       "source": "contracts/payload-contracts.json#/records/246",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14103,7 +14061,7 @@
       "routeId": "route.0247",
       "operationId": "generation.workspace.patch.list",
       "method": "GET",
-      "decodedResourceLine": 248197,
+      "decodedResourceLine": 248381,
       "source": "contracts/payload-contracts.json#/records/247",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14151,7 +14109,7 @@
       "routeId": "route.0248",
       "operationId": "generation.contractCandidate.list",
       "method": "GET",
-      "decodedResourceLine": 248786,
+      "decodedResourceLine": 248970,
       "source": "contracts/payload-contracts.json#/records/248",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14199,7 +14157,7 @@
       "routeId": "route.0249",
       "operationId": "generation.artifactManifest.list",
       "method": "GET",
-      "decodedResourceLine": 249375,
+      "decodedResourceLine": 249559,
       "source": "contracts/payload-contracts.json#/records/249",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14247,7 +14205,7 @@
       "routeId": "route.0250",
       "operationId": "generation.artifact.list",
       "method": "GET",
-      "decodedResourceLine": 249964,
+      "decodedResourceLine": 250148,
       "source": "contracts/payload-contracts.json#/records/250",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14295,7 +14253,7 @@
       "routeId": "route.0251",
       "operationId": "generation.validationRun.list",
       "method": "GET",
-      "decodedResourceLine": 250553,
+      "decodedResourceLine": 250737,
       "source": "contracts/payload-contracts.json#/records/251",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14343,7 +14301,7 @@
       "routeId": "route.0252",
       "operationId": "generation.validationRun.read",
       "method": "GET",
-      "decodedResourceLine": 251142,
+      "decodedResourceLine": 251326,
       "source": "contracts/payload-contracts.json#/records/252",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14391,7 +14349,7 @@
       "routeId": "route.0253",
       "operationId": "generation.validation.run",
       "method": "POST",
-      "decodedResourceLine": 251738,
+      "decodedResourceLine": 251922,
       "source": "contracts/payload-contracts.json#/records/253",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14442,7 +14400,7 @@
       "routeId": "route.0254",
       "operationId": "generation.blocker.list",
       "method": "GET",
-      "decodedResourceLine": 254969,
+      "decodedResourceLine": 255153,
       "source": "contracts/payload-contracts.json#/records/254",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14490,7 +14448,7 @@
       "routeId": "route.0255",
       "operationId": "generation.blocker.resolve",
       "method": "POST",
-      "decodedResourceLine": 255558,
+      "decodedResourceLine": 255742,
       "source": "contracts/payload-contracts.json#/records/255",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14541,7 +14499,7 @@
       "routeId": "route.0256",
       "operationId": "generation.activationSet.read",
       "method": "GET",
-      "decodedResourceLine": 258796,
+      "decodedResourceLine": 258980,
       "source": "contracts/payload-contracts.json#/records/256",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14589,7 +14547,7 @@
       "routeId": "route.0257",
       "operationId": "generation.job.cancel",
       "method": "POST",
-      "decodedResourceLine": 259385,
+      "decodedResourceLine": 259569,
       "source": "contracts/payload-contracts.json#/records/257",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14640,7 +14598,7 @@
       "routeId": "route.0258",
       "operationId": "generation.job.retry",
       "method": "POST",
-      "decodedResourceLine": 262616,
+      "decodedResourceLine": 262800,
       "source": "contracts/payload-contracts.json#/records/258",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14691,7 +14649,7 @@
       "routeId": "route.0259",
       "operationId": "generation.job.followUp",
       "method": "POST",
-      "decodedResourceLine": 265847,
+      "decodedResourceLine": 266031,
       "source": "contracts/payload-contracts.json#/records/259",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14739,7 +14697,7 @@
       "routeId": "route.0260",
       "operationId": "generation.job.resume",
       "method": "POST",
-      "decodedResourceLine": 266436,
+      "decodedResourceLine": 266620,
       "source": "contracts/payload-contracts.json#/records/260",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14790,7 +14748,7 @@
       "routeId": "route.0261",
       "operationId": "component.release.list",
       "method": "GET",
-      "decodedResourceLine": 269667,
+      "decodedResourceLine": 269851,
       "source": "contracts/payload-contracts.json#/records/261",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14838,7 +14796,7 @@
       "routeId": "route.0262",
       "operationId": "log.query",
       "method": "GET",
-      "decodedResourceLine": 270256,
+      "decodedResourceLine": 270440,
       "source": "contracts/payload-contracts.json#/records/262",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14886,7 +14844,7 @@
       "routeId": "route.0263",
       "operationId": "audit.event.list",
       "method": "GET",
-      "decodedResourceLine": 270845,
+      "decodedResourceLine": 271029,
       "source": "contracts/payload-contracts.json#/records/263",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14934,7 +14892,7 @@
       "routeId": "route.0264",
       "operationId": "browser.session.state",
       "method": "GET",
-      "decodedResourceLine": 271434,
+      "decodedResourceLine": 271618,
       "source": "contracts/payload-contracts.json#/records/264",
       "bodyAcceptsNull": true,
       "roles": {
@@ -14985,7 +14943,7 @@
       "routeId": "route.0265",
       "operationId": "browser.session.create",
       "method": "POST",
-      "decodedResourceLine": 273581,
+      "decodedResourceLine": 273765,
       "source": "contracts/payload-contracts.json#/records/265",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15037,7 +14995,7 @@
       "routeId": "route.0266",
       "operationId": "browser.preview.latest",
       "method": "GET",
-      "decodedResourceLine": 275784,
+      "decodedResourceLine": 275968,
       "source": "contracts/payload-contracts.json#/records/266",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15085,7 +15043,7 @@
       "routeId": "route.0267",
       "operationId": "browser.session.attach",
       "method": "POST",
-      "decodedResourceLine": 276373,
+      "decodedResourceLine": 276557,
       "source": "contracts/payload-contracts.json#/records/267",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15137,7 +15095,7 @@
       "routeId": "route.0268",
       "operationId": "browser.session.credentials.submit",
       "method": "POST",
-      "decodedResourceLine": 278576,
+      "decodedResourceLine": 278760,
       "source": "contracts/payload-contracts.json#/records/268",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15185,7 +15143,7 @@
       "routeId": "route.0269",
       "operationId": "browser.account.save",
       "method": "POST",
-      "decodedResourceLine": 279165,
+      "decodedResourceLine": 279349,
       "source": "contracts/payload-contracts.json#/records/269",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15237,7 +15195,7 @@
       "routeId": "route.0270",
       "operationId": "browser.operationScope.set",
       "method": "POST",
-      "decodedResourceLine": 281084,
+      "decodedResourceLine": 281268,
       "source": "contracts/payload-contracts.json#/records/270",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15285,7 +15243,7 @@
       "routeId": "route.0271",
       "operationId": "browser.confirmation.respond",
       "method": "POST",
-      "decodedResourceLine": 281673,
+      "decodedResourceLine": 281857,
       "source": "contracts/payload-contracts.json#/records/271",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15333,7 +15291,7 @@
       "routeId": "route.0272",
       "operationId": "browser.teaching.list",
       "method": "GET",
-      "decodedResourceLine": 282262,
+      "decodedResourceLine": 282446,
       "source": "contracts/payload-contracts.json#/records/272",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15381,7 +15339,7 @@
       "routeId": "route.0273",
       "operationId": "browser.teaching.start",
       "method": "POST",
-      "decodedResourceLine": 282851,
+      "decodedResourceLine": 283035,
       "source": "contracts/payload-contracts.json#/records/273",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15432,7 +15390,7 @@
       "routeId": "route.0274",
       "operationId": "browser.automation.preflight",
       "method": "POST",
-      "decodedResourceLine": 284482,
+      "decodedResourceLine": 284666,
       "source": "contracts/payload-contracts.json#/records/274",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15483,7 +15441,7 @@
       "routeId": "route.0275",
       "operationId": "browser.automation.run",
       "method": "POST",
-      "decodedResourceLine": 286113,
+      "decodedResourceLine": 286297,
       "source": "contracts/payload-contracts.json#/records/275",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15534,7 +15492,7 @@
       "routeId": "route.0276",
       "operationId": "browser.control.acquire",
       "method": "POST",
-      "decodedResourceLine": 287744,
+      "decodedResourceLine": 287928,
       "source": "contracts/payload-contracts.json#/records/276",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15586,7 +15544,7 @@
       "routeId": "route.0277",
       "operationId": "chat.browser.control.returnToAi",
       "method": "POST",
-      "decodedResourceLine": 289959,
+      "decodedResourceLine": 290143,
       "source": "contracts/payload-contracts.json#/records/277",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15638,7 +15596,7 @@
       "routeId": "route.0278",
       "operationId": "browser.session.list",
       "method": "GET",
-      "decodedResourceLine": 291722,
+      "decodedResourceLine": 291906,
       "source": "contracts/payload-contracts.json#/records/278",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15686,7 +15644,7 @@
       "routeId": "route.0279",
       "operationId": "browser.session.create",
       "method": "POST",
-      "decodedResourceLine": 292302,
+      "decodedResourceLine": 292486,
       "source": "contracts/payload-contracts.json#/records/279",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15738,7 +15696,7 @@
       "routeId": "route.0280",
       "operationId": "browser.session.state",
       "method": "GET",
-      "decodedResourceLine": 294496,
+      "decodedResourceLine": 294680,
       "source": "contracts/payload-contracts.json#/records/280",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15789,7 +15747,7 @@
       "routeId": "route.0281",
       "operationId": "browser.session.snapshot.read",
       "method": "GET",
-      "decodedResourceLine": 296643,
+      "decodedResourceLine": 296827,
       "source": "contracts/payload-contracts.json#/records/281",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15837,7 +15795,7 @@
       "routeId": "route.0282",
       "operationId": "browser.session.events.read",
       "method": "GET",
-      "decodedResourceLine": 297232,
+      "decodedResourceLine": 297416,
       "source": "contracts/payload-contracts.json#/records/282",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15885,7 +15843,7 @@
       "routeId": "route.0283",
       "operationId": "browser.page.list",
       "method": "GET",
-      "decodedResourceLine": 297821,
+      "decodedResourceLine": 298005,
       "source": "contracts/payload-contracts.json#/records/283",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15933,7 +15891,7 @@
       "routeId": "route.0284",
       "operationId": "browser.page.open",
       "method": "POST",
-      "decodedResourceLine": 298410,
+      "decodedResourceLine": 298594,
       "source": "contracts/payload-contracts.json#/records/284",
       "bodyAcceptsNull": true,
       "roles": {
@@ -15984,7 +15942,7 @@
       "routeId": "route.0285",
       "operationId": "browser.page.read",
       "method": "GET",
-      "decodedResourceLine": 300557,
+      "decodedResourceLine": 300741,
       "source": "contracts/payload-contracts.json#/records/285",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16032,7 +15990,7 @@
       "routeId": "route.0286",
       "operationId": "browser.page.activate",
       "method": "POST",
-      "decodedResourceLine": 301153,
+      "decodedResourceLine": 301337,
       "source": "contracts/payload-contracts.json#/records/286",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16083,7 +16041,7 @@
       "routeId": "route.0287",
       "operationId": "browser.page.close",
       "method": "POST",
-      "decodedResourceLine": 303307,
+      "decodedResourceLine": 303491,
       "source": "contracts/payload-contracts.json#/records/287",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16134,7 +16092,7 @@
       "routeId": "route.0288",
       "operationId": "browser.frame.list",
       "method": "GET",
-      "decodedResourceLine": 305461,
+      "decodedResourceLine": 305645,
       "source": "contracts/payload-contracts.json#/records/288",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16182,7 +16140,7 @@
       "routeId": "route.0289",
       "operationId": "browser.document.list",
       "method": "GET",
-      "decodedResourceLine": 306050,
+      "decodedResourceLine": 306234,
       "source": "contracts/payload-contracts.json#/records/289",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16230,7 +16188,7 @@
       "routeId": "route.0290",
       "operationId": "browser.navigation.list",
       "method": "GET",
-      "decodedResourceLine": 306639,
+      "decodedResourceLine": 306823,
       "source": "contracts/payload-contracts.json#/records/290",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16278,7 +16236,7 @@
       "routeId": "route.0291",
       "operationId": "browser.observation.request",
       "method": "POST",
-      "decodedResourceLine": 307228,
+      "decodedResourceLine": 307412,
       "source": "contracts/payload-contracts.json#/records/291",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16326,7 +16284,7 @@
       "routeId": "route.0292",
       "operationId": "browser.action.start",
       "method": "POST",
-      "decodedResourceLine": 307817,
+      "decodedResourceLine": 308001,
       "source": "contracts/payload-contracts.json#/records/292",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16378,7 +16336,7 @@
       "routeId": "route.0293",
       "operationId": "browser.action.status",
       "method": "GET",
-      "decodedResourceLine": 310008,
+      "decodedResourceLine": 310192,
       "source": "contracts/payload-contracts.json#/records/293",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16429,7 +16387,7 @@
       "routeId": "route.0294",
       "operationId": "browser.action.attempt.list",
       "method": "GET",
-      "decodedResourceLine": 312162,
+      "decodedResourceLine": 312346,
       "source": "contracts/payload-contracts.json#/records/294",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16477,7 +16435,7 @@
       "routeId": "route.0295",
       "operationId": "browser.action.cancel",
       "method": "POST",
-      "decodedResourceLine": 312758,
+      "decodedResourceLine": 312942,
       "source": "contracts/payload-contracts.json#/records/295",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16528,7 +16486,7 @@
       "routeId": "route.0296",
       "operationId": "browser.action.reconcile",
       "method": "POST",
-      "decodedResourceLine": 313840,
+      "decodedResourceLine": 314024,
       "source": "contracts/payload-contracts.json#/records/296",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16579,7 +16537,7 @@
       "routeId": "route.0297",
       "operationId": "browser.action.resolveOutcome",
       "method": "POST",
-      "decodedResourceLine": 314922,
+      "decodedResourceLine": 315106,
       "source": "contracts/payload-contracts.json#/records/297",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16631,7 +16589,7 @@
       "routeId": "route.0298",
       "operationId": "browser.control.read",
       "method": "GET",
-      "decodedResourceLine": 316008,
+      "decodedResourceLine": 316192,
       "source": "contracts/payload-contracts.json#/records/298",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16679,7 +16637,7 @@
       "routeId": "route.0299",
       "operationId": "browser.control.acquire",
       "method": "POST",
-      "decodedResourceLine": 316597,
+      "decodedResourceLine": 316781,
       "source": "contracts/payload-contracts.json#/records/299",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16731,7 +16689,7 @@
       "routeId": "route.0300",
       "operationId": "browser.control.release",
       "method": "POST",
-      "decodedResourceLine": 318812,
+      "decodedResourceLine": 318996,
       "source": "contracts/payload-contracts.json#/records/300",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16783,7 +16741,7 @@
       "routeId": "route.0301",
       "operationId": "chat.browser.control.returnToAi",
       "method": "POST",
-      "decodedResourceLine": 321027,
+      "decodedResourceLine": 321211,
       "source": "contracts/payload-contracts.json#/records/301",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16835,7 +16793,7 @@
       "routeId": "route.0302",
       "operationId": "browser.control.transfer.list",
       "method": "GET",
-      "decodedResourceLine": 322790,
+      "decodedResourceLine": 322974,
       "source": "contracts/payload-contracts.json#/records/302",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16883,7 +16841,7 @@
       "routeId": "route.0303",
       "operationId": "browser.operationScope.set",
       "method": "POST",
-      "decodedResourceLine": 323379,
+      "decodedResourceLine": 323563,
       "source": "contracts/payload-contracts.json#/records/303",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16931,7 +16889,7 @@
       "routeId": "route.0304",
       "operationId": "browser.target.list",
       "method": "GET",
-      "decodedResourceLine": 323968,
+      "decodedResourceLine": 324152,
       "source": "contracts/payload-contracts.json#/records/304",
       "bodyAcceptsNull": true,
       "roles": {
@@ -16979,7 +16937,7 @@
       "routeId": "route.0305",
       "operationId": "browser.target.pick",
       "method": "POST",
-      "decodedResourceLine": 324557,
+      "decodedResourceLine": 324741,
       "source": "contracts/payload-contracts.json#/records/305",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17030,7 +16988,7 @@
       "routeId": "route.0306",
       "operationId": "browser.target.revalidate",
       "method": "POST",
-      "decodedResourceLine": 327604,
+      "decodedResourceLine": 327788,
       "source": "contracts/payload-contracts.json#/records/306",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17081,7 +17039,7 @@
       "routeId": "route.0307",
       "operationId": "browser.session.credentials.submit",
       "method": "POST",
-      "decodedResourceLine": 330658,
+      "decodedResourceLine": 330842,
       "source": "contracts/payload-contracts.json#/records/307",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17129,7 +17087,7 @@
       "routeId": "route.0308",
       "operationId": "browser.auth.verify",
       "method": "POST",
-      "decodedResourceLine": 331247,
+      "decodedResourceLine": 331431,
       "source": "contracts/payload-contracts.json#/records/308",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17181,7 +17139,7 @@
       "routeId": "route.0309",
       "operationId": "browser.authAttempt.list",
       "method": "GET",
-      "decodedResourceLine": 333166,
+      "decodedResourceLine": 333350,
       "source": "contracts/payload-contracts.json#/records/309",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17229,7 +17187,7 @@
       "routeId": "route.0310",
       "operationId": "browser.account.save",
       "method": "POST",
-      "decodedResourceLine": 333755,
+      "decodedResourceLine": 333939,
       "source": "contracts/payload-contracts.json#/records/310",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17281,7 +17239,7 @@
       "routeId": "route.0311",
       "operationId": "browser.state.capture",
       "method": "POST",
-      "decodedResourceLine": 335674,
+      "decodedResourceLine": 335858,
       "source": "contracts/payload-contracts.json#/records/311",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17333,7 +17291,7 @@
       "routeId": "route.0312",
       "operationId": "browser.dialog.respond",
       "method": "POST",
-      "decodedResourceLine": 337593,
+      "decodedResourceLine": 337777,
       "source": "contracts/payload-contracts.json#/records/312",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17384,7 +17342,7 @@
       "routeId": "route.0313",
       "operationId": "browser.permission.respond",
       "method": "POST",
-      "decodedResourceLine": 339483,
+      "decodedResourceLine": 339667,
       "source": "contracts/payload-contracts.json#/records/313",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17435,7 +17393,7 @@
       "routeId": "route.0314",
       "operationId": "browser.challenge.resolve",
       "method": "POST",
-      "decodedResourceLine": 341373,
+      "decodedResourceLine": 341557,
       "source": "contracts/payload-contracts.json#/records/314",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17486,7 +17444,7 @@
       "routeId": "route.0315",
       "operationId": "browser.session.pause",
       "method": "POST",
-      "decodedResourceLine": 343263,
+      "decodedResourceLine": 343447,
       "source": "contracts/payload-contracts.json#/records/315",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17537,7 +17495,7 @@
       "routeId": "route.0316",
       "operationId": "browser.session.resume",
       "method": "POST",
-      "decodedResourceLine": 345410,
+      "decodedResourceLine": 345594,
       "source": "contracts/payload-contracts.json#/records/316",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17588,7 +17546,7 @@
       "routeId": "route.0317",
       "operationId": "browser.session.recover",
       "method": "POST",
-      "decodedResourceLine": 347557,
+      "decodedResourceLine": 347741,
       "source": "contracts/payload-contracts.json#/records/317",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17639,7 +17597,7 @@
       "routeId": "route.0318",
       "operationId": "browser.session.close",
       "method": "POST",
-      "decodedResourceLine": 349704,
+      "decodedResourceLine": 349888,
       "source": "contracts/payload-contracts.json#/records/318",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17691,7 +17649,7 @@
       "routeId": "route.0319",
       "operationId": "browser.session.artifact.list",
       "method": "GET",
-      "decodedResourceLine": 352051,
+      "decodedResourceLine": 352235,
       "source": "contracts/payload-contracts.json#/records/319",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17739,7 +17697,7 @@
       "routeId": "route.0320",
       "operationId": "browser.upload.create",
       "method": "POST",
-      "decodedResourceLine": 352640,
+      "decodedResourceLine": 352824,
       "source": "contracts/payload-contracts.json#/records/320",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17790,7 +17748,7 @@
       "routeId": "route.0321",
       "operationId": "browser.download.list",
       "method": "GET",
-      "decodedResourceLine": 353295,
+      "decodedResourceLine": 353479,
       "source": "contracts/payload-contracts.json#/records/321",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17838,7 +17796,7 @@
       "routeId": "route.0322",
       "operationId": "browser.preview.ticket.create",
       "method": "POST",
-      "decodedResourceLine": 353884,
+      "decodedResourceLine": 354068,
       "source": "contracts/payload-contracts.json#/records/322",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17889,7 +17847,7 @@
       "routeId": "route.0323",
       "operationId": "browser.preview.latest",
       "method": "GET",
-      "decodedResourceLine": 355615,
+      "decodedResourceLine": 355799,
       "source": "contracts/payload-contracts.json#/records/323",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17937,7 +17895,7 @@
       "routeId": "route.0324",
       "operationId": "browser.preview.connect",
       "method": "WSS",
-      "decodedResourceLine": 356204,
+      "decodedResourceLine": 356388,
       "source": "contracts/payload-contracts.json#/records/324",
       "bodyAcceptsNull": true,
       "roles": {
@@ -17985,7 +17943,7 @@
       "routeId": "route.0325",
       "operationId": "browser.account.list",
       "method": "GET",
-      "decodedResourceLine": 356793,
+      "decodedResourceLine": 356977,
       "source": "contracts/payload-contracts.json#/records/325",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18033,7 +17991,7 @@
       "routeId": "route.0326",
       "operationId": "browser.account.save",
       "method": "POST",
-      "decodedResourceLine": 357373,
+      "decodedResourceLine": 357557,
       "source": "contracts/payload-contracts.json#/records/326",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18085,7 +18043,7 @@
       "routeId": "route.0327",
       "operationId": "browser.account.read",
       "method": "GET",
-      "decodedResourceLine": 359283,
+      "decodedResourceLine": 359467,
       "source": "contracts/payload-contracts.json#/records/327",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18133,7 +18091,7 @@
       "routeId": "route.0328",
       "operationId": "browser.account.metadata.patch",
       "method": "PATCH",
-      "decodedResourceLine": 359872,
+      "decodedResourceLine": 360056,
       "source": "contracts/payload-contracts.json#/records/328",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18181,7 +18139,7 @@
       "routeId": "route.0329",
       "operationId": "browser.account.verify",
       "method": "POST",
-      "decodedResourceLine": 360461,
+      "decodedResourceLine": 360645,
       "source": "contracts/payload-contracts.json#/records/329",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18233,7 +18191,7 @@
       "routeId": "route.0330",
       "operationId": "browser.account.reauthenticate",
       "method": "POST",
-      "decodedResourceLine": 362380,
+      "decodedResourceLine": 362564,
       "source": "contracts/payload-contracts.json#/records/330",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18281,7 +18239,7 @@
       "routeId": "route.0331",
       "operationId": "browser.account.logout",
       "method": "POST",
-      "decodedResourceLine": 362969,
+      "decodedResourceLine": 363153,
       "source": "contracts/payload-contracts.json#/records/331",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18333,7 +18291,7 @@
       "routeId": "route.0332",
       "operationId": "browser.state.invalidate",
       "method": "POST",
-      "decodedResourceLine": 364888,
+      "decodedResourceLine": 365072,
       "source": "contracts/payload-contracts.json#/records/332",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18384,7 +18342,7 @@
       "routeId": "route.0333",
       "operationId": "browser.stateBundle.list",
       "method": "GET",
-      "decodedResourceLine": 366771,
+      "decodedResourceLine": 366955,
       "source": "contracts/payload-contracts.json#/records/333",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18432,7 +18390,7 @@
       "routeId": "route.0334",
       "operationId": "browser.stateBundle.read",
       "method": "GET",
-      "decodedResourceLine": 367360,
+      "decodedResourceLine": 367544,
       "source": "contracts/payload-contracts.json#/records/334",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18480,7 +18438,7 @@
       "routeId": "route.0335",
       "operationId": "browser.state.verify",
       "method": "POST",
-      "decodedResourceLine": 367956,
+      "decodedResourceLine": 368140,
       "source": "contracts/payload-contracts.json#/records/335",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18531,7 +18489,7 @@
       "routeId": "route.0336",
       "operationId": "browser.state.activate",
       "method": "POST",
-      "decodedResourceLine": 369846,
+      "decodedResourceLine": 370030,
       "source": "contracts/payload-contracts.json#/records/336",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18583,7 +18541,7 @@
       "routeId": "route.0337",
       "operationId": "browser.state.invalidate",
       "method": "POST",
-      "decodedResourceLine": 371772,
+      "decodedResourceLine": 371956,
       "source": "contracts/payload-contracts.json#/records/337",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18634,7 +18592,7 @@
       "routeId": "route.0338",
       "operationId": "browser.bridge.list",
       "method": "GET",
-      "decodedResourceLine": 373662,
+      "decodedResourceLine": 373846,
       "source": "contracts/payload-contracts.json#/records/338",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18682,7 +18640,7 @@
       "routeId": "route.0339",
       "operationId": "browser.bridge.enroll",
       "method": "POST",
-      "decodedResourceLine": 374242,
+      "decodedResourceLine": 374426,
       "source": "contracts/payload-contracts.json#/records/339",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18732,7 +18690,7 @@
       "routeId": "route.0340",
       "operationId": "browser.bridge.enrollment.complete",
       "method": "POST",
-      "decodedResourceLine": 374888,
+      "decodedResourceLine": 375072,
       "source": "contracts/payload-contracts.json#/records/340",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18780,7 +18738,7 @@
       "routeId": "route.0341",
       "operationId": "browser.bridge.read",
       "method": "GET",
-      "decodedResourceLine": 375477,
+      "decodedResourceLine": 375661,
       "source": "contracts/payload-contracts.json#/records/341",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18828,7 +18786,7 @@
       "routeId": "route.0342",
       "operationId": "browser.bridge.connection.list",
       "method": "GET",
-      "decodedResourceLine": 376066,
+      "decodedResourceLine": 376250,
       "source": "contracts/payload-contracts.json#/records/342",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18876,7 +18834,7 @@
       "routeId": "route.0343",
       "operationId": "browser.bridge.profile.list",
       "method": "GET",
-      "decodedResourceLine": 376655,
+      "decodedResourceLine": 376839,
       "source": "contracts/payload-contracts.json#/records/343",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18924,7 +18882,7 @@
       "routeId": "route.0344",
       "operationId": "browser.bridge.test",
       "method": "POST",
-      "decodedResourceLine": 377244,
+      "decodedResourceLine": 377428,
       "source": "contracts/payload-contracts.json#/records/344",
       "bodyAcceptsNull": true,
       "roles": {
@@ -18974,7 +18932,7 @@
       "routeId": "route.0345",
       "operationId": "browser.bridge.rotateCertificate",
       "method": "POST",
-      "decodedResourceLine": 377899,
+      "decodedResourceLine": 378083,
       "source": "contracts/payload-contracts.json#/records/345",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19024,7 +18982,7 @@
       "routeId": "route.0346",
       "operationId": "browser.bridge.revoke",
       "method": "POST",
-      "decodedResourceLine": 378554,
+      "decodedResourceLine": 378738,
       "source": "contracts/payload-contracts.json#/records/346",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19074,7 +19032,7 @@
       "routeId": "route.0347",
       "operationId": "browser.automation.list",
       "method": "GET",
-      "decodedResourceLine": 379209,
+      "decodedResourceLine": 379393,
       "source": "contracts/payload-contracts.json#/records/347",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19122,7 +19080,7 @@
       "routeId": "route.0348",
       "operationId": "browser.automation.create",
       "method": "POST",
-      "decodedResourceLine": 379789,
+      "decodedResourceLine": 379973,
       "source": "contracts/payload-contracts.json#/records/348",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19170,7 +19128,7 @@
       "routeId": "route.0349",
       "operationId": "browser.automation.read",
       "method": "GET",
-      "decodedResourceLine": 380369,
+      "decodedResourceLine": 380553,
       "source": "contracts/payload-contracts.json#/records/349",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19218,7 +19176,7 @@
       "routeId": "route.0350",
       "operationId": "browser.automation.metadata.patch",
       "method": "PATCH",
-      "decodedResourceLine": 380958,
+      "decodedResourceLine": 381142,
       "source": "contracts/payload-contracts.json#/records/350",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19266,7 +19224,7 @@
       "routeId": "route.0351",
       "operationId": "browser.automation.revision.list",
       "method": "GET",
-      "decodedResourceLine": 381547,
+      "decodedResourceLine": 381731,
       "source": "contracts/payload-contracts.json#/records/351",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19314,7 +19272,7 @@
       "routeId": "route.0352",
       "operationId": "browser.automation.revision.publish",
       "method": "POST",
-      "decodedResourceLine": 382136,
+      "decodedResourceLine": 382320,
       "source": "contracts/payload-contracts.json#/records/352",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19362,7 +19320,7 @@
       "routeId": "route.0353",
       "operationId": "browser.automation.revision.read",
       "method": "GET",
-      "decodedResourceLine": 382725,
+      "decodedResourceLine": 382909,
       "source": "contracts/payload-contracts.json#/records/353",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19410,7 +19368,7 @@
       "routeId": "route.0354",
       "operationId": "browser.automation.preflight",
       "method": "POST",
-      "decodedResourceLine": 383321,
+      "decodedResourceLine": 383505,
       "source": "contracts/payload-contracts.json#/records/354",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19461,7 +19419,7 @@
       "routeId": "route.0355",
       "operationId": "browser.automation.verify",
       "method": "POST",
-      "decodedResourceLine": 384959,
+      "decodedResourceLine": 385143,
       "source": "contracts/payload-contracts.json#/records/355",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19512,7 +19470,7 @@
       "routeId": "route.0356",
       "operationId": "browser.automation.activate",
       "method": "POST",
-      "decodedResourceLine": 386597,
+      "decodedResourceLine": 386781,
       "source": "contracts/payload-contracts.json#/records/356",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19560,7 +19518,7 @@
       "routeId": "route.0357",
       "operationId": "browser.automation.rollback",
       "method": "POST",
-      "decodedResourceLine": 387193,
+      "decodedResourceLine": 387377,
       "source": "contracts/payload-contracts.json#/records/357",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19608,7 +19566,7 @@
       "routeId": "route.0358",
       "operationId": "browser.automation.authBinding.list",
       "method": "GET",
-      "decodedResourceLine": 387789,
+      "decodedResourceLine": 387973,
       "source": "contracts/payload-contracts.json#/records/358",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19656,7 +19614,7 @@
       "routeId": "route.0359",
       "operationId": "browser.automation.authBinding.create",
       "method": "POST",
-      "decodedResourceLine": 388378,
+      "decodedResourceLine": 388562,
       "source": "contracts/payload-contracts.json#/records/359",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19704,7 +19662,7 @@
       "routeId": "route.0360",
       "operationId": "browser.automation.schedule.list",
       "method": "GET",
-      "decodedResourceLine": 388967,
+      "decodedResourceLine": 389151,
       "source": "contracts/payload-contracts.json#/records/360",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19752,7 +19710,7 @@
       "routeId": "route.0361",
       "operationId": "browser.automation.schedule.create",
       "method": "POST",
-      "decodedResourceLine": 389556,
+      "decodedResourceLine": 389740,
       "source": "contracts/payload-contracts.json#/records/361",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19800,7 +19758,7 @@
       "routeId": "route.0362",
       "operationId": "browser.automation.schedule.patch",
       "method": "PATCH",
-      "decodedResourceLine": 390145,
+      "decodedResourceLine": 390329,
       "source": "contracts/payload-contracts.json#/records/362",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19848,7 +19806,7 @@
       "routeId": "route.0363",
       "operationId": "browser.teaching.start",
       "method": "POST",
-      "decodedResourceLine": 390741,
+      "decodedResourceLine": 390925,
       "source": "contracts/payload-contracts.json#/records/363",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19899,7 +19857,7 @@
       "routeId": "route.0364",
       "operationId": "browser.teaching.read",
       "method": "GET",
-      "decodedResourceLine": 392372,
+      "decodedResourceLine": 392556,
       "source": "contracts/payload-contracts.json#/records/364",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19947,7 +19905,7 @@
       "routeId": "route.0365",
       "operationId": "browser.teaching.stop",
       "method": "POST",
-      "decodedResourceLine": 392961,
+      "decodedResourceLine": 393145,
       "source": "contracts/payload-contracts.json#/records/365",
       "bodyAcceptsNull": true,
       "roles": {
@@ -19995,7 +19953,7 @@
       "routeId": "route.0366",
       "operationId": "browser.teaching.compile",
       "method": "POST",
-      "decodedResourceLine": 393550,
+      "decodedResourceLine": 393734,
       "source": "contracts/payload-contracts.json#/records/366",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20046,7 +20004,7 @@
       "routeId": "route.0367",
       "operationId": "browser.automation.run",
       "method": "POST",
-      "decodedResourceLine": 395181,
+      "decodedResourceLine": 395365,
       "source": "contracts/payload-contracts.json#/records/367",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20097,7 +20055,7 @@
       "routeId": "route.0368",
       "operationId": "browser.automation.run.list",
       "method": "GET",
-      "decodedResourceLine": 396812,
+      "decodedResourceLine": 396996,
       "source": "contracts/payload-contracts.json#/records/368",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20145,7 +20103,7 @@
       "routeId": "route.0369",
       "operationId": "browser.automation.run.read",
       "method": "GET",
-      "decodedResourceLine": 397401,
+      "decodedResourceLine": 397585,
       "source": "contracts/payload-contracts.json#/records/369",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20193,7 +20151,7 @@
       "routeId": "route.0370",
       "operationId": "browser.session.state",
       "method": "GET",
-      "decodedResourceLine": 397990,
+      "decodedResourceLine": 398174,
       "source": "contracts/payload-contracts.json#/records/370",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20244,7 +20202,7 @@
       "routeId": "route.0371",
       "operationId": "browser.automation.run.step.list",
       "method": "GET",
-      "decodedResourceLine": 400137,
+      "decodedResourceLine": 400321,
       "source": "contracts/payload-contracts.json#/records/371",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20292,7 +20250,7 @@
       "routeId": "route.0372",
       "operationId": "browser.control.acquire",
       "method": "POST",
-      "decodedResourceLine": 400726,
+      "decodedResourceLine": 400910,
       "source": "contracts/payload-contracts.json#/records/372",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20344,7 +20302,7 @@
       "routeId": "route.0373",
       "operationId": "browser.control.release",
       "method": "POST",
-      "decodedResourceLine": 402941,
+      "decodedResourceLine": 403125,
       "source": "contracts/payload-contracts.json#/records/373",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20396,7 +20354,7 @@
       "routeId": "route.0374",
       "operationId": "browser.control.transfer",
       "method": "POST",
-      "decodedResourceLine": 405156,
+      "decodedResourceLine": 405340,
       "source": "contracts/payload-contracts.json#/records/374",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20448,7 +20406,7 @@
       "routeId": "route.0375",
       "operationId": "browser.automation.cancel",
       "method": "POST",
-      "decodedResourceLine": 407371,
+      "decodedResourceLine": 407555,
       "source": "contracts/payload-contracts.json#/records/375",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20499,7 +20457,7 @@
       "routeId": "route.0376",
       "operationId": "browser.automation.reauthenticate",
       "method": "POST",
-      "decodedResourceLine": 409002,
+      "decodedResourceLine": 409186,
       "source": "contracts/payload-contracts.json#/records/376",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20550,7 +20508,7 @@
       "routeId": "route.0377",
       "operationId": "browser.automation.reconcile",
       "method": "POST",
-      "decodedResourceLine": 410633,
+      "decodedResourceLine": 410817,
       "source": "contracts/payload-contracts.json#/records/377",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20601,7 +20559,7 @@
       "routeId": "route.0378",
       "operationId": "browser.run.manualReview",
       "method": "POST",
-      "decodedResourceLine": 412264,
+      "decodedResourceLine": 412448,
       "source": "contracts/payload-contracts.json#/records/378",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20652,7 +20610,7 @@
       "routeId": "route.0379",
       "operationId": "browser.challenge.resolve",
       "method": "POST",
-      "decodedResourceLine": 413103,
+      "decodedResourceLine": 413287,
       "source": "contracts/payload-contracts.json#/records/379",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20703,7 +20661,7 @@
       "routeId": "route.0380",
       "operationId": "browser.automation.artifact.list",
       "method": "GET",
-      "decodedResourceLine": 414993,
+      "decodedResourceLine": 415177,
       "source": "contracts/payload-contracts.json#/records/380",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20751,7 +20709,7 @@
       "routeId": "route.0381",
       "operationId": "browser.automation.artifact.read",
       "method": "GET",
-      "decodedResourceLine": 415582,
+      "decodedResourceLine": 415766,
       "source": "contracts/payload-contracts.json#/records/381",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20799,7 +20757,7 @@
       "routeId": "route.0382",
       "operationId": "browser.automation.enable",
       "method": "POST",
-      "decodedResourceLine": 416178,
+      "decodedResourceLine": 416362,
       "source": "contracts/payload-contracts.json#/records/382",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20847,7 +20805,7 @@
       "routeId": "route.0383",
       "operationId": "browser.automation.disable",
       "method": "POST",
-      "decodedResourceLine": 416767,
+      "decodedResourceLine": 416951,
       "source": "contracts/payload-contracts.json#/records/383",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20895,7 +20853,7 @@
       "routeId": "route.0384",
       "operationId": "browser.automation.repair",
       "method": "POST",
-      "decodedResourceLine": 417356,
+      "decodedResourceLine": 417540,
       "source": "contracts/payload-contracts.json#/records/384",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20947,7 +20905,7 @@
       "routeId": "route.0385",
       "operationId": "secret.list",
       "method": "GET",
-      "decodedResourceLine": 419359,
+      "decodedResourceLine": 419543,
       "source": "contracts/payload-contracts.json#/records/385",
       "bodyAcceptsNull": true,
       "roles": {
@@ -20995,7 +20953,7 @@
       "routeId": "route.0386",
       "operationId": "secret.create",
       "method": "POST",
-      "decodedResourceLine": 419939,
+      "decodedResourceLine": 420123,
       "source": "contracts/payload-contracts.json#/records/386",
       "bodyAcceptsNull": false,
       "roles": {
@@ -21043,7 +21001,7 @@
       "routeId": "route.0387",
       "operationId": "secret.metadata.read",
       "method": "GET",
-      "decodedResourceLine": 420510,
+      "decodedResourceLine": 420694,
       "source": "contracts/payload-contracts.json#/records/387",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21091,7 +21049,7 @@
       "routeId": "route.0388",
       "operationId": "secret.metadata.patch",
       "method": "PATCH",
-      "decodedResourceLine": 421099,
+      "decodedResourceLine": 421283,
       "source": "contracts/payload-contracts.json#/records/388",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21139,7 +21097,7 @@
       "routeId": "route.0389",
       "operationId": "secret.delete",
       "method": "DELETE",
-      "decodedResourceLine": 421688,
+      "decodedResourceLine": 421872,
       "source": "contracts/payload-contracts.json#/records/389",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21187,7 +21145,7 @@
       "routeId": "route.0390",
       "operationId": "secret.value.read",
       "method": "GET",
-      "decodedResourceLine": 422277,
+      "decodedResourceLine": 422461,
       "source": "contracts/payload-contracts.json#/records/390",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21235,7 +21193,7 @@
       "routeId": "route.0391",
       "operationId": "secret.version.create",
       "method": "POST",
-      "decodedResourceLine": 422937,
+      "decodedResourceLine": 423121,
       "source": "contracts/payload-contracts.json#/records/391",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21287,7 +21245,7 @@
       "routeId": "route.0392",
       "operationId": "secret.version.list",
       "method": "GET",
-      "decodedResourceLine": 424060,
+      "decodedResourceLine": 424244,
       "source": "contracts/payload-contracts.json#/records/392",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21335,7 +21293,7 @@
       "routeId": "route.0393",
       "operationId": "secret.version.activate",
       "method": "POST",
-      "decodedResourceLine": 424649,
+      "decodedResourceLine": 424833,
       "source": "contracts/payload-contracts.json#/records/393",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21387,7 +21345,7 @@
       "routeId": "route.0394",
       "operationId": "secret.rotate",
       "method": "POST",
-      "decodedResourceLine": 425779,
+      "decodedResourceLine": 425963,
       "source": "contracts/payload-contracts.json#/records/394",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21439,7 +21397,7 @@
       "routeId": "route.0395",
       "operationId": "secret.binding.list",
       "method": "GET",
-      "decodedResourceLine": 426902,
+      "decodedResourceLine": 427086,
       "source": "contracts/payload-contracts.json#/records/395",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21487,7 +21445,7 @@
       "routeId": "route.0396",
       "operationId": "secret.bind",
       "method": "POST",
-      "decodedResourceLine": 427491,
+      "decodedResourceLine": 427675,
       "source": "contracts/payload-contracts.json#/records/396",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21538,7 +21496,7 @@
       "routeId": "route.0397",
       "operationId": "secret.unbind",
       "method": "DELETE",
-      "decodedResourceLine": 428574,
+      "decodedResourceLine": 428758,
       "source": "contracts/payload-contracts.json#/records/397",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21589,7 +21547,7 @@
       "routeId": "route.0398",
       "operationId": "secret.usage.read",
       "method": "GET",
-      "decodedResourceLine": 429664,
+      "decodedResourceLine": 429848,
       "source": "contracts/payload-contracts.json#/records/398",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21637,7 +21595,7 @@
       "routeId": "route.0399",
       "operationId": "secret.resolve.test",
       "method": "POST",
-      "decodedResourceLine": 430253,
+      "decodedResourceLine": 430437,
       "source": "contracts/payload-contracts.json#/records/399",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21685,7 +21643,7 @@
       "routeId": "route.0400",
       "operationId": "secret.password.generate",
       "method": "POST",
-      "decodedResourceLine": 430842,
+      "decodedResourceLine": 431026,
       "source": "contracts/payload-contracts.json#/records/400",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21733,7 +21691,7 @@
       "routeId": "route.0401",
       "operationId": "secret.import",
       "method": "POST",
-      "decodedResourceLine": 431422,
+      "decodedResourceLine": 431606,
       "source": "contracts/payload-contracts.json#/records/401",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21781,7 +21739,7 @@
       "routeId": "route.0402",
       "operationId": "secret.export",
       "method": "POST",
-      "decodedResourceLine": 432002,
+      "decodedResourceLine": 432186,
       "source": "contracts/payload-contracts.json#/records/402",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21829,7 +21787,7 @@
       "routeId": "route.0403",
       "operationId": "runtime.execution.list",
       "method": "GET",
-      "decodedResourceLine": 432582,
+      "decodedResourceLine": 432766,
       "source": "contracts/payload-contracts.json#/records/403",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21877,7 +21835,7 @@
       "routeId": "route.0404",
       "operationId": "runtime.execution.read",
       "method": "GET",
-      "decodedResourceLine": 433162,
+      "decodedResourceLine": 433346,
       "source": "contracts/payload-contracts.json#/records/404",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21925,7 +21883,7 @@
       "routeId": "route.0405",
       "operationId": "runtime.instance.list",
       "method": "GET",
-      "decodedResourceLine": 433751,
+      "decodedResourceLine": 433935,
       "source": "contracts/payload-contracts.json#/records/405",
       "bodyAcceptsNull": true,
       "roles": {
@@ -21973,7 +21931,7 @@
       "routeId": "route.0406",
       "operationId": "runtime.instance.read",
       "method": "GET",
-      "decodedResourceLine": 434331,
+      "decodedResourceLine": 434515,
       "source": "contracts/payload-contracts.json#/records/406",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22021,7 +21979,7 @@
       "routeId": "route.0407",
       "operationId": "runtime.process.list",
       "method": "GET",
-      "decodedResourceLine": 434920,
+      "decodedResourceLine": 435104,
       "source": "contracts/payload-contracts.json#/records/407",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22069,7 +22027,7 @@
       "routeId": "route.0408",
       "operationId": "runtime.connection.list",
       "method": "GET",
-      "decodedResourceLine": 435509,
+      "decodedResourceLine": 435693,
       "source": "contracts/payload-contracts.json#/records/408",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22117,7 +22075,7 @@
       "routeId": "route.0409",
       "operationId": "runtime.call.list",
       "method": "GET",
-      "decodedResourceLine": 436098,
+      "decodedResourceLine": 436282,
       "source": "contracts/payload-contracts.json#/records/409",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22165,7 +22123,7 @@
       "routeId": "route.0410",
       "operationId": "runtime.sandbox.read",
       "method": "GET",
-      "decodedResourceLine": 436687,
+      "decodedResourceLine": 436871,
       "source": "contracts/payload-contracts.json#/records/410",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22213,7 +22171,7 @@
       "routeId": "route.0411",
       "operationId": "runtime.cleanup.read",
       "method": "GET",
-      "decodedResourceLine": 437276,
+      "decodedResourceLine": 437460,
       "source": "contracts/payload-contracts.json#/records/411",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22261,7 +22219,7 @@
       "routeId": "route.0412",
       "operationId": "runtime.drain",
       "method": "POST",
-      "decodedResourceLine": 437865,
+      "decodedResourceLine": 438049,
       "source": "contracts/payload-contracts.json#/records/412",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22312,7 +22270,7 @@
       "routeId": "route.0413",
       "operationId": "runtime.instance.restart",
       "method": "POST",
-      "decodedResourceLine": 438624,
+      "decodedResourceLine": 438808,
       "source": "contracts/payload-contracts.json#/records/413",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22363,7 +22321,7 @@
       "routeId": "route.0414",
       "operationId": "runtime.instance.reconcile",
       "method": "POST",
-      "decodedResourceLine": 439383,
+      "decodedResourceLine": 439567,
       "source": "contracts/payload-contracts.json#/records/414",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22413,7 +22371,7 @@
       "routeId": "route.0415",
       "operationId": "runtime.boundary.verify",
       "method": "POST",
-      "decodedResourceLine": 440098,
+      "decodedResourceLine": 440282,
       "source": "contracts/payload-contracts.json#/records/415",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22464,7 +22422,7 @@
       "routeId": "route.0416",
       "operationId": "runtime.boundary.evidence.read",
       "method": "GET",
-      "decodedResourceLine": 441169,
+      "decodedResourceLine": 441353,
       "source": "contracts/payload-contracts.json#/records/416",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22512,7 +22470,7 @@
       "routeId": "route.0417",
       "operationId": "binding.list",
       "method": "GET",
-      "decodedResourceLine": 441749,
+      "decodedResourceLine": 441933,
       "source": "contracts/payload-contracts.json#/records/417",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22560,7 +22518,7 @@
       "routeId": "route.0418",
       "operationId": "binding.read",
       "method": "GET",
-      "decodedResourceLine": 442329,
+      "decodedResourceLine": 442513,
       "source": "contracts/payload-contracts.json#/records/418",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22608,7 +22566,7 @@
       "routeId": "route.0419",
       "operationId": "binding.preview",
       "method": "POST",
-      "decodedResourceLine": 442918,
+      "decodedResourceLine": 443102,
       "source": "contracts/payload-contracts.json#/records/419",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22656,7 +22614,7 @@
       "routeId": "route.0420",
       "operationId": "binding.test",
       "method": "POST",
-      "decodedResourceLine": 443498,
+      "decodedResourceLine": 443682,
       "source": "contracts/payload-contracts.json#/records/420",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22704,7 +22662,7 @@
       "routeId": "route.0421",
       "operationId": "external.target.list",
       "method": "GET",
-      "decodedResourceLine": 444078,
+      "decodedResourceLine": 444262,
       "source": "contracts/payload-contracts.json#/records/421",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22752,7 +22710,7 @@
       "routeId": "route.0422",
       "operationId": "external.target.create",
       "method": "POST",
-      "decodedResourceLine": 444658,
+      "decodedResourceLine": 444842,
       "source": "contracts/payload-contracts.json#/records/422",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22800,7 +22758,7 @@
       "routeId": "route.0423",
       "operationId": "external.target.read",
       "method": "GET",
-      "decodedResourceLine": 445238,
+      "decodedResourceLine": 445422,
       "source": "contracts/payload-contracts.json#/records/423",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22848,7 +22806,7 @@
       "routeId": "route.0424",
       "operationId": "external.target.patch",
       "method": "PATCH",
-      "decodedResourceLine": 445827,
+      "decodedResourceLine": 446011,
       "source": "contracts/payload-contracts.json#/records/424",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22896,7 +22854,7 @@
       "routeId": "route.0425",
       "operationId": "external.target.test",
       "method": "POST",
-      "decodedResourceLine": 446416,
+      "decodedResourceLine": 446600,
       "source": "contracts/payload-contracts.json#/records/425",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22944,7 +22902,7 @@
       "routeId": "route.0426",
       "operationId": "external.circuit.open",
       "method": "POST",
-      "decodedResourceLine": 447005,
+      "decodedResourceLine": 447189,
       "source": "contracts/payload-contracts.json#/records/426",
       "bodyAcceptsNull": true,
       "roles": {
@@ -22992,7 +22950,7 @@
       "routeId": "route.0427",
       "operationId": "external.circuit.close",
       "method": "POST",
-      "decodedResourceLine": 447594,
+      "decodedResourceLine": 447778,
       "source": "contracts/payload-contracts.json#/records/427",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23040,7 +22998,7 @@
       "routeId": "route.0428",
       "operationId": "external.authBinding.list",
       "method": "GET",
-      "decodedResourceLine": 448183,
+      "decodedResourceLine": 448367,
       "source": "contracts/payload-contracts.json#/records/428",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23088,7 +23046,7 @@
       "routeId": "route.0429",
       "operationId": "external.authBinding.create",
       "method": "POST",
-      "decodedResourceLine": 448763,
+      "decodedResourceLine": 448947,
       "source": "contracts/payload-contracts.json#/records/429",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23136,7 +23094,7 @@
       "routeId": "route.0430",
       "operationId": "external.authBinding.patch",
       "method": "PATCH",
-      "decodedResourceLine": 449343,
+      "decodedResourceLine": 449527,
       "source": "contracts/payload-contracts.json#/records/430",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23184,7 +23142,7 @@
       "routeId": "route.0431",
       "operationId": "external.targetBinding.list",
       "method": "GET",
-      "decodedResourceLine": 449932,
+      "decodedResourceLine": 450116,
       "source": "contracts/payload-contracts.json#/records/431",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23232,7 +23190,7 @@
       "routeId": "route.0432",
       "operationId": "external.targetBinding.create",
       "method": "POST",
-      "decodedResourceLine": 450512,
+      "decodedResourceLine": 450696,
       "source": "contracts/payload-contracts.json#/records/432",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23280,7 +23238,7 @@
       "routeId": "route.0433",
       "operationId": "external.targetBinding.remove",
       "method": "DELETE",
-      "decodedResourceLine": 451092,
+      "decodedResourceLine": 451276,
       "source": "contracts/payload-contracts.json#/records/433",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23328,7 +23286,7 @@
       "routeId": "route.0434",
       "operationId": "external.request.list",
       "method": "GET",
-      "decodedResourceLine": 451681,
+      "decodedResourceLine": 451865,
       "source": "contracts/payload-contracts.json#/records/434",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23376,7 +23334,7 @@
       "routeId": "route.0435",
       "operationId": "external.webhook.list",
       "method": "GET",
-      "decodedResourceLine": 452261,
+      "decodedResourceLine": 452445,
       "source": "contracts/payload-contracts.json#/records/435",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23424,7 +23382,7 @@
       "routeId": "route.0436",
       "operationId": "external.webhook.test",
       "method": "POST",
-      "decodedResourceLine": 452841,
+      "decodedResourceLine": 453025,
       "source": "contracts/payload-contracts.json#/records/436",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23472,7 +23430,7 @@
       "routeId": "route.0437",
       "operationId": "monitor.overview.read",
       "method": "GET",
-      "decodedResourceLine": 453421,
+      "decodedResourceLine": 453605,
       "source": "contracts/payload-contracts.json#/records/437",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23520,7 +23478,7 @@
       "routeId": "route.0438",
       "operationId": "monitor.probe.list",
       "method": "GET",
-      "decodedResourceLine": 454001,
+      "decodedResourceLine": 454185,
       "source": "contracts/payload-contracts.json#/records/438",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23568,7 +23526,7 @@
       "routeId": "route.0439",
       "operationId": "monitor.stateHistory.read",
       "method": "GET",
-      "decodedResourceLine": 454581,
+      "decodedResourceLine": 454765,
       "source": "contracts/payload-contracts.json#/records/439",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23616,7 +23574,7 @@
       "routeId": "route.0440",
       "operationId": "monitor.profile.list",
       "method": "GET",
-      "decodedResourceLine": 455161,
+      "decodedResourceLine": 455345,
       "source": "contracts/payload-contracts.json#/records/440",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23664,7 +23622,7 @@
       "routeId": "route.0441",
       "operationId": "monitor.profile.replace",
       "method": "PUT",
-      "decodedResourceLine": 455741,
+      "decodedResourceLine": 455925,
       "source": "contracts/payload-contracts.json#/records/441",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23712,7 +23670,7 @@
       "routeId": "route.0442",
       "operationId": "monitor.probe.request",
       "method": "POST",
-      "decodedResourceLine": 456330,
+      "decodedResourceLine": 456514,
       "source": "contracts/payload-contracts.json#/records/442",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23764,7 +23722,7 @@
       "routeId": "route.0443",
       "operationId": "monitor.alert.list",
       "method": "GET",
-      "decodedResourceLine": 457328,
+      "decodedResourceLine": 457512,
       "source": "contracts/payload-contracts.json#/records/443",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23812,7 +23770,7 @@
       "routeId": "route.0444",
       "operationId": "monitor.alert.read",
       "method": "GET",
-      "decodedResourceLine": 457908,
+      "decodedResourceLine": 458092,
       "source": "contracts/payload-contracts.json#/records/444",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23860,7 +23818,7 @@
       "routeId": "route.0445",
       "operationId": "monitor.alert.acknowledge",
       "method": "POST",
-      "decodedResourceLine": 458497,
+      "decodedResourceLine": 458681,
       "source": "contracts/payload-contracts.json#/records/445",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23908,7 +23866,7 @@
       "routeId": "route.0446",
       "operationId": "monitor.alert.suppress",
       "method": "POST",
-      "decodedResourceLine": 459086,
+      "decodedResourceLine": 459270,
       "source": "contracts/payload-contracts.json#/records/446",
       "bodyAcceptsNull": true,
       "roles": {
@@ -23956,7 +23914,7 @@
       "routeId": "route.0447",
       "operationId": "monitor.alert.close",
       "method": "POST",
-      "decodedResourceLine": 459675,
+      "decodedResourceLine": 459859,
       "source": "contracts/payload-contracts.json#/records/447",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24007,7 +23965,7 @@
       "routeId": "route.0448",
       "operationId": "monitor.alert.delivery.list",
       "method": "GET",
-      "decodedResourceLine": 460662,
+      "decodedResourceLine": 460846,
       "source": "contracts/payload-contracts.json#/records/448",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24055,7 +24013,7 @@
       "routeId": "route.0449",
       "operationId": "monitor.channel.test",
       "method": "POST",
-      "decodedResourceLine": 461251,
+      "decodedResourceLine": 461435,
       "source": "contracts/payload-contracts.json#/records/449",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24103,7 +24061,7 @@
       "routeId": "route.0450",
       "operationId": "runtime.workerHeartbeat.list",
       "method": "GET",
-      "decodedResourceLine": 461831,
+      "decodedResourceLine": 462015,
       "source": "contracts/payload-contracts.json#/records/450",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24151,7 +24109,7 @@
       "routeId": "route.0451",
       "operationId": "audit.event.list",
       "method": "GET",
-      "decodedResourceLine": 462411,
+      "decodedResourceLine": 462595,
       "source": "contracts/payload-contracts.json#/records/451",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24199,7 +24157,7 @@
       "routeId": "route.0452",
       "operationId": "audit.event.read",
       "method": "GET",
-      "decodedResourceLine": 462991,
+      "decodedResourceLine": 463175,
       "source": "contracts/payload-contracts.json#/records/452",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24247,7 +24205,7 @@
       "routeId": "route.0453",
       "operationId": "audit.integrity.read",
       "method": "GET",
-      "decodedResourceLine": 463580,
+      "decodedResourceLine": 463764,
       "source": "contracts/payload-contracts.json#/records/453",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24295,7 +24253,7 @@
       "routeId": "route.0454",
       "operationId": "audit.integrity.verify",
       "method": "POST",
-      "decodedResourceLine": 464160,
+      "decodedResourceLine": 464344,
       "source": "contracts/payload-contracts.json#/records/454",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24346,7 +24304,7 @@
       "routeId": "route.0455",
       "operationId": "audit.archive.list",
       "method": "GET",
-      "decodedResourceLine": 464930,
+      "decodedResourceLine": 465114,
       "source": "contracts/payload-contracts.json#/records/455",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24394,7 +24352,7 @@
       "routeId": "route.0456",
       "operationId": "log.query",
       "method": "GET",
-      "decodedResourceLine": 465510,
+      "decodedResourceLine": 465694,
       "source": "contracts/payload-contracts.json#/records/456",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24442,7 +24400,7 @@
       "routeId": "route.0457",
       "operationId": "log.stream",
       "method": "GET",
-      "decodedResourceLine": 466090,
+      "decodedResourceLine": 466274,
       "source": "contracts/payload-contracts.json#/records/457",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24490,7 +24448,7 @@
       "routeId": "route.0458",
       "operationId": "log.correlation.read",
       "method": "GET",
-      "decodedResourceLine": 466670,
+      "decodedResourceLine": 466854,
       "source": "contracts/payload-contracts.json#/records/458",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24538,7 +24496,7 @@
       "routeId": "route.0459",
       "operationId": "log.export",
       "method": "POST",
-      "decodedResourceLine": 467259,
+      "decodedResourceLine": 467443,
       "source": "contracts/payload-contracts.json#/records/459",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24586,7 +24544,7 @@
       "routeId": "route.0460",
       "operationId": "config.setting.list",
       "method": "GET",
-      "decodedResourceLine": 467839,
+      "decodedResourceLine": 468023,
       "source": "contracts/payload-contracts.json#/records/460",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24634,7 +24592,7 @@
       "routeId": "route.0461",
       "operationId": "config.setting.read",
       "method": "GET",
-      "decodedResourceLine": 468419,
+      "decodedResourceLine": 468603,
       "source": "contracts/payload-contracts.json#/records/461",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24682,7 +24640,7 @@
       "routeId": "route.0462",
       "operationId": "config.setting.replace",
       "method": "PUT",
-      "decodedResourceLine": 469008,
+      "decodedResourceLine": 469192,
       "source": "contracts/payload-contracts.json#/records/462",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24730,7 +24688,7 @@
       "routeId": "route.0463",
       "operationId": "config.setting.reset",
       "method": "POST",
-      "decodedResourceLine": 469597,
+      "decodedResourceLine": 469781,
       "source": "contracts/payload-contracts.json#/records/463",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24778,7 +24736,7 @@
       "routeId": "route.0464",
       "operationId": "config.validate",
       "method": "POST",
-      "decodedResourceLine": 470186,
+      "decodedResourceLine": 470370,
       "source": "contracts/payload-contracts.json#/records/464",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24826,7 +24784,7 @@
       "routeId": "route.0465",
       "operationId": "config.apply",
       "method": "POST",
-      "decodedResourceLine": 470766,
+      "decodedResourceLine": 470950,
       "source": "contracts/payload-contracts.json#/records/465",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24874,7 +24832,7 @@
       "routeId": "route.0466",
       "operationId": "config.export",
       "method": "POST",
-      "decodedResourceLine": 471346,
+      "decodedResourceLine": 471530,
       "source": "contracts/payload-contracts.json#/records/466",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24922,7 +24880,7 @@
       "routeId": "route.0467",
       "operationId": "config.import",
       "method": "POST",
-      "decodedResourceLine": 471926,
+      "decodedResourceLine": 472110,
       "source": "contracts/payload-contracts.json#/records/467",
       "bodyAcceptsNull": true,
       "roles": {
@@ -24970,7 +24928,7 @@
       "routeId": "route.0468",
       "operationId": "release.list",
       "method": "GET",
-      "decodedResourceLine": 472506,
+      "decodedResourceLine": 472690,
       "source": "contracts/payload-contracts.json#/records/468",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25018,7 +24976,7 @@
       "routeId": "route.0469",
       "operationId": "release.read",
       "method": "GET",
-      "decodedResourceLine": 473086,
+      "decodedResourceLine": 473270,
       "source": "contracts/payload-contracts.json#/records/469",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25066,7 +25024,7 @@
       "routeId": "route.0470",
       "operationId": "release.rollback",
       "method": "POST",
-      "decodedResourceLine": 473675,
+      "decodedResourceLine": 473859,
       "source": "contracts/payload-contracts.json#/records/470",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25114,7 +25072,7 @@
       "routeId": "route.0471",
       "operationId": "deployment.list",
       "method": "GET",
-      "decodedResourceLine": 474264,
+      "decodedResourceLine": 474448,
       "source": "contracts/payload-contracts.json#/records/471",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25162,7 +25120,7 @@
       "routeId": "route.0472",
       "operationId": "backup.list",
       "method": "GET",
-      "decodedResourceLine": 474844,
+      "decodedResourceLine": 475028,
       "source": "contracts/payload-contracts.json#/records/472",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25210,7 +25168,7 @@
       "routeId": "route.0473",
       "operationId": "backup.create",
       "method": "POST",
-      "decodedResourceLine": 475424,
+      "decodedResourceLine": 475608,
       "source": "contracts/payload-contracts.json#/records/473",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25258,7 +25216,7 @@
       "routeId": "route.0474",
       "operationId": "backup.verify",
       "method": "POST",
-      "decodedResourceLine": 476004,
+      "decodedResourceLine": 476188,
       "source": "contracts/payload-contracts.json#/records/474",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25306,7 +25264,7 @@
       "routeId": "route.0475",
       "operationId": "acceptance.run.list",
       "method": "GET",
-      "decodedResourceLine": 476593,
+      "decodedResourceLine": 476777,
       "source": "contracts/payload-contracts.json#/records/475",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25354,7 +25312,7 @@
       "routeId": "route.0476",
       "operationId": "maintenance.service.restart",
       "method": "POST",
-      "decodedResourceLine": 477173,
+      "decodedResourceLine": 477357,
       "source": "contracts/payload-contracts.json#/records/476",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25402,7 +25360,7 @@
       "routeId": "route.0477",
       "operationId": "system.health.read",
       "method": "GET",
-      "decodedResourceLine": 477753,
+      "decodedResourceLine": 477937,
       "source": "contracts/payload-contracts.json#/records/477",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25450,7 +25408,7 @@
       "routeId": "route.0478",
       "operationId": "system.readiness.read",
       "method": "GET",
-      "decodedResourceLine": 478333,
+      "decodedResourceLine": 478517,
       "source": "contracts/payload-contracts.json#/records/478",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25498,7 +25456,7 @@
       "routeId": "route.0479",
       "operationId": "system.version.read",
       "method": "GET",
-      "decodedResourceLine": 478913,
+      "decodedResourceLine": 479097,
       "source": "contracts/payload-contracts.json#/records/479",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25546,7 +25504,7 @@
       "routeId": "route.0480",
       "operationId": "selfTest.catalog.list",
       "method": "GET",
-      "decodedResourceLine": 479493,
+      "decodedResourceLine": 479677,
       "source": "contracts/payload-contracts.json#/records/480",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25596,7 +25554,7 @@
       "routeId": "route.0481",
       "operationId": "selfTest.faultCatalog.list",
       "method": "GET",
-      "decodedResourceLine": 480975,
+      "decodedResourceLine": 481159,
       "source": "contracts/payload-contracts.json#/records/481",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25644,7 +25602,7 @@
       "routeId": "route.0482",
       "operationId": "selfTest.model.list",
       "method": "GET",
-      "decodedResourceLine": 481555,
+      "decodedResourceLine": 481739,
       "source": "contracts/payload-contracts.json#/records/482",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25692,7 +25650,7 @@
       "routeId": "route.0483",
       "operationId": "selfTest.run.start",
       "method": "POST",
-      "decodedResourceLine": 482135,
+      "decodedResourceLine": 482319,
       "source": "contracts/payload-contracts.json#/records/483",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25743,7 +25701,7 @@
       "routeId": "route.0484",
       "operationId": "selfTest.run.list",
       "method": "GET",
-      "decodedResourceLine": 485965,
+      "decodedResourceLine": 486149,
       "source": "contracts/payload-contracts.json#/records/484",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25791,7 +25749,7 @@
       "routeId": "route.0485",
       "operationId": "selfTest.run.status",
       "method": "GET",
-      "decodedResourceLine": 486545,
+      "decodedResourceLine": 486729,
       "source": "contracts/payload-contracts.json#/records/485",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25842,7 +25800,7 @@
       "routeId": "route.0486",
       "operationId": "selfTest.run.events.read",
       "method": "GET",
-      "decodedResourceLine": 490384,
+      "decodedResourceLine": 490568,
       "source": "contracts/payload-contracts.json#/records/486",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25890,7 +25848,7 @@
       "routeId": "route.0487",
       "operationId": "selfTest.run.history.read",
       "method": "GET",
-      "decodedResourceLine": 490973,
+      "decodedResourceLine": 491157,
       "source": "contracts/payload-contracts.json#/records/487",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25938,7 +25896,7 @@
       "routeId": "route.0488",
       "operationId": "selfTest.evidence.read",
       "method": "GET",
-      "decodedResourceLine": 491562,
+      "decodedResourceLine": 491746,
       "source": "contracts/payload-contracts.json#/records/488",
       "bodyAcceptsNull": true,
       "roles": {
@@ -25989,7 +25947,7 @@
       "routeId": "route.0489",
       "operationId": "selfTest.run.replay",
       "method": "POST",
-      "decodedResourceLine": 495401,
+      "decodedResourceLine": 495585,
       "source": "contracts/payload-contracts.json#/records/489",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26037,7 +25995,7 @@
       "routeId": "route.0490",
       "operationId": "selfTest.run.shrink",
       "method": "POST",
-      "decodedResourceLine": 495990,
+      "decodedResourceLine": 496174,
       "source": "contracts/payload-contracts.json#/records/490",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26085,7 +26043,7 @@
       "routeId": "route.0491",
       "operationId": "selfTest.run.cancel",
       "method": "POST",
-      "decodedResourceLine": 496579,
+      "decodedResourceLine": 496763,
       "source": "contracts/payload-contracts.json#/records/491",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26136,7 +26094,7 @@
       "routeId": "route.0492",
       "operationId": "selfTest.run.cleanup",
       "method": "POST",
-      "decodedResourceLine": 500418,
+      "decodedResourceLine": 500602,
       "source": "contracts/payload-contracts.json#/records/492",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26187,7 +26145,7 @@
       "routeId": "route.0493",
       "operationId": "system.capability.list",
       "method": "GET",
-      "decodedResourceLine": 504257,
+      "decodedResourceLine": 504441,
       "source": "contracts/payload-contracts.json#/records/493",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26235,7 +26193,7 @@
       "routeId": "route.0494",
       "operationId": "system.recovery.read",
       "method": "GET",
-      "decodedResourceLine": 504837,
+      "decodedResourceLine": 505021,
       "source": "contracts/payload-contracts.json#/records/494",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26283,7 +26241,7 @@
       "routeId": "route.0495",
       "operationId": "system.closure.read",
       "method": "GET",
-      "decodedResourceLine": 505417,
+      "decodedResourceLine": 505601,
       "source": "contracts/payload-contracts.json#/records/495",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26331,7 +26289,7 @@
       "routeId": "route.0496",
       "operationId": "authority.lineage.resolve",
       "method": "GET",
-      "decodedResourceLine": 505997,
+      "decodedResourceLine": 506181,
       "source": "contracts/payload-contracts.json#/records/496",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26381,7 +26339,7 @@
       "routeId": "route.0497",
       "operationId": "authority.lineage.graph",
       "method": "GET",
-      "decodedResourceLine": 507948,
+      "decodedResourceLine": 508132,
       "source": "contracts/payload-contracts.json#/records/497",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26429,7 +26387,7 @@
       "routeId": "route.0498",
       "operationId": "authority.intent.read",
       "method": "GET",
-      "decodedResourceLine": 508537,
+      "decodedResourceLine": 508721,
       "source": "contracts/payload-contracts.json#/records/498",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26477,7 +26435,7 @@
       "routeId": "route.0499",
       "operationId": "authority.context.read",
       "method": "GET",
-      "decodedResourceLine": 509126,
+      "decodedResourceLine": 509310,
       "source": "contracts/payload-contracts.json#/records/499",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26525,7 +26483,7 @@
       "routeId": "route.0500",
       "operationId": "authority.actionPlan.list",
       "method": "GET",
-      "decodedResourceLine": 509715,
+      "decodedResourceLine": 509899,
       "source": "contracts/payload-contracts.json#/records/500",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26573,7 +26531,7 @@
       "routeId": "route.0501",
       "operationId": "provenance.valueDerivation.list",
       "method": "GET",
-      "decodedResourceLine": 510304,
+      "decodedResourceLine": 510488,
       "source": "contracts/payload-contracts.json#/records/501",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26621,7 +26579,7 @@
       "routeId": "route.0502",
       "operationId": "secret.useContext.list",
       "method": "GET",
-      "decodedResourceLine": 510893,
+      "decodedResourceLine": 511077,
       "source": "contracts/payload-contracts.json#/records/502",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26669,7 +26627,7 @@
       "routeId": "route.0503",
       "operationId": "provenance.content.read",
       "method": "GET",
-      "decodedResourceLine": 511482,
+      "decodedResourceLine": 511666,
       "source": "contracts/payload-contracts.json#/records/503",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26717,7 +26675,7 @@
       "routeId": "route.0504",
       "operationId": "provenance.content.graph",
       "method": "GET",
-      "decodedResourceLine": 512071,
+      "decodedResourceLine": 512255,
       "source": "contracts/payload-contracts.json#/records/504",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26765,7 +26723,7 @@
       "routeId": "route.0505",
       "operationId": "agentic.security.event.list",
       "method": "GET",
-      "decodedResourceLine": 512660,
+      "decodedResourceLine": 512844,
       "source": "contracts/payload-contracts.json#/records/505",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26813,7 +26771,7 @@
       "routeId": "route.0506",
       "operationId": "agentic.security.event.read",
       "method": "GET",
-      "decodedResourceLine": 513240,
+      "decodedResourceLine": 513424,
       "source": "contracts/payload-contracts.json#/records/506",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26861,7 +26819,7 @@
       "routeId": "route.0507",
       "operationId": "selfTest.run.start",
       "method": "POST",
-      "decodedResourceLine": 513829,
+      "decodedResourceLine": 514013,
       "source": "contracts/payload-contracts.json#/records/507",
       "bodyAcceptsNull": true,
       "roles": {
@@ -26912,7 +26870,7 @@
       "routeId": "route.0508",
       "operationId": "agentic.security.evidence.export",
       "method": "POST",
-      "decodedResourceLine": 517659,
+      "decodedResourceLine": 517843,
       "source": "contracts/payload-contracts.json#/records/508",
       "bodyAcceptsNull": true,
       "roles": {
