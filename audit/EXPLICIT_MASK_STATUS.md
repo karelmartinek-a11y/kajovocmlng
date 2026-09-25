@@ -22,6 +22,8 @@ Schémata request, response a event všech čtyř upravených tras prošla kontr
 
 Soubor `audit/generated/current-r9-mask-inventory.json` ukazuje pro každou R9 trasu jednotlivé role, zdrojový JSON pointer a aktuální generičnost. `audit/generated/mask-parity.json` je širší odvozená evidence; žádná auditní matice nenahrazuje aktuální SSOT. Následující kontrakty musí dostat konkrétní masku podle vlastního textu SSOT, být provázány na jejich konzumenty a znovu projít celým auditem. Stav `CONTRACT CLOSED` ani `FREEZE READY` zatím nelze prohlásit.
 
+Bezprostředně následující `route.0002` (`component.state.query`) podle § 44.2 vyžaduje bounded state keys a pro každý klíč typovaný payload se schema/payload digestem. V aktuálních vložených zdrojích zatím není uzavřená konečná mapa `state key → payload schema`, kterou by šlo bezpečně vložit jako `oneOf`/diskriminátor do této odpovědi. Volný JSON nebo řetězec s digestem by tento požadavek nesplnil. Tuto trasu proto audit ponechává jako otevřenou; při jejím návrhu musí vzniknout i autoritativní mapa stavových klíčů a jejích přesných schémat.
+
 ## Další dvě doplněné trasy
 
 `route.0003` (`component.heartbeat`) používá původní vloženou masku `ComponentHeartbeat` se všemi deseti závislými definicemi, konkrétní potvrzení přijetí podle § 44.1 a totožnou masku v response/event. `route.0004` (`component.control.ack`) má povinný ACK status, lineage, source sequence, digesty a observed state podle § 44.5 a 49.22; výstupní potvrzení zpracování je identické v response/event. Komponentové target guardy u enable/disable jsou po opravě určeny pouze jednou v request envelope, takže dvě rozdílné kopie téže hodnoty nemohou projít validací. Jejich kompatibilita se všemi dalšími konzumenty stále vyžaduje sémantické potvrzení.
