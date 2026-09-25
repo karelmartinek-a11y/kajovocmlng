@@ -1,63 +1,23 @@
-# Audit explicitních JSON masek a návaznosti předávek
+# Stav explicitních kontraktů v aktuálním SSOT
 
-**Stav: BLOCKED.** Zdrojový snapshot je `main` / `581b4973a49923bee67ebc2b3ec3001584d61cf9`; SHA-256 souboru `00_SSOT/KajovoCMLNG_SSOT.md` je `e5ea095d389a2bb6cdc261e001f194db7885a2ec6ec031a80ca318832b375b7d`. Jediným zdrojem definic je současný text SSOT včetně vložených resources. Odvozené matice jsou pouze evidence.
+**BLOCKED — program zatím není připraven k bezchybné generaci.** Jedinou autoritou je `00_SSOT/KajovoCMLNG_SSOT.md`, včetně dekódovaného katalogu R9. Aktuální SHA-256 celého dokumentu je `115ef4a1c530e7abd6f36cc79c54da9831dcbd1a668d44e9cf15ece882817cb9`.
 
-## Autoritativní kontrola vloženého R9
+## Uzavřené v tomto kroku
 
-`python scripts/audit_r9_masks.py` čte **přímo** aktuální bloky `KCML-R9-RESOURCE` z `00_SSOT/KajovoCMLNG_SSOT.md`. Kontroluje všech 21 vložených R9 resources, jejich dekódované bytes, deklarované SHA-256 a duplicitní JSON členy. Zdrojové `contracts/payload-contracts.json` má 519 604 dekódovaných řádků a 32 316 950 bytes; `contracts/operation-contracts.json` má 8 958 685 bytes. Skript postupně prochází všechny uzly každé request, response a event masky a zaznamenává všechny role všech 509 tras. Výstup s autoritativním JSON pointerem každé trasy je v `audit/generated/current-r9-mask-inventory.json`.
+Kontrakty `route.0000` (`component.control.enable`) a `route.0001` (`component.control.disable`) mají konkrétní povinnou vstupní masku s rozlišeným `desiredState`, command ID, logical operation ID, důvodem, correlation/causation, deadline, digestem, idempotency key, target lineage a state/version guardy. Výstupní `response.output` a navazující `event.payload` používají **stejný JSON Schema objekt a schema ID**. Maska výslovně odmítá `body: null` i dřívější obecný `values` kontejner. Podmínky pro `ACCEPTED` rozlišují durable admission a dokončení efektu; `UNKNOWN` vyžaduje reconciliation. Technický tvar je odvozen z textu § 42.1.1, 44.4, 44.5 a 49.22. Editace je reprodukovatelná pomocí `scripts/close_component_control_masks.py` a je vložená do samotného R9.
 
-| Zjištění přímo z R9 | Počet | Důsledek |
+Schémata request, response a event obou tras prošla kontrolou Draft 2020-12. Negativní request s `body: null` je odmítnut a výstupní maska je totožná se vstupem navazující události. `scripts/audit_r9_masks.py` znovu prošel všechny fyzické R9 resources a jejich SHA-256; nevrátil žádný digest mismatch. Oba audity správně končí nenulovým kódem, protože nezbylé kontrakty nejsou uzavřené.
+
+## Aktuální otevřené odchylky
+
+| Kontrola | Zbývající počet | Význam |
 | --- | ---: | --- |
-| Operační záznamy / route záznamy | 586 / 509 | Aktuální vložený R9 katalog |
-| Chybějící command/response schema identity | 260 u 130 operací | Odkaz nevede na deklarovanou R9 masku |
-| Requesty s obecným `values` slotem | 509 | Doménové názvy a typy polí nejsou uzavřené |
-| Response s obecným `values` slotem | 509 | Výstupní doménová maska není určená |
-| Eventy s obecným `values` slotem | 509 | Událostní doménová maska není určená |
-| Request `body` dovolující `null` | 507 | Nutná věcná revize pro každou operaci, u níž je tělo povinné |
-| Trasy bez `sourceRequirementIds` i bez `authoritySourceRefs` operace | 341 | R9 neuvádí ani přesnou zdrojovou vazbu pro odvození polí |
-| Nesoulad deklarovaných digestů R9 | 0 | Potvrzuje integritu bytes, nikoli úplnost masek |
+| Generické R9 request / response / event masky | 507 / 507 / 507 | Doménová pole a varianty nejsou vymezena |
+| R9 request masky připouštějící `body: null` | 505 | Povinnost těla vyžaduje věcnou kontrolu podle operace |
+| Chybějící command/response identity v R9 | 260 u 130 operací | Záznam odkazuje na nedefinovanou masku |
+| Efektivní operace a trasy v celém SSOT | 619 / 542 | Zahrnují pozdější explicitní specializace |
+| Obecné efektivní hranice | 1 521 | Širší audit `scripts/verify_mask_parity.py` |
+| Neověřené předávky | 3 204 | Shoda digestu sama nedokazuje stejný transport a adaptér |
+| Digest mismatch vložených R9 resources | 0 | Integrita není sémantická úplnost |
 
-§ 64.2 výslovně tvrdí, že každá route má vlastní request, response a event schéma se source-bound business payloadem. R9 skutečně obsahuje tři JSON Schema objekty pro každou route, avšak v každé z 1 527 hranic mají jejich hodnoty obecný `slot` bez `enum` či `const`; `canonicalJson` nemá doménové vnořené schéma. To je konkrétní nesoulad mezi textovým významem tvrzení a tím, co samotná maska přijímá. Bez rozhodnutí o přesných doménových polích, variantách a nullabilitě nelze bezpečně přepsat všech 509 tras.
-
-### První kontrakt po jednotlivých hranicích: `route.0000` / `component.control.enable`
-
-Autorita textu: § 44.4 vyjmenovává command ID, logical operation ID, desired state, reason, correlation/causation, deadline, digest, idempotency key, target component/revision/release/runtime generation, binding-set revision, activation epoch a očekávané verze stavu. § 49.22 zpřesňuje CAS, outbox a význam ACK. R8 určuje `POST /v1/kcml/control/enable` na `COMPONENT_ORIGIN`, ale neobsahuje payload binding. R9 `sourceRequirementIds` obsahuje 53 atomů včetně pravidel heartbeat, state query, probe a secret rotation, které nejsou mapováním polí tohoto příkazu.
-
-| Hranice | Stav aktuální R9 masky | Chybějící rozhodnutí v autoritě |
-| --- | --- | --- |
-| Request | `body` smí být `null`, `query` je libovolné pole dvojic name/value a většina hodnot `guards` smí být `null` | Přesné rozdělení uvedených údajů mezi path/query/body/guards, typy, povinnost a povolené varianty |
-| Response | `status` má obecnou algebru a `output.values` libovolné sloty | Přesný tvar `ACCEPTED` výsledku, případného erroru a jejich doménových polí |
-| Event | `payload.values` libovolné sloty | Konkrétní event varianty, jejich pole a vztah k pozdějšímu admission/outcome ACK |
-
-Přímý negativní svědek: `jsonschema.Draft202012Validator` přijme request s `routeId=route.0000`, `operationId=component.control.enable`, `pathParameters={}`, `query=[]`, `body=null` a všemi nullable `guards` nastavenými na `null` (kromě syntakticky platného `clientRequestDigest`). Tím je prokázáno, že maska nevyžaduje ani `desired state` a `target` z § 44.4. Uvedené části textu neurčují kompletní wire reprezentaci ani response/event masku. Pouhé doplnění `body != null` by tuto operaci neuzavřelo.
-
-## Rozšíření na současné efektivní operace a předávky
-
-`python scripts/verify_mask_parity.py` rovněž načte celý aktuální SSOT (673 189 řádků) a rozšíří kontrolu na 619 efektivních operací včetně pozdějších explicitních specializací a na 3 204 modelovaných předávek. Každá hrana má samostatný záznam v `audit/generated/mask-parity.json`. Jde o mechanický průchod a kontrolu odkazů a digestů, **nikoli o lidské sémantické přečtení každého řádku** nebo potvrzení správnosti každého pole vůči business požadavkům.
-
-| Zjištění z aktuálního SSOT | Počet | Důsledek |
-| --- | ---: | --- |
-| Efektivní operace / jejich trasy | 619 / 542 | Rozšířený rozsah včetně dalších specializací |
-| Nerozlišené request/response odkazy | 260 u 130 operací | Není k dispozici deklarovaná maska dané identity |
-| Trasy s obecnou obálkou | 509 | `values`/`canonicalJson` neomezují doménové pole a varianty |
-| Unikátní obecné hranice | 1 527 | Jméno schema ID samo masku nekonkretizuje |
-| Další konkrétní hranice bez sémantického potvrzení | 74 | Rozlišená reference není důkaz věcné úplnosti |
-| Operace bez explicitního rozhodnutí o eventu | 152 | Nelze odhadnout event ani deklarovat jeho nepřítomnost |
-| Předávky se stejným uvedeným digestem obou stran | 19 | I zde chybí úplný důkaz transportu, adapteru a větve |
-| Předávky s chybějícím digestem na jedné / obou stranách | 20 / 3 165 | Nelze prokázat identickou vstupní a výstupní masku |
-| Předávky označené `NOT_VERIFIED` / `BLOCKED_MISSING_CONTRACT` | 2 765 / 439 | Žádná modelovaná hrana nemá potvrzený úplný handoff |
-
-`scripts/verify_schema_references.py` znovu prověřil 2 932 odkazů a vrátil 260 selhání. `scripts/phase1_schema_closure.py` i nová kontrola končí kódem 1. Nulový počet konfliktů schema identity a vnořených `$ref` selhání nedokazuje, že jsou payloady správné.
-
-## Konkrétní svědci
-
-- `agent.approval.request` v `contracts/operation-contracts.json` odkazuje na `urn:kcml:r9:operation:agent.approval.request:command` a `:response`; obě identity v aktuálních vložených definicích chybějí. Text § 11.12 určuje obsah approval requestu a § 51.21 transakci rozhodnutí, ale neurčuje úplné typy, povinnost, nullabilitu a výsledkovou masku této operace. Jejich vytvoření pouhým přejmenováním jiné masky by bylo nepodložené.
-- `secret.create`, trasa `route.0386`, má `body.values` se slotem splňujícím obecný regulární výraz. Maska nepřiřazuje uzavřená jména slotů a typy hodnot pro patnáct druhů secretu z § 8.2; přijme i nevysvětlený slot. § 8.3 popisuje uložený secret a jeho verzi, nikoli přesnou vstupní variantu vytvoření, response a eventu. Současná obálka proto nesplňuje požadavek na explicitní doménovou masku.
-- Hrana `specialist:AGENT_ARCHITECTInput:capabilityDecision` deklaruje stejný digest `CapabilityDecision` na obou stranách, ale její evidence výslovně uvádí neověřený převod `ArtifactRef` na kompaktní referenci R11. Shodný digest obsahu sám nepotvrzuje, že příjemce validuje stejné bytes a stejnou transportní obálku.
-- § 66.1 tvrdí nulový počet unresolved pro popsaný výrobní řetězec. Toto tvrzení nelze použít jako důkaz uzavření současných operačních masek ani všech předávek: čerstvě odvozené kontraktní matice ukazují výše uvedené mezery. Normativní tvrzení a rozsah jeho platnosti vyžadují při opravě sladění.
-
-## Předání k opravě
-
-`audit/generated/current-r9-mask-inventory.json` obsahuje pro každý z 509 záznamů aktuálního R9 route ID, operation ID, role a přesný pointer i řádek v dekódovaném resource. `audit/generated/mask-parity.json` přidává každé modelované předání, oba digests a důvod neověření. Oprava musí pro každou operaci definovat skutečný doménový request, response a případný event v autoritativním SSOT, svázat výstup producenta s přijatým vstupem konzumenta včetně obálky a následně přepočítat embedded digests a odvozené projekce. Neznámé obchodní varianty se nesmějí nahradit `additionalProperties: true`, libovolným `values` slotem, volným JSON stringem ani univerzálním placeholderem.
-
-Tento audit dosud neobsahuje 619 ručních sémantických rozhodnutí ani opravy chybějících masek. `CONTRACT CLOSED`, `IMPLEMENTATION READY` a `FREEZE READY` zůstávají neprokázané.
+Soubor `audit/generated/current-r9-mask-inventory.json` ukazuje pro každou R9 trasu jednotlivé role, zdrojový JSON pointer a aktuální generičnost. `audit/generated/mask-parity.json` je širší odvozená evidence; žádná auditní matice nenahrazuje aktuální SSOT. Následující kontrakty musí dostat konkrétní masku podle vlastního textu SSOT, být provázány na jejich konzumenty a znovu projít celým auditem. Stav `CONTRACT CLOSED` ani `FREEZE READY` zatím nelze prohlásit.
