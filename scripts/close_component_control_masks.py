@@ -36,12 +36,8 @@ def close(route):
         'desiredState': {'const': desired},
         'reason': {'type': 'string', 'minLength': 1, 'maxLength': 8192},
         'correlationId': UUID, 'causationId': UUID,
-        'componentId': ID, 'revisionId': ID, 'releaseId': ID,
-        'runtimeGeneration': COUNTER, 'bindingSetRevision': ID,
-        'activationEpoch': COUNTER, 'expectedComponentStateVersion': COUNTER,
+        'componentId': ID, 'runtimeGeneration': COUNTER,
         'expectedActivationStateVersion': COUNTER,
-        'deadlineAt': STAMP, 'requestDigest': DIGEST,
-        'idempotencyKey': {'type': 'string', 'minLength': 1, 'maxLength': 512},
     })
     guards = req['properties']['guards']['properties']
     for key in ('deadlineAt', 'expectedActivationEpoch', 'expectedBindingSetRevision',
@@ -86,7 +82,7 @@ def close(route):
     route['semanticRules'] = [x for x in route['semanticRules'] if x not in discarded and
         not x.startswith(('CONTROL_', 'ACCEPTED_', 'COMPLETED_', 'PENDING_'))]
     route['semanticRules'] += [
-        'CONTROL_COMMAND_FIELDS_AND_GUARDS_MUST_MATCH_EXACTLY',
+        'CONTROL_REQUEST_GUARDS_ARE_SINGLE_SOURCE_OF_TARGET_SNAPSHOT',
         'ACCEPTED_IS_DURABLE_ADMISSION_ONLY_NOT_EFFECTIVE_OUTCOME',
         'COMPLETED_REQUIRES_FENCED_OUTCOME_AND_CURRENT_ROUTE_STATE_HEARTBEAT',
         'PENDING_NOT_TERMINAL_UNKNOWN_REQUIRES_RECONCILIATION',
