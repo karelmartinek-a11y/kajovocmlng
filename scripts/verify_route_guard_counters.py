@@ -6,6 +6,7 @@ import argparse
 import copy
 import hashlib
 import json
+import os
 import subprocess
 
 from jsonschema import Draft202012Validator
@@ -50,7 +51,7 @@ def main():
             'routes':len(routes),'guardDefinitions':len(checks),'checks':checks,
             'checked':sum(len(c['cases']) for c in checks),'failed':failures,
             'preserved':'All non-guard route content, required lists, and guard nullability match 997e835.'}
-    out=ROOT/'audit/generated/continuation-997e835/guard-counters';out.mkdir(parents=True,exist_ok=True)
+    out=ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/continuation-997e835/guard-counters');out.mkdir(parents=True,exist_ok=True)
     (out/('baseline.json' if args.baseline else 'current.json')).write_text(json.dumps(report,indent=2)+'\n',encoding='utf8')
     print(json.dumps({k:report[k] for k in ('sourceSha256','baseline','routes','guardDefinitions','checked','failed')}))
     return int(bool(failures))

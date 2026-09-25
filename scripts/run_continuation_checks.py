@@ -29,6 +29,10 @@ def main():
         commands = [(['scripts/close_route_guard_counters.py','--check'],0),
                     (['scripts/verify_route_guard_counters.py','--baseline'],1),
                     (['scripts/verify_route_guard_counters.py'],0)] + commands
+    if '--native-integrity' in sys.argv:
+        commands = [(['scripts/verify_native_manifest_continuation.py','--baseline'],1),
+                    (['scripts/verify_native_manifest_continuation.py'],0),
+                    (['scripts/verify_authority_excerpt_coverage.py'],0)] + commands
     report = {'baselineCommit':'997e835','sourceSha256':ssot_hash,
               'scope':__doc__,'changedResources':changed,'commands':[],
               'baselineCounts':{'unresolvedOperationReferences':252,
@@ -41,7 +45,9 @@ def main():
             errors='replace',env={**os.environ,'PYTHONUTF8':'1','KCML_AUDIT_OUTPUT':output.relative_to(ROOT).as_posix()})
         report['commands'].append({'command':'python '+' '.join(args),'exitCode':result.returncode,
             'expectedExitCode':expected,'durationSeconds':round(time.monotonic()-started,3),
-            'currentSsotSha256':ssot_hash,'inputCommit':'997e835' if '--baseline' in args else None,
+            'currentSsotSha256':ssot_hash,'inputCommit':(
+                '5b60c8a' if args[0]=='scripts/verify_native_manifest_continuation.py' else '997e835'
+            ) if '--baseline' in args else None,
             'scriptSha256':hashlib.sha256((ROOT/args[0]).read_bytes()).hexdigest(),
             'stdout':result.stdout,'stderr':result.stderr})
         (output/'commands.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf8')

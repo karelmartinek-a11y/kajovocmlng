@@ -14,6 +14,24 @@ from phase1_schema_closure import build
 from ssot_sources import ROOT, SSOT
 
 
+def authority_sections(lines):
+    """Keep numbered chapter punctuation and descendants of a cited chapter.
+
+    An empty citation to section 12 must not hide the actual 12.1-12.33 text.
+    This extracts evidence; it does not assign authority by document order.
+    """
+    headings=[]
+    for i,line in enumerate(lines):
+        match=re.match(r'^(#{1,6})\s+(\d+(?:\.\d+)*)(?:\.)?\s+(.+)',line)
+        if match:headings.append((i,len(match.group(1)),match.group(2),match.group(3)))
+    sections={}
+    for index,(start,depth,number,title) in enumerate(headings):
+        end=next((i for i,d,_,_ in headings[index+1:] if d<=depth),len(lines))
+        sections.setdefault(number,[]).append({'line':start+1,'title':title,
+            'text':'\n'.join(lines[start:end]).strip()})
+    return sections
+
+
 def main():
     raw = SSOT.read_bytes()
     text = raw.decode('utf8')
@@ -30,14 +48,7 @@ def main():
         cursor = end
     prose.append(text[cursor:])
     lines = ''.join(prose).splitlines()
-    headings = [(i, re.match(r'^#{1,6}\s+(\d+(?:\.\d+)*)\s+(.+)', line))
-                for i, line in enumerate(lines)]
-    headings = [(i, m.group(1), m.group(2)) for i, m in headings if m]
-    sections = {}
-    for index, (start, number, title) in enumerate(headings):
-        end = headings[index+1][0] if index+1 < len(headings) else len(lines)
-        sections.setdefault(number, []).append({'line': start+1, 'title': title,
-            'text': '\n'.join(lines[start:end]).strip()})
+    sections = authority_sections(lines)
     operations = {o['operationId']: o for o in matrix['operations']}
     records = {o['operationId']: o for o in inv.docs['contracts/operation-contracts.json']['records']}
     rows = []

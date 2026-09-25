@@ -1,0 +1,20 @@
+{
+  "sourceSha256": "bea6779ec84357ff5f1a9940f803f485453b1a2b2677323cb735cee67ad8449d",
+  "baselineCommit": null,
+  "scope": "Verify exact native asset closure, with independent manifest mutations.\n\nThis is byte integrity, not semantic closure or whole-package readiness.\n",
+  "nativeAssets": 34,
+  "mismatches": [],
+  "checked": 1,
+  "failed": 1,
+  "cases": [
+    {
+      "name": "exact_current_manifest",
+      "expectedValid": true,
+      "actualValid": false,
+      "passed": false,
+      "error": "CONTRACT_PACK_DRIFT /files: Manifest is not exact normative asset closure"
+    }
+  ],
+  "nativeScriptSha256": "e1b5883636c5f638a43a4a6894d8ee7016f71f3da8649612453082e4e7bf195b",
+  "nativeManifestSha256": "d68906963329d6e063f7591ac71773c2a02121414bdd67d51e035a911fd80621"
+}
