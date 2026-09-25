@@ -1,0 +1,67 @@
+name: Materialize component control masks in SSOT
+
+on:
+  push:
+    branches:
+      - audit/explicit-mask-parity
+    paths:
+      - scripts/close_component_control_masks.py
+      - scripts/close_component_heartbeat.py
+      - scripts/close_component_control_ack.py
+      - scripts/verify_component_protocol_examples.py
+      - .github/workflows/materialize-control-masks.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned audit dependencies
+        run: python -m pip install -r requirements-audit.txt
+      - name: Apply exact R9 edit
+        run: |
+          python scripts/close_component_control_masks.py
+          python scripts/close_component_heartbeat.py
+          python scripts/close_component_control_ack.py
+      - name: Verify mask coverage and digest integrity
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          sys.path.insert(0, 'scripts')
+          from audit_r9_masks import audit as audit_r9
+          from verify_mask_parity import audit as audit_handoffs
+          from ssot_sources import load_resource
+          r9 = audit_r9()
+          parity = audit_handoffs()
+          assert not r9['digestMismatches']
+          assert not parity['resourceDigestMismatches']
+          payload = json.loads(load_resource('contracts/payload-contracts.json')['raw'])
+          routes = [r for r in payload['records'] if r['routeId'] in ('route.0000', 'route.0001', 'route.0003', 'route.0004')]
+          assert len(routes) == 4
+          for route in routes:
+              body = route['requestSchema']['properties']['body']
+              result = route['responseSchema']['properties']['output']['oneOf'][1]
+              assert ('values' not in body.get('properties', {}) and
+                      (body.get('type') == 'object' or body.get('$ref') == '#/$defs/ComponentHeartbeat'))
+              assert result == route['eventSchema']['properties']['payload']
+          print('Four component masks materialized; remaining R9 coverage:',
+                r9['routesWithGenericSlotContainerByRole'], parity['status'])
+          PY
+      - name: Validate complete component protocol examples
+        run: python scripts/verify_component_protocol_examples.py
+      - name: Commit authoritative SSOT and refreshed inventory
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 00_SSOT/KajovoCMLNG_SSOT.md audit/generated/current-r9-mask-inventory.json audit/generated/mask-parity.json
+          git diff --cached --quiet || git commit -m 'Materialize explicit component control masks in embedded R9'
+          git push
