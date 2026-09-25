@@ -21,15 +21,9 @@ def files():
  return sorted(p for p in ROOT.rglob('*') if p.is_file() and not any(x in {'.git','.cache','__pycache__','node_modules'} for x in p.relative_to(ROOT).parts))
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def check_manifest():
- p=ROOT/'FILE_MANIFEST_SHA256';problems=[]
- if not p.exists():return ['missing FILE_MANIFEST_SHA256']
- listed={}
- for line in p.read_text().splitlines():
-  digest,name=line.split('  ',1);listed[name]=digest
- actual={str(p.relative_to(ROOT)):sha(p) for p in files() if p.name!='FILE_MANIFEST_SHA256'}
- for n in sorted(set(listed)|set(actual)):
-  if listed.get(n)!=actual.get(n):problems.append('file integrity: '+n)
- return problems
+ from package_integrity import verify
+ branch=subprocess.check_output(['git','branch','--show-current'],cwd=ROOT).decode().strip()
+ return verify(ROOT,branch or None)
 
 def audit():
  structural=[];findings=[];stats={};archival=[];entries=list(resources());by={(r['family'],r['path']):r for r in entries}

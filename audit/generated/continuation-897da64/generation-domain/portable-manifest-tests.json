@@ -1,0 +1,61 @@
+{
+  "sourceSha256": "6c66b8faf0979e36158699caf7e461b429922eaf761b39bfe49c6a484aed99c9",
+  "scope": "Current branch/source, inventory completeness, LF portability, stale PASS.",
+  "checked": 12,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "current-inventory",
+      "passed": true
+    },
+    {
+      "case": "historical-PASS-does-not-certify",
+      "passed": true
+    },
+    {
+      "case": "paths-POSIX",
+      "passed": true
+    },
+    {
+      "case": "wrong-current-branch-rejected",
+      "passed": true
+    },
+    {
+      "case": "CRLF-LF-equivalence",
+      "passed": true
+    },
+    {
+      "case": "changed-content-rejected",
+      "passed": true
+    },
+    {
+      "case": "new-SSOT-stale-manifest-rejected",
+      "passed": true
+    },
+    {
+      "case": "unlisted-file-rejected",
+      "passed": true
+    },
+    {
+      "case": "duplicate-row-rejected",
+      "passed": true
+    },
+    {
+      "case": "binary-line-endings-not-normalized",
+      "passed": true
+    },
+    {
+      "case": "duplicate-hash-entry-rejected",
+      "passed": true
+    },
+    {
+      "case": "JSON-and-plain-must-agree",
+      "passed": true
+    }
+  ],
+  "implementationHashes": {
+    "package_integrity.py": "ac94cd836d507bc691f6ec8da4f7497547e29bc34385b2bd3c048bcbeaf6e487",
+    "update_manifests.py": "e50944bd878dc59829cd900714e73defaa76d49bb620bbeee411f7e3fcfe0863",
+    "verify_package.py": "d86c70b3530c44d57f8c79be664b139b3e360cf2a900b32e4e4e3850f503d340"
+  }
+}
