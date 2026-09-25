@@ -8,6 +8,7 @@ on:
       - scripts/close_component_control_masks.py
       - scripts/close_component_heartbeat.py
       - scripts/close_component_control_ack.py
+      - scripts/verify_component_protocol_examples.py
       - .github/workflows/materialize-control-masks.yml
 
 permissions:
@@ -55,6 +56,8 @@ jobs:
           print('Four component masks materialized; remaining R9 coverage:',
                 r9['routesWithGenericSlotContainerByRole'], parity['status'])
           PY
+      - name: Validate complete component protocol examples
+        run: python scripts/verify_component_protocol_examples.py
       - name: Commit authoritative SSOT and refreshed inventory
         run: |
           git config user.name 'github-actions[bot]'
