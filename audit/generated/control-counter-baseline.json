@@ -1,0 +1,1907 @@
+{
+  "sourceSha256": "4ee82539e50ce3b538f58d18b03206aef28ab7607201e878f15a61e8cb783450",
+  "baseline": true,
+  "scope": "Counter domain and response/event parity, sourced from SSOT 56.3/56.13.",
+  "checked": 272,
+  "failed": 48,
+  "checks": [
+    {
+      "case": "route.0000/result-event-identity",
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedStateVersion",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedStateVersion",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedStateVersion",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedStateVersion",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/guards/expectedStateVersion",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedStateVersion",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedStateVersion",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedStateVersion",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedStateVersion",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedBindingSetRevision",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedBindingSetRevision",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedBindingSetRevision",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedBindingSetRevision",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/guards/expectedBindingSetRevision",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/guards/expectedBindingSetRevision",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/guards/expectedBindingSetRevision",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/guards/expectedBindingSetRevision",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedBindingSetRevision",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedActivationEpoch",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedActivationEpoch",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedActivationEpoch",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedActivationEpoch",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/guards/expectedActivationEpoch",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedActivationEpoch",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedActivationEpoch",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedActivationEpoch",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/guards/expectedActivationEpoch",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/body/runtimeGeneration",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/body/runtimeGeneration",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/body/runtimeGeneration",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/body/runtimeGeneration",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/body/runtimeGeneration",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/body/runtimeGeneration",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/body/runtimeGeneration",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/body/runtimeGeneration",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/body/runtimeGeneration",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/body/expectedActivationStateVersion",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/body/expectedActivationStateVersion",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/body/expectedActivationStateVersion",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/body/expectedActivationStateVersion",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/body/expectedActivationStateVersion",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/body/expectedActivationStateVersion",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/body/expectedActivationStateVersion",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/body/expectedActivationStateVersion",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/body/expectedActivationStateVersion",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/componentStateVersion",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/componentStateVersion",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/componentStateVersion",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/componentStateVersion",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/result/componentStateVersion",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/componentStateVersion",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/componentStateVersion",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/componentStateVersion",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/componentStateVersion",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/activationStateVersion",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/activationStateVersion",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/activationStateVersion",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/activationStateVersion",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/result/activationStateVersion",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/activationStateVersion",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/activationStateVersion",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/activationStateVersion",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/activationStateVersion",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/runtimeGeneration",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/runtimeGeneration",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/runtimeGeneration",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/runtimeGeneration",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/result/runtimeGeneration",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/runtimeGeneration",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/runtimeGeneration",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/runtimeGeneration",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/runtimeGeneration",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/bindingSetRevision",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/bindingSetRevision",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/bindingSetRevision",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/bindingSetRevision",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/result/bindingSetRevision",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/result/bindingSetRevision",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/result/bindingSetRevision",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/result/bindingSetRevision",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/bindingSetRevision",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/activationEpoch",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/activationEpoch",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/activationEpoch",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/activationEpoch",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/result/activationEpoch",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/activationEpoch",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/activationEpoch",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/activationEpoch",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/result/activationEpoch",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/componentStateVersion",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/componentStateVersion",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/componentStateVersion",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/componentStateVersion",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/event/componentStateVersion",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/componentStateVersion",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/componentStateVersion",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/componentStateVersion",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/componentStateVersion",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/activationStateVersion",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/activationStateVersion",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/activationStateVersion",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/activationStateVersion",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/event/activationStateVersion",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/activationStateVersion",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/activationStateVersion",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/activationStateVersion",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/activationStateVersion",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/runtimeGeneration",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/runtimeGeneration",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/runtimeGeneration",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/runtimeGeneration",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/event/runtimeGeneration",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/runtimeGeneration",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/runtimeGeneration",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/runtimeGeneration",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/runtimeGeneration",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/bindingSetRevision",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/bindingSetRevision",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/bindingSetRevision",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/bindingSetRevision",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/event/bindingSetRevision",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/event/bindingSetRevision",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/event/bindingSetRevision",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/event/bindingSetRevision",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/bindingSetRevision",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/activationEpoch",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/activationEpoch",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/activationEpoch",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/activationEpoch",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0000/event/activationEpoch",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/activationEpoch",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/activationEpoch",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/activationEpoch",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0000/event/activationEpoch",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result-event-identity",
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedStateVersion",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedStateVersion",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedStateVersion",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedStateVersion",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/guards/expectedStateVersion",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedStateVersion",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedStateVersion",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedStateVersion",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedStateVersion",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedBindingSetRevision",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedBindingSetRevision",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedBindingSetRevision",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedBindingSetRevision",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/guards/expectedBindingSetRevision",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/guards/expectedBindingSetRevision",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/guards/expectedBindingSetRevision",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/guards/expectedBindingSetRevision",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedBindingSetRevision",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedActivationEpoch",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedActivationEpoch",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedActivationEpoch",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedActivationEpoch",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/guards/expectedActivationEpoch",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedActivationEpoch",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedActivationEpoch",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedActivationEpoch",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/guards/expectedActivationEpoch",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/body/runtimeGeneration",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/body/runtimeGeneration",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/body/runtimeGeneration",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/body/runtimeGeneration",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/body/runtimeGeneration",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/body/runtimeGeneration",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/body/runtimeGeneration",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/body/runtimeGeneration",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/body/runtimeGeneration",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/body/expectedActivationStateVersion",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/body/expectedActivationStateVersion",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/body/expectedActivationStateVersion",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/body/expectedActivationStateVersion",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/body/expectedActivationStateVersion",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/body/expectedActivationStateVersion",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/body/expectedActivationStateVersion",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/body/expectedActivationStateVersion",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/body/expectedActivationStateVersion",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/componentStateVersion",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/componentStateVersion",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/componentStateVersion",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/componentStateVersion",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/result/componentStateVersion",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/componentStateVersion",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/componentStateVersion",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/componentStateVersion",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/componentStateVersion",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/activationStateVersion",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/activationStateVersion",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/activationStateVersion",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/activationStateVersion",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/result/activationStateVersion",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/activationStateVersion",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/activationStateVersion",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/activationStateVersion",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/activationStateVersion",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/runtimeGeneration",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/runtimeGeneration",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/runtimeGeneration",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/runtimeGeneration",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/result/runtimeGeneration",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/runtimeGeneration",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/runtimeGeneration",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/runtimeGeneration",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/runtimeGeneration",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/bindingSetRevision",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/bindingSetRevision",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/bindingSetRevision",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/bindingSetRevision",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/result/bindingSetRevision",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/result/bindingSetRevision",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/result/bindingSetRevision",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/result/bindingSetRevision",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/bindingSetRevision",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/activationEpoch",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/activationEpoch",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/activationEpoch",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/activationEpoch",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/result/activationEpoch",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/activationEpoch",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/activationEpoch",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/activationEpoch",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/result/activationEpoch",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/componentStateVersion",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/componentStateVersion",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/componentStateVersion",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/componentStateVersion",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/event/componentStateVersion",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/componentStateVersion",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/componentStateVersion",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/componentStateVersion",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/componentStateVersion",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/activationStateVersion",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/activationStateVersion",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/activationStateVersion",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/activationStateVersion",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/event/activationStateVersion",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/activationStateVersion",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/activationStateVersion",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/activationStateVersion",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/activationStateVersion",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/runtimeGeneration",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/runtimeGeneration",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/runtimeGeneration",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/runtimeGeneration",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/event/runtimeGeneration",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/runtimeGeneration",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/runtimeGeneration",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/runtimeGeneration",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/runtimeGeneration",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/bindingSetRevision",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/bindingSetRevision",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/bindingSetRevision",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/bindingSetRevision",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/event/bindingSetRevision",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/event/bindingSetRevision",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/event/bindingSetRevision",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/event/bindingSetRevision",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/bindingSetRevision",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/activationEpoch",
+      "value": "0",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/activationEpoch",
+      "value": "1",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/activationEpoch",
+      "value": "9223372036854775807",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/activationEpoch",
+      "value": "9223372036854775808",
+      "expectedValid": false,
+      "actualValid": true,
+      "passed": false
+    },
+    {
+      "case": "route.0001/event/activationEpoch",
+      "value": "01",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/activationEpoch",
+      "value": "-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/activationEpoch",
+      "value": "binding-1",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/activationEpoch",
+      "value": 1,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    },
+    {
+      "case": "route.0001/event/activationEpoch",
+      "value": null,
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true
+    }
+  ]
+}

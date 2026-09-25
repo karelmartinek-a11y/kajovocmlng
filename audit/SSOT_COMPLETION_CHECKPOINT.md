@@ -1,5 +1,9 @@
 # Checkpoint dokončení SSOT
 
+> Navazující obsahové opravy a oprava zastaralých počtů jsou v
+> [SSOT_COMPLETION_REVIEW.md](SSOT_COMPLETION_REVIEW.md). Níže zachovaný checkpoint
+> není aktuální potvrzení počtů ani důkaz, že všechny mezery vyžadují OWNERa.
+
 Tento checkpoint zachycuje stav aktuálního pracovního stromu. Nenahrazuje
 normativní SSOT ani nepřepisuje historické auditní výsledky.
 
@@ -60,4 +64,3 @@ python scripts/audit_inventory.py
 python scripts/verify_schema_references.py
 python scripts/verify_mask_parity.py
 ```
-

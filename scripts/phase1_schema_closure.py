@@ -189,9 +189,15 @@ class Inventory:
             v = self.validator(reference)
             unresolved = []
             # Resolve nested references with the library's actual scoped resolver.
-            def visit(s, resolver, seen):
+            def visit(s, resolver, seen, location='resolved-schema'):
                 if not isinstance(s, dict):
                     return
+                properties = s.get('properties', {})
+                if isinstance(properties, dict) and ('canonicalJson' in properties or
+                        {'schemaId', 'values'} <= set(properties)):
+                    marker = '@' + location
+                    if marker not in generic:
+                        generic.append(marker)
                 if '$id' in s:
                     resolver = resolver.in_subresource(Resource.from_contents(s, default_specification=DRAFT202012))
                 if 'format' in s and s['format'] not in FormatChecker.checkers:
@@ -204,12 +210,18 @@ class Inventory:
                         seen.add(key)
                         try:
                             resolved = resolver.lookup(ref)
-                            visit(resolved.contents, resolved.resolver, seen)
+                            visit(resolved.contents, resolved.resolver, seen,
+                                  location + '/' + keyword + '=' + ref)
                         except Exception as exc:
                             unresolved.append({'reference': ref, 'reason': str(exc)})
-                for child in schema_children(s):visit(child,resolver,seen)
+                for index, child in enumerate(schema_children(s)):
+                    visit(child,resolver,seen,location + '/schema-child/' + str(index))
             visit(v.schema, self.registry.resolver(), set())
             result['nestedReferenceFailures'] = unresolved
+            result['genericLocations'] = generic
+            if generic:
+                result['concreteness'] = 'GENERIC_ENVELOPE'
+                result['reason'] = 'Unbound values/canonicalJson domain slots, including resolved references'
         except Exception as exc:
             reason=str(exc)
             kind=('CONFLICTING_DEFINITION' if 'CONFLICT' in reason else
