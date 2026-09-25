@@ -18,6 +18,8 @@ READS={'route.0232':'GenerationSpecification','route.0237':'GenerationPlan'}
 APPROVAL_FIELDS={'currentTurnId':'Uuid','currentTurnStatus':None,
                  'specificationRevisionId':'Uuid','specificationDigest':'Digest',
                  'capabilitySnapshotId':'Uuid','capabilitySnapshotDigest':'Digest'}
+READ_FAILURE_RULE={'if':{'properties':{'status':{'enum':['FAILED','CANCELLED']}}},
+                   'then':{'properties':{'error':{'type':'object'}}}}
 
 
 def changed_payload(rs):
@@ -47,6 +49,9 @@ def changed_payload(rs):
                   'then':{'properties':{'output':ref(definition)}}}
             rules=row['responseSchema'].setdefault('allOf',[])
             if rule not in rules:rules.append(rule)
+            # OWNER 12.44.1: an immutable read must return the requested
+            # document or an explicit error, never FAILED with error=null.
+            if READ_FAILURE_RULE not in rules:rules.append(READ_FAILURE_RULE)
     original=json.loads(rs[PATH]['raw'])
     assert original['canonicalDigest']==canonical_digest({**original,'canonicalDigest':None})
     d['canonicalDigest']=canonical_digest({**d,'canonicalDigest':None})
