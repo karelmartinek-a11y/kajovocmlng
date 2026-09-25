@@ -21,6 +21,8 @@ OPERATIONS = {
     'generation.integration.step': ('RUNTIME_PROVISION', 'IDENTITY_REGISTER',
                                     'CONTRACT_BINDING_APPLY', 'SECRET_BINDING_APPLY',
                                     'EXTERNAL_TARGET_APPLY', 'MONITORING_APPLY'),
+    # 56.9 S03 is an inner saga operation, not an additional DAG node kind.
+    'generation.candidate.publish': (),
 }
 PATH = 'contracts/operation-contracts.json'
 GEN = 'contracts/generation/generation-contracts.schema.json'
@@ -43,7 +45,7 @@ def expected(rs):
                 if definition not in bundle['$defs']:
                     raise ValueError('Missing native definition: ' + definition)
                 refs.append({'$ref': bundle['$id'] + '#/$defs/' + definition})
-            if operation == 'generation.integration.step':
+            if operation in ('generation.integration.step', 'generation.candidate.publish'):
                 # 56.9 explicitly distinguishes inner saga steps from whole nodes.
                 # Their disjoint required kind/stepId shapes prevent ambiguous dispatch.
                 for step in json.loads(rs[SAGA]['raw']):
@@ -57,6 +59,8 @@ def expected(rs):
                             'properties': {'kind': {'const': step['outputKind']}}}}}
                     refs.append({'allOf': [
                         {'$ref': bundle['$id'] + '#/$defs/' + definition}, restriction]})
+            if not refs:
+                raise ValueError('Operation has no exact node or saga boundaries: ' + operation)
             result[operation + ':' + role] = {
                 '$schema': bundle['$schema'],
                 '$id': 'urn:kcml:r9:operation:' + operation + ':' + role,

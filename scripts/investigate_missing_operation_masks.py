@@ -5,6 +5,7 @@ never OWNER_REQUIRED merely because no identity or route was found.
 """
 import hashlib
 import json
+import os
 import re
 import subprocess
 
@@ -69,9 +70,11 @@ def main():
               'scope': __doc__, 'baselineOperations': len(wanted), 'currentSummary': matrix['summary'],
               'reviewedOperationBindings': len(OPERATIONS),
               'unclassifiedOperations': len(wanted)-len(OPERATIONS), 'operations': rows}
-    destination = ROOT/'audit/generated/missing-operation-investigation.json'
+    directory = ROOT / os.environ.get('KCML_AUDIT_OUTPUT', 'audit/generated')
+    directory.mkdir(parents=True, exist_ok=True)
+    destination = directory/'missing-operation-investigation.json'
     destination.write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf8')
-    (ROOT/'audit/generated/current-operation-schema-matrix.json').write_text(
+    (directory/'current-operation-schema-matrix.json').write_text(
         json.dumps({'sourceSha256': result['sourceSha256'], **matrix}, ensure_ascii=False, indent=2)+'\n', encoding='utf8')
     print(json.dumps({k:result[k] for k in ('sourceSha256','baselineOperations','currentSummary',
                                           'reviewedOperationBindings','unclassifiedOperations')}))

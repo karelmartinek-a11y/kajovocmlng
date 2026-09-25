@@ -1,5 +1,8 @@
 # Opravy masek: pokračování z e025079
 
+> Tento report zachycuje výsledek commitu `997e835`. Další obsahové opravy,
+> nové hashe a počty jsou v [SSOT_CONTINUATION_997e835.md](SSOT_CONTINUATION_997e835.md).
+
 Stav celého zadání: **BLOCKED — obsahová práce pokračuje**. Tento balík změn
 neuzavírá všech 130 operací ani zbývající obecné trasy. Neobsahuje rozhodnutí,
 že dosud neprošetřené operace musí rozhodnout OWNER.

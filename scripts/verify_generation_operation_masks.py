@@ -2,6 +2,7 @@
 import copy
 import hashlib
 import json
+import os
 import sys
 
 from close_generation_operation_masks import OPERATIONS, PATH, GEN, CATALOG, SAGA, expected
@@ -79,19 +80,20 @@ def main():
         bad = copy.deepcopy(success); bad['commit'] = None
         record(kind + '/missing-server-commit', valid(response, bad), False)
     saga_rows = []
-    operation = 'generation.integration.step'
-    command = 'urn:kcml:r9:operation:' + operation + ':command'
-    response = 'urn:kcml:r9:operation:' + operation + ':response'
     for step in inv.docs[SAGA]:
-        if step['operationId'] != operation:
+        operation = step['operationId']
+        if operation not in OPERATIONS:
             continue
+        command = 'urn:kcml:r9:operation:' + operation + ':command'
+        response = 'urn:kcml:r9:operation:' + operation + ':response'
+        wrong_step = 'S04' if operation == 'generation.candidate.publish' else 'S03'
         sid = step['stepId']
         request = witness(fixture_defs['IntegrationStepInput'], fixture_defs)
         request['stepId'] = sid
         record(sid + '/saga-input', valid(command, request))
         bad = copy.deepcopy(request); bad['kind'] = 'RUNTIME_PROVISION'
         record(sid + '/ambiguous-node-and-saga-dispatch', valid(command, bad), False)
-        bad = copy.deepcopy(request); bad['stepId'] = 'S03'
+        bad = copy.deepcopy(request); bad['stepId'] = wrong_step
         record(sid + '/wrong-operation-step', valid(command, bad), False)
         receipts = []
         for branch in fixture_defs['IntegrationStepReceipt']['oneOf']:
@@ -107,7 +109,7 @@ def main():
                 receipt['effectOutcome'] = 'UNKNOWN'
                 receipt['problem']['retryDirective'] = 'MANUAL_REVIEW'
             record(sid + '/' + receipt['state'], valid(response, receipt))
-            bad = copy.deepcopy(receipt); bad['stepId'] = 'S03'
+            bad = copy.deepcopy(receipt); bad['stepId'] = wrong_step
             record(sid + '/receipt-wrong-operation/' + receipt['state'], valid(response, bad), False)
             receipts.append(receipt)
         fixtures[sid] = {'request': request, 'receipts': receipts}
@@ -125,7 +127,9 @@ def main():
               'sagaBoundaries': saga_rows,
               'remaining': ['Artifact hydration, current DB guards, producer-consumer content lineage, '
                             'runtime cancellation/retry/recovery are not proven by these shape tests.']}
-    out = ROOT / 'audit/generated/generation-operation-mask-tests.json'
+    directory = ROOT / os.environ.get('KCML_AUDIT_OUTPUT', 'audit/generated')
+    directory.mkdir(parents=True, exist_ok=True)
+    out = directory / 'generation-operation-mask-tests.json'
     out.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
     print(json.dumps({k: report[k] for k in ('sourceSha256', 'checked', 'failed')}))
     for check in checks:
