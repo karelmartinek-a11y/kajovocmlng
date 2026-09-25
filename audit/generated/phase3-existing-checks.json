@@ -1,6 +1,6 @@
 {
   "scope": "Isolated copies; original Phase 1/2 generated evidence was not overwritten.",
-  "workspace": "D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-p42tz5np",
+  "workspace": "D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-k2vz441w",
   "checks": [
     {
       "command": "python scripts/verify_schema_references.py",
@@ -54,7 +54,7 @@
       "command": "python scripts/phase2_handoff_closure.py --check",
       "exitCode": 1,
       "stdout": "",
-      "stderr": "Traceback (most recent call last):\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-p42tz5np\\scripts\\phase2_handoff_closure.py\", line 187, in <module>\n    if __name__=='__main__':raise SystemExit(main())\n                                             ^^^^^^\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-p42tz5np\\scripts\\phase2_handoff_closure.py\", line 174, in main\n    verify_matrix(stored,matrix)\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-p42tz5np\\scripts\\phase2_handoff_closure.py\", line 165, in verify_matrix\n    if stored!=current:raise ValueError('MATRIX_COVERAGE_OR_CONTENT_DRIFT')\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: MATRIX_COVERAGE_OR_CONTENT_DRIFT"
+      "stderr": "Traceback (most recent call last):\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-k2vz441w\\scripts\\phase2_handoff_closure.py\", line 187, in <module>\n    if __name__=='__main__':raise SystemExit(main())\n                                             ^^^^^^\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-k2vz441w\\scripts\\phase2_handoff_closure.py\", line 174, in main\n    verify_matrix(stored,matrix)\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-k2vz441w\\scripts\\phase2_handoff_closure.py\", line 165, in verify_matrix\n    if stored!=current:raise ValueError('MATRIX_COVERAGE_OR_CONTENT_DRIFT')\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: MATRIX_COVERAGE_OR_CONTENT_DRIFT"
     },
     {
       "command": "python r11/scripts/verify_r11.py 00_SSOT/KajovoCMLNG_SSOT.md",
@@ -92,7 +92,7 @@
       "command": "python scripts/phase2_handoff_closure.py --check",
       "exitCode": 1,
       "stdout": "",
-      "stderr": "Traceback (most recent call last):\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-p42tz5np\\scripts\\phase2_handoff_closure.py\", line 187, in <module>\n    if __name__=='__main__':raise SystemExit(main())\n                                             ^^^^^^\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-p42tz5np\\scripts\\phase2_handoff_closure.py\", line 174, in main\n    verify_matrix(stored,matrix)\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-p42tz5np\\scripts\\phase2_handoff_closure.py\", line 165, in verify_matrix\n    if stored!=current:raise ValueError('MATRIX_COVERAGE_OR_CONTENT_DRIFT')\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: MATRIX_COVERAGE_OR_CONTENT_DRIFT"
+      "stderr": "Traceback (most recent call last):\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-k2vz441w\\scripts\\phase2_handoff_closure.py\", line 187, in <module>\n    if __name__=='__main__':raise SystemExit(main())\n                                             ^^^^^^\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-k2vz441w\\scripts\\phase2_handoff_closure.py\", line 174, in main\n    verify_matrix(stored,matrix)\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\.cache\\phase3-checks-k2vz441w\\scripts\\phase2_handoff_closure.py\", line 165, in verify_matrix\n    if stored!=current:raise ValueError('MATRIX_COVERAGE_OR_CONTENT_DRIFT')\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: MATRIX_COVERAGE_OR_CONTENT_DRIFT"
     },
     {
       "command": "python r11/scripts/verify_r11.py 00_SSOT/KajovoCMLNG_SSOT.md",

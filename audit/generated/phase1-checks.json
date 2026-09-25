@@ -1,6 +1,6 @@
 {
   "scope": "Actual commands; failing closure/negative probes remain failing.",
-  "ssotSha256": "cc72d9719a936574c2c2c550fad66f2c330cd43843b19962eadf66edeea402ee",
+  "ssotSha256": "4ee82539e50ce3b538f58d18b03206aef28ab7607201e878f15a61e8cb783450",
   "commands": [
     {
       "command": "python scripts/phase1_schema_closure.py --baseline",
@@ -11,7 +11,7 @@
     {
       "command": "python scripts/phase1_schema_closure.py",
       "exitCode": 1,
-      "stdout": "Inventoried documents: 402\n{\"operations\": 619, \"routes\": 542, \"unresolvedOperationReferences\": 260, \"operationsWithUnresolvedReferences\": 130, \"conflictingOperationReferences\": 0, \"genericRoutes\": 509, \"genericBoundaryDefinitions\": 1527, \"nestedReferenceFailures\": 0, \"unreviewedConcreteBoundaryDefinitions\": 74, \"conflictingSchemaIdentities\": 0, \"unspecifiedEventApplicability\": 152, \"unparsedResources\": 0}",
+      "stdout": "Inventoried documents: 402\n{\"operations\": 619, \"routes\": 542, \"unresolvedOperationReferences\": 260, \"operationsWithUnresolvedReferences\": 130, \"conflictingOperationReferences\": 0, \"genericRoutes\": 505, \"genericBoundaryDefinitions\": 1515, \"nestedReferenceFailures\": 0, \"unreviewedConcreteBoundaryDefinitions\": 86, \"conflictingSchemaIdentities\": 0, \"unspecifiedEventApplicability\": 152, \"unparsedResources\": 0}",
       "stderr": ""
     },
     {
@@ -40,9 +40,9 @@
     },
     {
       "command": "python scripts/phase1_repair_contracts.py --verify-from-baseline",
-      "exitCode": 0,
-      "stdout": "{\"reproducedFromCommit\": \"6180d9fe67dfaa5365190301dfd58cc8d9812f3d\", \"resources\": [{\"resource\": \"r16/contracts/r15-visual-operation-closure.json\", \"beforeSha256\": \"03c0aa2de1f8cb6e25c962daaf931a8eb5d891ede5fbf8d886e709bf58d1d168\", \"afterSha256\": \"02ee90057d2cbb77ad0d0c0cd5b288b64dca7502d77757ab1d47363c75130b7f\"}, {\"resource\": \"contracts/payload-contracts.json\", \"beforeSha256\": \"5e2444a83c4354aa452f225bdc40f830623df8d9212f96f9b9af2e4c4e9ca23a\", \"afterSha256\": \"719882ba9fbb3026297eb6eea28f88593b7ab770cbd1a59a4e57bf7d810531e8\"}], \"onlyAdditionalChange\": \"R9 embedded manifest resource bytes/hash\", \"status\": \"PASS\"}",
-      "stderr": ""
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\scripts\\phase1_repair_contracts.py\", line 133, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"D:\\KajovoCMLNG3\\KajovoCMLNG\\scripts\\phase1_repair_contracts.py\", line 91, in main\n    raise ValueError('Non-reproducible resource:'+path)\nValueError: Non-reproducible resource:contracts/payload-contracts.json"
     },
     {
       "command": "python scripts/run_baseline_gates.py",
@@ -59,7 +59,7 @@
     {
       "command": "python scripts/project_experience.py --check",
       "exitCode": 0,
-      "stdout": "{\"projections\": [\"01_UI_CONTRACT/ui/contracts/live-experience.json\", \"01_UI_CONTRACT/ui/contracts/error-presentation.json\", \"01_UI_CONTRACT/ui/contracts/error-presentation.schema.json\", \"01_UI_CONTRACT/ui/locales/cs.json\", \"01_UI_CONTRACT/ui/locales/en.json\", \"01_UI_CONTRACT/LIVE_VIEW_MATRIX.csv\"]}",
+      "stdout": "{\"projections\": [\"01_UI_CONTRACT/ui/contracts/live-experience.json\", \"01_UI_CONTRACT/ui/contracts/live-event.schema.json\", \"01_UI_CONTRACT/ui/contracts/history-query.schema.json\", \"01_UI_CONTRACT/ui/contracts/error-presentation.json\", \"01_UI_CONTRACT/ui/contracts/error-presentation.schema.json\", \"01_UI_CONTRACT/ui/locales/cs.json\", \"01_UI_CONTRACT/ui/locales/en.json\", \"01_UI_CONTRACT/LIVE_VIEW_MATRIX.csv\"]}",
       "stderr": ""
     },
     {
@@ -77,21 +77,21 @@
     {
       "command": "python scripts/build_parity.py",
       "exitCode": 0,
-      "stdout": "{\"functions\": 136, \"operations\": 619, \"explicitlyReachedOperations\": 495, \"withoutExplicitUiBinding\": 124, \"operationsWithSpecificAction\": 126, \"broadDispatcherOnly\": 369, \"note\": \"Internal operations need no direct OWNER button. Unbound OWNER operations require semantic review; counts alone do not prove parity.\"}",
-      "stderr": ""
-    },
-    {
-      "command": "python scripts/audit_inventory.py",
-      "exitCode": 0,
-      "stdout": "{\"files\": 467, \"directEmbeddedResources\": 320, \"decodedCapsuleFiles\": 21, \"structuralFailures\": 0, \"historicalFailuresPreserved\": 1, \"families\": {\"KCML-ERRORS-RESOURCE\": 2, \"KCML-EMBEDDED\": 83, \"KCML-R5-RESOURCE\": 69, \"KCML-R7-RESOURCE\": 8, \"KCML-R8-RESOURCE\": 10, \"KCML-R9-RESOURCE\": 21, \"KCML-R10-RESOURCE\": 10, \"KCML-R11-RESOURCE\": 15, \"KCML-R12-RESOURCE\": 20, \"KCML-R13-RESOURCE\": 15, \"KCML-R14-RESOURCE\": 16, \"KCML-R15-RESOURCE\": 12, \"KCML-R16-RESOURCE\": 21, \"KCML-UI-RESOURCE\": 4, \"KCML-CLOSURE-RESOURCE\": 6, \"KCML-EXPERIENCE-RESOURCE\": 1, \"KCML-R17-RESOURCE\": 7}}",
+      "stdout": "{\"functions\": 152, \"operations\": 619, \"explicitlyReachedOperations\": 497, \"withoutExplicitUiBinding\": 122, \"operationsWithSpecificAction\": 140, \"broadDispatcherOnly\": 357, \"note\": \"Internal operations need no direct OWNER button. Unbound OWNER operations require semantic review; counts alone do not prove parity.\"}",
       "stderr": ""
     },
     {
       "command": "python scripts/phase1_search_history.py",
       "exitCode": 0,
-      "stdout": "{\"commit\": \"6180d9fe67dfaa5365190301dfd58cc8d9812f3d\", \"identityDeclarations\": 0, \"unparsedResourceHeaders\": 0}\n{\"commit\": \"d7e121bdc5f9c0b4aa0cc476f35178bacdfadd2e\", \"identityDeclarations\": 0, \"unparsedResourceHeaders\": 0}\n{\"commit\": \"0ea5bf6b90ae4246956d1d76387ab540dc842f79\", \"identityDeclarations\": 0, \"unparsedResourceHeaders\": 0}",
+      "stdout": "{\"commit\": \"15d42dceeed10740e439f8f0601f64d93e25653a\", \"identityDeclarations\": 0, \"unparsedResourceHeaders\": 0}\n{\"commit\": \"64726c3acb2382da7e9d457d065e661c69806d0c\", \"identityDeclarations\": 0, \"unparsedResourceHeaders\": 0}\n{\"commit\": \"b0fe222f741722a2b36ec17ca40b58404a582f80\", \"identityDeclarations\": 0, \"unparsedResourceHeaders\": 0}\n{\"commit\": \"db21b3c6312215dcb1f42ae31955ed502cb6a5c0\", \"identityDeclarations\": 0, \"unparsedResourceHeaders\": 0}\n{\"commit\": \"581b4973a49923bee67ebc2b3ec3001584d61cf9\", \"identityDeclarations\": 0, \"unparsedResourceHeaders\": 0}\n{\"commit\": \"6180d9fe67dfaa5365190301dfd58cc8d9812f3d\", \"identityDeclarations\": 0, \"unparsedResourceHeaders\": 0}\n{\"commit\": \"d7e121bdc5f9c0b4aa0cc476f35178bacdfadd2e\", \"identityDeclarations\": 0, \"unparsedResourceHeaders\": 0}\n{\"commit\": \"0ea5bf6b90ae4246956d1d76387ab540dc842f79\", \"identityDeclarations\": 0, \"unparsedResourceHeaders\": 0}",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/audit_inventory.py",
+      "exitCode": 0,
+      "stdout": "{\"files\": 501, \"directEmbeddedResources\": 320, \"decodedCapsuleFiles\": 21, \"structuralFailures\": 0, \"historicalFailuresPreserved\": 1, \"families\": {\"KCML-ERRORS-RESOURCE\": 2, \"KCML-EMBEDDED\": 83, \"KCML-R5-RESOURCE\": 69, \"KCML-R7-RESOURCE\": 8, \"KCML-R8-RESOURCE\": 10, \"KCML-R9-RESOURCE\": 21, \"KCML-R10-RESOURCE\": 10, \"KCML-R11-RESOURCE\": 15, \"KCML-R12-RESOURCE\": 20, \"KCML-R13-RESOURCE\": 15, \"KCML-R14-RESOURCE\": 16, \"KCML-R15-RESOURCE\": 12, \"KCML-R16-RESOURCE\": 21, \"KCML-UI-RESOURCE\": 4, \"KCML-CLOSURE-RESOURCE\": 6, \"KCML-EXPERIENCE-RESOURCE\": 1, \"KCML-R17-RESOURCE\": 7}}",
       "stderr": ""
     }
   ],
-  "nonzeroCommands": 5
+  "nonzeroCommands": 6
 }
