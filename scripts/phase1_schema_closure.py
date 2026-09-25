@@ -232,6 +232,21 @@ class Inventory:
         return result
 
 
+def route_event_applicability(record):
+    """Explicit inapplicability is a rejecting contract, never a missing schema."""
+    value=record.get('eventApplicability')
+    if value=='NOT_APPLICABLE':
+        schema=record.get('eventSchema')
+        if not isinstance(schema,dict) or schema.get('not')!={}:
+            raise ValueError('EVENT_INAPPLICABILITY_NOT_ENFORCED:'+record['routeId'])
+        return value
+    if value=='AGGREGATE_STREAM':
+        if 'eventSchema' not in record:raise ValueError('MISSING_AGGREGATE_EVENT_SCHEMA')
+        return value
+    if value is not None:raise ValueError('UNKNOWN_EVENT_APPLICABILITY:'+str(value))
+    return 'ROUTE_EVENT_SCHEMA' if 'eventSchema' in record else 'UNSPECIFIED_NOT_ASSUMED_ABSENT'
+
+
 def build(text):
     inv = Inventory(text)
     print('Inventoried documents:', len(inv.docs), flush=True)
@@ -256,8 +271,12 @@ def build(text):
             route['source'] = path+'#/records/'+str(i)
             route['boundaries'] = [inv.boundary(role, route['source']+'/'+field, 'inline '+field)
                 for role, field in [('request', 'requestSchema'), ('response', 'responseSchema'), ('event', 'eventSchema')] if field in r]
-            if 'eventSchema' not in r:
-                route['eventApplicability'] = 'UNSPECIFIED_NOT_ASSUMED_ABSENT'
+            route['eventApplicability'] = route_event_applicability(r)
+            if route['eventApplicability']=='NOT_APPLICABLE':
+                for boundary in route['boundaries']:
+                    if boundary['role']=='event':
+                        boundary['concreteness']='NOT_APPLICABLE_REJECT_ALL'
+                        boundary['reason']='Explicit rejecting contract; not an emitted event or semantic PASS'
             row['routes'].append(route)
         for role, fields in [('request', ['commandSchemaRef', 'requestSchemaRef']), ('response', ['responseSchemaRef']), ('event', ['eventSchemaRef'])]:
             for field in fields:
@@ -280,7 +299,9 @@ def build(text):
                 row['boundaries'].append(inv.boundary(role, matches[0]+'#/$defs/'+definition, role+'Definition + '+role+'SchemaAuthority'))
         if 'route' in op:
             row['routes'].append({'routeId': None, 'method':op['method'], 'path':op['route'], 'source':op['sourceRef'], 'boundaries':[]})
-        row['eventApplicability'] = 'ROUTE_EVENT_SCHEMA' if any(b['role']=='event' for r in row['routes'] for b in r['boundaries']) else 'UNSPECIFIED_NOT_ASSUMED_ABSENT'
+        actual_routes=[r for r in row['routes'] if r['boundaries']]
+        row['eventApplicability'] = ('NOT_APPLICABLE' if actual_routes and all(r.get('eventApplicability')=='NOT_APPLICABLE' for r in actual_routes) else
+            'ROUTE_EVENT_SCHEMA' if any(b['role']=='event' for r in row['routes'] for b in r['boundaries']) else 'UNSPECIFIED_NOT_ASSUMED_ABSENT')
         rows.append(row)
     boundaries = [b for r in rows for b in r['boundaries']]
     route_rows = [rt for r in rows for rt in r['routes']]

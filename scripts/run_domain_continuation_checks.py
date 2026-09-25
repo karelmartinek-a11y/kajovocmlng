@@ -46,10 +46,17 @@ def main():
             'baselineCounts':{'unresolvedOperationReferences':250,'operationsWithUnresolvedReferences':125,'genericRoutes':505,'genericBoundaryDefinitions':1512},
             'commands':[],'allCommandsFinished':False,'packageStatus':'BLOCKED'}
     if '--read' in sys.argv:report['baselineCommit']='664d617'
+    if '--events' in sys.argv:
+        commands=[(['scripts/verify_generation_event_boundaries.py','--baseline'],1),
+                  (['scripts/verify_generation_event_boundaries.py'],0),
+                  (['scripts/close_generation_event_boundaries.py','--check'],0)]+commands
+        report['baselineCommit']='2d2eea4'
+        report['baselineCounts'].update(unresolvedOperationReferences=242,operationsWithUnresolvedReferences=121)
     for args,expected in commands:
         print('RUN '+' '.join(args),flush=True);started=time.monotonic()
         script_hash=hashlib.sha256((ROOT/args[0]).read_bytes()).hexdigest()
         input_commit=('664d617' if args[0]=='scripts/verify_read_boundary_completion.py' else '897da64') if '--baseline' in args else None
+        if args[0]=='scripts/verify_generation_event_boundaries.py' and '--baseline' in args:input_commit='2d2eea4'
         input_hash=(hashlib.sha256(subprocess.check_output(['git','show',input_commit+':00_SSOT/KajovoCMLNG_SSOT.md'],cwd=ROOT)).hexdigest()
                     if input_commit else source)
         result=subprocess.run([sys.executable,*args],cwd=ROOT,text=True,capture_output=True,encoding='utf8',errors='replace',

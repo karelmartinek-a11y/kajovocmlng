@@ -1,0 +1,64 @@
+{
+  "sourceSha256": "282dfdc013a37b0e3e65e87352d0b78ec501a2c4e8b02ceba8273d04248101fc",
+  "baselineCommit": null,
+  "scope": "Verify exact native asset closure, with independent manifest mutations.\n\nThis is byte integrity, not semantic closure or whole-package readiness.\n",
+  "nativeAssets": 39,
+  "mismatches": [],
+  "missingAssets": [],
+  "extraAssets": [],
+  "checked": 7,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "exact_current_manifest",
+      "expectedValid": true,
+      "actualValid": true,
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "missing_entry",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true,
+      "error": "CONTRACT_PACK_DRIFT /files: Manifest is not exact normative asset closure"
+    },
+    {
+      "name": "duplicate_entry",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true,
+      "error": "CONTRACT_PACK_DRIFT contracts/execution/design-tokens.json: Duplicate manifest entry"
+    },
+    {
+      "name": "wrong_digest",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true,
+      "error": "CONTRACT_PACK_DRIFT contracts/execution/design-tokens.json: Embedded bytes differ"
+    },
+    {
+      "name": "wrong_size",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true,
+      "error": "CONTRACT_PACK_DRIFT contracts/execution/design-tokens.json: Embedded bytes differ"
+    },
+    {
+      "name": "wrong_authority",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true,
+      "error": "CONTRACT_PACK_DRIFT contracts/execution/design-tokens.json: Embedded bytes differ"
+    },
+    {
+      "name": "unknown_asset",
+      "expectedValid": false,
+      "actualValid": false,
+      "passed": true,
+      "error": "CONTRACT_PACK_REFERENCE_INVALID missing-native-asset.json: Missing embedded asset"
+    }
+  ],
+  "nativeScriptSha256": "48cf9ed88bbbc9bc5828063403638c8d85ca8bf4fe8e4ae2f1a99fe564618f74",
+  "nativeManifestSha256": "4fb53e5f2352e61d8700832a34b18c80bbe10689cc51be970bc487d50c6d5b91"
+}

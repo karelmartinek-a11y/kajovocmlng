@@ -27,7 +27,8 @@ def main():
         # Compare non-guard content against this explicit authored delta, not
         # against arbitrary current values. Other routes remain unchanged.
         from close_generation_domain_payloads import changed_payload
-        old_routes={r['routeId']:r for r in changed_payload(old)['records']}
+        from close_generation_event_boundaries import specialize,GEN
+        old_routes={r['routeId']:r for r in specialize(changed_payload(old),json.loads(old[GEN]['raw']))['records']}
     checks=[]
     values=[('0',True),('9223372036854775807',True),('9223372036854775808',False),
             ('18446744073709551616',False),('01',False),('-1',False),('',False),

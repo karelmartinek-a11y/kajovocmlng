@@ -1,0 +1,674 @@
+{
+  "sourceSha256": "282dfdc013a37b0e3e65e87352d0b78ec501a2c4e8b02ceba8273d04248101fc",
+  "baselineCommit": null,
+  "scope": "Synthetic domain-boundary tests; not runtime/DB commit evidence.",
+  "resourceVersions": {
+    "contracts/generation/generation-contracts.schema.json": "d51aa2823977360e7c65acf958a63e712c31a9a42c2fefd53d5c3ea2ec65a235",
+    "contracts/payload-contracts.json": "8c4728991e223d63f4e267c63c6626037b58d70cbb26ff94a273fac2bf63db67"
+  },
+  "checked": 110,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "approval/exact-public-command",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "approval/empty-generic-business-bag",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/missing/currentTurnId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/null/currentTurnId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/missing/currentTurnStatus",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/null/currentTurnStatus",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/missing/specificationRevisionId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/null/specificationRevisionId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/missing/specificationDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/null/specificationDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/missing/capabilitySnapshotId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/null/capabilitySnapshotId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/missing/capabilitySnapshotDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/null/capabilitySnapshotDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/invalid-or-server-owned/currentTurnStatus",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/invalid-or-server-owned/specificationDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/invalid-or-server-owned/authorityId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/invalid-or-server-owned/commit",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/invalid-or-server-owned/scopeLock",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/snapshot-validator-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "approval/current-server-snapshot",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "approval/stale/job_state",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/stale/turn_status",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/stale/state_version",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/stale/turn_id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/stale/specification_revision_id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/stale/capability_snapshot_id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/stale/capability_snapshot_digest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/wrong-job-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/modified-document-remains-schema-valid",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "approval/modified-document-same-digest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/open-question-document-is-schema-valid",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "approval/open-question-blocks-even-matching-digest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "approval/refreshed-new-command-recheck",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0232/preserved-schema-identity-delivers-domain-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0232/producer-native-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0232/route-output-consumer-same-mask",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0232/generic-slot-rejected",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/schemaVersion",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/jobId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/objective",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/resultContract",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/behavioralRequirements",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/inputs",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/outputs",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/businessRules",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/ownerDecisions",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/authorityModel",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/sources",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/contentProvenance",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/verifiedFacts",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/dataDerivations",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/constraints",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/capabilityDecision",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/targetGraph",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/mcpElements",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/agents",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/integrationEdges",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/externalSystems",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/secrets",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/secretUseRequirements",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/bindings",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/agenticSecurityRequirements",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/stateContracts",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/uiRequirements",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/browserRequirements",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/monitoringRequirements",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/evaluationPlan",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/acceptanceCriteria",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/releasePlan",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/rollbackPlan",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/missing/openQuestions",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/failure-null-has-no-native-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/failure-null-output-permitted",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0232/success-wrapper",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0232/failure-cannot-smuggle-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/success-cannot-omit-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/handoff-validator-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0232/producer-to-consumer",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0232/failed-read-not-consumed",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/pending-recovery-not-consumed",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/wrong-identity/id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/wrong-identity/revisionId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0232/failure-document-injection",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/preserved-schema-identity-delivers-domain-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0237/producer-native-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0237/route-output-consumer-same-mask",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0237/generic-slot-rejected",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/missing/schemaVersion",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/missing/planId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/missing/jobId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/missing/specificationDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/missing/scopeLock",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/missing/pathPlan",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/missing/sdkLock",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/missing/rootArtifacts",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/missing/nodes",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/missing/coverage",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/failure-null-has-no-native-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/failure-null-output-permitted",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0237/success-wrapper",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0237/failure-cannot-smuggle-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/success-cannot-omit-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/handoff-validator-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0237/producer-to-consumer",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "route.0237/failed-read-not-consumed",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/pending-recovery-not-consumed",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/wrong-identity/id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/wrong-identity/planId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "route.0237/failure-document-injection",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    }
+  ],
+  "remaining": "Events, trusted revision snapshot provenance/current DB guards and full recovery remain unclosed."
+}
