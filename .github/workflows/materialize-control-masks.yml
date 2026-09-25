@@ -6,6 +6,7 @@ on:
       - audit/explicit-mask-parity
     paths:
       - scripts/close_component_control_masks.py
+      - scripts/close_component_heartbeat.py
       - .github/workflows/materialize-control-masks.yml
 
 permissions:
@@ -22,7 +23,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Apply exact R9 edit
-        run: python scripts/close_component_control_masks.py
+        run: |
+          python scripts/close_component_control_masks.py
+          python scripts/close_component_heartbeat.py
       - name: Verify mask coverage and digest integrity
         run: |
           python scripts/audit_r9_masks.py > /tmp/r9-audit-result.json || test "$?" -eq 1
@@ -32,15 +35,16 @@ jobs:
           sys.path.insert(0, 'scripts')
           from ssot_sources import load_resource
           payload = json.loads(load_resource('contracts/payload-contracts.json')['raw'])
-          routes = [r for r in payload['records'] if r['routeId'] in ('route.0000', 'route.0001')]
-          assert len(routes) == 2
+          routes = [r for r in payload['records'] if r['routeId'] in ('route.0000', 'route.0001', 'route.0003')]
+          assert len(routes) == 3
           for route in routes:
               body = route['requestSchema']['properties']['body']
               result = route['responseSchema']['properties']['output']['oneOf'][1]
-              assert body['type'] == 'object' and 'values' not in body['properties']
+              assert ('values' not in body.get('properties', {}) and
+                      (body.get('type') == 'object' or body.get('$ref') == '#/$defs/ComponentHeartbeat'))
               assert result == route['eventSchema']['properties']['payload']
           report = json.load(open('audit/generated/current-r9-mask-inventory.json'))
-          print('Two control masks materialized; remaining R9 coverage is BLOCKED.')
+          print('Three component masks materialized; remaining R9 coverage is BLOCKED.')
           PY
       - name: Commit authoritative SSOT and refreshed inventory
         run: |
