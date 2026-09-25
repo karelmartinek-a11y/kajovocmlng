@@ -2,6 +2,7 @@
 import argparse
 import copy
 import hashlib
+import inspect
 import json
 import os
 import subprocess
@@ -114,12 +115,20 @@ def main():
         if handoff:
             operation=rows[rid]['operationId'];params={'id':sample['jobId']}
             if definition=='GenerationPlan':params['planId']=sample['planId']
+            else:params['revisionId']=uid
+            if 'persisted_document_digest' in inspect.signature(handoff).parameters:
+                original_handoff=handoff
+                snapshot={'persisted_job_id':sample['jobId'],
+                          'persisted_document_id':params.get('revisionId',params.get('planId')),
+                          'persisted_document_digest':module.semantic_digest(sample)}
+                def handoff(doc,operation,params,response):
+                    return original_handoff(doc,operation,params,response,**snapshot)
             check(rid+'/producer-to-consumer',handoff(doc,operation,params,wrapper),True)
             bad=copy.deepcopy(wrapper);bad.update(status='FAILED',output=None)
             check(rid+'/failed-read-not-consumed',handoff(doc,operation,params,bad),False)
             bad=copy.deepcopy(wrapper);bad.update(status='ACCEPTED',output=None)
             check(rid+'/pending-recovery-not-consumed',handoff(doc,operation,params,bad),False)
-            for field in params:
+            for field in params if not args.baseline else [p for p in params if p!='revisionId']:
                 wrong={**params,field:'00000000-0000-4000-8000-000000000099'}
                 try:handoff(doc,operation,wrong,wrapper);accepted=True
                 except module.ContractFailure:accepted=False

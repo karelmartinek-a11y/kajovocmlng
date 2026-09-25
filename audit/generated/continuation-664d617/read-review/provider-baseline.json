@@ -1,0 +1,168 @@
+{
+  "sourceSha256": "75d38f3b4abdf249c29eacbb075d8a6023637b7649df9aaa4a27f372696cd751",
+  "baselineCommit": "897da64",
+  "scope": "12.14 negative tests on actual native and active projection ProviderOutcome.",
+  "resourceVersions": {
+    "contracts/generation/generation-contracts.schema.json": "5e7c1e7b1586303c325829c51111eb615a6170b167bbca24047a5f27eaeb4e44",
+    "contracts/registry-schemas/project-registry.schema.json": "e40c2f8f3dcbd19d503d9f05fba27d98a7203aa55f95b0ef29d959d1b378ddad"
+  },
+  "checked": 22,
+  "failed": 6,
+  "checks": [
+    {
+      "resource": "contracts/generation/generation-contracts.schema.json",
+      "case": "COMPLETED/accepted-output",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "resource": "contracts/generation/generation-contracts.schema.json",
+      "case": "COMPLETED/no-accepted-output",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "resource": "contracts/generation/generation-contracts.schema.json",
+      "case": "REFUSED/accepted-output",
+      "expected": false,
+      "actual": true,
+      "passed": false
+    },
+    {
+      "resource": "contracts/generation/generation-contracts.schema.json",
+      "case": "REFUSED/no-accepted-output",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "resource": "contracts/generation/generation-contracts.schema.json",
+      "case": "INCOMPLETE/accepted-output",
+      "expected": false,
+      "actual": true,
+      "passed": false
+    },
+    {
+      "resource": "contracts/generation/generation-contracts.schema.json",
+      "case": "INCOMPLETE/no-accepted-output",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "resource": "contracts/generation/generation-contracts.schema.json",
+      "case": "FAILED/accepted-output",
+      "expected": false,
+      "actual": true,
+      "passed": false
+    },
+    {
+      "resource": "contracts/generation/generation-contracts.schema.json",
+      "case": "FAILED/no-accepted-output",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "resource": "contracts/generation/generation-contracts.schema.json",
+      "case": "UNKNOWN-is-not-confirmed-provider-receipt",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "resource": "contracts/generation/generation-contracts.schema.json",
+      "case": "missing-raw-response",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "resource": "contracts/generation/generation-contracts.schema.json",
+      "case": "model-proposal-cannot-be-server-receipt",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "resource": "contracts/registry-schemas/project-registry.schema.json",
+      "case": "COMPLETED/accepted-output",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "resource": "contracts/registry-schemas/project-registry.schema.json",
+      "case": "COMPLETED/no-accepted-output",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "resource": "contracts/registry-schemas/project-registry.schema.json",
+      "case": "REFUSED/accepted-output",
+      "expected": false,
+      "actual": true,
+      "passed": false
+    },
+    {
+      "resource": "contracts/registry-schemas/project-registry.schema.json",
+      "case": "REFUSED/no-accepted-output",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "resource": "contracts/registry-schemas/project-registry.schema.json",
+      "case": "INCOMPLETE/accepted-output",
+      "expected": false,
+      "actual": true,
+      "passed": false
+    },
+    {
+      "resource": "contracts/registry-schemas/project-registry.schema.json",
+      "case": "INCOMPLETE/no-accepted-output",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "resource": "contracts/registry-schemas/project-registry.schema.json",
+      "case": "FAILED/accepted-output",
+      "expected": false,
+      "actual": true,
+      "passed": false
+    },
+    {
+      "resource": "contracts/registry-schemas/project-registry.schema.json",
+      "case": "FAILED/no-accepted-output",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "resource": "contracts/registry-schemas/project-registry.schema.json",
+      "case": "UNKNOWN-is-not-confirmed-provider-receipt",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "resource": "contracts/registry-schemas/project-registry.schema.json",
+      "case": "missing-raw-response",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "resource": "contracts/registry-schemas/project-registry.schema.json",
+      "case": "model-proposal-cannot-be-server-receipt",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    }
+  ],
+  "notClosed": "Unknown-submit recovery, actual artifact hydration and generation.model.execute command/response remain separate."
+}

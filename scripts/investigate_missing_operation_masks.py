@@ -10,6 +10,7 @@ import re
 import subprocess
 
 from close_generation_operation_masks import OPERATIONS, CATALOG, SAGA, GEN
+from close_mcp_list_operation_masks import OPERATIONS as MCP_LIST_OPERATIONS, NATIVE
 from phase1_schema_closure import build
 from ssot_sources import ROOT, SSOT
 
@@ -52,11 +53,21 @@ def main():
     operations = {o['operationId']: o for o in matrix['operations']}
     records = {o['operationId']: o for o in inv.docs['contracts/operation-contracts.json']['records']}
     rows = []
+    directory = ROOT / os.environ.get('KCML_AUDIT_OUTPUT', 'audit/generated')
+    scoped_path=directory/'read-boundary-evidence.json'
+    scoped_investigations={}
+    if scoped_path.exists():
+        scoped=json.loads(scoped_path.read_text(encoding='utf8'))
+        if scoped['sourceSha256']!=hashlib.sha256(raw).hexdigest():
+            raise ValueError('Stale scoped read-boundary evidence; regenerate for current SSOT')
+        scoped_investigations={r['operationId']:r for r in scoped['nextIndividuallyInvestigated']}
     for oid, old in sorted(wanted.items()):
         op = operations[oid]
         source_sections = [s['section'] for s in records[oid].get('authoritySourceRefs', [])]
         if oid in OPERATIONS:
             source_sections += ['56.8', '56.9', '56.12', '56.4']
+        if oid in MCP_LIST_OPERATIONS:
+            source_sections += ['10.3', '10.4', '10.7', '10.11', '10.14', '10.16.1']
         excerpts = {s: sections.get(s, []) for s in source_sections}
         refs = sorted(set(re.findall(r'urn:kcml:[^\s"`<>]+',
                                     '\n'.join(e['text'] for v in excerpts.values() for e in v))))
@@ -72,16 +83,32 @@ def main():
                      'classification': ('EXACT_DEFINITION_EXISTS' if oid in
                         ('generation.workspace.validate', 'generation.activation.switch') else
                         'DETERMINISTIC_DERIVATION_FROM_EXPLICIT_CATALOG' if oid in OPERATIONS else
+                        'DETERMINISTIC_DERIVATION_FROM_PINNED_NATIVE_PROTOCOL' if oid in MCP_LIST_OPERATIONS else
                         'INVESTIGATION_OPEN'),
-                     'ownerDecisionRequired': False if oid in OPERATIONS else None,
-                     'remaining': 'Content hydration and runtime guards remain separate obligations.' if oid in OPERATIONS else
+                     'ownerDecisionRequired': False if oid in OPERATIONS or oid in MCP_LIST_OPERATIONS else None,
+                     'nativeProtocolBinding': ({'artifact':NATIVE,'requestDefinition':MCP_LIST_OPERATIONS[oid][1]+'Request',
+                         'responseDefinition':MCP_LIST_OPERATIONS[oid][1]+'ResultResponse',
+                         'failureDefinition':'JSONRPCErrorResponse','sourceSections':['10.3','10.4','10.7','10.11','10.14','10.16.1'],
+                         'proofScript':'scripts/verify_read_boundary_completion.py',
+                         'notWholeProcessClosure':True} if oid in MCP_LIST_OPERATIONS else None),
+                     'remaining': 'Transport headers, request-scoped SSE, current cache context, real snapshot persistence and recovery integration remain separate obligations.' if oid in MCP_LIST_OPERATIONS else
+                        'Content hydration and runtime guards remain separate obligations.' if oid in OPERATIONS else
                         'Read authoritative sections and related schemas; decide semantic equivalence '
                         'and complete input/output coverage before assigning one of the four final categories.'})
+        if oid in scoped_investigations:
+            rows[-1]['currentIndividualInvestigation']=scoped_investigations[oid]
+            rows[-1]['individualInvestigationEvidence']=scoped_path.relative_to(ROOT).as_posix()
+            rows[-1]['ownerDecisionRequired']=scoped_investigations[oid]['ownerDecisionRequired']
+            rows[-1]['remaining']=scoped_investigations[oid]['concreteRemaining']
+        if oid.startswith(('generation.','runtime.')) and oid not in OPERATIONS:
+            rows[-1]['previousIndividualInvestigation']={
+                'report':'audit/SSOT_CONTINUATION_897da64.md',
+                'notCurrentClosureEvidence':True,
+                'instruction':'Continue the per-operation analysis already recorded there; current authority excerpts above remain the source.'}
     result = {'sourceSha256': hashlib.sha256(raw).hexdigest(), 'baselineCommit': 'e025079',
               'scope': __doc__, 'baselineOperations': len(wanted), 'currentSummary': matrix['summary'],
-              'reviewedOperationBindings': len(OPERATIONS),
-              'unclassifiedOperations': len(wanted)-len(OPERATIONS), 'operations': rows}
-    directory = ROOT / os.environ.get('KCML_AUDIT_OUTPUT', 'audit/generated')
+              'reviewedOperationBindings': len(OPERATIONS)+len(MCP_LIST_OPERATIONS),
+              'unclassifiedOperations': len(wanted)-len(OPERATIONS)-len(MCP_LIST_OPERATIONS), 'operations': rows}
     directory.mkdir(parents=True, exist_ok=True)
     destination = directory/'missing-operation-investigation.json'
     destination.write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf8')

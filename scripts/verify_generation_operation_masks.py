@@ -6,6 +6,7 @@ import os
 import sys
 
 from close_generation_operation_masks import OPERATIONS, PATH, GEN, CATALOG, SAGA, expected
+from close_mcp_list_operation_masks import NATIVE, definitions as mcp_list_definitions
 from phase1_schema_closure import Inventory
 from ssot_sources import ROOT, SSOT
 from verify_phase2_handoffs import witness
@@ -33,7 +34,13 @@ def main():
         return validators[identity].is_valid(sample)
 
     expected_masks = expected(inv.rs)
+    if NATIVE in inv.rs:
+        expected_masks.update(mcp_list_definitions(json.loads(inv.rs[NATIVE]['raw'])))
     record('exact-source-derived-variant-set', inv.docs[PATH].get('$defs') == expected_masks)
+    extra=copy.deepcopy(inv.docs[PATH]['$defs']);extra['unexpected.variant']={'type':'object'}
+    record('unexpected-definition-still-rejected',extra==expected_masks,False)
+    missing=copy.deepcopy(inv.docs[PATH]['$defs']);missing.pop(next(iter(expected_masks)))
+    record('missing-definition-still-rejected',missing==expected_masks,False)
     for row in inv.docs[CATALOG]:
         operation, kind = row['canonicalOperationId'], row['kind']
         if operation not in OPERATIONS:

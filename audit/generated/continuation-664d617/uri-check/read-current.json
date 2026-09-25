@@ -1,0 +1,1239 @@
+{
+  "sourceSha256": "8d5d6706b3ffb366b6de782af66dadb8ebb4a85f4e7db1c63110e98adabc3982",
+  "baselineCommit": null,
+  "resourceVersions": {
+    "contracts/operation-contracts.json": "9bfc957372b2eb28a8a78808eef8dc20a07c18134cd139cc97f536518b0414a5",
+    "contracts/mcp-native-schema-artifact.json": "068b37c9d873ffeea1299fec37aee5b28644da29aa64d15fabc8ceb77c9769f7",
+    "scripts/ssot/ssot_control.py": "f1f17102eef0a4f0b4e5e41bc4c9f0c7c6689f67b4fc03e1843d244e12963dc5"
+  },
+  "scope": "Current-mask and producer/consumer regressions; not DB/SSE integration proof.",
+  "checked": 192,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "generation.spec.revision.read/persisted-consumer-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.revision.read/persisted-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.revision.read/missing-trusted-snapshot",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.revision.read/wrong-persisted/persisted_job_id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.revision.read/wrong-persisted/persisted_document_id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.revision.read/wrong-persisted/persisted_document_digest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.revision.read/valid-shape-wrong-content",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.revision.read/recovery-confirmed-new-read",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.revision.read/FAILED-no-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.revision.read/CANCELLED-no-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.revision.read/ACCEPTED-no-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.read/persisted-consumer-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.read/persisted-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.read/missing-trusted-snapshot",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.read/wrong-persisted/persisted_job_id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.read/wrong-persisted/persisted_document_id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.read/wrong-persisted/persisted_document_digest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.read/valid-shape-wrong-content",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.read/recovery-confirmed-new-read",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.read/FAILED-no-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.read/CANCELLED-no-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.read/ACCEPTED-no-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "pinned-native-bytes-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "native-projection-exact-definitions",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "native-byte-drift-rejected",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "native-byte-drift-rejected",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp-handoff-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "uri-format-checker-required",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/command-mask-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/response-mask-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/exact-request",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/exact-response",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/request-icon-uri/True",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/response-icon-uri/True",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/request-icon-uri/False",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/response-icon-uri/False",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/null-id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/bool-id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/wrong-method",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/response-as-request",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/bad-request-params",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/bad-request-params",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/bad-request-params",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/bad-request-params",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/empty-cursor-is-valid",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/MRTR",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/Task",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/unknown-result",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/negative-ttl",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/wrong-cache-scope",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/wrong-list-type",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/null-item",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/missing/prompts",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/missing/ttlMs",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/missing/cacheScope",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/missing/resultType",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/missing/_meta",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/generic-slot-output",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/protocol-error",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/ambiguous-outcome",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/reserved-unknown-code",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/producer-to-consumer",
+      "actual": [
+        false,
+        null
+      ],
+      "expected": [
+        false,
+        null
+      ],
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/string-vs-integer-id",
+      "actual": "REJECTED",
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/float-id-is-not-integer-json",
+      "actual": "REJECTED",
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/wrong-id",
+      "actual": "REJECTED",
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/protocol-error-not-snapshot",
+      "actual": null,
+      "expected": null,
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/next-empty-cursor",
+      "actual": [
+        true,
+        ""
+      ],
+      "expected": [
+        true,
+        ""
+      ],
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/cross-page-scope",
+      "actual": "REJECTED",
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "case": "mcp.prompts.list/fresh-first-page-after-error",
+      "actual": [
+        false,
+        null
+      ],
+      "expected": [
+        false,
+        null
+      ],
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/command-mask-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/response-mask-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/exact-request",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/exact-response",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/request-icon-uri/True",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/response-icon-uri/True",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/request-icon-uri/False",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/response-icon-uri/False",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/null-id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/bool-id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/wrong-method",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/response-as-request",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/bad-request-params",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/bad-request-params",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/bad-request-params",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/bad-request-params",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/empty-cursor-is-valid",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/MRTR",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/Task",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/unknown-result",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/negative-ttl",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/wrong-cache-scope",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/wrong-list-type",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/null-item",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/missing/tools",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/missing/ttlMs",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/missing/cacheScope",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/missing/resultType",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/missing/_meta",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/generic-slot-output",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/protocol-error",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/ambiguous-outcome",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/reserved-unknown-code",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/producer-to-consumer",
+      "actual": [
+        false,
+        null
+      ],
+      "expected": [
+        false,
+        null
+      ],
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/string-vs-integer-id",
+      "actual": "REJECTED",
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/float-id-is-not-integer-json",
+      "actual": "REJECTED",
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/wrong-id",
+      "actual": "REJECTED",
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/protocol-error-not-snapshot",
+      "actual": null,
+      "expected": null,
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/next-empty-cursor",
+      "actual": [
+        true,
+        ""
+      ],
+      "expected": [
+        true,
+        ""
+      ],
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/cross-page-scope",
+      "actual": "REJECTED",
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "case": "mcp.tools.list/fresh-first-page-after-error",
+      "actual": [
+        false,
+        null
+      ],
+      "expected": [
+        false,
+        null
+      ],
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/command-mask-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/response-mask-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/exact-request",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/exact-response",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/request-icon-uri/True",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/response-icon-uri/True",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/request-icon-uri/False",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/response-icon-uri/False",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/null-id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/bool-id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/wrong-method",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/response-as-request",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/bad-request-params",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/bad-request-params",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/bad-request-params",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/bad-request-params",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/empty-cursor-is-valid",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/MRTR",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/Task",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/unknown-result",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/negative-ttl",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/wrong-cache-scope",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/wrong-list-type",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/null-item",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/missing/resources",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/missing/ttlMs",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/missing/cacheScope",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/missing/resultType",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/missing/_meta",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/generic-slot-output",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/protocol-error",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/ambiguous-outcome",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/reserved-unknown-code",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/producer-to-consumer",
+      "actual": [
+        false,
+        null
+      ],
+      "expected": [
+        false,
+        null
+      ],
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/string-vs-integer-id",
+      "actual": "REJECTED",
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/float-id-is-not-integer-json",
+      "actual": "REJECTED",
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/wrong-id",
+      "actual": "REJECTED",
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/protocol-error-not-snapshot",
+      "actual": null,
+      "expected": null,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/next-empty-cursor",
+      "actual": [
+        true,
+        ""
+      ],
+      "expected": [
+        true,
+        ""
+      ],
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/cross-page-scope",
+      "actual": "REJECTED",
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.list/fresh-first-page-after-error",
+      "actual": [
+        false,
+        null
+      ],
+      "expected": [
+        false,
+        null
+      ],
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/command-mask-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/response-mask-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/exact-request",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/exact-response",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/request-icon-uri/True",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/response-icon-uri/True",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/request-icon-uri/False",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/response-icon-uri/False",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/null-id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/bool-id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/wrong-method",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/response-as-request",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/bad-request-params",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/bad-request-params",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/bad-request-params",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/bad-request-params",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/empty-cursor-is-valid",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/MRTR",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/Task",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/unknown-result",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/negative-ttl",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/wrong-cache-scope",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/wrong-list-type",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/null-item",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/missing/resourceTemplates",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/missing/ttlMs",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/missing/cacheScope",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/missing/resultType",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/missing/_meta",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/generic-slot-output",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/protocol-error",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/ambiguous-outcome",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/reserved-unknown-code",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/producer-to-consumer",
+      "actual": [
+        false,
+        null
+      ],
+      "expected": [
+        false,
+        null
+      ],
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/string-vs-integer-id",
+      "actual": "REJECTED",
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/float-id-is-not-integer-json",
+      "actual": "REJECTED",
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/wrong-id",
+      "actual": "REJECTED",
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/protocol-error-not-snapshot",
+      "actual": null,
+      "expected": null,
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/next-empty-cursor",
+      "actual": [
+        true,
+        ""
+      ],
+      "expected": [
+        true,
+        ""
+      ],
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/cross-page-scope",
+      "actual": "REJECTED",
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "case": "mcp.resources.templates.list/fresh-first-page-after-error",
+      "actual": [
+        false,
+        null
+      ],
+      "expected": [
+        false,
+        null
+      ],
+      "passed": true
+    }
+  ],
+  "remaining": "DB provenance, actual snapshot persistence, transport/header/SSE integration and generation events are not proven by these fixtures."
+}
