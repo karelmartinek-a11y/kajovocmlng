@@ -53,7 +53,7 @@ nativním manifestu. Funkce se používá po transportní validaci a neuděluje 
 |---|---|---|---|
 | uložená specification revision → route.0232 response.output | nativní GenerationSpecification validator před precheck | stejná maska, všechna required fields, shoda jobId; FAILED/CANCELLED ani ACCEPTED se nesmějí předat jako dokument | trusted revision ID/digest, source/requirement coverage a approval transakce |
 | uložený immutable plan → route.0237 response.output | nativní GenerationPlan validator před execution validation | stejná maska, required fields, shoda jobId a planId; failure s podstrčeným outputem je odmítnut | skutečné DAG, hydratační a runtime gates |
-| OWNER approval body → server admission | R9 request validator | explicitní snapshots a completed turn claim, nikoli receipt/server authority | porovnání claimu s current DB snapshotem, fence, atomic commit/outbox a jejich recovery |
+| OWNER approval body → server admission | R9 request validator + validate_generation_approval_handoff | explicitní snapshots a completed turn claim, shoda se separátními serverovými vstupy, skutečný specification digest | původ serverových vstupů z current DB snapshotu, fence, full precheck, atomic commit/outbox a jejich recovery |
 
 Pending/failed read vrací z handoff kontroly false: žádný následný validator
 nedostane fiktivní success. Nové čtení/recovery musí dodat skutečný potvrzený
@@ -66,7 +66,7 @@ nikoli hromadné OWNER rozhodnutí. Samotná absence schema ID není důvod blok
 
 | Operace | Přesný zdroj / relevantní definice | Co konkrétně brání navázání celé dvojice |
 |---|---|---|
-| generation.model.execute | §12.10–12.15, §52.4–52.7, §56.6; ModelCallDescriptor / ProviderOutcome | §12.11 říká „Timeout, connection error nebo worker crash po DISPATCH_STARTED bez uloženého response ID je MODEL_SUBMIT_OUTCOME_UNKNOWN“. ProviderOutcome vyžaduje rawResponse a nemá UNKNOWN localStatus; nelze jím pokrýt tuto větev ani před-submit failure. Navíc acceptedOutput zůstává schema-přípustný u REFUSED/INCOMPLETE/FAILED proti §12.14; technická vada, ne OWNER volba. |
+| generation.model.execute | §12.10–12.15, §52.4–52.7, §56.6; ModelCallDescriptor / ProviderOutcome | §12.11 říká „Timeout, connection error nebo worker crash po DISPATCH_STARTED bez uloženého response ID je MODEL_SUBMIT_OUTCOME_UNKNOWN“. ProviderOutcome vyžaduje rawResponse a nemá UNKNOWN localStatus; nelze jím pokrýt tuto větev ani před-submit failure. Vstupní vada acceptedOutput u REFUSED/INCOMPLETE/FAILED byla následně opravena ve skupině ProviderOutcome níže; není to OWNER volba ani uzavření celé operace. |
 | generation.plan.create | §12.23, §49.16, §56.8 a §56.10; GenerationPlan / IMPLEMENTATION_PLANNERProposal | §56.10 zakazuje modelu vytvářet serverové commit receipt/current identity. Nativní plan je dokument/proposal, nikoli doložená create receipt pro všechny success/failure/replay varianty. Chybí konkrétní vazba přidělených plan/job IDs a persistence potvrzení k této operaci. |
 | generation.spec.propose | §12.15, §12.19–12.21, §56.7/56.10; GenerationSpecification | §12.20: „Neúplná specifikace zůstává proposal a nemůže být schválena.“ Samotná schema-validní specification není serverový receipt přijaté nové immutable revision. Ještě není prokázáno celé uložení/rejection rozhraní této vnitřní operace. |
 | generation.activation.prepare | §49.17: DRAFT→READY vyžaduje membership, previous/candidate snapshots, rollback, gates a preflight; ActivationPlan | Plán není potvrzení provedeného barrier/admission prepare. Nutno určit konkrétní command snapshot a serverový výstup stavu READY včetně stale/blocked větví; S07/S08 připravují runtime, nikoli celý activation set. |
@@ -95,6 +95,67 @@ neprokazuje nezbytné business rozhodnutí OWNERa.
 | runtime.heartbeat | §50.19 HEARTBEAT=12; §50.29 „old heartbeat ... je stale evidence“ | Typ frame nedává JSON payload ani ACK. ComponentHeartbeat patří jinému control transportu; bez transformace a identity proof se nepřebírá. |
 | runtime.state.report | §50.29 ActivationRuntimeSnapshot a stale state report; §50.10 server instance identity | Snapshot není state report command, RuntimeObservation popisuje readiness; chybí přesné domain state payload→server acceptance/rejection mapování. |
 
+## Navazující skupina: approval snapshot a ProviderOutcome
+
+První publikovaná skupina je commit `3047f07`. Další evidence je oddělená:
+`approval-handoff/commands.json` patří jen k mezivstupu
+`fe6fd48f8d6fe6c112cd6727da3c1a7ee120985d53574e4b68ded02afa17c0b7`.
+Nejnovější dotčený průchod je v
+`generated/continuation-897da64/provider-outcome/commands.json` nad SSOT
+`98dfcebd89aee508982a87847fd347ec89307fe54d2662d7b8c8b64c251f548f`.
+Tento nový průchod skončil exit 0. Dílčí aktuální kontroly skončily 0, oba
+baseline reproduktory očekávaně 1. Prošlo 109 domain/handoff, 22 ProviderOutcome,
+669 generation mask, 13 saga, 7 native-manifest a 12 portable-manifest případů;
+UI projekce odpovídají. Matice znovu potvrzuje 250 / 125 / 505 a 1512 obecných
+hranic, bez schema identity konfliktů a bez nedohledaných vnořených refs.
+
+### Approval: skutečné porovnání s current snapshotem
+
+Vložený `validate_generation_approval_handoff` podle §12.19–12.21 porovnává
+public command s oddělenými serverovými hodnotami job/turn/spec/capability.
+Vyžaduje DISCUSSING, COMPLETED turn, exact stateVersion a všechny identity/digests,
+stejný job dokumentu, žádné openQuestions a skutečný canonical digest předaného
+specification dokumentu. Nestačí porovnat dva nepodložené digest řetězce.
+
+109 aktuálních doménových testů zahrnuje změněný, stále schema-validní business
+obsah se starým digestem; stale turn/revision/capability/verzi; otázku i při
+matching digestu; cizí job/plan a failure document injection. Recovery případ
+znovu ověří čerstvý snapshot s novým command idempotency key — nepředstírá
+bezpečné opakování starého klíče nad změněným commandem.
+
+Server musí vstupy získat pod skutečnými locks/fences v jednom authoritative
+snapshotu. Predicate nevytváří approval authority ani commit receipt. Full
+precheck, idempotency ledger a atomický zápis pointer/event/outbox stále vyžadují
+implementaci a důkaz. Předání callerem dodaných hodnot za serverový snapshot
+není povoleno. Event a veřejná response maska approval zůstávají otevřené.
+
+Současně zůstaly zachovány původní identity
+`urn:kcml:r9:semantic:route.0232:output` a `...:route.0237:output` jako odkazy na
+skutečné nativní doménové definice. Test přes tyto identity ověřuje přímo nový
+payload; nejde o přesunutí původního `values` za ref.
+
+### ProviderOutcome: odmítnutý výsledek není structured success
+
+§12.14 stanovuje: „Refusal, incomplete a provider failure se nezkoušejí parseovat
+jako požadovaný structured success.“ Pole `acceptedOutput` v
+`contracts/generation/generation-contracts.schema.json#/$defs/ProviderOutcome`
+proto při `localStatus` REFUSED, INCOMPLETE nebo FAILED musí být null.
+Původní maska dovolovala neprázdný artifact ve všech těchto větvích.
+
+Opravena je autoritativní nativní definice, její aktivní R5 SOURCE_CONTRACT kopie
+stejného path/identity i R5 `project-registry.schema.json#/$defs/ProviderOutcome`.
+Jejich schéma texty jsou konzistentní a metadata/digests i native manifest byly
+přepočteny. `history/r2` a historické auditní výsledky se nepřepisují.
+
+Předávka je normalizovaný serverový provider receipt → konzument přijatého
+structured artifactu. REFUSED/INCOMPLETE/FAILED nesmějí předat accepted artifact;
+rawResponse, orderedItems, problems a server commit se nadále zachovávají.
+COMPLETED/NO_OUTPUT není nově zakázán. Baseline nad 897da64 prokazuje šest
+chybných přijetí (tři stavy × native/projection), nikoli chybějící testovací fixture.
+Po opravě prošlo všech 22 případů. UNKNOWN nebo missing rawResponse/commit
+nadále není platný potvrzený receipt. Neznámý submit vyžaduje samostatnou
+recovery větev podle §12.11/52; nefalšuje se doplněním UNKNOWN do tohoto receiptu.
+
 ## Vnější manifesty
 
 `package_integrity.py` a aktualizovaný `update_manifests.py` používají skutečnou
@@ -104,6 +165,16 @@ stejnou definici bytes/hash. Inventář se porovnává jako množina; duplicity,
 vynechaný/přidaný soubor, změna obsahu, chybná větev a nový SSOT jsou vady.
 Historický `audit/final-audit.json` není autoritou pro status. Manifest výslovně
 zůstává BLOCKED/INVENTORY_ONLY; jeho integrita není sémantické PASS.
+Zachován je také CLI vstup `package_integrity.py --generate` / `--receipt`.
+Plain `FILE_MANIFEST_SHA256` a JSON varianta obsahují stejný ověřovaný soupis;
+nevytvářejí cyklus vzájemného hashování. Výjimky jsou explicitní a ověřované,
+post-hash receipt není vstupní autoritou. Manifesty hashují i aktuální reporty
+a skripty; jejich výsledné bytes váže Git commit.
+Dodatečný závěrečný test v `generated/continuation-897da64/package-final`
+ověřil 13 manifest případů včetně zákazu rozšíření exclusion policy (exit 0).
+Ve stejné složce je posledních 109 domain/handoff případů s rozdílnými turn,
+specification revision a capability snapshot IDs, aby se záměna rolí neschovala
+za shodné fixture hodnoty (exit 0). Tyto doplňující testy nemění SSOT hash.
 
 ## Evidence, počty a pokračování
 
@@ -123,15 +194,17 @@ manifest případů (exit 0); jejich report uvádí hashe implementačních modu
 | Obecné trasy | 505 | 505 | 0 |
 | Obecné request/response/event definice | 1515 | 1512 | −3 |
 
-Aktuální příkazy a návratové kódy jsou v
-`generated/continuation-897da64/generation-domain/commands.json`; poslední
-matice/dossier ve stejné složce. Reprodukce:
+Příkazy první skupiny jsou v
+`generated/continuation-897da64/generation-domain/commands.json`. Nejnovější
+příkazy, matice a dossier jsou v `generated/continuation-897da64/provider-outcome`.
+Reprodukce do nové složky, aby nepřepsala historickou evidenci:
 
 ```powershell
 $env:PYTHONUTF8='1'
-python scripts/run_domain_continuation_checks.py
+$env:KCML_AUDIT_OUTPUT='audit/generated/continuation-897da64/recheck'
+python scripts/run_domain_continuation_checks.py --focused --provider
 python scripts/update_manifests.py
-python -c "import sys; sys.path.insert(0,'scripts'); from verify_package import check_manifest; p=check_manifest(); print(p); sys.exit(bool(p))"
+python scripts/package_integrity.py
 ```
 
 Jednotky: nevyřešený odkaz = jedna request/response schema identita operace;
@@ -140,7 +213,7 @@ efektivní route s alespoň jednou obecnou hranicí, včetně tranzitivních ref
 Opravená dílčí maska není uzavřená trasa. 3 204 historických matičních řádků
 nepředstavuje počet unikátních runtime předávek.
 
-Závěr zůstává **BLOCKED**: 125 interních dvojic nejsou uzavřené, event hranice
+Závěr zůstává **BLOCKED**: 125 dvojic operací není uzavřených, event hranice
 této skupiny zůstávají obecné, schvalovací DB/recovery vazby nejsou prokázané a
 celý balík neprošel úplným sémantickým auditem. Žádná technická mezera není
 přeznačena na plošné OWNER rozhodnutí.

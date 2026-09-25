@@ -60,6 +60,7 @@ def verify(root,branch=None):
     except (OSError,ValueError) as e:return ['package manifest unreadable: '+str(e)]
     if manifest.get('format')!='KCML-PACKAGE-MANIFEST/2':return ['stale package format: regenerate current inventory']
     if manifest.get('representation')!=REPRESENTATION:problems.append('unknown byte representation')
+    if manifest.get('inventoryExclusions')!=sorted(EXCLUDED):problems.append('inventory exclusion policy mismatch')
     if branch and manifest.get('sourceBranch')!=branch:problems.append('source branch mismatch')
     if manifest.get('sourceDocumentSha256')!=digest(root/SSOT_PATH):problems.append('SSOT source hash mismatch')
     if manifest.get('packageStatus')!='BLOCKED' or manifest.get('freezePerformed') is not False or manifest.get('historicalAuditStatusUsed') is not False:problems.append('inventory must not certify readiness or trust historical status')

@@ -9,7 +9,7 @@ from ssot_sources import ROOT,SSOT,resource_index,resources
 
 def main():
     raw=SSOT.read_bytes();source=hashlib.sha256(raw).hexdigest()
-    out=ROOT/'audit/generated/continuation-897da64/generation-domain';out.mkdir(parents=True,exist_ok=True)
+    out=ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/continuation-897da64/generation-domain');out.mkdir(parents=True,exist_ok=True)
     commands=[(['scripts/verify_generation_domain_payloads.py','--baseline'],1),
               (['scripts/verify_generation_domain_payloads.py'],0),
               (['scripts/close_generation_domain_payloads.py','--check'],0),
@@ -20,6 +20,14 @@ def main():
               (['scripts/verify_route_guard_counters.py'],0),
               (['scripts/project_experience.py','--check'],0),
               (['scripts/investigate_missing_operation_masks.py'],0)]
+    if '--focused' in sys.argv:
+        commands=[(args,code) for args,code in commands if args[0] not in
+                  (['scripts/verify_route_guard_counters.py'] if '--provider' in sys.argv else
+                   ['scripts/verify_route_guard_counters.py','scripts/verify_generation_operation_masks.py'])]
+    if '--provider' in sys.argv:
+        commands=[(['scripts/verify_provider_outcome_mask.py','--baseline'],1),
+                  (['scripts/verify_provider_outcome_mask.py'],0),
+                  (['scripts/close_provider_outcome_mask.py','--check'],0)]+commands
     rs=resource_index(resources(raw.decode()))
     report={'baselineCommit':'897da64','sourceSha256':source,'scope':__doc__,
             'resourceVersions':{p:r['sha256'] for p,r in rs.items()},

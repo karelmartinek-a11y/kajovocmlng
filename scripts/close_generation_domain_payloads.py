@@ -39,7 +39,8 @@ def changed_payload(rs):
         if row['routeId'] in READS:
             assert row['method']=='GET'
             definition=READS[row['routeId']]
-            row['responseSchema']['properties']['output']={'oneOf':[{'type':'null'},ref(definition)]}
+            row['responseSchema']['properties']['output']={'oneOf':[{'type':'null'},
+                {'$schema':bundle['$schema'],'$id':f'urn:kcml:r9:semantic:{row["routeId"]}:output',**ref(definition)}]}
             # Failure branch retains null output. A successful exact revision/plan
             # read delivers the actual domain document, not an empty slot bag.
             rule={'if':{'properties':{'status':{'const':'SUCCEEDED'}}},

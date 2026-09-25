@@ -33,6 +33,9 @@ def main():
         check('duplicate-hash-entry-rejected',bool(verify(root,'work/test')))
         generate(root,'work/test');(root/JSON_HASHES).write_text('{}',encoding='utf8')
         check('JSON-and-plain-must-agree',bool(verify(root,'work/test')))
+        m=generate(root,'work/test');m['inventoryExclusions'].append('user-data')
+        (root/MANIFEST).write_text(json.dumps(m),encoding='utf8')
+        check('exclusion-policy-cannot-expand','inventory exclusion policy mismatch' in verify(root,'work/test'))
     report={'sourceSha256':hashlib.sha256(SSOT.read_bytes()).hexdigest(),'scope':__doc__,
             'checked':len(checks),'failed':sum(not c['passed'] for c in checks),'checks':checks,
             'implementationHashes':{p:hashlib.sha256((ROOT/'scripts'/p).read_bytes()).hexdigest()

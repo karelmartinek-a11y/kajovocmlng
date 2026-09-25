@@ -32,6 +32,8 @@ def main():
     def check(name,actual,expected):checks.append({'case':name,'actual':actual,'expected':expected,'passed':actual==expected})
     uid='00000000-0000-4000-8000-000000000001';digest='sha256:'+'a'*64
     command={k:('COMPLETED' if v is None else uid if v=='Uuid' else digest) for k,v in APPROVAL_FIELDS.items()}
+    command['specificationRevisionId']='00000000-0000-4000-8000-000000000002'
+    command['capabilitySnapshotId']='00000000-0000-4000-8000-000000000003'
     v=validator(rows['route.0234']['requestSchema']['properties']['body'])
     check('approval/exact-public-command',v.is_valid(command),True)
     bag={'schemaId':'urn:kcml:r9:semantic:route.0234:body','values':[]}
@@ -45,10 +47,49 @@ def main():
     defs=copy.deepcopy(bundle['$defs'])
     for key,value in {'Counter':'0','PositiveCounter':'1','Timestamp':'2026-09-25T00:00:00.000Z',
                       'RelPath':'fixture.json','JsonPointer':'','NonemptyJsonPointer':'/fixture'}.items():defs[key]={'const':value}
+    admission=getattr(module,'validate_generation_approval_handoff',None)
+    check('approval/snapshot-validator-present',admission is not None,True)
+    if admission:
+        specification=witness(defs['GenerationSpecification'],defs);specification['openQuestions']=[]
+        actual_digest=module.semantic_digest(specification)
+        current={'job_id':specification['jobId'],'job_state':'DISCUSSING','state_version':'0',
+                 'turn_id':uid,'turn_status':'COMPLETED','specification_revision_id':command['specificationRevisionId'],
+                 'specification_digest':actual_digest,'capability_snapshot_id':command['capabilitySnapshotId'],'capability_snapshot_digest':digest}
+        request={'body':{**command,'specificationDigest':actual_digest},'pathParameters':{'id':specification['jobId']},
+                 'guards':{'expectedStateVersion':'0','idempotencyKey':'fixture-key'}}
+        def admitted(req,spec,snapshot):
+            try:admission(doc,req,spec,**snapshot);return True
+            except module.ContractFailure:return False
+        check('approval/current-server-snapshot',admitted(request,specification,current),True)
+        for field,newvalue in [('job_state','ANALYZING'),('turn_status','RUNNING'),('state_version','1'),
+                               ('turn_id','00000000-0000-4000-8000-000000000099'),
+                               ('specification_revision_id','00000000-0000-4000-8000-000000000099'),
+                               ('capability_snapshot_id','00000000-0000-4000-8000-000000000099'),
+                               ('capability_snapshot_digest','sha256:'+'b'*64)]:
+            check('approval/stale/'+field,admitted(request,specification,{**current,field:newvalue}),False)
+        changed=copy.deepcopy(specification);changed['jobId']='00000000-0000-4000-8000-000000000099'
+        check('approval/wrong-job-document',admitted(request,changed,current),False)
+        changed=copy.deepcopy(specification);changed['objective']['statement']='Changed business objective'
+        check('approval/modified-document-remains-schema-valid',validator({'$ref':bundle['$id']+'#/$defs/GenerationSpecification'}).is_valid(changed),True)
+        check('approval/modified-document-same-digest',admitted(request,changed,current),False)
+        changed=copy.deepcopy(specification);changed['openQuestions']=[witness(defs['Question'],defs)]
+        check('approval/open-question-document-is-schema-valid',validator({'$ref':bundle['$id']+'#/$defs/GenerationSpecification'}).is_valid(changed),True)
+        question_digest=module.semantic_digest(changed)
+        question_request=copy.deepcopy(request);question_request['body']['specificationDigest']=question_digest
+        check('approval/open-question-blocks-even-matching-digest',admitted(question_request,changed,{**current,'specification_digest':question_digest}),False)
+        retry=copy.deepcopy(request);retry['guards']['expectedStateVersion']='1'
+        retry['guards']['idempotencyKey']='refreshed-command-key'
+        check('approval/refreshed-new-command-recheck',admitted(retry,specification,{**current,'state_version':'1'}),True)
     for rid,definition in READS.items():
         sample=witness(defs[definition],defs)
         native=validator({'$ref':bundle['$id']+'#/$defs/'+definition})
         output=validator(rows[rid]['responseSchema']['properties']['output'])
+        alias=f'urn:kcml:r9:semantic:{rid}:output'
+        alias_registry=registry.with_resource(rows[rid]['responseSchema']['$id'],Resource.from_contents(rows[rid]['responseSchema'])).crawl()
+        try:
+            alias_valid=Draft202012Validator({'$ref':alias},registry=alias_registry,format_checker=FormatChecker()).is_valid(sample)
+        except Exception:alias_valid=False
+        check(rid+'/preserved-schema-identity-delivers-domain-document',alias_valid,True)
         check(rid+'/producer-native-document',native.is_valid(sample),True)
         check(rid+'/route-output-consumer-same-mask',output.is_valid(sample),True)
         check(rid+'/generic-slot-rejected',output.is_valid({'schemaId':f'urn:kcml:r9:semantic:{rid}:output','values':[]}),False)
@@ -93,7 +134,7 @@ def main():
             'remaining':'Events, trusted revision snapshot provenance/current DB guards and full recovery remain unclosed.'}
     out=ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/continuation-897da64/generation-domain')
     out.mkdir(parents=True,exist_ok=True)
-    (out/('baseline.json' if args.baseline else 'current.json')).write_text(json.dumps(report,indent=2)+'\n',encoding='utf8',newline='\n')
+    (out/('domain-baseline.json' if args.baseline else 'domain-current.json')).write_text(json.dumps(report,indent=2)+'\n',encoding='utf8',newline='\n')
     print(json.dumps({k:report[k] for k in ['sourceSha256','checked','failed']}))
     for c in checks:
         if not c['passed']:print(json.dumps(c))

@@ -1,5 +1,9 @@
 # Pokračování od 997e835 — PR #2
 
+> Navazující obsahové opravy z 897da64 a nejnovější důkazy jsou v
+> [SSOT_CONTINUATION_897da64.md](SSOT_CONTINUATION_897da64.md).
+> Níže uvedené hashe a výsledky patří zachovaným starším skupinám.
+
 Celý SSOT zůstává **BLOCKED / rozpracovaný**. Opravy z předchozího běhu jsou
 zachovány. Jejich původní reporty se nepřepisují novým úspěchem; evidence tohoto
 běhu je v `audit/generated/continuation-997e835`.
