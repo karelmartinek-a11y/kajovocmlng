@@ -4,7 +4,9 @@
 
 SSOT dokládá devět typů, TYPE_SPECIFIC, zákaz tiché normalizace a šifrované immutable verze. Konkrétní formáty, pole, volitelnost a limity níže jsou nové návrhy. Schválení principu explicitních variant je neaktivovalo. Přesné JSON masks, syntetické příklady a chyby jsou v [návrhovém JSON](generated/create-review-authority/secret-variant-proposals.json).
 
-Aktuální přezkum: SSOT SHA-256 2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa. Devět autoritativních výňatků zůstává byteově přítomno. Šedesát strukturálních příkladů má platný pozitivní základ a negativní mutace odmítají konkrétní porušení. Osmnáct sémantických příkladů je NOT_EXECUTED_PROPOSAL; nejde o crypto/browser/OAuth runtime důkaz.
+Aktuální přezkum: SSOT SHA-256 22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee. Devět autoritativních výňatků zůstává byteově přítomno. Šedesát strukturálních příkladů má platný pozitivní základ a negativní mutace odmítají konkrétní porušení. Všech 18 původních sémantických případů bylo izolovaně spuštěno; 42 syntetických kontrol prošlo včetně platného SSH KEY svědka. Viz generated/resume-5334/coordinator/secret-semantic-tests.json. Formáty zůstávají návrhy; nejde o produkční ani provider runtime důkaz.
+
+Souhrnná rozhodnutí, nepokryté funkce a technické limity: [SSOT_SECRET_OWNER_DECISIONS.md](SSOT_SECRET_OWNER_DECISIONS.md).
 
 Všechna importní pole pocházejí od oprávněného OWNER. Nemají serverovou autoritu. Serverové identity, digests, bindingy, receipts a guards nejsou importní hodnoty. Každý řádek uvádí pointer do návrhu; normativní autorita pro nový konkrétní formát dosud neexistuje.
 

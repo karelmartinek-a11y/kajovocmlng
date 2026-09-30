@@ -14,6 +14,7 @@ def main():
  storage=json.loads(storage_path.read_text());assert storage['sourceDocumentSha256']==source and storage['failed']==0
  assert storage['scriptSha256']==sha(ROOT/'scripts/verify_create_storage_invariants.py')
  assert storage['requirementsSha256']==sha(ROOT/'requirements-audit.txt')
+ assert len(storage['checks'])==storage['checked'] and all(c['passed'] for c in storage['checks'])
  visual_path=ROOT/'audit/visual-validation.json';visual=json.loads(visual_path.read_text())
  assert visual['sourceDocumentSha256']==source and visual['status']=='PASS' and visual['failed']==0
  assert visual['scriptSha256']==sha(ROOT/'scripts/render_reference.py')
@@ -22,6 +23,8 @@ def main():
  for name,digest in visual['sourceHashes'].items():assert sha(ROOT/name)==digest
  semantic_path=ROOT/'audit/generated/resume-5334/coordinator/secret-semantic-tests.json'
  semantic=json.loads(semantic_path.read_text());assert semantic['sourceDocumentSha256']==source and semantic['failed']==0
+ assert semantic['checked']==len(semantic['checks']) and all(c['passed'] for c in semantic['checks'])
+ for name,digest in semantic['supportSha256'].items():assert sha(ROOT/'audit'/name)==digest
  register['obligations']=[o for o in register['obligations'] if not o['id'].startswith('resume-design:')]
  def add(identity,area,scope,authority,evidence,checks):
   register['obligations'].append({'id':'resume-design:'+identity,'area':area,'scope':scope,'authoritativeSources':[{'pointer':'00_SSOT/KajovoCMLNG_SSOT.md#section.'+a,'ssotSha256':source} for a in authority],'dependencies':[],

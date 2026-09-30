@@ -67,7 +67,9 @@
     "audit/generated/resume-5334/sql/generation-create-persistence-proof.json",
     "audit/visual-validation.json",
     "audit/SSOT_CREATE_OPERATION_OBLIGATIONS.md",
-    "audit/SSOT_SECRET_OWNER_DECISIONS.md"
+    "audit/SSOT_SECRET_OWNER_DECISIONS.md",
+    "audit/generated/resume-5334/coordinator/secret-current-authority-rebind.json",
+    "audit/generated/resume-5334/coordinator/cache-regeneration-proof.json"
   ],
   "semanticCoverage": {
     "completeReview": "NOT_CLAIMED",
@@ -99,6 +101,7 @@
   "nextBlock": {
     "name": "Whole generation.job.create admission-to-persisted-consumer closure",
     "steps": [
+      "Read checkpoint/register and current remote/local HEAD; preserve committed blocks401e441/f6159fb/7829d14; current SSOT22256baa. No external review threads are expected.",
       "Materialize own UPDATE/RETRY/REPAIR immutable selectors and actual byte/schema basis validators from12.41/25.11; distinguish discussion admission from execution/activation prerequisites; no terminal-source blanket rule",
       "Resolve exact generation_job/domain_command physical roots, trusted context and required event/outbox/audit FK/lock/atomic completion joins, preserving25.11/49.4/49.5/51.12",
       "Bind actual read/hydration and UI consumer inputs/results; prove domain witnesses and precise policy/transaction/replay/unknown failures; full operation remains BLOCKED until all mandatory design obligations verified",
@@ -128,7 +131,8 @@
   "commandsEvidence": "audit/generated/repair-2026-09-30/design-current/commands.json",
   "evidenceInvalidation": {
     "historicalRule": "Current design-current runner completed42 checks under pinned audit environment at 2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa. Historical independent reports at earlier hashes remain historical. Forty-two runner entries reused only after exact source/support/environment/evidence-log matching; no full-operation/runtime closure inferred.",
-    "resume5334": "Source/projection/helper/environment keys changed; all42 design checks rerun, current screenshots rebound. Entry evidence remains historical clean snapshot. Candidate/lifecycle proposals do not confer effective-contract verification."
+    "resume5334": "Source/projection/helper/environment keys changed; all42 design checks rerun, current screenshots rebound. Entry evidence remains historical clean snapshot. Candidate/lifecycle proposals do not confer effective-contract verification.",
+    "currentRunner": "43 current checks; actual missing dedicated proof reran1check and reused42 valid entries. Source/projections and support bytes unchanged during recovery experiment."
   },
   "currentSourceDocumentSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
   "inventoryEnvironmentCorrection": {
@@ -142,11 +146,14 @@
     "SQLLiterals": "1a6da95",
     "configurationState": "572652d",
     "createRequests": "4307830",
-    "createCompletionFollowUp": "aac1462a83ae3bd1a6defba389dfc79bc79ee750"
+    "createCompletionFollowUp": "aac1462a83ae3bd1a6defba389dfc79bc79ee750",
+    "createAdmissionStorageRendering": "401e44128362efd890c75f95f2cbcf72455bdbe1",
+    "currentInventory": "f6159fbddb515da33341dcb508d9c6be0ed988c2",
+    "producedProofCache": "7829d1404e54b2f7fc1c112a7fed5f5cb0466183"
   },
   "currentResults": {
-    "requiredAvailableChecks": 42,
-    "zeroExits": 34,
+    "requiredAvailableChecks": 43,
+    "zeroExits": 35,
     "nonzeroBlockedOrFailed": 8,
     "validatorExceptions": 0,
     "timeouts": 0,
@@ -231,10 +238,10 @@
   },
   "draftPR": {
     "status": "NOT_CREATED",
-    "reason": "Current supported gh pr create --draft --base main --head ssot-repair-2026-09-30 returned POST https://api.github.com/graphql: Forbidden after successful push; no bypass.",
+    "reason": "Current supported gh pr create --draft retry returned POST https://api.github.com/graphql: Forbidden; no bypass",
     "preparedBody": "audit/SSOT_REPAIR_DRAFT_PR.md",
     "branch": "ssot-repair-2026-09-30",
-    "title": "Repair SSOT create completion and immutable FOLLOW_UP admission",
+    "title": "Repair SSOT create admission, storage invariants and current UI reference proofs",
     "compareURL": "https://github.com/karelmartinek-a11y/kajovocmlng/compare/main...ssot-repair-2026-09-30"
   },
   "semanticCoverageEvidence": "audit/generated/repair-2026-09-30/review-coverage.json",
@@ -261,8 +268,8 @@
     "resumeHeadRule": "Resolve actual local/remote branch HEAD; this file never embeds its own resulting commit SHA",
     "initialIntegrity": "INTEGRITY_MATCH in clean git archive before mutating canonical resources",
     "workingTreeAtEntry": "CLEAN",
-    "currentBlock": "CURRENT_BOUNDED_STORAGE_ADMISSION_REFERENCE_AND_FORMAT_REVIEW; FULL_SSOT_PARTIAL",
-    "lastVerifiedCommittedBlock": "5334d8caa1b284cb1b4857f51aef2d431b571427"
+    "currentBlock": "43_CURRENT_DESIGN_CHECKS_AND_RESUMABLE_EVIDENCE_SAVED; FULL_SSOT_PARTIAL",
+    "lastVerifiedCommittedBlock": "7829d1404e54b2f7fc1c112a7fed5f5cb0466183"
   },
   "createBlock": {
     "status": "PARTIAL_OPERATION_CLOSURE",
@@ -271,10 +278,10 @@
     "event": "EXPLICIT_AGGREGATE_CREATE_RECEIPTS",
     "errors": "32_EXACT_SCOPED_TUPLES_WITH_HTTP_PROJECTION",
     "remaining": [
-      "Nine Secret concrete variant formats PENDING_OWNER_FORMAT_REVIEW",
-      "Other-kind parent/target policies and actual sufficiency validators",
-      "Executable persistence/locks/helper proof and full current-read consumers",
-      "UI/runtime hydration acceptance"
+      "Nine concrete Secret formats pending owner review; no runtime acceptance substituted for their design",
+      "Own UPDATE/RETRY/REPAIR selectors and actual sufficient-basis validators; fail-closed policy gap guard is not closure",
+      "Mandatory complete executable root/context/locks/event-outbox-audit/consumer design and required pre-generation fixture gates",
+      "Exact read/UI hydration consumer design; future actual generated-app behavior separately NOT_EVALUATED"
     ],
     "evidence": [
       "audit/generated/repair-2026-09-30/design-current/verify_create_operation_requests/create-request-tests.json",
@@ -283,6 +290,22 @@
       "audit/generated/repair-2026-09-30/design-current/verify_follow_up_contracts/follow-up-tests.json"
     ],
     "metricsBeforeAfter": {
+      "scope": "Resume5334 input compared with current source",
+      "genericBoundaries": [
+        1500,
+        1500
+      ],
+      "genericRoutes": [
+        500,
+        500
+      ],
+      "requestBoundariesMadeExplicitThisBlock": 0,
+      "responseBoundariesMadeExplicitThisBlock": 0,
+      "eventBoundariesMadeExplicitThisBlock": 0,
+      "wholeOperationsSemanticallyClosed": 0
+    },
+    "coverage": "21 top-level fields with nested variants, authoritative excerpts; byte extraction is not whole-document semantic review",
+    "historicalCompletionMetricsBeforeAfter": {
       "genericBoundaries": [
         1504,
         1500
@@ -295,8 +318,7 @@
       "responseBoundariesMadeExplicitThisBlock": 2,
       "eventBoundariesMadeExplicitThisBlock": 2,
       "wholeOperationsSemanticallyClosed": 0
-    },
-    "coverage": "21 top-level fields with nested variants, authoritative excerpts; byte extraction is not whole-document semantic review"
+    }
   },
   "remainingLifecycleReview": {
     "evidence": "audit/generated/repair-2026-09-30/lifecycle-review/field-review.json",
@@ -306,12 +328,15 @@
     "reason": "No exact field lifecycle dictionary found for six remaining fields; UI/generation/browser/side-effect enums are not their authority."
   },
   "runnerResumeVerification": {
-    "sourceSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+    "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
     "cacheReuse": 42,
-    "commandsExecuted": 0,
+    "commandsExecuted": 1,
+    "universe": 43,
     "consumedEvidenceKeyed": true,
+    "producedJSONEvidenceKeyed": true,
     "evidenceLogsHashVerified": true,
-    "knownBlockedResultRetained": true
+    "knownBlockedResultRetained": true,
+    "evidence": "audit/generated/resume-5334/coordinator/cache-regeneration-proof.json"
   },
   "historicalAuditInput": {
     "baselineCommit": "cfcb7b2f6a41d152cb799779252d9c1615a02d5a",
@@ -338,13 +363,14 @@
     "proposal": "audit/generated/create-review-authority/secret-variant-proposals.json",
     "effective": false,
     "structuralProposalCases": 60,
-    "semanticProposalCases": "18 NOT_EXECUTED_PROPOSAL",
+    "semanticProposalCases": "18 ORIGINAL_CASES_EXECUTED_WITH_VALID_SAME_VARIANT_WITNESSES;42 TOTAL_ISOLATED_CHECKS; PENDING_OWNER_FORMAT_REVIEW",
     "reviewDocument": "audit/SSOT_SECRET_VARIANT_REVIEW.md",
-    "currentSourceReviewEvidence": "audit/generated/create-review-authority/secret-proposals-current-review.json",
+    "currentSourceReviewEvidence": "audit/generated/resume-5334/coordinator/secret-current-authority-rebind.json",
     "structuralVerification": "60/60; each negative derived from valid positive and exact violation diagnostics; NOT semantic/runtime format approval",
     "ownerDecisionReview": "audit/SSOT_SECRET_OWNER_DECISIONS.md",
     "candidateSemanticEvidence": "audit/generated/resume-5334/coordinator/secret-semantic-tests.json",
-    "concreteFormatApproval": "PENDING_OWNER_FORMAT_REVIEW"
+    "concreteFormatApproval": "PENDING_OWNER_FORMAT_REVIEW",
+    "historicalSourceReviewEvidence": "audit/generated/create-review-authority/secret-proposals-current-review.json"
   },
   "completionRegister": {
     "path": "audit/SSOT_COMPLETION_REGISTER.json",
