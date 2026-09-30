@@ -87,6 +87,25 @@ def run():
         if route['operationId'] not in ('secret.create','generation.job.create'):continue
         ref='contracts/payload-contracts.json#/records/'+str(i)+'/requestSchema'
         v=inv.validator(ref);sample=example(v.schema,inv.registry.resolver());name=route['operationId']
+        if 'values' not in sample['body']:
+            # Exact create domains supersede the historical envelope probes.
+            # Dedicated decoder tests exercise duplicate keys and malformed JSON.
+            if not v.is_valid(sample):raise ValueError('INVALID_CREATE_POSITIVE_WITNESS')
+            check(name+'/domain-positive',v,sample,True,'explicit-create-request')
+            for field in route['requestSchema']['properties']['body']['required']:
+                bad=copy.deepcopy(sample);del bad['body'][field]
+                check(name+'/missing/'+field,v,bad,False,'explicit-create-request')
+            for mutation in ['null-body','missing-body','unknown-query','unknown-domain-field','legacy-canonicalJson','legacy-values','missing-idempotency-key']:
+                bad=copy.deepcopy(sample)
+                if mutation=='null-body':bad['body']=None
+                elif mutation=='missing-body':bad.pop('body')
+                elif mutation=='unknown-query':bad['query']=[{'name':'NOT_A_DECLARED_FILTER','value':'x'}]
+                elif mutation=='unknown-domain-field':bad['body']['NOT_A_DOMAIN_FIELD']='x'
+                elif mutation=='legacy-canonicalJson':bad['body']['canonicalJson']='{}'
+                elif mutation=='legacy-values':bad['body']['values']=[]
+                else:bad['guards'].pop('idempotencyKey')
+                check(name+'/'+mutation,v,bad,False,'explicit-create-request')
+            continue
         if not sample['body']['values']:
             body=route['requestSchema']['properties']['body']
             if 'oneOf' in body:body=next(s for s in body['oneOf'] if s.get('type')!='null')

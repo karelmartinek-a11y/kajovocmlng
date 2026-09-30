@@ -760,26 +760,26 @@
       ]
     },
     {
-      "case": "generation.job.create/envelope-witness",
-      "category": "envelope-only",
+      "case": "generation.job.create/domain-positive",
+      "category": "explicit-create-request",
       "expectedValid": true,
       "actualValid": true,
       "status": "PASS",
       "validationErrors": []
     },
     {
-      "case": "generation.job.create/empty-values",
-      "category": "necessary-create-condition",
+      "case": "generation.job.create/missing/intent",
+      "category": "explicit-create-request",
       "expectedValid": false,
       "actualValid": false,
       "status": "PASS",
       "validationErrors": [
-        "[] should be non-empty"
+        "'intent' is a required property"
       ]
     },
     {
       "case": "generation.job.create/null-body",
-      "category": "necessary-create-condition",
+      "category": "explicit-create-request",
       "expectedValid": false,
       "actualValid": false,
       "status": "PASS",
@@ -788,18 +788,8 @@
       ]
     },
     {
-      "case": "generation.job.create/null-idempotency-key",
-      "category": "necessary-create-condition",
-      "expectedValid": false,
-      "actualValid": false,
-      "status": "PASS",
-      "validationErrors": [
-        "None is not of type 'string'"
-      ]
-    },
-    {
       "case": "generation.job.create/missing-body",
-      "category": "necessary-create-condition",
+      "category": "explicit-create-request",
       "expectedValid": false,
       "actualValid": false,
       "status": "PASS",
@@ -808,68 +798,106 @@
       ]
     },
     {
-      "case": "generation.job.create/wrong-values-type",
-      "category": "necessary-create-condition",
+      "case": "generation.job.create/unknown-query",
+      "category": "explicit-create-request",
       "expectedValid": false,
       "actualValid": false,
       "status": "PASS",
       "validationErrors": [
-        "'wrong' is not of type 'array'"
+        "[{'name': 'NOT_A_DECLARED_FILTER', 'value': 'x'}] is expected to be empty"
       ]
     },
     {
-      "case": "generation.job.create/unknown-query",
-      "category": "open-domain-gap",
-      "expectedValid": false,
-      "actualValid": true,
-      "status": "FAIL",
-      "validationErrors": []
-    },
-    {
-      "case": "generation.job.create/malformed-canonicalJson",
-      "category": "open-domain-gap",
-      "expectedValid": false,
-      "actualValid": true,
-      "status": "FAIL",
-      "validationErrors": []
-    },
-    {
       "case": "generation.job.create/unknown-domain-field",
-      "category": "open-domain-gap",
+      "category": "explicit-create-request",
       "expectedValid": false,
-      "actualValid": true,
-      "status": "FAIL",
-      "validationErrors": []
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('NOT_A_DOMAIN_FIELD' was unexpected)"
+      ]
     },
     {
-      "case": "generation.job.create/duplicate-domain-slot",
-      "category": "open-domain-gap",
+      "case": "generation.job.create/legacy-canonicalJson",
+      "category": "explicit-create-request",
       "expectedValid": false,
-      "actualValid": true,
-      "status": "FAIL",
-      "validationErrors": []
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('canonicalJson' was unexpected)"
+      ]
     },
     {
-      "case": "secret.create/envelope-witness",
-      "category": "envelope-only",
+      "case": "generation.job.create/legacy-values",
+      "category": "explicit-create-request",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('values' was unexpected)"
+      ]
+    },
+    {
+      "case": "generation.job.create/missing-idempotency-key",
+      "category": "explicit-create-request",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'idempotencyKey' is a required property"
+      ]
+    },
+    {
+      "case": "secret.create/domain-positive",
+      "category": "explicit-create-request",
       "expectedValid": true,
       "actualValid": true,
       "status": "PASS",
       "validationErrors": []
     },
     {
-      "case": "secret.create/empty-values",
-      "category": "necessary-create-condition",
+      "case": "secret.create/missing/stableName",
+      "category": "explicit-create-request",
       "expectedValid": false,
       "actualValid": false,
       "status": "PASS",
       "validationErrors": [
-        "[] should be non-empty"
+        "'stableName' is a required property"
+      ]
+    },
+    {
+      "case": "secret.create/missing/displayName",
+      "category": "explicit-create-request",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'displayName' is a required property"
+      ]
+    },
+    {
+      "case": "secret.create/missing/type",
+      "category": "explicit-create-request",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'type' is a required property"
+      ]
+    },
+    {
+      "case": "secret.create/missing/value",
+      "category": "explicit-create-request",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'value' is a required property"
       ]
     },
     {
       "case": "secret.create/null-body",
-      "category": "necessary-create-condition",
+      "category": "explicit-create-request",
       "expectedValid": false,
       "actualValid": false,
       "status": "PASS",
@@ -878,18 +906,8 @@
       ]
     },
     {
-      "case": "secret.create/null-idempotency-key",
-      "category": "necessary-create-condition",
-      "expectedValid": false,
-      "actualValid": false,
-      "status": "PASS",
-      "validationErrors": [
-        "None is not of type 'string'"
-      ]
-    },
-    {
       "case": "secret.create/missing-body",
-      "category": "necessary-create-condition",
+      "category": "explicit-create-request",
       "expectedValid": false,
       "actualValid": false,
       "status": "PASS",
@@ -898,46 +916,54 @@
       ]
     },
     {
-      "case": "secret.create/wrong-values-type",
-      "category": "necessary-create-condition",
+      "case": "secret.create/unknown-query",
+      "category": "explicit-create-request",
       "expectedValid": false,
       "actualValid": false,
       "status": "PASS",
       "validationErrors": [
-        "'wrong' is not of type 'array'"
+        "[{'name': 'NOT_A_DECLARED_FILTER', 'value': 'x'}] is expected to be empty"
       ]
     },
     {
-      "case": "secret.create/unknown-query",
-      "category": "open-domain-gap",
-      "expectedValid": false,
-      "actualValid": true,
-      "status": "FAIL",
-      "validationErrors": []
-    },
-    {
-      "case": "secret.create/malformed-canonicalJson",
-      "category": "open-domain-gap",
-      "expectedValid": false,
-      "actualValid": true,
-      "status": "FAIL",
-      "validationErrors": []
-    },
-    {
       "case": "secret.create/unknown-domain-field",
-      "category": "open-domain-gap",
+      "category": "explicit-create-request",
       "expectedValid": false,
-      "actualValid": true,
-      "status": "FAIL",
-      "validationErrors": []
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('NOT_A_DOMAIN_FIELD' was unexpected)"
+      ]
     },
     {
-      "case": "secret.create/duplicate-domain-slot",
-      "category": "open-domain-gap",
+      "case": "secret.create/legacy-canonicalJson",
+      "category": "explicit-create-request",
       "expectedValid": false,
-      "actualValid": true,
-      "status": "FAIL",
-      "validationErrors": []
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('canonicalJson' was unexpected)"
+      ]
+    },
+    {
+      "case": "secret.create/legacy-values",
+      "category": "explicit-create-request",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "Additional properties are not allowed ('values' was unexpected)"
+      ]
+    },
+    {
+      "case": "secret.create/missing-idempotency-key",
+      "category": "explicit-create-request",
+      "expectedValid": false,
+      "actualValid": false,
+      "status": "PASS",
+      "validationErrors": [
+        "'idempotencyKey' is a required property"
+      ]
     },
     {
       "case": "format/uuid",
@@ -999,6 +1025,6 @@
       "exitCode": 1
     }
   ],
-  "failed": 8,
-  "checked": 108
+  "failed": 0,
+  "checked": 109
 }

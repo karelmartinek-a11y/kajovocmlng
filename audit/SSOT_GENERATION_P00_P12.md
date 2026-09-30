@@ -6,9 +6,9 @@ P00 requires current complete SSOT_CONTRACT_READY and separate freeze authorizat
 
 No successor RUNNING before predecessor current PASSED with identical SSOT/Contract Pack/toolchain lineage (71.7).
 
-SSOT SHA-256: `6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605`.
+SSOT SHA-256: `70713c4993abd551c78ffd7c39ae3ee41425852d6cf16068662a61d5b4197f3d`.
 
-Normativní deliverables a exit gates jsou převzaté z R13 a všech nalezených development-plan-delta resources. Plánované cesty jsou konkrétní umístění budoucích výstupů; aplikace nebyla generována.
+Deliverables a delta gates jsou převzaté z R13/R14/R15; finální P00 gate používá účinnou precedence §73.7 místo historického R13 whole-document gate. Plánované cesty jsou konkrétní umístění budoucích výstupů; aplikace nebyla generována.
 
 ## P00 — Freeze SSOT and toolchain
 
@@ -25,11 +25,13 @@ Deliverables:
 
 Exit criteria:
 
-- R13 whole-document verifier PASS
 - dependency resolution exact and reproducible
 - no unclassified lock drift
 - freeze R14 browser source locks, Ubuntu apt snapshot ID, Playwright browser tuple and package-set digests
 - generate exact apt name=version lock from snapshot and commit its digest
+- SSOT 73.7: verify_package.py executes R10, R16, UI, CLOSURE and R17 successfully
+- SSOT 73.7: current hash manifest matches and R17 has zero unresolved/blocking findings
+- R13/R14/R15 standalone verifiers are historical revision provenance; do not execute them as final composite whole-document gates
 
 ## P01 — Repository and contract compiler kernel
 

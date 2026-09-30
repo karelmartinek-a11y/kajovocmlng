@@ -28,6 +28,8 @@ def main():
     old=resource_index(resources(base.decode()));bundle=json.loads(rs[GEN]['raw'])
     payload=json.loads(rs[PATH]['raw']);records=payload['records']
     previous=json.loads(old[PATH]['raw'])
+    from create_operation_contracts import PATH as CREATE_DESIGN, specialize as specialize_creates
+    if CREATE_DESIGN in rs:previous=specialize_creates(previous)
     expected=copy.deepcopy(previous)
     for row in expected['records']:
         if row['routeId'] in READS:row['responseSchema']['allOf'].append(READ_FAILURE_RULE)

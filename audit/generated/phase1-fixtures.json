@@ -1481,7 +1481,7 @@
     }
   },
   {
-    "case": "generation.job.create/envelope-witness",
+    "case": "generation.job.create/domain-positive",
     "expectedValid": true,
     "value": {
       "routeId": "route.0215",
@@ -1489,48 +1489,36 @@
       "pathParameters": {},
       "query": [],
       "body": {
-        "schemaId": "urn:kcml:r9:semantic:route.0215:body",
-        "values": [
-          {
-            "requirementId": "KCML-REQ-CH12-0075742c0652ce09d72835f62457776f109a08829b1f8b7c70c8580b2d3fbe73",
-            "slot": "sample",
-            "value": false,
-            "canonicalJson": "sample",
-            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-          }
-        ]
+        "intent": "sample"
       },
       "guards": {
         "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
         "deadlineAt": "2026-09-23T12:00:00.000Z",
         "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
       }
     }
   },
   {
-    "case": "generation.job.create/empty-values",
+    "case": "generation.job.create/missing/intent",
     "expectedValid": false,
     "value": {
       "routeId": "route.0215",
       "operationId": "generation.job.create",
       "pathParameters": {},
       "query": [],
-      "body": {
-        "schemaId": "urn:kcml:r9:semantic:route.0215:body",
-        "values": []
-      },
+      "body": {},
       "guards": {
         "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
         "deadlineAt": "2026-09-23T12:00:00.000Z",
         "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
       }
@@ -1547,43 +1535,11 @@
       "body": null,
       "guards": {
         "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
-        "deadlineAt": "2026-09-23T12:00:00.000Z",
-        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-      }
-    }
-  },
-  {
-    "case": "generation.job.create/null-idempotency-key",
-    "expectedValid": false,
-    "value": {
-      "routeId": "route.0215",
-      "operationId": "generation.job.create",
-      "pathParameters": {},
-      "query": [],
-      "body": {
-        "schemaId": "urn:kcml:r9:semantic:route.0215:body",
-        "values": [
-          {
-            "requirementId": "KCML-REQ-CH12-0075742c0652ce09d72835f62457776f109a08829b1f8b7c70c8580b2d3fbe73",
-            "slot": "sample",
-            "value": false,
-            "canonicalJson": "sample",
-            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-          }
-        ]
-      },
-      "guards": {
-        "idempotencyKey": null,
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
         "deadlineAt": "2026-09-23T12:00:00.000Z",
         "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
       }
@@ -1599,35 +1555,11 @@
       "query": [],
       "guards": {
         "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
-        "deadlineAt": "2026-09-23T12:00:00.000Z",
-        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-      }
-    }
-  },
-  {
-    "case": "generation.job.create/wrong-values-type",
-    "expectedValid": false,
-    "value": {
-      "routeId": "route.0215",
-      "operationId": "generation.job.create",
-      "pathParameters": {},
-      "query": [],
-      "body": {
-        "schemaId": "urn:kcml:r9:semantic:route.0215:body",
-        "values": "wrong"
-      },
-      "guards": {
-        "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
         "deadlineAt": "2026-09-23T12:00:00.000Z",
         "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
       }
@@ -1647,56 +1579,15 @@
         }
       ],
       "body": {
-        "schemaId": "urn:kcml:r9:semantic:route.0215:body",
-        "values": [
-          {
-            "requirementId": "KCML-REQ-CH12-0075742c0652ce09d72835f62457776f109a08829b1f8b7c70c8580b2d3fbe73",
-            "slot": "sample",
-            "value": false,
-            "canonicalJson": "sample",
-            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-          }
-        ]
+        "intent": "sample"
       },
       "guards": {
         "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
-        "deadlineAt": "2026-09-23T12:00:00.000Z",
-        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-      }
-    }
-  },
-  {
-    "case": "generation.job.create/malformed-canonicalJson",
-    "expectedValid": false,
-    "value": {
-      "routeId": "route.0215",
-      "operationId": "generation.job.create",
-      "pathParameters": {},
-      "query": [],
-      "body": {
-        "schemaId": "urn:kcml:r9:semantic:route.0215:body",
-        "values": [
-          {
-            "requirementId": "KCML-REQ-CH12-0075742c0652ce09d72835f62457776f109a08829b1f8b7c70c8580b2d3fbe73",
-            "slot": "sample",
-            "value": false,
-            "canonicalJson": "{not JSON",
-            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-          }
-        ]
-      },
-      "guards": {
-        "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
         "deadlineAt": "2026-09-23T12:00:00.000Z",
         "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
       }
@@ -1711,31 +1602,23 @@
       "pathParameters": {},
       "query": [],
       "body": {
-        "schemaId": "urn:kcml:r9:semantic:route.0215:body",
-        "values": [
-          {
-            "requirementId": "KCML-REQ-CH12-0075742c0652ce09d72835f62457776f109a08829b1f8b7c70c8580b2d3fbe73",
-            "slot": "NOT_A_DOMAIN_FIELD",
-            "value": false,
-            "canonicalJson": "sample",
-            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-          }
-        ]
+        "intent": "sample",
+        "NOT_A_DOMAIN_FIELD": "x"
       },
       "guards": {
         "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
         "deadlineAt": "2026-09-23T12:00:00.000Z",
         "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
       }
     }
   },
   {
-    "case": "generation.job.create/duplicate-domain-slot",
+    "case": "generation.job.create/legacy-canonicalJson",
     "expectedValid": false,
     "value": {
       "routeId": "route.0215",
@@ -1743,38 +1626,69 @@
       "pathParameters": {},
       "query": [],
       "body": {
-        "schemaId": "urn:kcml:r9:semantic:route.0215:body",
-        "values": [
-          {
-            "requirementId": "KCML-REQ-CH12-0075742c0652ce09d72835f62457776f109a08829b1f8b7c70c8580b2d3fbe73",
-            "slot": "sample",
-            "value": false,
-            "canonicalJson": "sample",
-            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-          },
-          {
-            "requirementId": "KCML-REQ-CH12-0075742c0652ce09d72835f62457776f109a08829b1f8b7c70c8580b2d3fbe73",
-            "slot": "sample",
-            "value": false,
-            "canonicalJson": "sample",
-            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-          }
-        ]
+        "intent": "sample",
+        "canonicalJson": "{}"
       },
       "guards": {
         "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
         "deadlineAt": "2026-09-23T12:00:00.000Z",
         "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
       }
     }
   },
   {
-    "case": "secret.create/envelope-witness",
+    "case": "generation.job.create/legacy-values",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0215",
+      "operationId": "generation.job.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "intent": "sample",
+        "values": []
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "generation.job.create/missing-idempotency-key",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0215",
+      "operationId": "generation.job.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "intent": "sample"
+      },
+      "guards": {
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "secret.create/domain-positive",
     "expectedValid": true,
     "value": {
       "routeId": "route.0386",
@@ -1782,31 +1696,28 @@
       "pathParameters": {},
       "query": [],
       "body": {
-        "schemaId": "urn:kcml:r9:semantic:route.0386:body",
-        "values": [
-          {
-            "requirementId": "__ROUTE_CONTRACT_ONLY__",
-            "slot": "sample",
-            "value": false,
-            "canonicalJson": "sample",
-            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-          }
-        ]
+        "stableName": "sample",
+        "displayName": "sample",
+        "type": "PASSWORD",
+        "value": {
+          "encoding": "UTF8",
+          "text": "sample"
+        }
       },
       "guards": {
         "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
         "deadlineAt": "2026-09-23T12:00:00.000Z",
         "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
       }
     }
   },
   {
-    "case": "secret.create/empty-values",
+    "case": "secret.create/missing/stableName",
     "expectedValid": false,
     "value": {
       "routeId": "route.0386",
@@ -1814,16 +1725,101 @@
       "pathParameters": {},
       "query": [],
       "body": {
-        "schemaId": "urn:kcml:r9:semantic:route.0386:body",
-        "values": []
+        "displayName": "sample",
+        "type": "PASSWORD",
+        "value": {
+          "encoding": "UTF8",
+          "text": "sample"
+        }
       },
       "guards": {
         "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "secret.create/missing/displayName",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0386",
+      "operationId": "secret.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "stableName": "sample",
+        "type": "PASSWORD",
+        "value": {
+          "encoding": "UTF8",
+          "text": "sample"
+        }
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "secret.create/missing/type",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0386",
+      "operationId": "secret.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "stableName": "sample",
+        "displayName": "sample",
+        "value": {
+          "encoding": "UTF8",
+          "text": "sample"
+        }
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "secret.create/missing/value",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0386",
+      "operationId": "secret.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "stableName": "sample",
+        "displayName": "sample",
+        "type": "PASSWORD"
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
         "deadlineAt": "2026-09-23T12:00:00.000Z",
         "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
       }
@@ -1840,43 +1836,11 @@
       "body": null,
       "guards": {
         "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
-        "deadlineAt": "2026-09-23T12:00:00.000Z",
-        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-      }
-    }
-  },
-  {
-    "case": "secret.create/null-idempotency-key",
-    "expectedValid": false,
-    "value": {
-      "routeId": "route.0386",
-      "operationId": "secret.create",
-      "pathParameters": {},
-      "query": [],
-      "body": {
-        "schemaId": "urn:kcml:r9:semantic:route.0386:body",
-        "values": [
-          {
-            "requirementId": "__ROUTE_CONTRACT_ONLY__",
-            "slot": "sample",
-            "value": false,
-            "canonicalJson": "sample",
-            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-          }
-        ]
-      },
-      "guards": {
-        "idempotencyKey": null,
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
         "deadlineAt": "2026-09-23T12:00:00.000Z",
         "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
       }
@@ -1892,35 +1856,11 @@
       "query": [],
       "guards": {
         "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
-        "deadlineAt": "2026-09-23T12:00:00.000Z",
-        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-      }
-    }
-  },
-  {
-    "case": "secret.create/wrong-values-type",
-    "expectedValid": false,
-    "value": {
-      "routeId": "route.0386",
-      "operationId": "secret.create",
-      "pathParameters": {},
-      "query": [],
-      "body": {
-        "schemaId": "urn:kcml:r9:semantic:route.0386:body",
-        "values": "wrong"
-      },
-      "guards": {
-        "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
         "deadlineAt": "2026-09-23T12:00:00.000Z",
         "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
       }
@@ -1940,56 +1880,21 @@
         }
       ],
       "body": {
-        "schemaId": "urn:kcml:r9:semantic:route.0386:body",
-        "values": [
-          {
-            "requirementId": "__ROUTE_CONTRACT_ONLY__",
-            "slot": "sample",
-            "value": false,
-            "canonicalJson": "sample",
-            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-          }
-        ]
+        "stableName": "sample",
+        "displayName": "sample",
+        "type": "PASSWORD",
+        "value": {
+          "encoding": "UTF8",
+          "text": "sample"
+        }
       },
       "guards": {
         "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
-        "deadlineAt": "2026-09-23T12:00:00.000Z",
-        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-      }
-    }
-  },
-  {
-    "case": "secret.create/malformed-canonicalJson",
-    "expectedValid": false,
-    "value": {
-      "routeId": "route.0386",
-      "operationId": "secret.create",
-      "pathParameters": {},
-      "query": [],
-      "body": {
-        "schemaId": "urn:kcml:r9:semantic:route.0386:body",
-        "values": [
-          {
-            "requirementId": "__ROUTE_CONTRACT_ONLY__",
-            "slot": "sample",
-            "value": false,
-            "canonicalJson": "{not JSON",
-            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-          }
-        ]
-      },
-      "guards": {
-        "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
         "deadlineAt": "2026-09-23T12:00:00.000Z",
         "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
       }
@@ -2004,31 +1909,29 @@
       "pathParameters": {},
       "query": [],
       "body": {
-        "schemaId": "urn:kcml:r9:semantic:route.0386:body",
-        "values": [
-          {
-            "requirementId": "__ROUTE_CONTRACT_ONLY__",
-            "slot": "NOT_A_DOMAIN_FIELD",
-            "value": false,
-            "canonicalJson": "sample",
-            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-          }
-        ]
+        "stableName": "sample",
+        "displayName": "sample",
+        "type": "PASSWORD",
+        "value": {
+          "encoding": "UTF8",
+          "text": "sample"
+        },
+        "NOT_A_DOMAIN_FIELD": "x"
       },
       "guards": {
         "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
         "deadlineAt": "2026-09-23T12:00:00.000Z",
         "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
       }
     }
   },
   {
-    "case": "secret.create/duplicate-domain-slot",
+    "case": "secret.create/legacy-canonicalJson",
     "expectedValid": false,
     "value": {
       "routeId": "route.0386",
@@ -2036,31 +1939,80 @@
       "pathParameters": {},
       "query": [],
       "body": {
-        "schemaId": "urn:kcml:r9:semantic:route.0386:body",
-        "values": [
-          {
-            "requirementId": "__ROUTE_CONTRACT_ONLY__",
-            "slot": "sample",
-            "value": false,
-            "canonicalJson": "sample",
-            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-          },
-          {
-            "requirementId": "__ROUTE_CONTRACT_ONLY__",
-            "slot": "sample",
-            "value": false,
-            "canonicalJson": "sample",
-            "valueDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
-          }
-        ]
+        "stableName": "sample",
+        "displayName": "sample",
+        "type": "PASSWORD",
+        "value": {
+          "encoding": "UTF8",
+          "text": "sample"
+        },
+        "canonicalJson": "{}"
       },
       "guards": {
         "idempotencyKey": "sample",
-        "expectedStateVersion": "0",
-        "expectedRevisionId": "sample",
-        "expectedReleaseId": "sample",
-        "expectedBindingSetRevision": "0",
-        "expectedActivationEpoch": "0",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "secret.create/legacy-values",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0386",
+      "operationId": "secret.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "stableName": "sample",
+        "displayName": "sample",
+        "type": "PASSWORD",
+        "value": {
+          "encoding": "UTF8",
+          "text": "sample"
+        },
+        "values": []
+      },
+      "guards": {
+        "idempotencyKey": "sample",
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
+        "deadlineAt": "2026-09-23T12:00:00.000Z",
+        "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  {
+    "case": "secret.create/missing-idempotency-key",
+    "expectedValid": false,
+    "value": {
+      "routeId": "route.0386",
+      "operationId": "secret.create",
+      "pathParameters": {},
+      "query": [],
+      "body": {
+        "stableName": "sample",
+        "displayName": "sample",
+        "type": "PASSWORD",
+        "value": {
+          "encoding": "UTF8",
+          "text": "sample"
+        }
+      },
+      "guards": {
+        "expectedStateVersion": null,
+        "expectedRevisionId": null,
+        "expectedReleaseId": null,
+        "expectedBindingSetRevision": null,
+        "expectedActivationEpoch": null,
         "deadlineAt": "2026-09-23T12:00:00.000Z",
         "clientRequestDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
       }

@@ -34,6 +34,8 @@ def main():
         # Historical resources predate HTTP; compose its explicit delta only
         # when checking the authored current HTTP contract.
         if HTTP in rs:expected=specialize_http(expected,bundle)
+        from create_operation_contracts import PATH as CREATE_DESIGN, specialize as specialize_creates
+        if CREATE_DESIGN in rs:expected=specialize_creates(expected)
         old_routes={r['routeId']:r for r in expected['records']}
     checks=[]
     values=[('0',True),('9223372036854775807',True),('9223372036854775808',False),
@@ -46,16 +48,18 @@ def main():
         for field in FIELDS:
             schema=route['requestSchema']['properties']['guards']['properties'][field]
             prior=original['requestSchema']['properties']['guards']['properties'][field]
-            nullable=isinstance(prior.get('type'),list) and 'null' in prior['type']
+            not_applicable=prior=={'type':'null'}
+            nullable=not_applicable or isinstance(prior.get('type'),list) and 'null' in prior['type']
             v=Draft202012Validator(schema)
             cases=[]
             for value,expected in values+[(None,nullable)]:
+                if not_applicable:expected=value is None
                 actual=v.is_valid(value)
                 cases.append({'value':value,'expectedValid':expected,'actualValid':actual,'passed':expected==actual})
             failures+=sum(not c['passed'] for c in cases)
             checks.append({'routeId':route['routeId'],'operationId':route['operationId'],
                            'schemaPointer':f'/requestSchema/properties/guards/properties/{field}',
-                           'nullablePreserved':nullable,'cases':cases})
+                           'nullablePreserved':nullable,'applicability':'NOT_APPLICABLE' if not_applicable else 'COUNTER','cases':cases})
             normalized['requestSchema']['properties']['guards']['properties'][field]=prior
         if normalized!=original:
             raise ValueError('Unexpected change beyond guard domains: '+route['routeId'])

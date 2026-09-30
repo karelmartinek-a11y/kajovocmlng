@@ -23,6 +23,10 @@ def main():
         guards=route['requestSchema']['properties']['guards']['properties']
         for field in FIELDS:
             old=guards[field]
+            if old=={'type':'null'} and route['operationId'] in ['generation.job.create','secret.create']:
+                from create_operation_contracts import PATH as CREATE_DESIGN
+                if CREATE_DESIGN not in rs:raise ValueError('Missing create guard authority')
+                continue
             nullable=isinstance(old.get('type'),list) and 'null' in old['type']
             new=copy.deepcopy(counter)
             if nullable:new['type']=['string','null']

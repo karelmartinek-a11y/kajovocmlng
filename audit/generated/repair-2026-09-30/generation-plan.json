@@ -1,9 +1,23 @@
 {
-  "sourceDocumentSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
+  "sourceDocumentSha256": "70713c4993abd551c78ffd7c39ae3ee41425852d6cf16068662a61d5b4197f3d",
   "sourceResources": {
     "r13/contracts/development-plan.json": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
     "r14/contracts/development-plan-delta.json": "4a2ab74ed04a9e200cb7667c7fc172e37ea62e50077c49eb37fe538dbc0525e6",
     "r15/contracts/development-plan-delta.json": "efa6b842890fab4a181deca11ecd87542e88ac6e3b6c4b42af31b75113727511"
+  },
+  "effectiveGatePrecedence": {
+    "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.73.7",
+    "sourceSha256": "d1e15a870dd100c98fa0ba2d8d6244f2d9be753da5d481a42e3f63f7735799d8",
+    "supersededHistoricalExitGates": [
+      "R13 whole-document verifier PASS"
+    ],
+    "requiredFinalFamilies": [
+      "R10",
+      "R16",
+      "UI",
+      "CLOSURE",
+      "R17"
+    ]
   },
   "status": "PLANNED_NOT_EXECUTED",
   "scope": "Derived continuation procedure. Output paths are planning conventions, not new normative product requirements.",
@@ -21,11 +35,13 @@
       ],
       "dependsOn": [],
       "exitGates": [
-        "R13 whole-document verifier PASS",
         "dependency resolution exact and reproducible",
         "no unclassified lock drift",
         "freeze R14 browser source locks, Ubuntu apt snapshot ID, Playwright browser tuple and package-set digests",
-        "generate exact apt name=version lock from snapshot and commit its digest"
+        "generate exact apt name=version lock from snapshot and commit its digest",
+        "SSOT 73.7: verify_package.py executes R10, R16, UI, CLOSURE and R17 successfully",
+        "SSOT 73.7: current hash manifest matches and R17 has zero unresolved/blocking findings",
+        "R13/R14/R15 standalone verifiers are historical revision provenance; do not execute them as final composite whole-document gates"
       ],
       "id": "P00",
       "name": "Freeze SSOT and toolchain",

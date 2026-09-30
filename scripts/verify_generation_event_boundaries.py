@@ -27,6 +27,10 @@ def main():
     old_rows={r['routeId']:r for r in json.loads(old[PATH]['raw'])['records']}
     expected=specialize(changed_payload(old),bundle)
     if HTTP in rs:expected=specialize_http(expected,bundle)
+    from create_operation_contracts import PATH as CREATE_DESIGN, specialize as specialize_creates
+    if CREATE_DESIGN in rs:
+        expected=specialize_creates(expected)
+        old_rows={r['routeId']:r for r in specialize_creates(json.loads(old[PATH]['raw']))['records']}
     expected_rows={r['routeId']:r for r in expected['records']}
     registry=Registry().with_resource(bundle['$id'],Resource.from_contents(bundle))
     validator=lambda s:Draft202012Validator(s,registry=registry,format_checker=FormatChecker())

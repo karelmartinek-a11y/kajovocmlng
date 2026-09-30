@@ -3998,7 +3998,14 @@
           "eventSchema": null
         }
       ],
-      "argumentProfile": {},
+      "argumentProfile": {
+        "requestContractRef": "urn:kcml:create-operation-design:1#/$defs/GenerationJobCreateBody",
+        "fieldMappings": {
+          "intent": "gen.intent OWNER text",
+          "sources": "gen.url -> URL source when present",
+          "credential": "gen.credential exact OWNER value when present"
+        }
+      },
       "declaredPageFields": [
         {
           "id": "gen.intent",
@@ -7823,7 +7830,14 @@
         }
       ],
       "argumentProfile": {
-        "sourceContext": "COMPONENT_INTENT"
+        "sourceContext": "COMPONENT_INTENT",
+        "requestContractRef": "urn:kcml:create-operation-design:1#/$defs/GenerationJobCreateBody",
+        "fieldMappings": {
+          "intent": "gen.intent OWNER text",
+          "sources": "gen.url -> URL source when present",
+          "credential": "gen.credential exact OWNER value when present"
+        },
+        "targetContextMapping": "selected component -> server-resolved targetObjectId/targetKind; sourceContext is presentation context, not a native body field"
       },
       "declaredPageFields": [
         {
@@ -9951,7 +9965,20 @@
           "eventSchema": null
         }
       ],
-      "argumentProfile": {},
+      "argumentProfile": {
+        "requestContractRef": "urn:kcml:create-operation-design:1#/$defs/SecretCreateBody",
+        "fieldMappings": {
+          "stableName": "secret.stableName",
+          "displayName": "secret.displayName",
+          "type": "secret.type",
+          "description": "secret.description",
+          "url": "secret.url",
+          "username": "secret.username",
+          "notes": "secret.notes",
+          "expiration": "secret.expiration",
+          "value": "secret.value -> exact UTF8 bytes or BASE64 binary bytes according to type; no normalization"
+        }
+      },
       "declaredPageFields": [
         {
           "id": "secret.search",

@@ -27,10 +27,12 @@
     "Phase3 reports every lifecycle field separately; config rollback PASS, seven other fields BLOCKED",
     "37 current design checks finished: 28 zero exits and 9 failing/BLOCKED, no exceptions or timeouts",
     "Phase4 history pinned to immutable 6180d9f; current handoff is SSOT-hash-bound without moving/own HEAD; all 12 structural checks PASS and all three exposure blockers retained",
-    "Resumable runner keys include SSOT, supporting source/projections, requirements and installed interpreter/package versions; atomic per-command checkpoint writes"
+    "Resumable runner keys include SSOT, supporting source/projections, requirements and installed interpreter/package versions; atomic per-command checkpoint writes",
+    "Two create request domain shapes and strict HTTP decoder; 131 domain witness/mutation checks PASS; generic boundary definitions 1506 -> 1504. Neither full operation nor all request policies closed.",
+    "Historical authoring and verifier compositions preserve precise create requests; all unrelated route records unchanged from aaab5a1.",
+    "P00 final gate derived from effective 73.7: final R10/R16/UI/CLOSURE/R17 family; standalone historical R13 is provenance, not final gate."
   ],
   "remaining": [
-    "Stabilize validators and inventory",
     "Explicit domain families and event applicability",
     "SQL execution and full persisted handoffs",
     "UI/browser/OpenAI/agents/MCP/monitoring",
@@ -50,23 +52,31 @@
         "section": "49.23",
         "authorityEvidence": "audit/generated/repair-2026-09-30/config-state/authority-49.23.md",
         "reviewScope": "Exact config apply lifecycle states, edges, guards, terminality, read-back recovery; used only to close response state enum"
+      },
+      {
+        "section": "8/12 create admission + 25.6/25.11 + 72.11/72.21 + 73.7",
+        "authorityEvidence": "audit/generated/repair-create-2026-09-30/field-contracts.json",
+        "reviewScope": "Field-level request shapes, transport/admission reference tests, and effective gate precedence; full policies and pipelines remain open"
       }
     ],
     "byteAndStructuralInventory": "audit/phase1-operation-schema-matrix.json; byte loading and schema resolution are separate from semantic review"
   },
   "nextBlock": {
-    "name": "generation.job.create and secret.create exact admission masks",
-    "sourcePointers": {
-      "generation.job.create": "contracts/payload-contracts.json#/records/215/requestSchema",
-      "secret.create": "contracts/payload-contracts.json#/records/386/requestSchema"
-    },
+    "name": "Seven open lifecycle response fields, then complete remaining create boundaries",
+    "fields": [
+      "owner.mfa.reset.enrollmentState",
+      "chat.turn.steer.checkpointDisposition",
+      "backup.restore.state",
+      "acceptance.run.start.state",
+      "acceptance.run.cancel.state",
+      "acceptance.run.cancel.cleanupStatus",
+      "acceptance.run.cancel.reconciliationStatus"
+    ],
     "steps": [
-      "Use current pinned audit environment and source hash; do not repeat baseline audit",
-      "Read operation, page, entity and lifecycle authority excerpts for each create operation and record field-level source pointers",
-      "Replace generic values/canonicalJson with exact domain fields and declare allowed query parameters; preserve business scope and Secrets trust model",
-      "Derive valid positive witnesses first; reject unknown query, invalid JSON, undeclared slot/field, duplicate domain values with exact rejection diagnostics",
-      "Compose new route deltas into existing generation/http/read/event expected projections; retain stricter masks and negative tests",
-      "Refresh affected current evidence; run full declared checks, generate manifests/receipt, commit and push bounded block"
+      "Read each operation aggregate/purpose and its own authoritative lifecycle; do not borrow similarly named enums",
+      "Derive exact response state masks with complete valid positive witnesses and specific negative rejections",
+      "Mark missing authoritative lifecycle definitions BLOCKED without inventing business states",
+      "Continue precise create response/error/event/persistence family; keep request policy gaps explicit"
     ]
   },
   "gates": {
@@ -80,16 +90,16 @@
     "operationsWithUnresolvedReferences": 121,
     "conflictingOperationReferences": 0,
     "genericRoutes": 502,
-    "genericBoundaryDefinitions": 1506,
+    "genericBoundaryDefinitions": 1504,
     "nestedReferenceFailures": 0,
-    "unreviewedConcreteBoundaryDefinitions": 111,
+    "unreviewedConcreteBoundaryDefinitions": 113,
     "conflictingSchemaIdentities": 0,
     "unspecifiedEventApplicability": 152,
     "unparsedResources": 0
   },
   "commandsEvidence": "audit/generated/repair-2026-09-30/design-current/commands.json",
-  "evidenceInvalidation": "Current source hash 6e731269... supersedes prior source hashes; only design-current and config-state proofs bind current SSOT. Raw historical reports retained.",
-  "currentSourceDocumentSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
+  "evidenceInvalidation": "Only current 70713c49 source-bound design-current reports are current. Earlier run aborted SSOT_INPUT_CHANGED and is not PASS. Historical raw evidence retained.",
+  "currentSourceDocumentSha256": "70713c4993abd551c78ffd7c39ae3ee41425852d6cf16068662a61d5b4197f3d",
   "inventoryEnvironmentCorrection": {
     "systemPythonUnavailableFormatCheckers": "774 references / 595 operations is environment-blocked evidence, not a contract defect count",
     "pinnedAuditEnvironment": "242 references / 121 operations; nestedReferenceFailures=0"
@@ -102,9 +112,9 @@
     "configurationState": "572652d"
   },
   "currentResults": {
-    "requiredAvailableChecks": 37,
-    "zeroExits": 28,
-    "nonzeroBlockedOrFailed": 9,
+    "requiredAvailableChecks": 38,
+    "zeroExits": 30,
+    "nonzeroBlockedOrFailed": 8,
     "validatorExceptions": 0,
     "timeouts": 0,
     "generationDomainChecks": 110,
@@ -120,7 +130,10 @@
       "dashboard.start",
       "dashboard.stop",
       "gen.editSpec"
-    ]
+    ],
+    "createRequestChecks": 131,
+    "createRequestFailed": 0,
+    "referenceRender": "BLOCKED: default Playwright browser missing; retry using installed /usr/bin/chromium reached current reference page but data-ready wait timed out. Historical visual evidence invalidated; source-hash drift is retained as blocker, not PASS."
   },
   "draftPR": {
     "status": "NOT_CREATED",
@@ -144,5 +157,43 @@
     "/tmp/ssot-audit-venv/bin/python scripts/run_ssot_repair_design_checks.py --resume",
     "/tmp/ssot-audit-venv/bin/python scripts/package_integrity.py"
   ],
-  "noFurtherAuthorizationNeeded": "Continue authorized technical repairs on this branch; push/draft PR allowed. No main merge/freeze/release/deployment/paid API/production execution."
+  "noFurtherAuthorizationNeeded": "Continue authorized technical repairs on this branch; push/draft PR allowed. No main merge/freeze/release/deployment/paid API/production execution.",
+  "continuationInput": {
+    "branch": "ssot-repair-2026-09-30",
+    "localAndRemoteHead": "aaab5a11967f859d4757738d78a8eb9af44528e6",
+    "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
+    "workingTree": "CLEAN",
+    "initialIntegrity": "INTEGRITY_MATCH"
+  },
+  "createBlock": {
+    "status": "PARTIAL_OPERATION_CLOSURE",
+    "request": "EXPLICIT_DOMAIN_SHAPE_AND_DECODER",
+    "response": "OPEN_GENERIC",
+    "event": "OPEN_GENERIC_APPLICABILITY",
+    "errors": "SEMANTIC_REVIEW_REQUIRED",
+    "remaining": [
+      "Structured/cryptographic Secret type policies",
+      "Parent/target state guards",
+      "Persistence and hydrated producer-consumer postconditions",
+      "Exact response/error/event and event applicability"
+    ],
+    "evidence": [
+      "audit/generated/repair-create-2026-09-30/field-contracts.json",
+      "audit/generated/repair-create-2026-09-30/create-request-tests.json"
+    ],
+    "metricsBeforeAfter": {
+      "genericBoundaries": [
+        1506,
+        1504
+      ],
+      "genericRoutes": [
+        502,
+        502
+      ],
+      "requestBoundariesMadeExplicit": 2,
+      "responseBoundariesMadeExplicit": 0,
+      "eventBoundariesMadeExplicit": 0
+    },
+    "coverage": "21 top-level fields with nested variants, authoritative excerpts; byte extraction is not whole-document semantic review"
+  }
 }

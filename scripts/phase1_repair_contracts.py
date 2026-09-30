@@ -41,6 +41,10 @@ def changes(rs):
             continue
         props = route['requestSchema']['properties']
         body = props['body']
+        if 'values' not in body.get('properties', {}) and 'oneOf' not in body:
+            from create_operation_contracts import PATH as CREATE_DESIGN
+            if CREATE_DESIGN not in rs:raise ValueError('Explicit create mask lacks authored authority')
+            continue
         if 'oneOf' in body:
             branches = [x for x in body['oneOf'] if x.get('type') != 'null']
             if len(branches) != 1 or 'values' not in branches[0].get('properties', {}):

@@ -23,9 +23,19 @@ def sections(text):
 
 if __name__=='__main__':
     original=subprocess.run(['git','show',BASE+':00_SSOT/KajovoCMLNG_SSOT.md'],cwd=ROOT,capture_output=True,check=True).stdout.decode('utf-8').replace('\r\n','\n')
-    before=sections(original);after=sections(SSOT.read_text(encoding='utf-8'))
+    current=SSOT.read_text(encoding='utf-8')
+    addition=[]
+    from ssot_sources import resource_index
+    from create_operation_contracts import PATH as CREATE_DESIGN
+    if CREATE_DESIGN in resource_index():
+        from close_create_operation_requests import SECRET_TEXT
+        addition=[{'section':'8.11 Secret create request admission','status':'PASS' if current.count(SECRET_TEXT)==1 else 'FAIL',
+            'scope':'Exact authored technical admission addendum; original policy must remain byte-identical.'}]
+        if current.count(SECRET_TEXT)==1:current=current.replace(SECRET_TEXT,'',1)
+    before=sections(original);after=sections(current)
     checks=[{'section':key,'originalSha256':value,'currentSha256':after.get(key),
              'status':'PASS' if after.get(key)==value else 'FAIL'} for key,value in before.items()]
+    checks.extend(addition)
     report={'baseCommit':BASE,'scope':'Secret/credential/password headings and their full subordinate content, compared without publishing content. LF normalization and surrounding whitespace excluded.', 'checks':checks}
     (ROOT/'audit/generated/preserved-policy.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({'sections':len(checks),'failures':sum(c['status']=='FAIL' for c in checks)}))

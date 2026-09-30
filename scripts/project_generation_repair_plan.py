@@ -1,5 +1,5 @@
 """Project current P00-P12 and additive browser/collaboration gates; no phase execution."""
-import hashlib,json
+import hashlib,json,re
 from ssot_sources import ROOT,SSOT,resource_index
 
 def main():
@@ -13,6 +13,17 @@ def main():
                 p=phases[d['phase']]
                 if 'replaceName' in d:p['name']=d['replaceName']
                 for key in ['deliverables','exitGates']:p[key].extend(d.get('add'+key[0].upper()+key[1:],[]))
+    # 73.7 explicitly supersedes historical R13/R14/R15 whole-document gates.
+    effective_gate=re.search(r'^### 73\.7 .*?\n(.*?)(?=^### |\Z)',SSOT.read_text(),re.M|re.S)
+    if effective_gate is None:raise ValueError('MISSING_FINAL_GATE_PRECEDENCE_73_7')
+    gate_text=effective_gate.group(0)
+    if not all(name in gate_text for name in ['R10','R16','UI','CLOSURE','R17','R13/R14/R15','verify_package.py']):
+        raise ValueError('FINAL_GATE_PRECEDENCE_CHANGED_REVIEW_REQUIRED')
+    superseded=[g for g in phases['P00']['exitGates'] if g=='R13 whole-document verifier PASS']
+    phases['P00']['exitGates']=[g for g in phases['P00']['exitGates'] if g not in superseded]+[
+        'SSOT 73.7: verify_package.py executes R10, R16, UI, CLOSURE and R17 successfully',
+        'SSOT 73.7: current hash manifest matches and R17 has zero unresolved/blocking findings',
+        'R13/R14/R15 standalone verifiers are historical revision provenance; do not execute them as final composite whole-document gates']
     outputs={
         'P00':['frozen-contract-pack/manifest.json','toolchain/locks/','audit/design-universe-results.json'],
         'P01':['packages/contract-compiler/','generated/schema-registry.json','tests/contracts/'],
@@ -29,13 +40,14 @@ def main():
         'P12':['evidence/production-shaped-acceptance/','evidence/activation-recovery/']}
     for phase,p in phases.items():p['plannedOutputLocations']=outputs[phase]
     result={'sourceDocumentSha256':hashlib.sha256(SSOT.read_bytes()).hexdigest(),'sourceResources':sources,
+        'effectiveGatePrecedence':{'sourcePointer':'00_SSOT/KajovoCMLNG_SSOT.md#section.73.7','sourceSha256':hashlib.sha256(gate_text.encode()).hexdigest(),'supersededHistoricalExitGates':superseded,'requiredFinalFamilies':['R10','R16','UI','CLOSURE','R17']},
         'status':'PLANNED_NOT_EXECUTED','scope':'Derived continuation procedure. Output paths are planning conventions, not new normative product requirements.',
         'admission':'P00 requires current complete SSOT_CONTRACT_READY and separate freeze authorization. This repair task authorizes no freeze, application generation, release, deployment or production calls.',
         'progression':'No successor RUNNING before predecessor current PASSED with identical SSOT/Contract Pack/toolchain lineage (71.7).',
         'remainingProjectionReview':'R16 orchestration and R17 native toolchain/PGDG/browser requirements must be incorporated in implementation evidence; this projection does not certify their semantic closure.',
         'phases':list(phases.values())}
     out=ROOT/'audit/generated/repair-2026-09-30/generation-plan.json';out.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
-    lines=['# Postup generování P00–P12','',result['scope'],'',result['admission'],'',result['progression'],'',f"SSOT SHA-256: `{result['sourceDocumentSha256']}`.",'', 'Normativní deliverables a exit gates jsou převzaté z R13 a všech nalezených development-plan-delta resources. Plánované cesty jsou konkrétní umístění budoucích výstupů; aplikace nebyla generována.','']
+    lines=['# Postup generování P00–P12','',result['scope'],'',result['admission'],'',result['progression'],'',f"SSOT SHA-256: `{result['sourceDocumentSha256']}`.",'', 'Deliverables a delta gates jsou převzaté z R13/R14/R15; finální P00 gate používá účinnou precedence §73.7 místo historického R13 whole-document gate. Plánované cesty jsou konkrétní umístění budoucích výstupů; aplikace nebyla generována.','']
     for p in result['phases']:
         lines += [f"## {p['id']} — {p['name']}",'', 'Závisí na: '+(', '.join(p['dependsOn']) or 'aktuální kompletní návrhové gate a samostatné oprávnění freeze')+'.','', 'Plánované výstupy: '+', '.join('`'+v+'`' for v in p['plannedOutputLocations'])+'.','', 'Deliverables:','']+['- '+v for v in p['deliverables']]+['','Exit criteria:','']+['- '+v for v in p['exitGates']]+['']
     lines += ['R17 / 73.2–73.7: P00 musí doložit exact native/PGDG package versions a integrity; P02 skutečný PostgreSQL 18.6 a extension smoke; P07 browser launch a pinned runtime tuple. Syntetické testy nenahrazují tyto runtime důkazy.','',result['remainingProjectionReview']]
