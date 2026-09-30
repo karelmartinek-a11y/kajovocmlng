@@ -31,6 +31,7 @@ CREATE TABLE generation_create_trusted_context (
   execution_descriptor_digest bytea NOT NULL CHECK(octet_length(execution_descriptor_digest)=32),
   accepted_at timestamptz NOT NULL,
   UNIQUE(id,owner_id,initiating_access_channel),
+  FOREIGN KEY(application_deployment_epoch,operation_contract_digest) REFERENCES generation_create_contract_pin(application_deployment_epoch,contract_digest) ON DELETE RESTRICT,
   FOREIGN KEY(authentication_acceptance_id,owner_id,initiating_access_channel)
     REFERENCES generation_create_authentication_acceptance(id,owner_id,access_channel) ON DELETE RESTRICT,
   CHECK(execution_descriptor_digest=sha256(execution_descriptor_bytes))
@@ -64,17 +65,48 @@ DECLARE a generation_create_authentication_acceptance%ROWTYPE;
         dh application_deployment_head%ROWTYPE;
         c generation_create_trusted_context%ROWTYPE;
         now_at timestamptz;
+        pin generation_create_contract_pin%ROWTYPE;
+        descriptor jsonb;
+        expected_descriptor jsonb;
+        expected_descriptor_bytes bytea;
 BEGIN
  IF octet_length(p_client_request_digest) IS DISTINCT FROM 32
     OR octet_length(p_operation_contract_digest) IS DISTINCT FROM 32
     OR p_execution_descriptor_bytes IS NULL OR octet_length(p_execution_descriptor_bytes)=0 THEN
   RAISE EXCEPTION USING ERRCODE='22023',MESSAGE='GENERATION_CONTEXT_INPUT_INVALID';
  END IF;
- SELECT * INTO STRICT a FROM generation_create_authentication_acceptance
+ SELECT * INTO a FROM generation_create_authentication_acceptance
  WHERE id=p_authentication_acceptance_id;
+ IF NOT FOUND THEN RAISE EXCEPTION USING ERRCODE='P0002',MESSAGE='GENERATION_AUTH_RECEIPT_UNRESOLVED';END IF;
  -- Receipt is immutable. Only persisted identity, never arbitrary actor metadata.
  SELECT platform_incarnation_id INTO STRICT pi.platform_incarnation_id FROM platform_incarnation WHERE singleton_key=1 FOR SHARE;
  SELECT platform_incarnation_id,application_deployment_epoch INTO STRICT dh.platform_incarnation_id,dh.application_deployment_epoch FROM application_deployment_head WHERE singleton_key=1 FOR SHARE;
+ SELECT * INTO pin FROM generation_create_contract_pin WHERE application_deployment_epoch=dh.application_deployment_epoch;
+ IF NOT FOUND THEN RAISE EXCEPTION USING ERRCODE='P0002',MESSAGE='GENERATION_CONTRACT_PIN_UNRESOLVED';END IF;
+ IF pin.contract_digest IS DISTINCT FROM p_operation_contract_digest THEN
+  RAISE EXCEPTION USING ERRCODE='23514',MESSAGE='GENERATION_CONTRACT_PIN_MISMATCH';
+ END IF;
+ BEGIN
+  IF NOT(convert_from(p_execution_descriptor_bytes,'UTF8') IS JSON OBJECT WITH UNIQUE KEYS) THEN
+   RAISE EXCEPTION USING ERRCODE='22023',MESSAGE='GENERATION_DESCRIPTOR_ENCODING_INVALID';
+  END IF;
+  descriptor=convert_from(p_execution_descriptor_bytes,'UTF8')::jsonb;
+ EXCEPTION WHEN SQLSTATE '22021' OR SQLSTATE '22P02' THEN
+  RAISE EXCEPTION USING ERRCODE='22023',MESSAGE='GENERATION_DESCRIPTOR_ENCODING_INVALID';
+ END;
+ IF jsonb_typeof(descriptor->'clientKeyDigest')<>'string' OR octet_length(descriptor->>'clientKeyDigest') IS DISTINCT FROM 71 OR descriptor->>'clientKeyDigest' !~ '^sha256:[0-9a-f]{64}$' THEN
+  RAISE EXCEPTION USING ERRCODE='23514',MESSAGE='GENERATION_DESCRIPTOR_KEY_DIGEST_INVALID';
+ END IF;
+ expected_descriptor=jsonb_build_object('callerAuthorityKind','OWNER_FULL','clientKeyDigest',descriptor->>'clientKeyDigest','operationContractId',pin.operation_id,'operationContractRevision',pin.operation_contract_revision,'stableBusinessTargetKey','CREATE_ROOT:generation_job','stableCallerObjectId',a.owner_id::text,'stableCallerRevisionId',NULL);
+ IF descriptor IS DISTINCT FROM expected_descriptor THEN
+  RAISE EXCEPTION USING ERRCODE='23514',MESSAGE='GENERATION_DESCRIPTOR_PIN_BINDING_MISMATCH';
+ END IF;
+ -- The pinned seven-field mask contains only strings and null. Produce exact
+ -- lexicographic-key UTF8 bytes, no jsonb::text ordering/whitespace assumptions.
+ expected_descriptor_bytes=convert_to('{"callerAuthorityKind":"OWNER_FULL","clientKeyDigest":'||to_json(descriptor->>'clientKeyDigest')::text||',"operationContractId":'||to_json(pin.operation_id)::text||',"operationContractRevision":'||to_json(pin.operation_contract_revision)::text||',"stableBusinessTargetKey":"CREATE_ROOT:generation_job","stableCallerObjectId":'||to_json(a.owner_id::text)::text||',"stableCallerRevisionId":null}','UTF8');
+ IF p_execution_descriptor_bytes IS DISTINCT FROM expected_descriptor_bytes THEN
+  RAISE EXCEPTION USING ERRCODE='23514',MESSAGE='GENERATION_DESCRIPTOR_NONCANONICAL';
+ END IF;
  IF dh.platform_incarnation_id<>pi.platform_incarnation_id THEN
   RAISE EXCEPTION USING ERRCODE='40001',MESSAGE='GENERATION_CONTEXT_INCARNATION_MISMATCH';
  END IF;

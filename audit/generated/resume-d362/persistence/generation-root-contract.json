@@ -1,7 +1,7 @@
 {
   "format": "KCML-GENERATION-ROOT-PHYSICAL-REVIEW/1",
   "inputCommit": "d362487999bd795d4723c2a930e93fc7aa8aa295",
-  "sourceDocumentSha256": "9bf5510b189ef4f71216d56bf293599ac129d200ec92e90ff7c2c22f6b15e57b",
+  "sourceDocumentSha256": "3c2f44e0660d1f97eaf77b59b972bcba230d39c1063141d88a734526f9c81e70",
   "operationId": "generation.job.create",
   "sources": [
     "\u00a712.3",
@@ -35,8 +35,8 @@
     "modelMayProvide": false,
     "requiredEvidence": "Persisted server authentication acceptance bound to fixed owner_identity, original initiating access channel, exact authenticated session/API credential generation, current locked incarnation/deployment heads and immutable execution descriptor. Caller UUID, boolean authenticated, client receipt, or SQL composite alone is not authority.",
     "SQLRole": "Restricted NOLOGIN builder owns reviewed controlled-schema SECURITYDEFINER constructor; onlyauthenticationwriter inserts receipt; domainwriterEXECUTEonly, no directINSERT/contextorbuilderrole. Fixed installation searchpath pg_tempLAST. Infrastructuregroups do not alter OWNER_FULL product model.",
-    "unresolved": "Exact descriptor schema+immutablecontractpin registry, complete canonical authentication/source tableDDL and actualtokenverifier issuance remain required; boundedguards+ACL materialized with20PG18.6 tests.",
-    "candidateResolved": "trusted-generation-context-proposed.sql materializes server authentication acceptance, selects current owned session+epoch/revocation/expiry or singletonAPIversion/fingerprint and fixedOWNER, persists exactdescriptor bytes/digest under currentheads; no valid flag. Constructor tested PG18.6. Authentication writer-only INSERT and actual deployed verifier remain required."
+    "unresolved": "\u00a751.20 boundedconstant-time actualAPI material verifier/codec profile underB3lock insamecommandacceptance; actualpassword/MFA sessionissuance semantics; combinedsnapshot-schema-pin proof and remaining child/target FK/phase/crypto graph. No appacceptance claim.",
+    "candidateResolved": "Full needed25.3/51.11 auth/headDDL (56fields) with actualcitext1.8 exactusername/singleton guards; actual consumednativeoperation/route/domain-schema revision bytes pinned bydeploymentepoch; exactcanonical7fielddescriptor/serverregistry digest andcompositeFK; restrictedproducerACL.46actualPG18.6 contextchecks withspecificdiagnostics; reservedAPI Secret compositeparent/ACTIVE/fingerprint links6checks; pgcrypto1.4/citextprimitiveKAT7 separate."
   },
   "locking": [
     "BEGIN ONLINE_MUTATION settings before query",
@@ -53,7 +53,7 @@
     {
       "id": "GENERATION-CONTEXT-ACCEPTANCE",
       "source": "\u00a712.47,\u00a749.4,\u00a751.2,\u00a751.5-6",
-      "reason": "Complete source-owned authentication DDL and exact descriptor/pin mask; scoped infrastructure rolebindings and20PG18.6 currentrow/forgery checks now materialized.",
+      "reason": "NeededauthDDL/descriptorpin/ACL/currentrow guards materialized. Actualboundedconstant-time verifier profile/acceptance transaction remains own51.20 design+fixture dependency; realdeployedservice acceptance is separate.",
       "class": "TECHNICAL"
     },
     {
@@ -104,5 +104,6 @@
       "application_deployment_head"
     ],
     "consumerRule": "SQL constructor WHEREsingleton_key=1; no automatic text-label coercion"
-  }
+  },
+  "followOnInputCommit": "6ac0e89921ad73e1dae7054ef78d0d4880c67e60"
 }

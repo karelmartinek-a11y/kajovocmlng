@@ -74,20 +74,18 @@ has no side effects and cannot itself prove locks, commits or runtime ownership.
     for key in ['revisionId','artifactId']:
         if key in basis and source.get(key)!=basis[key]: _fail('FOLLOW_UP_BASIS_IDENTITY_MISMATCH','$.followUpBasis.'+key)
     if source.get('immutable') is not True: _fail('FOLLOW_UP_BASIS_NOT_IMMUTABLE','$.followUpBasis')
-    if source.get('consistent') is not True: _fail('FOLLOW_UP_BASIS_INCONSISTENT','$.followUpBasis')
-    if source.get('sufficient') is not True: _fail('FOLLOW_UP_BASIS_INSUFFICIENT','$.followUpBasis')
     raw=source.get('bytes')
     if not isinstance(raw,bytes): _fail('FOLLOW_UP_BASIS_BYTES_UNAVAILABLE','$.followUpBasis')
     actual=_digest(raw)
     if source.get('contentDigest')!=actual: _fail('FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH','$.followUpBasis')
     if basis['expectedDigest']!=actual: _fail('FOLLOW_UP_BASIS_DIGEST_CONFLICT','$.followUpBasis.expectedDigest')
     if basis['basisKind']=='PUBLISHED_FINAL_OUTPUT':
-        if source.get('publishedFinal') is not True: _fail('FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED','$.followUpBasis')
         if not _uuid(source.get('publicationReceiptId')): _fail('FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED','$.followUpBasis')
         receipt=server.get('publicationReceipts',{}).get(source.get('publicationReceiptId'))
         if receipt is None or receipt.get('outcome')!='COMMITTED': _fail('FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED','$.followUpBasis')
         if receipt.get('receiptId')!=source.get('publicationReceiptId') or receipt.get('jobId')!=parent['jobId'] or receipt.get('artifactId')!=basis['artifactId'] or receipt.get('contentDigest')!=actual:
             _fail('FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH','$.followUpBasis')
+    _validate_content(body,source,server)
     descriptor={'sourceJobId':parent['jobId'],'snapshotId':source['snapshotId'],'basisKind':basis['basisKind'],'contentDigest':actual}
     for key in ['revisionId','artifactId']:
         if key in basis: descriptor[key]=basis[key]
@@ -140,4 +138,20 @@ read. Consumer rechecks the frozen identity, retained receipt and actual bytes.
         if receipt is None or receipt.get('outcome')!='COMMITTED': _fail('FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED')
         if receipt.get('receiptId')!=descriptor['publicationReceiptId'] or receipt.get('jobId')!=descriptor['sourceJobId'] or receipt.get('artifactId')!=descriptor['artifactId'] or receipt.get('contentDigest')!=descriptor['contentDigest']:
             _fail('FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH')
+    body={'kind':'FOLLOW_UP','parentJobId':descriptor['sourceJobId'],'followUpBasis':{'basisKind':descriptor['basisKind'],'expectedDigest':descriptor['contentDigest']}}
+    for key in ['revisionId','artifactId']:
+        if key in descriptor:body['followUpBasis'][key]=descriptor[key]
+    _validate_content(body,source,server)
     return source['bytes']
+
+def _validate_content(body,source,server):
+    from generation_admission_contracts import Repository,validate_follow_up_content,validate_declared_final_output
+    repository=server.get('generationBasisRepository')
+    if not isinstance(repository,Repository):_fail('GENERATION_ADMISSION_CONTRACT_UNRESOLVED')
+    if repository.owner!=server['owner']:_fail('GENERATION_BASIS_OWNER_MISMATCH')
+    kind=body['followUpBasis']['basisKind']
+    identity=source['snapshotId'] if kind=='INITIAL_REQUEST' else body['followUpBasis']['revisionId' if kind=='SPECIFICATION_REVISION' else 'artifactId']
+    if source.get('recordId')!=identity:_fail('GENERATION_BASIS_IDENTITY_MISMATCH')
+    validated=validate_follow_up_content(body,identity,repository)
+    if kind=='PUBLISHED_FINAL_OUTPUT':validate_declared_final_output(body,repository,server.get('finalOutputDeclarations',{}))
+    return validated

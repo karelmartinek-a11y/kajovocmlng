@@ -1,0 +1,30 @@
+{
+  "scope": "Independent real nonempty content reference using server-owned current operation/state JOIN snapshot; no actual PostgreSQL locked scan completeness proof. Old absent-selector finding corrected and reexecuted, not replayed by hash.",
+  "cases": [
+    {
+      "id": "actual-current-positive",
+      "expected": "SOURCE_PHASE_EFFECT_INVENTORY_CONTENT_VALIDATED",
+      "actual": "SOURCE_PHASE_EFFECT_INVENTORY_CONTENT_VALIDATED",
+      "passed": true
+    },
+    {
+      "id": "older-valid-same-attempt-and-state-projection",
+      "expected": "GENERATION_RETRY_CURRENT_ATTEMPT_STATE_DRIFT",
+      "actual": "GENERATION_RETRY_CURRENT_ATTEMPT_STATE_DRIFT",
+      "passed": true
+    },
+    {
+      "id": "same-identity-old-version-valid-bytes",
+      "expected": "GENERATION_RETRY_CURRENT_ATTEMPT_STATE_DRIFT",
+      "actual": "GENERATION_RETRY_CURRENT_ATTEMPT_STATE_DRIFT",
+      "passed": true
+    }
+  ],
+  "checks": 3,
+  "failed": 0,
+  "consumed": {
+    "/workspace/kajovocmlng/audit/generated/resume-d362/admission/generation_retry_inventory.py": "5d4530660309be29eef237f86953a13571d748a608e404315399474934fa31e1",
+    "/workspace/kajovocmlng/audit/generated/resume-d362/admission/generation_retry_inventory_fixtures.py": "b3e0daf65acfee532106dea575eb628d165edbc731fee9b214d8be8a90a86039"
+  },
+  "wholeOperationClosed": false
+}

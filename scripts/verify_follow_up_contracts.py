@@ -15,26 +15,18 @@ SNAPSHOT='00000000-0000-4000-8000-000000000003'
 REVISION='00000000-0000-4000-8000-000000000004'
 ARTIFACT='00000000-0000-4000-8000-000000000005'
 OTHER='00000000-0000-4000-8000-000000000006'
-BASIS_BYTES=b'Synthetic immutable source basis; no credential content.'
-DIGEST='sha256:'+hashlib.sha256(BASIS_BYTES).hexdigest()
 
-def fixture(basis_kind='INITIAL_REQUEST', state='DISCUSSING'):
- basis={'basisKind':basis_kind,'expectedDigest':DIGEST}
- selector=''
- if basis_kind=='SPECIFICATION_REVISION':basis['revisionId']=selector=REVISION
- if basis_kind=='PUBLISHED_FINAL_OUTPUT':basis['artifactId']=selector=ARTIFACT
- body={'intent':'Create an independent follow-up from frozen synthetic basis.','kind':'FOLLOW_UP','parentJobId':JOB,'followUpBasis':basis}
- record={'snapshotId':SNAPSHOT,'owner':OWNER,'jobId':JOB,'basisKind':basis_kind,'bytes':BASIS_BYTES,'contentDigest':DIGEST,'immutable':True,'available':True,'consistent':True,'sufficient':True,'publishedFinal':True}
- if selector:record['revisionId' if basis_kind=='SPECIFICATION_REVISION' else 'artifactId']=selector
- server={'owner':OWNER,'actor':'OWNER','authenticated':True,'recovery':'READY','atomicGenerationAdmission':True,'jobs':{JOB:{'jobId':JOB,'owner':OWNER,'state':state}},'sourceSnapshots':{(JOB,basis_kind,selector):record}}
- if basis_kind=='PUBLISHED_FINAL_OUTPUT':
-  record['publicationReceiptId']=OTHER
-  server['publicationReceipts']={OTHER:{'receiptId':OTHER,'jobId':JOB,'artifactId':ARTIFACT,'contentDigest':DIGEST,'outcome':'COMMITTED'}}
- return body,server,(JOB,basis_kind,selector)
+def fixture(basis_kind='INITIAL_REQUEST',state='DISCUSSING'):
+ from generation_follow_up_fixtures import factory
+ return factory(basis_kind,OWNER,JOB,SNAPSHOT,REVISION,ARTIFACT,OTHER,state)
+
+def domain_state(server):
+ return {k:server.get(k) for k in ['jobs','sourceSnapshots','publicationReceipts','finalOutputDeclarations']}|{'repositoryRecords':server['generationBasisRepository'].records}
+
 
 def main():
  source=hashlib.sha256(SSOT.read_bytes()).hexdigest()
- support={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in ['scripts/follow_up_contracts.py','scripts/verify_follow_up_contracts.py','scripts/create_operation_contracts.py']}
+ support={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in ['scripts/follow_up_contracts.py','scripts/verify_follow_up_contracts.py','scripts/create_operation_contracts.py','scripts/generation_follow_up_fixtures.py','scripts/generation_admission_contracts.py']}
  checks=[];matrix=[]
  def check(name,actual,expected=True):checks.append({'case':name,'passed':actual==expected,'actual':actual,'expected':expected})
  def reject(name,body,server,code,pointer):
@@ -80,14 +72,15 @@ def main():
    bad={**body['followUpBasis'],field:None}
    errors=[child for error in validator.iter_errors(bad) for child in error_tree(error)]
    check(basis_kind+'/schema/null/'+field,any(e.validator==('const' if field=='basisKind' else 'type') and list(e.absolute_path)==[field] for e in errors))
-  source_before=copy.deepcopy(server)
+  source_before=copy.deepcopy(domain_state(server))
   frozen=admit_follow_up(body,server);unchanged=copy.deepcopy(frozen)
-  check(basis_kind+'/admission-never-mutates-source',server==source_before)
+  check(basis_kind+'/admission-never-mutates-source',domain_state(server)==source_before)
   for later_state in ['COMPLETED','FAILED','CANCELLED']:
    server['jobs'][JOB]['state']=later_state
    server['sourceSnapshots'][key]['bytes']=b'Later replacement must not rewrite frozen output.'
    check(basis_kind+'/frozen-after-parent-'+later_state,frozen==unchanged)
   body,server,key=fixture(basis_kind)
+  expected_bytes=server['sourceSnapshots'][key]['bytes']
   before=admit_follow_up(body,server)['frozenBasis']
   frozen_validator=Draft202012Validator(frozen_basis_schema(),format_checker=FormatChecker())
   check(basis_kind+'/server-frozen-descriptor-schema',frozen_validator.is_valid(before))
@@ -103,12 +96,12 @@ def main():
   check(basis_kind+'/server-lineage-digest-exact',before['lineageDigest'],lineage)
   server['jobs'][JOB]['state']='CANCELLED'
   check(basis_kind+'/fresh-admission-same-immutable-lineage-after-parent-cancel',admit_follow_up(body,server)['frozenBasis']==before)
-  check(basis_kind+'/hydration-positive',hydrate_frozen_basis(before,server)==BASIS_BYTES)
+  check(basis_kind+'/hydration-positive',hydrate_frozen_basis(before,server)==expected_bytes)
   for state in states:
    server['jobs'][JOB]['state']=state
    server['jobs'][JOB]['currentRevisionId']=OTHER
    server['sourceSnapshots'][key].update(available=False,consistent=False,sufficient=False)
-   check(basis_kind+'/hydration-frozen-after-source-'+state,hydrate_frozen_basis(before,server)==BASIS_BYTES)
+   check(basis_kind+'/hydration-frozen-after-source-'+state,hydrate_frozen_basis(before,server)==expected_bytes)
   for name,mutator,code in [('extra-descriptor',lambda d,s:d.update(currentSourceState='COMPLETED'),'FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID'),('wrong-lineage-digest',lambda d,s:d.update(lineageDigest='sha256:'+'0'*64),'FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH'),('missing-snapshot',lambda d,s:s['sourceSnapshots'].clear(),'FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE'),('duplicate-snapshot',lambda d,s:s['sourceSnapshots'].update({('duplicate',):copy.deepcopy(s['sourceSnapshots'][key])}),'FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE'),('source-owner',lambda d,s:s['sourceSnapshots'][key].update(owner=OTHER),'FOLLOW_UP_SOURCE_OWNER_MISMATCH'),('source-id',lambda d,s:s['sourceSnapshots'][key].update(jobId=OTHER),'FOLLOW_UP_FROZEN_IDENTITY_MISMATCH'),('mutable-snapshot',lambda d,s:s['sourceSnapshots'][key].update(immutable=False),'FOLLOW_UP_BASIS_NOT_IMMUTABLE'),('missing-bytes',lambda d,s:s['sourceSnapshots'][key].pop('bytes'),'FOLLOW_UP_BASIS_BYTES_UNAVAILABLE'),('changed-actual-bytes',lambda d,s:s['sourceSnapshots'][key].update(bytes=b'changed later'),'FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH')]:
    d,s=copy.deepcopy(before),copy.deepcopy(server)
    hydrate_frozen_basis(d,s)
@@ -154,11 +147,15 @@ def main():
   mutator(body,server,key)
   reject(name,body,server,code,pointer)
  for state in states:
-  for availability,field,code in [('MISSING','available','FOLLOW_UP_BASIS_UNAVAILABLE'),('INCONSISTENT','consistent','FOLLOW_UP_BASIS_INCONSISTENT'),('INSUFFICIENT','sufficient','FOLLOW_UP_BASIS_INSUFFICIENT'),('UNPUBLISHED','publishedFinal','FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED')]:
-   body,server,key=fixture('PUBLISHED_FINAL_OUTPUT',state)
-   admit_follow_up(body,server)
-   server['sourceSnapshots'][key][field]=False
-   reject('matrix/'+state+'/'+availability,body,server,code,'$.followUpBasis')
+  for availability in ['MISSING','INCONSISTENT','INSUFFICIENT','UNPUBLISHED']:
+   body,server,key=fixture('PUBLISHED_FINAL_OUTPUT',state);admit_follow_up(body,server)
+   pointer='$.followUpBasis'
+   if availability=='MISSING':server['sourceSnapshots'][key]['available']=False;code='FOLLOW_UP_BASIS_UNAVAILABLE'
+   elif availability=='INCONSISTENT':
+    record=server['sourceSnapshots'][key];record['bytes']=b'{"broken":';record['contentDigest']='sha256:'+hashlib.sha256(record['bytes']).hexdigest();body['followUpBasis']['expectedDigest']=record['contentDigest'];server['publicationReceipts'][OTHER]['contentDigest']=record['contentDigest'];code='GENERATION_BASIS_JSON_INVALID';pointer=''
+   elif availability=='INSUFFICIENT':server['finalOutputDeclarations'].clear();code='GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE';pointer=''
+   else:server['publicationReceipts'][OTHER]['outcome']='UNKNOWN';code='FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED'
+   reject('matrix/'+state+'/'+availability,body,server,code,pointer)
  for kind in ['CREATE','UPDATE','RETRY','REPAIR']:
   matrix.append({'kind':kind,'sourceState':'NOT_REVIEWED_IN_THIS_PROOF','availability':'NOT_REVIEWED_IN_THIS_PROOF','decision':'OPEN','reason':'Requires its own kind-specific authority; FOLLOW_UP approval is not borrowed.'})
  authored_matrix=__import__('follow_up_contracts').matrix()
@@ -193,7 +190,7 @@ def rejection_cases():
  for kind in ['INITIAL_REQUEST','SPECIFICATION_REVISION','PUBLISHED_FINAL_OUTPUT']:
   prefix=kind+'/'
   add(prefix+'missing',lambda b,s,k:s['sourceSnapshots'].clear(),'FOLLOW_UP_BASIS_UNAVAILABLE')
-  for field,value,code in [('available',False,'FOLLOW_UP_BASIS_UNAVAILABLE'),('jobId',OTHER,'FOLLOW_UP_BASIS_IDENTITY_MISMATCH'),('basisKind','CURRENT','FOLLOW_UP_BASIS_IDENTITY_MISMATCH'),('owner',OTHER,'FOLLOW_UP_SOURCE_OWNER_MISMATCH'),('snapshotId','current','FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID'),('immutable',False,'FOLLOW_UP_BASIS_NOT_IMMUTABLE'),('consistent',False,'FOLLOW_UP_BASIS_INCONSISTENT'),('sufficient',False,'FOLLOW_UP_BASIS_INSUFFICIENT'),('bytes','not bytes','FOLLOW_UP_BASIS_BYTES_UNAVAILABLE'),('bytes',b'Changed after lock','FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH'),('contentDigest','sha256:'+'0'*64,'FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH')]:
+  for field,value,code in [('available',False,'FOLLOW_UP_BASIS_UNAVAILABLE'),('jobId',OTHER,'FOLLOW_UP_BASIS_IDENTITY_MISMATCH'),('basisKind','CURRENT','FOLLOW_UP_BASIS_IDENTITY_MISMATCH'),('owner',OTHER,'FOLLOW_UP_SOURCE_OWNER_MISMATCH'),('snapshotId','current','FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID'),('immutable',False,'FOLLOW_UP_BASIS_NOT_IMMUTABLE'),('bytes','not bytes','FOLLOW_UP_BASIS_BYTES_UNAVAILABLE'),('bytes',b'Changed after lock','FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH'),('contentDigest','sha256:'+'0'*64,'FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH')]:
    add(prefix+field+'/'+code,lambda b,s,k,field=field,value=value:s['sourceSnapshots'][k].update({field:value}),code)
   add(prefix+'wrong-client-digest',lambda b,s,k:b['followUpBasis'].update(expectedDigest='sha256:'+'0'*64),'FOLLOW_UP_BASIS_DIGEST_CONFLICT','$.followUpBasis.expectedDigest')
   for extra in ['current','clientReceipt','authorityId']:
@@ -202,7 +199,7 @@ def rejection_cases():
    field='revisionId' if kind=='SPECIFICATION_REVISION' else 'artifactId'
    add(prefix+'wrong-record-selector',lambda b,s,k,field=field:s['sourceSnapshots'][k].update({field:OTHER}),'FOLLOW_UP_BASIS_IDENTITY_MISMATCH','$.followUpBasis.'+field)
   if kind=='PUBLISHED_FINAL_OUTPUT':
-   add(prefix+'unpublished',lambda b,s,k:s['sourceSnapshots'][k].update(publishedFinal=False),'FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED')
+   add(prefix+'missing-final-declaration',lambda b,s,k:s['finalOutputDeclarations'].clear(),'GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE','')
    add(prefix+'no-server-receipt',lambda b,s,k:s['publicationReceipts'].clear(),'FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED')
    add(prefix+'uncommitted-receipt',lambda b,s,k:s['publicationReceipts'][OTHER].update(outcome='UNKNOWN'),'FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED')
    for field,value in [('receiptId',SNAPSHOT),('jobId',OTHER),('artifactId',REVISION),('contentDigest','sha256:'+'0'*64)]:

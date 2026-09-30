@@ -27,8 +27,9 @@
       "httpStatus": 503,
       "predicate": [
         {
-          "condition": "Explicit mandatory schema or format validation raises this exact typed diagnostic",
-          "implementationLine": 127
+          "condition": "Repository.from_current_ssot load_resource raises ValueError for missing/ambiguous mandatory native generation/admission/artifact-map/domain-map canonical resource; no proposal fallback",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
         }
       ],
       "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
@@ -395,8 +396,9 @@
       "httpStatus": 422,
       "predicate": [
         {
-          "condition": "The exact pinned schema or strict persisted UTF-8 JSON decoder rejects this named violation; unrelated exceptions fail the proof",
-          "implementationLine": null
+          "condition": "strict_json ObjectPairs conversion encountered a key already present in that exact object; wraps exact DUPLICATE_JSON_KEY at original escaped RFC6901 key pointer",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
         }
       ],
       "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
@@ -463,8 +465,9 @@
       "httpStatus": 422,
       "predicate": [
         {
-          "condition": "The exact pinned schema or strict persisted UTF-8 JSON decoder rejects this named violation; unrelated exceptions fail the proof",
-          "implementationLine": null
+          "condition": "strict_json json.loads/convert raised syntax ValueError, TypeError or RecursionError; source_json wraps exact INVALID_JSON; not duplicate/nonfinite/UTF8 errors",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
         }
       ],
       "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
@@ -503,8 +506,9 @@
       "httpStatus": 422,
       "predicate": [
         {
-          "condition": "The exact pinned schema or strict persisted UTF-8 JSON decoder rejects this named violation; unrelated exceptions fail the proof",
-          "implementationLine": null
+          "condition": "strict_json convert encountered float for which math.isfinite is false, including JSON numeric overflow; wraps exact NONFINITE_JSON_NUMBER at original absolute pointer",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
         }
       ],
       "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
@@ -667,8 +671,9 @@
       "httpStatus": 422,
       "predicate": [
         {
-          "condition": "The exact pinned schema or strict persisted UTF-8 JSON decoder rejects this named violation; unrelated exceptions fail the proof",
-          "implementationLine": null
+          "condition": "Repository.hydrate decodes actual persisted bytes and validates exact frozen SchemaAddress.schemaId/definition from recomputed bundleDigest; iter_errors returns at least one real native violation and preserves its absolute RFC6901 field path",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
         }
       ],
       "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
@@ -731,8 +736,9 @@
       "httpStatus": 422,
       "predicate": [
         {
-          "condition": "The exact pinned schema or strict persisted UTF-8 JSON decoder rejects this named violation; unrelated exceptions fail the proof",
-          "implementationLine": null
+          "condition": "strict_json unicode_check failed UTF8 encoding of an unpaired surrogate in a decoded key/value; source_json wraps exact INVALID_UNICODE",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
         }
       ],
       "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
@@ -771,8 +777,9 @@
       "httpStatus": 422,
       "predicate": [
         {
-          "condition": "The exact pinned schema or strict persisted UTF-8 JSON decoder rejects this named violation; unrelated exceptions fail the proof",
-          "implementationLine": null
+          "condition": "create_operation_contracts.strict_json raw.decode(utf8) raised UnicodeDecodeError; source_json wraps exact INVALID_UTF8 and retains RFC6901 pointer",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
         }
       ],
       "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
@@ -971,8 +978,9 @@
       "httpStatus": 400,
       "predicate": [
         {
-          "condition": "The exact pinned schema or strict persisted UTF-8 JSON decoder rejects this named violation; unrelated exceptions fail the proof",
-          "implementationLine": null
+          "condition": "select_generation_basis validates actual HTTP/native body against closed GenerationJobCreateBody plus discriminated generationBasis requiredness before record reads; actual schema iter_errors is nonempty at preserved field path",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
         }
       ],
       "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
@@ -1191,8 +1199,9 @@
       "httpStatus": 503,
       "predicate": [
         {
-          "condition": "Explicit mandatory schema or format validation raises this exact typed diagnostic",
-          "implementationLine": 94
+          "condition": "checked_bundle decoded actual registered schema bytes and Draft202012Validator.check_schema raised SchemaError under official installed 2020-12 meta-schema",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
         }
       ],
       "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
@@ -1235,8 +1244,9 @@
       "httpStatus": 422,
       "predicate": [
         {
-          "condition": "The exact pinned schema or strict persisted UTF-8 JSON decoder rejects this named violation; unrelated exceptions fail the proof",
-          "implementationLine": null
+          "condition": "Repository.observation loads exact SchemaArtifact.bundle bytes, validates full meta-schema/schemaId/rootPointer/nativeSchemaDigest, then selected compiled schema rejects actual EvidenceRecord.observations at /observations plus error.absolute_path",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
         }
       ],
       "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
@@ -1355,12 +1365,9 @@
       "httpStatus": 503,
       "predicate": [
         {
-          "condition": "Explicit mandatory schema or format validation raises this exact typed diagnostic",
-          "implementationLine": 187
-        },
-        {
-          "condition": "Explicit mandatory schema or format validation raises this exact typed diagnostic",
-          "implementationLine": 198
+          "condition": "Repository.observation Draft202012Validator.check_schema raised SchemaError for actual observation schema bundle or selected definition; not an unrelated parser exception",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
         }
       ],
       "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",

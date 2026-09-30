@@ -1,0 +1,38 @@
+{
+  "scope": "Independent actual native final-slot/content/consumer-mask mutations; no SQL publication-role/closure predicate execution claim.",
+  "cases": [
+    {
+      "id": "declared-native-final-positive",
+      "expected": "ACCEPTED",
+      "actual": "ACCEPTED",
+      "passed": true
+    },
+    {
+      "id": "published-bytes-without-server-final-slot",
+      "expected": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "actual": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "id": "actual-result-id-versus-spec-record-id",
+      "expected": "GENERATION_FINAL_RESULT_CONTRACT_IDENTITY_MISMATCH",
+      "actual": "GENERATION_FINAL_RESULT_CONTRACT_IDENTITY_MISMATCH",
+      "passed": true
+    },
+    {
+      "id": "native-valid-output-wrong-declared-consumer-mask",
+      "expected": "GENERATION_FINAL_OUTPUT_CONSUMER_SCHEMA_INVALID",
+      "actual": "GENERATION_FINAL_OUTPUT_CONSUMER_SCHEMA_INVALID",
+      "passed": true
+    },
+    {
+      "id": "invalid-source-output-schema-structured-rejection",
+      "expected": "GENERATION_FINAL_OUTPUT_SCHEMA_INVALID",
+      "actual": "GENERATION_FINAL_OUTPUT_SCHEMA_INVALID",
+      "passed": true
+    }
+  ],
+  "checks": 5,
+  "failed": 0,
+  "helperSha256": "12c18c6ceb2a51d49a4506bf4c759ed0407e81bbe777da7cf58d2c768f77d900"
+}

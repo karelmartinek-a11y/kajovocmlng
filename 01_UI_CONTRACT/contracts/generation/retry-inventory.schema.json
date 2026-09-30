@@ -1,0 +1,351 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kcml:generation-retry-inventory:1",
+  "$defs": {
+    "PhaseSideEffectInventory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "inventoryId",
+        "jobId",
+        "phaseRunId",
+        "phaseRunDigest",
+        "capturedAt",
+        "operations"
+      ],
+      "properties": {
+        "inventoryId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "jobId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "phaseRunId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "phaseRunDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "capturedAt": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/Timestamp"
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "operationId",
+              "operationDigest",
+              "attemptId",
+              "attemptDigest",
+              "attemptStateId",
+              "attemptStateDigest"
+            ],
+            "properties": {
+              "operationId": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "operationDigest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+              },
+              "attemptId": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "attemptDigest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+              },
+              "attemptStateId": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "attemptStateDigest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+              }
+            }
+          }
+        }
+      }
+    },
+    "SourceSideEffectOperation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operationId",
+        "jobId",
+        "phaseRunId",
+        "nodeId",
+        "currentAttemptId",
+        "currentAttemptSequence",
+        "currentAttemptStateId",
+        "currentAttemptStateVersion",
+        "state",
+        "requestDigest",
+        "retryClass",
+        "sideEffectClass",
+        "targetBindingId",
+        "targetBindingRevisionId",
+        "targetIdempotencyKey"
+      ],
+      "properties": {
+        "operationId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "jobId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "phaseRunId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "nodeId": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/Id"
+        },
+        "currentAttemptId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "currentAttemptSequence": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/PositiveCounter"
+        },
+        "currentAttemptStateId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "currentAttemptStateVersion": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/PositiveCounter"
+        },
+        "state": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/SourceEnum154"
+        },
+        "requestDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "retryClass": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/RetryClass"
+        },
+        "sideEffectClass": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/SideEffectClass"
+        },
+        "targetBindingId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "targetBindingRevisionId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "targetIdempotencyKey": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "SourceSideEffectAttempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "attemptId",
+        "operationId",
+        "jobId",
+        "phaseRunId",
+        "attemptSequence",
+        "requestDigest",
+        "targetBindingId",
+        "targetBindingRevisionId",
+        "targetIdempotencyKey"
+      ],
+      "properties": {
+        "attemptId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "operationId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "jobId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "phaseRunId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "attemptSequence": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/PositiveCounter"
+        },
+        "requestDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "targetBindingId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "targetBindingRevisionId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "targetIdempotencyKey": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "SourceSideEffectAttemptState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "attemptStateId",
+        "operationId",
+        "attemptId",
+        "attemptSequence",
+        "state",
+        "stateVersion",
+        "evidenceId",
+        "evidenceDigest"
+      ],
+      "properties": {
+        "attemptStateId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "operationId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "attemptId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "attemptSequence": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/PositiveCounter"
+        },
+        "state": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/SourceEnum154"
+        },
+        "stateVersion": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/PositiveCounter"
+        },
+        "evidenceId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidenceDigest": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "SourceSideEffectOutcomeEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidenceId",
+        "operationId",
+        "attemptId",
+        "jobId",
+        "phaseRunId",
+        "requestDigest",
+        "targetBindingId",
+        "targetBindingRevisionId",
+        "targetIdempotencyKey",
+        "outcome",
+        "recordedAt",
+        "classifierId",
+        "classifierDigest",
+        "observationSchema",
+        "observations"
+      ],
+      "properties": {
+        "evidenceId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "operationId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "attemptId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "jobId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "phaseRunId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "requestDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "targetBindingId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "targetBindingRevisionId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "targetIdempotencyKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "outcome": {
+          "enum": [
+            "CONFIRMED_APPLIED",
+            "CONFIRMED_NOT_APPLIED",
+            "FAILED_FINAL",
+            "UNKNOWN"
+          ]
+        },
+        "recordedAt": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/Timestamp"
+        },
+        "classifierId": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/Id"
+        },
+        "classifierDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "observationSchema": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/SchemaArtifact"
+        },
+        "observations": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/JsonValue"
+        }
+      }
+    }
+  }
+}

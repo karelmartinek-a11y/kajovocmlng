@@ -45,7 +45,7 @@ def run():
   for field in schema()['$defs'][OPERATIONS[oid]]['properties']:
    if field in schema()['$defs'][OPERATIONS[oid]]['required']:continue
    # Discriminated FOLLOW_UP field is tested from its valid variant by the dedicated verifier.
-   if field=='followUpBasis':continue
+   if field in ['followUpBasis','generationBasis']:continue
    bad=copy.deepcopy(body);bad[field]=None
    reject(prefix+'optional-null/'+field,lambda bad=bad:decode(oid,bad),'SCHEMA_TYPE')
   for field in ['schemaId','values','canonicalJson','authorityId','ownerId','jobId','secretId','state','stateVersion','contentDigest','fingerprint','encryptedValue','receipt']:
@@ -94,7 +94,7 @@ def run():
  reject('generation/duplicate-artifact-different-kind',lambda:decode(oid,{**body,'sources':[{'kind':'FILE','artifactId':UID2},{'kind':'IMAGE','artifactId':UID2}]}),'DUPLICATE_ARTIFACT_REFERENCE')
  reject('generation/client-artifact-digest',lambda:decode(oid,{**body,'sources':[{'kind':'FILE','artifactId':UID2,'contentDigest':'sha256:'+'0'*64}]}),'SCHEMA_ONEOF')
  reject('generation/unknown-source-kind',lambda:decode(oid,{**body,'sources':[{'kind':'JSON_BAG','data':{}}]}),'SCHEMA_ONEOF')
- update={**body,'kind':'UPDATE','targetObjectId':UID2};native=decode(oid,update)
+ update={**body,'kind':'UPDATE','targetObjectId':UID2,'generationBasis':{'basisKind':'UPDATE_TARGET_REVISION','snapshotId':UID3,'expectedDigest':'sha256:'+'0'*64}};native=decode(oid,update)
  assert_case('generation/update-positive-request-shape',lambda:native['body']==update)
  reject('generation/update-missing-own-admission',lambda:admit(native,server),'PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED','$.kind')
  reject('generation/target-kind-mismatch',lambda:admit(native,{**server,'targets':{UID2:{'kind':'AI_AGENT'}}}),'TARGET_KIND_MISMATCH','$.targetKind')
@@ -120,6 +120,9 @@ def run():
  reject('generation/credential-reference-no-context',lambda:admit(credential_source,{**server,'stableNames':['EXISTING_SECRET']}),'SECRET_USE_CONTEXT_UNVERIFIED','$.sources[0]')
  for kind in ['UPDATE','RETRY','REPAIR']:
   candidate={**witnesses['generation.job.create'],'kind':kind,'targetObjectId':UID2,'parentJobId':UID3}
+  if kind=='UPDATE':candidate['generationBasis']={'basisKind':'UPDATE_TARGET_REVISION','snapshotId':UID3,'expectedDigest':'sha256:'+'0'*64}
+  elif kind=='RETRY':candidate['generationBasis']={'basisKind':'RETRY_FAILED_TECHNICAL_PART','phaseRunId':UID3,'expectedDigest':'sha256:'+'0'*64,'planId':UID3,'expectedPlanDigest':'sha256:'+'0'*64,'approvedRevisionId':UID3,'expectedSpecificationDigest':'sha256:'+'0'*64,'authorityId':UID3,'expectedAuthorityDigest':'sha256:'+'0'*64}
+  else:candidate['generationBasis']={'basisKind':'REPAIR_MONITORING_EVIDENCE','monitoringArtifactId':UID3,'expectedDigest':'sha256:'+'0'*64,'snapshotId':UID3,'expectedTargetDigest':'sha256:'+'0'*64,'approvedRevisionId':UID3,'expectedSpecificationDigest':'sha256:'+'0'*64,'authorityId':UID3,'expectedAuthorityDigest':'sha256:'+'0'*64}
   native_candidate=decode('generation.job.create',candidate)
   assert_case('generation/'+kind+'/valid-request-shape',lambda n=native_candidate:n['body']['kind']==kind)
   reject('generation/'+kind+'/missing-own-policy',lambda n=native_candidate:admit(n,server),'PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED','$.kind')

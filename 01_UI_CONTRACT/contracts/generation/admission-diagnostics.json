@@ -1,0 +1,2891 @@
+{
+  "format": "KCML-GENERATION-ADMISSION-DIAGNOSTICS/1",
+  "diagnostics": [
+    {
+      "diagnostic": "GENERATION_ADMISSION_AUTHORITY_MAP_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "mapping.get('GENERATION_AUTHORITY') != 'GenerationAuthority'"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          122
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_ADMISSION_CONTRACT_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "Repository.from_current_ssot load_resource raises ValueError for missing/ambiguous mandatory native generation/admission/artifact-map/domain-map canonical resource; no proposal fallback",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          120
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_APPROVED_AUTHORITY_ARTIFACT_KIND_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "authority_ref['artifact']['kind'] != 'GENERATION_AUTHORITY' or repo.artifact_map.get('GENERATION_AUTHORITY') != 'GenerationAuthority'"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          208
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_APPROVED_AUTHORITY_ARTIFACT_REF_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "authority_record.get('artifactRef') != authority_ref['artifact']"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          210
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_APPROVED_AUTHORITY_ARTIFACT_SIZE_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "len(authority_record['bytes']) != authority_ref['artifact']['sizeBytes']"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          211
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_APPROVED_AUTHORITY_CONTENT_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "canonical(authority_content) != canonical(authority['authority'])"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          214
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_APPROVED_AUTHORITY_RECORD_DIGEST_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "authority_ref['recordDigest'] != authority_record['contentDigest']"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          213
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_APPROVED_AUTHORITY_RECORD_KIND_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "authority_ref['recordKind'] != 'GENERATION_AUTHORITY'"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          207
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_APPROVED_AUTHORITY_SCHEMA_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "authority_ref['schema'] != authority_record['schema'] or authority_ref['artifact']['schema'] != authority_record['schema']"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          212
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_APPROVED_LINEAGE_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(authority['specificationRevisionId'], authority['specificationDigest'], authority['sourceJobId']) != (selector['approvedRevisionId'], selector['expectedSpecificationDigest'], revision['jobId'])"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          199
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_AUTHORITY_IDENTITY_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "authority['authorityId'] != selector['authorityId']"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          198
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_ARTIFACT_KIND_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "required_kind is not None and kind != required_kind"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          162
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_ARTIFACT_KIND_UNSUPPORTED",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "definition is None"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          164
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_BYTES_DIGEST_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "record.get('contentDigest') != actual"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          133
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_BYTES_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "not isinstance(raw, bytes)"
+        },
+        {
+          "condition": "not isinstance(raw, bytes)"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          131,
+          176
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_DEFINITION_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "definition is not None and address['definition'] != definition"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          140
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_DEFINITION_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "address['definition'] not in bundle.get('$defs', {})"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          141
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_DIGEST_CONFLICT",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "expected_digest != actual"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          134
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_DOCUMENT_JOB_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "'jobId' in value and value['jobId'] != record.get('jobId')"
+        },
+        {
+          "condition": "'sourceJobId' in value and value['sourceJobId'] != record.get('jobId')"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          144,
+          145
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "strict_json ObjectPairs conversion encountered a key already present in that exact object; wraps exact DUPLICATE_JSON_KEY at original escaped RFC6901 key pointer",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": []
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_IDENTITY_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "record.get('recordId') != key"
+        },
+        {
+          "condition": "source_record_id != basis['revisionId']"
+        },
+        {
+          "condition": "source_record_id != basis['artifactId']"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          127,
+          291,
+          294
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_JOB_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "job_id is not None and record.get('jobId') != job_id"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          129
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_JSON_INVALID",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "strict_json json.loads/convert raised syntax ValueError, TypeError or RecursionError; source_json wraps exact INVALID_JSON; not duplicate/nonfinite/UTF8 errors",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": []
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_NONCANONICAL_JSON",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "raw != canonical(value)"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          147
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_NONFINITE_JSON_NUMBER",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "strict_json convert encountered float for which math.isfinite is false, including JSON numeric overflow; wraps exact NONFINITE_JSON_NUMBER at original absolute pointer",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": []
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_OWNER_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "record.get('owner') != self.owner"
+        },
+        {
+          "condition": "record.get('owner') != self.owner"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          128,
+          174
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_PUBLICATION_IDENTITY_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "payload['receiptId'] != receipt_id"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          155
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_PUBLICATION_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(payload['artifactId'], payload['contentDigest']) != (record['recordId'], record['contentDigest'])"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          156
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_PUBLICATION_UNAVAILABLE",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "receipt is None"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          152
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_SCHEMA_ADDRESS_INVALID",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "not isinstance(address, dict) or set(address) != {'bundleDigest', 'schemaId', 'definition'}"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          136
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_SCHEMA_BUNDLE_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "bundle is None"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          138
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_SCHEMA_ID_MISMATCH",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "bundle['$id'] != address['schemaId']"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          139
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_SCHEMA_INVALID",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "Repository.hydrate decodes actual persisted bytes and validates exact frozen SchemaAddress.schemaId/definition from recomputed bundleDigest; iter_errors returns at least one real native violation and preserves its absolute RFC6901 field path",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": []
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_SCHEMA_REFERENCE_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "isinstance(e, (Unresolvable, _WrappedReferencingError))"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          38
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_UNAVAILABLE",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "record is None"
+        },
+        {
+          "condition": "record is None"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          126,
+          160
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_UNICODE_INVALID",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "strict_json unicode_check failed UTF8 encoding of an unpaired surrogate in a decoded key/value; source_json wraps exact INVALID_UNICODE",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": []
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_UNPUBLISHED",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "payload['outcome'] != 'COMMITTED'"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          154
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_UTF8_INVALID",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "create_operation_contracts.strict_json raw.decode(utf8) raised UnicodeDecodeError; source_json wraps exact INVALID_UTF8 and retains RFC6901 pointer",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": []
+      }
+    },
+    {
+      "diagnostic": "GENERATION_KIND_OWN_BASIS_NOT_APPLICABLE",
+      "stableCode": "CREATE_INPUT_INVALID",
+      "httpStatus": 400,
+      "predicate": [
+        {
+          "condition": "kind not in ['UPDATE', 'RETRY', 'REPAIR']"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          220
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_OWNER_APPROVAL_IDENTITY_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "approval['receiptId'] != authority['ownerApprovalEventId']"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          204
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_OWNER_APPROVAL_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(approval['revisionId'], approval['specificationDigest'], approval['sourceJobId'], approval['outcome']) != (selector['approvedRevisionId'], selector['expectedSpecificationDigest'], revision['jobId'], 'COMMITTED')"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          205
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_OWNER_APPROVAL_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "approval_record is None"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          202
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_REPAIR_APPROVED_TARGET_UNAVAILABLE",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "len(historical) != 1"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          259
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_REPAIR_CURRENT_TARGET_SNAPSHOT_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "repo.targetHeads.get(body['targetObjectId']) != {'snapshotId': selector['snapshotId'], 'contentDigest': selector['expectedTargetDigest']}"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          255
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_REPAIR_LAST_APPROVED_LINEAGE_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(target['lastApprovedAuthorityId'], target['lastApprovedSpecificationRevisionId'], target['lastApprovedSpecificationDigest']) != (selector['authorityId'], selector['approvedRevisionId'], selector['expectedSpecificationDigest'])"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          256
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_REPAIR_MONITORING_TARGET_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "evidence['subjectDigest'] != selector['expectedTargetDigest']"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          263
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_REPAIR_PRESERVED_IDENTITY_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(prior['objectId'], prior['targetKind'], prior['componentId'], set(prior['runtimeInstanceIds'])) != (target['objectId'], target['targetKind'], target['componentId'], set(target['runtimeInstanceIds']))"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          261
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_REQUEST_INVALID",
+      "stableCode": "CREATE_INPUT_INVALID",
+      "httpStatus": 400,
+      "predicate": [
+        {
+          "condition": "select_generation_basis validates actual HTTP/native body against closed GenerationJobCreateBody plus discriminated generationBasis requiredness before record reads; actual schema iter_errors is nonempty at preserved field path",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": []
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_DUPLICATE_PLAN_NODE",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "len(nodes) != len(plan['nodes'])"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          237
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_FAILED_PART_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "not failed <= set(nodes) or any((nodes[n]['phase'] != run['phase'] for n in failed))"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          238
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_LINEAGE_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(run['phaseRunId'], run['planId'], run['planDigest'], run['authorityId'], run['authorityDigest'], run['specificationDigest']) != (selector['phaseRunId'], selector['planId'], selector['expectedPlanDigest'], selector['authorityId'], selector['expectedAuthorityDigest'], selector['expectedSpecificationDigest'])"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          234
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_NONTECHNICAL_PART",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "run['phase'] == 'DISCUSSING'"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          239
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_PLAN_SPECIFICATION_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "plan['specificationDigest'] != selector['expectedSpecificationDigest']"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          235
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_TERMINAL_RESULT_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(result_doc['phaseRunId'], set(result_doc['failedNodeIds'])) != (run['phaseRunId'], failed)"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          244
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_TERMINAL_RESULT_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "evidence is None"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          242
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_SCHEMA_BUNDLE_DIGEST_MISMATCH",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "not isinstance(raw, bytes) or digest(raw) != expected"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          108
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_SCHEMA_BUNDLE_ID_AMBIGUOUS",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "schema_id in ids and ids[schema_id] != expected"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          112
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_SCHEMA_BUNDLE_ID_MISSING",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "not isinstance(schema_id, str) or not schema_id"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          111
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_SCHEMA_BUNDLE_INVALID",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "checked_bundle decoded actual registered schema bytes and Draft202012Validator.check_schema raised SchemaError under official installed 2020-12 meta-schema",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          85
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_TARGET_SNAPSHOT_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(target['snapshotId'], target['objectId'], target['targetKind']) != (selector['snapshotId'], body['targetObjectId'], body['targetKind'])"
+        },
+        {
+          "condition": "(target['snapshotId'], target['objectId'], target['targetKind']) != (selector['snapshotId'], body['targetObjectId'], body['targetKind'])"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          224,
+          254
+        ]
+      }
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_INVALID",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "Repository.observation loads exact SchemaArtifact.bundle bytes, validates full meta-schema/schemaId/rootPointer/nativeSchemaDigest, then selected compiled schema rejects actual EvidenceRecord.observations at /observations plus error.absolute_path",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": []
+      }
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_SCHEMA_ADDRESS_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "ref['schema'] != record['schema']"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          183
+        ]
+      }
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_SCHEMA_BYTES_DIGEST_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "digest(raw) != ref['contentDigest'] or record.get('contentDigest') != ref['contentDigest']"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          177
+        ]
+      }
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_SCHEMA_DIGEST_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "digest(canonical(selected)) != descriptor['nativeSchemaDigest']"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          189
+        ]
+      }
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_SCHEMA_IDENTITY_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "record.get('recordId') != ref['artifactId'] or record.get('artifactKind') != 'JSON_SCHEMA_BUNDLE'"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          173
+        ]
+      }
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_SCHEMA_ID_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "descriptor['schemaId'] != schema_value.get('$id')"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          182
+        ]
+      }
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_SCHEMA_INVALID",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "Repository.observation Draft202012Validator.check_schema raised SchemaError for actual observation schema bundle or selected definition; not an unrelated parser exception",
+          "implementationFunction": "source_json/validate/checked_bundle/Repository.from_current_ssot/Repository.observation",
+          "implementationFile": "audit/generated/resume-d362/admission/generation_admission_reference.py"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          180,
+          191
+        ]
+      }
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_SCHEMA_POINTER_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "not isinstance(selected, dict) or token not in selected"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          187
+        ]
+      }
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_SCHEMA_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "record is None"
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT §12.41",
+        "SSOT §12.49",
+        "SSOT §25.11",
+        "SSOT §49.4",
+        "SSOT §49.15",
+        "SSOT §12.51"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          172
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_INVENTORY_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "inventory_id not in repo.records"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_PHYSICAL_SCAN_UNVERIFIED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "not isinstance(physical_rows, dict)"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OUTCOME_CLASSIFIER_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "not isinstance(outcome_verifiers, dict)"
+        },
+        {
+          "condition": "implementation is None"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_INVENTORY_PHASE_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(inventory['inventoryId'], inventory['phaseRunId'], inventory['phaseRunDigest']) != (inventory_id, run['phaseRunId'], run_digest)"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_INVENTORY_DUPLICATE_OPERATION",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "len(ids) != len(set(ids))"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_INVENTORY_INCOMPLETE",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "set(ids) != set(scanned)"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OPERATION_IDENTITY_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "op['operationId'] != operation_id"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OPERATION_SNAPSHOT_DRIFT",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "item['operationDigest'] != op_digest"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OPERATION_NODE_UNRESOLVED",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "op['nodeId'] not in nodes"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OPERATION_POLICY_DRIFT",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(op['retryClass'], op['sideEffectClass']) != (nodes[op['nodeId']]['retryClass'], nodes[op['nodeId']]['sideEffectClass'])"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_CURRENT_ATTEMPT_DRIFT",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(op['currentAttemptId'], op['currentAttemptSequence']) != (item['attemptId'], attempt['attemptSequence'])"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_CURRENT_ATTEMPT_STATE_DRIFT",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(op['currentAttemptStateId'], op['currentAttemptStateVersion']) != (current['attemptStateId'], current['stateVersion'])"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_ATTEMPT_STATE_DRIFT",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(attempt['attemptId'], attempt['operationId'], attempt['phaseRunId'], current['attemptStateId'], current['operationId'], current['attemptId'], current['attemptSequence'], current['state']) != (item['attemptId'], op['operationId'], run['phaseRunId'], item['attemptStateId'], op['operationId'], item['attemptId'], attempt['attemptSequence'], op['state'])"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_ATTEMPT_BINDING_DRIFT",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(attempt['requestDigest'], attempt['targetBindingId'], attempt['targetBindingRevisionId'], attempt['targetIdempotencyKey']) != (op['requestDigest'], op['targetBindingId'], op['targetBindingRevisionId'], op['targetIdempotencyKey'])"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "op['state'] in ['INTENT_RECORDED', 'DISPATCHING', 'OUTCOME_RECORDED', 'RECONCILING', 'UNKNOWN']"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_EFFECT_EVIDENCE_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "current['evidenceId'] is None or current['evidenceDigest'] is None"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OUTCOME_EVIDENCE_DRIFT",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(evidence['evidenceId'], evidence['operationId'], evidence['attemptId'], evidence['phaseRunId'], evidence['requestDigest'], evidence['targetBindingId'], evidence['targetBindingRevisionId'], evidence['targetIdempotencyKey'], evidence['outcome']) != (current['evidenceId'], op['operationId'], attempt['attemptId'], run['phaseRunId'], op['requestDigest'], op['targetBindingId'], op['targetBindingRevisionId'], op['targetIdempotencyKey'], op['state'])"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OUTCOME_CLASSIFIER_DECLARATION_INVALID",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "not isinstance(implementation, dict) or set(implementation) != {'sourceRecordId', 'activeSourceDigest', 'evaluate'}"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OUTCOME_CLASSIFIER_BYTES_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "source_record is None or not isinstance(source_record.get('bytes'), bytes)"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OUTCOME_CLASSIFIER_DIGEST_MISMATCH",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "source_record.get('contentDigest') != digest(raw) or digest(raw) != evidence['classifierDigest'] or digest(raw) != implementation.get('activeSourceDigest')"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OUTCOME_CLASSIFIER_IMPLEMENTATION_INVALID",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "not callable(function)"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OUTCOME_CLASSIFIER_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "actual not in ['CONFIRMED_APPLIED', 'CONFIRMED_NOT_APPLIED', 'FAILED_FINAL', 'UNKNOWN'] or actual != evidence['outcome']"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OPERATION_PRODUCER_FK_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "op['jobId'] != run['jobId']"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OUTCOME_CLASSIFIER_EXECUTION_FAILED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "Declared compiled classifier raises an exception while evaluating schema-valid hydrated observations; no exception text is exposed"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_CONFIRMED_EFFECT_REPEAT_FORBIDDEN",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "op['state'] == 'CONFIRMED_APPLIED'"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_FINAL_EFFECT_POLICY_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "op['state'] == 'FAILED_FINAL'"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_MANUAL_DISPATCH_POLICY_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "op['retryClass'] == 'NO_AUTOMATIC_RETRY'"
+        }
+      ],
+      "pointerRule": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "sources": [
+        "SSOT §49.8",
+        "SSOT §49.9",
+        "SSOT §49.15",
+        "SSOT §49.25",
+        "PROPOSED §12.51.1"
+      ],
+      "implementation": {
+        "path": "scripts/generation_retry_inventory.py",
+        "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_OUTPUT_DECLARATION_INVALID",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "Exact validate(closed({'sourceRevisionId': UID, 'sourceSpecificationDigest': DIGEST, 'resultContractArtifactId': UID, 'resultContractDigest': DIGEST, 'artifactId': UID, 'contentDigest': DIGEST, 'publicationReceiptId': UID}), declaration, repository.registry, 'GENERATION_FINAL_OUTPUT_DECLARATION_INVALID') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": []
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_OUTPUT_SCHEMA_DIALECT_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_OUTPUT_SCHEMA_DIALECT_UNRESOLVED') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          303
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          326
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_OUTPUT_DECLARATION_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_OUTPUT_DECLARATION_MISMATCH') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          328
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_RESULT_CONTRACT_KIND_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_RESULT_CONTRACT_KIND_MISMATCH') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          331
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_RESULT_CONTRACT_REFERENCE_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_RESULT_CONTRACT_REFERENCE_MISMATCH') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          332
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_RESULT_CONTRACT_IDENTITY_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_RESULT_CONTRACT_IDENTITY_MISMATCH') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          334
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_RESULT_CONTRACT_LEDGER_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_RESULT_CONTRACT_LEDGER_MISMATCH') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          335
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_OUTPUT_PUBLICATION_REFERENCE_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_OUTPUT_PUBLICATION_REFERENCE_MISMATCH') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          337
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_OUTPUT_SCHEMA_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_OUTPUT_SCHEMA_UNAVAILABLE') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          339
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_OUTPUT_SCHEMA_LEDGER_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_OUTPUT_SCHEMA_LEDGER_MISMATCH') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          340
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_OUTPUT_SCHEMA_BYTES_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_OUTPUT_SCHEMA_BYTES_MISMATCH') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          342
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_OUTPUT_SCHEMA_DIALECT_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_OUTPUT_SCHEMA_DIALECT_MISMATCH') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          344
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_OUTPUT_SCHEMA_ID_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_OUTPUT_SCHEMA_ID_MISMATCH') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          345
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_OUTPUT_SCHEMA_DIGEST_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_OUTPUT_SCHEMA_DIGEST_MISMATCH') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          351
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_OUTPUT_CONSUMER_SCHEMA_INVALID",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_OUTPUT_CONSUMER_SCHEMA_INVALID', '/' + '/'.join((str(x).replace('~', '~0').replace('/', '~1') for x in errors[0].absolute_path)) if errors[0].absolute_path else '') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          359
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_OUTPUT_SCHEMA_INVALID",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_OUTPUT_SCHEMA_INVALID') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          305,
+          314
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_OUTPUT_SCHEMA_POINTER_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_OUTPUT_SCHEMA_POINTER_UNRESOLVED') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          349
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_DOMAIN_INVALID",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_BASIS_DOMAIN_INVALID') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          289
+        ]
+      }
+    },
+    {
+      "diagnostic": "GENERATION_FINAL_OUTPUT_SCHEMA_REFERENCE_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "Exact fail('GENERATION_FINAL_OUTPUT_SCHEMA_REFERENCE_UNRESOLVED') evaluated against actual native bytes/retained declared publication and output schema; no client authority"
+        }
+      ],
+      "pointerRule": "Exact RFC6901 source pointer, empty for cross-record invariant",
+      "sources": [
+        "SSOT §12.49",
+        "SSOT §12.51",
+        "SSOT §49.4"
+      ],
+      "implementation": {
+        "path": "scripts/generation_admission_contracts.py",
+        "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+        "directDiagnosticLines": [
+          357
+        ]
+      }
+    }
+  ],
+  "unknownDiagnostic": "HTTP_FAILURE_PROJECTION_UNRESOLVED; BLOCKED; no prefix fallback"
+}

@@ -1,5 +1,5 @@
 {
-  "sourceDocumentSha256": "4f1c6c6bb8e8399f0b4084ac77ffa9388d841ed5996fa3f01c6be9dc13c3a22e",
+  "sourceDocumentSha256": "927fbf547c4efb349ca4f41c63e9be2075ae63bcf5675a9916dab44e77f1bd97",
   "scope": "Actual domain witnesses and exact decoder/admission rejections; synthetic design proof.",
   "witnesses": {
     "generation.job.create": {
@@ -37,8 +37,8 @@
       "expiration": "2026-12-31T00:00:00Z"
     }
   },
-  "checked": 132,
-  "failed": 1,
+  "checked": 151,
+  "failed": 0,
   "checks": [
     {
       "case": "generation.job.create/positive-domain-decoder",
@@ -120,13 +120,6 @@
       "expectedCode": "SCHEMA_TYPE",
       "actualCode": "SCHEMA_TYPE",
       "pointer": "$.sources"
-    },
-    {
-      "case": "generation.job.create/optional-null/followUpBasis",
-      "passed": false,
-      "expectedCode": "SCHEMA_TYPE",
-      "actualCode": "SCHEMA_NOT",
-      "pointer": "$"
     },
     {
       "case": "generation.job.create/extra-server-or-legacy/schemaId",
@@ -348,6 +341,40 @@
       "expectedCode": "INVALID_REPLAY_OUTCOME",
       "actualCode": "INVALID_REPLAY_OUTCOME",
       "pointer": ""
+    },
+    {
+      "case": "generation.job.create/current-revision-does-not-change-frozen-replay",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/missing-frozen-replay/locator",
+      "passed": true,
+      "expectedCode": "REPLAY_LOCATOR_UNVERIFIED",
+      "actualCode": "REPLAY_LOCATOR_UNVERIFIED",
+      "pointer": "/replay/locator"
+    },
+    {
+      "case": "generation.job.create/missing-frozen-replay/executionDescriptor",
+      "passed": true,
+      "expectedCode": "REPLAY_DESCRIPTOR_UNVERIFIED",
+      "actualCode": "REPLAY_DESCRIPTOR_UNVERIFIED",
+      "pointer": "/replay/executionDescriptor"
+    },
+    {
+      "case": "generation.job.create/missing-frozen-replay/executionDescriptorDigest",
+      "passed": true,
+      "expectedCode": "REPLAY_DESCRIPTOR_DIGEST_MISMATCH",
+      "actualCode": "REPLAY_DESCRIPTOR_DIGEST_MISMATCH",
+      "pointer": "/replay/executionDescriptorDigest"
+    },
+    {
+      "case": "generation.job.create/wrong-frozen-target",
+      "passed": true,
+      "expectedCode": "REPLAY_FROZEN_SCOPE_MISMATCH",
+      "actualCode": "REPLAY_FROZEN_SCOPE_MISMATCH",
+      "pointer": "/replay/executionDescriptor"
     },
     {
       "case": "secret.create/positive-domain-decoder",
@@ -708,6 +735,40 @@
       "pointer": ""
     },
     {
+      "case": "secret.create/current-revision-does-not-change-frozen-replay",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/missing-frozen-replay/locator",
+      "passed": true,
+      "expectedCode": "REPLAY_LOCATOR_UNVERIFIED",
+      "actualCode": "REPLAY_LOCATOR_UNVERIFIED",
+      "pointer": "/replay/locator"
+    },
+    {
+      "case": "secret.create/missing-frozen-replay/executionDescriptor",
+      "passed": true,
+      "expectedCode": "REPLAY_DESCRIPTOR_UNVERIFIED",
+      "actualCode": "REPLAY_DESCRIPTOR_UNVERIFIED",
+      "pointer": "/replay/executionDescriptor"
+    },
+    {
+      "case": "secret.create/missing-frozen-replay/executionDescriptorDigest",
+      "passed": true,
+      "expectedCode": "REPLAY_DESCRIPTOR_DIGEST_MISMATCH",
+      "actualCode": "REPLAY_DESCRIPTOR_DIGEST_MISMATCH",
+      "pointer": "/replay/executionDescriptorDigest"
+    },
+    {
+      "case": "secret.create/wrong-frozen-target",
+      "passed": true,
+      "expectedCode": "REPLAY_FROZEN_SCOPE_MISMATCH",
+      "actualCode": "REPLAY_FROZEN_SCOPE_MISMATCH",
+      "pointer": "/replay/executionDescriptor"
+    },
+    {
       "case": "generation/blank-intent",
       "passed": true,
       "expectedCode": "EMPTY_INTENT",
@@ -757,10 +818,17 @@
       "pointer": "$.sources[0]"
     },
     {
-      "case": "generation/update-positive",
+      "case": "generation/update-positive-request-shape",
       "passed": true,
       "actual": true,
       "expected": true
+    },
+    {
+      "case": "generation/update-missing-own-admission",
+      "passed": true,
+      "expectedCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "actualCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "pointer": "$.kind"
     },
     {
       "case": "generation/target-kind-mismatch",
@@ -855,6 +923,66 @@
       "expectedCode": "SECRET_USE_CONTEXT_UNVERIFIED",
       "actualCode": "SECRET_USE_CONTEXT_UNVERIFIED",
       "pointer": "$.sources[0]"
+    },
+    {
+      "case": "generation/UPDATE/valid-request-shape",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation/UPDATE/missing-own-policy",
+      "passed": true,
+      "expectedCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "actualCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "pointer": "$.kind"
+    },
+    {
+      "case": "generation/UPDATE/boolean-cannot-authorize",
+      "passed": true,
+      "expectedCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "actualCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "pointer": "$.kind"
+    },
+    {
+      "case": "generation/RETRY/valid-request-shape",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation/RETRY/missing-own-policy",
+      "passed": true,
+      "expectedCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "actualCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "pointer": "$.kind"
+    },
+    {
+      "case": "generation/RETRY/boolean-cannot-authorize",
+      "passed": true,
+      "expectedCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "actualCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "pointer": "$.kind"
+    },
+    {
+      "case": "generation/REPAIR/valid-request-shape",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation/REPAIR/missing-own-policy",
+      "passed": true,
+      "expectedCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "actualCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "pointer": "$.kind"
+    },
+    {
+      "case": "generation/REPAIR/boolean-cannot-authorize",
+      "passed": true,
+      "expectedCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "actualCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "pointer": "$.kind"
     },
     {
       "case": "secret/byte-preservation",

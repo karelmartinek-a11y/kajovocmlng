@@ -29,6 +29,7 @@ def schema():
         {'if':{'required':['kind'],'properties':{'kind':{'const':'FOLLOW_UP'}}},'then':{'required':['parentJobId','followUpBasis']},'else':{'not':{'required':['followUpBasis']}}},
         {'if':{'required':['targetObjectId']},'then':{'required':['targetKind']}},
         {'if':{'required':['kind'],'properties':{'kind':{'const':'UPDATE'}}},'then':{'required':['targetObjectId','targetKind']}}]
+    generation=__import__('generation_basis_selectors').apply(generation)
     value={'oneOf':[obj({'encoding':{'const':'UTF8'},'text':TEXT}),
         obj({'encoding':{'const':'BASE64'},'base64':{'type':'string','minLength':4,'maxLength':1398104,
             'pattern':'^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$(?![\\s\\S])'}})]}
@@ -164,6 +165,7 @@ def admit(request,server,replay=None):
         raise ContractFailure('INVALID_REPLAY_OUTCOME')
     body=request['body']
     frozen=None
+    selected=None
     if request['operationId']=='generation.job.create':
         if body.get('kind')=='FOLLOW_UP':
             from follow_up_contracts import admit_follow_up
@@ -178,7 +180,11 @@ def admit(request,server,replay=None):
         # Until exact persisted selectors/validators are authored, existence or
         # caller/trusted fixture flags must never authorize these transitions.
         if body.get('kind','CREATE') in ('UPDATE','RETRY','REPAIR'):
-            raise ContractFailure('PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED','$.kind')
+            from generation_admission_contracts import Repository,select_generation_basis
+            repository=server.get('generationBasisRepository')
+            if not isinstance(repository,Repository):raise ContractFailure('PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED','$.kind')
+            if repository.owner!=server['owner']:raise ContractFailure('GENERATION_BASIS_OWNER_MISMATCH')
+            selected=select_generation_basis(body,repository)
         if body.get('requestedModel') and body['requestedModel'] not in server.get('openaiModels',[]):raise ContractFailure('MODEL_UNAVAILABLE','$.requestedModel')
         for i,source in enumerate(body.get('sources',[])):
             if 'artifactId' in source:
@@ -215,5 +221,6 @@ def admit(request,server,replay=None):
         # stay blocked until their exact authoritative formats are resolved.
     result={'action':'RESERVE_ATOMIC_CREATE','dispatchNew':True,'serverWriter':'generation-orchestrator' if request['operationId']=='generation.job.create' else 'secret'}
 
+    if selected is not None: result['generationAdmission']=selected
     if frozen is not None: result['frozenBasis']=frozen
     return result

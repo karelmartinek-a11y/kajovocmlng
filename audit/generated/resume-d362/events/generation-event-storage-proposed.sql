@@ -181,7 +181,14 @@ BEGIN
  OR NOT EXISTS(SELECT 1 FROM public.audit_head h JOIN public.audit_event tail ON tail.chain_sequence=h.last_sequence AND tail.event_hash=h.last_hash WHERE h.singleton_key=1 AND h.last_sequence>=a.chain_sequence)
  OR NOT EXISTS(SELECT 1 FROM public.transactional_outbox o WHERE o.event_id=e.id AND o.purpose='DOMAIN_EVENT' AND o.payload_digest=e.payload_digest)
  OR NOT EXISTS(SELECT 1 FROM public.domain_idempotency_record i WHERE i.logical_operation_id=d.logical_operation_id AND i.state='SUCCEEDED' AND i.request_digest=d.request_digest AND i.scope_digest=d.scope_digest AND i.key_digest=d.client_key_digest AND i.canonical_outcome_digest=c.result_digest)
- OR NOT EXISTS(SELECT 1 FROM public.idempotency_locator l WHERE l.logical_operation_id=d.logical_operation_id AND l.client_request_digest=d.request_digest AND l.client_key_digest=d.client_key_digest AND l.execution_descriptor_digest=d.execution_descriptor_digest)
+ OR NOT EXISTS(SELECT 1 FROM public.idempotency_locator l WHERE l.logical_operation_id=d.logical_operation_id AND l.client_request_digest=d.request_digest AND l.client_key_digest=d.client_key_digest AND l.execution_descriptor_digest=d.execution_descriptor_digest
+ AND l.frozen_revision_digest=d.scope_digest
+ AND l.operation_family='GENERATION'
+ AND l.caller_authority_kind=(convert_from(d.execution_descriptor_bytes,'UTF8')::jsonb->>'callerAuthorityKind')
+ AND l.caller_stable_id::text=(convert_from(d.execution_descriptor_bytes,'UTF8')::jsonb->>'stableCallerObjectId')
+ AND l.business_target_kind='CREATE_ROOT'
+ AND l.business_target_id='generation_job'
+ AND (convert_from(d.execution_descriptor_bytes,'UTF8')::jsonb->>'stableBusinessTargetKey')='CREATE_ROOT:generation_job')
  OR (a.archive_required AND NOT EXISTS(SELECT 1 FROM public.audit_archive_outbox o WHERE o.audit_event_id=a.id)) THEN
   RAISE EXCEPTION USING ERRCODE='23514',MESSAGE='GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE';
  END IF;

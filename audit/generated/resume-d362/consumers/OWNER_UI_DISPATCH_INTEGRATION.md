@@ -1,0 +1,56 @@
+# Concrete own OWNER→worker bridge, third wave
+
+Entry: coordinator HEAD `6ac0e89`, SSOT hash prefix `9bf551`. This wave changes only the consumers directory. Earlier d362 extracts remain historical source readings; current native specification schema is consumed and separately bound by the verifier.
+
+## Integrable SQL and native contracts
+
+`owner-ui-intent-worker-proposed.sql` declares separate facade authentication acceptance, controlled fixed-three operation dispatch registry, native-validator receipt, immutable accepted intent, immutable bounded worker context and operation/class-specific use guard. No generation-only context or unprotected client authority boolean is used.
+
+`owner-ui-role-bindings-proposed.sql` separates authentication producer, schema/input validator, canonical domain writer, context builder and worker dispatcher. These are infrastructure groups, not new OWNER permissions or business roles. Ordinary clients/models/generated handlers receive no DB credentials, DML or constructor execution. SECURITY DEFINER search path pins the controlled schema with `pg_temp` last. The builder is NOLOGIN and not granted to producer/caller groups.
+
+`owner_ui_native_contracts.py` and `owner-ui-native-contracts.proposed.json` provide the three exact owner operations/HTTP routes, explicit input profiles, separate worker command masks, complete success variants, precise stable error predicates/tuples, ACCEPTED/FAILED/UNKNOWN/CANCELLED/SUCCEEDED response relations, and OPERATION_ADMITTED/OPERATION_TERMINAL event masks. These are review-ready authoring candidates, not active catalog bindings. START success means retained same-generation readiness receipt (§50.11); STOP success requires cleanup COMPLETE receipt (§50.31); edit success distinguishes NEW_DRAFT from SAME_CANONICAL_REVISION (§43.3). None is inferred from ACCEPTED.
+
+### Actual guarded SQL behavior
+
+Fresh admission consumes an immutable receipt produced by the authentication service, rechecks the current singleton=1 OWNER/session/API rows, and matches validated request/target/schema pins, exact operation/owner/caller channel and current platform/deployment heads against the canonical domain_command. The descriptor is generated from exact persisted receipt/registry values by a restricted server function; a forged descriptor does not pass simply because its SHA matches its bytes.
+
+Raw request content digest and canonical semantic request digest are separate. The original raw bytes are retained; canonical request bytes contain exactly `{actionId,body}`. SQL verifies their parsed semantic equality and the canonical byte SHA. The trusted validator must implement the existing canonical JSON serialization exactly; clients cannot publish the receipt. Different wire whitespace does not produce a second logical request or change retained frozen inputs.
+
+The accepted intent captures its own context ID, original authenticated producer, validated input ID, owner, request/target/contract/worker-schema digests, platform incarnation and deployment epoch. Worker constructor resolves this committed intent from storage, verifies the current command, schema registry and heads, and creates one exact bounded worker context for the retained parent. Context use requires the route's exact static worker operation and execution class; it rechecks cancellation/head/pin/current-parent conditions before an effect. Worker-class strings from client input are forbidden.
+
+The dispatcher deliberately does **not** require the original OWNER session to remain open after a durable OWNER intent was accepted. This is inherited retained intent authority, not a fresh OWNER login. A cancelled, terminal, uncertain or changed-head parent does not authorize fresh worker dispatch. Reconciliation/operation retry keeps the original canonical locator and worker-context identity.
+
+Runtime snapshot metadata is joined to the exact component/runtime selectors, runtime generation, activation and current platform/deployment. Full component state/current activation/release/profile/handler actual root queries remain the worker resolver's obligation; digest-valid fixture bytes do not prove those external roots.
+
+## Evidence and exact limits
+
+`postgres-owner-ui-bridge-proof.json` records actual PostgreSQL **18.6** checks. They test separate owner/worker contexts, all three action→worker/class mappings with conforming native domain inputs, descriptor/channel forgeries, native schema pins, current session/head changes, retained intent after session closure, immutable rows, stable replay, different wire whitespace, cancellation/uncertainty, worker scope, role denial and independent DB sessions. A worker cannot see an uncommitted intent; after COMMIT the same exact immutable ID resolves.
+
+The fixture auth roots use source-owned consuming columns and synthetic accepted authentication data. These tests do not claim that a real session hash/API credential verifier, complete production authentication DDL or live service login was evaluated. Input-validator receipts are privileged fixture producer rows; the actual native validator algorithms are exercised separately in the domain reference suites. Their real repository/root sourcing remains mandatory.
+
+`owner-ui-native-contract-tests.json` proves precise response/error/event and actual worker-receipt byte relationships. The typed receipt must be loaded from a trusted producer repository in the actual implementation; an arbitrary dict matching its shape is not server evidence. Replay uses the original event bytes; the transport replay marker cannot rewrite a frozen admitted or terminal event.
+
+## Required authoring/integration order
+
+1. Resolve the generic domain_command integration defect: its context/snapshot FKs currently point globally to generation-only tables. A per-operation link table or genuine common context registry must preserve exact typed FKs without forcing non-generation operations through generation.create context.
+2. Review/install the own context/producer/registry tables and guards with exact current source auth roots; publish frozen native schema documents and controlled registry pins. Native operation spelling follows §12.18 and realizes already-required UI actions.
+3. Install complete OWNER facade operation/payload/route records and actual strict HTTP decoder; retain old internal worker exposure/writer classes. Do not change AUTOMATED_MAINTENANCE/INTERNAL_PROTOCOL into OWNER.
+4. Bind the native validator to actual source-owned target/spec roots. Canonical locator lookup + current transport authentication precede fresh target resolution; matching locator returns retained canonical outcome without rewriting frozen inputs. The SQL admission constructor is used for fresh admission, not as the whole replay HTTP entry point.
+5. Join accepted intent, canonical event sequence, outbox and audit chain in one PostgreSQL transaction using existing generic storage definitions. Outbox consumers claim only committed rows. A reference all-or-none dict is insufficient for this SQL join.
+6. Worker dispatcher uses `kcml_owner_ui_validate_worker_context_v1` and fixed route constants, hydrates the protected immutable input/snapshot and resolves current own eligibility. Stable child locator derives from parent logical operation + worker context + worker operation + frozen target digest; attempt/network IDs never create another effect.
+7. Validate retained worker readiness/cleanup/new-DRAFT receipt through exact child command/producer/schema/content/current-root joins, then publish the facade terminal outcome/event. UNKNOWN remains nonterminal and drives original-operation reconciliation.
+8. Rebind the three UI actions only after these actual joins and fixtures pass; typed read/hydration preserves original intent/root identity and maps precise output to the UI. Rerender only if UI source changes.
+
+Required input persistence must apply existing protection/retention/classification rules for sensitive OWNER input. The SQL request byte fields represent the internal retained/hydrated byte boundary. They are **not permission to put plaintext Secrets into new public tables or evidence**. Where the source class requires protected storage, install its exact existing protected snapshot reference/AAD/crypto profile before activating this candidate; do not silently choose a new cipher or expose bytes through read APIs.
+
+Remaining before-generation scope is therefore concrete: actual target/spec root resolver, own crypto-protected input storage where required, event/outbox/audit transaction, exact trusted worker result repository/child joins and complete read/UI projections. The own authentication/context/descriptor/registry/worker-class SQL guard is now a concrete reviewed candidate with real database evidence, rather than only a six-group table. Actual generated-service/runtime/browser/TLS acceptance remains separate.
+
+Final third-wave evidence: **28 PostgreSQL checks PASS**, **109 native contract checks PASS**. These counts replace earlier 18/24 and 98/107 iterations. All three worker operation/class mappings use conforming native input witnesses. The HTTP decoder receives its maximum byte count from the trusted transport profile; it does not promote the synthetic fixture's 1 MiB setting into a new product cap. Missing profile limits return a specific dependency diagnostic, and unknown query/duplicate JSON/extra authority guards are rejected. The final SQL candidate retains original raw bytes separately from canonical semantic bytes and checks critical runtime identity/head fields with NULL-safe comparisons.
+
+## Independent-review role installer correction
+
+An unsafe existing reserved builder role previously passed installation. The installer now creates new groups with an explicit safe profile and aborts before grants/ownership if **any** of the five trusted groups permits LOGIN, SUPERUSER, CREATEROLE, CREATEDB, REPLICATION or BYPASSRLS. The exact diagnostic is `OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE` / SQLSTATE `55000`. Missing source infrastructure groups produce a separate `OWNER_UI_INFRASTRUCTURE_ROLE_MISSING`. Existing roles are never silently altered.
+
+The original 28 PostgreSQL checks were rerun successfully. A safe profile and 30 unsafe role/attribute combinations were verified using disposable alias role names only, with transaction rollback and post-check absence; no real/common role was modified. Final PostgreSQL suite: **59 PASS, 0 FAIL**. The 109 native HTTP/outcome checks were **validly reused**, not rerun: `native-evidence-reuse-after-role-fix.json` verifies unchanged helper/script hashes and consumed generation schema digest. This role-only change does not close any of the three UI exposures.
+
+For independent read-only setup, `owner-ui-fixture-foundations.sql` exports the exact fixture root/command DDL. Install that file, the candidate bridge SQL and role bindings in a disposable schema/database. The foundations explicitly contain auth consuming fixture columns, not complete production credential/auth migrations. The role-adversarial cases substitute disposable aliases in the role profile preamble; ordinary reserved groups must remain untouched.

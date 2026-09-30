@@ -7,7 +7,7 @@ CREATE TABLE kcml_secret_v1.secret_value_profile_registry (
  schema_id text NOT NULL,
  schema_digest bytea NOT NULL CHECK (octet_length(schema_digest)=32),
  schema_document_bytes bytea NOT NULL,
- activation_status text NOT NULL CHECK (activation_status IN ('CANDIDATE','ACTIVE')),
+ activation_status text NOT NULL CHECK (activation_status='ACTIVE'),
  source_ssot_digest bytea NOT NULL CHECK (octet_length(source_ssot_digest)=32),
  review_evidence_digest bytea NOT NULL CHECK (octet_length(review_evidence_digest)=32),
  created_at timestamptz NOT NULL,
@@ -65,6 +65,7 @@ CREATE TABLE kcml_secret_v1.secret_version (
  algorithm text NOT NULL CHECK(algorithm<>''),
  key_id text NOT NULL CHECK(key_id<>''),
  fingerprint text NOT NULL CHECK(fingerprint<>''),
+ original_import_bytes_digest bytea NOT NULL CHECK(octet_length(original_import_bytes_digest)=32),
  canonical_value_digest bytea NOT NULL CHECK(octet_length(canonical_value_digest)=32),
  lifecycle text NOT NULL CHECK(lifecycle IN ('CREATED','ACTIVE','RETIRED')),
  created_at timestamptz NOT NULL,
@@ -74,6 +75,7 @@ CREATE TABLE kcml_secret_v1.secret_version (
  activation_logical_operation_id uuid, -- external domain_command FK added by coordinator
  UNIQUE(secret_id,version_number),
  UNIQUE(secret_id,id),
+ UNIQUE(secret_id,secret_type,id),
  FOREIGN KEY(secret_type,profile_id,value_schema_digest) REFERENCES kcml_secret_v1.secret_value_profile_registry(secret_type,profile_id,schema_digest) ON DELETE RESTRICT,
  CHECK((value_representation='PROFILE_JSON_V1' AND profile_id IS NOT NULL AND value_schema_id IS NOT NULL AND value_schema_digest IS NOT NULL) OR (value_representation IN ('RAW_UTF8','RAW_BINARY') AND profile_id IS NULL AND value_schema_id IS NULL AND value_schema_digest IS NULL)),
  CHECK(value_schema_digest IS NULL OR octet_length(value_schema_digest)=32),
@@ -84,13 +86,13 @@ CREATE TABLE kcml_secret_v1.secret_version (
  CHECK(activated_at IS NULL OR activated_at>=created_at),
  CHECK(retired_at IS NULL OR retired_at>=activated_at)
 );
-ALTER TABLE kcml_secret_v1.secret_record ADD CONSTRAINT secret_active_version_owns_parent FOREIGN KEY(id,active_version_id) REFERENCES kcml_secret_v1.secret_version(secret_id,id) DEFERRABLE INITIALLY DEFERRED;
+ALTER TABLE kcml_secret_v1.secret_record ADD CONSTRAINT secret_active_version_owns_parent FOREIGN KEY(id,secret_type,active_version_id) REFERENCES kcml_secret_v1.secret_version(secret_id,secret_type,id) DEFERRABLE INITIALLY DEFERRED;
 CREATE UNIQUE INDEX secret_one_active_version ON kcml_secret_v1.secret_version(secret_id) WHERE lifecycle='ACTIVE';
 CREATE FUNCTION kcml_secret_v1.secret_crypto_immutable() RETURNS trigger LANGUAGE plpgsql SET search_path=pg_catalog AS $$
 BEGIN
  IF TG_OP='DELETE' THEN RAISE EXCEPTION USING ERRCODE='23514',CONSTRAINT='secret_version_immutable',MESSAGE='SECRET_VERSION_IMMUTABLE'; END IF;
- IF ROW(NEW.id,NEW.secret_id,NEW.version_number,NEW.secret_type,NEW.value_representation,NEW.profile_id,NEW.value_schema_id,NEW.value_schema_digest,NEW.payload_format,NEW.plaintext_byte_length,NEW.ciphertext,NEW.nonce,NEW.algorithm,NEW.key_id,NEW.fingerprint,NEW.canonical_value_digest,NEW.created_at,NEW.creator_context_id)
- IS DISTINCT FROM ROW(OLD.id,OLD.secret_id,OLD.version_number,OLD.secret_type,OLD.value_representation,OLD.profile_id,OLD.value_schema_id,OLD.value_schema_digest,OLD.payload_format,OLD.plaintext_byte_length,OLD.ciphertext,OLD.nonce,OLD.algorithm,OLD.key_id,OLD.fingerprint,OLD.canonical_value_digest,OLD.created_at,OLD.creator_context_id)
+ IF ROW(NEW.id,NEW.secret_id,NEW.version_number,NEW.secret_type,NEW.value_representation,NEW.profile_id,NEW.value_schema_id,NEW.value_schema_digest,NEW.payload_format,NEW.plaintext_byte_length,NEW.ciphertext,NEW.nonce,NEW.algorithm,NEW.key_id,NEW.fingerprint,NEW.original_import_bytes_digest,NEW.canonical_value_digest,NEW.created_at,NEW.creator_context_id)
+ IS DISTINCT FROM ROW(OLD.id,OLD.secret_id,OLD.version_number,OLD.secret_type,OLD.value_representation,OLD.profile_id,OLD.value_schema_id,OLD.value_schema_digest,OLD.payload_format,OLD.plaintext_byte_length,OLD.ciphertext,OLD.nonce,OLD.algorithm,OLD.key_id,OLD.fingerprint,OLD.original_import_bytes_digest,OLD.canonical_value_digest,OLD.created_at,OLD.creator_context_id)
  THEN RAISE EXCEPTION USING ERRCODE='23514',CONSTRAINT='secret_version_crypto_immutable',MESSAGE='SECRET_VERSION_CRYPTO_IMMUTABLE'; END IF;
  IF NEW.lifecycle<>OLD.lifecycle AND NOT ((OLD.lifecycle IN ('CREATED','RETIRED') AND NEW.lifecycle='ACTIVE') OR (OLD.lifecycle='ACTIVE' AND NEW.lifecycle='RETIRED')) THEN RAISE EXCEPTION USING ERRCODE='23514',CONSTRAINT='secret_version_lifecycle_transition',MESSAGE='SECRET_VERSION_TRANSITION_INVALID'; END IF;
  RETURN NEW;

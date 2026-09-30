@@ -1,16 +1,18 @@
 {
-  "sourceDocumentSha256": "69baf2dfbe691cd04f50e1f5ba3968731b8c5373325d389b03c79867de70148a",
+  "sourceDocumentSha256": "8b89dd7d4b905333bf0fa7d64d721150b20f4e6a48f4ed7ddc38a1d708f8fd73",
   "supportSha256": {
-    "scripts/follow_up_contracts.py": "5d9e111c32f65e74e7182fc8d104dc2931bd0fdae21d147daac196c8881c7f7d",
-    "scripts/verify_follow_up_contracts.py": "65de91833a571f6ad2b13e47b01d9237a0709a1581d0d6ae8eff6e90daeeb4d4",
-    "scripts/create_operation_contracts.py": "f34ba13f0f13f4fb0045dfa6c09c4467e432ab865ce8e8b7c0ac55d9d28a3c67"
+    "scripts/follow_up_contracts.py": "86cbd63b53fe34edad497ae36771f456346ffba5ab17427f44624567a5a79e10",
+    "scripts/verify_follow_up_contracts.py": "6ffab9a498192598bda892254ed7706b43e5bd140f90b05ca8ffd6f63d1a9f05",
+    "scripts/create_operation_contracts.py": "e3149fed4d5169d653199b638ac8f367b1618ce671d6e2860060ad09a576577a",
+    "scripts/generation_follow_up_fixtures.py": "449fb94d46e2b771bba1e09826bb0ba00f050c3be6b6304c9fa0a9d20ca28d52",
+    "scripts/generation_admission_contracts.py": "12c18c6ceb2a51d49a4506bf4c759ed0407e81bbe777da7cf58d2c768f77d900"
   },
   "scope": "Synthetic immutable FOLLOW_UP admission proof; no database/concurrency runtime claim.",
   "proofKind": "DESIGN_REFERENCE_MODEL",
   "implementationAcceptance": "NOT_EVALUATED",
   "authority": "Owner approval of explicit frozen FOLLOW_UP admission; generation-job states contracts/execution/model-catalog.json model.generation-job / authoritySection 49.15",
-  "checked": 324,
-  "failed": 0,
+  "checked": 319,
+  "failed": 1,
   "checks": [
     {
       "case": "INITIAL_REQUEST/positive-basis-schema",
@@ -213,8 +215,8 @@
     {
       "case": "INITIAL_REQUEST/server-lineage-digest-exact",
       "passed": true,
-      "actual": "sha256:b6cdef116aee45c01a10ed99a5d3082bdbd7f5e12faa88a89f51185d295aef73",
-      "expected": "sha256:b6cdef116aee45c01a10ed99a5d3082bdbd7f5e12faa88a89f51185d295aef73"
+      "actual": "sha256:ddf6a77783bad4c52e857d13c8582ed5fca32571fc8a1430d9f9adbd400aac30",
+      "expected": "sha256:ddf6a77783bad4c52e857d13c8582ed5fca32571fc8a1430d9f9adbd400aac30"
     },
     {
       "case": "INITIAL_REQUEST/fresh-admission-same-immutable-lineage-after-parent-cancel",
@@ -370,21 +372,21 @@
       "case": "INITIAL_REQUEST/integrated-http-positive",
       "passed": true,
       "actual": {
-        "intent": "Create an independent follow-up from frozen synthetic basis.",
+        "intent": "Discuss an independent synthetic FOLLOW_UP using its immutable declared source.",
         "kind": "FOLLOW_UP",
         "parentJobId": "00000000-0000-4000-8000-000000000002",
         "followUpBasis": {
           "basisKind": "INITIAL_REQUEST",
-          "expectedDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87"
+          "expectedDigest": "sha256:2f56475cfae23e6c63afc788c069e25ae1c3927c23284b6859218390d8f1dc08"
         }
       },
       "expected": {
-        "intent": "Create an independent follow-up from frozen synthetic basis.",
+        "intent": "Discuss an independent synthetic FOLLOW_UP using its immutable declared source.",
         "kind": "FOLLOW_UP",
         "parentJobId": "00000000-0000-4000-8000-000000000002",
         "followUpBasis": {
           "basisKind": "INITIAL_REQUEST",
-          "expectedDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87"
+          "expectedDigest": "sha256:2f56475cfae23e6c63afc788c069e25ae1c3927c23284b6859218390d8f1dc08"
         }
       }
     },
@@ -395,15 +397,15 @@
         "sourceJobId": "00000000-0000-4000-8000-000000000002",
         "snapshotId": "00000000-0000-4000-8000-000000000003",
         "basisKind": "INITIAL_REQUEST",
-        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
-        "lineageDigest": "sha256:b6cdef116aee45c01a10ed99a5d3082bdbd7f5e12faa88a89f51185d295aef73"
+        "contentDigest": "sha256:2f56475cfae23e6c63afc788c069e25ae1c3927c23284b6859218390d8f1dc08",
+        "lineageDigest": "sha256:ddf6a77783bad4c52e857d13c8582ed5fca32571fc8a1430d9f9adbd400aac30"
       },
       "expected": {
         "sourceJobId": "00000000-0000-4000-8000-000000000002",
         "snapshotId": "00000000-0000-4000-8000-000000000003",
         "basisKind": "INITIAL_REQUEST",
-        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
-        "lineageDigest": "sha256:b6cdef116aee45c01a10ed99a5d3082bdbd7f5e12faa88a89f51185d295aef73"
+        "contentDigest": "sha256:2f56475cfae23e6c63afc788c069e25ae1c3927c23284b6859218390d8f1dc08",
+        "lineageDigest": "sha256:ddf6a77783bad4c52e857d13c8582ed5fca32571fc8a1430d9f9adbd400aac30"
       }
     },
     {
@@ -465,15 +467,15 @@
         "sourceJobId": "00000000-0000-4000-8000-000000000002",
         "snapshotId": "00000000-0000-4000-8000-000000000003",
         "basisKind": "INITIAL_REQUEST",
-        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
-        "lineageDigest": "sha256:b6cdef116aee45c01a10ed99a5d3082bdbd7f5e12faa88a89f51185d295aef73"
+        "contentDigest": "sha256:2f56475cfae23e6c63afc788c069e25ae1c3927c23284b6859218390d8f1dc08",
+        "lineageDigest": "sha256:ddf6a77783bad4c52e857d13c8582ed5fca32571fc8a1430d9f9adbd400aac30"
       },
       "expected": {
         "sourceJobId": "00000000-0000-4000-8000-000000000002",
         "snapshotId": "00000000-0000-4000-8000-000000000003",
         "basisKind": "INITIAL_REQUEST",
-        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
-        "lineageDigest": "sha256:b6cdef116aee45c01a10ed99a5d3082bdbd7f5e12faa88a89f51185d295aef73"
+        "contentDigest": "sha256:2f56475cfae23e6c63afc788c069e25ae1c3927c23284b6859218390d8f1dc08",
+        "lineageDigest": "sha256:ddf6a77783bad4c52e857d13c8582ed5fca32571fc8a1430d9f9adbd400aac30"
       }
     },
     {
@@ -703,8 +705,8 @@
     {
       "case": "SPECIFICATION_REVISION/server-lineage-digest-exact",
       "passed": true,
-      "actual": "sha256:41d6352def9df956cec8a79340bfca76d9808ed38b1f237870d66ecd7552c24a",
-      "expected": "sha256:41d6352def9df956cec8a79340bfca76d9808ed38b1f237870d66ecd7552c24a"
+      "actual": "sha256:acfd1b6f415388809c4ff1f75274da03e03487b383394e93ff928aedf74fe4c7",
+      "expected": "sha256:acfd1b6f415388809c4ff1f75274da03e03487b383394e93ff928aedf74fe4c7"
     },
     {
       "case": "SPECIFICATION_REVISION/fresh-admission-same-immutable-lineage-after-parent-cancel",
@@ -860,22 +862,22 @@
       "case": "SPECIFICATION_REVISION/integrated-http-positive",
       "passed": true,
       "actual": {
-        "intent": "Create an independent follow-up from frozen synthetic basis.",
+        "intent": "Discuss an independent synthetic FOLLOW_UP using its immutable declared source.",
         "kind": "FOLLOW_UP",
         "parentJobId": "00000000-0000-4000-8000-000000000002",
         "followUpBasis": {
           "basisKind": "SPECIFICATION_REVISION",
-          "expectedDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+          "expectedDigest": "sha256:ddd6b6213e06da3a9495dab8ee8bb307d574f413f3ec7f92f586b1473b6cc52b",
           "revisionId": "00000000-0000-4000-8000-000000000004"
         }
       },
       "expected": {
-        "intent": "Create an independent follow-up from frozen synthetic basis.",
+        "intent": "Discuss an independent synthetic FOLLOW_UP using its immutable declared source.",
         "kind": "FOLLOW_UP",
         "parentJobId": "00000000-0000-4000-8000-000000000002",
         "followUpBasis": {
           "basisKind": "SPECIFICATION_REVISION",
-          "expectedDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+          "expectedDigest": "sha256:ddd6b6213e06da3a9495dab8ee8bb307d574f413f3ec7f92f586b1473b6cc52b",
           "revisionId": "00000000-0000-4000-8000-000000000004"
         }
       }
@@ -887,17 +889,17 @@
         "sourceJobId": "00000000-0000-4000-8000-000000000002",
         "snapshotId": "00000000-0000-4000-8000-000000000003",
         "basisKind": "SPECIFICATION_REVISION",
-        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "contentDigest": "sha256:ddd6b6213e06da3a9495dab8ee8bb307d574f413f3ec7f92f586b1473b6cc52b",
         "revisionId": "00000000-0000-4000-8000-000000000004",
-        "lineageDigest": "sha256:41d6352def9df956cec8a79340bfca76d9808ed38b1f237870d66ecd7552c24a"
+        "lineageDigest": "sha256:acfd1b6f415388809c4ff1f75274da03e03487b383394e93ff928aedf74fe4c7"
       },
       "expected": {
         "sourceJobId": "00000000-0000-4000-8000-000000000002",
         "snapshotId": "00000000-0000-4000-8000-000000000003",
         "basisKind": "SPECIFICATION_REVISION",
-        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "contentDigest": "sha256:ddd6b6213e06da3a9495dab8ee8bb307d574f413f3ec7f92f586b1473b6cc52b",
         "revisionId": "00000000-0000-4000-8000-000000000004",
-        "lineageDigest": "sha256:41d6352def9df956cec8a79340bfca76d9808ed38b1f237870d66ecd7552c24a"
+        "lineageDigest": "sha256:acfd1b6f415388809c4ff1f75274da03e03487b383394e93ff928aedf74fe4c7"
       }
     },
     {
@@ -959,17 +961,17 @@
         "sourceJobId": "00000000-0000-4000-8000-000000000002",
         "snapshotId": "00000000-0000-4000-8000-000000000003",
         "basisKind": "SPECIFICATION_REVISION",
-        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "contentDigest": "sha256:ddd6b6213e06da3a9495dab8ee8bb307d574f413f3ec7f92f586b1473b6cc52b",
         "revisionId": "00000000-0000-4000-8000-000000000004",
-        "lineageDigest": "sha256:41d6352def9df956cec8a79340bfca76d9808ed38b1f237870d66ecd7552c24a"
+        "lineageDigest": "sha256:acfd1b6f415388809c4ff1f75274da03e03487b383394e93ff928aedf74fe4c7"
       },
       "expected": {
         "sourceJobId": "00000000-0000-4000-8000-000000000002",
         "snapshotId": "00000000-0000-4000-8000-000000000003",
         "basisKind": "SPECIFICATION_REVISION",
-        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "contentDigest": "sha256:ddd6b6213e06da3a9495dab8ee8bb307d574f413f3ec7f92f586b1473b6cc52b",
         "revisionId": "00000000-0000-4000-8000-000000000004",
-        "lineageDigest": "sha256:41d6352def9df956cec8a79340bfca76d9808ed38b1f237870d66ecd7552c24a"
+        "lineageDigest": "sha256:acfd1b6f415388809c4ff1f75274da03e03487b383394e93ff928aedf74fe4c7"
       }
     },
     {
@@ -1205,8 +1207,8 @@
     {
       "case": "PUBLISHED_FINAL_OUTPUT/server-lineage-digest-exact",
       "passed": true,
-      "actual": "sha256:e993406ab8e4e5d9a786cb7953948d275d82aa99e8eef4aa19545f53e6ad87c5",
-      "expected": "sha256:e993406ab8e4e5d9a786cb7953948d275d82aa99e8eef4aa19545f53e6ad87c5"
+      "actual": "sha256:609c2e3f9c41f5e42859f903384e108fa8540b3aebc29131ef7363e4f10164f5",
+      "expected": "sha256:609c2e3f9c41f5e42859f903384e108fa8540b3aebc29131ef7363e4f10164f5"
     },
     {
       "case": "PUBLISHED_FINAL_OUTPUT/fresh-admission-same-immutable-lineage-after-parent-cancel",
@@ -1386,22 +1388,22 @@
       "case": "PUBLISHED_FINAL_OUTPUT/integrated-http-positive",
       "passed": true,
       "actual": {
-        "intent": "Create an independent follow-up from frozen synthetic basis.",
+        "intent": "Discuss an independent synthetic FOLLOW_UP using its immutable declared source.",
         "kind": "FOLLOW_UP",
         "parentJobId": "00000000-0000-4000-8000-000000000002",
         "followUpBasis": {
           "basisKind": "PUBLISHED_FINAL_OUTPUT",
-          "expectedDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+          "expectedDigest": "sha256:6e87152bef577e09f14c69d6be759eadbbabf026cc50aca5ffd6678b13e07ab7",
           "artifactId": "00000000-0000-4000-8000-000000000005"
         }
       },
       "expected": {
-        "intent": "Create an independent follow-up from frozen synthetic basis.",
+        "intent": "Discuss an independent synthetic FOLLOW_UP using its immutable declared source.",
         "kind": "FOLLOW_UP",
         "parentJobId": "00000000-0000-4000-8000-000000000002",
         "followUpBasis": {
           "basisKind": "PUBLISHED_FINAL_OUTPUT",
-          "expectedDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+          "expectedDigest": "sha256:6e87152bef577e09f14c69d6be759eadbbabf026cc50aca5ffd6678b13e07ab7",
           "artifactId": "00000000-0000-4000-8000-000000000005"
         }
       }
@@ -1413,19 +1415,19 @@
         "sourceJobId": "00000000-0000-4000-8000-000000000002",
         "snapshotId": "00000000-0000-4000-8000-000000000003",
         "basisKind": "PUBLISHED_FINAL_OUTPUT",
-        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "contentDigest": "sha256:6e87152bef577e09f14c69d6be759eadbbabf026cc50aca5ffd6678b13e07ab7",
         "artifactId": "00000000-0000-4000-8000-000000000005",
         "publicationReceiptId": "00000000-0000-4000-8000-000000000006",
-        "lineageDigest": "sha256:e993406ab8e4e5d9a786cb7953948d275d82aa99e8eef4aa19545f53e6ad87c5"
+        "lineageDigest": "sha256:609c2e3f9c41f5e42859f903384e108fa8540b3aebc29131ef7363e4f10164f5"
       },
       "expected": {
         "sourceJobId": "00000000-0000-4000-8000-000000000002",
         "snapshotId": "00000000-0000-4000-8000-000000000003",
         "basisKind": "PUBLISHED_FINAL_OUTPUT",
-        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "contentDigest": "sha256:6e87152bef577e09f14c69d6be759eadbbabf026cc50aca5ffd6678b13e07ab7",
         "artifactId": "00000000-0000-4000-8000-000000000005",
         "publicationReceiptId": "00000000-0000-4000-8000-000000000006",
-        "lineageDigest": "sha256:e993406ab8e4e5d9a786cb7953948d275d82aa99e8eef4aa19545f53e6ad87c5"
+        "lineageDigest": "sha256:609c2e3f9c41f5e42859f903384e108fa8540b3aebc29131ef7363e4f10164f5"
       }
     },
     {
@@ -1487,19 +1489,19 @@
         "sourceJobId": "00000000-0000-4000-8000-000000000002",
         "snapshotId": "00000000-0000-4000-8000-000000000003",
         "basisKind": "PUBLISHED_FINAL_OUTPUT",
-        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "contentDigest": "sha256:6e87152bef577e09f14c69d6be759eadbbabf026cc50aca5ffd6678b13e07ab7",
         "artifactId": "00000000-0000-4000-8000-000000000005",
         "publicationReceiptId": "00000000-0000-4000-8000-000000000006",
-        "lineageDigest": "sha256:e993406ab8e4e5d9a786cb7953948d275d82aa99e8eef4aa19545f53e6ad87c5"
+        "lineageDigest": "sha256:609c2e3f9c41f5e42859f903384e108fa8540b3aebc29131ef7363e4f10164f5"
       },
       "expected": {
         "sourceJobId": "00000000-0000-4000-8000-000000000002",
         "snapshotId": "00000000-0000-4000-8000-000000000003",
         "basisKind": "PUBLISHED_FINAL_OUTPUT",
-        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "contentDigest": "sha256:6e87152bef577e09f14c69d6be759eadbbabf026cc50aca5ffd6678b13e07ab7",
         "artifactId": "00000000-0000-4000-8000-000000000005",
         "publicationReceiptId": "00000000-0000-4000-8000-000000000006",
-        "lineageDigest": "sha256:e993406ab8e4e5d9a786cb7953948d275d82aa99e8eef4aa19545f53e6ad87c5"
+        "lineageDigest": "sha256:609c2e3f9c41f5e42859f903384e108fa8540b3aebc29131ef7363e4f10164f5"
       }
     },
     {
@@ -1655,22 +1657,6 @@
       "actualPointer": "$.followUpBasis"
     },
     {
-      "case": "INITIAL_REQUEST/consistent/FOLLOW_UP_BASIS_INCONSISTENT",
-      "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
-    },
-    {
-      "case": "INITIAL_REQUEST/sufficient/FOLLOW_UP_BASIS_INSUFFICIENT",
-      "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
-    },
-    {
       "case": "INITIAL_REQUEST/bytes/FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
       "passed": true,
       "expectedCode": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
@@ -1779,22 +1765,6 @@
       "passed": true,
       "expectedCode": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
       "actualCode": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
-    },
-    {
-      "case": "SPECIFICATION_REVISION/consistent/FOLLOW_UP_BASIS_INCONSISTENT",
-      "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
-    },
-    {
-      "case": "SPECIFICATION_REVISION/sufficient/FOLLOW_UP_BASIS_INSUFFICIENT",
-      "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
       "expectedPointer": "$.followUpBasis",
       "actualPointer": "$.followUpBasis"
     },
@@ -1919,22 +1889,6 @@
       "actualPointer": "$.followUpBasis"
     },
     {
-      "case": "PUBLISHED_FINAL_OUTPUT/consistent/FOLLOW_UP_BASIS_INCONSISTENT",
-      "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
-    },
-    {
-      "case": "PUBLISHED_FINAL_OUTPUT/sufficient/FOLLOW_UP_BASIS_INSUFFICIENT",
-      "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
-    },
-    {
       "case": "PUBLISHED_FINAL_OUTPUT/bytes/FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
       "passed": true,
       "expectedCode": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
@@ -1999,12 +1953,12 @@
       "actualPointer": "$.followUpBasis.artifactId"
     },
     {
-      "case": "PUBLISHED_FINAL_OUTPUT/unpublished",
+      "case": "PUBLISHED_FINAL_OUTPUT/missing-final-declaration",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
-      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "actualCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "PUBLISHED_FINAL_OUTPUT/no-server-receipt",
@@ -2065,24 +2019,24 @@
     {
       "case": "matrix/ACTIVATING/INCONSISTENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/ACTIVATING/INSUFFICIENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "actualCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/ACTIVATING/UNPUBLISHED",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
-      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
       "expectedPointer": "$.followUpBasis",
       "actualPointer": "$.followUpBasis"
     },
@@ -2097,24 +2051,24 @@
     {
       "case": "matrix/ANALYZING/INCONSISTENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/ANALYZING/INSUFFICIENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "actualCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/ANALYZING/UNPUBLISHED",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
-      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
       "expectedPointer": "$.followUpBasis",
       "actualPointer": "$.followUpBasis"
     },
@@ -2129,24 +2083,24 @@
     {
       "case": "matrix/BLOCKED/INCONSISTENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/BLOCKED/INSUFFICIENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "actualCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/BLOCKED/UNPUBLISHED",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
-      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
       "expectedPointer": "$.followUpBasis",
       "actualPointer": "$.followUpBasis"
     },
@@ -2161,24 +2115,24 @@
     {
       "case": "matrix/CANCELLED/INCONSISTENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/CANCELLED/INSUFFICIENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "actualCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/CANCELLED/UNPUBLISHED",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
-      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
       "expectedPointer": "$.followUpBasis",
       "actualPointer": "$.followUpBasis"
     },
@@ -2193,24 +2147,24 @@
     {
       "case": "matrix/CML_CONFORMANCE/INCONSISTENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/CML_CONFORMANCE/INSUFFICIENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "actualCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/CML_CONFORMANCE/UNPUBLISHED",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
-      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
       "expectedPointer": "$.followUpBasis",
       "actualPointer": "$.followUpBasis"
     },
@@ -2225,24 +2179,24 @@
     {
       "case": "matrix/COMPLETED/INCONSISTENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/COMPLETED/INSUFFICIENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "actualCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/COMPLETED/UNPUBLISHED",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
-      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
       "expectedPointer": "$.followUpBasis",
       "actualPointer": "$.followUpBasis"
     },
@@ -2257,24 +2211,24 @@
     {
       "case": "matrix/DISCUSSING/INCONSISTENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/DISCUSSING/INSUFFICIENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "actualCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/DISCUSSING/UNPUBLISHED",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
-      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
       "expectedPointer": "$.followUpBasis",
       "actualPointer": "$.followUpBasis"
     },
@@ -2289,24 +2243,24 @@
     {
       "case": "matrix/FAILED/INCONSISTENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/FAILED/INSUFFICIENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "actualCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/FAILED/UNPUBLISHED",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
-      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
       "expectedPointer": "$.followUpBasis",
       "actualPointer": "$.followUpBasis"
     },
@@ -2321,24 +2275,24 @@
     {
       "case": "matrix/IMPLEMENTING/INCONSISTENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/IMPLEMENTING/INSUFFICIENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "actualCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/IMPLEMENTING/UNPUBLISHED",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
-      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
       "expectedPointer": "$.followUpBasis",
       "actualPointer": "$.followUpBasis"
     },
@@ -2353,24 +2307,24 @@
     {
       "case": "matrix/INTEGRATING/INCONSISTENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/INTEGRATING/INSUFFICIENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "actualCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/INTEGRATING/UNPUBLISHED",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
-      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
       "expectedPointer": "$.followUpBasis",
       "actualPointer": "$.followUpBasis"
     },
@@ -2385,24 +2339,24 @@
     {
       "case": "matrix/VALIDATING/INCONSISTENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/VALIDATING/INSUFFICIENT",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
-      "expectedPointer": "$.followUpBasis",
-      "actualPointer": "$.followUpBasis"
+      "expectedCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "actualCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
     },
     {
       "case": "matrix/VALIDATING/UNPUBLISHED",
       "passed": true,
-      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
-      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
       "expectedPointer": "$.followUpBasis",
       "actualPointer": "$.followUpBasis"
     },
@@ -2428,6 +2382,12 @@
       "case": "decision-matrix/no-terminal-only-shortcut",
       "passed": true,
       "actual": true,
+      "expected": true
+    },
+    {
+      "case": "source-input-stability",
+      "passed": false,
+      "actual": false,
       "expected": true
     }
   ],

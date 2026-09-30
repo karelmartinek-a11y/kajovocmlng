@@ -654,6 +654,112 @@
             ]
           }
         }
+      },
+      {
+        "if": {
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "const": "UPDATE"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "generationBasis",
+            "targetObjectId",
+            "targetKind"
+          ],
+          "properties": {
+            "generationBasis": {
+              "properties": {
+                "basisKind": {
+                  "const": "UPDATE_TARGET_REVISION"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "const": "RETRY"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "generationBasis",
+            "parentJobId"
+          ],
+          "properties": {
+            "generationBasis": {
+              "properties": {
+                "basisKind": {
+                  "const": "RETRY_FAILED_TECHNICAL_PART"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "const": "REPAIR"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "generationBasis",
+            "targetObjectId",
+            "targetKind"
+          ],
+          "properties": {
+            "generationBasis": {
+              "properties": {
+                "basisKind": {
+                  "const": "REPAIR_MONITORING_EVIDENCE"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "UPDATE",
+                "RETRY",
+                "REPAIR"
+              ]
+            }
+          }
+        },
+        "else": {
+          "not": {
+            "required": [
+              "generationBasis"
+            ]
+          }
+        }
       }
     ]
   },
@@ -1731,6 +1837,112 @@
               "targetObjectId",
               "targetKind"
             ]
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "UPDATE"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "generationBasis",
+              "targetObjectId",
+              "targetKind"
+            ],
+            "properties": {
+              "generationBasis": {
+                "properties": {
+                  "basisKind": {
+                    "const": "UPDATE_TARGET_REVISION"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "RETRY"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "generationBasis",
+              "parentJobId"
+            ],
+            "properties": {
+              "generationBasis": {
+                "properties": {
+                  "basisKind": {
+                    "const": "RETRY_FAILED_TECHNICAL_PART"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "REPAIR"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "generationBasis",
+              "targetObjectId",
+              "targetKind"
+            ],
+            "properties": {
+              "generationBasis": {
+                "properties": {
+                  "basisKind": {
+                    "const": "REPAIR_MONITORING_EVIDENCE"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "UPDATE",
+                  "RETRY",
+                  "REPAIR"
+                ]
+              }
+            }
+          },
+          "else": {
+            "not": {
+              "required": [
+                "generationBasis"
+              ]
+            }
           }
         },
         {

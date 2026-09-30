@@ -1,0 +1,629 @@
+{
+  "format": "KCML-RETRY-INVENTORY-DIAGNOSTICS/1",
+  "diagnostics": [
+    {
+      "diagnostic": "GENERATION_RETRY_INVENTORY_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": {
+        "anyOf": [
+          "inventory_id not in repo.records"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 26,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        26
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_PHYSICAL_SCAN_UNVERIFIED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": {
+        "anyOf": [
+          "not isinstance(physical_rows, dict)"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 27,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        27
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OUTCOME_CLASSIFIER_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": {
+        "anyOf": [
+          "not isinstance(outcome_verifiers, dict)",
+          "implementation is None"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 28,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        28,
+        64
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_INVENTORY_PHASE_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": {
+        "anyOf": [
+          "(inventory['inventoryId'], inventory['phaseRunId'], inventory['phaseRunDigest']) != (inventory_id, run['phaseRunId'], run_digest)"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 30,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        30
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_INVENTORY_DUPLICATE_OPERATION",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": {
+        "anyOf": [
+          "len(ids) != len(set(ids))"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 32,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        32
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_INVENTORY_INCOMPLETE",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": {
+        "anyOf": [
+          "set(ids) != set(scanned)"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 42,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        42
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OPERATION_IDENTITY_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": {
+        "anyOf": [
+          "op['operationId'] != operation_id"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 38,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        38
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OPERATION_SNAPSHOT_DRIFT",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": {
+        "anyOf": [
+          "item['operationDigest'] != op_digest"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 46,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        46
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OPERATION_NODE_UNRESOLVED",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": {
+        "anyOf": [
+          "op['nodeId'] not in nodes"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 47,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        47
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OPERATION_POLICY_DRIFT",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": {
+        "anyOf": [
+          "(op['retryClass'], op['sideEffectClass']) != (nodes[op['nodeId']]['retryClass'], nodes[op['nodeId']]['sideEffectClass'])"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 48,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        48
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_CURRENT_ATTEMPT_DRIFT",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": {
+        "anyOf": [
+          "(op['currentAttemptId'], op['currentAttemptSequence']) != (item['attemptId'], attempt['attemptSequence'])"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 51,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        51
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_CURRENT_ATTEMPT_STATE_DRIFT",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": {
+        "anyOf": [
+          "(op['currentAttemptStateId'], op['currentAttemptStateVersion']) != (current['attemptStateId'], current['stateVersion'])"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 54,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        54
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_ATTEMPT_STATE_DRIFT",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": {
+        "anyOf": [
+          "(attempt['attemptId'], attempt['operationId'], attempt['phaseRunId'], current['attemptStateId'], current['operationId'], current['attemptId'], current['attemptSequence'], current['state']) != (item['attemptId'], op['operationId'], run['phaseRunId'], item['attemptStateId'], op['operationId'], item['attemptId'], attempt['attemptSequence'], op['state'])"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 55,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        55
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_ATTEMPT_BINDING_DRIFT",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": {
+        "anyOf": [
+          "(attempt['requestDigest'], attempt['targetBindingId'], attempt['targetBindingRevisionId'], attempt['targetIdempotencyKey']) != (op['requestDigest'], op['targetBindingId'], op['targetBindingRevisionId'], op['targetIdempotencyKey'])"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 56,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        56
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": {
+        "anyOf": [
+          "op['state'] in ['INTENT_RECORDED', 'DISPATCHING', 'OUTCOME_RECORDED', 'RECONCILING', 'UNKNOWN']"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 57,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        57
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_EFFECT_EVIDENCE_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": {
+        "anyOf": [
+          "current['evidenceId'] is None or current['evidenceDigest'] is None"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 58,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        58
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OUTCOME_EVIDENCE_DRIFT",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": {
+        "anyOf": [
+          "(evidence['evidenceId'], evidence['operationId'], evidence['attemptId'], evidence['phaseRunId'], evidence['requestDigest'], evidence['targetBindingId'], evidence['targetBindingRevisionId'], evidence['targetIdempotencyKey'], evidence['outcome']) != (current['evidenceId'], op['operationId'], attempt['attemptId'], run['phaseRunId'], op['requestDigest'], op['targetBindingId'], op['targetBindingRevisionId'], op['targetIdempotencyKey'], op['state'])"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 60,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        60
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OUTCOME_CLASSIFIER_DECLARATION_INVALID",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": {
+        "anyOf": [
+          "not isinstance(implementation, dict) or set(implementation) != {'sourceRecordId', 'activeSourceDigest', 'evaluate'}"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 65,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        65
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OUTCOME_CLASSIFIER_BYTES_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": {
+        "anyOf": [
+          "source_record is None or not isinstance(source_record.get('bytes'), bytes)"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 67,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        67
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OUTCOME_CLASSIFIER_DIGEST_MISMATCH",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": {
+        "anyOf": [
+          "source_record.get('contentDigest') != digest(raw) or digest(raw) != evidence['classifierDigest'] or digest(raw) != implementation.get('activeSourceDigest')"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 69,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        69
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OUTCOME_CLASSIFIER_IMPLEMENTATION_INVALID",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": {
+        "anyOf": [
+          "not callable(function)"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 73,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        73
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OUTCOME_CLASSIFIER_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": {
+        "anyOf": [
+          "actual not in ['CONFIRMED_APPLIED', 'CONFIRMED_NOT_APPLIED', 'FAILED_FINAL', 'UNKNOWN'] or actual != evidence['outcome']"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 81,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        81
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OPERATION_PRODUCER_FK_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": {
+        "anyOf": [
+          "op['jobId'] != run['jobId']"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 40,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        40
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_OUTCOME_CLASSIFIER_EXECUTION_FAILED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": {
+        "anyOf": [
+          "Declared compiled classifier raises an exception while evaluating schema-valid hydrated observations; no exception text is exposed"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 80,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        80
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_CONFIRMED_EFFECT_REPEAT_FORBIDDEN",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": {
+        "anyOf": [
+          "op['state'] == 'CONFIRMED_APPLIED'"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 83,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        83
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_FINAL_EFFECT_POLICY_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": {
+        "anyOf": [
+          "op['state'] == 'FAILED_FINAL'"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 84,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        84
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_MANUAL_DISPATCH_POLICY_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": {
+        "anyOf": [
+          "op['retryClass'] == 'NO_AUTOMATIC_RETRY'"
+        ]
+      },
+      "implementationFile": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "line": 85,
+      "pointer": "Server cross-record phase/effect invariant; empty RFC6901 pointer; sensitive values never returned",
+      "authority": [
+        "SSOT \u00a749.8",
+        "SSOT \u00a749.9",
+        "SSOT \u00a749.15",
+        "SSOT \u00a749.25",
+        "PROPOSED \u00a712.51.1"
+      ],
+      "implementationLines": [
+        85
+      ]
+    }
+  ],
+  "unknown": "BLOCKED; no prefix fallback"
+}

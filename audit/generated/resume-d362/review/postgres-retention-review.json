@@ -47,9 +47,9 @@
     {
       "id": "terminal-command-delete",
       "mutation": "DELETE FROM domain_command;",
-      "expectedDiagnostic": "domain_event_logical_operation_id_fkey",
+      "expectedDiagnostic": "generation_job_latest_command_logical_operation_id_fkey",
       "rejected": true,
-      "diagnostic": "ERROR:  23503: update or delete on table \"domain_command\" violates foreign key constraint \"domain_event_logical_operation_id_fkey\" on table \"domain_event\"\nDETAIL:  Key (logical_operation_id)=(00000000-0000-4000-8000-000000000001) is still referenced from table \"domain_event\".\nSCHEMA NAME:  public\nTABLE NAME:  domain_event\nCONSTRAINT NAME:  domain_event_logical_operation_id_fkey\nLOCATION:  ri_ReportViolation, ri_triggers.c:2799"
+      "diagnostic": "ERROR:  23001: update or delete on table \"domain_command\" violates RESTRICT setting of foreign key constraint \"generation_job_latest_command_logical_operation_id_fkey\" on table \"generation_job\"\nDETAIL:  Key (logical_operation_id)=(00000000-0000-4000-8000-000000000001) is referenced from table \"generation_job\".\nSCHEMA NAME:  public\nTABLE NAME:  generation_job\nCONSTRAINT NAME:  generation_job_latest_command_logical_operation_id_fkey\nLOCATION:  ri_ReportViolation, ri_triggers.c:2785"
     },
     {
       "id": "audit-byte-change",
@@ -60,5 +60,19 @@
     }
   ],
   "unexpectedAccepted": 0,
-  "sqlSha256": "632055791993c6569bd7798146768aad5e23b5bdb79bcaf34165dc1e5a9fcabd"
+  "database": "generation_independent_review_fixture",
+  "sourceSha256": "8b89dd7d4b905333bf0fa7d64d721150b20f4e6a48f4ed7ddc38a1d708f8fd73",
+  "filesSha256": {
+    "combined-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "generation-command-links-corrected.sql": "89a2e2d8de5f3678db35a3001f6cfa012912793fa14cfefc9aebff0ef7aa2be4",
+    "generation-event-storage-proposed.sql": "0f248223f25eaf52a5f290885c0424f8772fa9e53b29eaa47726c384760e12d3",
+    "trusted-generation-context-proposed.sql": "740da917f692cd34b77a188bf2996a93f31c47f3cd160292d209725abc23ebd8",
+    "authentication-roots-proposed.sql": "afc07b1382898dbdcdd8951349991fb79170ce47e0b914c46823c47e626f1e20",
+    "generation-contract-pin-proposed.sql": "93920002901198cd0be40984fce7a72d4da425b0f622435aef0a604861811228",
+    "generation_descriptor_registry.py": "9cb7f68a4f1e5d890ce074fbcd277498412c51b90a9068d98d02940d7fadf78a",
+    "context_fixture_exports.py": "ae90984993a96c5abca746cad6d618cade6fc3d322fbd99ec16373952fa27888",
+    "generation-root-proposed.sql": "3d2313c94919ad496354973b9ee7d525b833bc3fd2a955b60cec2415a2cdd365",
+    "generation-context-role-bindings.sql": "9bfa89da7e34bb8fa67c4266868a7ee65300d94fb62e2844a9248fa8e6b0087c",
+    "generation-create-persistence-proposed.sql": "4ab0a6521cfe3df19fd9d3655ef87e8fa1982d8aad8c5ce7f07c6fd4840dd24d"
+  }
 }

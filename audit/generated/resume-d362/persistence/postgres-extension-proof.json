@@ -1,0 +1,63 @@
+{
+  "format": "KCML-PG-EXTENSION-PRIMITIVE-PROOF/1",
+  "sourceDocumentSha256": "3c2f44e0660d1f97eaf77b59b972bcba230d39c1063141d88a734526f9c81e70",
+  "postgresVersion": "18.6",
+  "extensions": [
+    "citext:1.8",
+    "pgcrypto:1.4"
+  ],
+  "openssl": "OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)",
+  "sharedObjectSha256": {
+    "citext": "b29d04ceafffb0061435579936cd16cbffdfa67bb0c62592a3bbf392db4dcba3",
+    "pgcrypto": "00c785670af8dcdc6e7347450555774390f18337486bd0f1c984c3685a6836fe"
+  },
+  "verifierSha256": "7cbac1b91b0f216fd19189bff880b65fbfe07482a3603be5dee734b54e42d83a",
+  "checks": [
+    {
+      "id": "sha256-standard-abc",
+      "status": "PASS",
+      "testValues": "synthetic/public-known-answer; values not recorded"
+    },
+    {
+      "id": "sha256-bytes-native-equality",
+      "status": "PASS",
+      "testValues": "synthetic/public-known-answer; values not recorded"
+    },
+    {
+      "id": "hmac-sha256-rfc4231-case1",
+      "status": "PASS",
+      "testValues": "synthetic/public-known-answer; values not recorded"
+    },
+    {
+      "id": "bcrypt-synthetic-positive",
+      "status": "PASS",
+      "testValues": "synthetic/public-known-answer; values not recorded"
+    },
+    {
+      "id": "bcrypt-synthetic-wrong-value",
+      "status": "PASS",
+      "testValues": "synthetic/public-known-answer; values not recorded"
+    },
+    {
+      "id": "citext-case-insensitive-not-owner-acceptance",
+      "status": "PASS",
+      "testValues": "synthetic/public-known-answer; values not recorded"
+    },
+    {
+      "id": "owner-uses-explicit-case-sensitive-text",
+      "status": "PASS",
+      "testValues": "synthetic/public-known-answer; values not recorded"
+    }
+  ],
+  "summary": {
+    "checks": 7,
+    "failed": 0
+  },
+  "notProven": [
+    "canonical authenticated Secret encryption profile",
+    "systemd master-key provisioning/materialization",
+    "actual deployed token/password verifier",
+    "complete R17 fixture universe"
+  ],
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

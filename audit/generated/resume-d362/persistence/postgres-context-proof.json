@@ -1,18 +1,24 @@
 {
   "format": "KCML-PG-TRUSTED-CONTEXT-CONSUMER/1",
   "inputCommit": "d362487999bd795d4723c2a930e93fc7aa8aa295",
-  "sourceDocumentSha256": "9bf5510b189ef4f71216d56bf293599ac129d200ec92e90ff7c2c22f6b15e57b",
+  "sourceDocumentSha256": "3c2f44e0660d1f97eaf77b59b972bcba230d39c1063141d88a734526f9c81e70",
   "postgresVersion": "18.6",
-  "sqlSha256": "2f9d0cef4b1ae85d66c9325f1550c4d90bdb45400a264cc122363969abe836bf",
-  "roleSqlSha256": "1dbe9ba834c39a4fc5304c2f27288059bc784a79a15d958d92bcdc600bfa80eb",
-  "verifierSha256": "8d81defbc0bcfc5d3b518702d4334211c2531641baebe7d6ca60662879b4b198",
-  "fixtureSetupSha256": "b0ea931e3f6ce8b05212dc831b8bd98fbb550c62050b1eec47c7274ad35cbff7",
+  "sqlSha256": "740da917f692cd34b77a188bf2996a93f31c47f3cd160292d209725abc23ebd8",
+  "authenticationRootsSqlSha256": "afc07b1382898dbdcdd8951349991fb79170ce47e0b914c46823c47e626f1e20",
+  "contractPinSqlSha256": "93920002901198cd0be40984fce7a72d4da425b0f622435aef0a604861811228",
+  "pinAuthorSha256": "9cb7f68a4f1e5d890ce074fbcd277498412c51b90a9068d98d02940d7fadf78a",
+  "actualContractDigest": "0de8be9a1a927f01f3855b92697814d06f795e8a4e6397c18b5ee9aa682a403e",
+  "roleSqlSha256": "9bfa89da7e34bb8fa67c4266868a7ee65300d94fb62e2844a9248fa8e6b0087c",
+  "verifierSha256": "babf3f063dd894220fd831c27e22037bdf43f967e8698d4f22c31524820d52c5",
+  "fixtureSetupSha256": "34c822a11d1470e66c011aea131591d4de4677acbf143fa000cf89eb9b08b0ef",
   "checks": [
     {
       "id": "session-context-from-current-owned-receipt",
       "status": "PASS",
       "expectedSqlstate": null,
       "actualSqlstate": null,
+      "expectedDiagnostic": null,
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -21,38 +27,48 @@
       "status": "PASS",
       "expectedSqlstate": null,
       "actualSqlstate": null,
+      "expectedDiagnostic": null,
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
     {
       "id": "physical-singleton-key-one-owner_identity",
       "status": "PASS",
-      "expectedSqlstate": "23514",
-      "actualSqlstate": "23514",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "FIXED_SINGLETON_IDENTITY_IMMUTABLE",
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
     {
       "id": "physical-singleton-key-one-platform_incarnation",
       "status": "PASS",
-      "expectedSqlstate": "23514",
-      "actualSqlstate": "23514",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "FIXED_SINGLETON_IDENTITY_IMMUTABLE",
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
     {
       "id": "physical-singleton-key-one-application_deployment_head",
       "status": "PASS",
-      "expectedSqlstate": "23514",
-      "actualSqlstate": "23514",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "FIXED_SINGLETON_IDENTITY_IMMUTABLE",
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
     {
       "id": "physical-singleton-key-one-owner-api",
       "status": "PASS",
-      "expectedSqlstate": "23514",
-      "actualSqlstate": "23514",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "FIXED_SINGLETON_IDENTITY_IMMUTABLE",
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -61,6 +77,8 @@
       "status": "PASS",
       "expectedSqlstate": null,
       "actualSqlstate": null,
+      "expectedDiagnostic": null,
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -69,6 +87,28 @@
       "status": "PASS",
       "expectedSqlstate": "42501",
       "actualSqlstate": "42501",
+      "expectedDiagnostic": null,
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "authentication-producer-only-issues-receipt",
+      "status": "PASS",
+      "expectedSqlstate": null,
+      "actualSqlstate": null,
+      "expectedDiagnostic": null,
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "domain-writer-cannot-issue-owner-session",
+      "status": "PASS",
+      "expectedSqlstate": "42501",
+      "actualSqlstate": "42501",
+      "expectedDiagnostic": null,
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -77,6 +117,8 @@
       "status": "PASS",
       "expectedSqlstate": "42501",
       "actualSqlstate": "42501",
+      "expectedDiagnostic": null,
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -85,6 +127,8 @@
       "status": "PASS",
       "expectedSqlstate": "42501",
       "actualSqlstate": "42501",
+      "expectedDiagnostic": null,
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -93,6 +137,8 @@
       "status": "PASS",
       "expectedSqlstate": "28000",
       "actualSqlstate": "28000",
+      "expectedDiagnostic": "GENERATION_SESSION_AUTH_STALE",
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -101,6 +147,8 @@
       "status": "PASS",
       "expectedSqlstate": "28000",
       "actualSqlstate": "28000",
+      "expectedDiagnostic": "GENERATION_SESSION_AUTH_STALE",
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -109,6 +157,8 @@
       "status": "PASS",
       "expectedSqlstate": "28000",
       "actualSqlstate": "28000",
+      "expectedDiagnostic": "GENERATION_SESSION_AUTH_STALE",
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -117,6 +167,8 @@
       "status": "PASS",
       "expectedSqlstate": "28000",
       "actualSqlstate": "28000",
+      "expectedDiagnostic": "GENERATION_SESSION_AUTH_STALE",
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -125,6 +177,8 @@
       "status": "PASS",
       "expectedSqlstate": "28000",
       "actualSqlstate": "28000",
+      "expectedDiagnostic": "GENERATION_SESSION_AUTH_STALE",
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -133,6 +187,8 @@
       "status": "PASS",
       "expectedSqlstate": "28000",
       "actualSqlstate": "28000",
+      "expectedDiagnostic": "GENERATION_API_AUTH_STALE",
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -141,6 +197,8 @@
       "status": "PASS",
       "expectedSqlstate": "28000",
       "actualSqlstate": "28000",
+      "expectedDiagnostic": "GENERATION_API_AUTH_STALE",
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -149,6 +207,8 @@
       "status": "PASS",
       "expectedSqlstate": "40001",
       "actualSqlstate": "40001",
+      "expectedDiagnostic": "GENERATION_CONTEXT_INCARNATION_MISMATCH",
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -157,6 +217,8 @@
       "status": "PASS",
       "expectedSqlstate": "55000",
       "actualSqlstate": "55000",
+      "expectedDiagnostic": "GENERATION_CREATE_IMMUTABLE_SNAPSHOT",
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -165,6 +227,8 @@
       "status": "PASS",
       "expectedSqlstate": "55000",
       "actualSqlstate": "55000",
+      "expectedDiagnostic": "GENERATION_CREATE_IMMUTABLE_SNAPSHOT",
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -173,6 +237,8 @@
       "status": "PASS",
       "expectedSqlstate": "22023",
       "actualSqlstate": "22023",
+      "expectedDiagnostic": "GENERATION_CONTEXT_INPUT_INVALID",
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -181,6 +247,8 @@
       "status": "PASS",
       "expectedSqlstate": "P0002",
       "actualSqlstate": "P0002",
+      "expectedDiagnostic": "GENERATION_AUTH_RECEIPT_UNRESOLVED",
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -189,6 +257,208 @@
       "status": "PASS",
       "expectedSqlstate": "P0002",
       "actualSqlstate": "P0002",
+      "expectedDiagnostic": "GENERATION_AUTH_RECEIPT_UNRESOLVED",
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "unregistered-deployment-pin-blocked",
+      "status": "PASS",
+      "expectedSqlstate": "P0002",
+      "actualSqlstate": "P0002",
+      "expectedDiagnostic": "GENERATION_CONTRACT_PIN_UNRESOLVED",
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "caller-contract-digest-cannot-override-registry",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "expectedDiagnostic": "GENERATION_CONTRACT_PIN_MISMATCH",
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "descriptor-server-binding-operationContractRevision",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "expectedDiagnostic": "GENERATION_DESCRIPTOR_PIN_BINDING_MISMATCH",
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "descriptor-server-binding-stableCallerObjectId",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "expectedDiagnostic": "GENERATION_DESCRIPTOR_PIN_BINDING_MISMATCH",
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "descriptor-server-binding-callerAuthorityKind",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "expectedDiagnostic": "GENERATION_DESCRIPTOR_PIN_BINDING_MISMATCH",
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "descriptor-server-binding-operationContractId",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "expectedDiagnostic": "GENERATION_DESCRIPTOR_PIN_BINDING_MISMATCH",
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "descriptor-server-binding-stableBusinessTargetKey",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "expectedDiagnostic": "GENERATION_DESCRIPTOR_PIN_BINDING_MISMATCH",
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "descriptor-server-binding-stableCallerRevisionId",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "expectedDiagnostic": "GENERATION_DESCRIPTOR_PIN_BINDING_MISMATCH",
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "descriptor-extra-field-rejected",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "expectedDiagnostic": "GENERATION_DESCRIPTOR_PIN_BINDING_MISMATCH",
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "descriptor-noncanonical-bytes-rejected",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "expectedDiagnostic": "GENERATION_DESCRIPTOR_NONCANONICAL",
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "descriptor-duplicate-json-key-rejected",
+      "status": "PASS",
+      "expectedSqlstate": "22023",
+      "actualSqlstate": "22023",
+      "expectedDiagnostic": "GENERATION_DESCRIPTOR_ENCODING_INVALID",
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "descriptor-invalid-json-encoding-rejected",
+      "status": "PASS",
+      "expectedSqlstate": "22023",
+      "actualSqlstate": "22023",
+      "expectedDiagnostic": "GENERATION_DESCRIPTOR_ENCODING_INVALID",
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "descriptor-invalid-utf8-rejected",
+      "status": "PASS",
+      "expectedSqlstate": "22023",
+      "actualSqlstate": "22023",
+      "expectedDiagnostic": "GENERATION_DESCRIPTOR_ENCODING_INVALID",
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "immutable-contract-pin-cannot-be-retargeted",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "GENERATION_CREATE_IMMUTABLE_SNAPSHOT",
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "domain-writer-cannot-install-contract-pin",
+      "status": "PASS",
+      "expectedSqlstate": "42501",
+      "actualSqlstate": "42501",
+      "expectedDiagnostic": null,
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "pin-missing-authoritative-operationId",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "expectedDiagnostic": null,
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "pin-missing-authoritative-operationRevision",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "expectedDiagnostic": null,
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "singleton-owner-exact-case",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "expectedDiagnostic": "owner_identity_username_check",
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "singleton-owner-no-trim",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "expectedDiagnostic": "owner_identity_username_check",
+      "diagnosticMatched": true,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "owner-singleton-cannot-be-deleted",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "FIXED_SINGLETON_IDENTITY_IMMUTABLE",
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     },
@@ -197,17 +467,19 @@
       "status": "PASS",
       "expectedSqlstate": null,
       "actualSqlstate": null,
+      "expectedDiagnostic": null,
+      "diagnosticMatched": true,
       "witness": "persisted synthetic server authentication acceptance +actual current-row values",
       "secretValuesIncluded": false
     }
   ],
   "summary": {
-    "checks": 24,
+    "checks": 46,
     "failed": 0
   },
   "notProven": [
     "actual session/API authentication hash verification service",
-    "complete source authentication tableDDL",
+    "remaining auth child/Secret-version composite FKs",
     "actual deployed service-login group grants",
     "main-mutation recovery/admission guard",
     "whole operation transaction closure"

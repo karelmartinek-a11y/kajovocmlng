@@ -1,0 +1,567 @@
+{
+  "sourceDocumentSha256": "3c2f44e0660d1f97eaf77b59b972bcba230d39c1063141d88a734526f9c81e70",
+  "inputCommit": "6ac0e89921ad73e1dae7054ef78d0d4880c67e60",
+  "fields": [
+    {
+      "table": "owner_identity",
+      "field": "id",
+      "sqlType": "uuid",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_identity",
+      "meaning": "id persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "PRIMARY KEY"
+    },
+    {
+      "table": "owner_identity",
+      "field": "singleton_key",
+      "sqlType": "smallint",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_identity",
+      "meaning": "Physical SMALLINT1; symbolic OWNER/OWNER_API arelogicalidentifiers",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL DEFAULT 1 UNIQUE CHECK(singleton_key=1)"
+    },
+    {
+      "table": "owner_identity",
+      "field": "username",
+      "sqlType": "citext",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_identity",
+      "meaning": "username persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL UNIQUE CHECK(username::text COLLATE \"C\"='KRMAR78')"
+    },
+    {
+      "table": "owner_identity",
+      "field": "password_hash",
+      "sqlType": "text",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_identity",
+      "meaning": "Canonical password verifier encoding; actual hash profile/verifier must be specified separately",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL CHECK(length(password_hash)>0)"
+    },
+    {
+      "table": "owner_identity",
+      "field": "password_changed_at",
+      "sqlType": "timestamptz",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_identity",
+      "meaning": "password changed at persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL"
+    },
+    {
+      "table": "owner_identity",
+      "field": "mfa_enabled",
+      "sqlType": "boolean",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_identity",
+      "meaning": "mfa enabled persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL"
+    },
+    {
+      "table": "owner_identity",
+      "field": "mfa_secret_ciphertext",
+      "sqlType": "bytea",
+      "nullable": true,
+      "sourcePointer": "\u00a725.3/owner_identity",
+      "meaning": "Authenticated encrypted MFA seed under canonical master-key mechanism; no plaintext",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NULL"
+    },
+    {
+      "table": "owner_identity",
+      "field": "deployment_managed",
+      "sqlType": "boolean",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_identity",
+      "meaning": "deployment managed persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL"
+    },
+    {
+      "table": "owner_identity",
+      "field": "session_epoch",
+      "sqlType": "bigint",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_identity",
+      "meaning": "session epoch persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL DEFAULT 0 CHECK(session_epoch>=0)"
+    },
+    {
+      "table": "owner_identity",
+      "field": "state_version",
+      "sqlType": "bigint",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_identity",
+      "meaning": "state version persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL DEFAULT 0 CHECK(state_version>=0)"
+    },
+    {
+      "table": "owner_identity",
+      "field": "aggregate_event_sequence",
+      "sqlType": "bigint",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_identity",
+      "meaning": "aggregate event sequence persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL DEFAULT 0 CHECK(aggregate_event_sequence>=0)"
+    },
+    {
+      "table": "owner_identity",
+      "field": "created_at",
+      "sqlType": "timestamptz",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_identity",
+      "meaning": "created at persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL"
+    },
+    {
+      "table": "owner_identity",
+      "field": "updated_at",
+      "sqlType": "timestamptz",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_identity",
+      "meaning": "updated at persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL"
+    },
+    {
+      "table": "owner_identity",
+      "field": "password_source",
+      "sqlType": "text",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_identity",
+      "meaning": "password source persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL CHECK(password_source='GITHUB_ACTIONS_PASS')"
+    },
+    {
+      "table": "owner_session",
+      "field": "id",
+      "sqlType": "uuid",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_session",
+      "meaning": "id persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "PRIMARY KEY"
+    },
+    {
+      "table": "owner_session",
+      "field": "owner_identity_id",
+      "sqlType": "uuid",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_session",
+      "meaning": "owner identity id persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL REFERENCES owner_identity(id) ON DELETE RESTRICT"
+    },
+    {
+      "table": "owner_session",
+      "field": "lookup_digest",
+      "sqlType": "bytea",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_session",
+      "meaning": "32-byte server digest of exact admitted token lookup material",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL UNIQUE CHECK(octet_length(lookup_digest)=32)"
+    },
+    {
+      "table": "owner_session",
+      "field": "session_hash",
+      "sqlType": "text",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_session",
+      "meaning": "Canonical session token verifier encoding, not raw token",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL CHECK(length(session_hash)>0)"
+    },
+    {
+      "table": "owner_session",
+      "field": "created_at",
+      "sqlType": "timestamptz",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_session",
+      "meaning": "created at persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL"
+    },
+    {
+      "table": "owner_session",
+      "field": "last_seen_at",
+      "sqlType": "timestamptz",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_session",
+      "meaning": "last seen at persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL"
+    },
+    {
+      "table": "owner_session",
+      "field": "expires_at",
+      "sqlType": "timestamptz",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_session",
+      "meaning": "expires at persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL"
+    },
+    {
+      "table": "owner_session",
+      "field": "revoked_at",
+      "sqlType": "timestamptz",
+      "nullable": true,
+      "sourcePointer": "\u00a725.3/owner_session",
+      "meaning": "revoked at persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NULL"
+    },
+    {
+      "table": "owner_session",
+      "field": "reauthenticated_at",
+      "sqlType": "timestamptz",
+      "nullable": true,
+      "sourcePointer": "\u00a725.3/owner_session",
+      "meaning": "reauthenticated at persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NULL"
+    },
+    {
+      "table": "owner_session",
+      "field": "session_epoch",
+      "sqlType": "bigint",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_session",
+      "meaning": "session epoch persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL CHECK(session_epoch>=0)"
+    },
+    {
+      "table": "owner_session",
+      "field": "device_metadata",
+      "sqlType": "text",
+      "nullable": true,
+      "sourcePointer": "\u00a725.3/owner_session",
+      "meaning": "Literal device description, not embeddedJSON or authority",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NULL"
+    },
+    {
+      "table": "owner_session",
+      "field": "ip_address",
+      "sqlType": "inet",
+      "nullable": true,
+      "sourcePointer": "\u00a725.3/owner_session",
+      "meaning": "ip address persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NULL"
+    },
+    {
+      "table": "owner_session",
+      "field": "user_agent",
+      "sqlType": "text",
+      "nullable": true,
+      "sourcePointer": "\u00a725.3/owner_session",
+      "meaning": "user agent persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NULL"
+    },
+    {
+      "table": "owner_api_credential",
+      "field": "singleton_key",
+      "sqlType": "smallint",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_api_credential",
+      "meaning": "Physical SMALLINT1; symbolic OWNER/OWNER_API arelogicalidentifiers",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "PRIMARY KEY DEFAULT 1 CHECK(singleton_key=1)"
+    },
+    {
+      "table": "owner_api_credential",
+      "field": "secret_id",
+      "sqlType": "uuid",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_api_credential",
+      "meaning": "Canonical reservedKCML_OWNER_API_KEY Secret identity",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL"
+    },
+    {
+      "table": "owner_api_credential",
+      "field": "secret_version_id",
+      "sqlType": "uuid",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_api_credential",
+      "meaning": "Exact currentACTIVE version of the same reservedSecret",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL"
+    },
+    {
+      "table": "owner_api_credential",
+      "field": "verifier_hash",
+      "sqlType": "text",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_api_credential",
+      "meaning": "Canonical API credential verifier encoding; constant-time verification under B3lock required",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL CHECK(length(verifier_hash)>0)"
+    },
+    {
+      "table": "owner_api_credential",
+      "field": "fingerprint",
+      "sqlType": "text",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_api_credential",
+      "meaning": "Fingerprint of actual retained credential Secret version",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL CHECK(length(fingerprint)>0)"
+    },
+    {
+      "table": "owner_api_credential",
+      "field": "credential_version",
+      "sqlType": "bigint",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_api_credential",
+      "meaning": "credential version persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL CHECK(credential_version>=1)"
+    },
+    {
+      "table": "owner_api_credential",
+      "field": "state_version",
+      "sqlType": "bigint",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_api_credential",
+      "meaning": "state version persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL DEFAULT 0 CHECK(state_version>=0)"
+    },
+    {
+      "table": "owner_api_credential",
+      "field": "credential_activation_epoch",
+      "sqlType": "bigint",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_api_credential",
+      "meaning": "credential activation epoch persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL CHECK(credential_activation_epoch>=0)"
+    },
+    {
+      "table": "owner_api_credential",
+      "field": "last_rotate_logical_operation_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "\u00a725.3/owner_api_credential",
+      "meaning": "last rotate logical operation id persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NULL"
+    },
+    {
+      "table": "owner_api_credential",
+      "field": "last_rotate_outcome_digest",
+      "sqlType": "bytea",
+      "nullable": true,
+      "sourcePointer": "\u00a725.3/owner_api_credential",
+      "meaning": "last rotate outcome digest persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NULL CHECK(octet_length(last_rotate_outcome_digest)=32)"
+    },
+    {
+      "table": "owner_api_credential",
+      "field": "created_at",
+      "sqlType": "timestamptz",
+      "nullable": false,
+      "sourcePointer": "\u00a725.3/owner_api_credential",
+      "meaning": "created at persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL"
+    },
+    {
+      "table": "owner_api_credential",
+      "field": "rotated_at",
+      "sqlType": "timestamptz",
+      "nullable": true,
+      "sourcePointer": "\u00a725.3/owner_api_credential",
+      "meaning": "rotated at persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NULL"
+    },
+    {
+      "table": "owner_api_credential",
+      "field": "last_used_at",
+      "sqlType": "timestamptz",
+      "nullable": true,
+      "sourcePointer": "\u00a725.3/owner_api_credential",
+      "meaning": "last used at persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NULL"
+    },
+    {
+      "table": "owner_api_credential",
+      "field": "last_usage_metadata",
+      "sqlType": "text",
+      "nullable": true,
+      "sourcePointer": "\u00a725.3/owner_api_credential",
+      "meaning": "Literal derived usage summary, never authority; append-only evidence is authoritative",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NULL"
+    },
+    {
+      "table": "owner_api_credential",
+      "field": "audit_correlation_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "\u00a725.3/owner_api_credential",
+      "meaning": "audit correlation id persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NULL"
+    },
+    {
+      "table": "platform_incarnation",
+      "field": "singleton_key",
+      "sqlType": "smallint",
+      "nullable": false,
+      "sourcePointer": "SSOT entity platform_incarnation and \u00a751.6/51.11",
+      "meaning": "Physical SMALLINT1; symbolic OWNER/OWNER_API arelogicalidentifiers",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "PRIMARY KEY DEFAULT 1 CHECK(singleton_key=1)"
+    },
+    {
+      "table": "platform_incarnation",
+      "field": "platform_incarnation_id",
+      "sqlType": "uuid",
+      "nullable": false,
+      "sourcePointer": "SSOT entity platform_incarnation and \u00a751.6/51.11",
+      "meaning": "platform incarnation id persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL UNIQUE"
+    },
+    {
+      "table": "platform_incarnation",
+      "field": "incarnation_sequence",
+      "sqlType": "bigint",
+      "nullable": false,
+      "sourcePointer": "SSOT entity platform_incarnation and \u00a751.6/51.11",
+      "meaning": "incarnation sequence persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL CHECK(incarnation_sequence>=1)"
+    },
+    {
+      "table": "platform_incarnation",
+      "field": "created_at",
+      "sqlType": "timestamptz",
+      "nullable": false,
+      "sourcePointer": "SSOT entity platform_incarnation and \u00a751.6/51.11",
+      "meaning": "created at persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL"
+    },
+    {
+      "table": "platform_incarnation",
+      "field": "reason",
+      "sqlType": "text",
+      "nullable": false,
+      "sourcePointer": "SSOT entity platform_incarnation and \u00a751.6/51.11",
+      "meaning": "reason persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL"
+    },
+    {
+      "table": "platform_incarnation",
+      "field": "source_restore_evidence_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "SSOT entity platform_incarnation and \u00a751.6/51.11",
+      "meaning": "source restore evidence id persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NULL"
+    },
+    {
+      "table": "platform_incarnation",
+      "field": "source_deployment_evidence_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "SSOT entity platform_incarnation and \u00a751.6/51.11",
+      "meaning": "source deployment evidence id persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NULL"
+    },
+    {
+      "table": "application_deployment_head",
+      "field": "singleton_key",
+      "sqlType": "smallint",
+      "nullable": false,
+      "sourcePointer": "SSOT entity application_deployment_head and \u00a751.6/51.11",
+      "meaning": "Physical SMALLINT1; symbolic OWNER/OWNER_API arelogicalidentifiers",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "PRIMARY KEY DEFAULT 1 CHECK(singleton_key=1)"
+    },
+    {
+      "table": "application_deployment_head",
+      "field": "application_deployment_epoch",
+      "sqlType": "bigint",
+      "nullable": false,
+      "sourcePointer": "SSOT entity application_deployment_head and \u00a751.6/51.11",
+      "meaning": "Current serverdeployment epoch lockedbeforeacceptance",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL CHECK(application_deployment_epoch>=0)"
+    },
+    {
+      "table": "application_deployment_head",
+      "field": "current_application_release_id",
+      "sqlType": "uuid",
+      "nullable": false,
+      "sourcePointer": "SSOT entity application_deployment_head and \u00a751.6/51.11",
+      "meaning": "current application release id persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL"
+    },
+    {
+      "table": "application_deployment_head",
+      "field": "current_manifest_digest",
+      "sqlType": "bytea",
+      "nullable": false,
+      "sourcePointer": "SSOT entity application_deployment_head and \u00a751.6/51.11",
+      "meaning": "32-byte digest of actual activated application release manifest",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL CHECK(octet_length(current_manifest_digest)=32)"
+    },
+    {
+      "table": "application_deployment_head",
+      "field": "platform_incarnation_id",
+      "sqlType": "uuid",
+      "nullable": false,
+      "sourcePointer": "SSOT entity application_deployment_head and \u00a751.6/51.11",
+      "meaning": "platform incarnation id persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL"
+    },
+    {
+      "table": "application_deployment_head",
+      "field": "state_version",
+      "sqlType": "bigint",
+      "nullable": false,
+      "sourcePointer": "SSOT entity application_deployment_head and \u00a751.6/51.11",
+      "meaning": "state version persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL DEFAULT 0 CHECK(state_version>=0)"
+    },
+    {
+      "table": "application_deployment_head",
+      "field": "updated_at",
+      "sqlType": "timestamptz",
+      "nullable": false,
+      "sourcePointer": "SSOT entity application_deployment_head and \u00a751.6/51.11",
+      "meaning": "updated at persisted source-owned value",
+      "origin": "canonical authentication/deployment server and actual locked rows; never model assertion",
+      "constraint": "NOT NULL"
+    }
+  ],
+  "separation": "DDL/physical guards verified; verifier codec/profile and actual credentials not proven by nonemptyhash fields"
+}

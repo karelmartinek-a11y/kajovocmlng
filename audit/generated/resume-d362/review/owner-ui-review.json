@@ -1,0 +1,42 @@
+{
+  "scope": "Independent PG18.6 disposable-schema OWNER bridge reference; auth/schema publisher fixtures synthetic, not source runtime producers or whole UI closure.",
+  "checks": 5,
+  "failed": 0,
+  "cases": [
+    {
+      "id": "positive-own-intent-and-worker",
+      "passed": true,
+      "expected": "ACCEPTED",
+      "actual": "30000000-0000-4000-8000-000000000001\nruntime.instance.start"
+    },
+    {
+      "id": "dispatch-start-cannot-become-stop",
+      "passed": true,
+      "expected": "owner_ui_dispatch_registry_check",
+      "actual": "ERROR:  23514: new row for relation \"owner_ui_dispatch_registry\" violates check constraint \"owner_ui_dispatch_registry_check\"\nDETAIL:  Failing row contains (runtime.owner.start.request, dashboard.start, runtime.stop, AUTOMATED_MAINTENANCE, \\x03030303030303030303030303030303030303030303030303030303030303..., \\x04040404040404040404040404040404040404040404040404040404040404..., \\x05050505050505050505050505050505050505050505050505050505050505...).\nSCHEMA NAME:  independent_owner_ui\nTABLE NAME:  owner_ui_dispatch_registry\nCONSTRAINT NAME:  owner_ui_dispatch_registry_check\nLOCATION:  ExecConstraints, execMain.c:2076\n"
+    },
+    {
+      "id": "existing-worker-current-cancel-rechecked",
+      "passed": true,
+      "expected": "OWNER_UI_WORKER_PARENT_NOT_ADMISSIBLE",
+      "actual": "ERROR:  55000: OWNER_UI_WORKER_PARENT_NOT_ADMISSIBLE\nCONTEXT:  PL/pgSQL function kcml_owner_ui_worker_context_v1(uuid) line 15 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909\n"
+    },
+    {
+      "id": "durable-intent-survives-origin-session-revocation",
+      "passed": true,
+      "expected": "ACCEPTED",
+      "actual": "30000000-0000-4000-8000-000000000001\nruntime.instance.start"
+    },
+    {
+      "id": "existing-login-builder-role-must-not-be-accepted",
+      "passed": true,
+      "expected": "55000: OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actual": "ERROR:  55000: OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE\nCONTEXT:  PL/pgSQL function inline_code_block line 6 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909\n"
+    }
+  ],
+  "consumed": {
+    "audit/generated/resume-d362/consumers/owner-ui-intent-worker-proposed.sql": "fd05204b7200c3b4c38ac4475a1bc5836f67ba4aa942e5764f8a718eb731e464",
+    "audit/generated/resume-d362/consumers/owner-ui-role-bindings-proposed.sql": "cde40e4a9ab1bedaa6600f5a51549dc0b87f7d68a5562db0ba567e5dd2457f9c",
+    "audit/generated/resume-d362/consumers/verify_postgres_owner_ui_bridge.py": "54050e1100462494885543436ea28016de89caa9c14b126e7c8f00a7df8adbc2"
+  }
+}

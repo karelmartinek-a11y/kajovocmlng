@@ -1,0 +1,506 @@
+{
+  "inputCommit": "6ac0e89",
+  "postgresVersion": "18.6",
+  "scope": "Actual own intent/auth/worker context SQL guards and role isolation; producer validator/auth fixture values synthetic, not whole UI closure",
+  "checks": [
+    {
+      "id": "fresh-owner-intent-accepted",
+      "actualDiagnostic": null,
+      "expectedDiagnostic": null,
+      "status": "PASS",
+      "expectedSqlstate": null,
+      "actualSqlstate": null
+    },
+    {
+      "id": "forged-execution-descriptor-rejected",
+      "actualDiagnostic": "OWNER_UI_COMMAND_SCOPE_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_COMMAND_SCOPE_MISMATCH",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514"
+    },
+    {
+      "id": "wrong-caller-channel-rejected",
+      "actualDiagnostic": "OWNER_UI_COMMAND_SCOPE_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_COMMAND_SCOPE_MISMATCH",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514"
+    },
+    {
+      "id": "own-worker-authority-from-visible-intent",
+      "actualDiagnostic": null,
+      "expectedDiagnostic": null,
+      "status": "PASS",
+      "expectedSqlstate": null,
+      "actualSqlstate": null
+    },
+    {
+      "id": "accepted-intent-replay-one-row",
+      "actualDiagnostic": null,
+      "expectedDiagnostic": null,
+      "status": "PASS",
+      "expectedSqlstate": null,
+      "actualSqlstate": null
+    },
+    {
+      "id": "different-wire-whitespace-same-semantic-request",
+      "actualDiagnostic": null,
+      "expectedDiagnostic": null,
+      "status": "PASS",
+      "expectedSqlstate": null,
+      "actualSqlstate": null
+    },
+    {
+      "id": "changed-worker-schema-pin-blocks",
+      "actualDiagnostic": "OWNER_UI_WORKER_INTENT_LINK_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_WORKER_INTENT_LINK_MISMATCH",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514"
+    },
+    {
+      "id": "revoked-owner-session-blocks-fresh-intent",
+      "actualDiagnostic": "OWNER_UI_SESSION_STALE",
+      "expectedDiagnostic": "OWNER_UI_SESSION_STALE",
+      "status": "PASS",
+      "expectedSqlstate": "28000",
+      "actualSqlstate": "28000"
+    },
+    {
+      "id": "retained-intent-worker-not-new-owner-auth",
+      "actualDiagnostic": null,
+      "expectedDiagnostic": null,
+      "status": "PASS",
+      "expectedSqlstate": null,
+      "actualSqlstate": null
+    },
+    {
+      "id": "nonterminal-uncertain-parent-needs-reconciliation",
+      "actualDiagnostic": "OWNER_UI_WORKER_RECONCILIATION_REQUIRED",
+      "expectedDiagnostic": "OWNER_UI_WORKER_RECONCILIATION_REQUIRED",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000"
+    },
+    {
+      "id": "cancelled-parent-blocks-worker",
+      "actualDiagnostic": "OWNER_UI_WORKER_PARENT_NOT_ADMISSIBLE",
+      "expectedDiagnostic": "OWNER_UI_WORKER_PARENT_NOT_ADMISSIBLE",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000"
+    },
+    {
+      "id": "changed-deployment-blocks-worker",
+      "actualDiagnostic": "OWNER_UI_WORKER_HEAD_CHANGED",
+      "expectedDiagnostic": "OWNER_UI_WORKER_HEAD_CHANGED",
+      "status": "PASS",
+      "expectedSqlstate": "40001",
+      "actualSqlstate": "40001"
+    },
+    {
+      "id": "changed-worker-registry-blocks",
+      "actualDiagnostic": "OWNER_UI_WORKER_INTENT_LINK_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_WORKER_INTENT_LINK_MISMATCH",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514"
+    },
+    {
+      "id": "worker-context-replay-single-row",
+      "actualDiagnostic": null,
+      "expectedDiagnostic": null,
+      "status": "PASS",
+      "expectedSqlstate": null,
+      "actualSqlstate": null
+    },
+    {
+      "id": "forged-schema-pin-blocks-intent",
+      "actualDiagnostic": "OWNER_UI_INPUT_SCHEMA_PIN_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_INPUT_SCHEMA_PIN_MISMATCH",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514"
+    },
+    {
+      "id": "frozen-input-update-rejected",
+      "actualDiagnostic": "OWNER_UI_FROZEN_IMMUTABLE",
+      "expectedDiagnostic": "OWNER_UI_FROZEN_IMMUTABLE",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000"
+    },
+    {
+      "id": "domain-role-cannot-forge-input",
+      "actualDiagnostic": "permission denied for table owner_ui_validated_input",
+      "expectedDiagnostic": null,
+      "status": "PASS",
+      "expectedSqlstate": "42501",
+      "actualSqlstate": "42501"
+    },
+    {
+      "id": "domain-role-cannot-build-worker",
+      "actualDiagnostic": "permission denied for table owner_ui_accepted_intent",
+      "expectedDiagnostic": null,
+      "status": "PASS",
+      "expectedSqlstate": "42501",
+      "actualSqlstate": "42501"
+    },
+    {
+      "id": "domain-role-can-only-accept-intent",
+      "actualDiagnostic": null,
+      "expectedDiagnostic": null,
+      "status": "PASS",
+      "expectedSqlstate": null,
+      "actualSqlstate": null
+    },
+    {
+      "id": "dispatcher-cannot-forge-owner-auth",
+      "actualDiagnostic": "permission denied for table owner_ui_authentication_acceptance",
+      "expectedDiagnostic": null,
+      "status": "PASS",
+      "expectedSqlstate": "42501",
+      "actualSqlstate": "42501"
+    },
+    {
+      "id": "stop-own-operation-authority-dispatch",
+      "status": "PASS"
+    },
+    {
+      "id": "specification-owner-input-internal-worker-dispatch",
+      "status": "PASS"
+    },
+    {
+      "id": "exact-worker-context-use",
+      "actualDiagnostic": null,
+      "expectedDiagnostic": null,
+      "status": "PASS",
+      "expectedSqlstate": null,
+      "actualSqlstate": null
+    },
+    {
+      "id": "different-worker-scope-rejected",
+      "actualDiagnostic": "OWNER_UI_WORKER_OPERATION_SCOPE_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_WORKER_OPERATION_SCOPE_MISMATCH",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514"
+    },
+    {
+      "id": "cancel-after-context-before-effect-rejected",
+      "actualDiagnostic": "OWNER_UI_WORKER_PARENT_NOT_ADMISSIBLE",
+      "expectedDiagnostic": "OWNER_UI_WORKER_PARENT_NOT_ADMISSIBLE",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000"
+    },
+    {
+      "id": "unknown-worker-context-rejected",
+      "actualDiagnostic": "OWNER_UI_WORKER_CONTEXT_UNAVAILABLE",
+      "expectedDiagnostic": "OWNER_UI_WORKER_CONTEXT_UNAVAILABLE",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000"
+    },
+    {
+      "id": "reserved-role-safe-profile-install",
+      "status": "PASS",
+      "fixtureRoles": "disposable alias names only"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_builder/LOGIN",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_builder/SUPERUSER",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_builder/CREATEROLE",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_builder/CREATEDB",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_builder/REPLICATION",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_builder/BYPASSRLS",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_input_validator/LOGIN",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_input_validator/SUPERUSER",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_input_validator/CREATEROLE",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_input_validator/CREATEDB",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_input_validator/REPLICATION",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_input_validator/BYPASSRLS",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_dispatcher/LOGIN",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_dispatcher/SUPERUSER",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_dispatcher/CREATEROLE",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_dispatcher/CREATEDB",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_dispatcher/REPLICATION",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_owner_ui_dispatcher/BYPASSRLS",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_authentication_writer/LOGIN",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_authentication_writer/SUPERUSER",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_authentication_writer/CREATEROLE",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_authentication_writer/CREATEDB",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_authentication_writer/REPLICATION",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_authentication_writer/BYPASSRLS",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_domain_writer/LOGIN",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_domain_writer/SUPERUSER",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_domain_writer/CREATEROLE",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_domain_writer/CREATEDB",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_domain_writer/REPLICATION",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "reserved-role-profile/kcml_domain_writer/BYPASSRLS",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "expectedDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "actualDiagnostic": "OWNER_UI_RESERVED_ROLE_PROFILE_UNSAFE",
+      "fixtureRoles": "disposable aliases; no real role mutation"
+    },
+    {
+      "id": "independent-worker-cannot-see-uncommitted-owner-intent",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_WORKER_DEPENDENCY_UNAVAILABLE"
+    },
+    {
+      "id": "independent-worker-resolves-same-intent-after-commit",
+      "status": "PASS"
+    }
+  ],
+  "summary": {
+    "checks": 59,
+    "failed": 0
+  },
+  "sqlSHA256": "fd05204b7200c3b4c38ac4475a1bc5836f67ba4aa942e5764f8a718eb731e464",
+  "rolesSHA256": "cde40e4a9ab1bedaa6600f5a51549dc0b87f7d68a5562db0ba567e5dd2457f9c",
+  "fixtureSetupSHA256": "6cd7cc61a927967541f0bf62bfcb00daf9e7eb886087958be3fdd493105d1db0",
+  "verifierSHA256": "54050e1100462494885543436ea28016de89caa9c14b126e7c8f00a7df8adbc2",
+  "notProven": [
+    "actual credential/schema validator service producers",
+    "full own target current-state/head resolver",
+    "worker effects/readiness/cleanup/spec DRAFT",
+    "full canonical facade operation/response/error/event catalog",
+    "actual end-to-end event/outbox/audit transaction"
+  ]
+}

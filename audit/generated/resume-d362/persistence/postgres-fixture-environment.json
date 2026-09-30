@@ -29,5 +29,14 @@
     "psql": "164750395edbbc1137219a73ba8137d94fcf6a0955d1b3ba77ed9a3027137f11",
     "initdb": "d48f729e6d460b6d6e092d7b30a63f16c8b37dd6a182edba6656ca5bd3c60d26",
     "pg_ctl": "0df6f33a08a289727892563e667cca3db877a5ab4e6604f64c53d52551c831b0"
+  },
+  "extensions": {
+    "citext": "1.8",
+    "pgcrypto": "1.4"
+  },
+  "extensionBuild": "sameREL_18_6 source; makecontrib/citext; makecontrib/pgcrypto SHLIB_LINK=-lcrypto -lz; installation/tmp only; existingprivatePostgreSQLserver no restart",
+  "extensionLibrarySHA256": {
+    "citext": "b29d04ceafffb0061435579936cd16cbffdfa67bb0c62592a3bbf392db4dcba3",
+    "pgcrypto": "00c785670af8dcdc6e7347450555774390f18337486bd0f1c984c3685a6836fe"
   }
 }

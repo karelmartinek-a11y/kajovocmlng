@@ -1,0 +1,27 @@
+{
+  "entryCommitPrefix": "6ac0e89",
+  "entrySourceHashPrefix": "9bf551",
+  "capturedCurrentSourceSHA256": "3c2f44e0660d1f97eaf77b59b972bcba230d39c1063141d88a734526f9c81e70",
+  "consumedResourceSHA256": {
+    "contracts/generation/generation-contracts.schema.json": "5cf483812abcbfd834c54537a444724d227fe36ddb1ad0604af13205b4494943",
+    "contracts/operation-contracts.json": "9bfc957372b2eb28a8a78808eef8dc20a07c18134cd139cc97f536518b0414a5",
+    "ui/contracts/ui-control-registry.json": "228f32480e634310eaeea27173671eb01bf7ec49ff22e2fdef1130f35412385d",
+    "ui/contracts/live-experience.json": "529f0bd8857be7028dc431415e7ba976ad9b2745a112f91ddd43641a23005dc1"
+  },
+  "artifacts": {
+    "owner-ui-intent-worker-proposed.sql": "fd05204b7200c3b4c38ac4475a1bc5836f67ba4aa942e5764f8a718eb731e464",
+    "owner-ui-role-bindings-proposed.sql": "cde40e4a9ab1bedaa6600f5a51549dc0b87f7d68a5562db0ba567e5dd2457f9c",
+    "owner_ui_native_contracts.py": "10230779f2e37e7c93fca4a56a249bcf21a4d2941ff90cea4819a4fc401518ae",
+    "owner-ui-native-contracts.proposed.json": "b1631d214521f6254051fd1afb7785fda37045214e365abec05fa089f7562cb9",
+    "verify_postgres_owner_ui_bridge.py": "54050e1100462494885543436ea28016de89caa9c14b126e7c8f00a7df8adbc2",
+    "postgres-owner-ui-bridge-proof.json": "9b1a3ade654f59580c91060cbecd8015bcfc094d5215ca617512c74c3d2b7596",
+    "verify_owner_ui_native_contracts.py": "4d8cbdc7d9f84cd8185cae700d67e57b8da57b0869384a92449057c500458250",
+    "owner-ui-native-contract-tests.json": "65a53964a0e4ce8ee57025d14d750f5e286837b362ea4ab1ac4da4448539e032",
+    "native-evidence-reuse-after-role-fix.json": "7836b73809c90e554e3347d1188d6294fed1add9f3026356c67de3ac21199a58",
+    "owner-ui-fixture-foundations.sql": "abc61f98d8b8a971493531bc3b552a2f8efe63b381446f2ea6ea653956851914"
+  },
+  "wholeExposuresClosed": 0,
+  "type": "Candidate integration artifact bindings; final coordinator must rebind/review current effective sources before activation",
+  "roleFixVerified": "Existing reserved trusted groups must be NOLOGIN/NOSUPERUSER/NOCREATEROLE/NOCREATEDB/NOREPLICATION/NOBYPASSRLS; no implicit role repair",
+  "postgresChecksAfterRoleFix": 59
+}

@@ -1,0 +1,25 @@
+{
+  "reuseVerdict": "VALID_FOR_SAME_BOUNDED_NATIVE_SCOPE",
+  "checksReused": 109,
+  "reportSHA256": "65a53964a0e4ce8ee57025d14d750f5e286837b362ea4ab1ac4da4448539e032",
+  "roleFixAffectsNativeMasks": false,
+  "consumedInputComparison": [
+    {
+      "file": "owner_ui_native_contracts.py",
+      "same": true
+    },
+    {
+      "file": "verify_owner_ui_native_contracts.py",
+      "same": true
+    },
+    {
+      "file": "ui_facade_pipeline_reference.py",
+      "same": true
+    },
+    {
+      "resource": "contracts/generation/generation-contracts.schema.json",
+      "same": true
+    }
+  ],
+  "notProven": "Whole3exposure completion; source-independent current native source binding does not close other A obligations"
+}

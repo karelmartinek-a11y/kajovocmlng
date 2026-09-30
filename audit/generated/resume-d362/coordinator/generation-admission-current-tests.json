@@ -1,0 +1,1357 @@
+{
+  "sourceDocumentSha256": "8b89dd7d4b905333bf0fa7d64d721150b20f4e6a48f4ed7ddc38a1d708f8fd73",
+  "checked": 240,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "UPDATE/native-positive",
+      "passed": true
+    },
+    {
+      "case": "UPDATE/discussion-only",
+      "passed": true
+    },
+    {
+      "case": "UPDATE/missing/basisKind",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "UPDATE/missing/snapshotId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "UPDATE/missing/expectedDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "UPDATE/basis-type/None",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "UPDATE/basis-type/False",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "UPDATE/basis-type/[]",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "UPDATE/basis-type/42",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "UPDATE/extra-server-authority",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "UPDATE/digest-conflict",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DIGEST_CONFLICT",
+      "actualCode": "GENERATION_BASIS_DIGEST_CONFLICT",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "UPDATE/bytes-unavailable",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_BYTES_UNAVAILABLE",
+      "actualCode": "GENERATION_BASIS_BYTES_UNAVAILABLE",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "UPDATE/bytes-digest-mismatch",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_BYTES_DIGEST_MISMATCH",
+      "actualCode": "GENERATION_BASIS_BYTES_DIGEST_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "UPDATE/owner",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "actualCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "UPDATE/record-identity",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_IDENTITY_MISMATCH",
+      "actualCode": "GENERATION_BASIS_IDENTITY_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "UPDATE/wrong-definition",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DEFINITION_MISMATCH",
+      "actualCode": "GENERATION_BASIS_DEFINITION_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "UPDATE/valid-flags-not-content",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "actualCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/native-positive",
+      "passed": true
+    },
+    {
+      "case": "RETRY/discussion-only",
+      "passed": true
+    },
+    {
+      "case": "RETRY/missing/basisKind",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/missing/phaseRunId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/missing/expectedDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/missing/planId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/missing/expectedPlanDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/missing/approvedRevisionId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/missing/expectedSpecificationDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/missing/authorityId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/missing/expectedAuthorityDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/basis-type/None",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/basis-type/False",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/basis-type/[]",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/basis-type/42",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/extra-server-authority",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/digest-conflict",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DIGEST_CONFLICT",
+      "actualCode": "GENERATION_BASIS_DIGEST_CONFLICT",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/bytes-unavailable",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_BYTES_UNAVAILABLE",
+      "actualCode": "GENERATION_BASIS_BYTES_UNAVAILABLE",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/bytes-digest-mismatch",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_BYTES_DIGEST_MISMATCH",
+      "actualCode": "GENERATION_BASIS_BYTES_DIGEST_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/owner",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "actualCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/record-identity",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_IDENTITY_MISMATCH",
+      "actualCode": "GENERATION_BASIS_IDENTITY_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/wrong-definition",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DEFINITION_MISMATCH",
+      "actualCode": "GENERATION_BASIS_DEFINITION_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/valid-flags-not-content",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "actualCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/native-positive",
+      "passed": true
+    },
+    {
+      "case": "REPAIR/discussion-only",
+      "passed": true
+    },
+    {
+      "case": "REPAIR/missing/basisKind",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/missing/monitoringArtifactId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/missing/expectedDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/missing/snapshotId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/missing/expectedTargetDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/missing/approvedRevisionId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/missing/expectedSpecificationDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/missing/authorityId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/missing/expectedAuthorityDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/basis-type/None",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/basis-type/False",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/basis-type/[]",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/basis-type/42",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/extra-server-authority",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/digest-conflict",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DIGEST_CONFLICT",
+      "actualCode": "GENERATION_BASIS_DIGEST_CONFLICT",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/bytes-unavailable",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_BYTES_UNAVAILABLE",
+      "actualCode": "GENERATION_BASIS_BYTES_UNAVAILABLE",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/bytes-digest-mismatch",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_BYTES_DIGEST_MISMATCH",
+      "actualCode": "GENERATION_BASIS_BYTES_DIGEST_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/owner",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "actualCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/record-identity",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_IDENTITY_MISMATCH",
+      "actualCode": "GENERATION_BASIS_IDENTITY_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/wrong-definition",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DEFINITION_MISMATCH",
+      "actualCode": "GENERATION_BASIS_DEFINITION_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/valid-flags-not-content",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "actualCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "UPDATE/target-identity",
+      "passed": true,
+      "expectedCode": "GENERATION_TARGET_SNAPSHOT_MISMATCH",
+      "actualCode": "GENERATION_TARGET_SNAPSHOT_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/failed-node-not-in-plan",
+      "passed": true,
+      "expectedCode": "GENERATION_RETRY_FAILED_PART_MISMATCH",
+      "actualCode": "GENERATION_RETRY_FAILED_PART_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/unknown-side-effects",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "actualCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "expectedPointer": "/pendingSideEffectIds",
+      "actualPointer": "/pendingSideEffectIds"
+    },
+    {
+      "case": "RETRY/success-not-failure",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "actualCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "expectedPointer": "/state",
+      "actualPointer": "/state"
+    },
+    {
+      "case": "RETRY/authority-digest-conflict",
+      "passed": true,
+      "expectedCode": "GENERATION_RETRY_LINEAGE_MISMATCH",
+      "actualCode": "GENERATION_RETRY_LINEAGE_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/subject-target",
+      "passed": true,
+      "expectedCode": "GENERATION_REPAIR_MONITORING_TARGET_MISMATCH",
+      "actualCode": "GENERATION_REPAIR_MONITORING_TARGET_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/actual-observation",
+      "passed": true,
+      "expectedCode": "MONITORING_OBSERVATION_INVALID",
+      "actualCode": "MONITORING_OBSERVATION_INVALID",
+      "expectedPointer": "/observations/failureCount",
+      "actualPointer": "/observations/failureCount"
+    },
+    {
+      "case": "REPAIR/observation-schema-digest",
+      "passed": true,
+      "expectedCode": "MONITORING_OBSERVATION_SCHEMA_DIGEST_MISMATCH",
+      "actualCode": "MONITORING_OBSERVATION_SCHEMA_DIGEST_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/publication-unknown",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_UNPUBLISHED",
+      "actualCode": "GENERATION_BASIS_UNPUBLISHED",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "FOLLOW_UP/INITIAL_REQUEST/actual-native-content",
+      "passed": true
+    },
+    {
+      "case": "FOLLOW_UP/INITIAL_REQUEST/GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "actualCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "expectedPointer": "/intent",
+      "actualPointer": "/intent"
+    },
+    {
+      "case": "FOLLOW_UP/INITIAL_REQUEST/GENERATION_BASIS_JSON_INVALID",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "FOLLOW_UP/SPECIFICATION_REVISION/actual-native-content",
+      "passed": true
+    },
+    {
+      "case": "FOLLOW_UP/SPECIFICATION_REVISION/GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "actualCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "expectedPointer": "/intent",
+      "actualPointer": "/intent"
+    },
+    {
+      "case": "FOLLOW_UP/SPECIFICATION_REVISION/GENERATION_BASIS_JSON_INVALID",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "FOLLOW_UP/PUBLISHED_FINAL_OUTPUT/actual-native-content",
+      "passed": true
+    },
+    {
+      "case": "FOLLOW_UP/PUBLISHED_FINAL_OUTPUT/GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "actualCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "expectedPointer": "/intent",
+      "actualPointer": "/intent"
+    },
+    {
+      "case": "FOLLOW_UP/PUBLISHED_FINAL_OUTPUT/GENERATION_BASIS_JSON_INVALID",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "UPDATE/moving-current-pointer-ignored",
+      "passed": true
+    },
+    {
+      "case": "registry/bundle-bytes-digest",
+      "passed": true,
+      "expectedCode": "GENERATION_SCHEMA_BUNDLE_DIGEST_MISMATCH",
+      "actualCode": "GENERATION_SCHEMA_BUNDLE_DIGEST_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/consulted-dependency-closure",
+      "passed": true
+    },
+    {
+      "case": "REPAIR/consulted-dependency-closure",
+      "passed": true
+    },
+    {
+      "case": "REPAIR/document-job-vs-repository-job",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DOCUMENT_JOB_MISMATCH",
+      "actualCode": "GENERATION_BASIS_DOCUMENT_JOB_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/actual-authority-content-mismatch",
+      "passed": true,
+      "expectedCode": "GENERATION_APPROVED_AUTHORITY_CONTENT_MISMATCH",
+      "actualCode": "GENERATION_APPROVED_AUTHORITY_CONTENT_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/schema-meta-bundle-unresolved",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_SCHEMA_BUNDLE_UNAVAILABLE",
+      "actualCode": "GENERATION_BASIS_SCHEMA_BUNDLE_UNAVAILABLE",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/stale-current-target-head",
+      "passed": true,
+      "expectedCode": "GENERATION_REPAIR_CURRENT_TARGET_SNAPSHOT_MISMATCH",
+      "actualCode": "GENERATION_REPAIR_CURRENT_TARGET_SNAPSHOT_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/wrong-last-approved-authority",
+      "passed": true,
+      "expectedCode": "GENERATION_REPAIR_LAST_APPROVED_LINEAGE_MISMATCH",
+      "actualCode": "GENERATION_REPAIR_LAST_APPROVED_LINEAGE_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "actual/nonempty-owned-phase-operation-attempt-evidence",
+      "passed": true
+    },
+    {
+      "case": "actual/valid-older-same-attempt-state-cannot-replace-current",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_CURRENT_ATTEMPT_STATE_DRIFT",
+      "expectedCode": "GENERATION_RETRY_CURRENT_ATTEMPT_STATE_DRIFT",
+      "pointer": ""
+    },
+    {
+      "case": "actual/same-current-state-id-stale-version",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_CURRENT_ATTEMPT_STATE_DRIFT",
+      "expectedCode": "GENERATION_RETRY_CURRENT_ATTEMPT_STATE_DRIFT",
+      "pointer": ""
+    },
+    {
+      "case": "actual/declared-inventory-vs-empty-physical-scan",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_INVENTORY_INCOMPLETE",
+      "expectedCode": "GENERATION_RETRY_INVENTORY_INCOMPLETE",
+      "pointer": ""
+    },
+    {
+      "case": "actual/missing-required-inventory",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_INVENTORY_UNAVAILABLE",
+      "expectedCode": "GENERATION_RETRY_INVENTORY_UNAVAILABLE",
+      "pointer": ""
+    },
+    {
+      "case": "actual/empty-list-cannot-hide-real-operation",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_INVENTORY_INCOMPLETE",
+      "expectedCode": "GENERATION_RETRY_INVENTORY_INCOMPLETE",
+      "pointer": ""
+    },
+    {
+      "case": "actual/INTENT_RECORDED-even-when-phase-pending-empty",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "expectedCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "pointer": ""
+    },
+    {
+      "case": "actual/DISPATCHING-even-when-phase-pending-empty",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "expectedCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "pointer": ""
+    },
+    {
+      "case": "actual/OUTCOME_RECORDED-even-when-phase-pending-empty",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "expectedCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "pointer": ""
+    },
+    {
+      "case": "actual/RECONCILING-even-when-phase-pending-empty",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "expectedCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "pointer": ""
+    },
+    {
+      "case": "actual/UNKNOWN-even-when-phase-pending-empty",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "expectedCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "pointer": ""
+    },
+    {
+      "case": "actual/operation-attempt-state-drift",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_ATTEMPT_STATE_DRIFT",
+      "expectedCode": "GENERATION_RETRY_ATTEMPT_STATE_DRIFT",
+      "pointer": ""
+    },
+    {
+      "case": "actual/attempt-target-key-drift",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_ATTEMPT_BINDING_DRIFT",
+      "expectedCode": "GENERATION_RETRY_ATTEMPT_BINDING_DRIFT",
+      "pointer": ""
+    },
+    {
+      "case": "actual/receipt-claims-not-applied-but-readback-shows-applied",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_MISMATCH",
+      "expectedCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_MISMATCH",
+      "pointer": ""
+    },
+    {
+      "case": "actual/undeclared-domain-classifier",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_UNRESOLVED",
+      "expectedCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_UNRESOLVED",
+      "pointer": ""
+    },
+    {
+      "case": "actual/wrong-classifier-bytes",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_DIGEST_MISMATCH",
+      "expectedCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_DIGEST_MISMATCH",
+      "pointer": ""
+    },
+    {
+      "case": "actual/generic-valid-flag-is-not-outcome-proof",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_MISMATCH",
+      "expectedCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_MISMATCH",
+      "pointer": ""
+    },
+    {
+      "case": "actual/missing-physical-scan-is-blocked",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_PHYSICAL_SCAN_UNVERIFIED",
+      "expectedCode": "GENERATION_RETRY_PHYSICAL_SCAN_UNVERIFIED",
+      "pointer": ""
+    },
+    {
+      "case": "actual/missing-declared-consumer-context-is-blocked",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_UNRESOLVED",
+      "expectedCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_UNRESOLVED",
+      "pointer": ""
+    },
+    {
+      "case": "context/incomplete-consumer-declaration-blocked",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_DECLARATION_INVALID",
+      "expectedCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_DECLARATION_INVALID",
+      "pointer": ""
+    },
+    {
+      "case": "context/consumer-execution-unavailable-blocked-not-domain-proof",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_EXECUTION_FAILED",
+      "expectedCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_EXECUTION_FAILED",
+      "pointer": ""
+    },
+    {
+      "case": "UPDATE/HTTP-to-current-registry-admission",
+      "passed": true
+    },
+    {
+      "case": "UPDATE/frozen-actual-byte-closure",
+      "passed": true
+    },
+    {
+      "case": "UPDATE/query",
+      "passed": true
+    },
+    {
+      "case": "UPDATE/server-repository-owner",
+      "passed": true
+    },
+    {
+      "case": "RETRY/HTTP-to-current-registry-admission",
+      "passed": true
+    },
+    {
+      "case": "RETRY/frozen-actual-byte-closure",
+      "passed": true
+    },
+    {
+      "case": "RETRY/query",
+      "passed": true
+    },
+    {
+      "case": "RETRY/server-repository-owner",
+      "passed": true
+    },
+    {
+      "case": "REPAIR/HTTP-to-current-registry-admission",
+      "passed": true
+    },
+    {
+      "case": "REPAIR/frozen-actual-byte-closure",
+      "passed": true
+    },
+    {
+      "case": "REPAIR/query",
+      "passed": true
+    },
+    {
+      "case": "REPAIR/server-repository-owner",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_ADMISSION_AUTHORITY_MAP_UNRESOLVED",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_ADMISSION_CONTRACT_UNRESOLVED",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_APPROVED_AUTHORITY_ARTIFACT_KIND_UNRESOLVED",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_APPROVED_AUTHORITY_ARTIFACT_REF_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_APPROVED_AUTHORITY_ARTIFACT_SIZE_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_APPROVED_AUTHORITY_CONTENT_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_APPROVED_AUTHORITY_RECORD_DIGEST_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_APPROVED_AUTHORITY_RECORD_KIND_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_APPROVED_AUTHORITY_SCHEMA_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_APPROVED_LINEAGE_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_AUTHORITY_IDENTITY_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_ARTIFACT_KIND_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_ARTIFACT_KIND_UNSUPPORTED",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_BYTES_DIGEST_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_BYTES_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_DEFINITION_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_DEFINITION_UNRESOLVED",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_DIGEST_CONFLICT",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_DOCUMENT_JOB_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_IDENTITY_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_JOB_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_JSON_INVALID",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_NONCANONICAL_JSON",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_NONFINITE_JSON_NUMBER",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_OWNER_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_PUBLICATION_IDENTITY_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_PUBLICATION_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_PUBLICATION_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_SCHEMA_ADDRESS_INVALID",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_SCHEMA_BUNDLE_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_SCHEMA_ID_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_SCHEMA_INVALID",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_SCHEMA_REFERENCE_UNRESOLVED",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_UNICODE_INVALID",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_UNPUBLISHED",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_UTF8_INVALID",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_KIND_OWN_BASIS_NOT_APPLICABLE",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_OWNER_APPROVAL_IDENTITY_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_OWNER_APPROVAL_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_OWNER_APPROVAL_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_REPAIR_APPROVED_TARGET_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_REPAIR_CURRENT_TARGET_SNAPSHOT_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_REPAIR_LAST_APPROVED_LINEAGE_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_REPAIR_MONITORING_TARGET_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_REPAIR_PRESERVED_IDENTITY_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_REQUEST_INVALID",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_DUPLICATE_PLAN_NODE",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_FAILED_PART_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_LINEAGE_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_NONTECHNICAL_PART",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_PLAN_SPECIFICATION_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_TERMINAL_RESULT_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_TERMINAL_RESULT_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_SCHEMA_BUNDLE_DIGEST_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_SCHEMA_BUNDLE_ID_AMBIGUOUS",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_SCHEMA_BUNDLE_ID_MISSING",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_SCHEMA_BUNDLE_INVALID",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_TARGET_SNAPSHOT_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/MONITORING_OBSERVATION_INVALID",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/MONITORING_OBSERVATION_SCHEMA_ADDRESS_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/MONITORING_OBSERVATION_SCHEMA_BYTES_DIGEST_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/MONITORING_OBSERVATION_SCHEMA_DIGEST_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/MONITORING_OBSERVATION_SCHEMA_IDENTITY_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/MONITORING_OBSERVATION_SCHEMA_ID_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/MONITORING_OBSERVATION_SCHEMA_INVALID",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/MONITORING_OBSERVATION_SCHEMA_POINTER_UNRESOLVED",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/MONITORING_OBSERVATION_SCHEMA_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_INVENTORY_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_PHYSICAL_SCAN_UNVERIFIED",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_OUTCOME_CLASSIFIER_UNRESOLVED",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_INVENTORY_PHASE_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_INVENTORY_DUPLICATE_OPERATION",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_INVENTORY_INCOMPLETE",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_OPERATION_IDENTITY_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_OPERATION_SNAPSHOT_DRIFT",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_OPERATION_NODE_UNRESOLVED",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_OPERATION_POLICY_DRIFT",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_CURRENT_ATTEMPT_DRIFT",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_CURRENT_ATTEMPT_STATE_DRIFT",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_ATTEMPT_STATE_DRIFT",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_ATTEMPT_BINDING_DRIFT",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_EFFECT_EVIDENCE_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_OUTCOME_EVIDENCE_DRIFT",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_OUTCOME_CLASSIFIER_DECLARATION_INVALID",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_OUTCOME_CLASSIFIER_BYTES_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_OUTCOME_CLASSIFIER_DIGEST_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_OUTCOME_CLASSIFIER_IMPLEMENTATION_INVALID",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_OUTCOME_CLASSIFIER_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_OPERATION_PRODUCER_FK_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_OUTCOME_CLASSIFIER_EXECUTION_FAILED",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_CONFIRMED_EFFECT_REPEAT_FORBIDDEN",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_FINAL_EFFECT_POLICY_UNRESOLVED",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_RETRY_MANUAL_DISPATCH_POLICY_UNRESOLVED",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_OUTPUT_DECLARATION_INVALID",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_OUTPUT_DECLARATION_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_RESULT_CONTRACT_KIND_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_RESULT_CONTRACT_REFERENCE_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_RESULT_CONTRACT_IDENTITY_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_RESULT_CONTRACT_LEDGER_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_OUTPUT_PUBLICATION_REFERENCE_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_OUTPUT_SCHEMA_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_OUTPUT_SCHEMA_LEDGER_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_OUTPUT_SCHEMA_BYTES_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_OUTPUT_SCHEMA_DIALECT_UNRESOLVED",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_OUTPUT_SCHEMA_DIALECT_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_OUTPUT_SCHEMA_ID_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_OUTPUT_SCHEMA_DIGEST_MISMATCH",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_OUTPUT_CONSUMER_SCHEMA_INVALID",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_OUTPUT_SCHEMA_INVALID",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_OUTPUT_SCHEMA_POINTER_UNRESOLVED",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_BASIS_DOMAIN_INVALID",
+      "passed": true
+    },
+    {
+      "case": "diagnostic/GENERATION_FINAL_OUTPUT_SCHEMA_REFERENCE_UNRESOLVED",
+      "passed": true
+    },
+    {
+      "case": "unknown-diagnostic-fail-closed",
+      "passed": true
+    }
+  ],
+  "scope": "Current selector/native-byte proof, strict HTTP and finite diagnostic projection.",
+  "resourceSha256": {
+    "contracts/generation/admission-basis.schema.json": "4a53d9f3ce1a523085d0da740dcf795244e931c203a1aa620f8f6c16913629c3",
+    "contracts/generation/admission-diagnostics.json": "4db082a28f131bfb5a5ca39816a97c513510060f07128e5c0eb5f3e11132b062",
+    "contracts/create-operation-design.schema.json": "36ea5e4fe712132db426cc2b276b7c4f72b0d9f8a764c856e064240a364ba295",
+    "contracts/generation/generation-contracts.schema.json": "5cf483812abcbfd834c54537a444724d227fe36ddb1ad0604af13205b4494943"
+  },
+  "supportSha256": {
+    "audit/generated/resume-d362/admission/generation_admission_fixtures.py": "f9910310bbd443dfd33b581f1555159b6d2d3c6f527100a11d017b3191c98101",
+    "audit/generated/resume-d362/admission/verify_generation_admission_reference.py": "fdc3eda8f5a49573c996a9e83c6110de7323f22a63857a252c0a66db782ec8fb",
+    "scripts/generation_admission_contracts.py": "12c18c6ceb2a51d49a4506bf4c759ed0407e81bbe777da7cf58d2c768f77d900",
+    "scripts/generation_basis_selectors.py": "8488f4bcbc1316b987a90fb5d8a4269a83a9ce561efe0ed9065e09f3b1f261ae",
+    "scripts/generation_retry_inventory.py": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154",
+    "scripts/create_operation_contracts.py": "e3149fed4d5169d653199b638ac8f367b1618ce671d6e2860060ad09a576577a"
+  },
+  "wholeOperationClosure": false,
+  "remaining": "Complete graph/monitoring consumer predicates, secret-source/navigation/ephemeral policies, physical auth/crypto/atomic fixture joins remain required",
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

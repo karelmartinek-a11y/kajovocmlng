@@ -17,7 +17,13 @@ DO $$DECLARE s text=current_schema();BEGIN
  EXECUTE format('REVOKE CREATE ON SCHEMA %I FROM PUBLIC,kcml_domain_writer,kcml_authentication_writer,kcml_generation_context_builder',s);
  EXECUTE format('GRANT USAGE ON SCHEMA %I TO kcml_generation_context_builder,kcml_authentication_writer,kcml_domain_writer',s);
  EXECUTE format('GRANT SELECT,INSERT ON %I.generation_create_authentication_acceptance TO kcml_authentication_writer',s);
- EXECUTE format('GRANT SELECT ON %I.generation_create_authentication_acceptance TO kcml_generation_context_builder',s);
+ -- Canonical authentication producer only: completed password/MFA session issuance
+ -- and actual session/API token verification are service logic, never client flags.
+ EXECUTE format('GRANT SELECT ON %I.owner_identity,%I.owner_session,%I.owner_api_credential TO kcml_authentication_writer',s,s,s);
+ EXECUTE format('GRANT INSERT ON %I.owner_session TO kcml_authentication_writer',s);
+ EXECUTE format('GRANT UPDATE(last_seen_at,revoked_at,reauthenticated_at) ON %I.owner_session TO kcml_authentication_writer',s);
+
+ EXECUTE format('GRANT SELECT ON %I.generation_create_authentication_acceptance,%I.generation_create_contract_pin TO kcml_generation_context_builder',s,s);
  EXECUTE format('GRANT SELECT(id,singleton_key,session_epoch) ON %I.owner_identity TO kcml_generation_context_builder',s);
  EXECUTE format('GRANT SELECT(id,owner_identity_id,lookup_digest,session_epoch,revoked_at,expires_at) ON %I.owner_session TO kcml_generation_context_builder',s);
  EXECUTE format('GRANT SELECT(singleton_key,credential_version,fingerprint) ON %I.owner_api_credential TO kcml_generation_context_builder',s);

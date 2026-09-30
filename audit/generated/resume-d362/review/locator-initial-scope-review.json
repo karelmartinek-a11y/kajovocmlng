@@ -1,0 +1,44 @@
+{
+  "scope": "Independent initial-commit exact stable locator scope joins in current full foundations; distinct from postcommit immutability.",
+  "checks": [
+    {
+      "id": "actual-joined-positive",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": ""
+    },
+    {
+      "id": "locator-foreign-caller",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE",
+      "actualDiagnostic": "ERROR:  23514: GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE\nCONTEXT:  PL/pgSQL function kcml_generation_create_atomic_closure_v1() line 49 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "id": "locator-wrong-family",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE",
+      "actualDiagnostic": "ERROR:  23514: GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE\nCONTEXT:  PL/pgSQL function kcml_generation_create_atomic_closure_v1() line 49 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "id": "locator-wrong-authority",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE",
+      "actualDiagnostic": "ERROR:  23514: GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE\nCONTEXT:  PL/pgSQL function kcml_generation_create_atomic_closure_v1() line 49 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "id": "locator-wrong-business-target",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE",
+      "actualDiagnostic": "ERROR:  23514: GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE\nCONTEXT:  PL/pgSQL function kcml_generation_create_atomic_closure_v1() line 49 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "id": "locator-wrong-frozen-revision",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE",
+      "actualDiagnostic": "ERROR:  23514: GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE\nCONTEXT:  PL/pgSQL function kcml_generation_create_atomic_closure_v1() line 49 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    }
+  ],
+  "failed": 0,
+  "eventsSha256": "0f248223f25eaf52a5f290885c0424f8772fa9e53b29eaa47726c384760e12d3",
+  "wholeOperationClosed": false
+}

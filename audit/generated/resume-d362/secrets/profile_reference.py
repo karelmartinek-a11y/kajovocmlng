@@ -2,6 +2,7 @@
 import base64,copy,hashlib,importlib.util,json,math,os,re,struct,subprocess,types
 from pathlib import Path
 from datetime import datetime,timezone
+from decimal import Decimal
 from jsonschema import Draft202012Validator,FormatChecker
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import rsa,ec,ed25519,ed448,dsa
@@ -19,7 +20,11 @@ Rejected=legacy.Rejected
 reject=legacy.reject
 INVENTORY={v['profileId']:v for v in SCHEMA['x-profileInventory']}
 def digest(raw):return 'sha256:'+hashlib.sha256(raw).hexdigest()
-def schema_digest(profile):return digest(json.dumps({'root':profile,'defs':SCHEMA['$defs']},sort_keys=True,separators=(',',':')).encode())
+def compiled_schema_bytes(profile):
+ if profile not in SCHEMA['$defs']:reject('SECRET_VARIANT_UNSUPPORTED','/value/profileId')
+ document={'$schema':SCHEMA['$schema'],'$id':SCHEMA['$id'],'$defs':SCHEMA['$defs'],'$ref':'#/$defs/'+profile}
+ return json.dumps(document,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode('utf8')
+def schema_digest(profile):return digest(compiled_schema_bytes(profile))
 def strict_json(raw):
  if len(raw)>1048576:reject('SECRET_IMPORT_TRANSPORT_TOO_LARGE','')
  try:text=raw.decode('utf8',errors='strict')
@@ -39,12 +44,15 @@ def strict_json(raw):
    try:v.encode('utf8')
    except UnicodeEncodeError:reject('SECRET_IMPORT_UTF8_INVALID',path)
   return v
- try:return convert(json.loads(text,object_pairs_hook=ObjectPairs))
+ def exact_number(token):
+  value=Decimal(token)
+  return int(value) if value==value.to_integral_value() else value
+ try:return convert(json.loads(text,object_pairs_hook=ObjectPairs,parse_float=exact_number))
  except Rejected:raise
  except (ValueError,TypeError,RecursionError):reject('SECRET_IMPORT_JSON_INVALID','')
 
 def validate(schema_name,value):
- schema={'$schema':SCHEMA['$schema'],'$ref':'#/$defs/'+schema_name,'$defs':SCHEMA['$defs']}
+ schema=json.loads(compiled_schema_bytes(schema_name))
  errors=list(Draft202012Validator(schema,format_checker=FormatChecker()).iter_errors(value))
  if errors:reject('SECRET_PROFILE_SCHEMA_INVALID',errors[0].json_path)
 
@@ -268,9 +276,18 @@ def import_body(raw):
  profile=value['profileId'];original=original_profile_slice(raw);parse_profile(profile,original)
  return {'type':body['type'],'representation':'PROFILE_JSON_V1','profileId':profile,'bytes':original}
 
+def canonical_value_digest(candidate):
+ profile=candidate['profileId'];payload=candidate['bytes']
+ if profile:
+  # Closed masks have string keys and integer-only direct numeric fields.
+  # This explicitly named serializer is NOT an implicit RFC8785/JCS claim.
+  payload=json.dumps(parse_profile(profile,payload),ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode('utf8')
+ prefix=b'KCML_SECRET_VALUE_V1\0'+candidate['type'].encode()+b'\0'+candidate['representation'].encode()+b'\0'+(profile or 'RAW').encode()+b'\0'
+ return digest(prefix+payload)
+
 def store_reference(candidate,secret_id,version_id,key):
  # AES-GCM is isolated reference only, explicitly not a canonical cipher choice.
- profile=candidate['profileId'];metadata={'secretId':secret_id,'versionId':version_id,'type':candidate['type'],'representation':candidate['representation'],'profileId':profile,'schemaId':'urn:kcml:secret-profile-handoffs:1#/$defs/'+profile if profile else None,'schemaDigest':schema_digest(profile)if profile else None,'plaintextByteLength':len(candidate['bytes']),'valueDigest':digest(candidate['bytes']),'payloadFormat':'EXACT_SECRET_BYTES_V1'}
+ profile=candidate['profileId'];metadata={'secretId':secret_id,'versionId':version_id,'type':candidate['type'],'representation':candidate['representation'],'profileId':profile,'schemaId':'urn:kcml:secret-profile-handoffs:1#/$defs/'+profile if profile else None,'schemaDigest':schema_digest(profile)if profile else None,'plaintextByteLength':len(candidate['bytes']),'valueDigest':digest(candidate['bytes']),'canonicalValueDigest':canonical_value_digest(candidate),'payloadFormat':'EXACT_SECRET_BYTES_V1'}
  aad=json.dumps(metadata,sort_keys=True,separators=(',',':')).encode();nonce=os.urandom(12);cipher=AESGCM(key).encrypt(nonce,candidate['bytes'],aad)
  return {'metadata':metadata,'aad':aad,'nonce':nonce,'ciphertext':cipher}
 
@@ -284,4 +301,6 @@ def load_reference(record,key,expected_secret_id,expected_version_id):
  if m['representation']=='PROFILE_JSON_V1':
   if profile not in INVENTORY or m['schemaDigest']!=schema_digest(profile)or m['type']!=INVENTORY[profile]['secretType']:reject('SECRET_STORED_SCHEMA_MISMATCH','/metadata')
   parse_profile(profile,raw)
+ candidate={'type':m['type'],'representation':m['representation'],'profileId':profile,'bytes':raw}
+ if canonical_value_digest(candidate)!=m['canonicalValueDigest']:reject('SECRET_STORED_CANONICAL_DIGEST_MISMATCH','/metadata')
  return raw

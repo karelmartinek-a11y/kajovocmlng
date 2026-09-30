@@ -1,0 +1,167 @@
+{
+  "proofKind": "SYNTHETIC_NATIVE_LEDGER_BYTES_AND_ACTUAL_PINNED_CAS_READBACK_CLASSIFIER",
+  "fixtureSourceCommit": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+  "fixtureNativeBundleDigest": "sha256:5cf483812abcbfd834c54537a444724d227fe36ddb1ad0604af13205b4494943",
+  "fixtureLocalProposalBundleDigest": "sha256:715acd02984c5ded56a0d02e516308d382eb65fedc6a3686a1762cbcbdf76f73",
+  "inventoryProposalBundleDigest": "sha256:6955f421fde5f8604ce931a8460048a69b09ad7c04c23897e23232d88df10a09",
+  "coordinatorSsotSha256AtExecution": "3c2f44e0660d1f97eaf77b59b972bcba230d39c1063141d88a734526f9c81e70",
+  "checkCount": 21,
+  "failedCount": 0,
+  "checks": [
+    {
+      "case": "actual/nonempty-owned-phase-operation-attempt-evidence",
+      "passed": true
+    },
+    {
+      "case": "actual/valid-older-same-attempt-state-cannot-replace-current",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_CURRENT_ATTEMPT_STATE_DRIFT",
+      "expectedCode": "GENERATION_RETRY_CURRENT_ATTEMPT_STATE_DRIFT",
+      "pointer": ""
+    },
+    {
+      "case": "actual/same-current-state-id-stale-version",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_CURRENT_ATTEMPT_STATE_DRIFT",
+      "expectedCode": "GENERATION_RETRY_CURRENT_ATTEMPT_STATE_DRIFT",
+      "pointer": ""
+    },
+    {
+      "case": "actual/declared-inventory-vs-empty-physical-scan",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_INVENTORY_INCOMPLETE",
+      "expectedCode": "GENERATION_RETRY_INVENTORY_INCOMPLETE",
+      "pointer": ""
+    },
+    {
+      "case": "actual/missing-required-inventory",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_INVENTORY_UNAVAILABLE",
+      "expectedCode": "GENERATION_RETRY_INVENTORY_UNAVAILABLE",
+      "pointer": ""
+    },
+    {
+      "case": "actual/empty-list-cannot-hide-real-operation",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_INVENTORY_INCOMPLETE",
+      "expectedCode": "GENERATION_RETRY_INVENTORY_INCOMPLETE",
+      "pointer": ""
+    },
+    {
+      "case": "actual/INTENT_RECORDED-even-when-phase-pending-empty",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "expectedCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "pointer": ""
+    },
+    {
+      "case": "actual/DISPATCHING-even-when-phase-pending-empty",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "expectedCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "pointer": ""
+    },
+    {
+      "case": "actual/OUTCOME_RECORDED-even-when-phase-pending-empty",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "expectedCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "pointer": ""
+    },
+    {
+      "case": "actual/RECONCILING-even-when-phase-pending-empty",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "expectedCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "pointer": ""
+    },
+    {
+      "case": "actual/UNKNOWN-even-when-phase-pending-empty",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "expectedCode": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "pointer": ""
+    },
+    {
+      "case": "actual/operation-attempt-state-drift",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_ATTEMPT_STATE_DRIFT",
+      "expectedCode": "GENERATION_RETRY_ATTEMPT_STATE_DRIFT",
+      "pointer": ""
+    },
+    {
+      "case": "actual/attempt-target-key-drift",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_ATTEMPT_BINDING_DRIFT",
+      "expectedCode": "GENERATION_RETRY_ATTEMPT_BINDING_DRIFT",
+      "pointer": ""
+    },
+    {
+      "case": "actual/receipt-claims-not-applied-but-readback-shows-applied",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_MISMATCH",
+      "expectedCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_MISMATCH",
+      "pointer": ""
+    },
+    {
+      "case": "actual/undeclared-domain-classifier",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_UNRESOLVED",
+      "expectedCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_UNRESOLVED",
+      "pointer": ""
+    },
+    {
+      "case": "actual/wrong-classifier-bytes",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_DIGEST_MISMATCH",
+      "expectedCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_DIGEST_MISMATCH",
+      "pointer": ""
+    },
+    {
+      "case": "actual/generic-valid-flag-is-not-outcome-proof",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_MISMATCH",
+      "expectedCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_MISMATCH",
+      "pointer": ""
+    },
+    {
+      "case": "actual/missing-physical-scan-is-blocked",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_PHYSICAL_SCAN_UNVERIFIED",
+      "expectedCode": "GENERATION_RETRY_PHYSICAL_SCAN_UNVERIFIED",
+      "pointer": ""
+    },
+    {
+      "case": "actual/missing-declared-consumer-context-is-blocked",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_UNRESOLVED",
+      "expectedCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_UNRESOLVED",
+      "pointer": ""
+    },
+    {
+      "case": "context/incomplete-consumer-declaration-blocked",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_DECLARATION_INVALID",
+      "expectedCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_DECLARATION_INVALID",
+      "pointer": ""
+    },
+    {
+      "case": "context/consumer-execution-unavailable-blocked-not-domain-proof",
+      "passed": true,
+      "actualCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_EXECUTION_FAILED",
+      "expectedCode": "GENERATION_RETRY_OUTCOME_CLASSIFIER_EXECUTION_FAILED",
+      "pointer": ""
+    }
+  ],
+  "consumedClassifierDigest": "sha256:af2886cd9adafbaaede176dec3513c59111509258e1a3c14cebf2d0e870f2b05",
+  "supportSha256": {
+    "audit/generated/resume-d362/admission/verify_generation_retry_inventory.py": "dbd09e8af61f40261c509cddfbd37b65056e69c176b89e467c806a73a383660c",
+    "audit/generated/resume-d362/admission/generation_retry_inventory.py": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154",
+    "audit/generated/resume-d362/admission/generation_admission_fixtures.py": "f9910310bbd443dfd33b581f1555159b6d2d3c6f527100a11d017b3191c98101",
+    "audit/generated/resume-d362/admission/generation_retry_inventory_fixtures.py": "b3e0daf65acfee532106dea575eb628d165edbc731fee9b214d8be8a90a86039",
+    "scripts/generation_admission_contracts.py": "12c18c6ceb2a51d49a4506bf4c759ed0407e81bbe777da7cf58d2c768f77d900"
+  },
+  "physicalProof": "NOT_EVALUATED_REQUIRED_POSTGRESQL_LOCKED_TABLE_SCAN_AND_PRODUCER_FKS",
+  "consumerScope": "One synthetic compare-and-set receipt/read-back consumer; no universal external consumer claim",
+  "runtimeAcceptance": "NOT_EVALUATED"
+}

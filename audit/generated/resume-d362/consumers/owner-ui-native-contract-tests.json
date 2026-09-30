@@ -1,0 +1,585 @@
+{
+  "inputCommit": "6ac0e89",
+  "scope": "Precise proposed OWNERfacade response/error/event and worker-output byte relations; server producer SQL/current root effect joins remain separately required",
+  "checks": 109,
+  "failed": 0,
+  "cases": [
+    {
+      "id": "dashboard.start/accepted-own-intent",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/frozen-admit-event-replay",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/complete-typed-worker-output",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/frozen-terminal-event-replay",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/missing-worker-receipt",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_WORKER_RECEIPT_MISSING",
+      "expectedDiagnostic": "OWNER_UI_WORKER_RECEIPT_MISSING"
+    },
+    {
+      "id": "dashboard.start/wrong-worker-parent",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_WORKER_RECEIPT_IDENTITY_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_WORKER_RECEIPT_IDENTITY_MISMATCH"
+    },
+    {
+      "id": "dashboard.start/actual-worker-bytes-digest",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_WORKER_RECEIPT_BYTES_DIGEST_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_WORKER_RECEIPT_BYTES_DIGEST_MISMATCH"
+    },
+    {
+      "id": "dashboard.start/digest-valid-invalid-worker-mask",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_WORKER_RECEIPT_PAYLOAD_INVALID",
+      "expectedDiagnostic": "OWNER_UI_WORKER_RECEIPT_PAYLOAD_INVALID"
+    },
+    {
+      "id": "dashboard.start/actual-worker-json-duplicates",
+      "status": "PASS",
+      "actualDiagnostic": "DUPLICATE_JSON_KEY",
+      "expectedDiagnostic": "DUPLICATE_JSON_KEY"
+    },
+    {
+      "id": "dashboard.start/accepted-not-terminal-event",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_EVENT_PHASE_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_EVENT_PHASE_MISMATCH"
+    },
+    {
+      "id": "dashboard.start/event-wrong-intent",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_EVENT_IDENTITY_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_EVENT_IDENTITY_MISMATCH"
+    },
+    {
+      "id": "dashboard.start/OWNER_UI_INPUT_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/OWNER_UI_INPUT_INVALID/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.start/OWNER_UI_AUTH_REQUIRED",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/OWNER_UI_AUTH_REQUIRED/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.start/STATE_VERSION_CONFLICT",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/STATE_VERSION_CONFLICT/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.start/IDEMPOTENCY_CONFLICT",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/IDEMPOTENCY_CONFLICT/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.start/OWNER_UI_REFERENCE_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/OWNER_UI_REFERENCE_INVALID/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.start/OWNER_UI_DEPENDENCY_BLOCKED",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/OWNER_UI_DEPENDENCY_BLOCKED/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.start/OWNER_UI_CANCELLED",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/OWNER_UI_CANCELLED/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.start/OWNER_UI_ROLLED_BACK",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/OWNER_UI_ROLLED_BACK/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.start/OWNER_UI_ROLLED_BACK/no-false-terminal-event",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_NONTERMINAL_TERMINAL_EVENT",
+      "expectedDiagnostic": "OWNER_UI_NONTERMINAL_TERMINAL_EVENT"
+    },
+    {
+      "id": "dashboard.start/OWNER_UI_ROLLED_BACK/no-terminal-unknown",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.start/SIDE_EFFECT_OUTCOME_UNKNOWN",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/SIDE_EFFECT_OUTCOME_UNKNOWN/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.start/SIDE_EFFECT_OUTCOME_UNKNOWN/no-false-terminal-event",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_NONTERMINAL_TERMINAL_EVENT",
+      "expectedDiagnostic": "OWNER_UI_NONTERMINAL_TERMINAL_EVENT"
+    },
+    {
+      "id": "dashboard.start/SIDE_EFFECT_OUTCOME_UNKNOWN/no-terminal-unknown",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.stop/accepted-own-intent",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/frozen-admit-event-replay",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/complete-typed-worker-output",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/frozen-terminal-event-replay",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/missing-worker-receipt",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_WORKER_RECEIPT_MISSING",
+      "expectedDiagnostic": "OWNER_UI_WORKER_RECEIPT_MISSING"
+    },
+    {
+      "id": "dashboard.stop/wrong-worker-parent",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_WORKER_RECEIPT_IDENTITY_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_WORKER_RECEIPT_IDENTITY_MISMATCH"
+    },
+    {
+      "id": "dashboard.stop/actual-worker-bytes-digest",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_WORKER_RECEIPT_BYTES_DIGEST_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_WORKER_RECEIPT_BYTES_DIGEST_MISMATCH"
+    },
+    {
+      "id": "dashboard.stop/digest-valid-invalid-worker-mask",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_WORKER_RECEIPT_PAYLOAD_INVALID",
+      "expectedDiagnostic": "OWNER_UI_WORKER_RECEIPT_PAYLOAD_INVALID"
+    },
+    {
+      "id": "dashboard.stop/actual-worker-json-duplicates",
+      "status": "PASS",
+      "actualDiagnostic": "DUPLICATE_JSON_KEY",
+      "expectedDiagnostic": "DUPLICATE_JSON_KEY"
+    },
+    {
+      "id": "dashboard.stop/accepted-not-terminal-event",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_EVENT_PHASE_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_EVENT_PHASE_MISMATCH"
+    },
+    {
+      "id": "dashboard.stop/event-wrong-intent",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_EVENT_IDENTITY_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_EVENT_IDENTITY_MISMATCH"
+    },
+    {
+      "id": "dashboard.stop/OWNER_UI_INPUT_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/OWNER_UI_INPUT_INVALID/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.stop/OWNER_UI_AUTH_REQUIRED",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/OWNER_UI_AUTH_REQUIRED/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.stop/STATE_VERSION_CONFLICT",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/STATE_VERSION_CONFLICT/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.stop/IDEMPOTENCY_CONFLICT",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/IDEMPOTENCY_CONFLICT/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.stop/OWNER_UI_REFERENCE_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/OWNER_UI_REFERENCE_INVALID/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.stop/OWNER_UI_DEPENDENCY_BLOCKED",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/OWNER_UI_DEPENDENCY_BLOCKED/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.stop/OWNER_UI_CANCELLED",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/OWNER_UI_CANCELLED/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.stop/OWNER_UI_ROLLED_BACK",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/OWNER_UI_ROLLED_BACK/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.stop/OWNER_UI_ROLLED_BACK/no-false-terminal-event",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_NONTERMINAL_TERMINAL_EVENT",
+      "expectedDiagnostic": "OWNER_UI_NONTERMINAL_TERMINAL_EVENT"
+    },
+    {
+      "id": "dashboard.stop/OWNER_UI_ROLLED_BACK/no-terminal-unknown",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.stop/SIDE_EFFECT_OUTCOME_UNKNOWN",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/SIDE_EFFECT_OUTCOME_UNKNOWN/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "dashboard.stop/SIDE_EFFECT_OUTCOME_UNKNOWN/no-false-terminal-event",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_NONTERMINAL_TERMINAL_EVENT",
+      "expectedDiagnostic": "OWNER_UI_NONTERMINAL_TERMINAL_EVENT"
+    },
+    {
+      "id": "dashboard.stop/SIDE_EFFECT_OUTCOME_UNKNOWN/no-terminal-unknown",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "gen.editSpec/accepted-own-intent",
+      "status": "PASS"
+    },
+    {
+      "id": "gen.editSpec/frozen-admit-event-replay",
+      "status": "PASS"
+    },
+    {
+      "id": "gen.editSpec/complete-typed-worker-output",
+      "status": "PASS"
+    },
+    {
+      "id": "gen.editSpec/frozen-terminal-event-replay",
+      "status": "PASS"
+    },
+    {
+      "id": "gen.editSpec/missing-worker-receipt",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_WORKER_RECEIPT_MISSING",
+      "expectedDiagnostic": "OWNER_UI_WORKER_RECEIPT_MISSING"
+    },
+    {
+      "id": "gen.editSpec/wrong-worker-parent",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_WORKER_RECEIPT_IDENTITY_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_WORKER_RECEIPT_IDENTITY_MISMATCH"
+    },
+    {
+      "id": "gen.editSpec/actual-worker-bytes-digest",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_WORKER_RECEIPT_BYTES_DIGEST_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_WORKER_RECEIPT_BYTES_DIGEST_MISMATCH"
+    },
+    {
+      "id": "gen.editSpec/digest-valid-invalid-worker-mask",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_WORKER_RECEIPT_PAYLOAD_INVALID",
+      "expectedDiagnostic": "OWNER_UI_WORKER_RECEIPT_PAYLOAD_INVALID"
+    },
+    {
+      "id": "gen.editSpec/actual-worker-json-duplicates",
+      "status": "PASS",
+      "actualDiagnostic": "DUPLICATE_JSON_KEY",
+      "expectedDiagnostic": "DUPLICATE_JSON_KEY"
+    },
+    {
+      "id": "gen.editSpec/accepted-not-terminal-event",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_EVENT_PHASE_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_EVENT_PHASE_MISMATCH"
+    },
+    {
+      "id": "gen.editSpec/event-wrong-intent",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_EVENT_IDENTITY_MISMATCH",
+      "expectedDiagnostic": "OWNER_UI_EVENT_IDENTITY_MISMATCH"
+    },
+    {
+      "id": "gen.editSpec/OWNER_UI_INPUT_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "gen.editSpec/OWNER_UI_INPUT_INVALID/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "gen.editSpec/OWNER_UI_AUTH_REQUIRED",
+      "status": "PASS"
+    },
+    {
+      "id": "gen.editSpec/OWNER_UI_AUTH_REQUIRED/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "gen.editSpec/STATE_VERSION_CONFLICT",
+      "status": "PASS"
+    },
+    {
+      "id": "gen.editSpec/STATE_VERSION_CONFLICT/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "gen.editSpec/IDEMPOTENCY_CONFLICT",
+      "status": "PASS"
+    },
+    {
+      "id": "gen.editSpec/IDEMPOTENCY_CONFLICT/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "gen.editSpec/OWNER_UI_REFERENCE_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "gen.editSpec/OWNER_UI_REFERENCE_INVALID/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "gen.editSpec/OWNER_UI_DEPENDENCY_BLOCKED",
+      "status": "PASS"
+    },
+    {
+      "id": "gen.editSpec/OWNER_UI_DEPENDENCY_BLOCKED/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "gen.editSpec/OWNER_UI_CANCELLED",
+      "status": "PASS"
+    },
+    {
+      "id": "gen.editSpec/OWNER_UI_CANCELLED/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "gen.editSpec/OWNER_UI_ROLLED_BACK",
+      "status": "PASS"
+    },
+    {
+      "id": "gen.editSpec/OWNER_UI_ROLLED_BACK/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "gen.editSpec/OWNER_UI_ROLLED_BACK/no-false-terminal-event",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_NONTERMINAL_TERMINAL_EVENT",
+      "expectedDiagnostic": "OWNER_UI_NONTERMINAL_TERMINAL_EVENT"
+    },
+    {
+      "id": "gen.editSpec/OWNER_UI_ROLLED_BACK/no-terminal-unknown",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "gen.editSpec/SIDE_EFFECT_OUTCOME_UNKNOWN",
+      "status": "PASS"
+    },
+    {
+      "id": "gen.editSpec/SIDE_EFFECT_OUTCOME_UNKNOWN/wrongclass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "gen.editSpec/SIDE_EFFECT_OUTCOME_UNKNOWN/no-false-terminal-event",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_NONTERMINAL_TERMINAL_EVENT",
+      "expectedDiagnostic": "OWNER_UI_NONTERMINAL_TERMINAL_EVENT"
+    },
+    {
+      "id": "gen.editSpec/SIDE_EFFECT_OUTCOME_UNKNOWN/no-terminal-unknown",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID",
+      "expectedDiagnostic": "OWNER_UI_OUTCOME_SCHEMA_INVALID"
+    },
+    {
+      "id": "HTTP/positive",
+      "status": "PASS"
+    },
+    {
+      "id": "HTTP/unknownquery",
+      "status": "PASS",
+      "actualDiagnostic": "UNKNOWN_QUERY_PARAMETER",
+      "expectedDiagnostic": "UNKNOWN_QUERY_PARAMETER"
+    },
+    {
+      "id": "HTTP/duplicatekey",
+      "status": "PASS",
+      "actualDiagnostic": "DUPLICATE_JSON_KEY",
+      "expectedDiagnostic": "DUPLICATE_JSON_KEY"
+    },
+    {
+      "id": "HTTP/invalid-json",
+      "status": "PASS",
+      "actualDiagnostic": "INVALID_JSON",
+      "expectedDiagnostic": "INVALID_JSON"
+    },
+    {
+      "id": "HTTP/client-worker-authority",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_CLIENT_AUTHORITY_FORBIDDEN",
+      "expectedDiagnostic": "OWNER_UI_CLIENT_AUTHORITY_FORBIDDEN"
+    },
+    {
+      "id": "projection/fresh-auth-specific",
+      "status": "PASS"
+    },
+    {
+      "id": "projection/worker-dependency-specific",
+      "status": "PASS"
+    },
+    {
+      "id": "projection/unmapped-exception-not-domain-pass",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_ERROR_PROJECTION_UNRESOLVED",
+      "expectedDiagnostic": "OWNER_UI_ERROR_PROJECTION_UNRESOLVED"
+    },
+    {
+      "id": "HTTP/unresolved-transport-cap",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_TRANSPORT_LIMIT_UNRESOLVED",
+      "expectedDiagnostic": "OWNER_UI_TRANSPORT_LIMIT_UNRESOLVED"
+    },
+    {
+      "id": "HTTP/declared-transport-cap",
+      "status": "PASS",
+      "actualDiagnostic": "REQUEST_TOO_LARGE",
+      "expectedDiagnostic": "REQUEST_TOO_LARGE"
+    }
+  ],
+  "implementationProductionAcceptance": "NOT_EVALUATED",
+  "exposuresClosed": 0,
+  "supportingFiles": {
+    "owner_ui_native_contracts.py": "10230779f2e37e7c93fca4a56a249bcf21a4d2941ff90cea4819a4fc401518ae",
+    "verify_owner_ui_native_contracts.py": "4d8cbdc7d9f84cd8185cae700d67e57b8da57b0869384a92449057c500458250",
+    "ui_facade_pipeline_reference.py": "6737c0a5fdf24061ef6deade54e7d80ff455d3a8819a16e9f5f09ff3eaf456dc"
+  }
+}

@@ -4,7 +4,7 @@
   "representationRule": "UTF-8 non-NUL text normalizes CRLF to LF; .png/.jpg/.zip and other binary bytes remain raw. Paths are root-relative POSIX.",
   "sourceBranch": "ssot-repair-2026-09-30",
   "canonicalSSOT": "00_SSOT/KajovoCMLNG_SSOT.md",
-  "sourceDocumentSha256": "9bf5510b189ef4f71216d56bf293599ac129d200ec92e90ff7c2c22f6b15e57b",
+  "sourceDocumentSha256": "76b596444fd23209b8e025a97ac1109bb85d9af0adebb6dcf7f2756ca3a71fa7",
   "packageStatus": "BLOCKED",
   "statusScope": "INVENTORY_ONLY_NO_SEMANTIC_OR_FREEZE_CERTIFICATION",
   "readinessGates": {
@@ -59,8 +59,8 @@
     },
     {
       "path": "00_SSOT/KajovoCMLNG_SSOT.md",
-      "bytes": 40942703,
-      "sha256": "9bf5510b189ef4f71216d56bf293599ac129d200ec92e90ff7c2c22f6b15e57b",
+      "bytes": 40979924,
+      "sha256": "76b596444fd23209b8e025a97ac1109bb85d9af0adebb6dcf7f2756ca3a71fa7",
       "authority": "CANONICAL_SSOT"
     },
     {
@@ -151,6 +151,30 @@
       "path": "01_UI_CONTRACT/closure/scripts/verify_final_closure.py",
       "bytes": 8423,
       "sha256": "da7ed1ec00e9d7ee25f689a95aa33f6ac9bb0073fb50dd0af890a0f3cb1a5514",
+      "authority": "SSOT_PROJECTION_OR_SUPPORT"
+    },
+    {
+      "path": "01_UI_CONTRACT/contracts/generation/admission-basis.json",
+      "bytes": 59905,
+      "sha256": "ed1982fc84d06a8ff9c9fcb99eae7e8d8d544f7d52b42e20e9b38ef2921dcdbe",
+      "authority": "SSOT_PROJECTION_OR_SUPPORT"
+    },
+    {
+      "path": "01_UI_CONTRACT/contracts/generation/admission-basis.schema.json",
+      "bytes": 23270,
+      "sha256": "4a53d9f3ce1a523085d0da740dcf795244e931c203a1aa620f8f6c16913629c3",
+      "authority": "SSOT_PROJECTION_OR_SUPPORT"
+    },
+    {
+      "path": "01_UI_CONTRACT/contracts/generation/admission-diagnostics.json",
+      "bytes": 101930,
+      "sha256": "96e9534458fc9943560d1bf967efe92a274d0dfae5f75cf601832f168fb5c0cc",
+      "authority": "SSOT_PROJECTION_OR_SUPPORT"
+    },
+    {
+      "path": "01_UI_CONTRACT/contracts/generation/retry-inventory.schema.json",
+      "bytes": 9083,
+      "sha256": "2f212b3fa88fd9046c460cec13ca2039da7d8f80f57dfff864918f6983c2215f",
       "authority": "SSOT_PROJECTION_OR_SUPPORT"
     },
     {
@@ -2789,8 +2813,8 @@
     },
     {
       "path": "audit/SSOT_COMPLETION_REGISTER.json",
-      "bytes": 4241915,
-      "sha256": "58613d633ea0c892cec51ec07892053b1c39f86ebc8f5f16d312e45b7e12c104",
+      "bytes": 4431152,
+      "sha256": "86257c1463732d3d703ff9b25c43c0e5cca1e82c7ebc77f4fef94cc15fa82112",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -2843,20 +2867,20 @@
     },
     {
       "path": "audit/SSOT_REPAIR_CHECKPOINT.json",
-      "bytes": 25725,
-      "sha256": "ac7124450ab1d4b26e8fbd68177af6db19650981562ca5bd11b0502eb962f490",
+      "bytes": 28951,
+      "sha256": "5f6410d66aeb38f9aa1303b0e2fa04a8d98e0dfcd4b2ecabff2d9325f4db16ff",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/SSOT_REPAIR_DRAFT_PR.md",
-      "bytes": 1736,
-      "sha256": "69b9aaf1b0f82923d9a6ed7ec42e94b7fa968d36b694a49c11b23e21f6c6f2c7",
+      "bytes": 1744,
+      "sha256": "c90e607349a324aeba220c928e1637554fdb400c3b233190e36ddea61ef6ccd3",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/SSOT_SECRET_OWNER_DECISIONS.md",
-      "bytes": 6360,
-      "sha256": "6a888e3cc02ef99f4327d1add264c2b784bf460c129ec3c3b6babbb734fe4290",
+      "bytes": 3270,
+      "sha256": "987cab7a274c853bde4ced1cd0917e3717f1a8fff806345c381ee884c342032a",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -2897,14 +2921,20 @@
     },
     {
       "path": "audit/finalize_create_completion_register.py",
-      "bytes": 7655,
-      "sha256": "629939321dc4f1359fbdd4393012b0e575404978b6a6578bafdfec7eb06fc7ff",
+      "bytes": 7791,
+      "sha256": "2a4ec81d3388115806627f54c1464b3c6ffbacdddf7010f8b4299a4aaf89c0fe",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/finalize_d362_register.py",
       "bytes": 4227,
       "sha256": "fd206b8363317e80228b40343ecbfd45e7f41df771aaa42ed2e79450ba330054",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/finalize_generation_basis_register.py",
+      "bytes": 4485,
+      "sha256": "e5251ad3b033edb5341e9f917f478db7114698e7368093a99e0106a0b2274dff",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -2916,7 +2946,7 @@
     {
       "path": "audit/generated/baseline-gates.json",
       "bytes": 2428,
-      "sha256": "4ed5d3f3911bedb9ee19e3bb12a547a5c648953cea215140788667934fa62c32",
+      "sha256": "f7307e075ac2984ec59b5b0325297da9b6f82d10243aedee97fbfd31dcbd8e70",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -4164,7 +4194,7 @@
     {
       "path": "audit/generated/control-counter-current.json",
       "bytes": 46819,
-      "sha256": "aca9e0a2b89351f69b063479debb18196bd5b3740b9536c1c468bfb6bf404075",
+      "sha256": "4b3bedf2625ffc9af342510a80b1e8965dc8586834b81b6a8851226346b34338",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -4373,8 +4403,8 @@
     },
     {
       "path": "audit/generated/create-review-negatives/create-http-errors.json",
-      "bytes": 67010,
-      "sha256": "32e979fd8ee286683611e69ae748b214338fe2d4d9cfbb918c4b49a4e0a7c139",
+      "bytes": 68139,
+      "sha256": "087dd1cf30136e7a9c1551dd3ab3f1f5a8ebfeb28e00dff118d35e6f533fbe38",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -4517,8 +4547,8 @@
     },
     {
       "path": "audit/generated/follow-up-tests/follow-up-tests.json",
-      "bytes": 91008,
-      "sha256": "cb3344ce8b0d7e3c20fad7b87e97de7de30ffe8f2a609276f37315cbe28bed7b",
+      "bytes": 89577,
+      "sha256": "0f48f1a05263c217ee55a2ee4322a0b295eef5933ed105a769966485e43421b2",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -4554,7 +4584,7 @@
     {
       "path": "audit/generated/mask-parity.json",
       "bytes": 1896803,
-      "sha256": "64f61f514b745e677c621d0d9874cdb755c3a693e4451a71821cde7a15aea65d",
+      "sha256": "ae2eed23a5d8c51d3af61d61f625fae505f98f591fd584f88466800b5b3f1926",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -4662,7 +4692,7 @@
     {
       "path": "audit/generated/phase3-semantic-checks.json",
       "bytes": 61258,
-      "sha256": "d491d6f63ba76895b02bc324754382cedefd3847d5867f83f7748f2df46e6cdc",
+      "sha256": "ecdb8fb211fa0e93c9e8219a9f368c78d34cac5ddbaa3af03a195e500d7d1f4b",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -4674,7 +4704,7 @@
     {
       "path": "audit/generated/phase4-ui-checks.json",
       "bytes": 3074,
-      "sha256": "1836845d041561d4d6ee905aa458b504f0f30074981b9dec038097bfed939475",
+      "sha256": "621417b71de3cd550fd48f934d7c5a7366a54954eaa401c4c1e2e516e71e0fff",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -4740,19 +4770,19 @@
     {
       "path": "audit/generated/repair-2026-09-30/config-state/verification.json",
       "bytes": 4756,
-      "sha256": "00b5ed44c2f702b28c25a8b0c7ee732b25db0aa8a67026ee4722b5ed09794b72",
+      "sha256": "fb8b39cee27ab71b0969de4598b6072e361c257ae1b233a1e576ca8f513a636a",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/commands.json",
-      "bytes": 56159,
-      "sha256": "24e8fd458ca9c1eb70da8b2de06e3cb65325d0a86387ace9638c186178f337c7",
+      "bytes": 57546,
+      "sha256": "825a0fbfa8adc44ff38f6b7366e8a9a63f7c0ab8f52fb849dd02053fb37fa440",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/phase1_schema_closure.py.log",
       "bytes": 410,
-      "sha256": "5eb82cceb57cd0639242f72a7a92719ecdf14a2c129d93a039b6583e8f03194e",
+      "sha256": "9e4ea89f3ddecd3515fed19a5268ecc0bc5e19ece7744817977714f5ae0f24ce",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -4764,31 +4794,31 @@
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_acceptance_gates.py.log",
       "bytes": 854,
-      "sha256": "38ea21bdb6f77b4edf2f1e067922f63c3d9396ce5254cff584eec37041a54ce3",
+      "sha256": "ad807b7f1d5b073ea288a5a41867cffa46036e33d90199905c4b4a8123d9cb29",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_acceptance_gates/gate-separation.json",
       "bytes": 1156,
-      "sha256": "2fe428b1b76cf6730411fe6d3ee2c4ad704c08dd8521dc826eec50a4580dbbee",
+      "sha256": "5fdbfa5740aa63c94babb4c31b990c35c92f807630f59bd651a468c63cca7743",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_authority_excerpt_coverage.py.log",
       "bytes": 487,
-      "sha256": "94fe79391ee98a70c64629fa57d8c9fcddb9353b2bfc967c5e7d6e5f1b02b6a8",
+      "sha256": "a7fe37444ba9c109e0582d541922536aacfa61adfd08ea01eb6e6ef4f072329a",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_authority_excerpt_coverage/authority-excerpt-tests.json",
       "bytes": 535,
-      "sha256": "ccea60909da8bef250e693e83f4bd5af298da836e26fc3aa038d55c0708a3d47",
+      "sha256": "84a02d28536e266be518e0a9dce319af9472f4b53e62a5da1ecf81c5bae27149",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_backup_restore_state.py.log",
       "bytes": 908,
-      "sha256": "74a13bb056da24e0d40ea44e4805394be350d990eadf6afa8607f3b53c6bddf3",
+      "sha256": "f70dadb9b46bfb225e1c3ca8e62c72b0ed083a9ed9ef713194e7130c5ab6689e",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -4800,61 +4830,61 @@
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_config_rollback_state.py.log",
       "bytes": 857,
-      "sha256": "0beecbaaac2fc192d3beaf5a61053363fb89ca990b57326006d4a1c36f884b6b",
+      "sha256": "f9d6fec66ba40ebe85000185aa84406e2bd665123f2b10ed0771903f60a4738f",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_control_counter_masks.py.log",
       "bytes": 133,
-      "sha256": "da46b00a375ec28141589f64f8982374720811698be10f123a2f8c450b8d8f67",
+      "sha256": "8828bd0357bdba8b7227d364772d674bd05195124141a0da1204f29b506ffc01",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_create_completion.py.log",
       "bytes": 122,
-      "sha256": "0b60841c554599bafbced539ded0656232bfe6b38dd33590bfae1f6957235fe4",
+      "sha256": "f9669cd811b7fafbf081754848ec6af0ae97b18ebbb13cf4a9b2cf9cf204cf68",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_create_completion/completion-tests.json",
       "bytes": 183738,
-      "sha256": "95fbdc2823983441f1ad86dc07fa62270161f83047642a8ab6882ffb19ac27a2",
+      "sha256": "5163a2aa2f0d106cdf41fd1f8440eeb7efc638ab6d14a5b6c424980031c7ba55",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_create_http_errors.py.log",
       "bytes": 122,
-      "sha256": "63904afb2a19a183e7f517770145d6c758a98cbe27e7e7babab711e0c07c1f9a",
+      "sha256": "c03d327ef7f5230ba7ba6238d28af7f796f687bc4104011fc79969c2a81cd0e6",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_create_http_errors/create-http-errors.json",
       "bytes": 68139,
-      "sha256": "a514ad4f806d5eb13175d9a5fe70126c984b1cff88f69f698c99ba09cd1bcab1",
+      "sha256": "a14a6774cbc1dab6588621baf74932aed524ffc6accffbe13c71a499fe289ca1",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_create_operation_requests.py.log",
       "bytes": 122,
-      "sha256": "dde2ab0a8586de66cb931bf039fd1fae8816a66854a25a5e91777449004ac3b6",
+      "sha256": "dde78c198a342d3ad94f7136d41eb7f5b533d2b142d7e8a666d23a4ac0ca629b",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_create_operation_requests/create-request-tests.json",
       "bytes": 32130,
-      "sha256": "46f3496a92b7209e32d1f1bfde815104f86ea98a376cc44d03f0b0584ffb3d96",
+      "sha256": "edd049ac716a326088afed3003cefe312ab8e8d7316c7e96943a520f2f99eaa4",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_create_storage_invariants.py.log",
       "bytes": 121,
-      "sha256": "3799c107c3b93c304ddf0f395533ebc920ac563f1760a50a8c8846a7164fc2a9",
+      "sha256": "d17b19a47993d0ab6742232b69b52dab504df990642158a3f3da9f9041efc488",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_create_storage_invariants/create-storage-invariants.json",
       "bytes": 3281,
-      "sha256": "6814dd42108532623b094592f11fd8765aaf2fe6d2a66e86928b337cf29e80cc",
+      "sha256": "6545096471f9bdce9f635aa52a7d7f202e47bc2ceca50318a8e1c606deb6ba66",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -4872,127 +4902,139 @@
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_follow_up_contracts.py.log",
       "bytes": 122,
-      "sha256": "185ee51d6c93aa4d544b0aed8b6e65115bd7935e0c79b718a599801cec68d9c3",
+      "sha256": "3bb028b0f3d6babcab5c50513687dd9b9b151b2503e228b1de28601f254265bd",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_follow_up_contracts/follow-up-tests.json",
-      "bytes": 91008,
-      "sha256": "e2c132caea29148da3b7f1a79031a235be32e1235d2178adf2d6ddad19b20933",
+      "bytes": 89455,
+      "sha256": "83a6924b04b74446c957f51660919705fdc5164debde5e4ff1e683981d695df3",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_admission_basis.py.log",
+      "bytes": 122,
+      "sha256": "5b7bc1e0bde0d394ab494231d1ba7625c84dbe72a8a35f8e2ecd476678b1cb81",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_admission_basis/generation-admission-current-tests.json",
+      "bytes": 41546,
+      "sha256": "85017f74c2b633fa2fb6b22a31a1c596999de5eb7d23b0721f8d2b598e090fa0",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_atomic_model.py.log",
       "bytes": 313,
-      "sha256": "9d7e3f27005202f2b2db2d7a60d008002e9bb1dd248a5e4c75cb814897ced9f3",
+      "sha256": "23fb5ab630b9e53a4a25575e0be7a4a23aeb9b6bc05893d702e32b8d906c539f",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_atomic_model/generation-atomic-model-tests.json",
       "bytes": 15141,
-      "sha256": "78d3dcde2790f495f823bb9f64144ea437807d7ad436ebbef4e80ff00670a82f",
+      "sha256": "3a75b61d74ac072f002b8ee764e6b15ac92562b2964b748341b375a07a42e2c4",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_document_events.py.log",
       "bytes": 172,
-      "sha256": "77fe1e50b23e8e22d84b57267c2293c0433f0c17235474bab3efb0b0f379d0c3",
+      "sha256": "8078d36f13e871b946e300a12b788d01b6fbc12bd05ff1703e275a96825958e3",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_document_events/document-events-current.json",
       "bytes": 94824,
-      "sha256": "06d0723b2a9d22d11dec0b3cec5691a8bf0716845ba9858bf590092d06582e6a",
+      "sha256": "61203b700dce631d2e57843bc19c7ae83472d1fe60a607e22d8f5cbbe37adcd8",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_domain_payloads.py.log",
       "bytes": 114,
-      "sha256": "e6216b0d443d9296efe576b02584c37d67edef737708b9a0ed53777f421e7cb4",
+      "sha256": "7cdb208195b3df9e69cce4404c6d31f15faede778334a806182b5888aa5bc6cd",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_domain_payloads/domain-current.json",
       "bytes": 15441,
-      "sha256": "c6cdb80666c213fb3d4c6b2abc38420eacd1c9bb990fe0b3c44a838a6402e458",
+      "sha256": "a720aaf2ead73519eedcf34984abf958082476e04424989add57ffc675437711",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_event_boundaries.py.log",
       "bytes": 133,
-      "sha256": "4654838c7fec01f6f0f3ce904a3cf16573fa687669c1b3eb77da5739dd1f4e2c",
+      "sha256": "2d8b0cd3d71ec8d2ce8dd8d049302d8c8de44adc722d5ad446e706edeb886316",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_event_boundaries/events-current.json",
       "bytes": 73396,
-      "sha256": "3fdb30ea14ea327405da6ac7749bc1b1bbca86f707a8f676822ef01e20340ce0",
+      "sha256": "706cdd467af2fc56406db95c12670551f33c0373ee9adeeda0188861d07dc3f3",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_http_contract.py.log",
       "bytes": 350,
-      "sha256": "12db401bd319d7d5f3f2763a9a1b4739179166650093d92a64b9961c6ed8f860",
+      "sha256": "0d728795c55d70dbb35bcfc3d8fb788e13cf753ac33aa76da9240bede0561f7a",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_http_contract/generation-http-current.json",
       "bytes": 335762,
-      "sha256": "c73916fcc193d377043d9f041f50c1a9ae441b603dc73b1716c6c8d24cacea30",
+      "sha256": "ea137d86c3a45a06ba59b7ed37998df9b5ef952cc4a4569cad3eb30eda7adf06",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_operation_masks.py.log",
       "bytes": 114,
-      "sha256": "606b85d68600b9f46a8fce1cd56d4cef0016b7f3a8913ac2cfc784a89ab6a36b",
+      "sha256": "fabbace43bfd4b90a82eedfd146db3f312ba98e07a1f708ebc264d9602fff341",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_operation_masks/generation-operation-mask-tests.json",
       "bytes": 347498,
-      "sha256": "642ffc276e499995daf36bc3356243b02608e0d6cadf02838529493a5cce6c47",
+      "sha256": "adcead3c8387cd1b13c7260cddc0d43919a644ceb2a1bea6d905706f6cec2bdd",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_read_design.py.log",
       "bytes": 180,
-      "sha256": "70b3c11208089c2d991924909b0342c8312f9468f1994e1c1b0de2730d1080a3",
+      "sha256": "4317e58058ba3cae089e00d9bda3ffdbb14744da5a8765060848e8a559934863",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_read_design/read-design.json",
       "bytes": 16587,
-      "sha256": "5f50d66cdc708f6571097e84ac8e857fa2213b4d63db914a0ceadb34be1ab72e",
+      "sha256": "6095e5110244a59fd474b9c81c1ba6a67182a9a26f74844c4286d4ce56597c66",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_read_errors.py.log",
       "bytes": 133,
-      "sha256": "837242bd9078afd33f8fc2e03608383275d88d1b96ac848d8e9c0064a03047ee",
+      "sha256": "e6fd59f36487a4126f59db5726ed676d5b40fd479502f683e2d5e35d5e6ad752",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_generation_read_errors/read-errors-current.json",
       "bytes": 76894,
-      "sha256": "adf535249ac4edd51b82780c81a3f16062b73164d446a21ec2daac09b2e72377",
+      "sha256": "447a73c7beeb653c42525e5c79d2cedbc47d619d13b56be01925dfb91d67a2f8",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_mask_parity.py.log",
       "bytes": 297,
-      "sha256": "32fe03e0a7c86872af6b6783a92441cc4a64fdd4666cd3610b9f65c9b4ad2909",
+      "sha256": "2db6d15635340403f7060cd40393bffb0935be226da82d93a466a95328e5519e",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_native_manifest_continuation.py.log",
       "bytes": 150,
-      "sha256": "3e4ce05563c3948e647d5cbe329faaa02091dabe7007ca60137fb0dd2796e5e3",
+      "sha256": "b0bd36d6d06f8c46a1ec2d919bb10cf990ce9c27e558aa812069cdfa57b281e7",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_native_manifest_continuation/manifest-current.json",
       "bytes": 2083,
-      "sha256": "f77311883757e33d7c40597948c9106787f9e418bfb0d2f8b1e09f5c76d17b46",
+      "sha256": "373f3a847000fe1349c973859cd7e132574c4e7662c6bfd30ff807f1c2956c4a",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -5004,25 +5046,25 @@
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_operation_sql_literals.py.log",
       "bytes": 793,
-      "sha256": "0ac59b12914fee10e05b47f43eb5597f6957261788a22c33f92d72fc2bf39f2f",
+      "sha256": "9f55e98724c97ada1dde421da3dab52bd4c8598bb0d1fca658d00e9ada832ada",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_operation_state_receipts.py.log",
       "bytes": 121,
-      "sha256": "f030d92214cda674c0731785da84324539bf29fb669430adaa3cfe1a013738ad",
+      "sha256": "7c937fe02280115126da945618a202bc73a4855abccf1ac8ae9f7344d9873e2e",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_operation_state_receipts/operation-state-tests.json",
       "bytes": 6973,
-      "sha256": "042510e2e90c9b8fdb58dad3e6aa8696b0203ef05993e21c412528e9ceb47511",
+      "sha256": "83f16c0f84b765f035aaa15f0cc9d4e37c5e9640172e064ca464d3afebf33f1b",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_package.py.log",
       "bytes": 16950,
-      "sha256": "7f692741943383cb94d2c0b4d386dbeb34b0c3c96a97e594e9e4dea9368101a8",
+      "sha256": "1dd121c20ff11524f7a81d870d13dac3f7bf260ece662bba50df90ae70dc9f04",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -5040,7 +5082,7 @@
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_phase3_semantics.py.log",
       "bytes": 999,
-      "sha256": "3cc503cc584a6cc9bcdb50a831a531d4bea6166324270bc98ef16363c0dc039e",
+      "sha256": "3a3b19160508908d9613d97f8b0e1541d1e49c613158df5c6bb9b199a97672d0",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -5052,7 +5094,7 @@
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_plan_create_handoff.py.log",
       "bytes": 23555,
-      "sha256": "ffffcae7cb1a976d4a36f250da0f278b458c8f00d6eaa45fbb23bdda9309fbc3",
+      "sha256": "87f1a9ce918089069943fa2bc35bf7aa88e7043d36dec1b9520301dea8a12a31",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -5070,25 +5112,25 @@
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_provider_outcome_mask.py.log",
       "bytes": 113,
-      "sha256": "cf503368235faf0452b2881174158413a4810de3b0fc53570deeae9d718ced67",
+      "sha256": "b5d6194a61498779aab9470dbaee05d3a8c14f0220c57ab2cb1a826fdd73f946",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_provider_outcome_mask/provider-current.json",
       "bytes": 5136,
-      "sha256": "ff442ffeb5fdda85f4d5a862acf02e4964d541be9538bbc49e2002dd9afdb751",
+      "sha256": "94fc5bb0212737aa3446508ecae2d98c2f707436852c195950628bead59fc885",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_read_boundary_completion.py.log",
       "bytes": 114,
-      "sha256": "ce5627d0afe269862ca868c6ca22f63904c1a56cb288d9fd35817371530ff018",
+      "sha256": "49a4f494ca9d4876be86eb9b2bd4f6fdf0d147e70ced9759ea561c5234099d0a",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_read_boundary_completion/read-current.json",
       "bytes": 30921,
-      "sha256": "15025ff6624a15a58bf2e775bd6691b44c35c0fa2a1b52e46f3d47b3815f8104",
+      "sha256": "ee931533bd9d9900103287e0d523f392bd70ebea08c78043489a9457c65127f1",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -5100,37 +5142,37 @@
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_route_guard_counters.py.log",
       "bytes": 176,
-      "sha256": "1076e144040e0ec9c1222dab5330363569b5960fd95b8230c6982a450fb85cee",
+      "sha256": "6f61f09fc349e33e9d3e88104ea7ed5fb77d3d470ce6c7dda48df7eae9eb2ba1",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_route_guard_counters/current.json",
       "bytes": 3216362,
-      "sha256": "2eae9e0e236e877ee492ae682741916ab5e0ead18d6bf4d83d410895174ca9c6",
+      "sha256": "53b571a50a1b194d0f4efd35e35dc31462bb9f2e503a3fc4b9aef0a19316290a",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_saga_handoffs.py.log",
       "bytes": 132,
-      "sha256": "2ce839780ced8a2d8bb37239cd0140e83bef6ba1af364843cc5d4969a4706102",
+      "sha256": "879c7379a721183c8eeeb55503c38cc3b4e7759b01b89f01e4c2b78c323b24f0",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_saga_handoffs/saga-current.json",
       "bytes": 15933,
-      "sha256": "a7cd824df26ec4aa2996e3e5657227dcbefcbf8af7436829c590c429a5b1ad49",
+      "sha256": "a8317998abbb7959fe91e08c6c9d26645426aa3130ddd916298cce7142eacfdf",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_schema_references.py.log",
       "bytes": 218,
-      "sha256": "684c9eb253a8d7ff30f628b5151d73a3abe15c93609327354c6b3f6e43a97f62",
+      "sha256": "69a7a31afa5467d5336e332e4d57e272c2f65e5b6623f2557707370269962ef4",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/repair-2026-09-30/design-current/verify_transitive_mask_detection.py.log",
       "bytes": 581,
-      "sha256": "82758c22c9d575f4e148fd09a437f4f1d71dbf260d85bab808523f887932f23a",
+      "sha256": "c97150792fee47042017874dc66faa4a9e685b880bb1b8959e19d8273c4d857b",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -5238,7 +5280,7 @@
     {
       "path": "audit/generated/repair-2026-09-30/restore-state/verification.json",
       "bytes": 5321,
-      "sha256": "523297a2e06d1d737ce7c7fc96b8d54b366b23cf3efe2c0413872da71b9776e3",
+      "sha256": "39b6f2f650b39f078f4f5bdd3683ecfd31017f73941c97fc4190f93ecaa998f6",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -5250,7 +5292,7 @@
     {
       "path": "audit/generated/repair-2026-09-30/sql/literal-verification.json",
       "bytes": 1022,
-      "sha256": "19c41eaccb6c455bf0829d6109ea53b9e7a27441a2ede98212f76c88630c9506",
+      "sha256": "ebd71fd13498791f533ea039b3cc485fea978af0b3db12c52626f7c0877febf3",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -5393,8 +5435,8 @@
     },
     {
       "path": "audit/generated/repair-create-2026-09-30/create-request-tests.json",
-      "bytes": 27775,
-      "sha256": "0ab4ad6155eb218b759ca75db60bdbfea0bb6e0d1a7776c47688e7d48c79fe2e",
+      "bytes": 32130,
+      "sha256": "c4e21800949fd6b23f04edea9578ba95392e7dc3fb486bd2ed7247a1842f0fd6",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -6863,20 +6905,26 @@
     },
     {
       "path": "audit/generated/resume-d362/admission/build_admission_proposal.py",
-      "bytes": 11366,
-      "sha256": "7686713cfd0f5af6572d0733851f7f06f53be9b48b579fc185646c4f89e11e04",
+      "bytes": 13921,
+      "sha256": "39de648b4bc3e4854eecef0631d7884cecffc6aac29f9e8ec3254a9b03ecf475",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/admission/build_retry_inventory_diagnostics.py",
+      "bytes": 2484,
+      "sha256": "c05dc437f5b0676aca5dd288d6e985d560b1c9d95ed9a64148cc03abdc7ad830",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/resume-d362/admission/diagnostics-proposed.json",
-      "bytes": 49376,
-      "sha256": "bab4160a8c5c5d07222f4bd994f5329b500a3b5f5c41f748df115a90c3fb6316",
+      "bytes": 52097,
+      "sha256": "c12e376f49045c963f8d578c79835e3f61c711ecf49d39c2ef8bd321a297e778",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/resume-d362/admission/generation-admission-contract-proposed.json",
-      "bytes": 57377,
-      "sha256": "855360676d23c1d92908dd71ecfc508e2026416834fe5987cfcff09185d575e8",
+      "bytes": 61923,
+      "sha256": "ff2dbd1ef29a55fd9b03b56f1a352b6b748d7bb379a9211d3bf60d1a2c16c803",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -6892,6 +6940,12 @@
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
+      "path": "audit/generated/resume-d362/admission/generation-graph-tests.json",
+      "bytes": 9404,
+      "sha256": "61d67afd144f64d4d36c5f4ce3214fc0cc100d56911bde8822c8fa7335d7d922",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
       "path": "audit/generated/resume-d362/admission/generation_admission_fixtures.py",
       "bytes": 7437,
       "sha256": "f9910310bbd443dfd33b581f1555159b6d2d3c6f527100a11d017b3191c98101",
@@ -6904,9 +6958,51 @@
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
+      "path": "audit/generated/resume-d362/admission/generation_graph_fixtures.py",
+      "bytes": 7231,
+      "sha256": "cc127c4af7d0312d37fa4f3dd71558f944cc950e552f67d7c03f32b7783b9e3a",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/admission/generation_graph_reference.py",
+      "bytes": 12928,
+      "sha256": "774a72d6083afa41a8c4725fc7f40a4c5928adb7f0e20ef45f704551ceffabb4",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/admission/generation_retry_inventory.py",
+      "bytes": 9381,
+      "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/admission/generation_retry_inventory_fixtures.py",
+      "bytes": 6145,
+      "sha256": "b3e0daf65acfee532106dea575eb628d165edbc731fee9b214d8be8a90a86039",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/admission/graph-projection-integration.md",
+      "bytes": 4751,
+      "sha256": "849f65638a20297398fa704d814c3cf1ea3e7b1345a37f158a1b6be565bc0d0a",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
       "path": "audit/generated/resume-d362/admission/native-authority-handoff-tests.json",
       "bytes": 1989,
       "sha256": "b65d56a6b7578e30f2b43dbce9d815ef06076a573b92e6e4e6b0997673874a13",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/admission/native-follow-up-content-tests.json",
+      "bytes": 5260,
+      "sha256": "44fe263f51290e69c928df18c31ca2253de860a5063d35383681a19e8c34f9c3",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/admission/native_follow_up_fixture.py",
+      "bytes": 10619,
+      "sha256": "0f1cd5b3e42a22d59b6d173c9f89abbab74104c1669f8f2a251b46347a896e2d",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -6916,9 +7012,45 @@
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
+      "path": "audit/generated/resume-d362/admission/retry-inventory-amendment.md",
+      "bytes": 3768,
+      "sha256": "65cb4039228707973c0dcfb62a4c4f3fd06010c78e22d7b85278095fe407b992",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/admission/retry-inventory-diagnostics-proposed.json",
+      "bytes": 21341,
+      "sha256": "7921f472637d2932f1178c6aec379a45d67d705bf06d11cebf7c23d4ac4061e6",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/admission/retry-inventory-tests.json",
+      "bytes": 6992,
+      "sha256": "efed9eb435d33b7de673b613b38ee12eb8c257464a3571f70451daf4fceda527",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/admission/retry-inventory.schema.json",
+      "bytes": 9083,
+      "sha256": "2f212b3fa88fd9046c460cec13ca2039da7d8f80f57dfff864918f6983c2215f",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
       "path": "audit/generated/resume-d362/admission/verify_generation_admission_reference.py",
       "bytes": 11955,
       "sha256": "fdc3eda8f5a49573c996a9e83c6110de7323f22a63857a252c0a66db782ec8fb",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/admission/verify_generation_graph_reference.py",
+      "bytes": 8966,
+      "sha256": "fd28dac87fe0181bac2f911464a773b5d96e2ddc734bb81d113df11f0554310d",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/admission/verify_generation_retry_inventory.py",
+      "bytes": 6939,
+      "sha256": "dbd09e8af61f40261c509cddfbd37b65056e69c176b89e467c806a73a383660c",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -6928,9 +7060,21 @@
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
+      "path": "audit/generated/resume-d362/admission/verify_native_follow_up_fixture.py",
+      "bytes": 5909,
+      "sha256": "750860635ec4e963cd7702cd317850912c4f33c8c5af69178fd313c2115d03ec",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
       "path": "audit/generated/resume-d362/consumers/INTEGRATION.md",
       "bytes": 10529,
       "sha256": "d41dacffb08aad0a726102076db11fda936f88d97a381b1c03b448e8da66462a",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/consumers/OWNER_UI_DISPATCH_INTEGRATION.md",
+      "bytes": 11211,
+      "sha256": "aeaba4bf63bb25d845b63ffb0efc9433c6df78ee9f54bf813c2941a1e07cee05",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -6970,6 +7114,12 @@
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
+      "path": "audit/generated/resume-d362/consumers/native-evidence-reuse-after-role-fix.json",
+      "bytes": 722,
+      "sha256": "7836b73809c90e554e3347d1188d6294fed1add9f3026356c67de3ac21199a58",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
       "path": "audit/generated/resume-d362/consumers/operation-contracts.json.generation.job.read.json",
       "bytes": 3314,
       "sha256": "076dfbf26d6de2b1e24b465ac0c60ecb43ffb719f2f79c8846fd117fbcb7189f",
@@ -7006,6 +7156,42 @@
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
+      "path": "audit/generated/resume-d362/consumers/owner-ui-fixture-foundations.sql",
+      "bytes": 3420,
+      "sha256": "abc61f98d8b8a971493531bc3b552a2f8efe63b381446f2ea6ea653956851914",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/consumers/owner-ui-intent-worker-proposed.sql",
+      "bytes": 17231,
+      "sha256": "fd05204b7200c3b4c38ac4475a1bc5836f67ba4aa942e5764f8a718eb731e464",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/consumers/owner-ui-native-contract-tests.json",
+      "bytes": 19329,
+      "sha256": "65a53964a0e4ce8ee57025d14d750f5e286837b362ea4ab1ac4da4448539e032",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/consumers/owner-ui-native-contracts.proposed.json",
+      "bytes": 1131226,
+      "sha256": "b1631d214521f6254051fd1afb7785fda37045214e365abec05fa089f7562cb9",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/consumers/owner-ui-role-bindings-proposed.sql",
+      "bytes": 4730,
+      "sha256": "cde40e4a9ab1bedaa6600f5a51549dc0b87f7d68a5562db0ba567e5dd2457f9c",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/consumers/owner_ui_native_contracts.py",
+      "bytes": 12163,
+      "sha256": "10230779f2e37e7c93fca4a56a249bcf21a4d2941ff90cea4819a4fc401518ae",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
       "path": "audit/generated/resume-d362/consumers/payload-contracts.json.generation.job.read.json",
       "bytes": 18816,
       "sha256": "9f0ffcb08fe0aedb4c2a4314f7afd6b6df879b575ccbc88c64a69b3a77375380",
@@ -7021,6 +7207,12 @@
       "path": "audit/generated/resume-d362/consumers/payload-contracts.json.generation.message.append.json",
       "bytes": 288387,
       "sha256": "61e094a6599865e4821f7a32f19179b2bf9d3a441c66405f9b67a6f7ea0a0903",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/consumers/postgres-owner-ui-bridge-proof.json",
+      "bytes": 19096,
+      "sha256": "9b1a3ade654f59580c91060cbecd8015bcfc094d5215ca617512c74c3d2b7596",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7096,6 +7288,12 @@
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
+      "path": "audit/generated/resume-d362/consumers/third-wave-bindings.json",
+      "bytes": 2160,
+      "sha256": "f8e9d0df7a88467628b1acc15de65bac6a67cc4a72f34b6bd1ac868ad95efbe3",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
       "path": "audit/generated/resume-d362/consumers/ui-facade-native-inputs.proposed.json",
       "bytes": 912008,
       "sha256": "331e13c5baba489883b740f8501ec14dfb1962f7b5fe95c605f1d9ec68384c0e",
@@ -7126,9 +7324,27 @@
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
+      "path": "audit/generated/resume-d362/consumers/verify_owner_ui_native_contracts.py",
+      "bytes": 7839,
+      "sha256": "4d8cbdc7d9f84cd8185cae700d67e57b8da57b0869384a92449057c500458250",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/consumers/verify_postgres_owner_ui_bridge.py",
+      "bytes": 17759,
+      "sha256": "54050e1100462494885543436ea28016de89caa9c14b126e7c8f00a7df8adbc2",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
       "path": "audit/generated/resume-d362/consumers/verify_ui_facade_pipeline.py",
       "bytes": 7565,
       "sha256": "f059183a776647b460cecd00da6f3b85ac90093656e92c3247faea3de42fd790",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/coordinator/GENERATION_BLOCK_INTEGRATION.md",
+      "bytes": 3313,
+      "sha256": "033edb47273764c7b30e2487b5412ff5f09ac5a4e379927afebdbcb98be7c728",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7138,9 +7354,21 @@
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
+      "path": "audit/generated/resume-d362/coordinator/design-first-pass-with-follow-up-timeout.json",
+      "bytes": 57554,
+      "sha256": "e0a119ab13f79c92cc7326f8883cd768b2d1de82708752780bb0f31862f5555b",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
       "path": "audit/generated/resume-d362/coordinator/entry-integrity.json",
       "bytes": 335,
       "sha256": "2a911b058d20947ede528ffe36e980959dc03c5bac19893e99750513c9cdbc19",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/coordinator/generation-admission-current-tests.json",
+      "bytes": 41546,
+      "sha256": "fdb50d68bb0e5f953ece901cebfaeb57d3160cb8e1f3ff0f964cb4314c17dfe9",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7163,8 +7391,8 @@
     },
     {
       "path": "audit/generated/resume-d362/coordinator/visual-proof-reuse.json",
-      "bytes": 1169,
-      "sha256": "9fd7495d2183449822c08a730b1ab4eb95d3dfdcc9b24676e6340ce7ff8a1db8",
+      "bytes": 675,
+      "sha256": "72d8a3f99be821fd392ca8a673826085bf41f0bca16979a263487700546139ed",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7271,8 +7499,8 @@
     },
     {
       "path": "audit/generated/resume-d362/events/generation-event-storage-proposed.sql",
-      "bytes": 19379,
-      "sha256": "b79b6b4fc5e5d8fdbb8325a66def8a51322624af5a0bbae51876d5fc56e684c3",
+      "bytes": 19893,
+      "sha256": "0f248223f25eaf52a5f290885c0424f8772fa9e53b29eaa47726c384760e12d3",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7295,8 +7523,20 @@
     },
     {
       "path": "audit/generated/resume-d362/persistence/INTEGRATION.md",
-      "bytes": 5605,
-      "sha256": "181254c143aabb5a48b787c126447c998ef89e2006cd3575902a7f45c17b1601",
+      "bytes": 9283,
+      "sha256": "2386b1c3123dd7c60f43a5b8cac9323d278b69551e3a98097d4ef5379c5114b2",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/persistence/authentication-root-field-authorities.json",
+      "bytes": 24032,
+      "sha256": "f5af734d0e6bf9f5e0a5ff603c4b61c4ccaba7d64368143a141737dbcb32cefd",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/persistence/authentication-roots-proposed.sql",
+      "bytes": 4671,
+      "sha256": "afc07b1382898dbdcdd8951349991fb79170ce47e0b914c46823c47e626f1e20",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7391,8 +7631,14 @@
     },
     {
       "path": "audit/generated/resume-d362/persistence/combined_foundations.py",
-      "bytes": 2179,
-      "sha256": "4477cc82616590d096a00c8c099d1758483c6a06659d7ff61fda07c6faaa4c51",
+      "bytes": 1411,
+      "sha256": "89534e4d9bde2b0d9dbe07b9ac65cab6342074c11127ef58f3639e0b13d5ea49",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/persistence/context_fixture_exports.py",
+      "bytes": 2031,
+      "sha256": "ae90984993a96c5abca746cad6d618cade6fc3d322fbd99ec16373952fa27888",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7403,14 +7649,32 @@
     },
     {
       "path": "audit/generated/resume-d362/persistence/generation-context-role-bindings.sql",
-      "bytes": 3844,
-      "sha256": "1dbe9ba834c39a4fc5304c2f27288059bc784a79a15d958d92bcdc600bfa80eb",
+      "bytes": 4395,
+      "sha256": "9bfa89da7e34bb8fa67c4266868a7ee65300d94fb62e2844a9248fa8e6b0087c",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/persistence/generation-contract-pin-manifest.json",
+      "bytes": 1070,
+      "sha256": "7b2857fc93a3da96b671f4ff17cbd6a209abe08cd86d6fc75414a597a46fd9d0",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/persistence/generation-contract-pin-proposed.sql",
+      "bytes": 2780,
+      "sha256": "93920002901198cd0be40984fce7a72d4da425b0f622435aef0a604861811228",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/resume-d362/persistence/generation-contracts.schema.json",
       "bytes": 772266,
       "sha256": "5cf483812abcbfd834c54537a444724d227fe36ddb1ad0604af13205b4494943",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/persistence/generation-execution-descriptor.schema.json",
+      "bytes": 980,
+      "sha256": "380500a5df646d4403035660d45cd7b30d9499c049ff7a4f5d644f132db0b436",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7421,8 +7685,8 @@
     },
     {
       "path": "audit/generated/resume-d362/persistence/generation-root-contract.json",
-      "bytes": 5834,
-      "sha256": "65a2e051040c59a5ff9c8645e474a36e9277b27dc91bc3b3c7f7a576002c3f13",
+      "bytes": 6093,
+      "sha256": "2342980fce736163149e31a5f0f8ede78d05ae62f6c59b376dbcabb12f1875cf",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7438,6 +7702,18 @@
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
+      "path": "audit/generated/resume-d362/persistence/generation-snapshot-pin-links.sql",
+      "bytes": 1489,
+      "sha256": "d7cfc6d29502083a2bb550c3db64fecf1efe53e37c7877ae4a73f6c8bd4b038f",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/persistence/generation_descriptor_registry.py",
+      "bytes": 4340,
+      "sha256": "9cb7f68a4f1e5d890ce074fbcd277498412c51b90a9068d98d02940d7fadf78a",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
       "path": "audit/generated/resume-d362/persistence/model-catalog.json",
       "bytes": 87610,
       "sha256": "b1f7076ce94a22bb0e27a8c8522cf5c6acc8c550e108a945178300df49549c50",
@@ -7450,6 +7726,18 @@
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
+      "path": "audit/generated/resume-d362/persistence/owner-api-secret-links-proof.json",
+      "bytes": 3103,
+      "sha256": "1d9a2809a237d3b77cbfda53c262a09e5c7354db31d39194cef5b869a77a20b0",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/persistence/owner-api-secret-links-proposed.sql",
+      "bytes": 3256,
+      "sha256": "61654b84d78bbb4aea08069efab973ebc26c005c94a5b9ea53f902c81ce9405f",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
       "path": "audit/generated/resume-d362/persistence/physical-relations.sql",
       "bytes": 2123,
       "sha256": "ad47d2238be806db0257429bf60f4023fd73aa8f218758a27ff311ea1b2ed774",
@@ -7457,44 +7745,68 @@
     },
     {
       "path": "audit/generated/resume-d362/persistence/postgres-context-proof.json",
-      "bytes": 8021,
-      "sha256": "b2e741f79da422536df1701dc98181339f0fbb268f7e29c8fbe2fd2c17350756",
+      "bytes": 19125,
+      "sha256": "4ebffdf1f8833ffc40807cb385bde4410d702ab21ec70de8bfd417a54610b622",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/persistence/postgres-extension-proof.json",
+      "bytes": 2035,
+      "sha256": "7b4c1019409352e767b368ca5bdfa236b3285a4e4df270f5670a12c0f7bab015",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/resume-d362/persistence/postgres-fixture-environment.json",
-      "bytes": 1670,
-      "sha256": "1b1b0ca0fb87093e535d1f30385e4a43235fe4e4890795aa4fc6f32245bf1610",
+      "bytes": 2112,
+      "sha256": "7598d4491479b153020335775be6ba1ad3b24f331574f52354eac990e73aca19",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/resume-d362/persistence/postgres-root-proof.json",
       "bytes": 7095,
-      "sha256": "d16e756e6f87039d5b523128abd9f8f39301c175ab916610200062fdc6bcf79b",
+      "sha256": "cb9665ac69f0740600dd0141963fd393842d559467aa392baf897144d61df09b",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/resume-d362/persistence/trusted-generation-context-proposed.sql",
-      "bytes": 7986,
-      "sha256": "2f9d0cef4b1ae85d66c9325f1550c4d90bdb45400a264cc122363969abe836bf",
+      "bytes": 10833,
+      "sha256": "740da917f692cd34b77a188bf2996a93f31c47f3cd160292d209725abc23ebd8",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/persistence/verify_owner_api_secret_links.py",
+      "bytes": 5459,
+      "sha256": "ca520ec2082fd66615f58a21c199951899036ceebc37c4f7069e9b89da0081de",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/resume-d362/persistence/verify_postgres_context.py",
-      "bytes": 8551,
-      "sha256": "8d81defbc0bcfc5d3b518702d4334211c2531641baebe7d6ca60662879b4b198",
+      "bytes": 15214,
+      "sha256": "babf3f063dd894220fd831c27e22037bdf43f967e8698d4f22c31524820d52c5",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/persistence/verify_postgres_extensions.py",
+      "bytes": 3499,
+      "sha256": "7cbac1b91b0f216fd19189bff880b65fbfe07482a3603be5dee734b54e42d83a",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/resume-d362/persistence/verify_postgres_root.py",
-      "bytes": 8485,
-      "sha256": "1edd34decee11382784cd8f7cee9b86e7b0621956f42500f4d6fbebe812e2a27",
+      "bytes": 8740,
+      "sha256": "2315687262c617a9313c9a5b67c76c47349c55a6f21c388696c41db3f02ab9c4",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/resume-d362/review/INDEPENDENT_REVIEW.md",
-      "bytes": 8239,
-      "sha256": "7fa8321505243f72ec190a37b8c9d831261d5ef39d20504ce2c3a3f84f88b89c",
+      "bytes": 17782,
+      "sha256": "c04819c52533ec9a9f5d7b4ed6b4b7d1e48b4d0d715abfeed774c00e64702abb",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/admission-http-review.json",
+      "bytes": 13493,
+      "sha256": "02f73d9445dd42c38c77ae8880fb5567d264abbd143a2f248271ec4eeb2f2e81",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7516,21 +7828,93 @@
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
+      "path": "audit/generated/resume-d362/review/combined-foundations.sql",
+      "bytes": 60814,
+      "sha256": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
       "path": "audit/generated/resume-d362/review/corrected-state-review.json",
       "bytes": 1378,
       "sha256": "4a319eff40694b51f17e2e1ed89e0d02c9527e2bee3d69583cd9a815450f9142",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
+      "path": "audit/generated/resume-d362/review/diagnostic-predicate-review.json",
+      "bytes": 489,
+      "sha256": "a75914fd69e0d0ddbc1c98e552179f41b8ae06bf0552e9df3e8c32b9937b1745",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/final-output-review.json",
+      "bytes": 1325,
+      "sha256": "9c658cf715f1f6f7c8c25a86b856fbaf6eebb637655806d2742d809dd29b1e99",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/generation-command-links-corrected.sql",
+      "bytes": 3977,
+      "sha256": "89a2e2d8de5f3678db35a3001f6cfa012912793fa14cfefc9aebff0ef7aa2be4",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/locator-initial-scope-review.json",
+      "bytes": 2286,
+      "sha256": "d629318bf6f396da0bda05d3a66fc1ad332a55f1137503953aff4a1775081406",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/owner-ui-review.json",
+      "bytes": 2566,
+      "sha256": "169134cfe5dc2078d7378d3712e22eeb34970c87791a07df9304c2e490ef3bdb",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
       "path": "audit/generated/resume-d362/review/postgres-retention-review.json",
-      "bytes": 4070,
-      "sha256": "64bffdb971858d089d4d49975467db9f2bc4010a042e748b2748eedffc3c588c",
+      "bytes": 5430,
+      "sha256": "a634bf7ca0cb376b44057b96b377b3ac5957843d0c1cc4b53d901ada0873f199",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/retry-current-projection-review.json",
+      "bytes": 1340,
+      "sha256": "163fee57f8cfc84423adcf0ea6957c9348646a71ddd001ceea0e74f5c8842180",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/scoped-generation-links-review.json",
+      "bytes": 4604,
+      "sha256": "a21d5d53772e404a79a0bea5a828aa45969d958474f06a2a7b13fa13be5b3126",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/secret-compiled-schema-review.json",
+      "bytes": 1338,
+      "sha256": "361ba66758ce735b68f82d1ec9bfa0e1f4551c152fb34bddd4cb4cafb7d373b9",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/secret-digest-review.json",
+      "bytes": 855,
+      "sha256": "7ebdde86677ddafeedd6b1743d29758e007137f450b3b17e764be7fce3505510",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/resume-d362/review/secret-review-results.json",
       "bytes": 1489,
-      "sha256": "1efe95b0d21d76464ab61bb728c423f6859751767574ef4e0247d5dd30a79ce2",
+      "sha256": "ff6a69848dcbefc74a4f221607f50b30188e01b98a6ecb6c98e73c11b5903026",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/secret-sql-review.json",
+      "bytes": 3060,
+      "sha256": "8bb1c7ddb1045bfce7792b7d83a7a68f669b32f49c6e1913aa16eb9dc02b6529",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/verify_admission_http_review.py",
+      "bytes": 1876,
+      "sha256": "48756e5dfd8ffd8eeb674ef087879e38bbe5097d200fbcc4f1f368bf2e4c8a1d",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7546,9 +7930,51 @@
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
+      "path": "audit/generated/resume-d362/review/verify_final_output_review.py",
+      "bytes": 3915,
+      "sha256": "bb88cefa2aeb82de57e3515d46b705d12028cd25f0512f0189108cc460d43fd1",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/verify_locator_initial_scope_review.py",
+      "bytes": 1382,
+      "sha256": "5786ef58815d0495f46917d5585c9774881b94cce2a26a0ecef7a6acc659b0d4",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/verify_owner_ui_review.py",
+      "bytes": 2795,
+      "sha256": "28a053bde674e77c703797c91281d043260c85e76818bd4689c343c1480ae400",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
       "path": "audit/generated/resume-d362/review/verify_postgres_retention.py",
-      "bytes": 2423,
-      "sha256": "cc133ce7f81593d4bab944173e50aab36874dffdc21f07aa970e2a0ff27b9f7b",
+      "bytes": 3219,
+      "sha256": "014a737b103abc47ee3ecfb6691183278a0df7bbc71fb0884dae5790c915d375",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/verify_retry_current_projection_review.py",
+      "bytes": 2334,
+      "sha256": "95fd2f9a4a6db98e0fe463679d71557ae2f24b4acf3b47f0261fba89bdf58d4a",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/verify_scoped_generation_links.py",
+      "bytes": 6861,
+      "sha256": "37da9f21cc2f5ce00476df4ecb2b3433d92f73d239834a63046d97501327f18d",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/verify_secret_compiled_schema_review.py",
+      "bytes": 2342,
+      "sha256": "a95be77871524a06c6bc60bd1205c86f26b3d091a332cb978eeefa68b9d76ca4",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/verify_secret_digest_review.py",
+      "bytes": 1904,
+      "sha256": "81a273373491a40ce748bb22fb358fada728ae68aab5faa98ffa22d1ed06d464",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7558,15 +7984,33 @@
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
+      "path": "audit/generated/resume-d362/review/verify_secret_sql_review.py",
+      "bytes": 4386,
+      "sha256": "3050194330e64ae4e4af8b57bfec3407b96e1792defa1871a1c5a1f270c9ea0a",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
       "path": "audit/generated/resume-d362/secrets/INTEGRATION.md",
-      "bytes": 12887,
-      "sha256": "9821685522328cfc458708c9e31a21504c6c6ad1cd501fd4b4d1cb24f2d09ba2",
+      "bytes": 16118,
+      "sha256": "9977096548a39a19d676d1dcd666fd302523fde5cdd6bc8e3114fc0053f74320",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/secrets/active-join-repair-source.json",
+      "bytes": 608,
+      "sha256": "f360af67fce548a53bb57df971a80f6e9a980238293839dd292b6e217fe4f9b0",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/resume-d362/secrets/build_contracts.py",
-      "bytes": 13838,
-      "sha256": "bb8ce0eca558a3312d35b26cb49576f1085cf4c9c864822b4109368c2d5e90fd",
+      "bytes": 14031,
+      "sha256": "f30728fc9f6879a7a4cf84801e50f52e894d4c55de2c749344b1aa1d328d1942",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/secrets/conversion-table.json",
+      "bytes": 7521,
+      "sha256": "3bd2b695ce7e9478fa8e8417c928427250e3c892d2601a6d55ec0add2186db78",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7577,8 +8021,14 @@
     },
     {
       "path": "audit/generated/resume-d362/secrets/field-register.json",
-      "bytes": 191519,
-      "sha256": "ef143dbbcc89f6af6e72fd279a4db77233a116a702011d5f6b42aa34d2c04377",
+      "bytes": 192086,
+      "sha256": "2600242ca95dcc23ad294f5b6093725bad5d09b7431e46bad6a489f574c8bec9",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/secrets/norm-8.12.md",
+      "bytes": 8748,
+      "sha256": "2151f43824bfd99802b1e510e52b1348420f881b240a1768aea553b7c5a3096e",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7589,32 +8039,38 @@
     },
     {
       "path": "audit/generated/resume-d362/secrets/postgres-tests.json",
-      "bytes": 7927,
-      "sha256": "8245bf86c611a09ae7e8aae031f5b36ca7be05385f0891f721d656024e77c761",
+      "bytes": 9019,
+      "sha256": "e968cbcd27f602aba99253bb0df67035d219e50b61e7fc74e961dc3c1208f67e",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/resume-d362/secrets/profile_reference.py",
-      "bytes": 20197,
-      "sha256": "fd4b5d523284a82746ec07007cc0a3e3c5752a018a45acac3fbb58c182e059bf",
+      "bytes": 21457,
+      "sha256": "27934f424980693563b7d00d9d9acfc20ebe09f0f94147d9b64e6b20d5ffdca7",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/resume-d362/secrets/reference-tests.json",
-      "bytes": 22814,
-      "sha256": "cb905181a7e47f8d47de0793ee847a40f01f0a8ffeb390f7f9a29438cbbcba23",
+      "bytes": 23472,
+      "sha256": "014266a15f38705cd7194f3a0426973d60395d9828f5358625028a23038f66bd",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/generated/resume-d362/secrets/secret-external-joins-proposed.sql",
+      "bytes": 2057,
+      "sha256": "4e19b9aef8822297b716dade073a9e417e0f6c2d11c51ad0c971e4225ecc3fb8",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/resume-d362/secrets/secret-profile-handoffs.schema.json",
-      "bytes": 94223,
-      "sha256": "016ce99ec3c77c64f077396e807e46736b003edc9ffea38112df75b90cbde9a4",
+      "bytes": 94373,
+      "sha256": "3ef24d4a5bebdb86e6716767453f4be053d77c769a404db06c6a2d38f82f6699",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/resume-d362/secrets/secret-profile-roots.sql",
-      "bytes": 10539,
-      "sha256": "e2f42d33775638d2e38727439f044d2d7b45edff96bcdee3fc5172e6b9d4182f",
+      "bytes": 10746,
+      "sha256": "524b3c067ff22a5a39d5b9a89e6c48bdaf6caf76db719200d439eea023b739eb",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7709,14 +8165,14 @@
     },
     {
       "path": "audit/generated/resume-d362/secrets/verify_postgres.py",
-      "bytes": 11390,
-      "sha256": "1ba86995bdfe7ad77bf15546915a0d4a2a9c9b5f0f2636a3305e1dd914a82589",
+      "bytes": 12248,
+      "sha256": "a6d2efd40ea8b9a4279bc1e0ae64e5c8641902781a5eebc496654240b4ea6802",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/resume-d362/secrets/verify_reference.py",
-      "bytes": 17363,
-      "sha256": "44fd62dc0bed76dc9bb63313aa13913f8c2a22bc69b2bc349d8b0e54299a78d4",
+      "bytes": 17450,
+      "sha256": "9db35ab55e330e796c5a6c2c7fbb5bddc7a72bc77d34bdde28f35b1d5e562ea9",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7794,13 +8250,13 @@
     {
       "path": "audit/generated/schema-reference-validation.json",
       "bytes": 3467751,
-      "sha256": "de5f4a11decae3cf5d32796b251c120a65234f773c33778ce534e88cd82e38d7",
+      "sha256": "e90fd63118403f78d3c46b901178a4d133bd2f96ca008a4d511786a8a8962db2",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/generated/transitive-mask-tests.json",
       "bytes": 753,
-      "sha256": "0a57c4534e420764534aed6f421e64d17af9131c5d51b6c7b0eeb18fd2278cc9",
+      "sha256": "4e97e14b92d3a29ce635ab6f9ca5850305ea7d3a3dd1f54c281246e6db8fea64",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7853,8 +8309,8 @@
     },
     {
       "path": "audit/phase1-operation-schema-matrix.json",
-      "bytes": 4245684,
-      "sha256": "b286e9350cd39a8e7b33ace1b568792c32dbc97294c72c90fd81d87c7576e18f",
+      "bytes": 4246204,
+      "sha256": "de8d5df7b0a0aeebf3befa5d676dc4e870b821cc0aa07876c1118ee764280415",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7866,7 +8322,7 @@
     {
       "path": "audit/phase1-unresolved.json",
       "bytes": 3193583,
-      "sha256": "fe2ec513e33873c7e87fd8dfb3ab014e248d5e745f6132b77a2ee543b553aead",
+      "sha256": "49732f9510fdb9b4a8a14ba0244b9bc28269757c26aec5dbdf33c63e904cd7b1",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -7907,14 +8363,14 @@
     },
     {
       "path": "audit/phase3-unresolved.json",
-      "bytes": 2679,
-      "sha256": "5d2cb463b433c2cafb7dac46457f5aabf1051cf7769f65dd0828f48db23e3138",
+      "bytes": 3152,
+      "sha256": "ecf310e54760f9fedcdd7d253875a8e6fd6e92e63ddc75c7e0832634a8f74556",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
       "path": "audit/phase4-current-handoff-matrix.json",
-      "bytes": 4488029,
-      "sha256": "4bc9d04d55b55f3a84fe0e50e550b315e2340d348151902f0aff8a88e24f33d6",
+      "bytes": 4490013,
+      "sha256": "6d939aef53c24e47f1800c2de2d2a022aabbd3d4fc9ae433d7e9988aa3263e04",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -8017,6 +8473,12 @@
       "path": "audit/secret_proposal_semantics.py",
       "bytes": 7845,
       "sha256": "8a05cc009412be6386b23d8db005b7c57a1108f6c6fd5ac568c1648237af2836",
+      "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
+    },
+    {
+      "path": "audit/update_generation_checkpoint.py",
+      "bytes": 8292,
+      "sha256": "2a05d13401bef3f915142d47fe3a1e85d435640e440c0a4791a38707f756d804",
       "authority": "AUDIT_EVIDENCE_INPUT_HASH_SCOPED"
     },
     {
@@ -8140,6 +8602,12 @@
       "authority": "SUPPORTING_OR_DERIVED"
     },
     {
+      "path": "scripts/close_generation_admission_basis.py",
+      "bytes": 5341,
+      "sha256": "e729fe2fd22c2c21598793e40944fe406cf80986d42df71e3b3a876d6b2eeba0",
+      "authority": "SUPPORTING_OR_DERIVED"
+    },
+    {
       "path": "scripts/close_generation_document_events.py",
       "bytes": 6738,
       "sha256": "5ec49a69e7f4df9597fd9e06b90050978a62c265550213dd6864a90ce0f04d48",
@@ -8207,14 +8675,14 @@
     },
     {
       "path": "scripts/create_completion_contracts.py",
-      "bytes": 30935,
-      "sha256": "a61dd69606d5299e22d5cc6c48a65c0f813205b1abea9fb328c07fb56a5cd8f0",
+      "bytes": 31187,
+      "sha256": "5c6b739a8e27400eb0ca715660dc2abe0142e0b647af853bd2533660c849003f",
       "authority": "SUPPORTING_OR_DERIVED"
     },
     {
       "path": "scripts/create_operation_contracts.py",
-      "bytes": 17402,
-      "sha256": "2eb6b6460d626fa10349bf1b4d45d31d4cde9c0dbd32ba4848c90531c386e104",
+      "bytes": 17924,
+      "sha256": "e3149fed4d5169d653199b638ac8f367b1618ce671d6e2860060ad09a576577a",
       "authority": "SUPPORTING_OR_DERIVED"
     },
     {
@@ -8225,8 +8693,20 @@
     },
     {
       "path": "scripts/follow_up_contracts.py",
-      "bytes": 11655,
-      "sha256": "5d9e111c32f65e74e7182fc8d104dc2931bd0fdae21d147daac196c8881c7f7d",
+      "bytes": 12596,
+      "sha256": "86cbd63b53fe34edad497ae36771f456346ffba5ab17427f44624567a5a79e10",
+      "authority": "SUPPORTING_OR_DERIVED"
+    },
+    {
+      "path": "scripts/generation_admission_contracts.py",
+      "bytes": 28418,
+      "sha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+      "authority": "SUPPORTING_OR_DERIVED"
+    },
+    {
+      "path": "scripts/generation_admission_diagnostics.py",
+      "bytes": 538,
+      "sha256": "322abaa4e9e0f4717f5d324f0636e9dad759d61c67bc5ca63972965287bf8806",
       "authority": "SUPPORTING_OR_DERIVED"
     },
     {
@@ -8236,9 +8716,27 @@
       "authority": "SUPPORTING_OR_DERIVED"
     },
     {
+      "path": "scripts/generation_basis_selectors.py",
+      "bytes": 1483,
+      "sha256": "8488f4bcbc1316b987a90fb5d8a4269a83a9ce561efe0ed9065e09f3b1f261ae",
+      "authority": "SUPPORTING_OR_DERIVED"
+    },
+    {
+      "path": "scripts/generation_follow_up_fixtures.py",
+      "bytes": 6382,
+      "sha256": "449fb94d46e2b771bba1e09826bb0ba00f050c3be6b6304c9fa0a9d20ca28d52",
+      "authority": "SUPPORTING_OR_DERIVED"
+    },
+    {
       "path": "scripts/generation_http_contract.py",
       "bytes": 22554,
       "sha256": "7b17480cb07ce15e324b17d5c033202d3ed1a74a34a5b4f10a1e11234d84ab75",
+      "authority": "SUPPORTING_OR_DERIVED"
+    },
+    {
+      "path": "scripts/generation_retry_inventory.py",
+      "bytes": 9381,
+      "sha256": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154",
       "authority": "SUPPORTING_OR_DERIVED"
     },
     {
@@ -8465,8 +8963,8 @@
     },
     {
       "path": "scripts/run_ssot_repair_design_checks.py",
-      "bytes": 7050,
-      "sha256": "b6cd20bcaf74f13d19658ada1eebf5c5f3e6c771b15964fd7144061281b4c4f5",
+      "bytes": 7442,
+      "sha256": "71cca6bd86ed865eb3a18e1a15cc2e9b3c59727adc1de9e3637889e67e61fb11",
       "authority": "SUPPORTING_OR_DERIVED"
     },
     {
@@ -8531,14 +9029,14 @@
     },
     {
       "path": "scripts/verify_create_http_errors.py",
-      "bytes": 11383,
-      "sha256": "f3955131777f7942ddaf37a48f72bd4a924848289dbf49062986d4c519a5356e",
+      "bytes": 11729,
+      "sha256": "bb4e729d749b757941cd908787c1fa3d62aba88bd52a2b6e218c1659186d97ef",
       "authority": "SUPPORTING_OR_DERIVED"
     },
     {
       "path": "scripts/verify_create_operation_requests.py",
-      "bytes": 17035,
-      "sha256": "f3ebef2ff708dda4e8ab98a821142bf8090b53c914c21b1771d7ccbf40f90245",
+      "bytes": 17973,
+      "sha256": "0562703f928bfb1230450164115afebcf390e2f4ab8f6ee2f85cb20de290c9b4",
       "authority": "SUPPORTING_OR_DERIVED"
     },
     {
@@ -8561,8 +9059,14 @@
     },
     {
       "path": "scripts/verify_follow_up_contracts.py",
-      "bytes": 20387,
-      "sha256": "65de91833a571f6ad2b13e47b01d9237a0709a1581d0d6ae8eff6e90daeeb4d4",
+      "bytes": 20025,
+      "sha256": "6ffab9a498192598bda892254ed7706b43e5bd140f90b05ca8ffd6f63d1a9f05",
+      "authority": "SUPPORTING_OR_DERIVED"
+    },
+    {
+      "path": "scripts/verify_generation_admission_basis.py",
+      "bytes": 5984,
+      "sha256": "cdc7644a4411fd0ef691d483a0319f7c0ecca17220c0abf70c726118f63be263",
       "authority": "SUPPORTING_OR_DERIVED"
     },
     {

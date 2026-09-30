@@ -1,0 +1,145 @@
+{
+  "ssotSha256": "2662771d7344e061b01fffc98f038701b54c3f75143f199995632e25d2762b0c",
+  "sourceUnchangedDuringProof": true,
+  "checkCount": 18,
+  "failedCount": 0,
+  "checks": [
+    {
+      "case": "INITIAL_REQUEST/actual-native-content",
+      "passed": true
+    },
+    {
+      "case": "INITIAL_REQUEST/GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "actualCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "expectedPointer": "/jobId",
+      "actualPointer": "/jobId"
+    },
+    {
+      "case": "INITIAL_REQUEST/GENERATION_BASIS_JSON_INVALID",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "INITIAL_REQUEST/actual-owner",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "actualCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "SPECIFICATION_REVISION/actual-native-content",
+      "passed": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "actualCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "expectedPointer": "/jobId",
+      "actualPointer": "/jobId"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/GENERATION_BASIS_JSON_INVALID",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "SPECIFICATION_REVISION/actual-owner",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "actualCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/actual-native-content",
+      "passed": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "actualCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "expectedPointer": "/jobId",
+      "actualPointer": "/jobId"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/GENERATION_BASIS_JSON_INVALID",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/actual-owner",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "actualCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "FINAL/actual-declared-native-output",
+      "passed": true
+    },
+    {
+      "case": "FINAL/missing-declaration",
+      "passed": true,
+      "expectedCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "actualCode": "GENERATION_FINAL_OUTPUT_DECLARATION_UNAVAILABLE",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "FINAL/wrong-source-result-contract",
+      "passed": true,
+      "expectedCode": "GENERATION_FINAL_RESULT_CONTRACT_REFERENCE_MISMATCH",
+      "actualCode": "GENERATION_FINAL_RESULT_CONTRACT_REFERENCE_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "FINAL/actual-consumer-schema-bytes",
+      "passed": true,
+      "expectedCode": "GENERATION_FINAL_OUTPUT_SCHEMA_BYTES_MISMATCH",
+      "actualCode": "GENERATION_FINAL_OUTPUT_SCHEMA_BYTES_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "FINAL/mutant-monitoring-native-shape-valid",
+      "passed": true
+    },
+    {
+      "case": "FINAL/monitoring-is-not-declared-manifest-output",
+      "passed": true,
+      "expectedCode": "GENERATION_FINAL_OUTPUT_CONSUMER_SCHEMA_INVALID",
+      "actualCode": "GENERATION_FINAL_OUTPUT_CONSUMER_SCHEMA_INVALID",
+      "expectedPointer": null,
+      "actualPointer": ""
+    }
+  ],
+  "proofKind": "CURRENT_SYNTHETIC_NATIVE_FOLLOW_UP_CONTENT_AND_DECLARED_FINAL_SLOT",
+  "supportSha256": {
+    "audit/generated/resume-d362/admission/verify_native_follow_up_fixture.py": "750860635ec4e963cd7702cd317850912c4f33c8c5af69178fd313c2115d03ec",
+    "audit/generated/resume-d362/admission/native_follow_up_fixture.py": "0f1cd5b3e42a22d59b6d173c9f89abbab74104c1669f8f2a251b46347a896e2d",
+    "scripts/generation_admission_contracts.py": "72c0d47c0312d65417be2552b02a416646803cee9a7ca721a0eda66c31e9b081",
+    "scripts/create_operation_contracts.py": "e3149fed4d5169d653199b638ac8f367b1618ce671d6e2860060ad09a576577a",
+    "scripts/follow_up_contracts.py": "86cbd63b53fe34edad497ae36771f456346ffba5ab17427f44624567a5a79e10"
+  },
+  "scopeExclusions": [
+    "SQL producer publication-slot/FK/locking/closure enforcement is not established by this reference",
+    "Nested final artifact manifests still require downstream full graph/hydration proofs"
+  ],
+  "implementationAcceptance": "NOT_EVALUATED"
+}
