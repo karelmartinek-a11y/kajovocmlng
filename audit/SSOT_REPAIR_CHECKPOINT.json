@@ -25,7 +25,9 @@
     "36 available design checks completed: 27 zero exits, 9 BLOCKED/failing, no validator exceptions/timeouts",
     "config.rollback.state now exact nine-state configuration apply enum from 49.23; mandatory/non-null semantics retained; 18 response witnesses/mutations PASS",
     "Phase3 reports every lifecycle field separately; config rollback PASS, seven other fields BLOCKED",
-    "37 current design checks finished: 28 zero exits and 9 failing/BLOCKED, no exceptions or timeouts"
+    "37 current design checks finished: 28 zero exits and 9 failing/BLOCKED, no exceptions or timeouts",
+    "Phase4 history pinned to immutable 6180d9f; current handoff is SSOT-hash-bound without moving/own HEAD; all 12 structural checks PASS and all three exposure blockers retained",
+    "Resumable runner keys include SSOT, supporting source/projections, requirements and installed interpreter/package versions; atomic per-command checkpoint writes"
   ],
   "remaining": [
     "Stabilize validators and inventory",
@@ -52,7 +54,21 @@
     ],
     "byteAndStructuralInventory": "audit/phase1-operation-schema-matrix.json; byte loading and schema resolution are separate from semantic review"
   },
-  "nextBlock": "Pin Phase4 historical comparison to verified 6180d9fe67dfaa5365190301dfd58cc8d9812f3d (136 embedded / 152 physical actions); remove moving-HEAD requirement from source-hash-bound handoff evidence; rebuild current UI/handoff evidence and retain all three exposure blockers.",
+  "nextBlock": {
+    "name": "generation.job.create and secret.create exact admission masks",
+    "sourcePointers": {
+      "generation.job.create": "contracts/payload-contracts.json#/records/215/requestSchema",
+      "secret.create": "contracts/payload-contracts.json#/records/386/requestSchema"
+    },
+    "steps": [
+      "Use current pinned audit environment and source hash; do not repeat baseline audit",
+      "Read operation, page, entity and lifecycle authority excerpts for each create operation and record field-level source pointers",
+      "Replace generic values/canonicalJson with exact domain fields and declare allowed query parameters; preserve business scope and Secrets trust model",
+      "Derive valid positive witnesses first; reject unknown query, invalid JSON, undeclared slot/field, duplicate domain values with exact rejection diagnostics",
+      "Compose new route deltas into existing generation/http/read/event expected projections; retain stricter masks and negative tests",
+      "Refresh affected current evidence; run full declared checks, generate manifests/receipt, commit and push bounded block"
+    ]
+  },
   "gates": {
     "SSOT_CONTRACT_READY": "BLOCKED",
     "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
@@ -78,5 +94,55 @@
     "systemPythonUnavailableFormatCheckers": "774 references / 595 operations is environment-blocked evidence, not a contract defect count",
     "pinnedAuditEnvironment": "242 references / 121 operations; nestedReferenceFailures=0"
   },
-  "fullNormativeSemanticReview": "INCOMPLETE: available tool universe completed; per-operation normative semantic review and complete pipeline obligations remain required."
+  "fullNormativeSemanticReview": "INCOMPLETE: available tool universe completed; per-operation normative semantic review and complete pipeline obligations remain required.",
+  "verifiedBlockCommits": {
+    "baseline": "8b0ea92",
+    "validatorInventory": "cc45622",
+    "SQLLiterals": "1a6da95",
+    "configurationState": "572652d"
+  },
+  "currentResults": {
+    "requiredAvailableChecks": 37,
+    "zeroExits": 28,
+    "nonzeroBlockedOrFailed": 9,
+    "validatorExceptions": 0,
+    "timeouts": 0,
+    "generationDomainChecks": 110,
+    "generationDomainFailed": 0,
+    "configStateChecks": 18,
+    "configStateFailed": 0,
+    "sqlExpressions": 1048,
+    "sqlLiteralStatus": "PASS",
+    "mandatorySQLHelperStatus": "BLOCKED",
+    "phase4StructuralChecks": 12,
+    "phase4StructuralFailed": 0,
+    "phase4ExposureBlocked": [
+      "dashboard.start",
+      "dashboard.stop",
+      "gen.editSpec"
+    ]
+  },
+  "draftPR": {
+    "status": "NOT_CREATED",
+    "reason": "GitHub GraphQL API Forbidden; branch push works",
+    "preparedBody": ".cache/ssot-repair-pr.md",
+    "branch": "ssot-repair-2026-09-30"
+  },
+  "semanticCoverageEvidence": "audit/generated/repair-2026-09-30/review-coverage.json",
+  "remainingLifecycleFields": [
+    "owner.mfa.reset.enrollmentState",
+    "chat.turn.steer.checkpointDisposition",
+    "backup.restore.state",
+    "acceptance.run.start.state",
+    "acceptance.run.cancel.state",
+    "acceptance.run.cancel.cleanupStatus",
+    "acceptance.run.cancel.reconciliationStatus"
+  ],
+  "reproduction": [
+    "python -m venv --system-site-packages /tmp/ssot-audit-venv",
+    "/tmp/ssot-audit-venv/bin/python -m pip install -r requirements-audit.txt",
+    "/tmp/ssot-audit-venv/bin/python scripts/run_ssot_repair_design_checks.py --resume",
+    "/tmp/ssot-audit-venv/bin/python scripts/package_integrity.py"
+  ],
+  "noFurtherAuthorizationNeeded": "Continue authorized technical repairs on this branch; push/draft PR allowed. No main merge/freeze/release/deployment/paid API/production execution."
 }

@@ -11,6 +11,8 @@ from operation_catalog import catalog
 from phase2_handoff_closure import build as build_handoff_matrix
 
 
+AUDIT_BASELINE = "6180d9fe67dfaa5365190301dfd58cc8d9812f3d"
+
 SPECIAL_IDS = {
     "dashboard.contextChat", "dashboard.copy", "dashboard.detail", "dashboard.files",
     "dashboard.history", "dashboard.inputs", "dashboard.lastRun", "dashboard.logs",
@@ -110,21 +112,21 @@ def build_action_matrix():
 
     # Capture the 152-action tracked projection as it existed at the starting HEAD.
     # It is comparison evidence only, never promoted to authority.
-    old_raw = git_bytes("HEAD:01_UI_CONTRACT/closure/contracts/ui-action-resolution.json")
+    old_raw = git_bytes(AUDIT_BASELINE+":01_UI_CONTRACT/closure/contracts/ui-action-resolution.json")
     old_ids = set()
     old_bindings = []
     if old_raw:
         old_bindings = json.loads(old_raw).get("bindings", [])
         old_ids = {row["actionId"] for row in old_bindings}
     canonical_ids = {action["actionId"] for action in actions}
-    head_ssot_raw = git_bytes("HEAD:00_SSOT/KajovoCMLNG_SSOT.md")
+    head_ssot_raw = git_bytes(AUDIT_BASELINE+":00_SSOT/KajovoCMLNG_SSOT.md")
     head_resources = resource_index(parse_resources(head_ssot_raw.decode("utf-8"))) if head_ssot_raw else {}
     starting_registry = json.loads(head_resources["ui/contracts/ui-control-registry.json"]["raw"]) if head_resources else {"pages": []}
     starting_ids = {action["id"] for page in starting_registry["pages"] for action in page["actions"]}
     promoted_ids = sorted((old_ids & SPECIAL_IDS) - starting_ids)
     legacy_extra_ids = sorted(old_ids - canonical_ids)
     legacy_details = []
-    old_controls_raw = git_bytes("HEAD:01_UI_CONTRACT/ui/contracts/ui-control-registry.json")
+    old_controls_raw = git_bytes(AUDIT_BASELINE+":01_UI_CONTRACT/ui/contracts/ui-control-registry.json")
     old_control_index = {}
     if old_controls_raw:
         old_registry = json.loads(old_controls_raw)
@@ -204,7 +206,8 @@ def build_action_matrix():
     return {
         "format": "KCML-PHASE4-UI-ACTION-MATRIX/1",
         "sourceAuthority": "Embedded KCML-UI-RESOURCE and KCML-CLOSURE-RESOURCE blocks in 00_SSOT/KajovoCMLNG_SSOT.md; physical registries are generated projections.",
-        "comparisonRule": "Starting-HEAD projections are read with git show for the recorded comparison only. Current action inventory comes exclusively from current SSOT resources.",
+        "comparisonBaselineCommit": AUDIT_BASELINE,
+        "comparisonRule": "Immutable audit-baseline projections are read with git show for comparison only. Current action inventory comes exclusively from current SSOT resources.",
         "summary": summary,
         "uiInventory": {
             "pages": page_inventory,
@@ -231,11 +234,10 @@ def build_current_handoff():
         for path, item in sorted(resources.items())
     ]
     branch = subprocess.run(["git", "branch", "--show-current"], cwd=ROOT, capture_output=True, text=True, encoding="utf-8").stdout.strip()
-    head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True, encoding="utf-8").stdout.strip()
     matrix["format"] = "KCML-PHASE4-CURRENT-HANDOFF-MATRIX/1"
     matrix["historicalPhase2MatrixPreserved"] = "audit/phase2-handoff-matrix.json"
     matrix["currentSourceIdentity"] = {
-        "head": head,
+        "comparisonBaselineCommit": AUDIT_BASELINE,
         "branch": branch,
         "ssotPath": "00_SSOT/KajovoCMLNG_SSOT.md",
         "ssotSha256": sha(text.encode("utf-8")),

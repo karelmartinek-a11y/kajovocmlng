@@ -1,5 +1,6 @@
 {
-  "status": "FAIL",
+  "status": "BLOCKED",
+  "structuralStatus": "PASS",
   "scope": "Structural source/projection checks only; no production application or backend is present.",
   "checks": [
     {
@@ -13,7 +14,7 @@
     },
     {
       "id": "matrix.exact-current-source-inventory",
-      "status": "FAIL",
+      "status": "PASS",
       "detail": {
         "canonical": 152,
         "missingBindings": 0
@@ -70,19 +71,19 @@
     },
     {
       "id": "historical-16-functions-preserved-and-promoted-with-evidence",
-      "status": "FAIL",
+      "status": "PASS",
       "detail": {
-        "promoted": 0,
+        "promoted": 16,
         "currentProjectionExcess": 0
       }
     },
     {
       "id": "current-handoff-matrix-exact-current-content-and-source",
-      "status": "FAIL",
+      "status": "PASS",
       "detail": {
-        "exactRebuild": false,
-        "sourceSha256": "sha256:e5ea095d389a2bb6cdc261e001f194db7885a2ec6ec031a80ca318832b375b7d",
-        "head": "6180d9fe67dfaa5365190301dfd58cc8d9812f3d"
+        "exactRebuild": true,
+        "sourceSha256": "sha256:6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
+        "head": null
       }
     },
     {

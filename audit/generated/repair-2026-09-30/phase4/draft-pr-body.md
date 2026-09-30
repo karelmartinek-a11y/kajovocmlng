@@ -1,0 +1,7 @@
+SSOT validators previously crashed on missing UI validationContract and incomplete schema registry, while event checks assumed a sequence field for every envelope. This repair records the clean cfcb7b2 baseline, preserves prior work, reports missing contracts as BLOCKED, aligns CI dependencies and adds hash-scoped resumable evidence.
+
+The change also repairs SQL literals in 262 operation wrappers without changing argument values, binds config.rollback.state to the nine authoritative states in §49.23, projects the P00–P12 generation procedure, and pins historical UI comparison to 6180d9f so commits no longer invalidate the 16 promoted actions.
+
+Validation: 110 generation-domain checks and 18 config-state checks pass. SQL AST checks cover 1,048 expressions and specific negative mutations. All 12 Phase4 structural checks pass; its three exposure blockers remain BLOCKED. The explicit available design-tool universe is recorded in audit/generated/repair-2026-09-30/design-current/commands.json. No application, freeze, release, deployment, paid API or production action was performed.
+
+This is PARTIAL. SSOT_CONTRACT_READY remains BLOCKED by unresolved schema/domain/event boundaries, seven open lifecycle fields, missing SQL helpers and UI/execution handoff obligations. IMPLEMENTATION_PRODUCTION_ACCEPTANCE is NOT_EVALUATED. Continue from audit/SSOT_REPAIR_CHECKPOINT.json; no complete normative semantic review is claimed.

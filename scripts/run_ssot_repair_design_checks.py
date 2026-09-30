@@ -1,5 +1,5 @@
 """Resumable explicit design-check universe; never certifies unreviewed contracts."""
-import argparse,hashlib,json,os,subprocess,sys,time
+import argparse,hashlib,importlib.metadata,json,os,subprocess,sys,time
 from concurrent.futures import ThreadPoolExecutor,as_completed
 from pathlib import Path
 from ssot_sources import ROOT,SSOT
@@ -22,17 +22,28 @@ def main():
  p=argparse.ArgumentParser();p.add_argument('--resume',action='store_true');p.add_argument('--workers',type=int,default=2);a=p.parse_args()
  out=ROOT/'audit/generated/repair-2026-09-30/design-current';out.mkdir(parents=True,exist_ok=True)
  source=sha(SSOT);deps=sha(ROOT/'requirements-audit.txt');target=out/'commands.json'
+ support=hashlib.sha256()
+ for base in ['scripts','01_UI_CONTRACT','03_UI_REFERENCE']:
+  for path in sorted((ROOT/base).rglob('*')):
+   if path.is_file() and '__pycache__' not in path.parts:
+    support.update(path.relative_to(ROOT).as_posix().encode()+b'\0'+path.read_bytes()+b'\0')
+ support_hash=support.hexdigest()
+ packages={line.split('==')[0]:importlib.metadata.version(line.split('==')[0])
+  for line in (ROOT/'requirements-audit.txt').read_text().splitlines() if '==' in line}
+ environment_hash=hashlib.sha256(json.dumps({'python':sys.version,'packages':packages},sort_keys=True).encode()).hexdigest()
  records={}
  if a.resume and target.exists():
   for r in json.loads(target.read_text()).get('commands',[]):
-   if r.get('sourceSha256')==source and r.get('requirementsSha256')==deps and r.get('scriptSha256')==sha(ROOT/r['script']):records[r['script']]=r
+   if r.get('sourceSha256')==source and r.get('supportInputsSha256')==support_hash and r.get('environmentSha256')==environment_hash and r.get('requirementsSha256')==deps and r.get('scriptSha256')==sha(ROOT/r['script']):records[r['script']]=r
  def save():
-  report={'sourceSha256':source,'requirementsSha256':deps,'python':sys.version,'requiredChecks':CHECKS,
+  report={'sourceSha256':source,'requirementsSha256':deps,'supportInputsSha256':support_hash,'environmentSha256':environment_hash,'installedAuditPackages':packages,'python':sys.version,'requiredChecks':CHECKS,
    'commands':list(records.values()),'allCommandsFinished':len(records)==len(CHECKS),
    'scope':'Explicit available design regression tools and six legacy resource validators; normative per-operation semantic, SQL helper/runtime and full pipeline obligations remain separately required.',
    'SSOT_CONTRACT_READY':'BLOCKED','IMPLEMENTATION_PRODUCTION_ACCEPTANCE':'NOT_EVALUATED',
    'excluded':'No freeze flag, application generation, paid API, production, release or deployment execution. Inventory/receipt verified after evidence writes.'}
-  target.write_text(json.dumps(report,indent=2)+'\n')
+  temporary=ROOT/'.cache/repair-commands.json'
+  temporary.parent.mkdir(parents=True,exist_ok=True)
+  temporary.write_text(json.dumps(report,indent=2)+'\n');temporary.replace(target)
  def run(name):
   script='scripts/'+name;args=[sys.executable,script]+(['--skip-manifest'] if name=='verify_package.py' else [])
   begun=time.monotonic();log=out/(name+'.log')
@@ -45,7 +56,7 @@ def main():
   except subprocess.TimeoutExpired as exc:
    log.write_text((exc.stdout or b'').decode(errors='replace')+(exc.stderr or b'').decode(errors='replace'));diagnostic='TIMEOUT';code=None
   return {'script':script,'command':' '.join(args[1:]),'sourceSha256':source,'requirementsSha256':deps,
-   'scriptSha256':sha(ROOT/script),'exitCode':code,'diagnostic':diagnostic,'seconds':round(time.monotonic()-begun,2),'evidence':str(log.relative_to(ROOT))}
+   'scriptSha256':sha(ROOT/script),'supportInputsSha256':support_hash,'environmentSha256':environment_hash,'exitCode':code,'diagnostic':diagnostic,'seconds':round(time.monotonic()-begun,2),'evidence':str(log.relative_to(ROOT))}
  save()
  with ThreadPoolExecutor(max_workers=a.workers) as pool:
   tasks=[pool.submit(run,n) for n in CHECKS if 'scripts/'+n not in records]

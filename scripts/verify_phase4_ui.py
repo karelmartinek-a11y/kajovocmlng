@@ -86,7 +86,9 @@ def run():
     record("negative-missing-or-unmapped-action-is-detected", pairs == binding_pairs,
            {"unbound": sorted(pairs - binding_pairs), "orphanBindings": sorted(binding_pairs - pairs)})
 
-    report = {"status": "PASS" if all(x["status"] == "PASS" for x in checks) else "FAIL",
+    structural = all(x["status"] == "PASS" for x in checks)
+    report = {"status": "PASS" if structural and not blocked else "BLOCKED",
+              "structuralStatus": "PASS" if structural else "FAIL",
               "scope": "Structural source/projection checks only; no production application or backend is present.",
               "checks": checks,
               "knownClosureBlockers": [row["actionId"] for row in blocked]}

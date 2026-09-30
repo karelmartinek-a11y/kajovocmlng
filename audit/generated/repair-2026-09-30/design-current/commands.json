@@ -1,6 +1,18 @@
 {
   "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
   "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
+  "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+  "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
+  "installedAuditPackages": {
+    "Pillow": "12.3.0",
+    "jsonschema": "4.26.0",
+    "referencing": "0.37.0",
+    "playwright": "1.63.0",
+    "rfc3339-validator": "0.1.4",
+    "rfc3986-validator": "0.1.1",
+    "uri-template": "1.3.0",
+    "pglast": "7.10"
+  },
   "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
   "requiredChecks": [
     "phase1_schema_closure.py",
@@ -48,9 +60,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "c8a26afc541a45833e6b922a42f85630fc759f09acab85911c71e7325fd28e87",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 1,
       "diagnostic": "CHECK_FAILED_OR_BLOCKED",
-      "seconds": 31.22,
+      "seconds": 28.96,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_schema_references.py.log"
     },
     {
@@ -59,9 +73,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "d616201ce8521322b3df967339dba4f00140541477e8e2c1278ac209abb56018",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 1,
       "diagnostic": "CHECK_FAILED_OR_BLOCKED",
-      "seconds": 31.43,
+      "seconds": 29.05,
       "evidence": "audit/generated/repair-2026-09-30/design-current/phase1_schema_closure.py.log"
     },
     {
@@ -70,9 +86,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "60e3476d9ab9d67aec3f1a784135598686c6d501075041d9dc4ef2d2dd17215e",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.7,
+      "seconds": 1.69,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_phase2_handoffs.py.log"
     },
     {
@@ -81,9 +99,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "3bf04376c4ae538fc4c910150810333777f8ad10e5acafa1574e8e071974b5f6",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 1,
       "diagnostic": "CHECK_FAILED_OR_BLOCKED",
-      "seconds": 6.5,
+      "seconds": 6.41,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_phase1_contracts.py.log"
     },
     {
@@ -91,10 +111,12 @@
       "command": "scripts/verify_phase4_ui.py",
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
-      "scriptSha256": "15fe37415ad99c6cd53a05c20574b2a973064597a17312b4f6cc2b3b9cae03c8",
+      "scriptSha256": "05e5c6bb599179a63c4fb8ea173e7cdc5d8fbb5268af07fd1ad8998a84397b92",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 1,
       "diagnostic": "CHECK_FAILED_OR_BLOCKED",
-      "seconds": 12.54,
+      "seconds": 12.07,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_phase4_ui.py.log"
     },
     {
@@ -103,9 +125,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "d6c7e1994925770c5af71099381522e1809edf92e229e958aa53987e4a02e0f5",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 0.06,
+      "seconds": 0.07,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_acceptance_gates.py.log"
     },
     {
@@ -114,9 +138,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "f607af141969e23692dd4c524c579f53e760d300a1d04bf0719775f5c1060053",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 0.72,
+      "seconds": 0.67,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_authority_excerpt_coverage.py.log"
     },
     {
@@ -125,9 +151,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "c48890b1f7ac91029b78f9adb689b7067245c4a90a1bfe94fcd12928f5232856",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.25,
+      "seconds": 1.37,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_component_protocol_examples.py.log"
     },
     {
@@ -136,9 +164,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "9add577b7844eab7758d16f912fcefae5b4cb5c004e87ff410a3fd50837c914f",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 1,
       "diagnostic": "CHECK_FAILED_OR_BLOCKED",
-      "seconds": 19.47,
+      "seconds": 18.85,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_phase3_semantics.py.log"
     },
     {
@@ -147,9 +177,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "3529fa6c45a3679258c74499474dfea6b173d789c2afe646913a2671e73be585",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.41,
+      "seconds": 1.21,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_control_counter_masks.py.log"
     },
     {
@@ -158,9 +190,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "d0564101b986285c9b802874ea33310de2b2a210879cbffa1461838b197704dd",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 2.04,
+      "seconds": 1.77,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_config_rollback_state.py.log"
     },
     {
@@ -169,9 +203,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "f55037c51b470ba752bef7207d62dae9c730ab6e61e166865770fc2f85d8b1ae",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.53,
+      "seconds": 1.51,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_errors.py.log"
     },
     {
@@ -180,9 +216,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "82a490ff3dcdfa2fbb071403a1ad865a214fd89bd8a17ec326a8ad2d94386a63",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.32,
+      "seconds": 1.08,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_atomic_model.py.log"
     },
     {
@@ -191,9 +229,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "035e4bfb87aa215b92ffd094494894e9a233b5eb89a82df353d8684ee040a14f",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 4.91,
+      "seconds": 4.07,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_experience.py.log"
     },
     {
@@ -202,9 +242,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "fe3e443e145d03647648ee2f02885e588f56eff46bb8cf6017b1d33e645df5c2",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 2.53,
+      "seconds": 2.08,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_document_events.py.log"
     },
     {
@@ -213,9 +255,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "67880fc3ccd4ed2fa036e9885d09882fb915149bd6db7112ba1974ee2ae04ea6",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 5.52,
+      "seconds": 4.57,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_event_boundaries.py.log"
     },
     {
@@ -224,21 +268,12 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "2c29a3645f972261e57a0098bfae1f0eed1cb5d8a4e012999e42b182e0f93082",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 9.91,
+      "seconds": 7.71,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_domain_payloads.py.log"
-    },
-    {
-      "script": "scripts/verify_generation_http_contract.py",
-      "command": "scripts/verify_generation_http_contract.py",
-      "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
-      "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
-      "scriptSha256": "ca2280065d8598306df3769e76f28b6906ca62c575819c4489b0fd6f590b9d79",
-      "exitCode": 0,
-      "diagnostic": "PASS",
-      "seconds": 18.25,
-      "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_http_contract.py.log"
     },
     {
       "script": "scripts/verify_generation_operation_masks.py",
@@ -246,10 +281,25 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "1233dd580d8ad2b822c2f4d6d5f6a679a664cb874dad12b94af91887e50e0c4f",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 14.18,
+      "seconds": 10.84,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_operation_masks.py.log"
+    },
+    {
+      "script": "scripts/verify_generation_http_contract.py",
+      "command": "scripts/verify_generation_http_contract.py",
+      "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
+      "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
+      "scriptSha256": "ca2280065d8598306df3769e76f28b6906ca62c575819c4489b0fd6f590b9d79",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
+      "exitCode": 0,
+      "diagnostic": "PASS",
+      "seconds": 13.97,
+      "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_http_contract.py.log"
     },
     {
       "script": "scripts/verify_generation_read_design.py",
@@ -257,9 +307,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "3da015bb1313e85aa490e274814972e2e7e59f27e1bc7dc6db3e4e8982ab5c98",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 2.79,
+      "seconds": 2.76,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_read_design.py.log"
     },
     {
@@ -268,9 +320,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "63f4c606c086cf16dc1e2e16e5a7e5f8f4c7dd07278d399215a7106d172bcde3",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 4.14,
+      "seconds": 4.04,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_read_errors.py.log"
     },
     {
@@ -279,9 +333,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "21a064ab6acc881fc02ad37bac5d2980c8f066823cea989cfe862d8deaa9aed2",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.85,
+      "seconds": 1.55,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_native_manifest_continuation.py.log"
     },
     {
@@ -290,9 +346,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "a0b01978d5b239b15302d0686356906e68ae8d81328d6296490f0251fb70aa84",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.13,
+      "seconds": 1.38,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_observability.py.log"
     },
     {
@@ -301,9 +359,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "d4dbaaf3c8cfcd43d4b8a375cf4bc5c4cf8dd491b5367fa8ec4a51e264a82d37",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 1,
       "diagnostic": "CHECK_FAILED_OR_BLOCKED",
-      "seconds": 1.52,
+      "seconds": 1.46,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_operation_sql_literals.py.log"
     },
     {
@@ -312,9 +372,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "b1a7d5ebb87ce3f82d40c2f2ab511bdfc3bcca852d4f32271bda28f3fe7e1b11",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 2.31,
+      "seconds": 2.41,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_plan_create_handoff.py.log"
     },
     {
@@ -323,9 +385,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "31894b9963b4f73f1f647d0bb2a7cbea7530ea238b30832901261da466b3df6f",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.24,
+      "seconds": 1.19,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_preserved_policy.py.log"
     },
     {
@@ -334,9 +398,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "241cfb91bbb28d3ffcb7740b4ced3743b264424fc26f83aa7f2e05bcaafec846",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.19,
+      "seconds": 1.26,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_provider_mapping.py.log"
     },
     {
@@ -345,9 +411,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "9d2ba11aca49054008e2c5fcd2558d9aba254f4cddb4d657f202ba3d9ca81c77",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.24,
+      "seconds": 1.23,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_provider_outcome_mask.py.log"
     },
     {
@@ -356,6 +424,8 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "b5190b164cbd916e07e301306e40536b81dcfe8e69676f81177ce64ab5b60378",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
       "seconds": 2.05,
@@ -367,9 +437,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "17b3edcac99e42fde6e83f4b3cdc3d9415317778b8c4c422126fb64055f924ab",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.17,
+      "seconds": 1.22,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_retry_profile.py.log"
     },
     {
@@ -378,9 +450,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "cd47f85ab2e07ee65ca1128ed4093fd1e01cdbbb86d420db50fc1ebb5a8b52ad",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 5.03,
+      "seconds": 4.99,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_route_guard_counters.py.log"
     },
     {
@@ -389,9 +463,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "54fc89d97a3390b8fda0827cceb970f9ba4d5a9bb31831e7a8f8d04405448153",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.97,
+      "seconds": 1.86,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_saga_handoffs.py.log"
     },
     {
@@ -400,9 +476,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "f5f4f8713acfc6cf10dbda5b06fc8442306f0d05467f983bfada6f858da16ce1",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 0.19,
+      "seconds": 0.14,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_transitive_mask_detection.py.log"
     },
     {
@@ -411,9 +489,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "bcb2f74aed10862482103c7870abda539a1f5c3f031a8e2f85bc0071d060e24b",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 1,
       "diagnostic": "CHECK_FAILED_OR_BLOCKED",
-      "seconds": 0.25,
+      "seconds": 0.18,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_visual_contracts.py.log"
     },
     {
@@ -422,9 +502,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "ada9963cd5e3839825f2dfe84d098c0a8d53aa00768715b3bdc4941ff77afb28",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 4.35,
+      "seconds": 4.58,
       "evidence": "audit/generated/repair-2026-09-30/design-current/run_baseline_gates.py.log"
     },
     {
@@ -433,9 +515,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "637563472a80f5d2bd72a02cc6d4d9688f8822c8d831d96bca768082a2e08233",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 1,
       "diagnostic": "CHECK_FAILED_OR_BLOCKED",
-      "seconds": 40.93,
+      "seconds": 40.09,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_mask_parity.py.log"
     },
     {
@@ -444,9 +528,11 @@
       "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "scriptSha256": "fa6015791b1a55ff076ca597c2997a44c861368df5fd29c68aefa9404c9dc65d",
+      "supportInputsSha256": "efd63a793cec4463ef6c2555df1d2a858371e4934fdc52272da9f11a8f4104de",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 1,
       "diagnostic": "CHECK_FAILED_OR_BLOCKED",
-      "seconds": 23.71,
+      "seconds": 23.13,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_package.py.log"
     }
   ],
