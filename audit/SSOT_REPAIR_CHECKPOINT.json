@@ -80,13 +80,13 @@
     "byteAndStructuralInventory": "audit/phase1-operation-schema-matrix.json; byte loading and schema resolution are separate from semantic review"
   },
   "nextBlock": {
-    "name": "Finish current create completion verification, then review concrete Secret formats and independent auxiliary audits",
+    "name": "Resolve concrete Secret format review, then bounded non-FOLLOW_UP admission/persistence family",
     "steps": [
-      "Current42-check universe finished33PASS/9BLOCKED; source-bound evidence and no exceptions/timeouts. Next prepare concrete Secret format review and current proof registry overlay, then revalidate independent auxiliary outputs.",
-      "Finalize completion register current proof join and checkpoint, regenerate manifests/receipt, verify integrity, commit and push same branch",
-      "Present nine Secret type concrete variants for owner review; no activation before review",
-      "Revalidate incoming SQL/state/UI historical auxiliary outputs against current HEAD; integrate bounded independent repairs",
-      "Continue other-kind parent/target admission and full producer/persistence/hydration contracts without borrowed lifecycles"
+      "Owner review audit/SSOT_SECRET_VARIANT_REVIEW.md and proposed masks/limits: activate no format until reviewed; then strict type-specific parser/storage/consumer tests",
+      "Implement authoritative own UPDATE/RETRY/REPAIR parent/target policy and actual per-basis sufficiency validators; unresolved fields remain BLOCKED",
+      "Revalidate external SQL/helper, six-state and UI/visual review branches against actual current HEAD before integrating; no automatic historical PASS",
+      "Continue unresolved references and generic boundaries by related family, semantic error predicates and provenance detectors; counts alone never close obligations",
+      "Rebuild base completion register then run audit/finalize_create_completion_register.py after current source/helper/environment-bound runner; regenerate package manifests/receipt after evidence, commit/push same branch"
     ]
   },
   "gates": {
@@ -120,7 +120,8 @@
     "validatorInventory": "cc45622",
     "SQLLiterals": "1a6da95",
     "configurationState": "572652d",
-    "createRequests": "4307830"
+    "createRequests": "4307830",
+    "createCompletionFollowUp": "aac1462a83ae3bd1a6defba389dfc79bc79ee750"
   },
   "currentResults": {
     "requiredAvailableChecks": 42,
@@ -158,7 +159,7 @@
   },
   "draftPR": {
     "status": "NOT_CREATED",
-    "reason": "Supported gh pr create --draft returns GitHub GraphQL Forbidden; push succeeds. No permission bypass.",
+    "reason": "Current supported gh pr create --draft --base main --head ssot-repair-2026-09-30 returned POST https://api.github.com/graphql: Forbidden after successful push; no bypass.",
     "preparedBody": "audit/SSOT_REPAIR_DRAFT_PR.md",
     "branch": "ssot-repair-2026-09-30",
     "title": "Repair SSOT create completion and immutable FOLLOW_UP admission",
@@ -179,7 +180,7 @@
     "/tmp/ssot-audit-venv/bin/python scripts/run_ssot_repair_design_checks.py --resume",
     "/tmp/ssot-audit-venv/bin/python scripts/package_integrity.py"
   ],
-  "noFurtherAuthorizationNeeded": "Continue authorized technical repairs on this branch; push/draft PR allowed. No main merge/freeze/release/deployment/paid API/production execution.",
+  "noFurtherAuthorizationNeeded": "Technical edits, commits and push remain authorized; only concrete new Secret formats require explicit review. Approved FOLLOW_UP product rule needs no reconfirmation.",
   "continuationInput": {
     "branch": "ssot-repair-2026-09-30",
     "verifiedInputHead": "003cef7e1f6bcf87f3a23d9db3825e4fa0600560",
@@ -188,7 +189,8 @@
     "resumeHeadRule": "Resolve local and remote branch HEAD with git; checkpoint never contains its own resulting commit SHA",
     "initialIntegrity": "INTEGRITY_MATCH",
     "workingTreeAtEntry": "CLEAN",
-    "currentBlock": "VERIFIED_BOUNDED_CREATE_DESIGN; FULL_SSOT_PARTIAL"
+    "currentBlock": "CURRENT_BOUNDED_DESIGN_AND_PROPOSAL_REVIEW_SAVED; FULL_SSOT_PARTIAL",
+    "lastVerifiedCommittedBlock": "aac1462a83ae3bd1a6defba389dfc79bc79ee750"
   },
   "createBlock": {
     "status": "PARTIAL_OPERATION_CLOSURE",
@@ -259,7 +261,19 @@
     "proposal": "audit/generated/create-review-authority/secret-variant-proposals.json",
     "effective": false,
     "structuralProposalCases": 60,
-    "semanticProposalCases": "18 NOT_EXECUTED_PROPOSAL"
+    "semanticProposalCases": "18 NOT_EXECUTED_PROPOSAL",
+    "reviewDocument": "audit/SSOT_SECRET_VARIANT_REVIEW.md",
+    "currentSourceReviewEvidence": "audit/generated/create-review-authority/secret-proposals-current-review.json",
+    "structuralVerification": "60/60; each negative derived from valid positive and exact violation diagnostics; NOT semantic/runtime format approval"
   },
-  "completionRegister": "audit/SSOT_COMPLETION_REGISTER.json"
+  "completionRegister": "audit/SSOT_COMPLETION_REGISTER.json",
+  "completionRegisterCoverage": {
+    "total": 3899,
+    "verifiedBoundedCreateDesign": 9,
+    "operationBoundaryObligations": 1857,
+    "wholeOperationsSemanticallyVerified": 0,
+    "wholeOperationDenominator": 619,
+    "limitations": "Overlapping inventory plus bounded semantic DESIGN proofs; environment/P00-P12 coverage aggregate only; not project completion percentage",
+    "overlay": "audit/finalize_create_completion_register.py"
+  }
 }

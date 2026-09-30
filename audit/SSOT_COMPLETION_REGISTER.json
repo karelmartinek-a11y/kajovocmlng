@@ -115681,6 +115681,772 @@
         "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
       },
       "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "create-design:generation.job.create:request",
+      "area": "generation.job.create",
+      "scope": {
+        "operationId": "generation.job.create",
+        "boundary": "request",
+        "coverage": "Exact route/domain shape, HTTP decoding, scoped frozen replay; unresolved type/kind policies excluded"
+      },
+      "state": "VERIFIED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "contracts/payload-contracts.json#/records/215/requestSchema",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.48",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [],
+      "blocker": null,
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/repair-2026-09-30/design-current/verify_create_operation_requests/create-request-tests.json",
+          "sha256": "cb8dac668dcbef947facf1602c952d1bcf2fe1e3962bbbe60edbd4761cb0cfdb",
+          "runnerPath": "audit/generated/repair-2026-09-30/design-current/commands.json",
+          "runnerSha256": "5f608fea4f832e452670d43febf7a43c3285804d0130195e89830e134b6818a5",
+          "runnerLogSha256": "99b1989450c252118c6f0341f78099a285981d89f37b5f46ae7fed9bd4713372",
+          "sourceSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+          "supportInputsSha256": "29c17a4d3ecc49f1f28dd9dca936203c170ee7da70f0ece24aac4352e56fdb18",
+          "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
+          "scope": "DESIGN_REFERENCE_MODEL_NOT_RUNTIME"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "create-design:generation.job.create:response",
+      "area": "generation.job.create",
+      "scope": {
+        "operationId": "generation.job.create",
+        "boundary": "response",
+        "coverage": "Exact server receipt/status/error tuples and frozen receipt relations; full operation/persistence implementation excluded"
+      },
+      "state": "VERIFIED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "contracts/payload-contracts.json#/records/215/responseSchema",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.48",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [],
+      "blocker": null,
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/repair-2026-09-30/design-current/verify_create_completion/completion-tests.json",
+          "sha256": "823932c1afaa696ae507194263b899341ca3282b9a92bcd2459c61b111adc0ec",
+          "runnerPath": "audit/generated/repair-2026-09-30/design-current/commands.json",
+          "runnerSha256": "5f608fea4f832e452670d43febf7a43c3285804d0130195e89830e134b6818a5",
+          "runnerLogSha256": "eba2bece2367d37fb3f9111604348829076b5259435ed53660b3f99a8e507dd1",
+          "sourceSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+          "supportInputsSha256": "29c17a4d3ecc49f1f28dd9dca936203c170ee7da70f0ece24aac4352e56fdb18",
+          "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
+          "scope": "DESIGN_REFERENCE_MODEL_NOT_RUNTIME"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "create-design:generation.job.create:event",
+      "area": "generation.job.create",
+      "scope": {
+        "operationId": "generation.job.create",
+        "boundary": "event",
+        "coverage": "Typed aggregate create receipt, commit/persisted event equality and digest/sequence relations in reference model; actual outbox/inbox excluded"
+      },
+      "state": "VERIFIED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "contracts/payload-contracts.json#/records/215/eventSchema",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.48",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [],
+      "blocker": null,
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/repair-2026-09-30/design-current/verify_create_completion/completion-tests.json",
+          "sha256": "823932c1afaa696ae507194263b899341ca3282b9a92bcd2459c61b111adc0ec",
+          "runnerPath": "audit/generated/repair-2026-09-30/design-current/commands.json",
+          "runnerSha256": "5f608fea4f832e452670d43febf7a43c3285804d0130195e89830e134b6818a5",
+          "runnerLogSha256": "eba2bece2367d37fb3f9111604348829076b5259435ed53660b3f99a8e507dd1",
+          "sourceSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+          "supportInputsSha256": "29c17a4d3ecc49f1f28dd9dca936203c170ee7da70f0ece24aac4352e56fdb18",
+          "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
+          "scope": "DESIGN_REFERENCE_MODEL_NOT_RUNTIME"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "create-design:generation.job.create:http-error",
+      "area": "generation.job.create",
+      "scope": {
+        "operationId": "generation.job.create",
+        "boundary": "http-error",
+        "coverage": "Exact known-diagnostic HTTP projection; unknown diagnostics blocked; actual webserver excluded"
+      },
+      "state": "VERIFIED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "contracts/payload-contracts.json#/records/215/responseSchema/properties/error",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.48",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [],
+      "blocker": null,
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/repair-2026-09-30/design-current/verify_create_http_errors/create-http-errors.json",
+          "sha256": "67a2a8b42eb5a275315285974c0d59e1b8ffe7205d8180f1e6b0d0cc56570446",
+          "runnerPath": "audit/generated/repair-2026-09-30/design-current/commands.json",
+          "runnerSha256": "5f608fea4f832e452670d43febf7a43c3285804d0130195e89830e134b6818a5",
+          "runnerLogSha256": "31fe348c5535adfde68f54678de363ef0776e78e124df0b7f8e532d2eee2e18f",
+          "sourceSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+          "supportInputsSha256": "29c17a4d3ecc49f1f28dd9dca936203c170ee7da70f0ece24aac4352e56fdb18",
+          "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
+          "scope": "DESIGN_REFERENCE_MODEL_NOT_RUNTIME"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "create-design:secret.create:request",
+      "area": "secret.create",
+      "scope": {
+        "operationId": "secret.create",
+        "boundary": "request",
+        "coverage": "Exact route/domain shape, HTTP decoding, scoped frozen replay; unresolved type/kind policies excluded"
+      },
+      "state": "VERIFIED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "contracts/payload-contracts.json#/records/386/requestSchema",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.48",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [],
+      "blocker": null,
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/repair-2026-09-30/design-current/verify_create_operation_requests/create-request-tests.json",
+          "sha256": "cb8dac668dcbef947facf1602c952d1bcf2fe1e3962bbbe60edbd4761cb0cfdb",
+          "runnerPath": "audit/generated/repair-2026-09-30/design-current/commands.json",
+          "runnerSha256": "5f608fea4f832e452670d43febf7a43c3285804d0130195e89830e134b6818a5",
+          "runnerLogSha256": "99b1989450c252118c6f0341f78099a285981d89f37b5f46ae7fed9bd4713372",
+          "sourceSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+          "supportInputsSha256": "29c17a4d3ecc49f1f28dd9dca936203c170ee7da70f0ece24aac4352e56fdb18",
+          "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
+          "scope": "DESIGN_REFERENCE_MODEL_NOT_RUNTIME"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "create-design:secret.create:response",
+      "area": "secret.create",
+      "scope": {
+        "operationId": "secret.create",
+        "boundary": "response",
+        "coverage": "Exact server receipt/status/error tuples and frozen receipt relations; full operation/persistence implementation excluded"
+      },
+      "state": "VERIFIED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "contracts/payload-contracts.json#/records/386/responseSchema",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.48",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [],
+      "blocker": null,
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/repair-2026-09-30/design-current/verify_create_completion/completion-tests.json",
+          "sha256": "823932c1afaa696ae507194263b899341ca3282b9a92bcd2459c61b111adc0ec",
+          "runnerPath": "audit/generated/repair-2026-09-30/design-current/commands.json",
+          "runnerSha256": "5f608fea4f832e452670d43febf7a43c3285804d0130195e89830e134b6818a5",
+          "runnerLogSha256": "eba2bece2367d37fb3f9111604348829076b5259435ed53660b3f99a8e507dd1",
+          "sourceSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+          "supportInputsSha256": "29c17a4d3ecc49f1f28dd9dca936203c170ee7da70f0ece24aac4352e56fdb18",
+          "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
+          "scope": "DESIGN_REFERENCE_MODEL_NOT_RUNTIME"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "create-design:secret.create:event",
+      "area": "secret.create",
+      "scope": {
+        "operationId": "secret.create",
+        "boundary": "event",
+        "coverage": "Typed aggregate create receipt, commit/persisted event equality and digest/sequence relations in reference model; actual outbox/inbox excluded"
+      },
+      "state": "VERIFIED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "contracts/payload-contracts.json#/records/386/eventSchema",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.48",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [],
+      "blocker": null,
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/repair-2026-09-30/design-current/verify_create_completion/completion-tests.json",
+          "sha256": "823932c1afaa696ae507194263b899341ca3282b9a92bcd2459c61b111adc0ec",
+          "runnerPath": "audit/generated/repair-2026-09-30/design-current/commands.json",
+          "runnerSha256": "5f608fea4f832e452670d43febf7a43c3285804d0130195e89830e134b6818a5",
+          "runnerLogSha256": "eba2bece2367d37fb3f9111604348829076b5259435ed53660b3f99a8e507dd1",
+          "sourceSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+          "supportInputsSha256": "29c17a4d3ecc49f1f28dd9dca936203c170ee7da70f0ece24aac4352e56fdb18",
+          "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
+          "scope": "DESIGN_REFERENCE_MODEL_NOT_RUNTIME"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "create-design:secret.create:http-error",
+      "area": "secret.create",
+      "scope": {
+        "operationId": "secret.create",
+        "boundary": "http-error",
+        "coverage": "Exact known-diagnostic HTTP projection; unknown diagnostics blocked; actual webserver excluded"
+      },
+      "state": "VERIFIED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "contracts/payload-contracts.json#/records/386/responseSchema/properties/error",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.48",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [],
+      "blocker": null,
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/repair-2026-09-30/design-current/verify_create_http_errors/create-http-errors.json",
+          "sha256": "67a2a8b42eb5a275315285974c0d59e1b8ffe7205d8180f1e6b0d0cc56570446",
+          "runnerPath": "audit/generated/repair-2026-09-30/design-current/commands.json",
+          "runnerSha256": "5f608fea4f832e452670d43febf7a43c3285804d0130195e89830e134b6818a5",
+          "runnerLogSha256": "31fe348c5535adfde68f54678de363ef0776e78e124df0b7f8e532d2eee2e18f",
+          "sourceSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+          "supportInputsSha256": "29c17a4d3ecc49f1f28dd9dca936203c170ee7da70f0ece24aac4352e56fdb18",
+          "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
+          "scope": "DESIGN_REFERENCE_MODEL_NOT_RUNTIME"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "follow-up-design:frozen-admission",
+      "area": "generation",
+      "scope": {
+        "coverage": "Approved55matrixcells; three explicit selectors×11source states; frozen byte hydration and no source mutation in reference model"
+      },
+      "state": "VERIFIED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.49",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "contracts/follow-up-admission.json#/matrix",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [
+        "create-design:generation.job.create:request"
+      ],
+      "blocker": null,
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/repair-2026-09-30/design-current/verify_follow_up_contracts/follow-up-tests.json",
+          "sha256": "dc1c84d19480368e3b4b9a3c61c4f0fea60c7a791f38a45a412ddc45a3773814",
+          "runnerPath": "audit/generated/repair-2026-09-30/design-current/commands.json",
+          "runnerSha256": "5f608fea4f832e452670d43febf7a43c3285804d0130195e89830e134b6818a5",
+          "runnerLogSha256": "6c3f638e4455ca63cf4da521dbad5e10b6a314ba58f3f13d6a4b099a1c47b1cf",
+          "sourceSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+          "supportInputsSha256": "29c17a4d3ecc49f1f28dd9dca936203c170ee7da70f0ece24aac4352e56fdb18",
+          "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
+          "scope": "DESIGN_REFERENCE_MODEL_NOT_RUNTIME"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "follow-up-design:actual-sufficiency",
+      "area": "generation",
+      "scope": {
+        "coverage": "Real validator for consistency/sufficiency per basis; actual SQL locks/commit/publication/inbox and consumer"
+      },
+      "state": "BLOCKED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.49",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [
+        "follow-up-design:frozen-admission"
+      ],
+      "blocker": {
+        "kind": "TECHNICAL",
+        "reason": "Trusted reference flags are not concrete basis validators or runtime transaction evidence"
+      },
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "secret-format:OAUTH_CLIENT",
+      "area": "Secrets",
+      "scope": {
+        "secretType": "OAUTH_CLIENT",
+        "coverage": "Approve concrete discriminator/field/encoding/semantic/import/storage/consumer format; proposal is not effective"
+      },
+      "state": "BLOCKED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.2",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.4",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.72.21",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [],
+      "blocker": {
+        "kind": "OWNER_DECISION",
+        "reason": "Explicit variant principle approved; concrete format/fields/bounds awaiting review"
+      },
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/create-review-authority/secret-variant-proposals.json",
+          "sha256": "70499fb225a3dd3ff9b1c6daa52d224203f6d02e26e3b60d8133382cbf4178e8",
+          "scope": "PROPOSAL_ONLY_PENDING_OWNER_FORMAT_REVIEW"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "secret-format:OAUTH_TOKEN_SET",
+      "area": "Secrets",
+      "scope": {
+        "secretType": "OAUTH_TOKEN_SET",
+        "coverage": "Approve concrete discriminator/field/encoding/semantic/import/storage/consumer format; proposal is not effective"
+      },
+      "state": "BLOCKED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.2",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.4",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.72.21",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [],
+      "blocker": {
+        "kind": "OWNER_DECISION",
+        "reason": "Explicit variant principle approved; concrete format/fields/bounds awaiting review"
+      },
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/create-review-authority/secret-variant-proposals.json",
+          "sha256": "70499fb225a3dd3ff9b1c6daa52d224203f6d02e26e3b60d8133382cbf4178e8",
+          "scope": "PROPOSAL_ONLY_PENDING_OWNER_FORMAT_REVIEW"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "secret-format:TOTP_SEED",
+      "area": "Secrets",
+      "scope": {
+        "secretType": "TOTP_SEED",
+        "coverage": "Approve concrete discriminator/field/encoding/semantic/import/storage/consumer format; proposal is not effective"
+      },
+      "state": "BLOCKED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.2",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.4",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.72.21",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [],
+      "blocker": {
+        "kind": "OWNER_DECISION",
+        "reason": "Explicit variant principle approved; concrete format/fields/bounds awaiting review"
+      },
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/create-review-authority/secret-variant-proposals.json",
+          "sha256": "70499fb225a3dd3ff9b1c6daa52d224203f6d02e26e3b60d8133382cbf4178e8",
+          "scope": "PROPOSAL_ONLY_PENDING_OWNER_FORMAT_REVIEW"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "secret-format:CERTIFICATE",
+      "area": "Secrets",
+      "scope": {
+        "secretType": "CERTIFICATE",
+        "coverage": "Approve concrete discriminator/field/encoding/semantic/import/storage/consumer format; proposal is not effective"
+      },
+      "state": "BLOCKED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.2",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.4",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.72.21",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [],
+      "blocker": {
+        "kind": "OWNER_DECISION",
+        "reason": "Explicit variant principle approved; concrete format/fields/bounds awaiting review"
+      },
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/create-review-authority/secret-variant-proposals.json",
+          "sha256": "70499fb225a3dd3ff9b1c6daa52d224203f6d02e26e3b60d8133382cbf4178e8",
+          "scope": "PROPOSAL_ONLY_PENDING_OWNER_FORMAT_REVIEW"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "secret-format:PRIVATE_KEY",
+      "area": "Secrets",
+      "scope": {
+        "secretType": "PRIVATE_KEY",
+        "coverage": "Approve concrete discriminator/field/encoding/semantic/import/storage/consumer format; proposal is not effective"
+      },
+      "state": "BLOCKED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.2",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.4",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.72.21",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [],
+      "blocker": {
+        "kind": "OWNER_DECISION",
+        "reason": "Explicit variant principle approved; concrete format/fields/bounds awaiting review"
+      },
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/create-review-authority/secret-variant-proposals.json",
+          "sha256": "70499fb225a3dd3ff9b1c6daa52d224203f6d02e26e3b60d8133382cbf4178e8",
+          "scope": "PROPOSAL_ONLY_PENDING_OWNER_FORMAT_REVIEW"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "secret-format:DATABASE_CREDENTIAL",
+      "area": "Secrets",
+      "scope": {
+        "secretType": "DATABASE_CREDENTIAL",
+        "coverage": "Approve concrete discriminator/field/encoding/semantic/import/storage/consumer format; proposal is not effective"
+      },
+      "state": "BLOCKED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.2",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.4",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.72.21",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [],
+      "blocker": {
+        "kind": "OWNER_DECISION",
+        "reason": "Explicit variant principle approved; concrete format/fields/bounds awaiting review"
+      },
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/create-review-authority/secret-variant-proposals.json",
+          "sha256": "70499fb225a3dd3ff9b1c6daa52d224203f6d02e26e3b60d8133382cbf4178e8",
+          "scope": "PROPOSAL_ONLY_PENDING_OWNER_FORMAT_REVIEW"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "secret-format:COOKIE_JAR",
+      "area": "Secrets",
+      "scope": {
+        "secretType": "COOKIE_JAR",
+        "coverage": "Approve concrete discriminator/field/encoding/semantic/import/storage/consumer format; proposal is not effective"
+      },
+      "state": "BLOCKED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.2",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.4",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.72.21",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [],
+      "blocker": {
+        "kind": "OWNER_DECISION",
+        "reason": "Explicit variant principle approved; concrete format/fields/bounds awaiting review"
+      },
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/create-review-authority/secret-variant-proposals.json",
+          "sha256": "70499fb225a3dd3ff9b1c6daa52d224203f6d02e26e3b60d8133382cbf4178e8",
+          "scope": "PROPOSAL_ONLY_PENDING_OWNER_FORMAT_REVIEW"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "secret-format:SESSION_STATE",
+      "area": "Secrets",
+      "scope": {
+        "secretType": "SESSION_STATE",
+        "coverage": "Approve concrete discriminator/field/encoding/semantic/import/storage/consumer format; proposal is not effective"
+      },
+      "state": "BLOCKED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.2",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.4",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.72.21",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [],
+      "blocker": {
+        "kind": "OWNER_DECISION",
+        "reason": "Explicit variant principle approved; concrete format/fields/bounds awaiting review"
+      },
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/create-review-authority/secret-variant-proposals.json",
+          "sha256": "70499fb225a3dd3ff9b1c6daa52d224203f6d02e26e3b60d8133382cbf4178e8",
+          "scope": "PROPOSAL_ONLY_PENDING_OWNER_FORMAT_REVIEW"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "secret-format:SSH_CREDENTIAL",
+      "area": "Secrets",
+      "scope": {
+        "secretType": "SSH_CREDENTIAL",
+        "coverage": "Approve concrete discriminator/field/encoding/semantic/import/storage/consumer format; proposal is not effective"
+      },
+      "state": "BLOCKED",
+      "verificationLevel": "SEMANTIC_DESIGN_REFERENCE",
+      "authoritativeSources": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.2",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.4",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.72.21",
+          "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+        }
+      ],
+      "dependencies": [],
+      "blocker": {
+        "kind": "OWNER_DECISION",
+        "reason": "Explicit variant principle approved; concrete format/fields/bounds awaiting review"
+      },
+      "repair": "00_SSOT/KajovoCMLNG_SSOT.md#12.48-12.49",
+      "evidence": [
+        {
+          "path": "audit/generated/create-review-authority/secret-variant-proposals.json",
+          "sha256": "70499fb225a3dd3ff9b1c6daa52d224203f6d02e26e3b60d8133382cbf4178e8",
+          "scope": "PROPOSAL_ONLY_PENDING_OWNER_FORMAT_REVIEW"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+      },
+      "implementationAcceptance": "NOT_EVALUATED"
     }
   ],
   "coverage": {
@@ -115696,11 +116462,13 @@
     "phaseHandoffs": 13,
     "states": {
       "OPEN": 1632,
-      "BLOCKED": 2248
+      "BLOCKED": 2258,
+      "VERIFIED": 9
     },
     "levels": {
       "SEMANTIC": 3638,
-      "STRUCTURAL": 242
+      "STRUCTURAL": 242,
+      "SEMANTIC_DESIGN_REFERENCE": 19
     },
     "limitations": [
       "Inventory is not semantic review. No entire operation is marked VERIFIED by schema resolution.",
@@ -115708,6 +116476,19 @@
       "Environment and P00–P12 entries are aggregate coverage obligations; exhaustive field-level review remains open.",
       "Historical/unbound report links remain labeled and cannot confer VERIFIED.",
       "Auxiliary SQL/state/UI reviews must be revalidated against this SSOT snapshot before integration."
-    ]
+    ],
+    "totalRegisteredObligations": 3899,
+    "verifiedBoundedCreateDesignObligations": 9
+  },
+  "boundedCreateProofJoin": {
+    "overlayPath": "audit/finalize_create_completion_register.py",
+    "overlaySha256": "629939321dc4f1359fbdd4393012b0e575404978b6a6578bafdfec7eb06fc7ff",
+    "runnerSha256": "5f608fea4f832e452670d43febf7a43c3285804d0130195e89830e134b6818a5",
+    "sourceSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+    "supportInputsSha256": "29c17a4d3ecc49f1f28dd9dca936203c170ee7da70f0ece24aac4352e56fdb18",
+    "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
+    "wholeOperationsClosed": 0,
+    "reviewedDesignObligations": 9,
+    "explicitlyExcluded": "Actual backend/SQL/runtime; full create policies/consumer handoffs; concrete Secret format approvals"
   }
 }
