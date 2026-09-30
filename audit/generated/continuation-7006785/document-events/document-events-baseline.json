@@ -1,0 +1,93 @@
+{
+  "sourceSha256": "709cd67a7f4d131d2fd0ff482a38e61105453febaa0793f7a456581bbcea15e4",
+  "currentSourceSha256": "e06a8db493b6f497ab54867bc24d69eb085c3b34df133c6a4fc0b86eb73b11c1",
+  "scriptSha256": "b83edfaee1974dd6b243ed59a0690a65defcc1a62e15dfca53618c63c950e0bc",
+  "baseline": true,
+  "baselineCommit": "7006785",
+  "resourceVersions": {
+    "contracts/generation/document-events.schema.json": null,
+    "contracts/generation/generation-contracts.schema.json": "d51aa2823977360e7c65acf958a63e712c31a9a42c2fefd53d5c3ea2ec65a235",
+    "scripts/ssot/ssot_control.py": "48cf9ed88bbbc9bc5828063403638c8d85ca8bf4fe8e4ae2f1a99fe564618f74"
+  },
+  "scope": "Synthetic SSOT 12.44.2 contract checks; no production acceptance claim.\n\nTrusted commit/repository snapshots are fixtures, not evidence of real database\natomicity, provenance, outbox delivery, transport, or plan conformance.\n",
+  "evidenceGate": "SSOT_CONTRACT_READY",
+  "gate": "SSOT_CONTRACT_READY",
+  "evidenceKind": "DESIGN_MODEL",
+  "passed": false,
+  "checked": 11,
+  "failed": 2,
+  "checks": [
+    {
+      "case": "resource-present/contracts/generation/document-events.schema.json",
+      "actual": false,
+      "expected": true,
+      "passed": false
+    },
+    {
+      "case": "resource-present/contracts/generation/generation-contracts.schema.json",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "resource-present/scripts/ssot/ssot_control.py",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "native/document-event-helper-present",
+      "actual": false,
+      "expected": true,
+      "passed": false
+    },
+    {
+      "case": "native/read-helper-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "native/delivery-helper-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/fixture-schema",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/fixture-schema",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "exercise-completed",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    }
+  ],
+  "wholeRoutesClosed": [],
+  "remaining": [
+    "Production commit atomicity and trusted snapshot provenance",
+    "Real outbox/inbox, SSE replay and read transport integration",
+    "Plan DAG conformance and IMPLEMENTING guard"
+  ]
+}

@@ -1,0 +1,3441 @@
+{
+  "sourceSha256": "e06a8db493b6f497ab54867bc24d69eb085c3b34df133c6a4fc0b86eb73b11c1",
+  "currentSourceSha256": "e06a8db493b6f497ab54867bc24d69eb085c3b34df133c6a4fc0b86eb73b11c1",
+  "scriptSha256": "b83edfaee1974dd6b243ed59a0690a65defcc1a62e15dfca53618c63c950e0bc",
+  "baseline": false,
+  "baselineCommit": "7006785",
+  "resourceVersions": {
+    "contracts/generation/document-events.schema.json": "6917fda6327bf13486edc67165de1e4e5b58464850372972315ba30e5c37ae0b",
+    "contracts/generation/generation-contracts.schema.json": "d51aa2823977360e7c65acf958a63e712c31a9a42c2fefd53d5c3ea2ec65a235",
+    "scripts/ssot/ssot_control.py": "9930b3cf116a678861c26c80b82c5d14304cf6735437346d1a406014ca261f0d"
+  },
+  "scope": "Synthetic SSOT 12.44.2 contract checks; no production acceptance claim.\n\nTrusted commit/repository snapshots are fixtures, not evidence of real database\natomicity, provenance, outbox delivery, transport, or plan conformance.\n",
+  "evidenceGate": "SSOT_CONTRACT_READY",
+  "gate": "SSOT_CONTRACT_READY",
+  "evidenceKind": "DESIGN_MODEL",
+  "passed": true,
+  "checked": 557,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "resource-present/contracts/generation/document-events.schema.json",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "resource-present/contracts/generation/generation-contracts.schema.json",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "resource-present/scripts/ssot/ssot_control.py",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "native/document-event-helper-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "native/read-helper-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "native/delivery-helper-present",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/fixture-schema",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/exact",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/exact",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/exact",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/missing/eventId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/missing/eventId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/missing/eventId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/eventId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/eventId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/eventId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/eventId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/eventId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/eventId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/eventId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/eventId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/eventId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/eventId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/eventId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/eventId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/eventId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/eventId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/eventId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/eventId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/eventId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/eventId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/missing/type",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/missing/type",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/missing/type",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/type/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/type/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/type/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/type/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/type/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/type/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/type/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/type/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/type/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/type/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/type/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/type/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/type/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/type/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/type/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/type/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/type/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/type/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/missing/objectId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/missing/objectId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/missing/objectId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/objectId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/objectId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/objectId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/objectId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/objectId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/objectId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/objectId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/objectId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/objectId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/objectId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/objectId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/objectId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/objectId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/objectId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/objectId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/objectId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/objectId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/objectId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/missing/emittedAt",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/missing/emittedAt",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/missing/emittedAt",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/emittedAt/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/emittedAt/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/emittedAt/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/emittedAt/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/emittedAt/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/emittedAt/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/emittedAt/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/emittedAt/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/emittedAt/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/emittedAt/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/emittedAt/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/emittedAt/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/emittedAt/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/emittedAt/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/emittedAt/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/emittedAt/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/emittedAt/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/emittedAt/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/missing/payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/missing/payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/missing/payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/payload/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/payload/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/payload/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/payload/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/payload/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/payload/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/payload/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/payload/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/payload/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/payload/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/payload/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/payload/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/payload/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/payload/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/payload/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/invalid/payload/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/invalid/payload/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/invalid/payload/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/envelope/extra",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/envelope/extra",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/envelope/extra",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/payload/missing/specificationRevisionId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/payload/missing/specificationRevisionId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/payload/missing/specificationRevisionId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/payload/invalid/specificationRevisionId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/payload/invalid/specificationRevisionId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/payload/invalid/specificationRevisionId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/payload/invalid/specificationRevisionId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/payload/invalid/specificationRevisionId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/payload/invalid/specificationRevisionId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/payload/invalid/specificationRevisionId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/payload/invalid/specificationRevisionId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/payload/invalid/specificationRevisionId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/payload/invalid/specificationRevisionId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/payload/invalid/specificationRevisionId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/payload/invalid/specificationRevisionId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/payload/invalid/specificationRevisionId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/payload/invalid/specificationRevisionId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/payload/invalid/specificationRevisionId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/payload/invalid/specificationRevisionId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/payload/invalid/specificationRevisionId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/payload/invalid/specificationRevisionId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/payload/missing/specificationDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/payload/missing/specificationDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/payload/missing/specificationDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/payload/invalid/specificationDigest/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/payload/invalid/specificationDigest/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/payload/invalid/specificationDigest/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/payload/invalid/specificationDigest/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/payload/invalid/specificationDigest/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/payload/invalid/specificationDigest/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/payload/invalid/specificationDigest/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/payload/invalid/specificationDigest/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/payload/invalid/specificationDigest/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/payload/invalid/specificationDigest/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/payload/invalid/specificationDigest/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/payload/invalid/specificationDigest/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/payload/invalid/specificationDigest/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/payload/invalid/specificationDigest/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/payload/invalid/specificationDigest/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/payload/invalid/specificationDigest/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/payload/invalid/specificationDigest/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/payload/invalid/specificationDigest/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/payload/extra",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/payload/extra",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/payload/extra",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/generic/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/generic/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/generic/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/generic/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/generic/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/generic/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/generic/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/generic/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/generic/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/generic/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/generic/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/generic/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/generic/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/generic/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/generic/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/generic/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/generic/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/generic/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/wrong-event-type/ACCEPTED",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/wrong-event-type/ACCEPTED",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/wrong-event-type/ACCEPTED",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/wrong-event-type/PROGRESS",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/wrong-event-type/PROGRESS",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/wrong-event-type/PROGRESS",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/wrong-event-type/WAITING_FOR_INPUT",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/wrong-event-type/WAITING_FOR_INPUT",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/wrong-event-type/WAITING_FOR_INPUT",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/wrong-event-type/RECONCILING",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/wrong-event-type/RECONCILING",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/wrong-event-type/RECONCILING",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/wrong-event-type/TERMINAL",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/wrong-event-type/TERMINAL",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/wrong-event-type/TERMINAL",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/wrong-event-type/generation.spec.approved",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/wrong-event-type/generation.spec.approved",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/wrong-event-type/generation.spec.approved",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/wrong-event-type/generation.unknown",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/wrong-event-type/generation.unknown",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/wrong-event-type/generation.unknown",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/invalid-sequence/01",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/invalid-sequence/01",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/invalid-sequence/01",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/invalid-sequence/-1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/invalid-sequence/-1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/invalid-sequence/-1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/invalid-sequence/9223372036854775808",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/invalid-sequence/9223372036854775808",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/invalid-sequence/9223372036854775808",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/invalid-timestamp",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/invalid-timestamp",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/invalid-timestamp",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/generic-payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/generic-payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/generic-payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/model-proposal-as-receipt",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/model-proposal-as-receipt",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/model-proposal-as-receipt",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema/model-proposal-as-payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/schema-definition/model-proposal-as-payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/native-mask/model-proposal-as-payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/publisher/exact-committed",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/publisher/precommit/False",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/publisher/precommit/None",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/publisher/precommit/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/publisher/missing-snapshot",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/publisher/wrong-snapshot/jobId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/publisher/wrong-snapshot/eventSequence",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/publisher/wrong-snapshot/documentId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/publisher/wrong-snapshot/documentDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/publisher/wrong-event-job",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/publisher/wrong-event/specificationRevisionId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/publisher/wrong-event/specificationDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/publisher/wrong-event-sequence",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/publisher/rewritten-persisted-envelope",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/publisher/model-document-as-receipt",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/publisher/model-proposal-as-native-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/blocking-question-allowed",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/modified-document-still-native",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/publisher/changed-immutable-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/exact-read-selector",
+      "actual": {
+        "operationId": "generation.spec.revision.read",
+        "pathParameters": {
+          "id": "00000000-0000-4000-8000-000000000001",
+          "revisionId": "00000000-0000-4000-8000-000000000002"
+        },
+        "persisted_job_id": "00000000-0000-4000-8000-000000000001",
+        "persisted_document_id": "00000000-0000-4000-8000-000000000002",
+        "persisted_document_digest": "sha256:1fab97f4cfff47b026f4768ac7a61480596acec1c093a370ca6c50d731994a8e"
+      },
+      "expected": {
+        "operationId": "generation.spec.revision.read",
+        "pathParameters": {
+          "id": "00000000-0000-4000-8000-000000000001",
+          "revisionId": "00000000-0000-4000-8000-000000000002"
+        },
+        "persisted_job_id": "00000000-0000-4000-8000-000000000001",
+        "persisted_document_id": "00000000-0000-4000-8000-000000000002",
+        "persisted_document_digest": "sha256:1fab97f4cfff47b026f4768ac7a61480596acec1c093a370ca6c50d731994a8e"
+      },
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/read/exact-native-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/read/no-document/FAILED",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/read/no-document/CANCELLED",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/read/no-document/ACCEPTED",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/read/no-document/RUNNING",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/read/error-cannot-publish/FAILED",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/read/error-cannot-publish/CANCELLED",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/read/reject/missing",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/read/reject/generic",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/read/reject/proposal",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/read/reject/changed",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/read/wrong-pointer/persisted_job_id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/read/wrong-pointer/persisted_document_id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/read/wrong-pointer/persisted_document_digest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/read/wrong-path/id/00000000-0000-4000-8000-000000000099",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/read/wrong-path/revisionId/00000000-0000-4000-8000-000000000099",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/read/wrong-path/revisionId/latest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/recovery/refetch-same-immutable-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/recovery/exact-outbox-redelivery",
+      "actual": {
+        "operationId": "generation.spec.revision.read",
+        "pathParameters": {
+          "id": "00000000-0000-4000-8000-000000000001",
+          "revisionId": "00000000-0000-4000-8000-000000000002"
+        },
+        "persisted_job_id": "00000000-0000-4000-8000-000000000001",
+        "persisted_document_id": "00000000-0000-4000-8000-000000000002",
+        "persisted_document_digest": "sha256:1fab97f4cfff47b026f4768ac7a61480596acec1c093a370ca6c50d731994a8e"
+      },
+      "expected": {
+        "operationId": "generation.spec.revision.read",
+        "pathParameters": {
+          "id": "00000000-0000-4000-8000-000000000001",
+          "revisionId": "00000000-0000-4000-8000-000000000002"
+        },
+        "persisted_job_id": "00000000-0000-4000-8000-000000000001",
+        "persisted_document_id": "00000000-0000-4000-8000-000000000002",
+        "persisted_document_digest": "sha256:1fab97f4cfff47b026f4768ac7a61480596acec1c093a370ca6c50d731994a8e"
+      },
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/recovery/apply",
+      "actual": "APPLY",
+      "expected": "APPLY",
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/recovery/deduplicate",
+      "actual": "DUPLICATE",
+      "expected": "DUPLICATE",
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/recovery/missing-history",
+      "actual": "REPLAY_REQUIRED",
+      "expected": "REPLAY_REQUIRED",
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/recovery/gap",
+      "actual": "REPLAY_REQUIRED",
+      "expected": "REPLAY_REQUIRED",
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/recovery/changed-duplicate",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.spec.proposed/recovery/inputs-remain-immutable",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/fixture-schema",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/exact",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/exact",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/exact",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/missing/eventId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/missing/eventId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/missing/eventId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/eventId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/eventId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/eventId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/eventId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/eventId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/eventId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/eventId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/eventId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/eventId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/eventId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/eventId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/eventId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/eventId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/eventId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/eventId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/eventId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/eventId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/eventId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/missing/type",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/missing/type",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/missing/type",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/type/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/type/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/type/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/type/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/type/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/type/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/type/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/type/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/type/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/type/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/type/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/type/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/type/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/type/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/type/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/type/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/type/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/type/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/missing/objectId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/missing/objectId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/missing/objectId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/objectId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/objectId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/objectId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/objectId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/objectId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/objectId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/objectId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/objectId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/objectId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/objectId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/objectId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/objectId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/objectId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/objectId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/objectId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/objectId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/objectId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/objectId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/missing/emittedAt",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/missing/emittedAt",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/missing/emittedAt",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/emittedAt/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/emittedAt/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/emittedAt/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/emittedAt/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/emittedAt/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/emittedAt/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/emittedAt/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/emittedAt/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/emittedAt/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/emittedAt/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/emittedAt/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/emittedAt/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/emittedAt/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/emittedAt/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/emittedAt/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/emittedAt/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/emittedAt/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/emittedAt/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/missing/payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/missing/payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/missing/payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/payload/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/payload/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/payload/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/payload/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/payload/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/payload/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/payload/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/payload/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/payload/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/payload/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/payload/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/payload/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/payload/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/payload/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/payload/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/invalid/payload/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/invalid/payload/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/invalid/payload/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/envelope/extra",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/envelope/extra",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/envelope/extra",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/missing/planId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/missing/planId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/missing/planId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/planId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/planId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/planId/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/planId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/planId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/planId/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/planId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/planId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/planId/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/planId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/planId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/planId/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/planId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/planId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/planId/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/planId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/planId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/planId/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/missing/planDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/missing/planDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/missing/planDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/planDigest/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/planDigest/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/planDigest/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/planDigest/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/planDigest/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/planDigest/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/planDigest/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/planDigest/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/planDigest/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/planDigest/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/planDigest/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/planDigest/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/planDigest/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/planDigest/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/planDigest/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/planDigest/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/planDigest/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/planDigest/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/missing/specificationDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/missing/specificationDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/missing/specificationDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/specificationDigest/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/specificationDigest/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/specificationDigest/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/specificationDigest/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/specificationDigest/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/specificationDigest/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/specificationDigest/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/specificationDigest/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/specificationDigest/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/specificationDigest/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/specificationDigest/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/specificationDigest/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/specificationDigest/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/specificationDigest/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/specificationDigest/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/invalid/specificationDigest/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/invalid/specificationDigest/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/invalid/specificationDigest/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/payload/extra",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/payload/extra",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/payload/extra",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/generic/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/generic/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/generic/0",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/generic/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/generic/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/generic/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/generic/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/generic/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/generic/2",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/generic/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/generic/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/generic/3",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/generic/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/generic/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/generic/4",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/generic/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/generic/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/generic/5",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/wrong-event-type/ACCEPTED",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/wrong-event-type/ACCEPTED",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/wrong-event-type/ACCEPTED",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/wrong-event-type/PROGRESS",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/wrong-event-type/PROGRESS",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/wrong-event-type/PROGRESS",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/wrong-event-type/WAITING_FOR_INPUT",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/wrong-event-type/WAITING_FOR_INPUT",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/wrong-event-type/WAITING_FOR_INPUT",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/wrong-event-type/RECONCILING",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/wrong-event-type/RECONCILING",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/wrong-event-type/RECONCILING",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/wrong-event-type/TERMINAL",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/wrong-event-type/TERMINAL",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/wrong-event-type/TERMINAL",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/wrong-event-type/generation.spec.approved",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/wrong-event-type/generation.spec.approved",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/wrong-event-type/generation.spec.approved",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/wrong-event-type/generation.unknown",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/wrong-event-type/generation.unknown",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/wrong-event-type/generation.unknown",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/invalid-sequence/01",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/invalid-sequence/01",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/invalid-sequence/01",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/invalid-sequence/-1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/invalid-sequence/-1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/invalid-sequence/-1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/invalid-sequence/9223372036854775808",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/invalid-sequence/9223372036854775808",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/invalid-sequence/9223372036854775808",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/invalid-timestamp",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/invalid-timestamp",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/invalid-timestamp",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/generic-payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/generic-payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/generic-payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/model-proposal-as-receipt",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/model-proposal-as-receipt",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/model-proposal-as-receipt",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema/model-proposal-as-payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/schema-definition/model-proposal-as-payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/native-mask/model-proposal-as-payload",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/exact-committed",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/precommit/False",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/precommit/None",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/precommit/1",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/missing-snapshot",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/wrong-snapshot/jobId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/wrong-snapshot/eventSequence",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/wrong-snapshot/documentId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/wrong-snapshot/documentDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/wrong-event-job",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/wrong-event/planId",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/wrong-event/planDigest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/wrong-event-sequence",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/rewritten-persisted-envelope",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/model-document-as-receipt",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/model-proposal-as-native-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/wrong-approved-snapshot",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/wrong-approved-event",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/wrong-approved-scope-lock-with-matching-document-digest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/plan-id-not-native-id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/modified-document-still-native",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/publisher/changed-immutable-document",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/exact-read-selector",
+      "actual": {
+        "operationId": "generation.plan.read",
+        "pathParameters": {
+          "id": "00000000-0000-4000-8000-000000000001",
+          "planId": "00000000-0000-4000-8000-000000000001"
+        },
+        "persisted_job_id": "00000000-0000-4000-8000-000000000001",
+        "persisted_document_id": "00000000-0000-4000-8000-000000000001",
+        "persisted_document_digest": "sha256:f42994715dc22368046f71e2a78d10f52713b9272ec5d3ad0044c996c9d645a2"
+      },
+      "expected": {
+        "operationId": "generation.plan.read",
+        "pathParameters": {
+          "id": "00000000-0000-4000-8000-000000000001",
+          "planId": "00000000-0000-4000-8000-000000000001"
+        },
+        "persisted_job_id": "00000000-0000-4000-8000-000000000001",
+        "persisted_document_id": "00000000-0000-4000-8000-000000000001",
+        "persisted_document_digest": "sha256:f42994715dc22368046f71e2a78d10f52713b9272ec5d3ad0044c996c9d645a2"
+      },
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/read/exact-native-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/read/no-document/FAILED",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/read/no-document/CANCELLED",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/read/no-document/ACCEPTED",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/read/no-document/RUNNING",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/read/error-cannot-publish/FAILED",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/read/error-cannot-publish/CANCELLED",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/read/reject/missing",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/read/reject/generic",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/read/reject/proposal",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/read/reject/changed",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/read/wrong-pointer/persisted_job_id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/read/wrong-pointer/persisted_document_id",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/read/wrong-pointer/persisted_document_digest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/read/wrong-path/id/00000000-0000-4000-8000-000000000099",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/read/wrong-path/planId/00000000-0000-4000-8000-000000000099",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/read/wrong-path/planId/latest",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/recovery/refetch-same-immutable-document",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/recovery/exact-outbox-redelivery",
+      "actual": {
+        "operationId": "generation.plan.read",
+        "pathParameters": {
+          "id": "00000000-0000-4000-8000-000000000001",
+          "planId": "00000000-0000-4000-8000-000000000001"
+        },
+        "persisted_job_id": "00000000-0000-4000-8000-000000000001",
+        "persisted_document_id": "00000000-0000-4000-8000-000000000001",
+        "persisted_document_digest": "sha256:f42994715dc22368046f71e2a78d10f52713b9272ec5d3ad0044c996c9d645a2"
+      },
+      "expected": {
+        "operationId": "generation.plan.read",
+        "pathParameters": {
+          "id": "00000000-0000-4000-8000-000000000001",
+          "planId": "00000000-0000-4000-8000-000000000001"
+        },
+        "persisted_job_id": "00000000-0000-4000-8000-000000000001",
+        "persisted_document_id": "00000000-0000-4000-8000-000000000001",
+        "persisted_document_digest": "sha256:f42994715dc22368046f71e2a78d10f52713b9272ec5d3ad0044c996c9d645a2"
+      },
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/recovery/apply",
+      "actual": "APPLY",
+      "expected": "APPLY",
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/recovery/deduplicate",
+      "actual": "DUPLICATE",
+      "expected": "DUPLICATE",
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/recovery/missing-history",
+      "actual": "REPLAY_REQUIRED",
+      "expected": "REPLAY_REQUIRED",
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/recovery/gap",
+      "actual": "REPLAY_REQUIRED",
+      "expected": "REPLAY_REQUIRED",
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/recovery/changed-duplicate",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "case": "generation.plan.created/recovery/inputs-remain-immutable",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "case": "exercise-completed",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    }
+  ],
+  "wholeRoutesClosed": [],
+  "remaining": [
+    "Production commit atomicity and trusted snapshot provenance",
+    "Real outbox/inbox, SSE replay and read transport integration",
+    "Plan DAG conformance and IMPLEMENTING guard"
+  ]
+}

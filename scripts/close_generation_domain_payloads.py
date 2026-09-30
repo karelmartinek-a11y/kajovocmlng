@@ -1,7 +1,7 @@
 """Technical schema derivation from SSOT 12.18-12.23 / 56.7-56.8.
 
-Partial route closure only: no invented response/event for approval, no event
-applicability inferred from HTTP method. Existing transport envelopes retained.
+Compose domain masks with HTTP specialization only when its authored resource
+is present. No event applicability is inferred from HTTP method.
 """
 import argparse
 import base64
@@ -11,6 +11,7 @@ import json
 
 from phase1_repair_contracts import canonical_digest, encoded
 from ssot_sources import SSOT, resource_index, resources
+from generation_http_contract import PATH as HTTP, specialize as specialize_http
 
 PATH='contracts/payload-contracts.json'
 GEN='contracts/generation/generation-contracts.schema.json'
@@ -54,6 +55,7 @@ def changed_payload(rs):
             if READ_FAILURE_RULE not in rules:rules.append(READ_FAILURE_RULE)
     original=json.loads(rs[PATH]['raw'])
     assert original['canonicalDigest']==canonical_digest({**original,'canonicalDigest':None})
+    if HTTP in rs:d=specialize_http(d,bundle)
     d['canonicalDigest']=canonical_digest({**d,'canonicalDigest':None})
     return d
 

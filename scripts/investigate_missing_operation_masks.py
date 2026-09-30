@@ -8,11 +8,13 @@ import json
 import os
 import re
 import subprocess
+from types import SimpleNamespace
 
 from close_generation_operation_masks import OPERATIONS, CATALOG, SAGA, GEN
 from close_mcp_list_operation_masks import OPERATIONS as MCP_LIST_OPERATIONS, NATIVE
 from phase1_schema_closure import build
-from ssot_sources import ROOT, SSOT
+from ssot_sources import ROOT, SSOT, resource_index
+from acceptance_gates import DESIGN,PRODUCTION
 
 
 def authority_sections(lines):
@@ -52,6 +54,8 @@ def main():
     sections = authority_sections(lines)
     operations = {o['operationId']: o for o in matrix['operations']}
     records = {o['operationId']: o for o in inv.docs['contracts/operation-contracts.json']['records']}
+    from plan_create_investigation import investigation as investigate_plan,GEN as PLAN_GEN
+    plan_investigation=investigate_plan(SimpleNamespace(schema=inv.docs[PLAN_GEN]),raw,resource_index(inv.items))
     rows = []
     directory = ROOT / os.environ.get('KCML_AUDIT_OUTPUT', 'audit/generated')
     scoped_path=directory/'read-boundary-evidence.json'
@@ -100,12 +104,18 @@ def main():
             rows[-1]['individualInvestigationEvidence']=scoped_path.relative_to(ROOT).as_posix()
             rows[-1]['ownerDecisionRequired']=scoped_investigations[oid]['ownerDecisionRequired']
             rows[-1]['remaining']=scoped_investigations[oid]['concreteRemaining']
+        if oid=='generation.plan.create':
+            rows[-1]['currentIndividualInvestigation']=plan_investigation
+            rows[-1]['ownerDecisionRequired']=False
+            rows[-1]['remaining']=plan_investigation['remainingPredicatesAndErrorBindings']
         if oid.startswith(('generation.','runtime.')) and oid not in OPERATIONS:
             rows[-1]['previousIndividualInvestigation']={
                 'report':'audit/SSOT_CONTINUATION_897da64.md',
                 'notCurrentClosureEvidence':True,
                 'instruction':'Continue the per-operation analysis already recorded there; current authority excerpts above remain the source.'}
     result = {'sourceSha256': hashlib.sha256(raw).hexdigest(), 'baselineCommit': 'e025079',
+              'readinessGates':{DESIGN:{'status':'BLOCKED','reason':'Unresolved masks and unclosed semantic obligations; structural inventory does not grant readiness'},
+                               PRODUCTION:{'status':'NOT_EVALUATED','reason':'Implementation evidence is separate, not required to resolve design masks'}},
               'scope': __doc__, 'baselineOperations': len(wanted), 'currentSummary': matrix['summary'],
               'reviewedOperationBindings': len(OPERATIONS)+len(MCP_LIST_OPERATIONS),
               'unclassifiedOperations': len(wanted)-len(OPERATIONS)-len(MCP_LIST_OPERATIONS), 'operations': rows}

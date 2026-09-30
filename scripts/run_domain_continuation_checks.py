@@ -7,10 +7,11 @@ import subprocess
 import sys
 import time
 from ssot_sources import ROOT,SSOT,resource_index,resources
+from acceptance_gates import DESIGN,PRODUCTION
 
 def main():
     raw=SSOT.read_bytes();source=hashlib.sha256(raw).hexdigest()
-    out=ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/continuation-897da64/generation-domain');out.mkdir(parents=True,exist_ok=True)
+    out=ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/continuation-7006785/design');out.mkdir(parents=True,exist_ok=True)
     commands=[(['scripts/verify_generation_domain_payloads.py','--baseline'],1),
               (['scripts/verify_generation_domain_payloads.py'],0),
               (['scripts/close_generation_domain_payloads.py','--check'],0),
@@ -57,12 +58,29 @@ def main():
                   (['scripts/verify_generation_read_errors.py'],0)]+commands
         report['baselineCommit']='5d72ccd'
         report['baselineCounts'].update(unresolvedOperationReferences=242,operationsWithUnresolvedReferences=121,genericBoundaryDefinitions=1509)
+    if '--http-design' in sys.argv:
+        commands=[(['scripts/verify_acceptance_gates.py'],0),
+                  (['scripts/close_generation_document_events.py','--check'],0),
+                  (['scripts/verify_generation_document_events.py','--baseline'],1),
+                  (['scripts/verify_generation_document_events.py'],0),
+                  (['scripts/close_generation_http_contracts.py','--check'],0),
+                  (['scripts/verify_generation_http_contract.py','--baseline'],1),
+                  (['scripts/verify_generation_http_contract.py'],0),
+                  (['scripts/verify_generation_atomic_model.py'],0),
+                  (['scripts/verify_generation_read_design.py'],0),
+                  (['scripts/verify_plan_create_handoff.py'],0)]+commands
+        report['baselineCommit']='7006785'
+        report['baselineCounts'].update(unresolvedOperationReferences=242,operationsWithUnresolvedReferences=121,genericRoutes=505,genericBoundaryDefinitions=1509)
+    report['evidenceGate']=DESIGN
+    report['readinessGates']={DESIGN:{'status':'BLOCKED','reason':'Scoped test successes do not close the full required universe'},
+                             PRODUCTION:{'status':'NOT_EVALUATED','reason':'No implementation executed; not itself a design blocker'}}
     for args,expected in commands:
         print('RUN '+' '.join(args),flush=True);started=time.monotonic()
         script_hash=hashlib.sha256((ROOT/args[0]).read_bytes()).hexdigest()
         input_commit=('664d617' if args[0]=='scripts/verify_read_boundary_completion.py' else '897da64') if '--baseline' in args else None
         if args[0]=='scripts/verify_generation_event_boundaries.py' and '--baseline' in args:input_commit='2d2eea4'
         if args[0]=='scripts/verify_generation_read_errors.py' and '--baseline' in args:input_commit='5d72ccd'
+        if args[0] in ['scripts/verify_generation_document_events.py','scripts/verify_generation_http_contract.py'] and '--baseline' in args:input_commit='7006785'
         input_hash=(hashlib.sha256(subprocess.check_output(['git','show',input_commit+':00_SSOT/KajovoCMLNG_SSOT.md'],cwd=ROOT)).hexdigest()
                     if input_commit else source)
         result=subprocess.run([sys.executable,*args],cwd=ROOT,text=True,capture_output=True,encoding='utf8',errors='replace',
@@ -70,6 +88,7 @@ def main():
         report['commands'].append({'command':'python '+' '.join(args),'exitCode':result.returncode,'expectedExitCode':expected,
             'sourceSha256':input_hash,'currentPackageSha256':source,'inputCommit':input_commit,
             'scriptSha256':script_hash,
+            'evidenceGate':DESIGN,
             'seconds':round(time.monotonic()-started,3),'stdout':result.stdout,'stderr':result.stderr})
         (out/'commands.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf8',newline='\n')
         print('EXIT '+str(result.returncode),flush=True)

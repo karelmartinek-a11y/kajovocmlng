@@ -9,6 +9,7 @@ import subprocess
 from ssot_sources import ROOT,SSOT,resource_index,resources
 from close_mcp_list_operation_masks import OPERATIONS,PATH,NATIVE,ARTIFACT
 from investigate_missing_operation_masks import authority_sections
+from acceptance_gates import DESIGN,PRODUCTION
 
 
 def main():
@@ -39,21 +40,25 @@ def main():
             'operationRecordEvidence':{key:operations_by_id[row['operationId']][key] for key in
                 ['sideEffectClass','possibleEffectTrigger','outboxPurposes','auditEventTypes','authoritySourceRefs']},
             'request':{'source':f'contracts/payload-contracts.json#/records/{indices[rid]}/requestSchema',
-                'remaining':'Approval business fields are precise; query/transport review remains.' if approve else 'Path identifiers are precise; generic body/query remains without a proven no-input transport mapping.'},
+                'proven':'12.44.3 wire request: exact path, empty query, approval six-field body plus CAS; read body null; OWNER Bearer/session and conditional CSRF.',
+                'contract':'contracts/generation/http-design.schema.json#/transportBindings/'+rid,
+                'remaining':'Compose public admission with current coordinator/phase context.' if approve else None},
             'response':{'source':f'contracts/payload-contracts.json#/records/{indices[rid]}/responseSchema',
-                'remaining':'Public projection of atomic approval outcome is not established; StepOutput/ApprovedGenerationSpecification is not a receipt.' if approve else 'Native domain document and trusted persisted ID/digest now checked; real DB lookup, artifact hydration and full semantic validation remain.'},
+                'proven':'12.44.3 exact persisted approval receipt or native immutable document; success meta; explicit failure masks and HTTP status; no ACCEPTED-as-success.',
+                'remaining':'Complete phase/fence/checkpoint error dispatch and receipt-to-native-commit composition.' if approve else 'Compose transport response validator with consistent repository snapshot and native read predicate in the complete route gate.'},
             'event':{'source':f'contracts/payload-contracts.json#/records/{indices[rid]}/eventSchema',
                 'eventApplicability':row.get('eventApplicability'),
                 'effectiveSchema':row['eventSchema'],
                 'sourceSections':['12.21','12.44','26.15','49.5'] if approve else ['12.44','26.15','49.5'],
                 'proven':'OWNER 12.44.1: exact aggregate approval envelope and pointer/digest; no second lifecycle stream.' if approve else 'OWNER 12.44.1: request/response only; rejecting eventSchema; audit separate.',
                 'missingMeaning':None,
-                'remainingVerification':'Actual atomic DB/outbox and persisted snapshot provenance; approval->revision predicate covered separately.' if approve else 'Exact proposed/plan.created payloads and stream-to-read identity mappings remain unproven; request transport still open.',
+                'remainingVerification':'Integrate abstract atomic phase model with native committed event/receipt predicates.' if approve else 'Payloads and exact stream-to-read selectors now defined in document-events.schema.json and checked by native predicates; whole route coverage gate remains separate.',
                 'noSchemaSubstitution':'SseEnvelope.payload is JsonValue; referencing it alone would not close the domain mask.'}})
     handoffs=[{'producer':'Persisted immutable '+kind,'consumer':op+' response -> native '+definition+' validator',
                'sameMask':definition,'checks':'trusted job + persisted document ID + canonical content digest; failure/cancel/pending is not a document',
                'failureRecovery':'No downstream document on failure; a new confirmed read must match the trusted persisted snapshot.',
-               'remaining':'Actual repository transaction/provenance and full downstream semantic validation; no whole-route closure'}
+               'remaining':'Complete route-level composition/coverage; lack of deployed repository is not a design blocker',
+               'productionObligations':'Actual PostgreSQL consistent snapshot, immutable triggers/composite FK, exact lookup and deployed failure/retry integration'}
               for kind,op,definition in [('specification revision','generation.spec.revision.read','GenerationSpecification'),('plan','generation.plan.read','GenerationPlan')]]
     for op,(method,native,field) in OPERATIONS.items():
         handoffs.append({'producer':method+' server response','consumer':'list client -> immutable discovery snapshot admission',
@@ -66,6 +71,10 @@ def main():
     report={'sourceSha256':hashlib.sha256(raw).hexdigest(),'baselineCommit':'664d617',
         'resourceVersions':{p:rs[p]['sha256'] for p in [PATH,NATIVE,ARTIFACT,'contracts/payload-contracts.json','scripts/ssot/ssot_control.py']},
         'status':'BLOCKED','wholeRoutesClosed':[], 'operationRecordsAndPreviousSchemasUnchanged':True,
+        'readinessGates':{DESIGN:{'status':'BLOCKED','reason':'Remaining design composition/error-dispatch obligations are explicit per route; not missing live infrastructure'},
+                         PRODUCTION:{'status':'NOT_EVALUATED','reason':'No running application; real DB/queue/SSE/provider/UI and fault tests remain mandatory during implementation'}},
+        'historicalCorrection':{'report':'audit/SSOT_CONTINUATION_5d72ccd.md',
+            'meaning':'Its real DB/outbox/SSE integration work belongs to IMPLEMENTATION_PRODUCTION_ACCEPTANCE, not by itself to SSOT_CONTRACT_READY. Historical file/hash unchanged.'},
         'newOperationMasks':{k:new_defs[k] for k in sorted(added) if k!='mcp.native.2026-07-28'},
         'sourceExcerpts':excerpts,'generationRoutes':generation,'handoffs':handoffs,
         'nextIndividuallyInvestigated':[
@@ -75,7 +84,7 @@ def main():
             {'operationId':'mcp.resources.read','classification':'INVESTIGATION_OPEN','ownerDecisionRequired':False,
              'source':'10.7/10.11/10.14; native ReadResourceRequestParams/ReadResourceResultResponse/InputRequiredResult',
              'concreteRemaining':'Resolve URI/template to exact revision/MIME/output contract. Text/blob wire content alone is not proof of domain content compatibility; MRTR and cache exclusions must also be implemented.'}]}
-    out=ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/continuation-664d617/read-integration');out.mkdir(parents=True,exist_ok=True)
+    out=ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/continuation-7006785/design');out.mkdir(parents=True,exist_ok=True)
     (out/'read-boundary-evidence.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf8',newline='\n')
     print(json.dumps({'sourceSha256':report['sourceSha256'],'previousDefinitionsPreserved':len(old_defs),'addedOperationMasks':len(added)-1,'wholeRoutesClosed':0}));return 0
 

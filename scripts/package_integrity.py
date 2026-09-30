@@ -2,6 +2,7 @@
 import hashlib
 import json
 from pathlib import PurePosixPath
+from acceptance_gates import inventory_scope
 
 EXCLUDED={'.git','.cache','__pycache__','node_modules'}
 MANIFEST='PACKAGE_MANIFEST.json'
@@ -41,6 +42,7 @@ def generate(root,branch):
         'representationRule':'UTF-8 non-NUL text normalizes CRLF to LF; .png/.jpg/.zip and other binary bytes remain raw. Paths are root-relative POSIX.',
         'sourceBranch':branch,'canonicalSSOT':SSOT_PATH,'sourceDocumentSha256':digest(root/SSOT_PATH),
         'packageStatus':'BLOCKED','statusScope':'INVENTORY_ONLY_NO_SEMANTIC_OR_FREEZE_CERTIFICATION',
+        'readinessGates':inventory_scope(),
         'freezePerformed':False,'historicalAuditStatusUsed':False,'inventoryExclusions':sorted(EXCLUDED),
         'selfReferencePolicy':'Package inventory excludes the package and both hash manifests plus the post-hash receipt; both hash lists hash PACKAGE_MANIFEST and the same content set, never each other. Git binds their bytes. Historical receipt is not an input.',
         'selfExcludedPaths':sorted(SELF_EXCLUDED),
@@ -60,6 +62,7 @@ def verify(root,branch=None):
     except (OSError,ValueError) as e:return ['package manifest unreadable: '+str(e)]
     if manifest.get('format')!='KCML-PACKAGE-MANIFEST/2':return ['stale package format: regenerate current inventory']
     if manifest.get('representation')!=REPRESENTATION:problems.append('unknown byte representation')
+    if manifest.get('readinessGates')!=inventory_scope():problems.append('inventory must separate design and production gates')
     if manifest.get('inventoryExclusions')!=sorted(EXCLUDED):problems.append('inventory exclusion policy mismatch')
     if branch and manifest.get('sourceBranch')!=branch:problems.append('source branch mismatch')
     if manifest.get('sourceDocumentSha256')!=digest(root/SSOT_PATH):problems.append('SSOT source hash mismatch')

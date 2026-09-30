@@ -326,7 +326,11 @@ def build(text):
             candidates.append({'source':path,'recordsMentioningOperations':count,'origin':inv.origins[path],
                                'identifiersOutsideEffectiveUniverse':unknown,
                                'selectionRule':'Only explicit R16 promotion and closure finalOperationIds select effective operations; other occurrences are evidence, not implicit additions.'})
+    from acceptance_gates import inventory_scope
     return inv, {'format':'KCML-PHASE1-SCHEMA-MATRIX/1','summary':summary,'operations':rows,
+                 'readinessGates':inventory_scope(),
+                 'countSemantics':{'genericRoutes':'Structural records with at least one generic mask. A decline is not a count of semantically closed routes.',
+                                   'genericBoundaryDefinitions':'Unique addressed schema definitions classified structurally generic. Full route closure requires all applicable boundaries and process rules.'},
                  'routeNormalization':{'sourceOccurrences':len(inv.docs['contracts/execution/route-catalog.json']),
                     'explicitBindings':len(inv.docs['r8/registries/route-bindings.json']['records']),
                     'source':'r8/registries/route-bindings.json#/records',

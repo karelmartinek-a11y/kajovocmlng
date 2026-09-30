@@ -12,8 +12,9 @@ from pathlib import Path
 from jsonschema import Draft202012Validator,FormatChecker
 from referencing import Registry,Resource
 from ssot_sources import ROOT,SSOT,resources,resource_index
-from close_generation_event_boundaries import PATH,GEN,CONTROL,READS
+from close_generation_event_boundaries import PATH,GEN,CONTROL,READS,specialize
 from close_generation_domain_payloads import changed_payload
+from generation_http_contract import PATH as HTTP,specialize as specialize_http
 from phase1_schema_closure import route_event_applicability
 from verify_phase2_handoffs import witness
 
@@ -24,7 +25,9 @@ def main():
     old=resource_index(resources(old_raw.decode()))
     bundle=json.loads(rs[GEN]['raw']);rows={r['routeId']:r for r in json.loads(rs[PATH]['raw'])['records']}
     old_rows={r['routeId']:r for r in json.loads(old[PATH]['raw'])['records']}
-    expected_rows={r['routeId']:r for r in changed_payload(old)['records']}
+    expected=specialize(changed_payload(old),bundle)
+    if HTTP in rs:expected=specialize_http(expected,bundle)
+    expected_rows={r['routeId']:r for r in expected['records']}
     registry=Registry().with_resource(bundle['$id'],Resource.from_contents(bundle))
     validator=lambda s:Draft202012Validator(s,registry=registry,format_checker=FormatChecker())
     checks=[]
@@ -33,6 +36,7 @@ def main():
     for rid,row in rows.items():
         if rid in READS|{'route.0234'}:
             for role in ['requestSchema','responseSchema']:check(rid+'/'+role+'-explicit-domain-delta',row[role]==expected_rows[rid][role])
+            check(rid+'/exact-domain-event-http-composition',row==expected_rows[rid])
         else:check(rid+'/unchanged',row==old_rows[rid])
     uid='00000000-0000-4000-8000-000000000001';revision='00000000-0000-4000-8000-000000000002'
     digest='sha256:'+'a'*64

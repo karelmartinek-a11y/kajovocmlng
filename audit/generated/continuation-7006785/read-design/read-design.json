@@ -1,0 +1,609 @@
+{
+  "sourceSha256": "742681f74997529249644da148c870de9d531af91a995e34a17f285fcd8d42db",
+  "scriptSha256": "3da015bb1313e85aa490e274814972e2e7e59f27e1bc7dc6db3e4e8982ab5c98",
+  "resourceVersions": {
+    "contracts/generation/generation-contracts.schema.json": "d51aa2823977360e7c65acf958a63e712c31a9a42c2fefd53d5c3ea2ec65a235",
+    "contracts/payload-contracts.json": "697ffe00775c86730491c9bd28d0d0db707bfa48c1dfd5a2fb227925d5931661",
+    "contracts/generation/http-design.schema.json": "89e114f6a03ddbec1c9b55d56a6a213f659756068c4f4bbdfbcf61ce8e66bba4",
+    "scripts/ssot/ssot_control.py": "9930b3cf116a678861c26c80b82c5d14304cf6735437346d1a406014ca261f0d",
+    "contracts/generation/document-events.schema.json": "15eccaa2fe8a0a53a29e3d91a4cc639854b8d0b9d8267678f967b776d294b777"
+  },
+  "helperVersions": {
+    "generation_http_contract.py": "7b17480cb07ce15e324b17d5c033202d3ed1a74a34a5b4f10a1e11234d84ab75"
+  },
+  "authoritySections": {
+    "12.19": "d31dd2497a37cf207cf53b09d81e30f82c2da12b8e559668fbbeaece3afe6acc",
+    "12.23": "f7bf4d2c84e6c5ab8b4f8db946a1b89aeed2f195bacc0f2d989b744565d5c7df",
+    "12.44.1": "15500f769fd8580b33aa6f6e804067c5bcf5b565b05e28e9931cab656a67427f",
+    "12.44.2": "3b1a6f498b59321aa43e82d0e944c987061cf028b76c4d7581dffb051a2d7367",
+    "12.44.3": "2ab393139c70368c0450397248a74f9f9c1885d384ce0d1f36f27c7bdb64f490",
+    "26.1": "316a3e3e0b4a5d29d743c9f0a6f36a1f78e8fbcd14b55faaca90651f8426f147",
+    "51.2": "3100f0b8825197447ad31edd86ad063a9c518103708a30596dd173bdc42a10ea",
+    "51.10": "0b2946aa5130fb17b970f85aa80a501691bcffdb166ec255b5ad0096e5536217"
+  },
+  "scope": "DESIGN reference model for exact immutable generation reads, not DB execution.\n\nThe in-memory snapshot models CONSISTENT_READ. It does not implement PostgreSQL\nisolation, triggers, credentials, session reset, retention or audit persistence.\nHTTP masks remain the companion HTTP verifier's responsibility; these checks\ncompose its existing validators with repository and native event/read predicates.\n",
+  "evidenceClass": "DESIGN",
+  "evidenceKind": "DESIGN_MODEL",
+  "evidenceGate": "SSOT_CONTRACT_READY",
+  "gate": "SSOT_CONTRACT_READY",
+  "passed": true,
+  "checked": 138,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "route.0232/canonical/native-agreement",
+      "passed": true
+    },
+    {
+      "case": "route.0232/canonical/utf8-sorted-compact",
+      "passed": true
+    },
+    {
+      "case": "route.0232/canonical/key-order-independent",
+      "passed": true
+    },
+    {
+      "case": "route.0232/proposal/blocking-questions-allowed",
+      "passed": true
+    },
+    {
+      "case": "route.0232/event/exact-selector",
+      "passed": true
+    },
+    {
+      "case": "route.0232/composition/event-repository-http-native-read",
+      "passed": true
+    },
+    {
+      "case": "route.0232/snapshot/exact-document",
+      "passed": true
+    },
+    {
+      "case": "route.0232/snapshot/job-and-activation-metadata",
+      "passed": true
+    },
+    {
+      "case": "route.0232/read/no-business-writes-or-event",
+      "passed": true
+    },
+    {
+      "case": "route.0232/read/snapshot-not-mutated",
+      "passed": true
+    },
+    {
+      "case": "route.0232/immutable/UPDATE",
+      "passed": true
+    },
+    {
+      "case": "route.0232/immutable/DELETE",
+      "passed": true
+    },
+    {
+      "case": "route.0232/immutable/REPARENT",
+      "passed": true
+    },
+    {
+      "case": "route.0232/immutable/no-overwrite",
+      "passed": true
+    },
+    {
+      "case": "route.0232/immutable/wrong-parent",
+      "passed": true
+    },
+    {
+      "case": "route.0232/immutable/no-identity-reparent",
+      "passed": true
+    },
+    {
+      "case": "route.0232/immutable/forged-digest",
+      "passed": true
+    },
+    {
+      "case": "route.0232/immutable/unique-parent-digest",
+      "passed": true
+    },
+    {
+      "case": "route.0232/immutable/no-changed-content-overwrite",
+      "passed": true
+    },
+    {
+      "case": "route.0232/immutable/unique-parent-revision",
+      "passed": true
+    },
+    {
+      "case": "route.0232/immutable/rejections-preserve-state",
+      "passed": true
+    },
+    {
+      "case": "route.0232/snapshot/repeatable-across-writer",
+      "passed": true
+    },
+    {
+      "case": "route.0232/snapshot/new-row-not-visible",
+      "passed": true
+    },
+    {
+      "case": "route.0232/retry/original-document-not-current-pointer",
+      "passed": true
+    },
+    {
+      "case": "route.0232/retry/fresh-consistent-metadata",
+      "passed": true
+    },
+    {
+      "case": "route.0232/retry/composed-exact-selector",
+      "passed": true
+    },
+    {
+      "case": "route.0232/snapshot/reject-torn-stateVersion",
+      "passed": true
+    },
+    {
+      "case": "route.0232/snapshot/reject-torn-eventSequence",
+      "passed": true
+    },
+    {
+      "case": "route.0232/snapshot/reject-torn-activationEpoch",
+      "passed": true
+    },
+    {
+      "case": "route.0232/read/no-idempotency-replay",
+      "passed": true
+    },
+    {
+      "case": "route.0232/snapshot/new-row-visible-in-fresh-snapshot",
+      "passed": true
+    },
+    {
+      "case": "route.0232/retry/reject-latest-document-substitution",
+      "passed": true
+    },
+    {
+      "case": "route.0232/read/reject-foreign-parent-pointer",
+      "passed": true
+    },
+    {
+      "case": "route.0232/read/reject-wrong-canonical-pointer",
+      "passed": true
+    },
+    {
+      "case": "route.0232/read/document-digest-is-not-result-digest",
+      "passed": true
+    },
+    {
+      "case": "route.0232/lookup/missing-exact-404",
+      "passed": true
+    },
+    {
+      "case": "route.0232/lookup/wrong-parent-exact-404",
+      "passed": true
+    },
+    {
+      "case": "route.0232/lookup/no-latest-alias",
+      "passed": true
+    },
+    {
+      "case": "route.0232/lookup/no-omitted-id-fallback",
+      "passed": true
+    },
+    {
+      "case": "route.0232/lookup/no-extra-selector",
+      "passed": true
+    },
+    {
+      "case": "route.0232/corrupt/digest-no-document",
+      "passed": true
+    },
+    {
+      "case": "route.0232/corrupt/content-no-document",
+      "passed": true
+    },
+    {
+      "case": "route.0232/corrupt/parent-no-document",
+      "passed": true
+    },
+    {
+      "case": "route.0232/corrupt/identity-no-document",
+      "passed": true
+    },
+    {
+      "case": "route.0232/corrupt/noncanonical-no-document",
+      "passed": true
+    },
+    {
+      "case": "route.0232/corrupt/invalid-json-no-document",
+      "passed": true
+    },
+    {
+      "case": "route.0232/corrupt/invalid-native-schema-no-document",
+      "passed": true
+    },
+    {
+      "case": "route.0232/failure/API_READ_TIMEOUT",
+      "passed": true
+    },
+    {
+      "case": "route.0232/failure/read-only-context-API_READ_TIMEOUT",
+      "passed": true
+    },
+    {
+      "case": "route.0232/failure/cannot-claim-mutation-API_READ_TIMEOUT",
+      "passed": true
+    },
+    {
+      "case": "route.0232/failure/no-mutation-API_READ_TIMEOUT",
+      "passed": true
+    },
+    {
+      "case": "route.0232/recovery/API_READ_TIMEOUT-original-selector",
+      "passed": true
+    },
+    {
+      "case": "route.0232/failure/API_READ_CANCELLED",
+      "passed": true
+    },
+    {
+      "case": "route.0232/failure/read-only-context-API_READ_CANCELLED",
+      "passed": true
+    },
+    {
+      "case": "route.0232/failure/cannot-claim-mutation-API_READ_CANCELLED",
+      "passed": true
+    },
+    {
+      "case": "route.0232/failure/no-mutation-API_READ_CANCELLED",
+      "passed": true
+    },
+    {
+      "case": "route.0232/failure/API_STORAGE_ROLLBACK",
+      "passed": true
+    },
+    {
+      "case": "route.0232/failure/read-only-context-API_STORAGE_ROLLBACK",
+      "passed": true
+    },
+    {
+      "case": "route.0232/failure/cannot-claim-mutation-API_STORAGE_ROLLBACK",
+      "passed": true
+    },
+    {
+      "case": "route.0232/failure/no-mutation-API_STORAGE_ROLLBACK",
+      "passed": true
+    },
+    {
+      "case": "route.0232/recovery/API_STORAGE_ROLLBACK-original-selector",
+      "passed": true
+    },
+    {
+      "case": "route.0232/disconnect/refetch-original-selector",
+      "passed": true
+    },
+    {
+      "case": "route.0232/recovery/published-event-and-outbox-preserved",
+      "passed": true
+    },
+    {
+      "case": "route.0232/stream/read-meta-does-not-skip-event",
+      "passed": true
+    },
+    {
+      "case": "route.0232/stream/only-event-advances-cursor",
+      "passed": true
+    },
+    {
+      "case": "route.0232/stream/duplicate-not-reapplied",
+      "passed": true
+    },
+    {
+      "case": "route.0232/stream/gap-still-needs-replay",
+      "passed": true
+    },
+    {
+      "case": "route.0232/read/no-public-event-boundary",
+      "passed": true
+    },
+    {
+      "case": "route.0232/read/all-effects-unchanged",
+      "passed": true
+    },
+    {
+      "case": "route.0232/read/output-cannot-overwrite-repository",
+      "passed": true
+    },
+    {
+      "case": "route.0237/canonical/native-agreement",
+      "passed": true
+    },
+    {
+      "case": "route.0237/canonical/utf8-sorted-compact",
+      "passed": true
+    },
+    {
+      "case": "route.0237/canonical/key-order-independent",
+      "passed": true
+    },
+    {
+      "case": "route.0237/event/exact-selector",
+      "passed": true
+    },
+    {
+      "case": "route.0237/composition/event-repository-http-native-read",
+      "passed": true
+    },
+    {
+      "case": "route.0237/snapshot/exact-document",
+      "passed": true
+    },
+    {
+      "case": "route.0237/snapshot/job-and-activation-metadata",
+      "passed": true
+    },
+    {
+      "case": "route.0237/read/no-business-writes-or-event",
+      "passed": true
+    },
+    {
+      "case": "route.0237/read/snapshot-not-mutated",
+      "passed": true
+    },
+    {
+      "case": "route.0237/immutable/UPDATE",
+      "passed": true
+    },
+    {
+      "case": "route.0237/immutable/DELETE",
+      "passed": true
+    },
+    {
+      "case": "route.0237/immutable/REPARENT",
+      "passed": true
+    },
+    {
+      "case": "route.0237/immutable/no-overwrite",
+      "passed": true
+    },
+    {
+      "case": "route.0237/immutable/wrong-parent",
+      "passed": true
+    },
+    {
+      "case": "route.0237/immutable/no-identity-reparent",
+      "passed": true
+    },
+    {
+      "case": "route.0237/immutable/forged-digest",
+      "passed": true
+    },
+    {
+      "case": "route.0237/immutable/no-changed-content-overwrite",
+      "passed": true
+    },
+    {
+      "case": "route.0237/immutable/unique-parent-revision",
+      "passed": true
+    },
+    {
+      "case": "route.0237/immutable/rejections-preserve-state",
+      "passed": true
+    },
+    {
+      "case": "route.0237/snapshot/repeatable-across-writer",
+      "passed": true
+    },
+    {
+      "case": "route.0237/snapshot/new-row-not-visible",
+      "passed": true
+    },
+    {
+      "case": "route.0237/retry/original-document-not-current-pointer",
+      "passed": true
+    },
+    {
+      "case": "route.0237/retry/fresh-consistent-metadata",
+      "passed": true
+    },
+    {
+      "case": "route.0237/retry/composed-exact-selector",
+      "passed": true
+    },
+    {
+      "case": "route.0237/snapshot/reject-torn-stateVersion",
+      "passed": true
+    },
+    {
+      "case": "route.0237/snapshot/reject-torn-eventSequence",
+      "passed": true
+    },
+    {
+      "case": "route.0237/snapshot/reject-torn-activationEpoch",
+      "passed": true
+    },
+    {
+      "case": "route.0237/read/no-idempotency-replay",
+      "passed": true
+    },
+    {
+      "case": "route.0237/snapshot/new-row-visible-in-fresh-snapshot",
+      "passed": true
+    },
+    {
+      "case": "route.0237/retry/reject-latest-document-substitution",
+      "passed": true
+    },
+    {
+      "case": "route.0237/read/reject-foreign-parent-pointer",
+      "passed": true
+    },
+    {
+      "case": "route.0237/read/reject-wrong-canonical-pointer",
+      "passed": true
+    },
+    {
+      "case": "route.0237/read/document-digest-is-not-result-digest",
+      "passed": true
+    },
+    {
+      "case": "route.0237/lookup/missing-exact-404",
+      "passed": true
+    },
+    {
+      "case": "route.0237/lookup/wrong-parent-exact-404",
+      "passed": true
+    },
+    {
+      "case": "route.0237/lookup/no-latest-alias",
+      "passed": true
+    },
+    {
+      "case": "route.0237/lookup/no-omitted-id-fallback",
+      "passed": true
+    },
+    {
+      "case": "route.0237/lookup/no-extra-selector",
+      "passed": true
+    },
+    {
+      "case": "route.0237/corrupt/digest-no-document",
+      "passed": true
+    },
+    {
+      "case": "route.0237/corrupt/content-no-document",
+      "passed": true
+    },
+    {
+      "case": "route.0237/corrupt/parent-no-document",
+      "passed": true
+    },
+    {
+      "case": "route.0237/corrupt/identity-no-document",
+      "passed": true
+    },
+    {
+      "case": "route.0237/corrupt/noncanonical-no-document",
+      "passed": true
+    },
+    {
+      "case": "route.0237/corrupt/invalid-json-no-document",
+      "passed": true
+    },
+    {
+      "case": "route.0237/corrupt/invalid-native-schema-no-document",
+      "passed": true
+    },
+    {
+      "case": "route.0237/failure/API_READ_TIMEOUT",
+      "passed": true
+    },
+    {
+      "case": "route.0237/failure/read-only-context-API_READ_TIMEOUT",
+      "passed": true
+    },
+    {
+      "case": "route.0237/failure/cannot-claim-mutation-API_READ_TIMEOUT",
+      "passed": true
+    },
+    {
+      "case": "route.0237/failure/no-mutation-API_READ_TIMEOUT",
+      "passed": true
+    },
+    {
+      "case": "route.0237/recovery/API_READ_TIMEOUT-original-selector",
+      "passed": true
+    },
+    {
+      "case": "route.0237/failure/API_READ_CANCELLED",
+      "passed": true
+    },
+    {
+      "case": "route.0237/failure/read-only-context-API_READ_CANCELLED",
+      "passed": true
+    },
+    {
+      "case": "route.0237/failure/cannot-claim-mutation-API_READ_CANCELLED",
+      "passed": true
+    },
+    {
+      "case": "route.0237/failure/no-mutation-API_READ_CANCELLED",
+      "passed": true
+    },
+    {
+      "case": "route.0237/failure/API_STORAGE_ROLLBACK",
+      "passed": true
+    },
+    {
+      "case": "route.0237/failure/read-only-context-API_STORAGE_ROLLBACK",
+      "passed": true
+    },
+    {
+      "case": "route.0237/failure/cannot-claim-mutation-API_STORAGE_ROLLBACK",
+      "passed": true
+    },
+    {
+      "case": "route.0237/failure/no-mutation-API_STORAGE_ROLLBACK",
+      "passed": true
+    },
+    {
+      "case": "route.0237/recovery/API_STORAGE_ROLLBACK-original-selector",
+      "passed": true
+    },
+    {
+      "case": "route.0237/disconnect/refetch-original-selector",
+      "passed": true
+    },
+    {
+      "case": "route.0237/recovery/published-event-and-outbox-preserved",
+      "passed": true
+    },
+    {
+      "case": "route.0237/stream/read-meta-does-not-skip-event",
+      "passed": true
+    },
+    {
+      "case": "route.0237/stream/only-event-advances-cursor",
+      "passed": true
+    },
+    {
+      "case": "route.0237/stream/duplicate-not-reapplied",
+      "passed": true
+    },
+    {
+      "case": "route.0237/stream/gap-still-needs-replay",
+      "passed": true
+    },
+    {
+      "case": "route.0237/read/no-public-event-boundary",
+      "passed": true
+    },
+    {
+      "case": "route.0237/read/all-effects-unchanged",
+      "passed": true
+    },
+    {
+      "case": "route.0237/read/output-cannot-overwrite-repository",
+      "passed": true
+    }
+  ],
+  "routeDesignEvidence": {
+    "route.0232": {
+      "passed": true,
+      "scope": "Exact immutable repository lookup, snapshot, event/HTTP/native read composition and recovery"
+    },
+    "route.0237": {
+      "passed": true,
+      "scope": "Exact immutable repository lookup, snapshot, event/HTTP/native read composition and recovery"
+    }
+  },
+  "wholeRoutesClosed": [],
+  "remainingDesign": [
+    "Route gate must join same-source HTTP evidence for OWNER authentication, exact wire normalization and all applicable error/retry contexts",
+    "Route gate must join same-source document-event and stream boundary evidence with these repository/read checks, verifying exact route coverage and resource/helper hashes"
+  ],
+  "outOfScopeDesign": [
+    "Plan DAG conformance and IMPLEMENTING guards belong to the producer, not these read routes"
+  ],
+  "productionObligations": [
+    "Execute immutable constraints/triggers and parent foreign keys in PostgreSQL",
+    "Verify CONSISTENT_READ isolation, transaction limits/session reset, concurrent reads and writes",
+    "Verify authentication, separate read audit, repository corruption handling and actual SSE replay/outbox delivery"
+  ]
+}

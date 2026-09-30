@@ -28,7 +28,13 @@ def main():
         # against arbitrary current values. Other routes remain unchanged.
         from close_generation_domain_payloads import changed_payload
         from close_generation_event_boundaries import specialize,GEN
-        old_routes={r['routeId']:r for r in specialize(changed_payload(old),json.loads(old[GEN]['raw']))['records']}
+        from generation_http_contract import PATH as HTTP,specialize as specialize_http
+        bundle=json.loads(old[GEN]['raw'])
+        expected=specialize(changed_payload(old),bundle)
+        # Historical resources predate HTTP; compose its explicit delta only
+        # when checking the authored current HTTP contract.
+        if HTTP in rs:expected=specialize_http(expected,bundle)
+        old_routes={r['routeId']:r for r in expected['records']}
     checks=[]
     values=[('0',True),('9223372036854775807',True),('9223372036854775808',False),
             ('18446744073709551616',False),('01',False),('-1',False),('',False),
@@ -57,8 +63,8 @@ def main():
     report={'sourceSha256':hashlib.sha256(raw).hexdigest(),'baseline':args.baseline,'scope':__doc__,
             'routes':len(routes),'guardDefinitions':len(checks),'checks':checks,
             'checked':sum(len(c['cases']) for c in checks),'failed':failures,
-            'preserved':'Non-guard content and nullability match 997e835 plus explicit 12.21/12.19/12.23 domain derivation for routes 0234/0232/0237.'}
-    out=ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/continuation-997e835/guard-counters');out.mkdir(parents=True,exist_ok=True)
+            'preserved':'Non-guard content and nullability match 997e835 plus explicit domain, event and (when authored) HTTP specialization for routes 0234/0232/0237; unrelated routes are unchanged.'}
+    out=ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/continuation-7006785/design');out.mkdir(parents=True,exist_ok=True)
     (out/('baseline.json' if args.baseline else 'current.json')).write_text(json.dumps(report,indent=2)+'\n',encoding='utf8')
     print(json.dumps({k:report[k] for k in ('sourceSha256','baseline','routes','guardDefinitions','checked','failed')}))
     return int(bool(failures))
