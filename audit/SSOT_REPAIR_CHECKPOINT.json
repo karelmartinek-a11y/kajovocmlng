@@ -15,7 +15,12 @@
     "Domain registry unresolved SpecificationReadError",
     "Phase3 assumes properties on every event schema"
   ],
-  "repaired": [],
+  "repaired": [
+    "Package reports missing UI validationContract without KeyError and retains blockers",
+    "Domain validator uses full Inventory registry with conflict rejection; success fixtures have terminal=true and mandatory HTTP meta",
+    "Phase3 recognizes sequence/eventId/NOT_APPLICABLE envelopes and reports open lifecycle dictionaries as BLOCKED",
+    "CI uses pinned requirements-audit.txt on main and repair branch"
+  ],
   "remaining": [
     "Stabilize validators and inventory",
     "Explicit domain families and event applicability",
@@ -27,9 +32,25 @@
     "audit/generated/repair-2026-09-30/baseline"
   ],
   "semanticCoverage": "No complete normative semantic review claimed",
-  "nextBlock": "Repair missing UI diagnostics, reuse Inventory schema registry, distinguish event envelopes and NOT_APPLICABLE; align CI dependencies; run checks and refresh inventory",
+  "nextBlock": "Verify final domain witnesses, regenerate portable manifests/receipt and commit tool stabilization; then SQL parser/executable baseline and authoritative lifecycle excerpts.",
   "gates": {
     "SSOT_CONTRACT_READY": "BLOCKED",
     "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
-  }
+  },
+  "currentInventory": {
+    "operations": 619,
+    "routes": 542,
+    "unresolvedOperationReferences": 774,
+    "operationsWithUnresolvedReferences": 595,
+    "conflictingOperationReferences": 0,
+    "genericRoutes": 502,
+    "genericBoundaryDefinitions": 1506,
+    "nestedReferenceFailures": 39,
+    "unreviewedConcreteBoundaryDefinitions": 111,
+    "conflictingSchemaIdentities": 0,
+    "unspecifiedEventApplicability": 152,
+    "unparsedResources": 0
+  },
+  "commandsEvidence": "audit/generated/repair-2026-09-30/tools/commands.json",
+  "evidenceInvalidation": "SSOT unchanged; old tool/inventory reports are superseded by repair-2026-09-30 evidence. Historical evidence remains hash-scoped."
 }

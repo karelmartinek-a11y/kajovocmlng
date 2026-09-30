@@ -1,0 +1,29 @@
+WARNING: The directory '/home/agent/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: Pillow==12.3.0 in /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages (from -r requirements-audit.txt (line 1)) (12.3.0)
+Requirement already satisfied: jsonschema==4.26.0 in /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages (from -r requirements-audit.txt (line 2)) (4.26.0)
+Requirement already satisfied: referencing==0.37.0 in /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages (from -r requirements-audit.txt (line 3)) (0.37.0)
+Collecting playwright==1.63.0 (from -r requirements-audit.txt (line 4))
+  Downloading playwright-1.63.0-py3-none-manylinux1_x86_64.whl.metadata (3.3 kB)
+Collecting rfc3339-validator==0.1.4 (from -r requirements-audit.txt (line 5))
+  Downloading rfc3339_validator-0.1.4-py2.py3-none-any.whl.metadata (1.5 kB)
+Collecting rfc3986-validator==0.1.1 (from -r requirements-audit.txt (line 6))
+  Downloading rfc3986_validator-0.1.1-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting uri-template==1.3.0 (from -r requirements-audit.txt (line 7))
+  Downloading uri_template-1.3.0-py3-none-any.whl.metadata (8.8 kB)
+Requirement already satisfied: attrs>=22.2.0 in /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages (from jsonschema==4.26.0->-r requirements-audit.txt (line 2)) (26.1.0)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages (from jsonschema==4.26.0->-r requirements-audit.txt (line 2)) (2025.9.1)
+Requirement already satisfied: rpds-py>=0.25.0 in /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages (from jsonschema==4.26.0->-r requirements-audit.txt (line 2)) (2026.6.3)
+Requirement already satisfied: typing-extensions>=4.4.0 in /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages (from referencing==0.37.0->-r requirements-audit.txt (line 3)) (4.16.0)
+Requirement already satisfied: pyee<14,>=13 in /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages (from playwright==1.63.0->-r requirements-audit.txt (line 4)) (13.0.1)
+Requirement already satisfied: greenlet<4.0.0,>=3.1.1 in /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages (from playwright==1.63.0->-r requirements-audit.txt (line 4)) (3.5.5)
+Requirement already satisfied: six in /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages (from rfc3339-validator==0.1.4->-r requirements-audit.txt (line 5)) (1.17.0)
+Downloading playwright-1.63.0-py3-none-manylinux1_x86_64.whl (48.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.2/48.2 MB 18.0 MB/s  0:00:02
+Downloading rfc3339_validator-0.1.4-py2.py3-none-any.whl (3.5 kB)
+Downloading rfc3986_validator-0.1.1-py2.py3-none-any.whl (4.2 kB)
+Downloading uri_template-1.3.0-py3-none-any.whl (11 kB)
+Installing collected packages: uri-template, rfc3986-validator, rfc3339-validator, playwright
+ERROR: Could not install packages due to an OSError: [Errno 30] Read-only file system: '/home/agent/.local/lib'
+
+

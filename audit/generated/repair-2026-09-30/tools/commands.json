@@ -1,0 +1,37 @@
+[
+  {
+    "command": "python scripts/verify_generation_domain_payloads.py",
+    "exitCode": 1,
+    "evidence": "audit/generated/repair-2026-09-30/tools/verify_generation_domain_payloads.py.log"
+  },
+  {
+    "command": "python scripts/verify_phase3_semantics.py",
+    "exitCode": 1,
+    "evidence": "audit/generated/repair-2026-09-30/tools/verify_phase3_semantics.py.log"
+  },
+  {
+    "command": "python scripts/verify_package.py --skip-manifest",
+    "exitCode": 1,
+    "evidence": "audit/generated/repair-2026-09-30/tools/verify_package.py.log"
+  },
+  {
+    "command": "python scripts/verify_generation_event_boundaries.py",
+    "exitCode": 0,
+    "evidence": "audit/generated/repair-2026-09-30/tools/verify_generation_event_boundaries.py.log"
+  },
+  {
+    "command": "python scripts/verify_generation_read_errors.py",
+    "exitCode": 0,
+    "evidence": "audit/generated/repair-2026-09-30/tools/verify_generation_read_errors.py.log"
+  },
+  {
+    "command": "python scripts/verify_schema_references.py",
+    "exitCode": 1,
+    "evidence": "audit/generated/repair-2026-09-30/tools/verify_schema_references.py.log"
+  },
+  {
+    "command": "python scripts/verify_acceptance_gates.py",
+    "exitCode": 0,
+    "evidence": "audit/generated/repair-2026-09-30/tools/verify_acceptance_gates.py.log"
+  }
+]

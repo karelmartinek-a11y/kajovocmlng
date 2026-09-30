@@ -91,9 +91,13 @@ def audit():
   v=json.loads(visual_path.read_text());check(v['status']=='PASS' and v['views']==48,'visual validation failed')
   for file,digest in v.get('sourceHashes',{}).items():check((ROOT/file).exists() and sha(ROOT/file)==digest,'render source drift '+file)
 
- return {'format':'KCML-FINAL-AUDIT/1','scope':'whole repository structure plus explicit semantic detectors; not a claim of manual line-by-line semantic certification','sourceBranch':'main','freezePerformed':False,'status':'BLOCKED' if structural or findings else 'READY_FOR_INDEPENDENT_AUDIT','structuralStatus':'FAIL' if structural else 'PASS','stats':stats,'legacyValidators':results,'structuralFailures':structural,'archivalSyntaxFindings':archival,'blockers':findings,'claims':{'FORENSICALLY_COMPLETE':not(structural or findings),'IMPLEMENTATION_READY':not(structural or findings),'VISUALLY_CLOSED':not(structural or findings),'CONTRACT_CLOSED':not(structural or findings),'FREEZE_READY':not(structural or findings)},'sourceDocumentSha256':sha(SSOT)}
+ return {'format':'KCML-FINAL-AUDIT/1','scope':'whole repository structure plus explicit semantic detectors; not a claim of manual line-by-line semantic certification','sourceBranch':subprocess.check_output(['git','branch','--show-current'],cwd=ROOT).decode().strip(),'freezePerformed':False,'status':'BLOCKED' if structural or findings else 'READY_FOR_INDEPENDENT_AUDIT','structuralStatus':'FAIL' if structural else 'PASS','stats':stats,'legacyValidators':results,'structuralFailures':structural,'archivalSyntaxFindings':archival,'blockers':findings,'claims':{'FORENSICALLY_COMPLETE':not(structural or findings),'IMPLEMENTATION_READY':not(structural or findings),'VISUALLY_CLOSED':not(structural or findings),'CONTRACT_CLOSED':not(structural or findings),'FREEZE_READY':not(structural or findings)},'sourceDocumentSha256':sha(SSOT)}
 if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('--write-audit',action='store_true');p.add_argument('--freeze',action='store_true');p.add_argument('--skip-manifest',action='store_true');a=p.parse_args();r=audit()
+ p=argparse.ArgumentParser();p.add_argument('--write-audit',action='store_true');p.add_argument('--freeze',action='store_true');p.add_argument('--skip-manifest',action='store_true');a=p.parse_args()
+ try:r=audit()
+ except Exception as exc:
+  print(json.dumps({'status':'BLOCKED','structuralStatus':'FAIL','diagnostics':[{'code':type(exc).__name__,'reason':str(exc)}]}))
+  sys.exit(1)
  if a.write_audit:
   (ROOT/'audit/final-audit.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')
   lines=['# Závěrečný audit SSOT','',f"Stav: **{r['status']}**. Strukturální kontroly: **{r['structuralStatus']}**. Freeze neproveden.",'','Rozsah: celý strom, vložené resources a kapsle, projekce UI, JSON/CSV, schémata, integrita a šest dílčích autoritativních validátorů. Automatické kontroly nejsou důkazem úplné ruční sémantické revize.','', '## Ověřené počty','']+[f'- {k}: {v}' for k,v in r['stats'].items()]+['','## Skutečné blockery','']

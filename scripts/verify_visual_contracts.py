@@ -12,8 +12,13 @@ def verify():
  check(len(actions)==sum(len(p['actions']) for p in reg['pages']),'duplicate action ID');check(set(actions)==set(bind),'action binding coverage')
  for aid,a in actions.items():
   check(all(k in a for k in ['dashboard','chat','permission','validationContract','auditContract','help_cs','help_en']),aid+' parity/help incomplete')
-  check(set(a['validationContract']['canonicalOperationIds'])<=ops,aid+' unknown operation')
-  if a['dashboard']['availability']=='AVAILABLE':check(a['chat']['availability'] in ['CANONICAL_DISPATCH','CLIENT_ACTION_CARD'],aid+' no chat path')
+  contract=a.get('validationContract')
+  if not isinstance(contract,dict) or not isinstance(contract.get('canonicalOperationIds'),list):
+   check(False,aid+' missing/unverified validationContract.canonicalOperationIds')
+  else:check(set(contract['canonicalOperationIds'])<=ops,aid+' unknown operation')
+  dashboard=a.get('dashboard');chat=a.get('chat')
+  if isinstance(dashboard,dict) and dashboard.get('availability')=='AVAILABLE':
+   check(isinstance(chat,dict) and chat.get('availability') in ['CANONICAL_DISPATCH','CLIENT_ACTION_CARD'],aid+' no chat path')
  rows=list(csv.DictReader((ROOT/'01_UI_CONTRACT/UI_FUNCTION_PARITY.csv').open()));check({r['ui_function'] for r in rows}==set(actions),'CSV parity drift')
  controls=list(csv.DictReader((ROOT/'01_UI_CONTRACT/UI_CONTROLS.csv').open(encoding='utf-8-sig')));check(len(controls)==sum(len(p['actions'])+len(p['fields']) for p in reg['pages']),'control inventory drift')
  visual=read('process-visual-registry.json');states={x['state_id'] for x in visual['steps']};statuses={x['state_id'] for x in visual['statuses']};check(set(visual['statusTransitions'])==statuses,'status transition universe')
@@ -30,6 +35,6 @@ def verify():
   check((ROOT/a['source'].split('?')[0]).is_file(),'missing view '+a['id']);check(a['backendOperation'] in ops,'unknown view operation '+a['id'])
   for p in a['screenshots']:check((ROOT/p).is_file(),'missing screenshot '+p)
  for op in read('observability-query-contract.json')['canonicalOperations']:check(op in ops,'unknown history operation '+op)
- return {'status':'FAIL' if problems else 'PASS','actions':len(actions),'controls':len(controls),'processFamilies':len(visual['plans']),'steps':len(states),'statuses':len(statuses),'errors':len(errors['records']),'failures':problems}
+ return {'status':'BLOCKED' if problems else 'PASS','actions':len(actions),'controls':len(controls),'processFamilies':len(visual['plans']),'steps':len(states),'statuses':len(statuses),'errors':len(errors['records']),'failures':problems}
 if __name__=='__main__':
  r=verify();print(json.dumps(r,ensure_ascii=False));sys.exit(bool(r['failures']))

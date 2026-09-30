@@ -16,13 +16,18 @@ from referencing import Registry, Resource
 from close_generation_domain_payloads import APPROVAL_FIELDS, GEN, PATH, READS
 from ssot_sources import ROOT, SSOT, resource_index, resources
 from verify_phase2_handoffs import witness
+from phase1_schema_closure import Inventory
 
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--baseline',action='store_true');args=parser.parse_args()
     raw=subprocess.check_output(['git','show','897da64:00_SSOT/KajovoCMLNG_SSOT.md']) if args.baseline else SSOT.read_bytes()
     rs=resource_index(resources(raw.decode()));bundle=json.loads(rs[GEN]['raw'])
-    registry=Registry().with_resource(bundle['$id'],Resource.from_contents(bundle))
+    inventory=Inventory(raw.decode())
+    if inventory.conflicts:
+        print(json.dumps({'status':'BLOCKED','diagnostic':'SCHEMA_ID_CONFLICT','identities':sorted(inventory.conflicts)}))
+        return 1
+    registry=inventory.registry
     validator=lambda s:Draft202012Validator(s,registry=registry,format_checker=FormatChecker())
     rows={r['routeId']:r for r in json.loads(rs[PATH]['raw'])['records']}
     module=types.ModuleType('domain_handoff_test');sys.modules[module.__name__]=module
@@ -102,10 +107,16 @@ def main():
         wrapper_schema=copy.deepcopy(rows[rid]['responseSchema']);wrapper_schema.pop('allOf',None)
         wrapper_schema['properties']['output']={'const':None}
         wrapper=witness(wrapper_schema,defs)
-        wrapper.update(output=sample,status='SUCCEEDED',error=None,
+        wrapper.update(output=sample,status='SUCCEEDED',terminal=True,error=None,
                        logicalOperationId=uid,correlationId=uid,resultDigest=digest)
+        if 'meta' in rows[rid]['responseSchema']['properties']:
+            wrapper['meta']=witness(defs['ApiConcurrencyEnvelope'],defs)
+            wrapper['meta'].update(logicalOperationId=uid,correlationId=uid,resultDigest=wrapper['resultDigest'])
         full=validator(rows[rid]['responseSchema'])
-        check(rid+'/success-wrapper',full.is_valid(wrapper),True)
+        positive_errors=list(full.iter_errors(wrapper))
+        check(rid+'/success-wrapper',not positive_errors,True)
+        if positive_errors:
+            raise ValueError('INVALID_POSITIVE_WITNESS '+rid+': '+ '; '.join(e.json_path+': '+e.message for e in positive_errors))
         bad=copy.deepcopy(wrapper);bad['status']='FAILED'
         check(rid+'/failure-cannot-smuggle-document',full.is_valid(bad),False)
         bad=copy.deepcopy(wrapper);bad['output']=None
@@ -138,7 +149,7 @@ def main():
             except module.ContractFailure:accepted=False
             check(rid+'/failure-document-injection',accepted,False)
     report={'sourceSha256':hashlib.sha256(raw).hexdigest(),'baselineCommit':'897da64' if args.baseline else None,
-            'scope':__doc__,'resourceVersions':{p:rs[p]['sha256'] for p in [GEN,PATH]},
+            'scope':__doc__,'status':'BLOCKED' if any(not c['passed'] for c in checks) else 'PASS','resourceVersions':{p:rs[p]['sha256'] for p in [GEN,PATH]},
             'checked':len(checks),'failed':sum(not c['passed'] for c in checks),'checks':checks,
             'remaining':'Events, trusted revision snapshot provenance/current DB guards and full recovery remain unclosed.'}
     out=ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/continuation-897da64/generation-domain')
@@ -150,4 +161,8 @@ def main():
     return int(bool(report['failed']))
 
 
-if __name__=='__main__':raise SystemExit(main())
+if __name__=='__main__':
+    try:raise SystemExit(main())
+    except Exception as exc:
+        print(json.dumps({'status':'BLOCKED','diagnostic':type(exc).__name__,'reason':str(exc)}))
+        raise SystemExit(1)

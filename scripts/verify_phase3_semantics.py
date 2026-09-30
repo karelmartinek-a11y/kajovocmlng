@@ -7,7 +7,7 @@ import sys
 from jsonschema import Draft202012Validator
 from ssot_sources import ROOT, resource_index
 from project_experience import project
-from phase1_schema_closure import Inventory
+from phase1_schema_closure import Inventory, route_event_applicability
 from ssot_sources import SSOT, resources
 
 
@@ -71,16 +71,27 @@ def run():
     experience_sequence = Draft202012Validator(experience_event['properties']['sequence'])
     experience_version = Draft202012Validator(experience_event['properties']['stateVersion'])
     payload_contracts = json.loads(rs['contracts/payload-contracts.json']['raw'])
-    route_event_schemas = [r['eventSchema'] for r in payload_contracts['records'] if r.get('eventSchema')]
+    inventory = Inventory(SSOT.read_text(encoding='utf-8'))
+    event_inventory = []
     browser_contract = json.loads(rs['r14/contracts/browser-interaction.schema.json']['raw'])
 
     def counter_cases():
-        require(len(route_event_schemas) == len(payload_contracts['records']) == 509,
-                'R9 operation event inventory differs from 509 records')
-        for event_schema in route_event_schemas:
-            definition = event_schema['properties']['sequence']
-            require(definition == physical_event['properties']['sequence'],
-                    'R9 event sequence is not the exact positive Counter mask')
+        for row in payload_contracts['records']:
+            applicability = route_event_applicability(row)
+            event_schema = row.get('eventSchema')
+            require(isinstance(event_schema, dict), row['routeId']+' missing event contract')
+            if applicability == 'NOT_APPLICABLE':
+                require(event_schema.get('not') == {}, row['routeId']+' prohibition is not reject-all')
+                event_inventory.append({'routeId':row['routeId'], 'envelope':'NOT_APPLICABLE'})
+                continue
+            props = event_schema.get('properties', {})
+            field = 'sequence' if 'sequence' in props else 'eventId' if 'eventId' in props else None
+            require(field is not None, row['routeId']+' unverified event envelope')
+            counter = Draft202012Validator(props[field], registry=inventory.registry)
+            require(counter.is_valid('1') and counter.is_valid(maximum), row['routeId']+' valid counter rejected')
+            for bad in (over, '-1', '+1', ' 1', '01', '1.0', '1e3', 1, None):
+                require(not counter.is_valid(bad), row['routeId']+' invalid '+field+' accepted: '+repr(bad))
+            event_inventory.append({'routeId':row['routeId'], 'envelope':field, 'applicability':applicability})
         require(browser_contract['$defs']['BrowserAllocationSnapshot']['properties']['stateVersion'] == {'$ref':'#/$defs/Counter'} and
                 browser_contract['$defs']['BrowserHostSlot']['properties']['stateVersion'] == {'$ref':'#/$defs/Counter'},
                 'R14 platform stateVersion not bound to exact Counter')
@@ -139,16 +150,18 @@ def run():
             for field in fields:
                 schema = row['responseSchema']['properties'][field]
                 validator = Draft202012Validator(schema)
-                require(not list(validator.iter_errors('NOT_A_VALID_STATE')),
-                        f'{operation}.{field}: behavior changed; check whether authoritative state enum was found')
-    check('state-fields-confirmed-open-unbounded-identifiers', state_probes)
+                require(bool(list(validator.iter_errors('NOT_A_VALID_STATE'))),
+                        f'{operation}.{field}: required lifecycle dictionary remains open; authoritative enum review required')
+    check('state-fields-required-lifecycle-dictionaries', state_probes)
 
     result = {'scope': 'Schema identity, counter and named status/outcome probes; state dictionaries and hydration remain open.',
-              'checks': checks}
+              'status':'BLOCKED' if any(c['status']=='FAIL' for c in checks) else 'PASS',
+              'sourceDocumentSha256':hashlib.sha256(SSOT.read_bytes()).hexdigest(),
+              'eventInventory':event_inventory, 'checks': checks}
     output = ROOT/'audit/generated/phase3-semantic-checks.json'
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
-    print(json.dumps(result, ensure_ascii=False))
+    print(json.dumps({k:v for k,v in result.items() if k!='eventInventory'}, ensure_ascii=False))
     return int(any(c['status'] == 'FAIL' for c in checks))
 
 
