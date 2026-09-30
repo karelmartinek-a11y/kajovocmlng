@@ -1,0 +1,145 @@
+{
+  "sourceDocumentSha256": "2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854",
+  "canonicalSqlSha256": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+  "status": "PASS",
+  "postgresqlVersion": "PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+  "reason": null,
+  "checked": 21,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "generation-full-positive-with-scoped-binding",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": ""
+    },
+    {
+      "case": "generation-missing-typed-binding",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_COMMAND_TYPED_BINDING_REQUIRED",
+      "actualDiagnostic": "ERROR:  23514: GENERATION_COMMAND_TYPED_BINDING_REQUIRED\nCONTEXT:  PL/pgSQL function kcml_generation_command_context_consistency_v1() line 14 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "case": "other-operation-has-no-generation-only-FK",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": ""
+    },
+    {
+      "case": "other-operation-cannot-acquire-generation-binding",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_BINDING_OPERATION_KIND_INVALID",
+      "actualDiagnostic": "ERROR:  23514: GENERATION_BINDING_OPERATION_KIND_INVALID\nCONTEXT:  PL/pgSQL function kcml_generation_command_context_consistency_v1() line 9 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "case": "generation-context-binds-command-selector",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_COMMAND_TRUSTED_LINKAGE_INVALID",
+      "actualDiagnostic": "ERROR:  23514: GENERATION_COMMAND_TRUSTED_LINKAGE_INVALID\nCONTEXT:  PL/pgSQL function kcml_generation_command_context_consistency_v1() line 34 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "case": "typed-binding-retained-immutable",
+      "passed": true,
+      "expectedDiagnostic": "CREATE_IMMUTABLE_RECORD",
+      "actualDiagnostic": "ERROR:  55000: CREATE_IMMUTABLE_RECORD\nCONTEXT:  PL/pgSQL function public.kcml_create_record_immutable_v1() line 3 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "case": "command-revision-must-match-server-pin",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_COMMAND_TRUSTED_LINKAGE_INVALID",
+      "actualDiagnostic": "ERROR:  23514: GENERATION_COMMAND_TRUSTED_LINKAGE_INVALID\nCONTEXT:  PL/pgSQL function kcml_generation_command_context_consistency_v1() line 34 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "case": "command-scope-must-match-frozen-descriptor",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_COMMAND_TRUSTED_LINKAGE_INVALID",
+      "actualDiagnostic": "ERROR:  23514: GENERATION_COMMAND_TRUSTED_LINKAGE_INVALID\nCONTEXT:  PL/pgSQL function kcml_generation_command_context_consistency_v1() line 34 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "case": "command-key-must-match-frozen-descriptor",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_COMMAND_TRUSTED_LINKAGE_INVALID",
+      "actualDiagnostic": "ERROR:  23514: GENERATION_COMMAND_TRUSTED_LINKAGE_INVALID\nCONTEXT:  PL/pgSQL function kcml_generation_command_context_consistency_v1() line 34 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "case": "locator-foreign-caller",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE",
+      "actualDiagnostic": "ERROR:  23514: GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE\nCONTEXT:  PL/pgSQL function kcml_generation_create_atomic_closure_v1() line 49 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "case": "locator-wrong-family",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE",
+      "actualDiagnostic": "ERROR:  23514: GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE\nCONTEXT:  PL/pgSQL function kcml_generation_create_atomic_closure_v1() line 49 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "case": "locator-wrong-authority",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE",
+      "actualDiagnostic": "ERROR:  23514: GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE\nCONTEXT:  PL/pgSQL function kcml_generation_create_atomic_closure_v1() line 49 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "case": "locator-wrong-business-target",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE",
+      "actualDiagnostic": "ERROR:  23514: GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE\nCONTEXT:  PL/pgSQL function kcml_generation_create_atomic_closure_v1() line 49 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "case": "locator-wrong-frozen-revision",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE",
+      "actualDiagnostic": "ERROR:  23514: GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE\nCONTEXT:  PL/pgSQL function kcml_generation_create_atomic_closure_v1() line 49 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "case": "actual-canonical-commit",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "case": "locator-scope-retained",
+      "passed": true,
+      "expectedDiagnostic": "CREATE_LOCATOR_FROZEN_SCOPE",
+      "actualDiagnostic": "ERROR:  55000: CREATE_LOCATOR_FROZEN_SCOPE\nCONTEXT:  PL/pgSQL function public.kcml_create_locator_frozen_v1() line 6 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909\n"
+    },
+    {
+      "case": "outbox-retarget",
+      "passed": true,
+      "expectedDiagnostic": "CREATE_OUTBOX_FROZEN_DELIVERY",
+      "actualDiagnostic": "ERROR:  55000: CREATE_OUTBOX_FROZEN_DELIVERY\nCONTEXT:  PL/pgSQL function public.kcml_create_outbox_frozen_v1() line 9 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909\n"
+    },
+    {
+      "case": "outbox-delete",
+      "passed": true,
+      "expectedDiagnostic": "CREATE_OUTBOX_RETENTION_AUTHORITY_REQUIRED",
+      "actualDiagnostic": "ERROR:  55000: CREATE_OUTBOX_RETENTION_AUTHORITY_REQUIRED\nCONTEXT:  PL/pgSQL function public.kcml_create_outbox_frozen_v1() line 4 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909\n"
+    },
+    {
+      "case": "terminal-outcome-rewrite",
+      "passed": true,
+      "expectedDiagnostic": "CREATE_IDEMPOTENCY_FROZEN_SCOPE",
+      "actualDiagnostic": "ERROR:  55000: CREATE_IDEMPOTENCY_FROZEN_SCOPE\nCONTEXT:  PL/pgSQL function public.kcml_create_idempotency_frozen_v1() line 6 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909\n"
+    },
+    {
+      "case": "audit-byte-change",
+      "passed": true,
+      "expectedDiagnostic": "CREATE_IMMUTABLE_RECORD",
+      "actualDiagnostic": "ERROR:  55000: CREATE_IMMUTABLE_RECORD\nCONTEXT:  PL/pgSQL function public.kcml_create_record_immutable_v1() line 3 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909\n"
+    },
+    {
+      "case": "generation_job/physical-column-count",
+      "passed": true
+    }
+  ],
+  "scope": "Actual isolated PG18 fixture using current embedded canonical foundation bytes.",
+  "wholeOperationClosed": false,
+  "requiredRemaining": "Actual token verifier/crypto/complete locked RETRY scan/full consumers/failure-before-root remain mandatory before generation",
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED",
+  "supportSha256": {
+    "scripts/verify_generation_physical_handoff.py": "ae32a32ee6ba7df51450af97e9de077561e7fd55a3d20372c161692b99cdfc93",
+    "audit/generated/resume-d362/review/verify_scoped_generation_links.py": "37da9f21cc2f5ce00476df4ecb2b3433d92f73d239834a63046d97501327f18d",
+    "audit/generated/resume-d362/events/verify_combined_generation.py": "a38bc59879e56c02b361afe22a791af1477b57308f22f3a7483e10fd950f58dd",
+    "audit/generated/resume-d362/persistence/generation_descriptor_registry.py": "9cb7f68a4f1e5d890ce074fbcd277498412c51b90a9068d98d02940d7fadf78a",
+    "audit/generated/resume-d362/persistence/context_fixture_exports.py": "ae90984993a96c5abca746cad6d618cade6fc3d322fbd99ec16373952fa27888"
+  }
+}

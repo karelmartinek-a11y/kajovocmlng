@@ -316,3 +316,5 @@ Exit criteria:
 R17 / 73.2–73.7: P00 musí doložit exact native/PGDG package versions a integrity; P02 skutečný PostgreSQL 18.6 a extension smoke; P07 browser launch a pinned runtime tuple. Syntetické testy nenahrazují tyto runtime důkazy.
 
 R16 orchestration and R17 native toolchain/PGDG/browser requirements must be incorporated in implementation evidence; this projection does not certify their semantic closure.
+
+Aktuální pokračování přidává canonical §12.51 native basis a §12.52 physical roots/atomic create handoff. P00 exit není počet zelených skriptů: explicitní dostupná sada má46kontrol a přetrvávající blokace. P02 má nyní skutečný boundedSQL fixture z embedded `database/generation-create-foundations.sql` naPostgreSQL18.6; source-built fixture nedokládá všechny native/PGDG package/R17 podmínky. Constant-time OWNER API verifier, canonical systemd/master-key/crypto, úplný locked RETRYscan, failure-before-root outcomes a native graph/read/UI/Secret consumers zůstávají předgeneračními exit criteria příslušných etap. Aktuální přesné výsledky a závislosti jsou v checkpointu a registru; žádná aplikace nevznikla.

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kcml:generation-create-frozen-descriptor:1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "callerAuthorityKind": {
+      "const": "OWNER_FULL"
+    },
+    "clientKeyDigest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+    },
+    "operationContractId": {
+      "const": "generation.job.create"
+    },
+    "operationContractRevision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stableBusinessTargetKey": {
+      "const": "CREATE_ROOT:generation_job"
+    },
+    "stableCallerObjectId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "stableCallerRevisionId": {
+      "type": "null"
+    }
+  },
+  "required": [
+    "callerAuthorityKind",
+    "clientKeyDigest",
+    "operationContractId",
+    "operationContractRevision",
+    "stableBusinessTargetKey",
+    "stableCallerObjectId",
+    "stableCallerRevisionId"
+  ]
+}

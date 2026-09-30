@@ -1,0 +1,68 @@
+{
+  "version": "GENERATION_CREATE_PHYSICAL_HANDOFF_V1",
+  "operationId": "generation.job.create",
+  "authority": [
+    "SSOT25.3",
+    "SSOT25.11",
+    "SSOT49.4",
+    "SSOT49.8",
+    "SSOT49.15",
+    "SSOT51.11",
+    "SSOT51.12",
+    "SSOT12.52"
+  ],
+  "sqlResource": "database/generation-create-foundations.sql",
+  "schemaInstallation": "Fresh PUBLIC schema in an isolated pre-generation PostgreSQL18 fixture; canonical locator definition is included once, never duplicate-install with explicit-entities.sql",
+  "root": "generation_job",
+  "rootColumns": 39,
+  "authenticationRequiredColumns": 56,
+  "initialState": "DISCUSSING",
+  "generationCommandBinding": {
+    "table": "generation_create_command_binding",
+    "columns": [
+      "logical_operation_id",
+      "trusted_context_id",
+      "argument_snapshot_id"
+    ],
+    "appliesOnlyTo": "generation.job.create",
+    "unrelatedOperations": "No foreign key to generation-only context or snapshot"
+  },
+  "atomicCommit": [
+    "protected immutable initial snapshot",
+    "generation_job",
+    "exact pinned trusted generation context",
+    "scoped domain_command binding",
+    "immutable creation completion",
+    "generation.job.created domain_event",
+    "transactional_outbox",
+    "audit_event and audit_head",
+    "domain_idempotency_record",
+    "exact stable idempotency_locator"
+  ],
+  "lookupScope": {
+    "operationFamily": "GENERATION",
+    "callerAuthority": "OWNER_FULL",
+    "callerIdSource": "validated frozen execution descriptor stableCallerObjectId",
+    "businessTargetKind": "CREATE_ROOT",
+    "businessTargetId": "generation_job",
+    "frozenRevisionDigest": "domain_command.scope_digest = SHA256 exact canonical frozen descriptor bytes"
+  },
+  "replay": "Resolve stable locator under lock; retain original descriptor/output/event; never allocate another root or reinterpret current revision",
+  "locking": [
+    "owner/session/API/incarnation/deployment acceptance source locks",
+    "locator/advisory scope serialization",
+    "deferred root/context/snapshot/command/receipt identity joins",
+    "outbox lease/fence separate from immutable event delivery scope"
+  ],
+  "fixtureScope": "Named actual PostgreSQL roots/scoped joins/locator/retention. Structural SQL evidence does not establish token verification or opaque ciphertext authentication.",
+  "requiredRemainingBeforeGeneration": [
+    "constant-time actual API credential verifier in acceptance transaction",
+    "canonical systemd/master-key/R17 crypto fixture and protected plaintext opening",
+    "complete locked RETRY phase membership and real classifier registry",
+    "failure/pending/unknown before successful root creation persistence",
+    "full native graph/consumer/repair/read/UI producer joins",
+    "whole generic SQL helper policies"
+  ],
+  "implementationProductionAcceptance": "NOT_EVALUATED",
+  "wholeOperationClosure": "OPEN"
+}
