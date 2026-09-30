@@ -1,0 +1,144 @@
+{
+  "sourceDocumentSha256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
+  "status": "PARTIAL",
+  "reviewedFields": 7,
+  "closedField": "backup.restore.state",
+  "closedAuthority": "25.14 deployment_run state explicitly per49.24; backup.restore aggregate DEPLOYMENT_RUN; model.application-deployment /states",
+  "remainingFields": [
+    {
+      "operationId": "owner.mfa.reset",
+      "field": "enrollmentState",
+      "pointer": "closure/contracts/operation-payloads.json#/records/0/responseSchema/properties/enrollmentState",
+      "aggregateRoot": "OWNER_IDENTITY",
+      "operationAuthority": {
+        "purpose": "Reset existing OWNER MFA only after current-session reauthentication, invalidate prior MFA/recovery material and enter bounded enrollment state.",
+        "linearizationPoint": "MFA reset epoch increment + prior factor invalidation + enrollment challenge creation in one DB transaction",
+        "cancellation": "Before commit: no change. After commit: reset outcome is canonical and cannot be cancelled; enrollment may be abandoned/renewed by its own state machine.",
+        "terminalClosure": "Reset transaction, audit and outbox committed; no old MFA factor remains valid.",
+        "recovery": "Replay committed reset outcome by idempotency key; stale reauth or stateVersion requires refresh/new command."
+      },
+      "authority": "21.3/72.9",
+      "status": "BLOCKED_MISSING_EXACT_FIELD_LIFECYCLE",
+      "reason": "Enrollment entity has expiresAt/verifiedAt; 72.9 enumerates UI states, not enrollmentState response lifecycle. No exact server enrollmentState dictionary found.",
+      "forbiddenShortcut": "Do not borrow UI, generation turn, browser cleanup or side-effect outcome enum."
+    },
+    {
+      "operationId": "chat.turn.steer",
+      "field": "checkpointDisposition",
+      "pointer": "closure/contracts/operation-payloads.json#/records/1/responseSchema/properties/checkpointDisposition",
+      "aggregateRoot": "SYSTEM_CHAT_CONVERSATION",
+      "operationAuthority": {
+        "purpose": "Append an OWNER steering instruction to one nonterminal chat turn without replacing authority lineage or silently restarting side effects.",
+        "linearizationPoint": "steering message + successor checkpoint/interrupt intent + audit/outbox commit",
+        "cancellation": "Steering command itself is atomic local state; in-flight child cancellation follows the child operation contract.",
+        "terminalClosure": "Steering instruction is durably ordered and linked to the exact turn/checkpoint.",
+        "recovery": "Same key replays the same steering outcome; stale/terminal turn is conflict, never a new implicit turn."
+      },
+      "authority": "closure operation purpose/concurrencyGuard;49.15",
+      "status": "BLOCKED_MISSING_EXACT_FIELD_LIFECYCLE",
+      "reason": "Aggregate is SYSTEM_CHAT_CONVERSATION; generation-discussion turn states in49.15 do not define checkpointDisposition. No exact disposition dictionary found.",
+      "forbiddenShortcut": "Do not borrow UI, generation turn, browser cleanup or side-effect outcome enum."
+    },
+    {
+      "operationId": "acceptance.run.start",
+      "field": "state",
+      "pointer": "closure/contracts/operation-payloads.json#/records/12/responseSchema/properties/state",
+      "aggregateRoot": "PRODUCTION_ACCEPTANCE_RUN",
+      "operationAuthority": {
+        "purpose": "Start the separately repeatable production-shaped acceptance workflow over one exact deployed SHA/release.",
+        "linearizationPoint": "production_acceptance_run insert + immutable test plan/profile digest + queue/outbox reservation",
+        "cancellation": "Cancel intent is accepted only through acceptance.run.cancel; already possible fixture effects must be cleaned/reconciled before terminal CANCELLED.",
+        "terminalClosure": "All required checks have terminal evidence, fixtures cleaned, no unknown effect/orphan, audit/outbox closed and run terminal.",
+        "recovery": "Worker takeover resumes from checkpoint; same run never rebinds to a different SHA/release/profile."
+      },
+      "authority": "25.14/29.5",
+      "status": "BLOCKED_MISSING_EXACT_FIELD_LIFECYCLE",
+      "reason": "production_acceptance_run entity defines checks/results/timings, not a complete state dictionary. Start queue commit and cancel terminal semantics do not enumerate run lifecycle.",
+      "forbiddenShortcut": "Do not borrow UI, generation turn, browser cleanup or side-effect outcome enum."
+    },
+    {
+      "operationId": "acceptance.run.cancel",
+      "field": "state",
+      "pointer": "closure/contracts/operation-payloads.json#/records/13/responseSchema/properties/state",
+      "aggregateRoot": "PRODUCTION_ACCEPTANCE_RUN",
+      "operationAuthority": {
+        "purpose": "Canonical cancellation operation for a nonterminal production acceptance run.",
+        "linearizationPoint": "cancel intent/version commit; terminal CANCELLED only after required cleanup/reconciliation",
+        "cancellation": "Cancellation command is itself atomic; run cancellation semantics are the subject of the operation.",
+        "terminalClosure": "Run is CANCELLED only with zero required pending cleanup/unknown fixture effect; otherwise remains reconciliation/manual-review.",
+        "recovery": "Resume cleanup/reconciliation under current fence; stale workers cannot write terminal state."
+      },
+      "authority": "25.14/29.5;closure terminalClosure/recovery",
+      "status": "BLOCKED_MISSING_EXACT_FIELD_LIFECYCLE",
+      "reason": "CANCELLED requires zero pending cleanup/unknown effects. This condition does not enumerate state,cleanupStatus,reconciliationStatus or their full transition semantics.",
+      "forbiddenShortcut": "Do not borrow UI, generation turn, browser cleanup or side-effect outcome enum."
+    },
+    {
+      "operationId": "acceptance.run.cancel",
+      "field": "cleanupStatus",
+      "pointer": "closure/contracts/operation-payloads.json#/records/13/responseSchema/properties/cleanupStatus",
+      "aggregateRoot": "PRODUCTION_ACCEPTANCE_RUN",
+      "operationAuthority": {
+        "purpose": "Canonical cancellation operation for a nonterminal production acceptance run.",
+        "linearizationPoint": "cancel intent/version commit; terminal CANCELLED only after required cleanup/reconciliation",
+        "cancellation": "Cancellation command is itself atomic; run cancellation semantics are the subject of the operation.",
+        "terminalClosure": "Run is CANCELLED only with zero required pending cleanup/unknown fixture effect; otherwise remains reconciliation/manual-review.",
+        "recovery": "Resume cleanup/reconciliation under current fence; stale workers cannot write terminal state."
+      },
+      "authority": "25.14/29.5;closure terminalClosure/recovery",
+      "status": "BLOCKED_MISSING_EXACT_FIELD_LIFECYCLE",
+      "reason": "CANCELLED requires zero pending cleanup/unknown effects. This condition does not enumerate state,cleanupStatus,reconciliationStatus or their full transition semantics.",
+      "forbiddenShortcut": "Do not borrow UI, generation turn, browser cleanup or side-effect outcome enum."
+    },
+    {
+      "operationId": "acceptance.run.cancel",
+      "field": "reconciliationStatus",
+      "pointer": "closure/contracts/operation-payloads.json#/records/13/responseSchema/properties/reconciliationStatus",
+      "aggregateRoot": "PRODUCTION_ACCEPTANCE_RUN",
+      "operationAuthority": {
+        "purpose": "Canonical cancellation operation for a nonterminal production acceptance run.",
+        "linearizationPoint": "cancel intent/version commit; terminal CANCELLED only after required cleanup/reconciliation",
+        "cancellation": "Cancellation command is itself atomic; run cancellation semantics are the subject of the operation.",
+        "terminalClosure": "Run is CANCELLED only with zero required pending cleanup/unknown fixture effect; otherwise remains reconciliation/manual-review.",
+        "recovery": "Resume cleanup/reconciliation under current fence; stale workers cannot write terminal state."
+      },
+      "authority": "25.14/29.5;closure terminalClosure/recovery",
+      "status": "BLOCKED_MISSING_EXACT_FIELD_LIFECYCLE",
+      "reason": "CANCELLED requires zero pending cleanup/unknown effects. This condition does not enumerate state,cleanupStatus,reconciliationStatus or their full transition semantics.",
+      "forbiddenShortcut": "Do not borrow UI, generation turn, browser cleanup or side-effect outcome enum."
+    }
+  ],
+  "sections": {
+    "21.3": {
+      "startLine": 6036,
+      "sha256": "021bb0103a71703b4bf730b8cf27f57bdcd437c6c9f9e7e946476ca3ea030886",
+      "evidence": "audit/generated/repair-2026-09-30/lifecycle-review/authority-21.3.md"
+    },
+    "72.9": {
+      "startLine": 653254,
+      "sha256": "98f8a0e3a1ca451fd030dc436d38a0b6dc758f8382326e36c7f2bf6da24bf3cb",
+      "evidence": "audit/generated/repair-2026-09-30/lifecycle-review/authority-72.9.md"
+    },
+    "25.14": {
+      "startLine": 8204,
+      "sha256": "bfad2f6c57c16970cf7d6b3b9ceb293722a22a4d47f3822e8b6e88417a3311d6",
+      "evidence": "audit/generated/repair-2026-09-30/lifecycle-review/authority-25.14.md"
+    },
+    "29.5": {
+      "startLine": 19742,
+      "sha256": "075af2df4e2927202773303f57f4faa3cf8328269f3da2c8dda1d1cfc4b08d70",
+      "evidence": "audit/generated/repair-2026-09-30/lifecycle-review/authority-29.5.md"
+    },
+    "49.24": {
+      "startLine": 45310,
+      "sha256": "b9254bb8e9459256ac03340c8e8fef5ff8dd13ee40052318e43d1e8640e56270",
+      "evidence": "audit/generated/repair-2026-09-30/lifecycle-review/authority-49.24.md"
+    },
+    "49.15": {
+      "startLine": 42124,
+      "sha256": "0821f7a85cd68915b152dd36bbfd95a27d5f79f5982230d07044eedcae908140",
+      "evidence": "audit/generated/repair-2026-09-30/lifecycle-review/authority-49.15.md"
+    }
+  },
+  "coverage": "Targeted semantic review of these source blocks; byte extraction of model JSON is separate. No complete document semantic review claimed."
+}

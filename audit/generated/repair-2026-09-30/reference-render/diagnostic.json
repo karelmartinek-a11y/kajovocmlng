@@ -1,0 +1,10 @@
+{
+  "status": "BLOCKED",
+  "scope": "Reference renderer invocation; no application or backend execution claimed",
+  "sourceDocumentSha256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
+  "firstAttempt": "Missing Playwright-managed browser; environment failure",
+  "secondAttempt": "Installed /usr/bin/chromium available; historical render_reference.mjs expects workspace data-ready selector but current reference pages load live.js; timed out",
+  "classification": "REFERENCE_RENDERER_INCOMPATIBLE_WITH_CURRENT_PROJECTION",
+  "evidence": "audit/generated/repair-2026-09-30/reference-render/attempt.log",
+  "nextAction": "Use/repair a renderer targeting current live reference DOM and retain equivalent meaningful UI interaction assertions; do not overwrite stale visual source hashes as PASS."
+}

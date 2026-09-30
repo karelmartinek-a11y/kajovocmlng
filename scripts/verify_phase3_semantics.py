@@ -156,6 +156,10 @@ def run():
                     from close_config_rollback_state import authority
                     model, source, section = authority(SSOT.read_text(encoding='utf8'), list(resources()))
                     require(schema.get('enum') == model['states'], 'config rollback differs from authoritative 49.23 lifecycle')
+                if operation == 'backup.restore' and field == 'state':
+                    from close_backup_restore_state import authority
+                    model, source, section = authority(SSOT.read_text(encoding='utf8'), list(resources()))
+                    require(schema.get('enum') == model['states'], 'backup restore differs from authoritative 49.24 deployment lifecycle')
             check('lifecycle.'+operation+'.'+field, state_probe)
 
     result = {'scope': 'Schema identity, counter and named status/outcome probes; state dictionaries and hydration remain open.',

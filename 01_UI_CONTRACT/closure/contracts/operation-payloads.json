@@ -1757,7 +1757,23 @@
             "maxLength": 128,
             "minLength": 1,
             "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "BACKED_UP",
+              "FAILED",
+              "MANUAL_REVIEW",
+              "MIGRATING",
+              "PREPARING",
+              "QUEUED",
+              "RESTARTING",
+              "ROLLED_BACK",
+              "ROLLING_BACK",
+              "STAGING",
+              "SWITCHING",
+              "VERIFYING"
+            ],
+            "$comment": "SSOT 49.24 model.application-deployment /states; deployment_run per 25.14 and backup.restore aggregateRoot/purpose; section sha256:b9254bb8e9459256ac03340c8e8fef5ff8dd13ee40052318e43d1e8640e56270"
           }
         },
         "required": [

@@ -30,7 +30,9 @@
     "Resumable runner keys include SSOT, supporting source/projections, requirements and installed interpreter/package versions; atomic per-command checkpoint writes",
     "Two create request domain shapes and strict HTTP decoder; 131 domain witness/mutation checks PASS; generic boundary definitions 1506 -> 1504. Neither full operation nor all request policies closed.",
     "Historical authoring and verifier compositions preserve precise create requests; all unrelated route records unchanged from aaab5a1.",
-    "P00 final gate derived from effective 73.7: final R10/R16/UI/CLOSURE/R17 family; standalone historical R13 is provenance, not final gate."
+    "P00 final gate derived from effective 73.7: final R10/R16/UI/CLOSURE/R17 family; standalone historical R13 is provenance, not final gate.",
+    "backup.restore.state exact 13-state deployment lifecycle: own DEPLOYMENT_RUN aggregate;25.14 entity explicitly binds state to49.24;22 complete response witnesses/mutations PASS. Other restore semantics remain required.",
+    "Resumable cache now hashes consumed Phase4 matrices and package visual evidence, rejects changed/missing logs and evidence changes during check. Discovered stale cached UI result was invalidated; current checks rerun."
   ],
   "remaining": [
     "Explicit domain families and event applicability",
@@ -57,26 +59,29 @@
         "section": "8/12 create admission + 25.6/25.11 + 72.11/72.21 + 73.7",
         "authorityEvidence": "audit/generated/repair-create-2026-09-30/field-contracts.json",
         "reviewScope": "Field-level request shapes, transport/admission reference tests, and effective gate precedence; full policies and pipelines remain open"
+      },
+      {
+        "section": "25.14 deployment_run +49.24 + closure backup.restore; targeted21.3/72.9/29.5/49.15",
+        "authorityEvidence": "audit/generated/repair-2026-09-30/lifecycle-review/field-review.json",
+        "reviewScope": "One exact response state dictionary closed; six absent own dictionaries documented. State enum alone does not close restore persistence/recovery."
       }
     ],
     "byteAndStructuralInventory": "audit/phase1-operation-schema-matrix.json; byte loading and schema resolution are separate from semantic review"
   },
   "nextBlock": {
-    "name": "Seven open lifecycle response fields, then complete remaining create boundaries",
-    "fields": [
-      "owner.mfa.reset.enrollmentState",
-      "chat.turn.steer.checkpointDisposition",
-      "backup.restore.state",
-      "acceptance.run.start.state",
-      "acceptance.run.cancel.state",
-      "acceptance.run.cancel.cleanupStatus",
-      "acceptance.run.cancel.reconciliationStatus"
-    ],
+    "name": "Complete two create output/error/event and remaining request policies",
+    "sourcePointers": {
+      "generation.job.create": "contracts/payload-contracts.json#/records/215",
+      "secret.create": "contracts/payload-contracts.json#/records/386"
+    },
     "steps": [
-      "Read each operation aggregate/purpose and its own authoritative lifecycle; do not borrow similarly named enums",
-      "Derive exact response state masks with complete valid positive witnesses and specific negative rejections",
-      "Mark missing authoritative lifecycle definitions BLOCKED without inventing business states",
-      "Continue precise create response/error/event/persistence family; keep request policy gaps explicit"
+      "Read own entity/version/lifecycle and operation descriptor; map precise frozen server output receipt and error predicates, not generic output bags",
+      "Resolve explicit emitted events or authoritative prohibition; define payload and outbox/sequence invariants per operation",
+      "Define structured Secret type policy from8.2/8.4/8.6 without assuming UTF8 bytes validate that type; missing policy stays BLOCKED",
+      "Close parent/target admission states and actual artifact parsing/hydration consumer postconditions; synthetic admission is not runtime proof",
+      "Return to six lifecycle fields using recorded own-authority gaps; do not borrow adjacent state enums",
+      "Review258 error predicates and149 provenance detectors semantically, then unresolved refs/domain families; count alone is not evidence",
+      "After bounded source change regenerate affected projections/current evidence, run declared universe, regenerate integrity receipt, commit and push"
     ]
   },
   "gates": {
@@ -98,8 +103,8 @@
     "unparsedResources": 0
   },
   "commandsEvidence": "audit/generated/repair-2026-09-30/design-current/commands.json",
-  "evidenceInvalidation": "Only current 70713c49 source-bound design-current reports are current. Earlier run aborted SSOT_INPUT_CHANGED and is not PASS. Historical raw evidence retained.",
-  "currentSourceDocumentSha256": "70713c4993abd551c78ffd7c39ae3ee41425852d6cf16068662a61d5b4197f3d",
+  "evidenceInvalidation": "Current design-current, lifecycle review, restore-state and regenerated field contracts bind eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c. Create-request-tests refreshed from source-bound current proof at design-current/verify_create_operation_requests/create-request-tests.json. All earlier source hashes are stale.",
+  "currentSourceDocumentSha256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
   "inventoryEnvironmentCorrection": {
     "systemPythonUnavailableFormatCheckers": "774 references / 595 operations is environment-blocked evidence, not a contract defect count",
     "pinnedAuditEnvironment": "242 references / 121 operations; nestedReferenceFailures=0"
@@ -109,11 +114,12 @@
     "baseline": "8b0ea92",
     "validatorInventory": "cc45622",
     "SQLLiterals": "1a6da95",
-    "configurationState": "572652d"
+    "configurationState": "572652d",
+    "createRequests": "4307830"
   },
   "currentResults": {
-    "requiredAvailableChecks": 38,
-    "zeroExits": 30,
+    "requiredAvailableChecks": 39,
+    "zeroExits": 31,
     "nonzeroBlockedOrFailed": 8,
     "validatorExceptions": 0,
     "timeouts": 0,
@@ -133,19 +139,22 @@
     ],
     "createRequestChecks": 131,
     "createRequestFailed": 0,
-    "referenceRender": "BLOCKED: default Playwright browser missing; retry using installed /usr/bin/chromium reached current reference page but data-ready wait timed out. Historical visual evidence invalidated; source-hash drift is retained as blocker, not PASS."
+    "referenceRender": "BLOCKED: default browser missing; installed Chromium retry timed out because historical renderer waits for workspace data-ready while current pages use live.js. Old visual source-hash proof stale; not a new domain-contract failure.",
+    "backupRestoreStateChecks": 22,
+    "backupRestoreStateFailed": 0
   },
   "draftPR": {
     "status": "NOT_CREATED",
-    "reason": "GitHub GraphQL API Forbidden; branch push works",
-    "preparedBody": ".cache/ssot-repair-pr.md",
-    "branch": "ssot-repair-2026-09-30"
+    "reason": "Supported gh pr create --draft returns GitHub GraphQL Forbidden; push succeeds. No permission bypass.",
+    "preparedBody": "audit/SSOT_REPAIR_DRAFT_PR.md",
+    "branch": "ssot-repair-2026-09-30",
+    "title": "Repair SSOT validators and explicit create request contracts",
+    "compareURL": "https://github.com/karelmartinek-a11y/kajovocmlng/compare/main...ssot-repair-2026-09-30"
   },
   "semanticCoverageEvidence": "audit/generated/repair-2026-09-30/review-coverage.json",
   "remainingLifecycleFields": [
     "owner.mfa.reset.enrollmentState",
     "chat.turn.steer.checkpointDisposition",
-    "backup.restore.state",
     "acceptance.run.start.state",
     "acceptance.run.cancel.state",
     "acceptance.run.cancel.cleanupStatus",
@@ -195,5 +204,20 @@
       "eventBoundariesMadeExplicit": 0
     },
     "coverage": "21 top-level fields with nested variants, authoritative excerpts; byte extraction is not whole-document semantic review"
+  },
+  "remainingLifecycleReview": {
+    "evidence": "audit/generated/repair-2026-09-30/lifecycle-review/field-review.json",
+    "reviewed": 7,
+    "closed": 1,
+    "blocked": 6,
+    "reason": "No exact field lifecycle dictionary found for six remaining fields; UI/generation/browser/side-effect enums are not their authority."
+  },
+  "runnerResumeVerification": {
+    "sourceSha256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
+    "cacheReuse": 39,
+    "commandsExecuted": 0,
+    "consumedEvidenceKeyed": true,
+    "evidenceLogsHashVerified": true,
+    "knownBlockedResultRetained": true
   }
 }

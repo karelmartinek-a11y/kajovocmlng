@@ -1,0 +1,240 @@
+{
+  "sourceDocumentSha256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
+  "source": {
+    "section": "49.24",
+    "startLine": 45310,
+    "endLine": 45616,
+    "sectionSha256": "b9254bb8e9459256ac03340c8e8fef5ff8dd13ee40052318e43d1e8640e56270",
+    "modelId": "model.application-deployment",
+    "statePointer": "/states"
+  },
+  "resourceSha256": "5b3e55556392de8451780634767750ac0c16496682b372c47befc28c0f7dcfbd",
+  "projectionExact": true,
+  "positiveWitness": {
+    "restoreRunId": "00000000-0000-4000-8000-000000000001",
+    "platformIncarnationId": "00000000-0000-4000-8000-000000000001",
+    "state": "QUEUED",
+    "reconciliationEvidenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "acceptanceEvidenceDigest": null
+  },
+  "states": [
+    "ACTIVE",
+    "BACKED_UP",
+    "FAILED",
+    "MANUAL_REVIEW",
+    "MIGRATING",
+    "PREPARING",
+    "QUEUED",
+    "RESTARTING",
+    "ROLLED_BACK",
+    "ROLLING_BACK",
+    "STAGING",
+    "SWITCHING",
+    "VERIFYING"
+  ],
+  "checked": 22,
+  "failed": 0,
+  "negativeRejectionSpecific": true,
+  "checks": [
+    {
+      "case": "lifecycle/ACTIVE",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/BACKED_UP",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/FAILED",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/MANUAL_REVIEW",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/MIGRATING",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/PREPARING",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/QUEUED",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/RESTARTING",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/ROLLED_BACK",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/ROLLING_BACK",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/STAGING",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/SWITCHING",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/VERIFYING",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "invalid-state/'NOT_A_VALID_STATE'",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$.state",
+          "keyword": "enum"
+        }
+      ]
+    },
+    {
+      "case": "invalid-state/'APPLIED'",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$.state",
+          "keyword": "enum"
+        }
+      ]
+    },
+    {
+      "case": "invalid-state/'SUCCEEDED'",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$.state",
+          "keyword": "enum"
+        }
+      ]
+    },
+    {
+      "case": "invalid-state/None",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$.state",
+          "keyword": "type"
+        },
+        {
+          "pointer": "$.state",
+          "keyword": "enum"
+        }
+      ]
+    },
+    {
+      "case": "invalid-state/0",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$.state",
+          "keyword": "type"
+        },
+        {
+          "pointer": "$.state",
+          "keyword": "enum"
+        }
+      ]
+    },
+    {
+      "case": "invalid-state/''",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$.state",
+          "keyword": "minLength"
+        },
+        {
+          "pointer": "$.state",
+          "keyword": "pattern"
+        },
+        {
+          "pointer": "$.state",
+          "keyword": "enum"
+        }
+      ]
+    },
+    {
+      "case": "invalid-state/'QUEUED '",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$.state",
+          "keyword": "pattern"
+        },
+        {
+          "pointer": "$.state",
+          "keyword": "enum"
+        }
+      ]
+    },
+    {
+      "case": "required-state",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$",
+          "keyword": "required"
+        }
+      ]
+    },
+    {
+      "case": "unknown-result-field",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$",
+          "keyword": "additionalProperties"
+        }
+      ]
+    }
+  ],
+  "status": "PASS",
+  "scope": "Complete response witnesses for backup restore; not apply-service/runtime proof.",
+  "remaining": "Other restore request/response/event/error semantics and persistence/recovery remain independently required."
+}
