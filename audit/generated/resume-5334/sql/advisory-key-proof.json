@@ -1,0 +1,140 @@
+{
+  "sourceAuthority": "SSOT51.8",
+  "sqlSha256": "67f16cf3ef47bc18a446a0384870174745430a9020be70c23723d9ded2e0ed9c",
+  "vectors": [
+    {
+      "digestHex": "000000000405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expectedSignedKey": 0
+    },
+    {
+      "digestHex": "000000010405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expectedSignedKey": 1
+    },
+    {
+      "digestHex": "000001000405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expectedSignedKey": 256
+    },
+    {
+      "digestHex": "000100000405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expectedSignedKey": 65536
+    },
+    {
+      "digestHex": "010000000405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expectedSignedKey": 16777216
+    },
+    {
+      "digestHex": "7fffffff0405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expectedSignedKey": 2147483647
+    },
+    {
+      "digestHex": "800000000405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expectedSignedKey": -2147483648
+    },
+    {
+      "digestHex": "800000010405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expectedSignedKey": -2147483647
+    },
+    {
+      "digestHex": "ffffffff0405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expectedSignedKey": -1
+    }
+  ],
+  "checks": [
+    {
+      "id": "sql.postgresql17-outer-and-plpgsql-parser",
+      "status": "PASS",
+      "runtime": "NOT_RUN"
+    },
+    {
+      "id": "network-int4/00000000",
+      "status": "PASS",
+      "expected": 0,
+      "pythonSignedBigEndian": 0,
+      "nodeSignedBigEndian": 0
+    },
+    {
+      "id": "network-int4/00000001",
+      "status": "PASS",
+      "expected": 1,
+      "pythonSignedBigEndian": 1,
+      "nodeSignedBigEndian": 1
+    },
+    {
+      "id": "network-int4/00000100",
+      "status": "PASS",
+      "expected": 256,
+      "pythonSignedBigEndian": 256,
+      "nodeSignedBigEndian": 256
+    },
+    {
+      "id": "network-int4/00010000",
+      "status": "PASS",
+      "expected": 65536,
+      "pythonSignedBigEndian": 65536,
+      "nodeSignedBigEndian": 65536
+    },
+    {
+      "id": "network-int4/01000000",
+      "status": "PASS",
+      "expected": 16777216,
+      "pythonSignedBigEndian": 16777216,
+      "nodeSignedBigEndian": 16777216
+    },
+    {
+      "id": "network-int4/7fffffff",
+      "status": "PASS",
+      "expected": 2147483647,
+      "pythonSignedBigEndian": 2147483647,
+      "nodeSignedBigEndian": 2147483647
+    },
+    {
+      "id": "network-int4/80000000",
+      "status": "PASS",
+      "expected": -2147483648,
+      "pythonSignedBigEndian": -2147483648,
+      "nodeSignedBigEndian": -2147483648
+    },
+    {
+      "id": "network-int4/80000001",
+      "status": "PASS",
+      "expected": -2147483647,
+      "pythonSignedBigEndian": -2147483647,
+      "nodeSignedBigEndian": -2147483647
+    },
+    {
+      "id": "network-int4/ffffffff",
+      "status": "PASS",
+      "expected": -1,
+      "pythonSignedBigEndian": -1,
+      "nodeSignedBigEndian": -1
+    },
+    {
+      "id": "negative/null",
+      "positiveWitnessValid": true,
+      "specificDiagnosticRejected": true,
+      "status": "PASS"
+    },
+    {
+      "id": "negative/wrong-byte-length",
+      "positiveWitnessValid": true,
+      "specificDiagnosticRejected": true,
+      "status": "PASS"
+    },
+    {
+      "id": "negative/little-endian",
+      "validPositiveVectorCount": 9,
+      "counterexampleCount": 7,
+      "status": "PASS"
+    },
+    {
+      "id": "negative/unsigned-overflow",
+      "validPositiveVectorCount": 9,
+      "counterexampleCount": 3,
+      "status": "PASS"
+    }
+  ],
+  "checked": 14,
+  "failed": 0,
+  "proofScope": "PostgreSQL17 outer+PLpgSQL AST parse and independent Python/Node reference vectors only. SQLfunction execution is NOT_RUN. Namespace0 singleton, digest-derived signedkey and fullrowunique digest obligations remain distinct.",
+  "implementationProductionAcceptance": "NOT_EVALUATED"
+}

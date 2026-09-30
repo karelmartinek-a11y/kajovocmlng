@@ -1,0 +1,271 @@
+{
+  "format": "KCML-SQL-HELPER-REVIEW/1",
+  "sourceDocumentSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+  "sourceCommit": "5334d8caa1b284cb1b4857f51aef2d431b571427",
+  "sourceBindings": {
+    "database/operation-functions.sql": "55f69f9d58f6d45dc79329762a182792be0f5b422ed11f0af9fac8a7d9d200e8",
+    "database/explicit-entities.sql": "b5bd3eab2da7d271a9112d5168d470ab5f8cc7bfa24cdcf9437a1c30e3db09d7",
+    "database/design/root-ordinals.json": "84ebd3d9bd0794cf64e99f0a4589c6899861eb9983c08a6bd3f34260f200b920",
+    "contracts/create-completion.json": "45558a2ca824ba1d88166df54c7530d1f9d777d8101c32e25eccc812d17e5d3e"
+  },
+  "coverage": {
+    "wrappers": 262,
+    "helperCallSites": 1048,
+    "helperDefinitionsMissing": [
+      "kcml_apply_exact_domain_plan_v1",
+      "kcml_assert_operation_descriptor_v1",
+      "kcml_assert_recovery_and_incarnation_v1",
+      "kcml_lock_exact_root_plan_v1"
+    ],
+    "contextDefinitions": [],
+    "createWrappersMissing": [
+      "secret.create"
+    ],
+    "genericPhysicalPlans": 262
+  },
+  "helpers": [
+    {
+      "helper": "kcml_apply_exact_domain_plan_v1",
+      "status": "BLOCKED",
+      "blockerKind": "TECHNICAL",
+      "callSites": 262,
+      "definitionPresent": false,
+      "sources": [
+        "25.6",
+        "25.11",
+        "49.4",
+        "49.22.1",
+        "51.5",
+        "51.9",
+        "51.12",
+        "51.30",
+        "12.48",
+        "12.49"
+      ],
+      "requiredAlgorithm": [
+        "Select an explicit operation-specific persisted typed mutation plan, not a generic semantic-field JSON interpreter",
+        "Claim locator and idempotency record without replacing an existing request/outcome",
+        "After all locks, recompute guards from current rows and execute exactly the permitted atomic transition",
+        "Persist root/immutable request-or-secret-version/frozen basis/typed receipt/event/audit/outbox/canonical outcome together",
+        "Commit is sole linearization; publish response/SSE/outbox only from committed state",
+        "Rollback/failure/unknown and replay reconcile the same locator without second root/event",
+        "No network/provider/browser I/O inside SQL transaction"
+      ],
+      "unbound": [
+        "every semantic field to exact physical typed column mapping; currentfieldUpdatePlan is descriptive storage fallback",
+        "generation_job/secret_record/secret_version and domain command/event/outbox schemas",
+        "secret authenticated-encryption provider/type-specific validated payload handoff",
+        "typed response/event hydration joins and immutable lineage constraints"
+      ]
+    },
+    {
+      "helper": "kcml_assert_operation_descriptor_v1",
+      "status": "BLOCKED",
+      "blockerKind": "TECHNICAL",
+      "callSites": 262,
+      "definitionPresent": false,
+      "sources": [
+        "49.4",
+        "49.5",
+        "51.12"
+      ],
+      "requiredAlgorithm": [
+        "Authenticated server context only; caller cannot supply trusted authority or descriptor digest",
+        "Stable locator lookup before fresh admission",
+        "Replay selects the retained frozen operation/caller revision and execution descriptor, never recomputes it from the current registry",
+        "Fresh admission resolves effective operationId/revision/native descriptor digest and exact typed masks",
+        "Unknown/missing/conflicting descriptor means BLOCKED before domain mutation"
+      ],
+      "unbound": [
+        "kcml_operation_context_v1 exact physical type and trusted construction boundary",
+        "retained effective/frozen descriptor registry storage and access",
+        "wrapper-current descriptor digest versus retained replay descriptor reconciliation"
+      ]
+    },
+    {
+      "helper": "kcml_assert_recovery_and_incarnation_v1",
+      "status": "BLOCKED",
+      "blockerKind": "TECHNICAL",
+      "callSites": 262,
+      "definitionPresent": false,
+      "sources": [
+        "49.33",
+        "51.5",
+        "51.6",
+        "51.9"
+      ],
+      "requiredAlgorithm": [
+        "Lock platform/deployment/security heads in canonical order",
+        "Read current recovery/incarnation/deployment/fence from locked server rows",
+        "Fresh mutation requires READY and exact current incarnation/fence; re-evaluate after lock acquisition",
+        "Recheck every authoritative write using expected CAS/fence; nonmatching guards are conflict, not PASS",
+        "Terminal replay does not become fresh admission; authenticate result access and retained identity"
+      ],
+      "unbound": [
+        "exact platform/deployment/security-head physical tables and current field bindings",
+        "trusted context creation and lease/fence applicability per operation"
+      ]
+    },
+    {
+      "helper": "kcml_lock_exact_root_plan_v1",
+      "status": "BLOCKED",
+      "blockerKind": "TECHNICAL",
+      "callSites": 262,
+      "definitionPresent": false,
+      "sources": [
+        "51.5",
+        "51.6",
+        "51.12"
+      ],
+      "requiredAlgorithm": [
+        "Derive all actual parents from persisted relationships, never caller root declarations",
+        "Acquire class A advisory, B singleton, C locator/idempotency, D activation, E parent roots/children and audit head last",
+        "Order roots by native ordinal then uuid_send(id); multi-parent roots acquire all actual parents",
+        "CREATE absent new root uses stable parent/namespace guard plus first-create advisory, never just new random root UUID",
+        "Do not perform mutation inside a lock-only helper; eventual write keeps CAS and fence predicates"
+      ],
+      "unbound": [
+        "precise trusted physical root-resolution relation path for each262 wrapper operations",
+        "new-create namespace/first-create advisory key derivation",
+        "exact composite context and per-class lock object columns"
+      ]
+    }
+  ],
+  "createTransactionPlans": [
+    {
+      "operationId": "generation.job.create",
+      "currentWrapperPresent": true,
+      "root": "generation_job",
+      "rootOrdinal": 90,
+      "authoritativeSources": [
+        "contracts/create-completion.json#/operations/generation.job.create",
+        "contracts/create-completion.json#/transactions",
+        "contracts/create-completion.json#/postconditions",
+        "25.11",
+        "49.4",
+        "51.5",
+        "51.12"
+      ],
+      "exactTransactionArtifacts": [
+        "generation_job:DISCUSSING",
+        "immutable initial request+digest",
+        "generation_source references and actual-byte digests",
+        "FOLLOW_UP immutable frozen basis when explicitly selected",
+        "one server-created logical operation identity",
+        "stable locator and domain idempotency outcome",
+        "typed frozen completion receipt",
+        "one typed aggregate event and aggregate-localsequence",
+        "audit-chain append and publish-after-commit outbox"
+      ],
+      "persistencePostconditions": [
+        "Receipt identity belongs to exact committed aggregate",
+        "Result digest recomputed from frozen semantic response excluding transport replay marker",
+        "Event receipt equals frozen response output; payload digest covers exact canonical receipt",
+        "Read/hydration selects persisted root/version by server ID and verifies immutable initial/version linkage; current state may evolve without rewriting frozen receipt",
+        "Unknown commit outcome reconciles the same locator; no new root or side effect"
+      ],
+      "status": "BLOCKED",
+      "reason": "Existing wrapper applies generic physical plan; no explicit root/child physical materialization in effective direct SQL resources; exact format/own admission policies remain independent obligations"
+    },
+    {
+      "operationId": "secret.create",
+      "currentWrapperPresent": false,
+      "root": "secret_record",
+      "rootOrdinal": 20,
+      "authoritativeSources": [
+        "contracts/create-completion.json#/operations/secret.create",
+        "contracts/create-completion.json#/transactions",
+        "contracts/create-completion.json#/postconditions",
+        "25.6",
+        "49.4",
+        "51.5",
+        "51.12"
+      ],
+      "exactTransactionArtifacts": [
+        "secret_record unique stableName including soft-delete",
+        "secret_version CREATED with immutable ciphertext,nonce,algorithm,keyID,fingerprint,valueDigest",
+        "versionNumber allocated uniquely persecret",
+        "activeVersionId null; no implicit activation",
+        "one server-created logical operation identity",
+        "stable locator and domain idempotency outcome",
+        "typed frozen completion receipt",
+        "one typed aggregate event and aggregate-localsequence",
+        "audit-chain append and publish-after-commit outbox"
+      ],
+      "persistencePostconditions": [
+        "Receipt identity belongs to exact committed aggregate",
+        "Result digest recomputed from frozen semantic response excluding transport replay marker",
+        "Event receipt equals frozen response output; payload digest covers exact canonical receipt",
+        "Read/hydration selects persisted root/version by server ID and verifies immutable initial/version linkage; current state may evolve without rewriting frozen receipt",
+        "Unknown commit outcome reconciles the same locator; no new root or side effect"
+      ],
+      "status": "BLOCKED",
+      "reason": "No operation-specific wrapper; no explicit root/child physical materialization in effective direct SQL resources; exact format/own admission policies remain independent obligations"
+    }
+  ],
+  "locatorProposal": {
+    "file": "explicit-entities-proposed.sql",
+    "repairScope": "UNIQUE logical_operation_id and deferred existing logical-operation FK; no claim to complete locator physical contract",
+    "authorities": [
+      "49.4",
+      "51.12"
+    ],
+    "stillMissingFinalNamedColumns": [
+      "operation_family_id",
+      "stable_caller_object_id",
+      "stable_business_target_key"
+    ],
+    "allOtherSourceBytesPreserved": true
+  },
+  "gateClassification": {
+    "A_MANDATORY_BEFORE_GENERATION": [
+      "Exact helper/context/physical relation contracts; typed per-operation plans, guards, lock order, complete persistence+event+hydration design",
+      "Materialize all explicitly mandatory constraints per51.12 beforeARCHITECTURE_READINESS"
+    ],
+    "B_DESIGN_REFERENCE_PROOF": [
+      "PostgreSQL syntax AST checks over explicit proposals",
+      "Exact source/native-resource coverage, positive and specific negative clause checks; no DB/runtime inference"
+    ],
+    "C_FUTURE_IMPLEMENTATION_ACCEPTANCE": [
+      "PostgreSQL18.6 executable migration and helper functions with actualroles/authconstruction, locks/deadlocks/races/rollback/outbox recovery tests",
+      "RealSecret encryption/storage/hydration/consumer runtime and idempotency replay underfaultinjection"
+    ]
+  },
+  "ownerDecisions": [],
+  "ownerDecisionLimitation": "The unavailable SQL/context/column bindings are technically specified design gaps, not demonstrated undecidable business questions. Independent Secret-format policy review remains outside this SQL scope.",
+  "checks": [
+    {
+      "id": "proposal.postgresql17-parser-positive",
+      "status": "PASS"
+    },
+    {
+      "id": "locator.logical-operation-unique",
+      "status": "PASS"
+    },
+    {
+      "id": "locator.logical-operation-deferred-fk",
+      "status": "PASS"
+    },
+    {
+      "id": "locator.existing-fk-target-preserved",
+      "status": "PASS"
+    },
+    {
+      "id": "negative.missing-logical-operation-uniqueness",
+      "positiveWitnessValid": true,
+      "syntaxStillValid": true,
+      "specificClauseRejected": true,
+      "status": "PASS"
+    },
+    {
+      "id": "negative.nondeferrable-logical-operation-fk",
+      "positiveWitnessValid": true,
+      "syntaxStillValid": true,
+      "specificClauseRejected": true,
+      "status": "PASS"
+    }
+  ],
+  "failed": 0,
+  "implementationProductionAcceptance": "NOT_EVALUATED",
+  "wholeCreateOperationsClosed": []
+}

@@ -41,6 +41,9 @@ def main():
   except Exception as exc:checks.append({'case':name,'passed':False,'diagnostic':'UNRELATED_EXCEPTION','reason':str(exc)})
  for op,body in BODIES.items():
   native=decode(op);positives[op]={'body':body,'nativeRequest':native}
+  if op=='generation.job.create':
+   kind_request=decode(op,body={**body,'kind':'RETRY'})
+   actual_failure(op+'/own-kind-policy-required',op,lambda:admit(kind_request,server),'PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED','$.kind','CREATE_POLICY_UNRESOLVED')
   check(op+'/domain-positive-decoder',native['body'],body);check(op+'/domain-positive-admission',admit(native,server)['dispatchNew'])
   raw=encode(body);first=next(iter(body));first_value=encode(body[first]);key=encode(first)
   duplicate=raw[:-1]+b','+key+b':'+first_value+b'}'

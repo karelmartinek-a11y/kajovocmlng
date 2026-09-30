@@ -1,0 +1,70 @@
+{
+  "detectorPattern": "(?i)(předchozí verz|původn|opraven|doplněn|rozsah změn|výsledek revize|aktuální dodatek|stav po kapitola|nově přid|historick)",
+  "detectorPatternChanged": false,
+  "historicalVerifierBytesUnchanged": true,
+  "hitsByCommit": {
+    "aaab5a1": 148,
+    "003cef7": 152,
+    "5334d8c": 159
+  },
+  "addedChecks": [
+    "scripts/verify_create_http_errors.py",
+    "scripts/verify_create_completion.py",
+    "scripts/verify_follow_up_contracts.py"
+  ],
+  "changedResults": [
+    {
+      "script": "scripts/verify_generation_read_errors.py",
+      "before": 0,
+      "after": 1,
+      "cause": "Historical native-bundle byte equality rejects exact scoped create-error catalog additions; corrected scoped composition preserves all other masks and original codes"
+    }
+  ],
+  "additionalDetectorHits": [
+    {
+      "line": "po commitu se vrací původní canonical create outcome, nevytváří se nový root.",
+      "scope": "Create12.48/12.49 domain original frozen receipt/lineage or explicit73.7 historical-gate precedence; not a conflicting contract by token match alone",
+      "status": "BOUNDED_SEMANTIC_REVIEW",
+      "finding": "Lexical hit; no new conflicting requirement established"
+    },
+    {
+      "line": "a client key digest vybírají původní record. Aktuální contract/caller revision",
+      "scope": "Create12.48/12.49 domain original frozen receipt/lineage or explicit73.7 historical-gate precedence; not a conflicting contract by token match alone",
+      "status": "BOUNDED_SEMANTIC_REVIEW",
+      "finding": "Lexical hit; no new conflicting requirement established"
+    },
+    {
+      "line": "není součást lookupu. Nalezený record připíná původní operation revision,",
+      "scope": "Create12.48/12.49 domain original frozen receipt/lineage or explicit73.7 historical-gate precedence; not a conflicting contract by token match alone",
+      "status": "BOUNDED_SEMANTIC_REVIEW",
+      "finding": "Lexical hit; no new conflicting requirement established"
+    },
+    {
+      "line": "nikoli znovu sestavuje z current revision. Stejný key/digest vrací původní",
+      "scope": "Create12.48/12.49 domain original frozen receipt/lineage or explicit73.7 historical-gate precedence; not a conflicting contract by token match alone",
+      "status": "BOUNDED_SEMANTIC_REVIEW",
+      "finding": "Lexical hit; no new conflicting requirement established"
+    },
+    {
+      "line": "INITIAL_REQUEST znamená původní immutable request konkrétního parent jobu,",
+      "scope": "Create12.48/12.49 domain original frozen receipt/lineage or explicit73.7 historical-gate precedence; not a conflicting contract by token match alone",
+      "status": "BOUNDED_SEMANTIC_REVIEW",
+      "finding": "Lexical hit; no new conflicting requirement established"
+    },
+    {
+      "line": "locator/request digest vrací původní frozen receipt, změněný selector/digest",
+      "scope": "Create12.48/12.49 domain original frozen receipt/lineage or explicit73.7 historical-gate precedence; not a conflicting contract by token match alone",
+      "status": "BOUNDED_SEMANTIC_REVIEW",
+      "finding": "Lexical hit; no new conflicting requirement established"
+    },
+    {
+      "line": "původního commitu. Souběžná změna relevantních locked zdrojů vede k novému",
+      "scope": "Create12.48/12.49 domain original frozen receipt/lineage or explicit73.7 historical-gate precedence; not a conflicting contract by token match alone",
+      "status": "BOUNDED_SEMANTIC_REVIEW",
+      "finding": "Lexical hit; no new conflicting requirement established"
+    }
+  ],
+  "legacyHitReview": "152 remains required; bounded review of7additional lexical hits does not close global provenance consolidation",
+  "reported149": "149 is the legacy-parser aaab5a1 historical count; full-family re-count is148. Full-family003cef7 is152 and5334d8c is159. Legacy parser omitted3ERRORS/EXPERIENCE resources and inflated003/533 lexical counts153/161; parsercoverage correction preserves common resource bytes and detector regex.",
+  "parserCoverageRepair": "scripts/ssot_resources.py delegates canonical all-family parser; existing common decodedbytes identical, adds3effectiveERRORS/EXPERIENCE resources"
+}

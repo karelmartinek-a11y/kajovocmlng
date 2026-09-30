@@ -1,0 +1,21 @@
+{
+  "relations": [
+    {
+      "physicalRelation": "cleanup_operation -> cleanup_step(step_sequence PK) -> cleanup_resource; resource FK is non-unique by design",
+      "resolvedObligationIds": [
+        "open.2f9cdf16a94a9c69ed1bb272"
+      ],
+      "ruleId": "constraint.SSOT-DECL-219.1.cleanup_resource",
+      "sqlRef": "database/physical-relations.sql"
+    },
+    {
+      "physicalRelation": "value_derivation composite-FK -> immutable argument_slot_contract; ONE enforced by partial unique index, MANY by absence of that uniqueness",
+      "resolvedObligationIds": [
+        "open.3f1d6c2213b7a9c36d4a6eee"
+      ],
+      "ruleId": "constraint.SSOT-DECL-221.6.value_derivation",
+      "sqlRef": "database/physical-relations.sql"
+    }
+  ],
+  "revision": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21"
+}

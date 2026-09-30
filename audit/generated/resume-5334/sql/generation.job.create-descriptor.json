@@ -1,0 +1,103 @@
+{
+  "sourcePointer": "contracts/operation-contracts.json#/records/332",
+  "sourceResourceSha256": "9bfc957372b2eb28a8a78808eef8dc20a07c18134cd139cc97f536518b0414a5",
+  "record": {
+    "acceptanceGateIds": [
+      "ARCH_FAILURE_RECOVERY_CONSISTENT",
+      "ARCH_OPERATION_LIFECYCLE_COMPLETE",
+      "ARCH_TRACEABILITY_COMPLETE"
+    ],
+    "activationRelation": "CURRENT_EXACT_REVISION_BINDING_SET_ACTIVATION_EPOCH",
+    "aggregateRoot": "generation_job",
+    "allowedTransitionIds": [
+      "ADMIT",
+      "DISPATCH_OR_EXECUTE",
+      "RECONCILE_IF_NEEDED",
+      "TERMINAL_COMMIT"
+    ],
+    "apiOperationIds": [
+      "route.0215"
+    ],
+    "auditEventTypes": [
+      "OPERATION_ADMITTED",
+      "OPERATION_STATE_CHANGED",
+      "OPERATION_TERMINAL"
+    ],
+    "authoritySourceRefs": [
+      {
+        "anchor": "section.12",
+        "relation": "AUTHORITY",
+        "section": "12",
+        "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+      },
+      {
+        "anchor": "section.49.15",
+        "relation": "AUTHORITY",
+        "section": "49.15",
+        "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+      }
+    ],
+    "cancellationPolicy": "NO_NEW_CHILD_AFTER_CANCEL_INTENT; POSSIBLE_EFFECT_REQUIRES_RECONCILIATION",
+    "canonicalDigest": "sha256:24e682b56f616cbc1afd2db2456ba16380dee4cc0b456920e896ba8e24b4d614",
+    "canonicalWriterId": "writer.generation-orchestrator",
+    "chatCapabilityIds": [],
+    "checkpointPolicy": "BEFORE_AND_AFTER_EACH_NONATOMIC_EFFECT; TERMINAL_CHECKPOINT_AT_CLOSURE",
+    "cleanupPolicy": "TERMINAL_CLOSURE_REQUIRES_ALL_MANDATORY_CLEANUP_COMPLETE",
+    "closurePredicateId": "closure.operation.generation.job.create",
+    "commandSchemaRef": {
+      "catalog": "contracts/payload-contracts.json",
+      "routeIds": [
+        "route.0215"
+      ]
+    },
+    "completeRegistryOperation": true,
+    "concurrencyClaimPoint": "T1_BEFORE_DOMAIN_MUTATION",
+    "concurrencyKeyDerivation": "PERSISTED_BUSINESS_TARGET_TO_ROOT_RESOLUTION",
+    "concurrencyScope": "generation_job",
+    "deadlinePolicy": "ABSOLUTE_EFFECTIVE_MIN_OF_CALLER_PARENT_OPERATION_PLATFORM",
+    "expectedStateVersionPolicy": "REQUIRED_FOR_NONCOMMUTATIVE_MUTATION; NOT_APPLICABLE_FOR_READ_ONLY_OR_IMMUTABLE_APPEND",
+    "expectedStates": [
+      "SOURCE_CURRENT_STATE_OR_NO_STATE_FOR_CREATE_QUERY"
+    ],
+    "exposureClass": "OWNER_COMMAND",
+    "fencingPolicy": "CURRENT_PLATFORM_INCARNATION_RECOVERY_EPOCH_AND_LEASE_FENCE_ON_EVERY_WRITE",
+    "idempotencyKeySource": "Idempotency-Key header or server-derived stable key for automated source",
+    "idempotencyScope": "generation.job.create:caller:business-target",
+    "operationFamily": "GENERATION",
+    "operationId": "generation.job.create",
+    "operationName": "generation.job.create",
+    "operationRevision": "R9.1",
+    "orderedLockPlanId": "lock.r9.generation_job",
+    "outboxPurposes": [
+      "DOMAIN_EVENT",
+      "SIDE_EFFECT_DISPATCH_IF_APPLICABLE"
+    ],
+    "possibleEffectTrigger": "FIRST_AUTHORITATIVE_DOMAIN_WRITE",
+    "reconciliationOracleId": "recovery.r9.generation.job.create",
+    "requestDigestProfile": "KCML-CANONICAL-JSON/1_EXCLUDING_TRANSPORT_EPHEMERA",
+    "responseSchemaRef": {
+      "catalog": "contracts/payload-contracts.json",
+      "routeIds": [
+        "route.0215"
+      ]
+    },
+    "retryClass": "IDEMPOTENT_REPLAY_ONLY",
+    "retryDirectiveMapRef": "contracts/registries/RecoveryDecisionTable.json#recovery.common.v5",
+    "selfTestCaseIds": [
+      "selftest.contract.generation.job.create"
+    ],
+    "sideEffectClass": "LOCAL_STATE",
+    "stateMachineId": "model.r9.operation-execution",
+    "subsystemSideEffectClass": "LOCAL_STATE",
+    "successorPolicy": "SUCCESSOR_RESERVED_IN_SAME_TERMINAL_TRANSACTION_WHEN_WORKFLOW_REQUIRES",
+    "terminalOutcomes": [
+      "SUCCEEDED",
+      "FAILED_KNOWN",
+      "CANCELLED_CONFIRMED",
+      "MANUAL_REVIEW_BLOCKING"
+    ],
+    "transactionProfileId": "ONLINE_MUTATION",
+    "uiActionIds": []
+  },
+  "extractionScope": "Exact operation descriptor fields excluding long requirementIds list; native source pointer remains authoritative"
+}

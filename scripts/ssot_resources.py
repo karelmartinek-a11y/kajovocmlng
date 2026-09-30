@@ -5,17 +5,14 @@ ROOT=Path(__file__).resolve().parents[1]
 SSOT=ROOT/'00_SSOT/KajovoCMLNG_SSOT.md'
 PAT=re.compile(r'^<!-- (KCML-(?:R\d+|UI|CLOSURE)-RESOURCE|KCML-EMBEDDED) path="([^"]+)"([^\n]*) -->\n(`{3,})[^\n]*\n(.*?)\n\4\n<!-- [^\n]*END[^\n]*-->',re.M|re.S)
 def resources(text=None):
-    text=SSOT.read_text() if text is None else text
-    for m in PAT.finditer(text):
-        family,path,attrs,fence,body=m.groups()
-        a=dict(re.findall(r'(\w+)="([^"]*)"',attrs))
-        if a.get('encoding')=='gzip+base64': raw=gzip.decompress(base64.b64decode(body))
-        elif a.get('encoding')=='plain' or family=='KCML-EMBEDDED': raw=(body+'\n').encode()
-        else:
-            raw=body.encode()
-            variants=[raw,raw.rstrip(b'\n')+b'\n',raw.rstrip(b'\n'),raw+b'\n']
-            raw=next((v for v in variants if hashlib.sha256(v).hexdigest()==a.get('sha256')),raw.rstrip(b'\n')+b'\n')
-        yield dict(family=family,path=path,attrs=a,raw=raw,span=m.span(),sha256=hashlib.sha256(raw).hexdigest())
+    # All effective resource families share the canonical parser. The former
+    # Rn/UI/CLOSURE-only regex skipped ERRORS/EXPERIENCE resources and counted
+    # their JSON as normative prose. Common decoded bytes remain unchanged.
+    from ssot_sources import resources as canonical_resources
+    for item in canonical_resources(text):
+        yield dict(family=item['family'],path=item['path'],attrs=item['declared'],
+                   raw=item['raw'],span=item['match'].span(),sha256=item['sha256'])
+
 def get(family,path):
     found=[r for r in resources() if r['family']==family and r['path']==path]
     if len(found)!=1: raise ValueError((family,path,len(found)))

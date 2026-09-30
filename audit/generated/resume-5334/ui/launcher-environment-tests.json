@@ -1,0 +1,37 @@
+{
+  "scope": "Negative launcher/environment classification only; no browser render and no contract conclusion",
+  "checked": 2,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "missing-explicit-browser-environment",
+      "passed": true,
+      "actual": {
+        "status": "BLOCKED",
+        "diagnostic": "AUDIT_ENVIRONMENT_UNAVAILABLE",
+        "reasons": [
+          "CHROMIUM_PATH must name an available browser executable"
+        ]
+      }
+    },
+    {
+      "case": "missing-pinned-Python-launcher",
+      "passed": true,
+      "actual": {
+        "status": "BLOCKED",
+        "diagnostic": "AUDIT_ENVIRONMENT_UNAVAILABLE",
+        "reason": "Set AUDIT_PYTHON to the interpreter prepared from requirements-audit.txt; no Node Playwright fallback is used."
+      }
+    }
+  ],
+  "playwrightExpectedActual": {
+    "expected": "1.63.0",
+    "actual": "1.63.0"
+  },
+  "sourceHashes": {
+    "audit/generated/resume-5334/ui/render_reference.proposed.py": "23d8ad6e6442c6b548b38589dd7770c5ec47b386dcd18d8015518b39f60f1efa",
+    "audit/generated/resume-5334/ui/render_reference.wrapper.proposed.mjs": "ee05a2a771aa0dd82df0ca89d32f1bc010ea060bd9d5f114285af7a321b47020",
+    "requirements-audit.txt": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5"
+  },
+  "runtimeBackendTested": false
+}

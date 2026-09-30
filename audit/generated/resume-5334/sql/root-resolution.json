@@ -1,0 +1,652 @@
+{
+  "canonicalDigest": "sha256:2ecc0a40a7d4c525705e4a9e32d76acb9fcb1ff47ff47c9b8044e2666fd15616",
+  "records": [
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.mcp-runtime",
+      "entityId": "mcp_discovery_item",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        30
+      ],
+      "parentRoots": [
+        "component"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.f4337826f1d30d24ea2811d9"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.mcp-runtime",
+      "entityId": "mcp_tool_alias",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        30
+      ],
+      "parentRoots": [
+        "component"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.7c7ba8e25fa63fe40ac8feee"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.mcp-runtime",
+      "entityId": "mcp_call_progress",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        110
+      ],
+      "parentRoots": [
+        "mcp_call_run"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.cef99ee77b6f6e8111bd2497"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.mcp-runtime",
+      "entityId": "mcp_input_request_item",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        110
+      ],
+      "parentRoots": [
+        "mcp_call_run"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.b625cd286e7bc72a88d44cee"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.mcp-runtime",
+      "entityId": "mcp_input_response_item",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        110
+      ],
+      "parentRoots": [
+        "mcp_call_run"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.8b1ee869863cf81cb608441b"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.mcp-runtime",
+      "entityId": "mcp_task_input_request",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        115
+      ],
+      "parentRoots": [
+        "mcp_task"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.3c35fd6376ff90f260f15f02"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.mcp-runtime",
+      "entityId": "mcp_task_input_response",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        115
+      ],
+      "parentRoots": [
+        "mcp_task"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.d79440faf1f3f5310ca3b419"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.mcp-runtime",
+      "entityId": "mcp_idempotency_record",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        110
+      ],
+      "parentRoots": [
+        "mcp_call_run"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.3c884d459c79faced4b9e7d5"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.dashboard",
+      "entityId": "dashboard_workspace",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.3a36e836da517ebc95fd3517"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.dashboard",
+      "entityId": "dashboard_node_position",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.6579e6ba10095b25a9342ba3"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.dashboard",
+      "entityId": "dashboard_connection",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.6574bd3594fd91c318ea4898"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.dashboard",
+      "entityId": "dashboard_runtime_event",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.4e9c2bc6de1b573fcee37411"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.monitor-projection",
+      "entityId": "monitoring_scheduler_heartbeat",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.f2db0cc9d4f5672713dffdbd"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.monitor-projection",
+      "entityId": "platform_worker_heartbeat",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.546d739338b13a78b0fc59a1"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.audit-append",
+      "entityId": "audit_event",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.af5e8b457222a14e6ef62646"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.audit-delivery",
+      "entityId": "audit_archive_outbox",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.1c03d5673ad4ed82abb42fa1"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.audit-append",
+      "entityId": "debug_log_event",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.e6ad8dab3b18123a043a83f1"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.openai-runtime",
+      "entityId": "openai_model_capability_snapshot",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.060a7614aa0db3149d425ac5"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.agent-runtime",
+      "entityId": "agent_run_checkpoint",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        100
+      ],
+      "parentRoots": [
+        "agent_run"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.40edce2cdf0a6153407db174"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.agent-runtime",
+      "entityId": "agent_message",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        105
+      ],
+      "parentRoots": [
+        "agent_session"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.c509fdd729c448562df9da51"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.BrowserSessionService",
+      "entityId": "browser_runtime_build_manifest",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.a53a03f76d02cc20cfbf4a7a"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.BrowserSessionService",
+      "entityId": "browser_host_slot",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.1bbfb9102332843b16c87b02"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.BrowserSessionService",
+      "entityId": "browser_local_bridge",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.7a0d49405e7ab8c6cf994937"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.BrowserSessionService",
+      "entityId": "browser_bridge_connection",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.740c8bbaa6e9f5fbc85643bb"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.BrowserSessionService",
+      "entityId": "browser_profile_lease",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        70
+      ],
+      "parentRoots": [
+        "browser_session"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.f6804c6a0f095c862f685a0d"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.self-test",
+      "entityId": "self_test_catalog_entry",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.654a32a8339cb3c770d627b8"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.release",
+      "entityId": "application_release",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.1fdf5e3869029ad8bdfb9ab2"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.activation",
+      "entityId": "domain_command_activation_domain",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        120
+      ],
+      "parentRoots": [
+        "generation_activation_set"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.b1c1dd30dd8679e382ffa8e9"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.activation",
+      "entityId": "activation_domain_barrier",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        120
+      ],
+      "parentRoots": [
+        "generation_activation_set"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.711badc7f9ee264e7877e159"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.platform-recovery",
+      "entityId": "platform_recovery_head",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.a106dbb242aeedc06261c82f"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.platform-recovery",
+      "entityId": "platform_recovery_attempt",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.7f146a771dc5c5f9ce82f6d3"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.platform-recovery",
+      "entityId": "platform_recovery_item",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.a3cb73005b1298f0f834daee"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.cleanup",
+      "entityId": "terminal_closure_evidence",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.63d9f5dc564cf48700d1e765"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    },
+    {
+      "callerMaySelectParent": false,
+      "canonicalWriterId": "writer.queue-work",
+      "entityId": "capacity_reservation",
+      "lockClass": "E_PARENT_AGGREGATE",
+      "lockOrder": [
+        10
+      ],
+      "parentRoots": [
+        "owner_identity"
+      ],
+      "requiresAllActualParents": true,
+      "resolutionRule": "PARENT_ID_FROM_PERSISTED_RELATION_NOT_REQUEST_BODY",
+      "resolvedObligationIds": [
+        "open.0d74edf86e042563a72aadfb"
+      ],
+      "rootResolution": "SINGLE_ROOT",
+      "unresolvedObligationIds": []
+    }
+  ],
+  "revision": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21"
+}

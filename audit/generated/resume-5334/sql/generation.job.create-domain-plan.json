@@ -1,0 +1,170 @@
+{
+  "operationId": "generation.job.create",
+  "profile": "ONLINE_MUTATION",
+  "subjectTable": "generation_job",
+  "rootOwnershipRef": "generation_job",
+  "mode": "CREATE",
+  "physicalPhases": [
+    "T1",
+    "T3"
+  ],
+  "rootLockPlan": {
+    "root": "generation_job",
+    "lockClass": "E_PARENT_AGGREGATE",
+    "ordinal": 90,
+    "auditHeadLast": true
+  },
+  "fieldUpdatePlan": [
+    {
+      "semanticField": "`id`, fixed OWNER actor a initiating access channel/execution context",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "kind `CREATE`, `UPDATE`, `FOLLOW_UP`, `RETRY`, `REPAIR`",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "target kind a voliteln\u00fd target object",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "lifecycle state a current phase",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "`state_version` a aggregate event sequence",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "immutable initial request a digest",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "parent/source job",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "current/approved spec pointers a approved digest",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "execution authority ID",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "current capability snapshot a plan ID",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "active phase run a latest checkpoint",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "previous/candidate release a activation set",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "cancellation version, blocker a error",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "coordinator lease owner/fencing token/expiry/heartbeat",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "coordinator platform incarnation a application deployment epoch",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "created/started/completed timestamps",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "client request ID a latest command logical operation",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "Constraints:",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "jeden `client request ID` na OWNER idempotency scope,",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "nejv\u00fd\u0161e jeden non-terminal coordinator lease na job,",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "approved spec pat\u0159\u00ed stejn\u00e9mu jobu,",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "terminal state je immutable,",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "current phase odpov\u00edd\u00e1 state transition map\u011b,",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    },
+    {
+      "semanticField": "ka\u017ed\u00fd lifecycle command pou\u017e\u00edv\u00e1 expected state version a current coordinator fence podle typu operace.",
+      "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+      "requiredBySource": true
+    }
+  ],
+  "applicableDatabaseRuleIds": [],
+  "compositeForeignKeyPolicy": "APPLY_ALL_SOURCE_RULES_WHOSE_TABLE_SET_INTERSECTS_SUBJECT_OR_ROOT; NONE_IF_EMPTY",
+  "deferredTriggerPolicy": "APPLY_SOURCE_DECLARED_DEFERRED_TRIGGER_RULES_BEFORE_TERMINAL_COMMIT",
+  "stateVersionPolicy": "CAS_REQUIRED_FOR_MUTATION; READ_ONLY_FOR_CONSISTENT_READ",
+  "externalIoInsideSql": false,
+  "sourceRefs": [
+    {
+      "section": "51.2",
+      "anchor": "section.51.2",
+      "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12",
+      "relation": "AUTHORITY"
+    },
+    {
+      "section": "51.5",
+      "anchor": "section.51.5",
+      "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12",
+      "relation": "AUTHORITY"
+    },
+    {
+      "section": "51.6",
+      "anchor": "section.51.6",
+      "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12",
+      "relation": "AUTHORITY"
+    },
+    {
+      "section": "51.30",
+      "anchor": "section.51.30",
+      "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12",
+      "relation": "AUTHORITY"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "format": "KCML-GENERATION-CREATE-PERSISTENCE-PROPOSAL/1",
+  "operationId": "generation.job.create",
+  "status": "BLOCKED",
+  "proposalScope": "Exact typed protected initial-request snapshot, immutable FOLLOW_UP basis and frozen completion persistence sub-boundaries; no full-root/helper/runtime closure",
+  "authoritativeSources": [
+    "contracts/payload-contracts.json#/records/215/requestSchema/properties/body",
+    "contracts/create-operation-design.schema.json#/$defs/GenerationCreated",
+    "contracts/create-completion.json#/transactions",
+    "contracts/create-completion.json#/postconditions",
+    "SSOT sections8.4,12.47,12.48,12.49,25.11,49.4,49.5,51.2,51.5,51.6,51.8,51.9,51.12",
+    "contracts/registries/EntitySourceRecord.json#/records/73",
+    "contracts/registries/PostgresOperationDesign.json#/records/222"
+  ],
+  "input": {
+    "schema": "urn:kcml:r9:semantic:route.0215:body",
+    "selection": "Resolve route record by operationId; do not trust historical array index",
+    "authority": "Authenticated OWNER is resolved by the canonical server path, not request JSON or a boolean in a model proposal",
+    "conversion": "Strict UTF8/JSON/duplicate-key/schema HTTP admission; exact caller-controlled body is canonicalized by the pinned canonical serializer without changing intent/credential text; server recomputes clientRequestDigest from operationId+body",
+    "kindAdmission": "Owned CREATE/UPDATE/FOLLOW_UP/RETRY/REPAIR policies are resolved separately and rechecked under current locks; this proposal neither grants non-FOLLOW_UP eligibility nor borrows source-state guards",
+    "protectedStorage": "Persist exact canonical typed body encrypted under the existing authenticated master-key mechanism. Directcredential must never appear as plaintext in root metadata, receipt, event, outbox or ordinary audit logs. This is protected generation input, not automatic secret_record/binding creation. Existing OWNER reveal and bounded Secret-use context remain unchanged.",
+    "cryptoPolicy": "Production algorithm/key/nonce/retention binding must use the canonical profile. Nonempty algorithm/key fields or a fixture AEAD algorithm do not establish that profile. Missing exact profile is BLOCKED."
+  },
+  "typedStorage": {
+    "generation_job_initial_request_snapshot": {
+      "job_id": {
+        "type": "uuid",
+        "required": true,
+        "nullable": false,
+        "meaning": "Server-created owning generation_job identity",
+        "source": "25.11 / GenerationCreated.jobId",
+        "origin": "canonical server reservation; FK generation_job(id)"
+      },
+      "snapshot_id": {
+        "type": "uuid",
+        "required": true,
+        "nullable": false,
+        "meaning": "Immutable server snapshot selector for initial-request hydration",
+        "source": "12.49 frozenBasis.snapshotId",
+        "origin": "server only; UNIQUE"
+      },
+      "logical_operation_id": {
+        "type": "uuid",
+        "required": true,
+        "nullable": false,
+        "meaning": "Original create logical operation, not a worker/request identity",
+        "source": "49.4/51.12",
+        "origin": "server idempotency claim; UNIQUE and deferred existing domain_command FK"
+      },
+      "request_schema_id": {
+        "type": "text const",
+        "required": true,
+        "nullable": false,
+        "value": "urn:kcml:r9:semantic:route.0215:body",
+        "source": "12.47 current request mask",
+        "origin": "frozen server schema registry"
+      },
+      "request_schema_digest": {
+        "type": "bytea32",
+        "required": true,
+        "nullable": false,
+        "meaning": "Digest of exact frozen authoritative schema, never model-declared",
+        "source": "49.4/49.5 pinned descriptor",
+        "origin": "canonical server schema bytes; exact serializer binding required"
+      },
+      "content_digest": {
+        "type": "bytea32",
+        "required": true,
+        "nullable": false,
+        "meaning": "SHA256 of actual decrypted canonical initial-request bytes; matches GenerationCreated.initialRequestDigest",
+        "source": "25.11/12.48",
+        "origin": "server computation; wire sha256:<lowerhex>"
+      },
+      "ciphertext": {
+        "type": "bytea nonempty",
+        "required": true,
+        "nullable": false,
+        "meaning": "Authenticated encryption of exact typed initial body, including any directcredential",
+        "source": "8.4/12.47; technical protected-input storage projection",
+        "origin": "canonical cryptographic service, never client ciphertext"
+      },
+      "nonce": {
+        "type": "bytea profile-sized",
+        "required": true,
+        "nullable": false,
+        "meaning": "Canonical authenticated-encryption nonce; nonempty alone is insufficient",
+        "source": "8.4",
+        "origin": "canonical crypto profile; exact size/reuse policy binding remains BLOCKED"
+      },
+      "algorithm": {
+        "type": "server registry identifier",
+        "required": true,
+        "nullable": false,
+        "meaning": "Existing canonical AEAD algorithm selection",
+        "source": "8.4",
+        "origin": "canonical crypto profile; no new algorithm choice from this proposal"
+      },
+      "key_id": {
+        "type": "server registry identifier",
+        "required": true,
+        "nullable": false,
+        "meaning": "Canonical master-key identity",
+        "source": "8.4/50.30",
+        "origin": "read-only systemd credential materialization; not request JSON"
+      },
+      "crypto_profile_digest": {
+        "type": "bytea32",
+        "required": true,
+        "nullable": false,
+        "meaning": "Frozen exact crypto-context policy binding",
+        "source": "8.4/49.5",
+        "origin": "trusted server profile; concrete registry materialization required"
+      },
+      "created_at": {
+        "type": "timestamptz",
+        "required": true,
+        "nullable": false,
+        "meaning": "Creation time in authoritative transaction",
+        "source": "25.11/51.5",
+        "origin": "db_now from locked transaction; wire date-time"
+      }
+    },
+    "generation_job_follow_up_basis": {
+      "job_id": "Server-created child generation_job FK; required UUID",
+      "source_job_id": "Verified persisted owned parent generation_job FK; required UUID; differs from new child",
+      "source_snapshot_id": "Immutable server-selected snapshot UUID; actual physical snapshot registry join remains mandatory",
+      "basis_kind": "Exact INITIAL_REQUEST / SPECIFICATION_REVISION / PUBLISHED_FINAL_OUTPUT enum from12.49",
+      "revision_id": "Required UUID only for SPECIFICATION_REVISION; otherwise NULL",
+      "artifact_id": "Required UUID only for PUBLISHED_FINAL_OUTPUT; otherwise NULL",
+      "publication_receipt_id": "Required server receipt UUID only for PUBLISHED_FINAL_OUTPUT; otherwise NULL; COMMITTED receipt actual join is mandatory",
+      "content_digest": "Server recomputed32-byte actual source content digest",
+      "lineage_digest": "Server32-byte digest of exact canonical frozenBasis descriptor excluding lineageDigest; bytes-to-wire conversion uses sha256:<lowerhex>",
+      "invariants": "One row per child; immutable after admission; no source state/current pointer in lineage; do not mutate/reopen source job; own sufficient immutable basis and publication guards are rechecked under locks"
+    },
+    "generation_job_create_completion": {
+      "logical_operation_id": "Original stable logical operation PK with deferred domain_command FK",
+      "job_id": "One exact created generation_job FK, UNIQUE; no second root on replay",
+      "semantic_response_bytes": "Actual canonical semantic_result(response) bytes: resultDigest/idempotencyReplay excluded exactly as native helper defines; strict native response validation mandatory before freezing",
+      "result_digest": "32-byte SHA256 of semantic_response_bytes; DB CHECK over actual bytes",
+      "output_receipt_bytes": "Exact canonical GenerationCreated output bytes with jobId/stateDISCUSSING/stateVersion/initialRequestDigest/createdAt only",
+      "output_receipt_digest": "32-byte SHA256 of actual output_receipt_bytes; typed event.payloadDigest matches this digest",
+      "immutable_event_id": "One UNIQUE server event UUID; event table physical FK binding remains BLOCKED",
+      "aggregate_event_sequence": "Positive bigint allocated under root lock; wire canonical decimal string; current source does not imply constant first sequence",
+      "committed_state_version": "Nonnegative bigint from actual persisted root; wire canonical decimal string; no fabricated constant initial value",
+      "created_at": "Authoritative db_now timestamp matching frozen output receipt",
+      "invariants": "immutable UPDATE forbidden; event payload equals exact frozen output, parent root ID and counter relations verified; committed publication/outbox/audit physical joins mandatory"
+    }
+  },
+  "transaction": [
+    "Outsidetransaction: strictdecode/normalize/typedvalidate exact body, resolve trusted authenticated OWNER and preflight; no preflight result grants current authority",
+    "BEGIN ONLINE_MUTATION READCOMMITTED; lock_timeout1500ms, statement_timeout10s, idle_in_transaction_session_timeout10s from51.2; settings precede any business query",
+    "Acquire recovery advisorynamespace1000 key0 shared, then other permitted advisorylocks sorted(namespace_id,signed_key); stable create namespace/locator key derives fullcanonicalbytes, not random newly created UUID",
+    "Lock platform/deployment/security singletonheads per51.6; derive current incarnation/recovery/authority from actual locked server rows",
+    "ClassC subordinal0 stable locator lookup using operation_family_id+caller_authority_kind+stable_caller_object_id+stable_business_target_key+client_key_digest; do not use current revision, session, lease or generated rootUUID in locator identity",
+    "Existing matching locator: authenticate result access, compare caller requestdigest byte equality, preserve frozen execution descriptor; return original committed receipt or currentoperation/reconcile reference; do not freshadmit, insertanotherroot/event or update an existing outcome",
+    "Fresh locator: canonical INSERT ONCONFLICT DONOTHING, SELECT FORUPDATE, compare requestdigest; claim classC subordinal1 domainidempotency and logicaloperation atomically; missing/tombstoned result never frees key for anothercreate",
+    "Acquire classD applicableactivationheads and classE actualparents in native ordinal order; generation_job rootordinal90, actual UUID-byte ordering; first-create absentroot uses stableparent/namespace guard. Recheck all current kind/parent/target/deadline/incarnation/fence/credential/basis guards under locks",
+    "Reserve newjob serverID; persist typed generation_job with stateDISCUSSING, immutable protectedinitial snapshot and serverdigest. If FOLLOW_UP, persist one exactfrozen basis after actualbyte/ownership/schema/content/lineage/publication verification. Do not assign generationexecution authority before its own approval contract",
+    "Allocate actual aggregate-local sequence; persist frozen typed createcompletion, generation.job.created event, audit, publish-after-commit outbox and canonicalidempotency outcome in one atomicset. Initialrequest inputs exist before any modelprocessing/work is dispatched",
+    "Lock audithead last; chain append exactcanonicalaudit record. No HTTP/provider/model/browser/OS/network I/O occurs inside transaction",
+    "COMMIT is solelinearization. Only after commit emit frozenresponse/SSE/outboxevent. Publisher/consumer deduplicate immutableeventUUID and verify actual persisted bytes/digest/counter/root/receipt relations",
+    "Fullrollback evidence permits only canonical sameoperation retry under current pinnedpolicy; unknowncommit outcome reconciles samelocator before anycreate. Late/duplicatework cannot rewrite frozenreceipt or source lineage"
+  ],
+  "hydration": [
+    "Resolve retained snapshot by immutable serverID and owningjob, never current pointer or caller-declared authority",
+    "Verify current read/Secret-use authority, exactcrypto profile and frozen schema digest; authenticateddecrypt actual stored ciphertext internally",
+    "Recompute initialcontent digest from actual decrypted canonicalbytes; strictdecode, exact typed schema and canonicalbyte equality required",
+    "FOLLOW_UP verifies frozen sourcejob/snapshot/variant IDs, actualbytes/contentdigest and exactlineagedigest; requiredpublicationreceipt must be persistedCOMMITTED and bound to artifact/contentdigest. Parent mutable state/current pointers never redefine frozen basis",
+    "Hydrated plaintext remains internal to authorized bounded context. Ordinary APIreceipt/event/outbox/audit carries only exact typed publicmetadata, not raw credential or decrypted snapshot",
+    "Consumer verifies semanticpostconditions before use; selecting an existing UUID or syntacticvalidschema is insufficient"
+  ],
+  "mandatoryBeforeGenerationStillBlocked": [
+    {
+      "id": "GEN-CREATE-SQL-CONTEXT",
+      "fields": "kcml_operation_context_v1 exactcomposite columns and trustedconstructor; platform/deployment/recovery/security/lease heads and ownfence predicates",
+      "authority": "49.5/49.33/51.2/51.5/51.6/51.9",
+      "kind": "TECHNICAL"
+    },
+    {
+      "id": "GEN-CREATE-SQL-PHYSICAL-ROOT",
+      "fields": "Complete generation_job25.11 columns, lifecycle/currentphase mapping, immutableinitial linkage, coordinator/cancellation/approval/capability/release fields and physicalconstraints; existinggeneric24semanticfield plan is not an exactDDL; native EntitySourceRecord73 currently fieldAuthorities=[]",
+      "authority": "25.11/49.15/51.9",
+      "kind": "TECHNICAL"
+    },
+    {
+      "id": "GEN-CREATE-SQL-IDEMPOTENCY",
+      "fields": "Actual domain_command/domain_idempotency_record/locator physicalcolumns including finalcanonical stablelocator names, frozenrecord FK, retention/tombstone and existingdescriptor replay joins",
+      "authority": "49.4/51.12",
+      "kind": "TECHNICAL"
+    },
+    {
+      "id": "GEN-CREATE-SQL-CLOSURE-JOINS",
+      "fields": "Exact event/outbox/audit/queue table names, UUID/counter/digest columnbindings, contiguous sequence and auditappend atomicclosure constraints; publicationreceipt and artifact/revision/snapshot FKs; include exact pending/ACCEPTED domain_command+queue persistence if that native response branch is used, with no created-job event before root commit",
+      "authority": "12.48/12.49/25.11/51.5/51.30",
+      "kind": "TECHNICAL"
+    },
+    {
+      "id": "GEN-CREATE-CRYPTO-PROFILE",
+      "fields": "Existing canonical authenticatedcrypto algorithm/key/nonce/AAD/retention bindings for directcredential protectedinitialrequest; unsupportedprofile must block",
+      "authority": "8.4/8.6/12.47/49.5/50.30",
+      "kind": "TECHNICAL"
+    },
+    {
+      "id": "GEN-CREATE-OWN-ADMISSION",
+      "fields": "Exact owned per-kind parent/target rules, sourceparser/sufficiency checks and bounded directcredential policy",
+      "authority": "12.41/12.47/12.49/25.11",
+      "kind": "TECHNICAL",
+      "coordinatorOwned": true
+    }
+  ],
+  "futureRuntimeAcceptance": [
+    "Actual PostgreSQL18.6 migrations/functions/roles and nativecontext authconstruction",
+    "Real concurrent idempotency claims, currenthead/rootlocks/CAS/fences, restart/rollback/deadlock recovery and exactlyonce committed outbox/audit",
+    "Actual canonicalcrypto/masterkey service storage/decryption/retention; SQLite/AESGCM fixture is not its implementation",
+    "Production UI/read/consumer hydration and modelworkflow integration"
+  ],
+  "ownerDecisionsIdentifiedInThisSQLScope": [],
+  "SSOT_CONTRACT_READY": "BLOCKED",
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED",
+  "sourceDocumentSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+  "nativePayloadResourceSha256": "2eb9c91d314415e4043c46c6c98ffc0af92efc059aeaf921f7060c5068b383a6",
+  "proposedSQLSha256": "4ab0a6521cfe3df19fd9d3655ef87e8fa1982d8aad8c5ce7f07c6fd4840dd24d",
+  "projectionObservations": {
+    "nativePostgresOperationDesign222": "ONLINE_MUTATION; physicalPhasesT1/T3; mutationCas SOURCE_STATE_VERSION_AND_AUTHORITY_PREDICATE_NOT_SQL; generic source plan cannot prove actual atomic layout",
+    "nativeEntitySourceRecord73": "generation_job at25.11; fieldAuthorities=[]; prose entity is not executable SQL",
+    "initialDiscussion": "stateDISCUSSING is exact native created-state, never jobCOMPLETED; currentphase/coordinator/approval/lease initial bindings need ownroot materialization, no arbitrary constants"
+  }
+}

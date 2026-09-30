@@ -1,0 +1,143 @@
+[
+  {
+    "index": 0,
+    "record": {
+      "aggregateRoot": "OWNER_IDENTITY",
+      "apiChatParity": "OWNER UI action, direct OWNER API route and central chat action registry use the same operationId and domain service; no UI-only writer.",
+      "audit": "Every admission, transition, child reservation, outcome and manual-review decision records logicalOperationId, correlationId, actor/channel and before/after digests.",
+      "cancellation": "Before commit: no change. After commit: reset outcome is canonical and cannot be cancelled; enrollment may be abandoned/renewed by its own state machine.",
+      "canonicalWriter": "OwnerAuthService",
+      "concurrencyGuard": "owner_identity.stateVersion + current reauthentication evidence",
+      "errorCodes": [
+        "AUTH_REAUTH_REQUIRED",
+        "STATE_VERSION_CONFLICT",
+        "MFA_RESET_ALREADY_CURRENT"
+      ],
+      "exposureClass": "OWNER_COMMAND",
+      "idempotencyScope": "owner+mfa-reset+clientIdempotencyKey",
+      "linearizationPoint": "MFA reset epoch increment + prior factor invalidation + enrollment challenge creation in one DB transaction",
+      "method": "POST",
+      "operationId": "owner.mfa.reset",
+      "path": "/api/v1/auth/mfa/reset",
+      "processFamilies": [
+        "SINGLE_OPERATION_ROOT"
+      ],
+      "purpose": "Reset existing OWNER MFA only after current-session reauthentication, invalidate prior MFA/recovery material and enter bounded enrollment state.",
+      "recovery": "Replay committed reset outcome by idempotency key; stale reauth or stateVersion requires refresh/new command.",
+      "requestSchemaRef": "closure/contracts/operation-payloads.json#/records/0/requestSchema",
+      "requestSchemaSummary": "reauthenticationEvidenceId, expectedOwnerStateVersion, idempotencyKey",
+      "responseSchemaRef": "closure/contracts/operation-payloads.json#/records/0/responseSchema",
+      "responseSchemaSummary": "resetEpoch, enrollmentState, correlationId, logicalOperationId",
+      "sideEffectClass": "LOCAL_STATE",
+      "sourceUiActions": [
+        "security.mfaReset"
+      ],
+      "terminalClosure": "Reset transaction, audit and outbox committed; no old MFA factor remains valid."
+    }
+  },
+  {
+    "index": 1,
+    "record": {
+      "aggregateRoot": "SYSTEM_CHAT_CONVERSATION",
+      "apiChatParity": "OWNER UI action, direct OWNER API route and central chat action registry use the same operationId and domain service; no UI-only writer.",
+      "audit": "Every admission, transition, child reservation, outcome and manual-review decision records logicalOperationId, correlationId, actor/channel and before/after digests.",
+      "cancellation": "Steering command itself is atomic local state; in-flight child cancellation follows the child operation contract.",
+      "canonicalWriter": "SystemChatService",
+      "concurrencyGuard": "conversation.stateVersion + exact nonterminal turn/checkpoint + no reconciliation barrier",
+      "errorCodes": [
+        "CHAT_TURN_TERMINAL",
+        "CHAT_RECONCILIATION_REQUIRED",
+        "STATE_VERSION_CONFLICT"
+      ],
+      "exposureClass": "OWNER_COMMAND",
+      "idempotencyScope": "conversation+turn+clientIdempotencyKey",
+      "linearizationPoint": "steering message + successor checkpoint/interrupt intent + audit/outbox commit",
+      "method": "POST",
+      "operationId": "chat.turn.steer",
+      "path": "/api/v1/chat/conversations/{conversationId}/turns/{turnId}/steer",
+      "processFamilies": [
+        "CENTRAL_CHAT_TURN"
+      ],
+      "purpose": "Append an OWNER steering instruction to one nonterminal chat turn without replacing authority lineage or silently restarting side effects.",
+      "recovery": "Same key replays the same steering outcome; stale/terminal turn is conflict, never a new implicit turn.",
+      "requestSchemaRef": "closure/contracts/operation-payloads.json#/records/1/requestSchema",
+      "requestSchemaSummary": "turnId, text|null, contentRefs[], expectedStateVersion, clientIdempotencyKey",
+      "responseSchemaRef": "closure/contracts/operation-payloads.json#/records/1/responseSchema",
+      "responseSchemaSummary": "messageId, checkpointDisposition, logicalOperationId, correlationId",
+      "sideEffectClass": "LOCAL_STATE",
+      "sourceUiActions": [
+        "chat.steer"
+      ],
+      "terminalClosure": "Steering instruction is durably ordered and linked to the exact turn/checkpoint."
+    }
+  },
+  {
+    "index": 12,
+    "record": {
+      "aggregateRoot": "PRODUCTION_ACCEPTANCE_RUN",
+      "apiChatParity": "OWNER UI action, direct OWNER API route and central chat action registry use the same operationId and domain service; no UI-only writer.",
+      "audit": "Every admission, transition, child reservation, outcome and manual-review decision records logicalOperationId, correlationId, actor/channel and before/after digests.",
+      "cancellation": "Cancel intent is accepted only through acceptance.run.cancel; already possible fixture effects must be cleaned/reconciled before terminal CANCELLED.",
+      "canonicalWriter": "AcceptanceService",
+      "concurrencyGuard": "exact deployed SHA/release + environment readiness + no conflicting active acceptance namespace",
+      "errorCodes": [
+        "ACCEPTANCE_ENVIRONMENT_NOT_READY",
+        "ACCEPTANCE_RUN_CONFLICT",
+        "ACCEPTANCE_PLAN_STALE"
+      ],
+      "exposureClass": "OWNER_COMMAND",
+      "idempotencyScope": "environment+releaseSha+profile+clientIdempotencyKey",
+      "linearizationPoint": "production_acceptance_run insert + immutable test plan/profile digest + queue/outbox reservation",
+      "method": "POST",
+      "operationId": "acceptance.run.start",
+      "path": "/api/v1/acceptance-runs",
+      "processFamilies": [
+        "ACCEPTANCE_RUN"
+      ],
+      "purpose": "Start the separately repeatable production-shaped acceptance workflow over one exact deployed SHA/release.",
+      "recovery": "Worker takeover resumes from checkpoint; same run never rebinds to a different SHA/release/profile.",
+      "requestSchemaRef": "closure/contracts/operation-payloads.json#/records/12/requestSchema",
+      "requestSchemaSummary": "releaseId, deployedCommitSha, environment, acceptanceProfile, fixtureNamespace, idempotencyKey",
+      "responseSchemaRef": "closure/contracts/operation-payloads.json#/records/12/responseSchema",
+      "responseSchemaSummary": "acceptanceRunId, planDigest, state, logicalOperationId",
+      "sideEffectClass": "LOCAL_STATE",
+      "sourceUiActions": [
+        "release.acceptance"
+      ],
+      "terminalClosure": "All required checks have terminal evidence, fixtures cleaned, no unknown effect/orphan, audit/outbox closed and run terminal."
+    }
+  },
+  {
+    "index": 13,
+    "record": {
+      "aggregateRoot": "PRODUCTION_ACCEPTANCE_RUN",
+      "apiChatParity": "OWNER UI action, direct OWNER API route and central chat action registry use the same operationId and domain service; no UI-only writer.",
+      "audit": "Every admission, transition, child reservation, outcome and manual-review decision records logicalOperationId, correlationId, actor/channel and before/after digests.",
+      "cancellation": "Cancellation command is itself atomic; run cancellation semantics are the subject of the operation.",
+      "canonicalWriter": "AcceptanceService",
+      "concurrencyGuard": "acceptance run stateVersion + nonterminal state",
+      "errorCodes": [
+        "ACCEPTANCE_RUN_TERMINAL",
+        "ACCEPTANCE_CANCEL_RECONCILIATION_REQUIRED"
+      ],
+      "exposureClass": "OWNER_COMMAND",
+      "idempotencyScope": "acceptanceRun+cancel+clientIdempotencyKey",
+      "linearizationPoint": "cancel intent/version commit; terminal CANCELLED only after required cleanup/reconciliation",
+      "method": "POST",
+      "operationId": "acceptance.run.cancel",
+      "path": "/api/v1/acceptance-runs/{runId}/cancel",
+      "processFamilies": [
+        "ACCEPTANCE_RUN"
+      ],
+      "purpose": "Canonical cancellation operation for a nonterminal production acceptance run.",
+      "recovery": "Resume cleanup/reconciliation under current fence; stale workers cannot write terminal state.",
+      "requestSchemaRef": "closure/contracts/operation-payloads.json#/records/13/requestSchema",
+      "requestSchemaSummary": "runId, expectedStateVersion, reason, idempotencyKey",
+      "responseSchemaRef": "closure/contracts/operation-payloads.json#/records/13/responseSchema",
+      "responseSchemaSummary": "runId, state, cleanupStatus, reconciliationStatus",
+      "sideEffectClass": "LOCAL_STATE",
+      "sourceUiActions": [],
+      "terminalClosure": "Run is CANCELLED only with zero required pending cleanup/unknown fixture effect; otherwise remains reconciliation/manual-review."
+    }
+  }
+]

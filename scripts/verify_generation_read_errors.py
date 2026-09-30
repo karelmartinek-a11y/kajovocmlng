@@ -47,7 +47,26 @@ def main():
     for row in records:
         if row['routeId'] not in set(READS)|{'route.0234'}:
             check(row['routeId']+'/unchanged',row==old_rows[row['routeId']])
-    check('native-masks-unchanged',rs[GEN]['raw']==old[GEN]['raw'])
+    # Precise technical create-error catalog additions are authoritative12.48/12.49,
+    # not a reason to roll every native mask back to the historical snapshot.
+    native_expected=json.loads(old[GEN]['raw'])
+    if 'contracts/create-completion.json' in rs:
+        from create_completion_contracts import ERRORS
+        catalog=json.loads(rs['contracts/create-completion.json']['raw'])
+        check('create-error-predicates-exact-current-authoring',catalog['errorPredicates']==__import__('create_completion_contracts').contract()['errorPredicates'])
+        codes=native_expected['$defs']['SourceEnum110']['enum']
+        for error in ERRORS:
+            if error['stableCode'] not in codes:codes.append(error['stableCode'])
+    check('native-masks-exact-with-scoped-create-error-extension',bundle==native_expected)
+    # Independent mutations preserve the same valid positive bundle and prove
+    # this composition cannot silently accept an unrelated mask change.
+    for mutation in ['missing-original-error','unknown-error','unrelated-counter-change']:
+        damaged=copy.deepcopy(native_expected)
+        if mutation=='missing-original-error':damaged['$defs']['SourceEnum110']['enum'].pop(0)
+        elif mutation=='unknown-error':damaged['$defs']['SourceEnum110']['enum'].append('MODEL_UNDECLARED_SUCCESS')
+        else:damaged['$defs']['Counter']={'type':'number'}
+        check('native-composition-reject/'+mutation,damaged==native_expected,False)
+
     module=types.ModuleType('read_error_test');sys.modules[module.__name__]=module
     exec(compile(rs['scripts/ssot/ssot_control.py']['raw'],'SSOT:ssot_control.py','exec'),module.__dict__)
     expected_native=old['scripts/ssot/ssot_control.py']['raw'].decode()

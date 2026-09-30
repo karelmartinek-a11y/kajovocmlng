@@ -1,0 +1,39 @@
+{
+  "sourceDocumentSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+  "reviewedScreenshots": 4,
+  "screenshotUniverse": 96,
+  "reviewScope": "Representative layout/content inspection, not exhaustive pixel or full semantic review",
+  "records": [
+    {
+      "screenshot": "audit/generated/resume-5334/ui/renders/cs/1366x768/specification.png",
+      "sha256": "80b394e80684532b03e7fe3a7abc15cfc0ca6d5736bda785c99258efbd3f7ba9",
+      "review": "REVIEWED_SCOPED_LAYOUT_ONLY",
+      "notes": "Editor, bounded impact, disabled approval and immutable previous revision explanation visible; no clipped main controls."
+    },
+    {
+      "screenshot": "audit/generated/resume-5334/ui/renders/cs/390x844/dashboard.png",
+      "sha256": "442d061aaae1002e718ffe13e0f14369474dc86e612d82fbf597dfec6916c078",
+      "review": "REVIEWED_SCOPED_LAYOUT_ONLY",
+      "notes": "Mobile list counterpart and direction labels visible; no horizontal overflow. Branch glyph preceding source label appears as a small square in current fallback font and needs font/glyph review."
+    },
+    {
+      "screenshot": "audit/generated/resume-5334/ui/renders/cs/1366x768/failure.png",
+      "sha256": "7fd5c71195f531774415120bb70ebd5096b5ca371897a05686a3fe970692c4f1",
+      "review": "REVIEWED_SCOPED_LAYOUT_ONLY",
+      "notes": "UNKNOWN result visibly unresolved; automatic repetition paused and start unavailable; no false successful effect claim."
+    },
+    {
+      "screenshot": "audit/generated/resume-5334/ui/renders/en/768x1024/human-wait.png",
+      "sha256": "b890f6a18f2564665c9bd23e53c31fb5044a14d156cff53ec56a495fcf87f1d6",
+      "review": "REVIEWED_SCOPED_LAYOUT_ONLY",
+      "notes": "Explicit illustrative login challenge; takeover action and unavailable resume shown, English labels readable; no live account access."
+    }
+  ],
+  "runtimeBackendTested": false,
+  "remaining": [
+    "92 individual screenshot reviews",
+    "Canonical font realization/glyph rendering",
+    "Administrative legacy generation/Secrets references",
+    "Full UI operation/read/hydration semantic and runtime acceptance"
+  ]
+}

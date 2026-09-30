@@ -1,0 +1,381 @@
+{
+  "status": "PARTIAL_TECHNICAL_PROPOSAL_NOT_EFFECTIVE_SSOT",
+  "sourceBindings": {
+    "baseHead": "5334d8caa1b284cb1b4857f51aef2d431b571427",
+    "ssotSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+    "sources": {
+      "12.18": {
+        "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#\u00a712.18",
+        "startLine": 3460,
+        "endLine": 3474,
+        "sha256": "0fb525210c9ecb225ee6c89216745011cdba39ae181dcdd2bc655a140bc70f12",
+        "evidence": "audit/generated/resume-5334/lifecycle/authority-12.18.md"
+      },
+      "21.3": {
+        "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#\u00a721.3",
+        "startLine": 6181,
+        "endLine": 6185,
+        "sha256": "021bb0103a71703b4bf730b8cf27f57bdcd437c6c9f9e7e946476ca3ea030886",
+        "evidence": "audit/generated/resume-5334/lifecycle/authority-21.3.md"
+      },
+      "11.24": {
+        "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#\u00a711.24",
+        "startLine": 2653,
+        "endLine": 2663,
+        "sha256": "cf4c097013acb83a08b1be34fbd709e93797942d18e3654f0203c7c9403665ce",
+        "evidence": "audit/generated/resume-5334/lifecycle/authority-11.24.md"
+      },
+      "25.14": {
+        "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#\u00a725.14",
+        "startLine": 8349,
+        "endLine": 8387,
+        "sha256": "bfad2f6c57c16970cf7d6b3b9ceb293722a22a4d47f3822e8b6e88417a3311d6",
+        "evidence": "audit/generated/resume-5334/lifecycle/authority-25.14.md"
+      },
+      "29.5": {
+        "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#\u00a729.5",
+        "startLine": 19887,
+        "endLine": 19893,
+        "sha256": "075af2df4e2927202773303f57f4faa3cf8328269f3da2c8dda1d1cfc4b08d70",
+        "evidence": "audit/generated/resume-5334/lifecycle/authority-29.5.md"
+      },
+      "49.4": {
+        "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#\u00a749.4",
+        "startLine": 42036,
+        "endLine": 42103,
+        "sha256": "57a68b663367b6bfffb88ccedf80f7e94a9b3f882f7643a32c48d8daee1ce24e",
+        "evidence": "audit/generated/resume-5334/lifecycle/authority-49.4.md"
+      },
+      "49.5": {
+        "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#\u00a749.5",
+        "startLine": 42103,
+        "endLine": 42121,
+        "sha256": "037a113529d9036cec6eef5cbc5c53617e966c3f8274c4783faf0de9d36d63b5",
+        "evidence": "audit/generated/resume-5334/lifecycle/authority-49.5.md"
+      },
+      "73.7": {
+        "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#\u00a773.7",
+        "startLine": 673968,
+        "endLine": 673974,
+        "sha256": "d1e15a870dd100c98fa0ba2d8d6244f2d9be753da5d481a42e3f63f7735799d8",
+        "evidence": "audit/generated/resume-5334/lifecycle/authority-73.7.md"
+      },
+      "closure/contracts/operation-overlay.json": {
+        "sha256": "844a0a188f24997d63d32f13c5078a6767ac2b177a5065ec911824f12f59663e",
+        "evidence": "audit/generated/resume-5334/lifecycle/operation-overlay.json",
+        "records": [
+          {
+            "operationId": "owner.mfa.reset",
+            "sourcePointer": "closure/contracts/operation-overlay.json#/operations/0"
+          },
+          {
+            "operationId": "chat.turn.steer",
+            "sourcePointer": "closure/contracts/operation-overlay.json#/operations/1"
+          },
+          {
+            "operationId": "acceptance.run.start",
+            "sourcePointer": "closure/contracts/operation-overlay.json#/operations/12"
+          },
+          {
+            "operationId": "acceptance.run.cancel",
+            "sourcePointer": "closure/contracts/operation-overlay.json#/operations/13"
+          }
+        ]
+      },
+      "closure/contracts/operation-payloads.json": {
+        "sha256": "5b3e55556392de8451780634767750ac0c16496682b372c47befc28c0f7dcfbd",
+        "evidence": "audit/generated/resume-5334/lifecycle/operation-payloads.json",
+        "records": [
+          {
+            "operationId": "owner.mfa.reset",
+            "sourcePointer": "closure/contracts/operation-payloads.json#/records/0"
+          },
+          {
+            "operationId": "chat.turn.steer",
+            "sourcePointer": "closure/contracts/operation-payloads.json#/records/1"
+          },
+          {
+            "operationId": "acceptance.run.start",
+            "sourcePointer": "closure/contracts/operation-payloads.json#/records/12"
+          },
+          {
+            "operationId": "acceptance.run.cancel",
+            "sourcePointer": "closure/contracts/operation-payloads.json#/records/13"
+          }
+        ]
+      }
+    },
+    "coverage": "Targeted six-field semantic review. Source extraction separate from reference-model validation and implementation acceptance."
+  },
+  "fieldCount": 6,
+  "proposedFieldMasks": 5,
+  "effectiveFieldsClosed": 0,
+  "fields": [
+    {
+      "id": "lifecycle:owner.mfa.reset.enrollmentState",
+      "operationId": "owner.mfa.reset",
+      "field": "enrollmentState",
+      "effectiveSourcePointer": "closure/contracts/operation-payloads.json#/records/0/responseSchema/properties/enrollmentState",
+      "proposedMask": {
+        "type": "string",
+        "const": "ENROLLMENT_REQUIRED"
+      },
+      "status": "IN_PROGRESS_NORMATIVE_TECHNICAL_DEFINITION_REQUIRED",
+      "authorityRefs": [
+        "closure/contracts/operation-overlay.json#/operations/0",
+        "SSOT \u00a712.18",
+        "SSOT \u00a721.3"
+      ],
+      "referenceEvidence": "audit/generated/resume-5334/lifecycle/reference-tests.json",
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "lifecycle:acceptance.run.start.state",
+      "operationId": "acceptance.run.start",
+      "field": "state",
+      "effectiveSourcePointer": "closure/contracts/operation-payloads.json#/records/12/responseSchema/properties/state",
+      "proposedMask": {
+        "type": "string",
+        "const": "QUEUED"
+      },
+      "status": "IN_PROGRESS_NORMATIVE_TECHNICAL_DEFINITION_REQUIRED",
+      "authorityRefs": [
+        "closure/contracts/operation-overlay.json#/operations/12",
+        "SSOT \u00a712.18",
+        "SSOT \u00a725.14 production_acceptance_run",
+        "SSOT \u00a729.5",
+        "SSOT \u00a799.4",
+        "SSOT \u00a799.5"
+      ],
+      "referenceEvidence": "audit/generated/resume-5334/lifecycle/reference-tests.json",
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "lifecycle:acceptance.run.cancel.state",
+      "operationId": "acceptance.run.cancel",
+      "field": "state",
+      "effectiveSourcePointer": "closure/contracts/operation-payloads.json#/records/13/responseSchema/properties/state",
+      "proposedMask": {
+        "type": "string",
+        "enum": [
+          "CANCEL_REQUESTED",
+          "RECONCILING",
+          "MANUAL_REVIEW",
+          "CANCELLED"
+        ]
+      },
+      "status": "IN_PROGRESS_NORMATIVE_TECHNICAL_DEFINITION_REQUIRED",
+      "authorityRefs": [
+        "closure/contracts/operation-overlay.json#/operations/13",
+        "SSOT \u00a712.18",
+        "SSOT \u00a725.14 production_acceptance_run",
+        "SSOT \u00a729.5",
+        "SSOT \u00a799.4",
+        "SSOT \u00a799.5"
+      ],
+      "referenceEvidence": "audit/generated/resume-5334/lifecycle/reference-tests.json",
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "lifecycle:acceptance.run.cancel.cleanupStatus",
+      "operationId": "acceptance.run.cancel",
+      "field": "cleanupStatus",
+      "effectiveSourcePointer": "closure/contracts/operation-payloads.json#/records/13/responseSchema/properties/cleanupStatus",
+      "proposedMask": {
+        "type": "string",
+        "enum": [
+          "PENDING",
+          "COMPLETE",
+          "FAILED"
+        ]
+      },
+      "status": "IN_PROGRESS_NORMATIVE_TECHNICAL_DEFINITION_REQUIRED",
+      "authorityRefs": [
+        "closure/contracts/operation-overlay.json#/operations/13",
+        "SSOT \u00a712.18",
+        "SSOT \u00a725.14 production_acceptance_run",
+        "SSOT \u00a729.5",
+        "SSOT \u00a799.4",
+        "SSOT \u00a799.5"
+      ],
+      "referenceEvidence": "audit/generated/resume-5334/lifecycle/reference-tests.json",
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "lifecycle:acceptance.run.cancel.reconciliationStatus",
+      "operationId": "acceptance.run.cancel",
+      "field": "reconciliationStatus",
+      "effectiveSourcePointer": "closure/contracts/operation-payloads.json#/records/13/responseSchema/properties/reconciliationStatus",
+      "proposedMask": {
+        "type": "string",
+        "enum": [
+          "PENDING",
+          "COMPLETE",
+          "UNKNOWN",
+          "MANUAL_REVIEW"
+        ]
+      },
+      "status": "IN_PROGRESS_NORMATIVE_TECHNICAL_DEFINITION_REQUIRED",
+      "authorityRefs": [
+        "closure/contracts/operation-overlay.json#/operations/13",
+        "SSOT \u00a712.18",
+        "SSOT \u00a725.14 production_acceptance_run",
+        "SSOT \u00a729.5",
+        "SSOT \u00a799.4",
+        "SSOT \u00a799.5"
+      ],
+      "referenceEvidence": "audit/generated/resume-5334/lifecycle/reference-tests.json",
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "lifecycle:chat.turn.steer.checkpointDisposition",
+      "operationId": "chat.turn.steer",
+      "field": "checkpointDisposition",
+      "effectiveSourcePointer": "closure/contracts/operation-payloads.json#/records/1/responseSchema/properties/checkpointDisposition",
+      "status": "BLOCKED",
+      "blockerType": "TECHNICAL_MISSING_FIELD_MEANING",
+      "proposedMask": null,
+      "authorityRefs": [
+        "closure/contracts/operation-overlay.json#/operations/1",
+        "SSOT \u00a711.24",
+        "SSOT \u00a712.18"
+      ],
+      "decisionGap": "Own checkpoint/intent disposition field meaning and branch predicates absent. Neighboring generation-discussion lifecycle is not authority.",
+      "variants": [
+        {
+          "id": "SINGLE_DURABLE_STEERING_RECEIPT",
+          "proposedValue": "STEERING_COMMITTED",
+          "meaning": "Durable ordered steering instruction and its checkpoint/intent linkage only, no promise of completed side-effect cancellation."
+        },
+        {
+          "id": "EXPLICIT_CHECKPOINT_VERSUS_INTENT",
+          "proposedValues": [
+            "INTERRUPT_INTENT_COMMITTED",
+            "SUCCESSOR_CHECKPOINT_COMMITTED"
+          ],
+          "meaning": "Disjoint persisted outcomes, requiring own precise central-chat conditions not yet defined by existing overlay slash."
+        }
+      ]
+    }
+  ],
+  "runDictionaryProposal": {
+    "aggregateRoot": "PRODUCTION_ACCEPTANCE_RUN",
+    "states": [
+      "QUEUED",
+      "RUNNING",
+      "CANCEL_REQUESTED",
+      "RECONCILING",
+      "MANUAL_REVIEW",
+      "SUCCEEDED",
+      "FAILED",
+      "CANCELLED"
+    ],
+    "terminalStates": [
+      "SUCCEEDED",
+      "FAILED",
+      "CANCELLED"
+    ],
+    "transitions": [
+      {
+        "from": "QUEUED",
+        "to": "RUNNING",
+        "guards": [
+          "CURRENT_FENCE",
+          "EXACT_RUN_SNAPSHOT",
+          "CLAIM_COMMITTED"
+        ]
+      },
+      {
+        "from": [
+          "QUEUED",
+          "RUNNING"
+        ],
+        "to": "CANCEL_REQUESTED",
+        "guards": [
+          "CURRENT_FENCE",
+          "CANCEL_INTENT_COMMITTED"
+        ]
+      },
+      {
+        "from": "CANCEL_REQUESTED",
+        "to": "RECONCILING",
+        "guards": [
+          "PENDING_CLEANUP_OR_RECONCILIATION",
+          "CURRENT_FENCE"
+        ]
+      },
+      {
+        "from": [
+          "RUNNING",
+          "CANCEL_REQUESTED",
+          "RECONCILING"
+        ],
+        "to": "MANUAL_REVIEW",
+        "guards": [
+          "UNKNOWN_OUTCOME",
+          "MANUAL_REVIEW_RECORDED",
+          "CURRENT_FENCE"
+        ]
+      },
+      {
+        "from": [
+          "CANCEL_REQUESTED",
+          "RECONCILING",
+          "MANUAL_REVIEW"
+        ],
+        "to": "CANCELLED",
+        "guards": [
+          "CANCEL_INTENT_COMMITTED",
+          "KNOWN_TERMINAL_REQUIRED_CHECKS",
+          "VERIFIED_EMPTY_PENDING_CLEANUP",
+          "ALL_EFFECT_OUTCOMES_KNOWN",
+          "NO_ORPHANS",
+          "CURRENT_FENCE",
+          "AUDIT_OUTBOX_ATOMIC"
+        ]
+      },
+      {
+        "from": "RUNNING",
+        "to": "SUCCEEDED",
+        "guards": [
+          "ALL_REQUIRED_CHECKS_PASSED",
+          "KNOWN_TERMINAL_REQUIRED_CHECKS",
+          "ALL_EFFECT_OUTCOMES_KNOWN",
+          "VERIFIED_EMPTY_PENDING_CLEANUP",
+          "NO_ORPHANS",
+          "CURRENT_FENCE",
+          "AUDIT_OUTBOX_ATOMIC"
+        ]
+      },
+      {
+        "from": [
+          "RUNNING",
+          "RECONCILING",
+          "MANUAL_REVIEW"
+        ],
+        "to": "FAILED",
+        "guards": [
+          "KNOWN_FAILED_RUN_OUTCOME",
+          "KNOWN_TERMINAL_REQUIRED_CHECKS",
+          "ALL_EFFECT_OUTCOMES_KNOWN",
+          "VERIFIED_EMPTY_PENDING_CLEANUP",
+          "NO_ORPHANS",
+          "CURRENT_FENCE",
+          "AUDIT_OUTBOX_ATOMIC"
+        ]
+      }
+    ],
+    "deniedByDefault": true,
+    "terminalReplayImmutable": true,
+    "reconciliationManualResolution": "Exact OWNER command with current evidence digest; original cancellation intent and run SHA/release/profile remain frozen.",
+    "status": "REQUIRES_OWN_NORMATIVE_MATERIALIZATION_NOT_DERIVED_EXISTING_ENUM",
+    "proofLimitation": "79 checks verify receipt predicates only, not every proposed run worker transition."
+  },
+  "separation": {
+    "A_BEFORE_GENERATION": "Normative field meaning, dictionary, own exact predicates, persistence/transport/event/consumer bindings must be authored and checked.",
+    "B_REFERENCE_DESIGN": "79 positive-derived exact checks PASS over proposed technical receipt masks/predicates; no whole-operation or runtime closure.",
+    "C_IMPLEMENTATION_ACCEPTANCE": "NOT_EVALUATED"
+  },
+  "ownerDecisionQuestion": null,
+  "ownerDecisionExplanation": "Currently identified gaps concern technical field meaning/lifecycle materialization under \u00a712.18. No concrete conflicting business outcomes have been demonstrated, so asking OWNER merely to choose enum names would be inappropriate."
+}

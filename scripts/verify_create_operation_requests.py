@@ -95,7 +95,8 @@ def run():
  reject('generation/client-artifact-digest',lambda:decode(oid,{**body,'sources':[{'kind':'FILE','artifactId':UID2,'contentDigest':'sha256:'+'0'*64}]}),'SCHEMA_ONEOF')
  reject('generation/unknown-source-kind',lambda:decode(oid,{**body,'sources':[{'kind':'JSON_BAG','data':{}}]}),'SCHEMA_ONEOF')
  update={**body,'kind':'UPDATE','targetObjectId':UID2};native=decode(oid,update)
- assert_case('generation/update-positive',lambda:admit(native,server)['dispatchNew'])
+ assert_case('generation/update-positive-request-shape',lambda:native['body']==update)
+ reject('generation/update-missing-own-admission',lambda:admit(native,server),'PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED','$.kind')
  reject('generation/target-kind-mismatch',lambda:admit(native,{**server,'targets':{UID2:{'kind':'AI_AGENT'}}}),'TARGET_KIND_MISMATCH','$.targetKind')
  reject('generation/unknown-target',lambda:admit(native,{**server,'targets':{}}),'TARGET_UNRESOLVED','$.targetObjectId')
  image=decode(oid,{**body,'sources':[body['sources'][0],{'kind':'IMAGE','artifactId':UID2}]})
@@ -117,6 +118,12 @@ def run():
  credential_source=decode('generation.job.create',{**witnesses['generation.job.create'],'sources':[{'kind':'CREDENTIAL_REF','stableName':'EXISTING_SECRET'}]})
  assert_case('generation/credential-reference-positive',lambda:admit(credential_source,{**server,'stableNames':['EXISTING_SECRET'],'credentialSourceContexts':['EXISTING_SECRET']})['dispatchNew'])
  reject('generation/credential-reference-no-context',lambda:admit(credential_source,{**server,'stableNames':['EXISTING_SECRET']}),'SECRET_USE_CONTEXT_UNVERIFIED','$.sources[0]')
+ for kind in ['UPDATE','RETRY','REPAIR']:
+  candidate={**witnesses['generation.job.create'],'kind':kind,'targetObjectId':UID2,'parentJobId':UID3}
+  native_candidate=decode('generation.job.create',candidate)
+  assert_case('generation/'+kind+'/valid-request-shape',lambda n=native_candidate:n['body']['kind']==kind)
+  reject('generation/'+kind+'/missing-own-policy',lambda n=native_candidate:admit(n,server),'PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED','$.kind')
+  reject('generation/'+kind+'/boolean-cannot-authorize',lambda n=native_candidate:admit(n,{**server,'parentTargetPolicyVerified':True,'kindPolicyVerified':True}),'PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED','$.kind')
  oid='secret.create';body=witnesses[oid]
  assert_case('secret/byte-preservation',lambda:decode(oid)['body']['value']['text'].encode()==body['value']['text'].encode())
  binary={**body,'type':'GENERIC_BINARY','value':{'encoding':'BASE64','base64':base64.b64encode(b'\0\xff\x01').decode()}}

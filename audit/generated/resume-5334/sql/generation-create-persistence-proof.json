@@ -1,0 +1,132 @@
+{
+  "sourceDocumentSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+  "referenceScriptSha256": "9568a51ef0b87bc57396817fdf871b6692c14ade30b874dffaebf0d239803293",
+  "requirementsAuditSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
+  "nativePayloadResourceSha256": "2eb9c91d314415e4043c46c6c98ffc0af92efc059aeaf921f7060c5068b383a6",
+  "proposedSQLSha256": "4ab0a6521cfe3df19fd9d3655ef87e8fa1982d8aad8c5ce7f07c6fd4840dd24d",
+  "checked": 20,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "positive.typed-encrypted-hydration",
+      "status": "PASS"
+    },
+    {
+      "id": "positive.no-plaintext-in-ciphertext",
+      "status": "PASS"
+    },
+    {
+      "id": "negative.wrong-schema",
+      "expectedDiagnostic": "INITIAL_REQUEST_SCHEMA_DIGEST_MISMATCH",
+      "actualDiagnostic": "INITIAL_REQUEST_SCHEMA_DIGEST_MISMATCH",
+      "positiveWitnessValid": true,
+      "status": "PASS"
+    },
+    {
+      "id": "negative.wrong-content-digest",
+      "expectedDiagnostic": "INITIAL_REQUEST_CONTENT_DIGEST_MISMATCH",
+      "actualDiagnostic": "INITIAL_REQUEST_CONTENT_DIGEST_MISMATCH",
+      "positiveWitnessValid": true,
+      "status": "PASS"
+    },
+    {
+      "id": "negative.wrong-ciphertext",
+      "expectedDiagnostic": "INITIAL_REQUEST_AUTHENTICATION_FAILED",
+      "actualDiagnostic": "INITIAL_REQUEST_AUTHENTICATION_FAILED",
+      "positiveWitnessValid": true,
+      "status": "PASS"
+    },
+    {
+      "id": "negative.wrong-bound-job",
+      "expectedDiagnostic": "INITIAL_REQUEST_IDENTITY_BINDING_MISMATCH",
+      "actualDiagnostic": "INITIAL_REQUEST_IDENTITY_BINDING_MISMATCH",
+      "positiveWitnessValid": true,
+      "status": "PASS"
+    },
+    {
+      "id": "negative.changed-stored-jobId",
+      "expectedDiagnostic": "INITIAL_REQUEST_IDENTITY_BINDING_MISMATCH",
+      "actualDiagnostic": "INITIAL_REQUEST_IDENTITY_BINDING_MISMATCH",
+      "positiveWitnessValid": true,
+      "status": "PASS"
+    },
+    {
+      "id": "negative.changed-stored-snapshotId",
+      "expectedDiagnostic": "INITIAL_REQUEST_IDENTITY_BINDING_MISMATCH",
+      "actualDiagnostic": "INITIAL_REQUEST_IDENTITY_BINDING_MISMATCH",
+      "positiveWitnessValid": true,
+      "status": "PASS"
+    },
+    {
+      "id": "negative.changed-stored-schemaId",
+      "expectedDiagnostic": "INITIAL_REQUEST_IDENTITY_BINDING_MISMATCH",
+      "actualDiagnostic": "INITIAL_REQUEST_IDENTITY_BINDING_MISMATCH",
+      "positiveWitnessValid": true,
+      "status": "PASS"
+    },
+    {
+      "id": "negative.extra-field",
+      "expectedDiagnostic": "INITIAL_REQUEST_TYPED_SCHEMA_INVALID",
+      "actualDiagnostic": "INITIAL_REQUEST_TYPED_SCHEMA_INVALID",
+      "positiveWitnessValid": true,
+      "status": "PASS"
+    },
+    {
+      "id": "negative.missing-intent",
+      "expectedDiagnostic": "INITIAL_REQUEST_TYPED_SCHEMA_INVALID",
+      "actualDiagnostic": "INITIAL_REQUEST_TYPED_SCHEMA_INVALID",
+      "positiveWitnessValid": true,
+      "status": "PASS"
+    },
+    {
+      "id": "negative.null-intent",
+      "expectedDiagnostic": "INITIAL_REQUEST_TYPED_SCHEMA_INVALID",
+      "actualDiagnostic": "INITIAL_REQUEST_TYPED_SCHEMA_INVALID",
+      "positiveWitnessValid": true,
+      "status": "PASS"
+    },
+    {
+      "id": "negative.noncanonical-authenticated-bytes",
+      "expectedDiagnostic": "INITIAL_REQUEST_NONCANONICAL_BYTES",
+      "actualDiagnostic": "INITIAL_REQUEST_NONCANONICAL_BYTES",
+      "positiveWitnessValid": true,
+      "status": "PASS"
+    },
+    {
+      "id": "positive.atomic-root-snapshot-receipt-event-outbox-audit",
+      "status": "PASS"
+    },
+    {
+      "id": "positive.replay-original-receipt-no-new-event",
+      "status": "PASS"
+    },
+    {
+      "id": "positive.public-event-outbox-no-credential",
+      "status": "PASS"
+    },
+    {
+      "id": "negative.replay-conflict-no-second-root",
+      "status": "PASS"
+    },
+    {
+      "id": "negative.rollback-no-partial-pipeline",
+      "status": "PASS"
+    },
+    {
+      "id": "negative.unknown-not-second-create",
+      "status": "PASS"
+    },
+    {
+      "id": "positive.postgresql17-ddl-and-trigger-syntax",
+      "status": "PASS"
+    }
+  ],
+  "runtimeVersions": {
+    "cryptography": "50.0.0",
+    "sqlite": "3.53.1",
+    "postgresqlParser": "v7.10"
+  },
+  "proofScope": "Typed protected-snapshot/storage boundary only, not proof that unresolved directcredential admission is allowed. Actual AEAD fixture and SQLite isolated reference transactions, plus PostgreSQL17 syntax AST. None is production PostgreSQL18.6/nativehelper/runtime acceptance. Exact production crypto-profile binding remains BLOCKED; referenceAESGCM is not a policy decision.",
+  "wholeGenerationJobCreateDesignClosure": "BLOCKED",
+  "implementationProductionAcceptance": "NOT_EVALUATED"
+}

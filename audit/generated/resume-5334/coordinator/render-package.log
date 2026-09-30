@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "/workspace/kajovocmlng/scripts/render_reference_package.py", line 40, in <module>
+    if __name__=='__main__':run()
+                            ^^^^^
+  File "/workspace/kajovocmlng/scripts/render_reference_package.py", line 21, in run
+    page.goto(path.as_uri());page.wait_for_load_state('networkidle')
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/ssot-audit-venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 9903, in goto
+    self._sync(
+  File "/tmp/ssot-audit-venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/tmp/ssot-audit-venv/lib/python3.12/site-packages/playwright/_impl/_page.py", line 562, in goto
+    return await self._main_frame.goto(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/ssot-audit-venv/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 157, in goto
+    await self._channel.send(
+  File "/tmp/ssot-audit-venv/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/ssot-audit-venv/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/kajovocmlng/03_UI_REFERENCE/pages/agents.html
+Call log:
+  - navigating to "file:///workspace/kajovocmlng/03_UI_REFERENCE/pages/agents.html", waiting until "load"
+

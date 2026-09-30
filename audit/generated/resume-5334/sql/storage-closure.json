@@ -1,0 +1,48 @@
+{
+  "existingRootBindings": {
+    "acceptance.run.cancel": "PRODUCTION_ACCEPTANCE_RUN",
+    "acceptance.run.start": "PRODUCTION_ACCEPTANCE_RUN",
+    "backup.restore": "DEPLOYMENT_RUN",
+    "browser.automation.createFromTeaching": "BROWSER_AUTOMATION_DEFINITION",
+    "chat.turn.steer": "SYSTEM_CHAT_CONVERSATION",
+    "component.export": "COMPONENT",
+    "component.import": "DOMAIN_COMMAND",
+    "component.retire": "COMPONENT",
+    "config.rollback": "CONFIGURATION_APPLY_RUN",
+    "external.circuit.reset": "EXTERNAL_TARGET",
+    "owner.mfa.reset": "OWNER_IDENTITY",
+    "release.activate": "DOMAIN_COMMAND",
+    "selfTest.evidence.export": "SELF_TEST_RUN"
+  },
+  "format": "KCML-FINAL-STORAGE-CLOSURE/1",
+  "tables": [
+    {
+      "audit": "same transaction as query mutation + audit/outbox",
+      "columns": [
+        "id uuid NOT NULL",
+        "owner_id uuid NOT NULL",
+        "name text NOT NULL",
+        "query_json jsonb NOT NULL",
+        "query_digest text NOT NULL",
+        "state_version bigint NOT NULL",
+        "created_at timestamptz NOT NULL",
+        "updated_at timestamptz NOT NULL",
+        "deleted_at timestamptz NULL"
+      ],
+      "constraints": [
+        "query_digest matches canonical query_json digest",
+        "state_version monotonic",
+        "FOREIGN KEY(owner_id) REFERENCES owner_identity(id) ON DELETE RESTRICT",
+        "CHECK (state_version >= 0)"
+      ],
+      "indexes": [
+        "CREATE UNIQUE INDEX uq_owner_saved_audit_query_owner_name_live ON owner_saved_audit_query(owner_id,name) WHERE deleted_at IS NULL"
+      ],
+      "lockOrder": "owner_identity root lock before child mutation",
+      "parentRoot": "owner_identity",
+      "primaryKey": "PRIMARY KEY(id)",
+      "table": "owner_saved_audit_query",
+      "writer": "AuditQueryService"
+    }
+  ]
+}

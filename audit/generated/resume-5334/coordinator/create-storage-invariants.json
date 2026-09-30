@@ -1,0 +1,129 @@
+{
+  "sourceDocumentSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+  "resources": {
+    "database/explicit-entities.sql": "11e402091fbd8dc696c517d14ab5f790fc445b0b85b0dd586c9d42673bfbba00",
+    "database/postgres-advisory-key.sql": "67f16cf3ef47bc18a446a0384870174745430a9020be70c23723d9ded2e0ed9c"
+  },
+  "pglastVersion": "v7.10",
+  "checked": 19,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "locator.unique",
+      "passed": true
+    },
+    {
+      "id": "locator.deferredFK",
+      "passed": true
+    },
+    {
+      "id": "locator.preservedFKtarget",
+      "passed": true
+    },
+    {
+      "id": "negative/missing-unique",
+      "passed": true
+    },
+    {
+      "id": "negative/nondeferred-fk",
+      "passed": true
+    },
+    {
+      "id": "advisory.sql+plpgsqlSyntax",
+      "passed": true
+    },
+    {
+      "id": "advisory/00000000",
+      "passed": true
+    },
+    {
+      "id": "advisory/00000001",
+      "passed": true
+    },
+    {
+      "id": "advisory/00000100",
+      "passed": true
+    },
+    {
+      "id": "advisory/00010000",
+      "passed": true
+    },
+    {
+      "id": "advisory/01000000",
+      "passed": true
+    },
+    {
+      "id": "advisory/7fffffff",
+      "passed": true
+    },
+    {
+      "id": "advisory/80000000",
+      "passed": true
+    },
+    {
+      "id": "advisory/80000001",
+      "passed": true
+    },
+    {
+      "id": "advisory/ffffffff",
+      "passed": true
+    },
+    {
+      "id": "negative/advisory-null",
+      "passed": true
+    },
+    {
+      "id": "negative/advisory-short",
+      "passed": true
+    },
+    {
+      "id": "negative/littleEndian",
+      "passed": true
+    },
+    {
+      "id": "negative/unsignedOverflow",
+      "passed": true
+    }
+  ],
+  "vectors": [
+    {
+      "digestHex": "000000000405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": 0
+    },
+    {
+      "digestHex": "000000010405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": 1
+    },
+    {
+      "digestHex": "000001000405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": 256
+    },
+    {
+      "digestHex": "000100000405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": 65536
+    },
+    {
+      "digestHex": "010000000405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": 16777216
+    },
+    {
+      "digestHex": "7fffffff0405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": 2147483647
+    },
+    {
+      "digestHex": "800000000405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": -2147483648
+    },
+    {
+      "digestHex": "800000010405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": -2147483647
+    },
+    {
+      "digestHex": "ffffffff0405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": -1
+    }
+  ],
+  "scope": "PostgreSQL17 syntax and independent design vectors; actual PostgreSQL18.6 SQL execution NOT_RUN",
+  "missingOperationHelpers": "BLOCKED",
+  "implementationAcceptance": "NOT_EVALUATED"
+}

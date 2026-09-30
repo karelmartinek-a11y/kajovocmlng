@@ -1,0 +1,18 @@
+[
+  {
+    "line": 8381,
+    "text": "#### `production_acceptance_run`"
+  },
+  {
+    "line": 48552,
+    "text": "| 106 | `SYSTEM_CHAT_CONVERSATION` | `system_chat_conversation` |"
+  },
+  {
+    "line": 48566,
+    "text": "| 166 | `PRODUCTION_ACCEPTANCE_RUN` | `production_acceptance_run` |"
+  },
+  {
+    "line": 49346,
+    "text": "Run `SUCCEEDED` a jeho povinn\u00e9 canonical session/memory writes jsou jedna transakce. Tato multi-root transakce zamkne `AGENT_RUN = 100`, potom podle typu pr\u00e1v\u011b jeden nebo v\u00edce `AGENT_SESSION = 105` a `SYSTEM_CHAT_CONVERSATION = 106` root\u016f a potom v\u0161echny `AGENT_MEMORY_NAMESPACE = 107` rooty, v ka\u017ed\u00e9 t\u0159\u00edd\u011b podle UUID; a\u017e pot\u00e9 zamyk\u00e1 session/memory child rows. Pokud m\u011bn\u00ed tak\u00e9 agent definition pointer, `AGENT_DEFINITION = 60` se zamkne p\u0159ed runem. Memory item m\u00e1 unique source-run/namespace/key dedupe a exact item digest. Derived vector indexace nebo external memory sink se enqueueuje outboxem a nen\u00ed sou\u010d\u00e1st\u00ed canonical success podm\u00ednky, pokud revision v\u00fdslovn\u011b neur\u010duje opak."
+  }
+]

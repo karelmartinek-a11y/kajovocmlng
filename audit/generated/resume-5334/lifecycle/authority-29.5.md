@@ -1,0 +1,6 @@
+### 29.5 Production acceptance
+
+Production acceptance je samostatně opakovatelný workflow nad přesně nasazeným SHA. Ověří API SHA, release manifest SHA, health, readiness a effective BrowserRuntimeBuildManifest, potom použije jediný `KCML_OWNER_API_KEY` a spustí HTTP/SSE, centrální chat, AI, generation, MCP, browser, UI, monitoring, registered-element a repair scénáře. Browser acceptance zahrne server-managed context i dostupný OWNER Device Bridge profil, page/frame/document identity, takeover/return, autosave mutation, popup/OOPIF, upload/download a crash/reconciliation bez duplicitního effectu. Webové E2E získá OWNER session výměnou API klíče přes produkční API-key-session endpoint. Workflow pracuje bez interaktivního zadání username a hesla a nemění release, migrations, DNS ani TLS.
+
+Production acceptance dále spouští bezpečný production-shaped chaos profil kapitoly 54 nad izolovanými fixture namespaces a provider/browser test účty. Profil nesmí úmyslně provést nevratnou produkční mutaci; musí však prokázat restart služeb, transportní disconnect, bounded capacity, stale-response rejection, recovery barrier, canonical outcome replay, nulový orphan inventory a přesný replay alespoň jednoho uloženého regression schedule.
+

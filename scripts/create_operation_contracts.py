@@ -174,6 +174,11 @@ def admit(request,server,replay=None):
         if body.get('targetObjectId') and server['targets'][body['targetObjectId']].get('objectId')!=body['targetObjectId']:raise ContractFailure('TARGET_IDENTITY_MISMATCH','$.targetObjectId')
         if body.get('parentJobId') and body['parentJobId'] not in server.get('jobs',{}):raise ContractFailure('PARENT_JOB_UNRESOLVED','$.parentJobId')
         if body.get('parentJobId') and server['jobs'][body['parentJobId']].get('jobId')!=body['parentJobId']:raise ContractFailure('PARENT_JOB_IDENTITY_MISMATCH','$.parentJobId')
+        # Own kind policies from12.41 are not interchangeable with parent state.
+        # Until exact persisted selectors/validators are authored, existence or
+        # caller/trusted fixture flags must never authorize these transitions.
+        if body.get('kind','CREATE') in ('UPDATE','RETRY','REPAIR'):
+            raise ContractFailure('PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED','$.kind')
         if body.get('requestedModel') and body['requestedModel'] not in server.get('openaiModels',[]):raise ContractFailure('MODEL_UNAVAILABLE','$.requestedModel')
         for i,source in enumerate(body.get('sources',[])):
             if 'artifactId' in source:
