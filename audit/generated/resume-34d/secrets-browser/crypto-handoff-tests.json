@@ -1,0 +1,258 @@
+{
+  "input": {
+    "commit": "34d3a75c47a92ab7d8e0dac84f581549a15445ca",
+    "ssotSha256": "2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854",
+    "priorSchemaSha256": "3ef24d4a5bebdb86e6716767453f4be053d77c769a404db06c6a2d38f82f6699"
+  },
+  "checked": 40,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "OAUTH_CLIENT_SECRET_V1/exact-shared-profile-seal-open-parser-and-view-lifetime",
+      "passed": true
+    },
+    {
+      "id": "OAUTH_CLIENT_SECRET_V1/wrong-immutable-version-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "OAUTH_CLIENT_SECRET_V1/wrong-key-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "OAUTH_CLIENT_SECRET_V1/ciphertext-corruption-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "OAUTH_BEARER_TOKEN_SET_V1/exact-shared-profile-seal-open-parser-and-view-lifetime",
+      "passed": true
+    },
+    {
+      "id": "OAUTH_BEARER_TOKEN_SET_V1/wrong-immutable-version-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "OAUTH_BEARER_TOKEN_SET_V1/wrong-key-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "OAUTH_BEARER_TOKEN_SET_V1/ciphertext-corruption-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "TOTP_BASE32_V1/exact-shared-profile-seal-open-parser-and-view-lifetime",
+      "passed": true
+    },
+    {
+      "id": "TOTP_BASE32_V1/wrong-immutable-version-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "TOTP_BASE32_V1/wrong-key-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "TOTP_BASE32_V1/ciphertext-corruption-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "X509_PEM_CHAIN_V1/exact-shared-profile-seal-open-parser-and-view-lifetime",
+      "passed": true
+    },
+    {
+      "id": "X509_PEM_CHAIN_V1/wrong-immutable-version-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "X509_PEM_CHAIN_V1/wrong-key-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "X509_PEM_CHAIN_V1/ciphertext-corruption-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "PKCS8_PEM_PRIVATE_KEY_V1/exact-shared-profile-seal-open-parser-and-view-lifetime",
+      "passed": true
+    },
+    {
+      "id": "PKCS8_PEM_PRIVATE_KEY_V1/wrong-immutable-version-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "PKCS8_PEM_PRIVATE_KEY_V1/wrong-key-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "PKCS8_PEM_PRIVATE_KEY_V1/ciphertext-corruption-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "DATABASE_USER_PASSWORD_V1/exact-shared-profile-seal-open-parser-and-view-lifetime",
+      "passed": true
+    },
+    {
+      "id": "DATABASE_USER_PASSWORD_V1/wrong-immutable-version-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "DATABASE_USER_PASSWORD_V1/wrong-key-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "DATABASE_USER_PASSWORD_V1/ciphertext-corruption-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "HTTP_COOKIE_JAR_V1/exact-shared-profile-seal-open-parser-and-view-lifetime",
+      "passed": true
+    },
+    {
+      "id": "HTTP_COOKIE_JAR_V1/wrong-immutable-version-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "HTTP_COOKIE_JAR_V1/wrong-key-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "HTTP_COOKIE_JAR_V1/ciphertext-corruption-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "BROWSER_COOKIE_LOCAL_STORAGE_V1/exact-shared-profile-seal-open-parser-and-view-lifetime",
+      "passed": true
+    },
+    {
+      "id": "BROWSER_COOKIE_LOCAL_STORAGE_V1/wrong-immutable-version-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "BROWSER_COOKIE_LOCAL_STORAGE_V1/wrong-key-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "BROWSER_COOKIE_LOCAL_STORAGE_V1/ciphertext-corruption-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "SSH_PASSWORD_V1/exact-shared-profile-seal-open-parser-and-view-lifetime",
+      "passed": true
+    },
+    {
+      "id": "SSH_PASSWORD_V1/wrong-immutable-version-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "SSH_PASSWORD_V1/wrong-key-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "SSH_PASSWORD_V1/ciphertext-corruption-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "SSH_OPENSSH_PRIVATE_KEY_V1/exact-shared-profile-seal-open-parser-and-view-lifetime",
+      "passed": true
+    },
+    {
+      "id": "SSH_OPENSSH_PRIVATE_KEY_V1/wrong-immutable-version-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "SSH_OPENSSH_PRIVATE_KEY_V1/wrong-key-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "SSH_OPENSSH_PRIVATE_KEY_V1/ciphertext-corruption-authentication",
+      "passed": true,
+      "actualCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "expectedCode": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    }
+  ],
+  "supportSha256": {
+    "auth-crypto/auth_crypto_reference.py": "bcb93097db8fe46bafc37d1e7f86f743450adb96a0f1ec51137f13f5e3c680f4",
+    "secrets-browser/verify_crypto_handoff.py": "cf8e26c197edb8804d44775727ff757db6794dc20b24b566e3d6060e5beffc3c",
+    "secrets-browser/profile_reference.py": "5c2e35b89fcbca59209fdad74d6fa0507850659a5b6942269d184020c3d6c19e",
+    "secrets-browser/secret_import_adapter.py": "56408b3ed496277f22a86fbcbd27704c13460d13b71b085735710996a62eda21",
+    "secrets-browser/secret-profile-handoffs.schema.json": "54320e2663ad40326de1ce8ec583eb0566a0b5c948378bfab8bb9c4b3224dc07",
+    "secrets-browser/synthetic_profile_fixtures.py": "1d746635c196263d6f51c4568eccfd2b47560b65d31cdb9d8884a7354a3b9c31"
+  },
+  "sensitiveValuesInReport": false,
+  "actualCryptoPrimitive": true,
+  "profile": {
+    "profileId": "KCML_PROTECTED_INPUT_AES256_GCM_V1",
+    "version": 1,
+    "algorithm": "AES_256_GCM",
+    "keyBytes": 32,
+    "nonceBytes": 12,
+    "tagBytes": 16,
+    "aadEncoding": "SORTED_COMPACT_UTF8_JSON_V1",
+    "contentDigest": "SHA256_EXACT_PLAINTEXT_BYTES",
+    "keySource": "SYSTEMD_READ_ONLY_PER_INVOCATION_CREDENTIAL"
+  },
+  "canonicalSystemdKeyProvisioning": "NOT_EVALUATED",
+  "excluded": [
+    "Authentic systemd credentials producer",
+    "Application broker authorization/physical DB transaction",
+    "Guaranteed erasure of Python immutable parser copies"
+  ]
+}

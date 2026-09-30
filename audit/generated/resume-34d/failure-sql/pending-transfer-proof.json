@@ -1,0 +1,68 @@
+{
+  "sourceSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+  "canonicalSqlSha256": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+  "prerootSqlSha256": "0ed9d0e563b802da50c96ebb31f62390aeab16040bd19660612fb14dd83aa75e",
+  "prerootEmbeddedBytesExecuted": true,
+  "postgresqlVersion": "18.6",
+  "checks": [
+    {
+      "case": "accepted-pending-actual-commit",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": ""
+    },
+    {
+      "case": "changed-protected-transfer-refused",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_PREROOT_SNAPSHOT_TRANSFER_MISMATCH",
+      "actualDiagnostic": "ERROR:  GENERATION_PREROOT_SNAPSHOT_TRANSFER_MISMATCH\nCONTEXT:  PL/pgSQL function kcml_generation_command_context_consistency_v1() line 20 at RAISE\n"
+    },
+    {
+      "case": "pending-success-version-skip-refused",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_COMMAND_STATE_VERSION_STEP",
+      "actualDiagnostic": "ERROR:  GENERATION_COMMAND_STATE_VERSION_STEP\nCONTEXT:  PL/pgSQL function public.kcml_generation_command_version_step_v1() line 3 at RAISE\n"
+    },
+    {
+      "case": "pending-to-success-same-identity-actual-commit",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": ""
+    },
+    {
+      "case": "earlier-pending-bytes-unchanged-after-success",
+      "passed": true
+    },
+    {
+      "case": "exact-one-job-command-created-event-outbox-two-audits-and-pending-history",
+      "passed": true
+    },
+    {
+      "case": "identical-frozen-protected-snapshot-producer-consumer-joins",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "sourceUnchangedDuringRun": true,
+  "crypto": "OPAQUE_FIXTURE_NOT_CRYPTO",
+  "wholeOperationClosed": false,
+  "database": "pending_transfer_34d",
+  "invocationHistory": [
+    {
+      "status": "ENVIRONMENT_FIXTURE_COLLISION",
+      "reportedBy": "coordinator",
+      "command": "parallel verify_failure_before_root.py and verify_pending_transfer.py",
+      "diagnostic": "duplicate owner_identity due to both fixtures resetting and using failure_sql_34d",
+      "contractVerdict": "NOT_EVALUATED_FOR_COLLIDING_INVOCATION",
+      "fix": "Pending fixture uses independent pending_transfer_34d database; failure fixture retains failure_sql_34d",
+      "evidenceLimitation": "This history records coordinator report, not a substituted successful test; original coordinator command log is retained by coordinator."
+    }
+  ],
+  "status": "PASS",
+  "supportSha256": {
+    "audit/generated/resume-34d/failure-sql/verify_pending_transfer.py": "f33ab19c54d93c4c059446dd076f291803f4d2cfba1dcecd4df988830cbc86ea",
+    "audit/generated/resume-34d/failure-sql/verify_failure_before_root.py": "06abdf17cbb4edcdad524d0b629e812712c223e68ba2cef876320297fb794566",
+    "audit/generated/resume-d362/events/verify_combined_generation.py": "a38bc59879e56c02b361afe22a791af1477b57308f22f3a7483e10fd950f58dd",
+    "audit/generated/resume-34d/failure-sql/pending-transfer-invocation-history.json": "8f7ba13f82f8713611de452ff5791eacfe88c95f6a188bdec43d8b5234c4507a"
+  }
+}

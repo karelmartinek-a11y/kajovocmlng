@@ -1,0 +1,88 @@
+{
+  "status": "PASS",
+  "checked": 11,
+  "failed": 0,
+  "sourceDocumentSha256": "2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854",
+  "historicalSourceCommit": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+  "historicalSourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+  "historicalSchemaAddress": {
+    "schemaId": "urn:kcml:r9:semantic:route.0215:body",
+    "bundleDigest": "sha256:e990b0aa804f2a8d4ac45e4129612a2b22b7986c66e25e166ffd1dfb16ae4fe8",
+    "definition": null
+  },
+  "currentSchemaAddress": {
+    "schemaId": "urn:kcml:r9:semantic:route.0215:body",
+    "bundleDigest": "sha256:460d8ef92703bdbd660299904c36a7f4bc11f56218eacd3a32349fcad324fad3",
+    "definition": null
+  },
+  "checks": [
+    {
+      "id": "actual-historical-request-schema-accepts-own-valid-witness",
+      "passed": true
+    },
+    {
+      "id": "current-body-must-not-be-substituted-for-archive",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_SCHEMA_CONTENT_INVALID",
+      "actualDiagnostic": "FROZEN_SCHEMA_CONTENT_INVALID"
+    },
+    {
+      "id": "same-id-archives-remain-independently-resolvable",
+      "passed": true
+    },
+    {
+      "id": "wrong-declared-bundle-digest",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_SCHEMA_BUNDLE_DIGEST_MISMATCH",
+      "actualDiagnostic": "FROZEN_SCHEMA_BUNDLE_DIGEST_MISMATCH"
+    },
+    {
+      "id": "missing-archive-does-not-use-current",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_SCHEMA_BUNDLE_UNAVAILABLE",
+      "actualDiagnostic": "FROZEN_SCHEMA_BUNDLE_UNAVAILABLE"
+    },
+    {
+      "id": "wrong-schema-id",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_SCHEMA_ID_MISMATCH",
+      "actualDiagnostic": "FROZEN_SCHEMA_ID_MISMATCH"
+    },
+    {
+      "id": "same-closure-alias-conflict",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_SCHEMA_DEPENDENCY_ALIAS_CONFLICT",
+      "actualDiagnostic": "FROZEN_SCHEMA_DEPENDENCY_ALIAS_CONFLICT"
+    },
+    {
+      "id": "undeclared-definition",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_SCHEMA_DEFINITION_UNRESOLVED",
+      "actualDiagnostic": "FROZEN_SCHEMA_DEFINITION_UNRESOLVED"
+    },
+    {
+      "id": "unknown-property",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_SCHEMA_CONTENT_INVALID",
+      "actualDiagnostic": "FROZEN_SCHEMA_CONTENT_INVALID"
+    },
+    {
+      "id": "null-kind",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_SCHEMA_CONTENT_INVALID",
+      "actualDiagnostic": "FROZEN_SCHEMA_CONTENT_INVALID"
+    },
+    {
+      "id": "wrong-kind",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_SCHEMA_CONTENT_INVALID",
+      "actualDiagnostic": "FROZEN_SCHEMA_CONTENT_INVALID"
+    }
+  ],
+  "supportSha256": {
+    "frozen_schema_compiler.py": "aa65338769be73781abdb4845c408632941bdf5315a031cc358deca19ac40cd9",
+    "verify_frozen_schema_compiler.py": "9a865a027c32b5ab35d0fb47e0c32cb8e0d47e026e14837a3d0adf6eddcf2b52"
+  },
+  "scope": "Actual historical/current masks independently resolved despite same$id. Structural archive compilation only; archived domain-policy consumer/producer and durable registry availability NOT proven",
+  "wholeOperationClosed": false
+}

@@ -1,0 +1,143 @@
+{
+  "inputCommit": "34d3a75c47a92ab7d8e0dac84f581549a15445ca",
+  "sourceDocumentSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+  "canonicalFoundationSha256": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+  "sqlExtensionSha256": "a18aba72b317ae6fac0a86c153eb914de6b4fda6916f02a0c612a235b2f07835",
+  "postgresqlVersion": "PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+  "checkCount": 18,
+  "failedCount": 0,
+  "checks": [
+    {
+      "case": "actual-scanned-native-bytes-to-classifier",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "exact-canonical-foundations-installed",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "phase-parent-is-real-generation-root",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "wrong-source-lineage",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_SOURCE_PHASE_IDENTITY",
+        "stderr": "ERROR:  RETRY_SOURCE_PHASE_IDENTITY\nCONTEXT:  PL/pgSQL function kcml_retry_v1.scan(uuid,uuid,bytea) line 7 at RAISE\n"
+      }
+    },
+    {
+      "case": "source-digest-drift",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_SOURCE_PHASE_DIGEST",
+        "stderr": "ERROR:  RETRY_SOURCE_PHASE_DIGEST\nCONTEXT:  PL/pgSQL function kcml_retry_v1.scan(uuid,uuid,bytea) line 8 at RAISE\n"
+      }
+    },
+    {
+      "case": "append-only-evidence",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_APPEND_ONLY_SOURCE",
+        "stderr": "ERROR:  RETRY_APPEND_ONLY_SOURCE\nCONTEXT:  PL/pgSQL function kcml_retry_v1.phase_write_gate() line 11 at RAISE\n"
+      }
+    },
+    {
+      "case": "append-only-attempt",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_APPEND_ONLY_SOURCE",
+        "stderr": "ERROR:  RETRY_APPEND_ONLY_SOURCE\nCONTEXT:  PL/pgSQL function kcml_retry_v1.phase_write_gate() line 11 at RAISE\n"
+      }
+    },
+    {
+      "case": "state-stale-version",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_CURRENT_STATE_VERSION",
+        "stderr": "ERROR:  RETRY_CURRENT_STATE_VERSION\nCONTEXT:  PL/pgSQL function kcml_retry_v1.phase_write_gate() line 19 at RAISE\n"
+      }
+    },
+    {
+      "case": "state-delete",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_APPEND_ONLY_SOURCE",
+        "stderr": "ERROR:  RETRY_APPEND_ONLY_SOURCE\nCONTEXT:  PL/pgSQL function kcml_retry_v1.phase_write_gate() line 11 at RAISE\n"
+      }
+    },
+    {
+      "case": "operation-older-current-pointer",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_CURRENT_LEDGER_JOIN_DRIFT",
+        "stderr": "ERROR:  RETRY_CURRENT_LEDGER_JOIN_DRIFT\nCONTEXT:  PL/pgSQL function kcml_retry_v1.scan(uuid,uuid,bytea) line 15 at RAISE\n"
+      }
+    },
+    {
+      "case": "deferred-current-version-commit-drift",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_DEFERRED_CURRENT_JOIN_DRIFT",
+        "stderr": "ERROR:  RETRY_DEFERRED_CURRENT_JOIN_DRIFT\nCONTEXT:  PL/pgSQL function kcml_retry_v1.check_current_join() line 9 at RAISE\n"
+      }
+    },
+    {
+      "case": "operation-cannot-rebind-target-key",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_IMMUTABLE_OPERATION_REQUEST",
+        "stderr": "ERROR:  RETRY_IMMUTABLE_OPERATION_REQUEST\nCONTEXT:  PL/pgSQL function kcml_retry_v1.phase_write_gate() line 16 at RAISE\n"
+      }
+    },
+    {
+      "case": "concurrent/operation-update",
+      "passed": true,
+      "actual": "ERROR:  canceling statement due to lock timeout\nCONTEXT:  while locking tuple (0,1) in relation \"phase\"\nSQL statement \"SELECT 1 FROM kcml_retry_v1.phase WHERE phase_run_id=p FOR UPDATE\"\nPL/pgSQL function kcml_retry_v1.phase_write_gate() line 8 at PERFORM\n"
+    },
+    {
+      "case": "concurrent/state-update",
+      "passed": true,
+      "actual": "ERROR:  canceling statement due to lock timeout\nCONTEXT:  while locking tuple (0,1) in relation \"phase\"\nSQL statement \"SELECT 1 FROM kcml_retry_v1.phase WHERE phase_run_id=p FOR UPDATE\"\nPL/pgSQL function kcml_retry_v1.phase_write_gate() line 8 at PERFORM\n"
+    },
+    {
+      "case": "concurrent/phase-delete",
+      "passed": true,
+      "actual": "ERROR:  canceling statement due to lock timeout\nCONTEXT:  while deleting tuple (0,1) in relation \"phase\"\n"
+    },
+    {
+      "case": "concurrent/phase-update",
+      "passed": true,
+      "actual": "ERROR:  canceling statement due to lock timeout\nCONTEXT:  while updating tuple (0,1) in relation \"phase\"\n"
+    },
+    {
+      "case": "concurrent/no-membership-phantom",
+      "passed": true,
+      "actual": "ERROR:  canceling statement due to lock timeout\nCONTEXT:  while locking tuple (0,1) in relation \"phase\"\nSQL statement \"SELECT 1 FROM kcml_retry_v1.phase WHERE phase_run_id=p FOR UPDATE\"\nPL/pgSQL function kcml_retry_v1.phase_write_gate() line 8 at PERFORM\n"
+    },
+    {
+      "case": "actual-row-cipher-independent-content-digest",
+      "passed": true,
+      "actual": "GENERATION_RETRY_SCAN_MEMBER_BYTES_MISMATCH"
+    }
+  ],
+  "sourceStable": true,
+  "proofStage": "PRE_GENERATION_ACTUAL_POSTGRESQL_LOCK_SCAN_AND_NATIVE_BYTES_REFERENCE_CONSUMER",
+  "wholeOperationClosed": false,
+  "remaining": [
+    "Full phase/side-effect storage includes fencing/outbox/lifecycle producer obligations not completed by bounded snapshot projection",
+    "Scanner must be materialized canonically then reexecuted; owned extension alone is not current canonical proof",
+    "Lock retained through actual child persistence/consumer dispatch must be integrated by coordinator",
+    "One declared synthetic CAS classifier is not every required production classifier"
+  ],
+  "supportSha256": {
+    "audit/generated/resume-34d/retry-graph/verify_locked_retry.py": "97319235f5d52dbf46ba64db84321f86c3a81eeb76b060edb5277c480b93f94b",
+    "audit/generated/resume-34d/retry-graph/locked_retry_hydration.py": "1eb8af57f01ef564031e3689f75db6728c0ac887ca53a8215b4a32ba1590f593",
+    "audit/generated/resume-34d/retry-graph/locked-retry-ledger.sql": "a18aba72b317ae6fac0a86c153eb914de6b4fda6916f02a0c612a235b2f07835",
+    "scripts/generation_retry_inventory.py": "7ed6a1542a499ee71277c2e319a3ac87fed6c041247e158367813fbe32190237"
+  }
+}

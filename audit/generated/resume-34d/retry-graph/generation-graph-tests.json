@@ -1,0 +1,247 @@
+{
+  "inputCommit": "34d3a75c47a92ab7d8e0dac84f581549a15445ca",
+  "ssotSha256": "2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854",
+  "proofKind": "BOUNDED_NATIVE_REFERENCE_GRAPH_AND_IDENTITY_ONLY_PROJECTION",
+  "checkCount": 31,
+  "failedCount": 0,
+  "checks": [
+    {
+      "case": "native/43-artifacts-21-records-positive",
+      "passed": true
+    },
+    {
+      "case": "native/actual-schema-positive-and-negative-vectors-executed",
+      "passed": true
+    },
+    {
+      "case": "native/expected-generated-code-needs-no-premature-bytes",
+      "passed": true
+    },
+    {
+      "case": "native/expected-code-is-not-implementation-acceptance",
+      "passed": true,
+      "actualCode": "GENERATION_GRAPH_IMPLEMENTATION_EXPECTATION_UNMATERIALIZED",
+      "actualPointer": "/repositoryPath",
+      "expectedCode": "GENERATION_GRAPH_IMPLEMENTATION_EXPECTATION_UNMATERIALIZED",
+      "expectedPointer": "/repositoryPath"
+    },
+    {
+      "case": "native/duplicate-requirement",
+      "passed": true,
+      "actualCode": "GENERATION_GRAPH_DUPLICATE_REQUIREMENT",
+      "actualPointer": "/behavioralRequirements",
+      "expectedCode": "GENERATION_GRAPH_DUPLICATE_REQUIREMENT",
+      "expectedPointer": null
+    },
+    {
+      "case": "native/unknown-dependency",
+      "passed": true,
+      "actualCode": "GENERATION_GRAPH_REQUIREMENT_DEPENDENCY_UNRESOLVED",
+      "actualPointer": "/behavioralRequirements",
+      "expectedCode": "GENERATION_GRAPH_REQUIREMENT_DEPENDENCY_UNRESOLVED",
+      "expectedPointer": null
+    },
+    {
+      "case": "native/self-cycle",
+      "passed": true,
+      "actualCode": "GENERATION_GRAPH_REQUIREMENT_CYCLE",
+      "actualPointer": "",
+      "expectedCode": "GENERATION_GRAPH_REQUIREMENT_CYCLE",
+      "expectedPointer": null
+    },
+    {
+      "case": "native/missing-acceptance",
+      "passed": true,
+      "actualCode": "GENERATION_GRAPH_ACCEPTANCE_UNRESOLVED",
+      "actualPointer": "/behavioralRequirements/acceptanceIds",
+      "expectedCode": "GENERATION_GRAPH_ACCEPTANCE_UNRESOLVED",
+      "expectedPointer": null
+    },
+    {
+      "case": "native/missing-domain-coverage",
+      "passed": true,
+      "actualCode": "GENERATION_GRAPH_DOMAIN_CONTRACT_COVERAGE_MISSING",
+      "actualPointer": "/behavioralRequirements/domainContractRefs",
+      "expectedCode": "GENERATION_GRAPH_DOMAIN_CONTRACT_COVERAGE_MISSING",
+      "expectedPointer": null
+    },
+    {
+      "case": "native/unknown-capability-requirement",
+      "passed": true,
+      "actualCode": "GENERATION_GRAPH_CAPABILITY_COVERAGE_MISSING",
+      "actualPointer": "/capabilityDecision/coverage",
+      "expectedCode": "GENERATION_GRAPH_CAPABILITY_COVERAGE_MISSING",
+      "expectedPointer": null
+    },
+    {
+      "case": "native/duplicate-capability",
+      "passed": true,
+      "actualCode": "GENERATION_GRAPH_CAPABILITY_DUPLICATE",
+      "actualPointer": "/capabilityDecision/coverage",
+      "expectedCode": "GENERATION_GRAPH_CAPABILITY_DUPLICATE",
+      "expectedPointer": null
+    },
+    {
+      "case": "native/actual-artifact-bytes-0",
+      "passed": true,
+      "actualCode": "GENERATION_GRAPH_ARTIFACT_BYTES_MISMATCH",
+      "actualPointer": "/contentDigest",
+      "expectedCode": "GENERATION_GRAPH_ARTIFACT_BYTES_MISMATCH",
+      "expectedPointer": "/contentDigest"
+    },
+    {
+      "case": "native/actual-artifact-bytes-1",
+      "passed": true,
+      "actualCode": "GENERATION_GRAPH_ARTIFACT_BYTES_MISMATCH",
+      "actualPointer": "/contentDigest",
+      "expectedCode": "GENERATION_GRAPH_ARTIFACT_BYTES_MISMATCH",
+      "expectedPointer": "/contentDigest"
+    },
+    {
+      "case": "native/actual-artifact-bytes-2",
+      "passed": true,
+      "actualCode": "GENERATION_GRAPH_ARTIFACT_BYTES_MISMATCH",
+      "actualPointer": "/contentDigest",
+      "expectedCode": "GENERATION_GRAPH_ARTIFACT_BYTES_MISMATCH",
+      "expectedPointer": "/contentDigest"
+    },
+    {
+      "case": "native/actual-artifact-bytes-3",
+      "passed": true,
+      "actualCode": "GENERATION_GRAPH_ARTIFACT_BYTES_MISMATCH",
+      "actualPointer": "/contentDigest",
+      "expectedCode": "GENERATION_GRAPH_ARTIFACT_BYTES_MISMATCH",
+      "expectedPointer": "/contentDigest"
+    },
+    {
+      "case": "native/actual-artifact-bytes-4",
+      "passed": true,
+      "actualCode": "GENERATION_GRAPH_ARTIFACT_BYTES_MISMATCH",
+      "actualPointer": "/contentDigest",
+      "expectedCode": "GENERATION_GRAPH_ARTIFACT_BYTES_MISMATCH",
+      "expectedPointer": "/contentDigest"
+    },
+    {
+      "case": "native/actual-owner",
+      "passed": true,
+      "actualCode": "GENERATION_GRAPH_ARTIFACT_OWNER_MISMATCH",
+      "actualPointer": "/artifactId",
+      "expectedCode": "GENERATION_GRAPH_ARTIFACT_OWNER_MISMATCH",
+      "expectedPointer": "/artifactId"
+    },
+    {
+      "case": "native/ledger-reference-provenance",
+      "passed": true,
+      "actualCode": "GENERATION_GRAPH_ARTIFACT_LEDGER_MISMATCH",
+      "actualPointer": "/artifactId",
+      "expectedCode": "GENERATION_GRAPH_ARTIFACT_LEDGER_MISMATCH",
+      "expectedPointer": "/artifactId"
+    },
+    {
+      "case": "native/domain-record-digest",
+      "passed": true,
+      "actualCode": "GENERATION_GRAPH_RECORD_DIGEST_MISMATCH",
+      "actualPointer": "/recordDigest",
+      "expectedCode": "GENERATION_GRAPH_RECORD_DIGEST_MISMATCH",
+      "expectedPointer": "/recordDigest"
+    },
+    {
+      "case": "native/TypedDocument/actual-domain-positive",
+      "passed": true
+    },
+    {
+      "case": "native/TypedDocument/actual-selected-schema-null",
+      "passed": true,
+      "actualCode": "GENERATION_GRAPH_TYPED_CONTENT_INVALID",
+      "actualPointer": "/value/syntheticValue",
+      "expectedCode": "GENERATION_GRAPH_TYPED_CONTENT_INVALID",
+      "expectedPointer": "/value/syntheticValue"
+    },
+    {
+      "case": "projection/native-child-same-job-shape",
+      "passed": true
+    },
+    {
+      "case": "projection/exact-all-fields-except-jobId",
+      "passed": true
+    },
+    {
+      "case": "projection/original-bytes-and-digest-retained",
+      "passed": true
+    },
+    {
+      "case": "projection/creates-no-approval-or-authority",
+      "passed": true
+    },
+    {
+      "case": "projection/synthetic-text-exact-no-trim-or-normalization",
+      "passed": true
+    },
+    {
+      "case": "projection/same-job",
+      "passed": true,
+      "actualCode": "GENERATION_CHILD_JOB_IDENTITY_NOT_DISTINCT",
+      "actualPointer": "/jobId",
+      "expectedCode": "GENERATION_CHILD_JOB_IDENTITY_NOT_DISTINCT",
+      "expectedPointer": "/jobId"
+    },
+    {
+      "case": "projection/wrong-source-digest",
+      "passed": true,
+      "actualCode": "GENERATION_CHILD_SOURCE_DIGEST_MISMATCH",
+      "actualPointer": "",
+      "expectedCode": "GENERATION_CHILD_SOURCE_DIGEST_MISMATCH",
+      "expectedPointer": null
+    },
+    {
+      "case": "projection/wrong-source-job",
+      "passed": true,
+      "actualCode": "GENERATION_CHILD_SOURCE_JOB_MISMATCH",
+      "actualPointer": "/jobId",
+      "expectedCode": "GENERATION_CHILD_SOURCE_JOB_MISMATCH",
+      "expectedPointer": "/jobId"
+    },
+    {
+      "case": "projection/duplicate-actual-json-key",
+      "passed": true,
+      "actualCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "actualPointer": "/jobId",
+      "expectedCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "expectedPointer": "/jobId"
+    },
+    {
+      "case": "projection/noncanonical-source",
+      "passed": true,
+      "actualCode": "GENERATION_CHILD_SOURCE_NONCANONICAL",
+      "actualPointer": "",
+      "expectedCode": "GENERATION_CHILD_SOURCE_NONCANONICAL",
+      "expectedPointer": null
+    }
+  ],
+  "actualPositiveCoverage": {
+    "artifacts": 43,
+    "nativeDomainRecords": 21,
+    "schemaVectorsExecuted": 15,
+    "requirements": 1,
+    "productionGraphs": 0
+  },
+  "supportSha256": {
+    "audit/generated/resume-34d/retry-graph/verify_graph_current.py": "6932e34ccb7386e60c677ecb0451b9ed4cf5d802e1b734587fff4c63a9bd49ad",
+    "audit/generated/resume-34d/retry-graph/generation_graph_current.py": "f93f9156725c412323e85e0c8b793fb9a33aedfad19a46ac48eca5f2ea2537f9",
+    "audit/generated/resume-34d/retry-graph/graph_current_fixtures.py": "9f1c57f6360554e0102863138ba7123eebcfbd2834492626928e528a334deaa5",
+    "scripts/generation_admission_contracts.py": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+    "scripts/verify_phase2_handoffs.py": "60e3476d9ab9d67aec3f1a784135598686c6d501075041d9dc4ef2d2dd17215e"
+  },
+  "sourceBindings": {
+    "contracts/generation/generation-contracts.schema.json": "5cf483812abcbfd834c54537a444724d227fe36ddb1ad0604af13205b4494943",
+    "contracts/generation/domain-record-schema-map.json": "991012a51b98b81e184317b548a4f13a41eacbaaea5fa3dd4c1effbcf5780651",
+    "contracts/generation/artifact-schema-map.json": "6ae42e26d18cdf5541ab63555c38bd36a5a323dd27dac3d9e40661e0bea46f9c",
+    "contracts/execution/raw-artifact-kinds.json": "b11d4093b96c4f917b71f8d61f4bde5d08d3039aecf9660b5c1d0667d94f8cbe"
+  },
+  "unverified": [
+    "Semantic predicate implementation behavior and broad business requirement truth are not established by schema vectors",
+    "Source/delegation/Secret-use/current target-state execution predicates require exact consumer implementations and authority context"
+  ],
+  "readiness": "BLOCKED_FULL_OPERATION_NOT_CLOSED",
+  "implementationAcceptance": "NOT_EVALUATED"
+}

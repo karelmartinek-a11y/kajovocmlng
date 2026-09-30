@@ -1,14 +1,14 @@
 {
-  "sourceDocumentSha256": "4aed522e79316417f76a55e145d00aa1a8d8a18907985f6857911e0896d044b6",
+  "sourceDocumentSha256": "6da33594b2c96cdfdf0d90d8be25ee0c381f262f6f5695546a02ab0293519817",
   "scriptSha256": "488c55d8e194e601e70b75503164e27e91caef1732e74e6c81b2651a5611cad8",
   "supportSha256": {
-    "scripts/create_completion_contracts.py": "a61dd69606d5299e22d5cc6c48a65c0f813205b1abea9fb328c07fb56a5cd8f0",
-    "scripts/create_operation_contracts.py": "f34ba13f0f13f4fb0045dfa6c09c4467e432ab865ce8e8b7c0ac55d9d28a3c67",
-    "scripts/follow_up_contracts.py": "5d9e111c32f65e74e7182fc8d104dc2931bd0fdae21d147daac196c8881c7f7d"
+    "scripts/create_completion_contracts.py": "5c6b739a8e27400eb0ca715660dc2abe0142e0b647af853bd2533660c849003f",
+    "scripts/create_operation_contracts.py": "e3149fed4d5169d653199b638ac8f367b1618ce671d6e2860060ad09a576577a",
+    "scripts/follow_up_contracts.py": "21e08515ed3acacc7678d84d7915923aff825704414486a212f610a96a720ffa"
   },
   "resourceSha256": {
-    "contracts/payload-contracts.json": "2eb9c91d314415e4043c46c6c98ffc0af92efc059aeaf921f7060c5068b383a6",
-    "contracts/create-completion.json": "45558a2ca824ba1d88166df54c7530d1f9d777d8101c32e25eccc812d17e5d3e"
+    "contracts/payload-contracts.json": "8f68a2e81e87898322deba191442255127f22339e6184fbe291e1227fe2becc1",
+    "contracts/create-completion.json": "9566c687f878d02405a7999dd2a0c4e71f9fe5f8a09b9b395b067104575b77dd"
   },
   "scope": "Synthetic create completion/commit/hydration witnesses; not production runtime acceptance. Hydration tests cover frozen creation receipt bytes only; full domain/read hydration remains OPEN.",
   "witnesses": {
@@ -7069,21 +7069,21 @@
     {
       "case": "input-source-unchanged",
       "passed": true,
-      "actual": "4aed522e79316417f76a55e145d00aa1a8d8a18907985f6857911e0896d044b6",
-      "expected": "4aed522e79316417f76a55e145d00aa1a8d8a18907985f6857911e0896d044b6"
+      "actual": "6da33594b2c96cdfdf0d90d8be25ee0c381f262f6f5695546a02ab0293519817",
+      "expected": "6da33594b2c96cdfdf0d90d8be25ee0c381f262f6f5695546a02ab0293519817"
     },
     {
       "case": "input-support-unchanged",
       "passed": true,
       "actual": {
-        "scripts/create_completion_contracts.py": "a61dd69606d5299e22d5cc6c48a65c0f813205b1abea9fb328c07fb56a5cd8f0",
-        "scripts/create_operation_contracts.py": "f34ba13f0f13f4fb0045dfa6c09c4467e432ab865ce8e8b7c0ac55d9d28a3c67",
-        "scripts/follow_up_contracts.py": "5d9e111c32f65e74e7182fc8d104dc2931bd0fdae21d147daac196c8881c7f7d"
+        "scripts/create_completion_contracts.py": "5c6b739a8e27400eb0ca715660dc2abe0142e0b647af853bd2533660c849003f",
+        "scripts/create_operation_contracts.py": "e3149fed4d5169d653199b638ac8f367b1618ce671d6e2860060ad09a576577a",
+        "scripts/follow_up_contracts.py": "21e08515ed3acacc7678d84d7915923aff825704414486a212f610a96a720ffa"
       },
       "expected": {
-        "scripts/create_completion_contracts.py": "a61dd69606d5299e22d5cc6c48a65c0f813205b1abea9fb328c07fb56a5cd8f0",
-        "scripts/create_operation_contracts.py": "f34ba13f0f13f4fb0045dfa6c09c4467e432ab865ce8e8b7c0ac55d9d28a3c67",
-        "scripts/follow_up_contracts.py": "5d9e111c32f65e74e7182fc8d104dc2931bd0fdae21d147daac196c8881c7f7d"
+        "scripts/create_completion_contracts.py": "5c6b739a8e27400eb0ca715660dc2abe0142e0b647af853bd2533660c849003f",
+        "scripts/create_operation_contracts.py": "e3149fed4d5169d653199b638ac8f367b1618ce671d6e2860060ad09a576577a",
+        "scripts/follow_up_contracts.py": "21e08515ed3acacc7678d84d7915923aff825704414486a212f610a96a720ffa"
       }
     }
   ],

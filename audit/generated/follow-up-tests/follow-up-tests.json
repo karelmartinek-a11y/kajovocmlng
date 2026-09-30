@@ -1,18 +1,18 @@
 {
-  "sourceDocumentSha256": "8b89dd7d4b905333bf0fa7d64d721150b20f4e6a48f4ed7ddc38a1d708f8fd73",
+  "sourceDocumentSha256": "6da33594b2c96cdfdf0d90d8be25ee0c381f262f6f5695546a02ab0293519817",
   "supportSha256": {
-    "scripts/follow_up_contracts.py": "86cbd63b53fe34edad497ae36771f456346ffba5ab17427f44624567a5a79e10",
-    "scripts/verify_follow_up_contracts.py": "6ffab9a498192598bda892254ed7706b43e5bd140f90b05ca8ffd6f63d1a9f05",
+    "scripts/follow_up_contracts.py": "21e08515ed3acacc7678d84d7915923aff825704414486a212f610a96a720ffa",
+    "scripts/verify_follow_up_contracts.py": "42979cbb8a4a71e8897e6b59ece1af8720713f5080f40474876cc321aa3bdc1f",
     "scripts/create_operation_contracts.py": "e3149fed4d5169d653199b638ac8f367b1618ce671d6e2860060ad09a576577a",
     "scripts/generation_follow_up_fixtures.py": "449fb94d46e2b771bba1e09826bb0ba00f050c3be6b6304c9fa0a9d20ca28d52",
-    "scripts/generation_admission_contracts.py": "12c18c6ceb2a51d49a4506bf4c759ed0407e81bbe777da7cf58d2c768f77d900"
+    "scripts/generation_admission_contracts.py": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5"
   },
   "scope": "Synthetic immutable FOLLOW_UP admission proof; no database/concurrency runtime claim.",
   "proofKind": "DESIGN_REFERENCE_MODEL",
   "implementationAcceptance": "NOT_EVALUATED",
   "authority": "Owner approval of explicit frozen FOLLOW_UP admission; generation-job states contracts/execution/model-catalog.json model.generation-job / authoritySection 49.15",
-  "checked": 319,
-  "failed": 1,
+  "checked": 324,
+  "failed": 0,
   "checks": [
     {
       "case": "INITIAL_REQUEST/positive-basis-schema",
@@ -2009,6 +2009,54 @@
       "actualPointer": "$.followUpBasis"
     },
     {
+      "case": "INITIAL_REQUEST/native-consistent",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "actualCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "expectedPointer": "/intent",
+      "actualPointer": "/intent"
+    },
+    {
+      "case": "INITIAL_REQUEST/native-sufficient",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "actualCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "SPECIFICATION_REVISION/native-consistent",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DOCUMENT_JOB_MISMATCH",
+      "actualCode": "GENERATION_BASIS_DOCUMENT_JOB_MISMATCH",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "SPECIFICATION_REVISION/native-sufficient",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "actualCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/native-consistent",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DOCUMENT_JOB_MISMATCH",
+      "actualCode": "GENERATION_BASIS_DOCUMENT_JOB_MISMATCH",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/native-sufficient",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "actualCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
       "case": "matrix/ACTIVATING/MISSING",
       "passed": true,
       "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
@@ -2383,12 +2431,50 @@
       "passed": true,
       "actual": true,
       "expected": true
+    }
+  ],
+  "nativeCoverageReplacements": [
+    {
+      "historicalCase": "INITIAL_REQUEST/consistent/FOLLOW_UP_BASIS_INCONSISTENT",
+      "replacementCase": "INITIAL_REQUEST/native-consistent",
+      "expectedDiagnostic": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "violation": "Actual duplicate source JSON key",
+      "disposition": "REPLACED_VALIDITY_FLAG_WITH_POSITIVE_DERIVED_ACTUAL_NATIVE_BYTES"
     },
     {
-      "case": "source-input-stability",
-      "passed": false,
-      "actual": false,
-      "expected": true
+      "historicalCase": "INITIAL_REQUEST/sufficient/FOLLOW_UP_BASIS_INSUFFICIENT",
+      "replacementCase": "INITIAL_REQUEST/native-sufficient",
+      "expectedDiagnostic": "GENERATION_BASIS_SCHEMA_INVALID",
+      "violation": "Actual source is missing required domain intent",
+      "disposition": "REPLACED_VALIDITY_FLAG_WITH_POSITIVE_DERIVED_ACTUAL_NATIVE_BYTES"
+    },
+    {
+      "historicalCase": "SPECIFICATION_REVISION/consistent/FOLLOW_UP_BASIS_INCONSISTENT",
+      "replacementCase": "SPECIFICATION_REVISION/native-consistent",
+      "expectedDiagnostic": "GENERATION_BASIS_DOCUMENT_JOB_MISMATCH",
+      "violation": "Valid native document belongs to another source job",
+      "disposition": "REPLACED_VALIDITY_FLAG_WITH_POSITIVE_DERIVED_ACTUAL_NATIVE_BYTES"
+    },
+    {
+      "historicalCase": "SPECIFICATION_REVISION/sufficient/FOLLOW_UP_BASIS_INSUFFICIENT",
+      "replacementCase": "SPECIFICATION_REVISION/native-sufficient",
+      "expectedDiagnostic": "GENERATION_BASIS_SCHEMA_INVALID",
+      "violation": "Actual source is missing required domain behavioralRequirements",
+      "disposition": "REPLACED_VALIDITY_FLAG_WITH_POSITIVE_DERIVED_ACTUAL_NATIVE_BYTES"
+    },
+    {
+      "historicalCase": "PUBLISHED_FINAL_OUTPUT/consistent/FOLLOW_UP_BASIS_INCONSISTENT",
+      "replacementCase": "PUBLISHED_FINAL_OUTPUT/native-consistent",
+      "expectedDiagnostic": "GENERATION_BASIS_DOCUMENT_JOB_MISMATCH",
+      "violation": "Valid native document belongs to another source job",
+      "disposition": "REPLACED_VALIDITY_FLAG_WITH_POSITIVE_DERIVED_ACTUAL_NATIVE_BYTES"
+    },
+    {
+      "historicalCase": "PUBLISHED_FINAL_OUTPUT/sufficient/FOLLOW_UP_BASIS_INSUFFICIENT",
+      "replacementCase": "PUBLISHED_FINAL_OUTPUT/native-sufficient",
+      "expectedDiagnostic": "GENERATION_BASIS_SCHEMA_INVALID",
+      "violation": "Actual source is missing required domain artifacts",
+      "disposition": "REPLACED_VALIDITY_FLAG_WITH_POSITIVE_DERIVED_ACTUAL_NATIVE_BYTES"
     }
   ],
   "matrix": [

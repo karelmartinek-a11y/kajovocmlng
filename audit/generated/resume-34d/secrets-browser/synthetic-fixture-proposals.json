@@ -1,0 +1,2517 @@
+{
+  "format": "KCML_SECRET_VARIANT_PROPOSALS_V1",
+  "status": "PENDING_OWNER_FORMAT_REVIEW",
+  "effective": false,
+  "authorizationScope": "Owner approved explicitdiscriminatedvariant principle only; concrete formats and bounds are proposals pending review",
+  "initialInputSSOTSHA256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
+  "sourceExcerptSHA256": {
+    "section-25.6.md": "24c4cf2b92cacafceb1f0fb8c318f17652f0ebb73392b8b743e544cc47d2c625",
+    "section-49.22.1.md": "25d3407b8ef9f5c04ada358d528a384d3a3a24b9506915e498c58e1cbceaa65f",
+    "section-72.21.md": "41506e320bb6d629e6695befcc4d7de53f38bfb394cb665bb253c67ab7bf5e74",
+    "section-8.2.md": "b42a779042f1c758c2c2b02445fad44549c93b913f42707340cfaedd232faaa3",
+    "section-8.3.md": "685b3e8466548015b78c8781b282b4be35c6f79cd3af4419f974ed9fda2c0963",
+    "section-8.4.md": "f385327efefd180dd9ab62e2ced6230a078893b08aa8e7388470f123be1e4e94",
+    "section-8.7.md": "e6cb54b83aba023251fbc787581d7bf3039dde58d19ec6f68bf09992687d384c",
+    "section-8.8.md": "939df805a0012e8c53b1b68d8b4a91cd0d0e38e12082adbd11ddfe00a6425f16",
+    "section-13.15.md": "1eafe14aed78191c27caeaabc4e6f90b60036de594068c231341c8e98a81098d"
+  },
+  "evidenceLayers": {
+    "schema": "Synthetic candidate-schema cases evaluated; neither format authorization nor type-semantic closure",
+    "semantic": "Listed predicates proposed; cryptographic syntheticfixtures are parseable but fullconsumer/endtoend checks not executed",
+    "implementation": "NOT_EVALUATED"
+  },
+  "commonTransportProposal": {
+    "native": "Closed JSON object with explicit type + value.variant; no values/slots/canonicalJson, no sniffing format",
+    "import": "Decode outer HTTP JSON strictly; unknownfields/duplicates reject; explicit sourceformat discriminator only; existing UTF8wrapper masks require ownerapproved future replacement, never accept JSONhiddenintext by sniffing",
+    "persistence": "Store original exact value bytes encrypted; structured import can retain original input JSONbytes and separately typed validated view. Canonical digest computation never replaces persisted bytes. Versionimmutable; no plaintext response/event/log/audit echo. ServerID/version/ciphermetadata/digests are not importfields",
+    "load": "Decrypt internally, select pinnedschema+variant, validate stored variant/hydration; missingparser/incompatibleconsumer BLOCKED; never auto fallback",
+    "consumers": "Exact consumer contract declares supported variants. Explicit transformation creates new version through authorized operation rather than mutating storedbytes",
+    "errorDisclosure": "Specific stable code + fieldpointer only; no rejected secretvalue or parser exception text echo",
+    "existingPolicyConflict": "Original §8.6.1 permits OWNERreveal/copy/log/chat/commit/export; current prohibition targets create/import responses/events/log/audit evidence and syntheticexamples. Do not silently delete legitimate explicit OWNER reveal operation; coordinator must record exact new instruction scope/precedence."
+  },
+  "contracts": [
+    {
+      "proposalId": "PROPOSAL-SECRET-OAUTH_CLIENT",
+      "secretType": "OAUTH_CLIENT",
+      "status": "PENDING_OWNER_FORMAT_REVIEW",
+      "effectiveContract": false,
+      "authority": [
+        {
+          "source": "SSOT §8.2",
+          "claim": "Type exists",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §72.21 secret.value",
+          "claim": "TYPE_SPECIFIC + NO_SILENT_NORMALIZATION required",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §8.4 /25.6",
+          "claim": "Encrypted immutable version, server cipher/digest metadata",
+          "explicitFormatAuthority": false
+        }
+      ],
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "urn:kcml:proposal:secret-oauth_client:1",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "variant": {
+                "const": "OAUTH_CLIENT_SECRET_V1"
+              },
+              "clientId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "clientSecret": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1048576
+              },
+              "tokenEndpoint": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https://"
+              },
+              "scopes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "maxItems": 4096,
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "variant",
+              "clientId",
+              "clientSecret",
+              "tokenEndpoint"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "semanticPredicates": [
+        "clientId/clientSecret exact nonempty UTF8; preserve whitespace",
+        "tokenEndpoint absolute HTTPS with no userinfo or fragment; origin bound by server exact auth target",
+        "scopes unique exact strings; do not split whitespace or infer grant type"
+      ],
+      "consumerContract": "Exact OAuth adapter must declare OAUTH_CLIENT_SECRET_V1 and its supported grant contract; no fallback from another variant",
+      "specificErrors": [
+        "OAUTH_CLIENT_FIELD_INVALID",
+        "OAUTH_TOKEN_ENDPOINT_INVALID",
+        "OAUTH_SCOPE_DUPLICATE",
+        "SECRET_VARIANT_UNSUPPORTED"
+      ],
+      "reviewDecisions": [
+        "Is token endpoint mandatory within Secret value or wholly external binding?",
+        "Approve this client-secret variant; public-client and private_key_jwt are deliberately absent"
+      ],
+      "syntheticCases": [
+        {
+          "id": "OAUTH_CLIENT-0-POSITIVE",
+          "expected": "SCHEMA_ACCEPT",
+          "value": {
+            "variant": "OAUTH_CLIENT_SECRET_V1",
+            "clientId": "synthetic-client",
+            "clientSecret": "SYNTHETIC_ONLY",
+            "tokenEndpoint": "https://oauth.example.invalid/token",
+            "scopes": [
+              "read"
+            ]
+          },
+          "scope": "Synthetic proposal schema witness; requires semantic predicates before admission"
+        },
+        {
+          "id": "OAUTH_CLIENT-0-MISSING_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required variant missing",
+          "value": {
+            "clientId": "synthetic-client",
+            "clientSecret": "SYNTHETIC_ONLY",
+            "tokenEndpoint": "https://oauth.example.invalid/token",
+            "scopes": [
+              "read"
+            ]
+          }
+        },
+        {
+          "id": "OAUTH_CLIENT-0-UNKNOWN_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "variant not declared",
+          "value": {
+            "variant": "UNDECLARED_VARIANT",
+            "clientId": "synthetic-client",
+            "clientSecret": "SYNTHETIC_ONLY",
+            "tokenEndpoint": "https://oauth.example.invalid/token",
+            "scopes": [
+              "read"
+            ]
+          }
+        },
+        {
+          "id": "OAUTH_CLIENT-0-EXTRA_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "extra generic payload field",
+          "value": {
+            "variant": "OAUTH_CLIENT_SECRET_V1",
+            "clientId": "synthetic-client",
+            "clientSecret": "SYNTHETIC_ONLY",
+            "tokenEndpoint": "https://oauth.example.invalid/token",
+            "scopes": [
+              "read"
+            ],
+            "canonicalJson": "{}"
+          }
+        },
+        {
+          "id": "OAUTH_CLIENT-0-NULL",
+          "expected": "SCHEMA_REJECT",
+          "violation": "nonnull required field",
+          "value": {
+            "variant": "OAUTH_CLIENT_SECRET_V1",
+            "clientId": null,
+            "clientSecret": "SYNTHETIC_ONLY",
+            "tokenEndpoint": "https://oauth.example.invalid/token",
+            "scopes": [
+              "read"
+            ]
+          }
+        },
+        {
+          "id": "OAUTH_CLIENT-0-REQUIRED_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required clientId missing",
+          "value": {
+            "variant": "OAUTH_CLIENT_SECRET_V1",
+            "clientSecret": "SYNTHETIC_ONLY",
+            "tokenEndpoint": "https://oauth.example.invalid/token",
+            "scopes": [
+              "read"
+            ]
+          }
+        }
+      ],
+      "fieldRules": {
+        "required": "schema.required per explicit variant",
+        "optional": "omission only; no null except cookie session expiry explicitly proposed",
+        "sensitive": "All credential data remain encrypted; no value or accepted-requestecho in create/import responses/events/logs/audit",
+        "origin": "Caller-supplied import value only; server-derived execution/auth/digests/bindings cannot be supplied in imported value"
+      },
+      "proposedSemanticCases": [
+        {
+          "id": "OAUTH_CLIENT-SEMANTIC-POSITIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "OAUTH_CLIENT_SECRET_V1",
+            "clientId": "synthetic-client",
+            "clientSecret": "SYNTHETIC_ONLY",
+            "tokenEndpoint": "https://oauth.example.invalid/token",
+            "scopes": [
+              "read"
+            ]
+          },
+          "expected": "ACCEPT_CANDIDATE_ONLY",
+          "trustedFixture": "Exact consumer declaresvariant; noactualnetwork calls; test-local synthetic targetcontext where needed"
+        },
+        {
+          "id": "OAUTH_CLIENT-SEMANTIC-NEGATIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "OAUTH_CLIENT_SECRET_V1",
+            "clientId": "synthetic-client",
+            "clientSecret": "SYNTHETIC_ONLY",
+            "tokenEndpoint": "https://user:pass@example.invalid/token",
+            "scopes": [
+              "read"
+            ]
+          },
+          "expectedStableCode": "OAUTH_TOKEN_ENDPOINT_INVALID",
+          "expectedPointer": "/tokenEndpoint",
+          "violation": "userinfo in exact tokenendpoint disallowed",
+          "baseline": "derived from positive witness above; parser/schema must first accept otherfields",
+          "scope": "type-specificcandidatepolicy"
+        }
+      ]
+    },
+    {
+      "proposalId": "PROPOSAL-SECRET-OAUTH_TOKEN_SET",
+      "secretType": "OAUTH_TOKEN_SET",
+      "status": "PENDING_OWNER_FORMAT_REVIEW",
+      "effectiveContract": false,
+      "authority": [
+        {
+          "source": "SSOT §8.2",
+          "claim": "Type exists",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §72.21 secret.value",
+          "claim": "TYPE_SPECIFIC + NO_SILENT_NORMALIZATION required",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §8.4 /25.6",
+          "claim": "Encrypted immutable version, server cipher/digest metadata",
+          "explicitFormatAuthority": false
+        }
+      ],
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "urn:kcml:proposal:secret-oauth_token_set:1",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "variant": {
+                "const": "OAUTH_BEARER_TOKEN_SET_V1"
+              },
+              "accessToken": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1048576
+              },
+              "tokenType": {
+                "const": "Bearer"
+              },
+              "refreshToken": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1048576
+              },
+              "expiresAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "scopes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "maxItems": 4096,
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "variant",
+              "accessToken",
+              "tokenType"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "semanticPredicates": [
+        "Tokens exact UTF8 bytes, no sniffing JWT/decode or recoding",
+        "expiresAt explicit absolute time; expired imported value may be stored as candidate but not used without consumer expiry rule",
+        "Refresh permitted only when exact adapter declares refresh procedure; secret create performs no provider call"
+      ],
+      "consumerContract": "OAuth adapter consumes explicit token-set fields; renewal writes new immutable version via own rotation authority",
+      "specificErrors": [
+        "OAUTH_TOKEN_TYPE_INVALID",
+        "OAUTH_TOKEN_FIELD_EMPTY",
+        "OAUTH_TOKEN_EXPIRY_INVALID",
+        "SECRET_VARIANT_UNSUPPORTED",
+        "OAUTH_SCOPE_DUPLICATE"
+      ],
+      "reviewDecisions": [
+        "Approve Bearer-only initial variant; MAC/DPoP not implied",
+        "Approve candidate-import expiry handling separately from runtime-use rejection"
+      ],
+      "syntheticCases": [
+        {
+          "id": "OAUTH_TOKEN_SET-0-POSITIVE",
+          "expected": "SCHEMA_ACCEPT",
+          "value": {
+            "variant": "OAUTH_BEARER_TOKEN_SET_V1",
+            "accessToken": "SYNTHETIC_ACCESS",
+            "tokenType": "Bearer",
+            "refreshToken": "SYNTHETIC_REFRESH",
+            "expiresAt": "2026-12-01T00:00:00Z"
+          },
+          "scope": "Synthetic proposal schema witness; requires semantic predicates before admission"
+        },
+        {
+          "id": "OAUTH_TOKEN_SET-0-MISSING_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required variant missing",
+          "value": {
+            "accessToken": "SYNTHETIC_ACCESS",
+            "tokenType": "Bearer",
+            "refreshToken": "SYNTHETIC_REFRESH",
+            "expiresAt": "2026-12-01T00:00:00Z"
+          }
+        },
+        {
+          "id": "OAUTH_TOKEN_SET-0-UNKNOWN_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "variant not declared",
+          "value": {
+            "variant": "UNDECLARED_VARIANT",
+            "accessToken": "SYNTHETIC_ACCESS",
+            "tokenType": "Bearer",
+            "refreshToken": "SYNTHETIC_REFRESH",
+            "expiresAt": "2026-12-01T00:00:00Z"
+          }
+        },
+        {
+          "id": "OAUTH_TOKEN_SET-0-EXTRA_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "extra generic payload field",
+          "value": {
+            "variant": "OAUTH_BEARER_TOKEN_SET_V1",
+            "accessToken": "SYNTHETIC_ACCESS",
+            "tokenType": "Bearer",
+            "refreshToken": "SYNTHETIC_REFRESH",
+            "expiresAt": "2026-12-01T00:00:00Z",
+            "canonicalJson": "{}"
+          }
+        },
+        {
+          "id": "OAUTH_TOKEN_SET-0-NULL",
+          "expected": "SCHEMA_REJECT",
+          "violation": "nonnull required field",
+          "value": {
+            "variant": "OAUTH_BEARER_TOKEN_SET_V1",
+            "accessToken": null,
+            "tokenType": "Bearer",
+            "refreshToken": "SYNTHETIC_REFRESH",
+            "expiresAt": "2026-12-01T00:00:00Z"
+          }
+        },
+        {
+          "id": "OAUTH_TOKEN_SET-0-REQUIRED_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required accessToken missing",
+          "value": {
+            "variant": "OAUTH_BEARER_TOKEN_SET_V1",
+            "tokenType": "Bearer",
+            "refreshToken": "SYNTHETIC_REFRESH",
+            "expiresAt": "2026-12-01T00:00:00Z"
+          }
+        }
+      ],
+      "fieldRules": {
+        "required": "schema.required per explicit variant",
+        "optional": "omission only; no null except cookie session expiry explicitly proposed",
+        "sensitive": "All credential data remain encrypted; no value or accepted-requestecho in create/import responses/events/logs/audit",
+        "origin": "Caller-supplied import value only; server-derived execution/auth/digests/bindings cannot be supplied in imported value"
+      },
+      "proposedSemanticCases": [
+        {
+          "id": "OAUTH_TOKEN_SET-SEMANTIC-POSITIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "OAUTH_BEARER_TOKEN_SET_V1",
+            "accessToken": "SYNTHETIC_ACCESS",
+            "tokenType": "Bearer",
+            "refreshToken": "SYNTHETIC_REFRESH",
+            "expiresAt": "2026-12-01T00:00:00Z"
+          },
+          "expected": "ACCEPT_CANDIDATE_ONLY",
+          "trustedFixture": "Exact consumer declaresvariant; noactualnetwork calls; test-local synthetic targetcontext where needed"
+        },
+        {
+          "id": "OAUTH_TOKEN_SET-SEMANTIC-NEGATIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "OAUTH_BEARER_TOKEN_SET_V1",
+            "accessToken": "SYNTHETIC_ACCESS",
+            "tokenType": "Bearer",
+            "refreshToken": "SYNTHETIC_REFRESH",
+            "expiresAt": "2026-12-01T00:00:00Z",
+            "scopes": [
+              "read",
+              "read"
+            ]
+          },
+          "expectedStableCode": "OAUTH_SCOPE_DUPLICATE",
+          "expectedPointer": "/scopes",
+          "violation": "duplicate scopes",
+          "baseline": "derived from positive witness above; parser/schema must first accept otherfields",
+          "scope": "type-specificcandidatepolicy"
+        }
+      ]
+    },
+    {
+      "proposalId": "PROPOSAL-SECRET-TOTP_SEED",
+      "secretType": "TOTP_SEED",
+      "status": "PENDING_OWNER_FORMAT_REVIEW",
+      "effectiveContract": false,
+      "authority": [
+        {
+          "source": "SSOT §8.2",
+          "claim": "Type exists",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §72.21 secret.value",
+          "claim": "TYPE_SPECIFIC + NO_SILENT_NORMALIZATION required",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §8.4 /25.6",
+          "claim": "Encrypted immutable version, server cipher/digest metadata",
+          "explicitFormatAuthority": false
+        }
+      ],
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "urn:kcml:proposal:secret-totp_seed:1",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "variant": {
+                "const": "TOTP_BASE32_V1"
+              },
+              "seedBase32": {
+                "type": "string",
+                "pattern": "^[A-Z2-7]+$",
+                "minLength": 16,
+                "maxLength": 1024
+              },
+              "algorithm": {
+                "enum": [
+                  "SHA1",
+                  "SHA256",
+                  "SHA512"
+                ]
+              },
+              "digits": {
+                "enum": [
+                  6,
+                  8
+                ]
+              },
+              "periodSeconds": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 300
+              }
+            },
+            "required": [
+              "variant",
+              "seedBase32",
+              "algorithm",
+              "digits",
+              "periodSeconds"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "semanticPredicates": [
+        "Strict unpadded uppercase RFC4648 Base32; decode/reencode equality including trailing padbits; no whitespace/case normalization",
+        "Decoded seed length >=10 bytes (proposed security minimum)",
+        "Generator uses current selected immutable version, declared algorithm/digits/period and server boundedclockskew"
+      ],
+      "consumerContract": "TOTP generator/QR exporter explicitly declare TOTP_BASE32_V1; QR serialization is separate typed output not implicit input detection",
+      "specificErrors": [
+        "TOTP_BASE32_INVALID",
+        "TOTP_SEED_LENGTH_INVALID",
+        "TOTP_ALGORITHM_UNSUPPORTED",
+        "TOTP_PARAMETERS_INVALID"
+      ],
+      "reviewDecisions": [
+        "Approve Base32-only import instead of hex/otpauth URI",
+        "Approve seed min10bytes, algorithm list, digits and period bound (not existing SSOT constants)"
+      ],
+      "syntheticCases": [
+        {
+          "id": "TOTP_SEED-0-POSITIVE",
+          "expected": "SCHEMA_ACCEPT",
+          "value": {
+            "variant": "TOTP_BASE32_V1",
+            "seedBase32": "JBSWY3DPEHPK3PXP",
+            "algorithm": "SHA1",
+            "digits": 6,
+            "periodSeconds": 30
+          },
+          "scope": "Synthetic proposal schema witness; requires semantic predicates before admission"
+        },
+        {
+          "id": "TOTP_SEED-0-MISSING_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required variant missing",
+          "value": {
+            "seedBase32": "JBSWY3DPEHPK3PXP",
+            "algorithm": "SHA1",
+            "digits": 6,
+            "periodSeconds": 30
+          }
+        },
+        {
+          "id": "TOTP_SEED-0-UNKNOWN_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "variant not declared",
+          "value": {
+            "variant": "UNDECLARED_VARIANT",
+            "seedBase32": "JBSWY3DPEHPK3PXP",
+            "algorithm": "SHA1",
+            "digits": 6,
+            "periodSeconds": 30
+          }
+        },
+        {
+          "id": "TOTP_SEED-0-EXTRA_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "extra generic payload field",
+          "value": {
+            "variant": "TOTP_BASE32_V1",
+            "seedBase32": "JBSWY3DPEHPK3PXP",
+            "algorithm": "SHA1",
+            "digits": 6,
+            "periodSeconds": 30,
+            "canonicalJson": "{}"
+          }
+        },
+        {
+          "id": "TOTP_SEED-0-NULL",
+          "expected": "SCHEMA_REJECT",
+          "violation": "nonnull required field",
+          "value": {
+            "variant": "TOTP_BASE32_V1",
+            "seedBase32": null,
+            "algorithm": "SHA1",
+            "digits": 6,
+            "periodSeconds": 30
+          }
+        },
+        {
+          "id": "TOTP_SEED-0-REQUIRED_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required seedBase32 missing",
+          "value": {
+            "variant": "TOTP_BASE32_V1",
+            "algorithm": "SHA1",
+            "digits": 6,
+            "periodSeconds": 30
+          }
+        }
+      ],
+      "fieldRules": {
+        "required": "schema.required per explicit variant",
+        "optional": "omission only; no null except cookie session expiry explicitly proposed",
+        "sensitive": "All credential data remain encrypted; no value or accepted-requestecho in create/import responses/events/logs/audit",
+        "origin": "Caller-supplied import value only; server-derived execution/auth/digests/bindings cannot be supplied in imported value"
+      },
+      "proposedSemanticCases": [
+        {
+          "id": "TOTP_SEED-SEMANTIC-POSITIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "TOTP_BASE32_V1",
+            "seedBase32": "JBSWY3DPEHPK3PXP",
+            "algorithm": "SHA1",
+            "digits": 6,
+            "periodSeconds": 30
+          },
+          "expected": "ACCEPT_CANDIDATE_ONLY",
+          "trustedFixture": "Exact consumer declaresvariant; noactualnetwork calls; test-local synthetic targetcontext where needed"
+        },
+        {
+          "id": "TOTP_SEED-SEMANTIC-NEGATIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "TOTP_BASE32_V1",
+            "seedBase32": "JBSWY3DPEHPK3PXPA",
+            "algorithm": "SHA1",
+            "digits": 6,
+            "periodSeconds": 30
+          },
+          "expectedStableCode": "TOTP_BASE32_INVALID",
+          "expectedPointer": "/seedBase32",
+          "violation": "17-character Base32 has impossible decoded length even though alphabet/length schema accepts it",
+          "baseline": "derived from positive witness above; parser/schema must first accept otherfields",
+          "scope": "type-specificcandidatepolicy"
+        }
+      ]
+    },
+    {
+      "proposalId": "PROPOSAL-SECRET-CERTIFICATE",
+      "secretType": "CERTIFICATE",
+      "status": "PENDING_OWNER_FORMAT_REVIEW",
+      "effectiveContract": false,
+      "authority": [
+        {
+          "source": "SSOT §8.2",
+          "claim": "Type exists",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §72.21 secret.value",
+          "claim": "TYPE_SPECIFIC + NO_SILENT_NORMALIZATION required",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §8.4 /25.6",
+          "claim": "Encrypted immutable version, server cipher/digest metadata",
+          "explicitFormatAuthority": false
+        }
+      ],
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "urn:kcml:proposal:secret-certificate:1",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "variant": {
+                "const": "X509_PEM_CHAIN_V1"
+              },
+              "certificatesPem": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1048576
+                },
+                "minItems": 1,
+                "maxItems": 32,
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "variant",
+              "certificatesPem"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "semanticPredicates": [
+        "Each item contains exactly one PEM CERTIFICATE block with valid DER X.509; reject extra key/unknown blocks/trailing nonwhitespace",
+        "Leaf-first chain: adjacent subject/issuer and signatures valid; duplicates rejected by DER fingerprint, not PEM spelling",
+        "No implicit trust installation or claim of valid target hostname/time/CA; exact consumer validates trust/usage at use"
+      ],
+      "consumerContract": "TLS/certificate adapter declares X509_PEM_CHAIN_V1 and explicit chain/trust/hostname constraints; server metadata not derived from caller assertions",
+      "specificErrors": [
+        "CERTIFICATE_PEM_INVALID",
+        "CERTIFICATE_CHAIN_INVALID",
+        "CERTIFICATE_DUPLICATE",
+        "SECRET_VARIANT_UNSUPPORTED"
+      ],
+      "reviewDecisions": [
+        "Approve PEM-chain vs DER singlecert variants",
+        "Approve bounded32chain and leaf-first order; imported selfsigned allowed as candidate but not auto trusted"
+      ],
+      "syntheticCases": [
+        {
+          "id": "CERTIFICATE-0-POSITIVE",
+          "expected": "SCHEMA_ACCEPT",
+          "value": {
+            "variant": "X509_PEM_CHAIN_V1",
+            "certificatesPem": [
+              "-----BEGIN CERTIFICATE-----\nMIICwTCCAamgAwIBAgIBATANBgkqhkiG9w0BAQsFADAkMSIwIAYDVQQDDBlzeW50\naGV0aWMuZXhhbXBsZS5pbnZhbGlkMB4XDTI2MDEwMTAwMDAwMFoXDTI3MDEwMTAw\nMDAwMFowJDEiMCAGA1UEAwwZc3ludGhldGljLmV4YW1wbGUuaW52YWxpZDCCASIw\nDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK3o00g46lQ3vrlflpnyT8fnGAsT\nG2BVMc5hJ+uziLcLfLPFH1xvHRODsLLwJcnNLIYsw0fypfMKMSELeUDJMvmFblDk\neDLu5VlG6/KTMvMRiUPzblyhEYQPywoye+E5bsqoqHrCQ0Tt8hrn6cZ60ZFbLO6t\nywTAjkuB2KyVToh90Ij47ImbNEq/sPMC8Ra7BjHEqDR17vJzKKgRWXPDvichc0JE\nt2gBvAU9eePay/bECmj/uOQVMxBUaio2qwstcweBgFqRqFGxCMx4cIqpnGMjP44D\ncUZgr9TGXQTRMXjfpwVzVsY4iDqR59aybPOKMaZTs+uFvlqIGM9040XzjHcCAwEA\nATANBgkqhkiG9w0BAQsFAAOCAQEAFAbFpQgcx4lNIWbYfsNG1PQ1RKYXoH5KV/NG\npEu963dczyp9FJYkaoqCRJVAfPN22LU5ky254WcBdOgDKSzEM8qSnYOJRVIILiI6\n3yQZbN/aXBtllE81AH+mmoW2dWejRR7fsGBDdsbParvhwf0gdAxls05HFLgUoFWg\nEEljgDQqpwb4l1mmVf3nika5XUC/raxJQFQhGKMkYmbhbsCb/jDLcNINCDyZBYEv\ndcCdGHtPa0+05mL8l+IfQvklIg+R9nOODBBEbBNtOGarblnU5GXEPIGMErfSbKqW\nyejPy3xy/MmYuI//9X+2JIleHUFWhX+TRK3spsZFXG7cO7vCbw==\n-----END CERTIFICATE-----\n"
+            ]
+          },
+          "scope": "Synthetic proposal schema witness; requires semantic predicates before admission"
+        },
+        {
+          "id": "CERTIFICATE-0-MISSING_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required variant missing",
+          "value": {
+            "certificatesPem": [
+              "-----BEGIN CERTIFICATE-----\nMIICwTCCAamgAwIBAgIBATANBgkqhkiG9w0BAQsFADAkMSIwIAYDVQQDDBlzeW50\naGV0aWMuZXhhbXBsZS5pbnZhbGlkMB4XDTI2MDEwMTAwMDAwMFoXDTI3MDEwMTAw\nMDAwMFowJDEiMCAGA1UEAwwZc3ludGhldGljLmV4YW1wbGUuaW52YWxpZDCCASIw\nDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK3o00g46lQ3vrlflpnyT8fnGAsT\nG2BVMc5hJ+uziLcLfLPFH1xvHRODsLLwJcnNLIYsw0fypfMKMSELeUDJMvmFblDk\neDLu5VlG6/KTMvMRiUPzblyhEYQPywoye+E5bsqoqHrCQ0Tt8hrn6cZ60ZFbLO6t\nywTAjkuB2KyVToh90Ij47ImbNEq/sPMC8Ra7BjHEqDR17vJzKKgRWXPDvichc0JE\nt2gBvAU9eePay/bECmj/uOQVMxBUaio2qwstcweBgFqRqFGxCMx4cIqpnGMjP44D\ncUZgr9TGXQTRMXjfpwVzVsY4iDqR59aybPOKMaZTs+uFvlqIGM9040XzjHcCAwEA\nATANBgkqhkiG9w0BAQsFAAOCAQEAFAbFpQgcx4lNIWbYfsNG1PQ1RKYXoH5KV/NG\npEu963dczyp9FJYkaoqCRJVAfPN22LU5ky254WcBdOgDKSzEM8qSnYOJRVIILiI6\n3yQZbN/aXBtllE81AH+mmoW2dWejRR7fsGBDdsbParvhwf0gdAxls05HFLgUoFWg\nEEljgDQqpwb4l1mmVf3nika5XUC/raxJQFQhGKMkYmbhbsCb/jDLcNINCDyZBYEv\ndcCdGHtPa0+05mL8l+IfQvklIg+R9nOODBBEbBNtOGarblnU5GXEPIGMErfSbKqW\nyejPy3xy/MmYuI//9X+2JIleHUFWhX+TRK3spsZFXG7cO7vCbw==\n-----END CERTIFICATE-----\n"
+            ]
+          }
+        },
+        {
+          "id": "CERTIFICATE-0-UNKNOWN_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "variant not declared",
+          "value": {
+            "variant": "UNDECLARED_VARIANT",
+            "certificatesPem": [
+              "-----BEGIN CERTIFICATE-----\nMIICwTCCAamgAwIBAgIBATANBgkqhkiG9w0BAQsFADAkMSIwIAYDVQQDDBlzeW50\naGV0aWMuZXhhbXBsZS5pbnZhbGlkMB4XDTI2MDEwMTAwMDAwMFoXDTI3MDEwMTAw\nMDAwMFowJDEiMCAGA1UEAwwZc3ludGhldGljLmV4YW1wbGUuaW52YWxpZDCCASIw\nDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK3o00g46lQ3vrlflpnyT8fnGAsT\nG2BVMc5hJ+uziLcLfLPFH1xvHRODsLLwJcnNLIYsw0fypfMKMSELeUDJMvmFblDk\neDLu5VlG6/KTMvMRiUPzblyhEYQPywoye+E5bsqoqHrCQ0Tt8hrn6cZ60ZFbLO6t\nywTAjkuB2KyVToh90Ij47ImbNEq/sPMC8Ra7BjHEqDR17vJzKKgRWXPDvichc0JE\nt2gBvAU9eePay/bECmj/uOQVMxBUaio2qwstcweBgFqRqFGxCMx4cIqpnGMjP44D\ncUZgr9TGXQTRMXjfpwVzVsY4iDqR59aybPOKMaZTs+uFvlqIGM9040XzjHcCAwEA\nATANBgkqhkiG9w0BAQsFAAOCAQEAFAbFpQgcx4lNIWbYfsNG1PQ1RKYXoH5KV/NG\npEu963dczyp9FJYkaoqCRJVAfPN22LU5ky254WcBdOgDKSzEM8qSnYOJRVIILiI6\n3yQZbN/aXBtllE81AH+mmoW2dWejRR7fsGBDdsbParvhwf0gdAxls05HFLgUoFWg\nEEljgDQqpwb4l1mmVf3nika5XUC/raxJQFQhGKMkYmbhbsCb/jDLcNINCDyZBYEv\ndcCdGHtPa0+05mL8l+IfQvklIg+R9nOODBBEbBNtOGarblnU5GXEPIGMErfSbKqW\nyejPy3xy/MmYuI//9X+2JIleHUFWhX+TRK3spsZFXG7cO7vCbw==\n-----END CERTIFICATE-----\n"
+            ]
+          }
+        },
+        {
+          "id": "CERTIFICATE-0-EXTRA_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "extra generic payload field",
+          "value": {
+            "variant": "X509_PEM_CHAIN_V1",
+            "certificatesPem": [
+              "-----BEGIN CERTIFICATE-----\nMIICwTCCAamgAwIBAgIBATANBgkqhkiG9w0BAQsFADAkMSIwIAYDVQQDDBlzeW50\naGV0aWMuZXhhbXBsZS5pbnZhbGlkMB4XDTI2MDEwMTAwMDAwMFoXDTI3MDEwMTAw\nMDAwMFowJDEiMCAGA1UEAwwZc3ludGhldGljLmV4YW1wbGUuaW52YWxpZDCCASIw\nDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK3o00g46lQ3vrlflpnyT8fnGAsT\nG2BVMc5hJ+uziLcLfLPFH1xvHRODsLLwJcnNLIYsw0fypfMKMSELeUDJMvmFblDk\neDLu5VlG6/KTMvMRiUPzblyhEYQPywoye+E5bsqoqHrCQ0Tt8hrn6cZ60ZFbLO6t\nywTAjkuB2KyVToh90Ij47ImbNEq/sPMC8Ra7BjHEqDR17vJzKKgRWXPDvichc0JE\nt2gBvAU9eePay/bECmj/uOQVMxBUaio2qwstcweBgFqRqFGxCMx4cIqpnGMjP44D\ncUZgr9TGXQTRMXjfpwVzVsY4iDqR59aybPOKMaZTs+uFvlqIGM9040XzjHcCAwEA\nATANBgkqhkiG9w0BAQsFAAOCAQEAFAbFpQgcx4lNIWbYfsNG1PQ1RKYXoH5KV/NG\npEu963dczyp9FJYkaoqCRJVAfPN22LU5ky254WcBdOgDKSzEM8qSnYOJRVIILiI6\n3yQZbN/aXBtllE81AH+mmoW2dWejRR7fsGBDdsbParvhwf0gdAxls05HFLgUoFWg\nEEljgDQqpwb4l1mmVf3nika5XUC/raxJQFQhGKMkYmbhbsCb/jDLcNINCDyZBYEv\ndcCdGHtPa0+05mL8l+IfQvklIg+R9nOODBBEbBNtOGarblnU5GXEPIGMErfSbKqW\nyejPy3xy/MmYuI//9X+2JIleHUFWhX+TRK3spsZFXG7cO7vCbw==\n-----END CERTIFICATE-----\n"
+            ],
+            "canonicalJson": "{}"
+          }
+        },
+        {
+          "id": "CERTIFICATE-0-NULL",
+          "expected": "SCHEMA_REJECT",
+          "violation": "nonnull required field",
+          "value": {
+            "variant": "X509_PEM_CHAIN_V1",
+            "certificatesPem": null
+          }
+        },
+        {
+          "id": "CERTIFICATE-0-REQUIRED_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required certificatesPem missing",
+          "value": {
+            "variant": "X509_PEM_CHAIN_V1"
+          }
+        }
+      ],
+      "fieldRules": {
+        "required": "schema.required per explicit variant",
+        "optional": "omission only; no null except cookie session expiry explicitly proposed",
+        "sensitive": "All credential data remain encrypted; no value or accepted-requestecho in create/import responses/events/logs/audit",
+        "origin": "Caller-supplied import value only; server-derived execution/auth/digests/bindings cannot be supplied in imported value"
+      },
+      "proposedSemanticCases": [
+        {
+          "id": "CERTIFICATE-SEMANTIC-POSITIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "X509_PEM_CHAIN_V1",
+            "certificatesPem": [
+              "-----BEGIN CERTIFICATE-----\nMIICwTCCAamgAwIBAgIBATANBgkqhkiG9w0BAQsFADAkMSIwIAYDVQQDDBlzeW50\naGV0aWMuZXhhbXBsZS5pbnZhbGlkMB4XDTI2MDEwMTAwMDAwMFoXDTI3MDEwMTAw\nMDAwMFowJDEiMCAGA1UEAwwZc3ludGhldGljLmV4YW1wbGUuaW52YWxpZDCCASIw\nDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK3o00g46lQ3vrlflpnyT8fnGAsT\nG2BVMc5hJ+uziLcLfLPFH1xvHRODsLLwJcnNLIYsw0fypfMKMSELeUDJMvmFblDk\neDLu5VlG6/KTMvMRiUPzblyhEYQPywoye+E5bsqoqHrCQ0Tt8hrn6cZ60ZFbLO6t\nywTAjkuB2KyVToh90Ij47ImbNEq/sPMC8Ra7BjHEqDR17vJzKKgRWXPDvichc0JE\nt2gBvAU9eePay/bECmj/uOQVMxBUaio2qwstcweBgFqRqFGxCMx4cIqpnGMjP44D\ncUZgr9TGXQTRMXjfpwVzVsY4iDqR59aybPOKMaZTs+uFvlqIGM9040XzjHcCAwEA\nATANBgkqhkiG9w0BAQsFAAOCAQEAFAbFpQgcx4lNIWbYfsNG1PQ1RKYXoH5KV/NG\npEu963dczyp9FJYkaoqCRJVAfPN22LU5ky254WcBdOgDKSzEM8qSnYOJRVIILiI6\n3yQZbN/aXBtllE81AH+mmoW2dWejRR7fsGBDdsbParvhwf0gdAxls05HFLgUoFWg\nEEljgDQqpwb4l1mmVf3nika5XUC/raxJQFQhGKMkYmbhbsCb/jDLcNINCDyZBYEv\ndcCdGHtPa0+05mL8l+IfQvklIg+R9nOODBBEbBNtOGarblnU5GXEPIGMErfSbKqW\nyejPy3xy/MmYuI//9X+2JIleHUFWhX+TRK3spsZFXG7cO7vCbw==\n-----END CERTIFICATE-----\n"
+            ]
+          },
+          "expected": "ACCEPT_CANDIDATE_ONLY",
+          "trustedFixture": "Exact consumer declaresvariant; noactualnetwork calls; test-local synthetic targetcontext where needed"
+        },
+        {
+          "id": "CERTIFICATE-SEMANTIC-NEGATIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "X509_PEM_CHAIN_V1",
+            "certificatesPem": [
+              "-----BEGIN CERTIFICATE-----\nU1lOVEhFVElDX09OTFk=\n-----END CERTIFICATE-----\n"
+            ]
+          },
+          "expectedStableCode": "CERTIFICATE_PEM_INVALID",
+          "expectedPointer": "/certificatesPem/0",
+          "violation": "syntactically PEM but invalid X509 DER",
+          "baseline": "derived from positive witness above; parser/schema must first accept otherfields",
+          "scope": "type-specificcandidatepolicy"
+        }
+      ]
+    },
+    {
+      "proposalId": "PROPOSAL-SECRET-PRIVATE_KEY",
+      "secretType": "PRIVATE_KEY",
+      "status": "PENDING_OWNER_FORMAT_REVIEW",
+      "effectiveContract": false,
+      "authority": [
+        {
+          "source": "SSOT §8.2",
+          "claim": "Type exists",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §72.21 secret.value",
+          "claim": "TYPE_SPECIFIC + NO_SILENT_NORMALIZATION required",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §8.4 /25.6",
+          "claim": "Encrypted immutable version, server cipher/digest metadata",
+          "explicitFormatAuthority": false
+        }
+      ],
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "urn:kcml:proposal:secret-private_key:1",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "variant": {
+                "const": "PKCS8_PEM_PRIVATE_KEY_V1"
+              },
+              "pem": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1048576
+              }
+            },
+            "required": [
+              "variant",
+              "pem"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "semanticPredicates": [
+        "Exactly one unencrypted PRIVATE KEY PEM PKCS8 block; complete cryptographic parse, no extra block",
+        "Algorithm allowed only by exact consumer key contract; parser support alone does not authorize algorithm",
+        "No implicit password decryption, certificate matching or key conversion; preserve original PEM UTF8 bytes"
+      ],
+      "consumerContract": "Consumer declares PKCS8_PEM_PRIVATE_KEY_V1 plus compatible algorithm/size policy; hardware nonexportable keys use separate bridge authority",
+      "specificErrors": [
+        "PRIVATE_KEY_PEM_INVALID",
+        "PRIVATE_KEY_ENCRYPTION_UNSUPPORTED",
+        "PRIVATE_KEY_ALGORITHM_UNSUPPORTED"
+      ],
+      "reviewDecisions": [
+        "Approve unencrypted PKCS8 vs encryptedPKCS8/OpenSSH/PKCS1 import variants",
+        "Approve keeping algorithm policy in exact consumer rather than global RSA-only rule"
+      ],
+      "syntheticCases": [
+        {
+          "id": "PRIVATE_KEY-0-POSITIVE",
+          "expected": "SCHEMA_ACCEPT",
+          "value": {
+            "variant": "PKCS8_PEM_PRIVATE_KEY_V1",
+            "pem": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCt6NNIOOpUN765\nX5aZ8k/H5xgLExtgVTHOYSfrs4i3C3yzxR9cbx0Tg7Cy8CXJzSyGLMNH8qXzCjEh\nC3lAyTL5hW5Q5Hgy7uVZRuvykzLzEYlD825coRGED8sKMnvhOW7KqKh6wkNE7fIa\n5+nGetGRWyzurcsEwI5LgdislU6IfdCI+OyJmzRKv7DzAvEWuwYxxKg0de7ycyio\nEVlzw74nIXNCRLdoAbwFPXnj2sv2xApo/7jkFTMQVGoqNqsLLXMHgYBakahRsQjM\neHCKqZxjIz+OA3FGYK/Uxl0E0TF436cFc1bGOIg6kefWsmzzijGmU7Prhb5aiBjP\ndONF84x3AgMBAAECggEAB58EY03bNwWaXhVKTETKKkB+VT3pHTeejyTC0xlzDFJ8\njIQ+85YK+Cf1PmI3xbgwE1Ey3ZxMmXIA5SnTjntCuJyYUQMyIUlG07q/7El3Gh/S\nnB+23mhQlDD8/N1pgF079bWebILG3+ZtjbBMFl6bgHs2ZN9I3lRx5+0wyZ9haanH\nUbGjP2rREYDf7ZwWYQt2o4AeoBZyPSBwxTvqc9ay2zCIZIBQjKkLCRwosdhQItuh\nemehOmxnNP4kjHGcTQ6gWXArQcKamIzA8CRM3QEi8ay4ycSQ/2vgJPwGTgLLGoVu\ns0NNEBiWyM37hHdTNE1/sbftDSuynX9mYmaKTFjoQQKBgQDYxqyTiWMguxbg/dy4\nzdh7M0V1X5oAwJdndYwoWlFsPfci6Hvn7akmricIo0vTQBN59vNSNt0Qj7+YYdqL\nIbw2b0ZHEA4DcpZyHbCfeFjtf26qfvUsAkWiHxs0GcVhwR835UfNHO1+9cBIu3tH\nqhaazntjlLSRXvlkZT3j+GugowKBgQDNYIT0XGFkd/RFwLxTo0iLFiO7ugXLpdqE\nFCcXczGLgMB0+5feuPTHEJA4Yfvl4/3nnilQY0TTOYIkRVCmF4hJbK/Am0jIPrdW\nEW7yeHcx2QnvCwNT4rDXcCCG3WZGVJWKKUMKbZpKCTURsiM1XVr84pNA6O8lCDal\n/hlXeAfeHQKBgDnTNXHdsi2m+oFl9pztfBPRJ3QZ3nDY7wpQFuUkwpeHKAeN0I+b\nnAWPayYouS9O5mMgduO1ct7aGZfCcpOumhBDOpH2PGa7CFrEhLrlVYN0/MZKO4hT\nytNmTNFnFnnvFC7K4I5caxX05CgCqu4A9yqwbcWwg0JL/WbEgu/u8nbVAoGBAJmj\ngfLYBRfG0Ns5oukitosuJc8zC1Dcowq5lMDrMP4+dDtPV76LOLqOfoVfb7T8CR6z\naA62JG+rjtsZa4rFAfSDtTruL9V1bWuaoRgM3IZS6iaEY5nmdQrF299oUzF7516z\nHW74rTqDhsrVK5epXf7edPBTEUvvyAoHe+e+aIxVAoGAfDmyCU54rlDlaGmqXomx\nLiDrHWYeAdxUYcM5jjcdktJAVVybr9RHq6UmemyE6VsjskxackjyRPZOGRHRS12l\nV5+PMsIvWuN4XucTPvwlTGWJi9vTclf3k2IRGfSayUoxfQ6XagyW/rE6+TFYMb95\n02jBqCEOfru0XGb1fUjYwmU=\n-----END PRIVATE KEY-----\n"
+          },
+          "scope": "Synthetic proposal schema witness; requires semantic predicates before admission"
+        },
+        {
+          "id": "PRIVATE_KEY-0-MISSING_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required variant missing",
+          "value": {
+            "pem": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCt6NNIOOpUN765\nX5aZ8k/H5xgLExtgVTHOYSfrs4i3C3yzxR9cbx0Tg7Cy8CXJzSyGLMNH8qXzCjEh\nC3lAyTL5hW5Q5Hgy7uVZRuvykzLzEYlD825coRGED8sKMnvhOW7KqKh6wkNE7fIa\n5+nGetGRWyzurcsEwI5LgdislU6IfdCI+OyJmzRKv7DzAvEWuwYxxKg0de7ycyio\nEVlzw74nIXNCRLdoAbwFPXnj2sv2xApo/7jkFTMQVGoqNqsLLXMHgYBakahRsQjM\neHCKqZxjIz+OA3FGYK/Uxl0E0TF436cFc1bGOIg6kefWsmzzijGmU7Prhb5aiBjP\ndONF84x3AgMBAAECggEAB58EY03bNwWaXhVKTETKKkB+VT3pHTeejyTC0xlzDFJ8\njIQ+85YK+Cf1PmI3xbgwE1Ey3ZxMmXIA5SnTjntCuJyYUQMyIUlG07q/7El3Gh/S\nnB+23mhQlDD8/N1pgF079bWebILG3+ZtjbBMFl6bgHs2ZN9I3lRx5+0wyZ9haanH\nUbGjP2rREYDf7ZwWYQt2o4AeoBZyPSBwxTvqc9ay2zCIZIBQjKkLCRwosdhQItuh\nemehOmxnNP4kjHGcTQ6gWXArQcKamIzA8CRM3QEi8ay4ycSQ/2vgJPwGTgLLGoVu\ns0NNEBiWyM37hHdTNE1/sbftDSuynX9mYmaKTFjoQQKBgQDYxqyTiWMguxbg/dy4\nzdh7M0V1X5oAwJdndYwoWlFsPfci6Hvn7akmricIo0vTQBN59vNSNt0Qj7+YYdqL\nIbw2b0ZHEA4DcpZyHbCfeFjtf26qfvUsAkWiHxs0GcVhwR835UfNHO1+9cBIu3tH\nqhaazntjlLSRXvlkZT3j+GugowKBgQDNYIT0XGFkd/RFwLxTo0iLFiO7ugXLpdqE\nFCcXczGLgMB0+5feuPTHEJA4Yfvl4/3nnilQY0TTOYIkRVCmF4hJbK/Am0jIPrdW\nEW7yeHcx2QnvCwNT4rDXcCCG3WZGVJWKKUMKbZpKCTURsiM1XVr84pNA6O8lCDal\n/hlXeAfeHQKBgDnTNXHdsi2m+oFl9pztfBPRJ3QZ3nDY7wpQFuUkwpeHKAeN0I+b\nnAWPayYouS9O5mMgduO1ct7aGZfCcpOumhBDOpH2PGa7CFrEhLrlVYN0/MZKO4hT\nytNmTNFnFnnvFC7K4I5caxX05CgCqu4A9yqwbcWwg0JL/WbEgu/u8nbVAoGBAJmj\ngfLYBRfG0Ns5oukitosuJc8zC1Dcowq5lMDrMP4+dDtPV76LOLqOfoVfb7T8CR6z\naA62JG+rjtsZa4rFAfSDtTruL9V1bWuaoRgM3IZS6iaEY5nmdQrF299oUzF7516z\nHW74rTqDhsrVK5epXf7edPBTEUvvyAoHe+e+aIxVAoGAfDmyCU54rlDlaGmqXomx\nLiDrHWYeAdxUYcM5jjcdktJAVVybr9RHq6UmemyE6VsjskxackjyRPZOGRHRS12l\nV5+PMsIvWuN4XucTPvwlTGWJi9vTclf3k2IRGfSayUoxfQ6XagyW/rE6+TFYMb95\n02jBqCEOfru0XGb1fUjYwmU=\n-----END PRIVATE KEY-----\n"
+          }
+        },
+        {
+          "id": "PRIVATE_KEY-0-UNKNOWN_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "variant not declared",
+          "value": {
+            "variant": "UNDECLARED_VARIANT",
+            "pem": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCt6NNIOOpUN765\nX5aZ8k/H5xgLExtgVTHOYSfrs4i3C3yzxR9cbx0Tg7Cy8CXJzSyGLMNH8qXzCjEh\nC3lAyTL5hW5Q5Hgy7uVZRuvykzLzEYlD825coRGED8sKMnvhOW7KqKh6wkNE7fIa\n5+nGetGRWyzurcsEwI5LgdislU6IfdCI+OyJmzRKv7DzAvEWuwYxxKg0de7ycyio\nEVlzw74nIXNCRLdoAbwFPXnj2sv2xApo/7jkFTMQVGoqNqsLLXMHgYBakahRsQjM\neHCKqZxjIz+OA3FGYK/Uxl0E0TF436cFc1bGOIg6kefWsmzzijGmU7Prhb5aiBjP\ndONF84x3AgMBAAECggEAB58EY03bNwWaXhVKTETKKkB+VT3pHTeejyTC0xlzDFJ8\njIQ+85YK+Cf1PmI3xbgwE1Ey3ZxMmXIA5SnTjntCuJyYUQMyIUlG07q/7El3Gh/S\nnB+23mhQlDD8/N1pgF079bWebILG3+ZtjbBMFl6bgHs2ZN9I3lRx5+0wyZ9haanH\nUbGjP2rREYDf7ZwWYQt2o4AeoBZyPSBwxTvqc9ay2zCIZIBQjKkLCRwosdhQItuh\nemehOmxnNP4kjHGcTQ6gWXArQcKamIzA8CRM3QEi8ay4ycSQ/2vgJPwGTgLLGoVu\ns0NNEBiWyM37hHdTNE1/sbftDSuynX9mYmaKTFjoQQKBgQDYxqyTiWMguxbg/dy4\nzdh7M0V1X5oAwJdndYwoWlFsPfci6Hvn7akmricIo0vTQBN59vNSNt0Qj7+YYdqL\nIbw2b0ZHEA4DcpZyHbCfeFjtf26qfvUsAkWiHxs0GcVhwR835UfNHO1+9cBIu3tH\nqhaazntjlLSRXvlkZT3j+GugowKBgQDNYIT0XGFkd/RFwLxTo0iLFiO7ugXLpdqE\nFCcXczGLgMB0+5feuPTHEJA4Yfvl4/3nnilQY0TTOYIkRVCmF4hJbK/Am0jIPrdW\nEW7yeHcx2QnvCwNT4rDXcCCG3WZGVJWKKUMKbZpKCTURsiM1XVr84pNA6O8lCDal\n/hlXeAfeHQKBgDnTNXHdsi2m+oFl9pztfBPRJ3QZ3nDY7wpQFuUkwpeHKAeN0I+b\nnAWPayYouS9O5mMgduO1ct7aGZfCcpOumhBDOpH2PGa7CFrEhLrlVYN0/MZKO4hT\nytNmTNFnFnnvFC7K4I5caxX05CgCqu4A9yqwbcWwg0JL/WbEgu/u8nbVAoGBAJmj\ngfLYBRfG0Ns5oukitosuJc8zC1Dcowq5lMDrMP4+dDtPV76LOLqOfoVfb7T8CR6z\naA62JG+rjtsZa4rFAfSDtTruL9V1bWuaoRgM3IZS6iaEY5nmdQrF299oUzF7516z\nHW74rTqDhsrVK5epXf7edPBTEUvvyAoHe+e+aIxVAoGAfDmyCU54rlDlaGmqXomx\nLiDrHWYeAdxUYcM5jjcdktJAVVybr9RHq6UmemyE6VsjskxackjyRPZOGRHRS12l\nV5+PMsIvWuN4XucTPvwlTGWJi9vTclf3k2IRGfSayUoxfQ6XagyW/rE6+TFYMb95\n02jBqCEOfru0XGb1fUjYwmU=\n-----END PRIVATE KEY-----\n"
+          }
+        },
+        {
+          "id": "PRIVATE_KEY-0-EXTRA_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "extra generic payload field",
+          "value": {
+            "variant": "PKCS8_PEM_PRIVATE_KEY_V1",
+            "pem": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCt6NNIOOpUN765\nX5aZ8k/H5xgLExtgVTHOYSfrs4i3C3yzxR9cbx0Tg7Cy8CXJzSyGLMNH8qXzCjEh\nC3lAyTL5hW5Q5Hgy7uVZRuvykzLzEYlD825coRGED8sKMnvhOW7KqKh6wkNE7fIa\n5+nGetGRWyzurcsEwI5LgdislU6IfdCI+OyJmzRKv7DzAvEWuwYxxKg0de7ycyio\nEVlzw74nIXNCRLdoAbwFPXnj2sv2xApo/7jkFTMQVGoqNqsLLXMHgYBakahRsQjM\neHCKqZxjIz+OA3FGYK/Uxl0E0TF436cFc1bGOIg6kefWsmzzijGmU7Prhb5aiBjP\ndONF84x3AgMBAAECggEAB58EY03bNwWaXhVKTETKKkB+VT3pHTeejyTC0xlzDFJ8\njIQ+85YK+Cf1PmI3xbgwE1Ey3ZxMmXIA5SnTjntCuJyYUQMyIUlG07q/7El3Gh/S\nnB+23mhQlDD8/N1pgF079bWebILG3+ZtjbBMFl6bgHs2ZN9I3lRx5+0wyZ9haanH\nUbGjP2rREYDf7ZwWYQt2o4AeoBZyPSBwxTvqc9ay2zCIZIBQjKkLCRwosdhQItuh\nemehOmxnNP4kjHGcTQ6gWXArQcKamIzA8CRM3QEi8ay4ycSQ/2vgJPwGTgLLGoVu\ns0NNEBiWyM37hHdTNE1/sbftDSuynX9mYmaKTFjoQQKBgQDYxqyTiWMguxbg/dy4\nzdh7M0V1X5oAwJdndYwoWlFsPfci6Hvn7akmricIo0vTQBN59vNSNt0Qj7+YYdqL\nIbw2b0ZHEA4DcpZyHbCfeFjtf26qfvUsAkWiHxs0GcVhwR835UfNHO1+9cBIu3tH\nqhaazntjlLSRXvlkZT3j+GugowKBgQDNYIT0XGFkd/RFwLxTo0iLFiO7ugXLpdqE\nFCcXczGLgMB0+5feuPTHEJA4Yfvl4/3nnilQY0TTOYIkRVCmF4hJbK/Am0jIPrdW\nEW7yeHcx2QnvCwNT4rDXcCCG3WZGVJWKKUMKbZpKCTURsiM1XVr84pNA6O8lCDal\n/hlXeAfeHQKBgDnTNXHdsi2m+oFl9pztfBPRJ3QZ3nDY7wpQFuUkwpeHKAeN0I+b\nnAWPayYouS9O5mMgduO1ct7aGZfCcpOumhBDOpH2PGa7CFrEhLrlVYN0/MZKO4hT\nytNmTNFnFnnvFC7K4I5caxX05CgCqu4A9yqwbcWwg0JL/WbEgu/u8nbVAoGBAJmj\ngfLYBRfG0Ns5oukitosuJc8zC1Dcowq5lMDrMP4+dDtPV76LOLqOfoVfb7T8CR6z\naA62JG+rjtsZa4rFAfSDtTruL9V1bWuaoRgM3IZS6iaEY5nmdQrF299oUzF7516z\nHW74rTqDhsrVK5epXf7edPBTEUvvyAoHe+e+aIxVAoGAfDmyCU54rlDlaGmqXomx\nLiDrHWYeAdxUYcM5jjcdktJAVVybr9RHq6UmemyE6VsjskxackjyRPZOGRHRS12l\nV5+PMsIvWuN4XucTPvwlTGWJi9vTclf3k2IRGfSayUoxfQ6XagyW/rE6+TFYMb95\n02jBqCEOfru0XGb1fUjYwmU=\n-----END PRIVATE KEY-----\n",
+            "canonicalJson": "{}"
+          }
+        },
+        {
+          "id": "PRIVATE_KEY-0-NULL",
+          "expected": "SCHEMA_REJECT",
+          "violation": "nonnull required field",
+          "value": {
+            "variant": "PKCS8_PEM_PRIVATE_KEY_V1",
+            "pem": null
+          }
+        },
+        {
+          "id": "PRIVATE_KEY-0-REQUIRED_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required pem missing",
+          "value": {
+            "variant": "PKCS8_PEM_PRIVATE_KEY_V1"
+          }
+        }
+      ],
+      "fieldRules": {
+        "required": "schema.required per explicit variant",
+        "optional": "omission only; no null except cookie session expiry explicitly proposed",
+        "sensitive": "All credential data remain encrypted; no value or accepted-requestecho in create/import responses/events/logs/audit",
+        "origin": "Caller-supplied import value only; server-derived execution/auth/digests/bindings cannot be supplied in imported value"
+      },
+      "proposedSemanticCases": [
+        {
+          "id": "PRIVATE_KEY-SEMANTIC-POSITIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "PKCS8_PEM_PRIVATE_KEY_V1",
+            "pem": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCt6NNIOOpUN765\nX5aZ8k/H5xgLExtgVTHOYSfrs4i3C3yzxR9cbx0Tg7Cy8CXJzSyGLMNH8qXzCjEh\nC3lAyTL5hW5Q5Hgy7uVZRuvykzLzEYlD825coRGED8sKMnvhOW7KqKh6wkNE7fIa\n5+nGetGRWyzurcsEwI5LgdislU6IfdCI+OyJmzRKv7DzAvEWuwYxxKg0de7ycyio\nEVlzw74nIXNCRLdoAbwFPXnj2sv2xApo/7jkFTMQVGoqNqsLLXMHgYBakahRsQjM\neHCKqZxjIz+OA3FGYK/Uxl0E0TF436cFc1bGOIg6kefWsmzzijGmU7Prhb5aiBjP\ndONF84x3AgMBAAECggEAB58EY03bNwWaXhVKTETKKkB+VT3pHTeejyTC0xlzDFJ8\njIQ+85YK+Cf1PmI3xbgwE1Ey3ZxMmXIA5SnTjntCuJyYUQMyIUlG07q/7El3Gh/S\nnB+23mhQlDD8/N1pgF079bWebILG3+ZtjbBMFl6bgHs2ZN9I3lRx5+0wyZ9haanH\nUbGjP2rREYDf7ZwWYQt2o4AeoBZyPSBwxTvqc9ay2zCIZIBQjKkLCRwosdhQItuh\nemehOmxnNP4kjHGcTQ6gWXArQcKamIzA8CRM3QEi8ay4ycSQ/2vgJPwGTgLLGoVu\ns0NNEBiWyM37hHdTNE1/sbftDSuynX9mYmaKTFjoQQKBgQDYxqyTiWMguxbg/dy4\nzdh7M0V1X5oAwJdndYwoWlFsPfci6Hvn7akmricIo0vTQBN59vNSNt0Qj7+YYdqL\nIbw2b0ZHEA4DcpZyHbCfeFjtf26qfvUsAkWiHxs0GcVhwR835UfNHO1+9cBIu3tH\nqhaazntjlLSRXvlkZT3j+GugowKBgQDNYIT0XGFkd/RFwLxTo0iLFiO7ugXLpdqE\nFCcXczGLgMB0+5feuPTHEJA4Yfvl4/3nnilQY0TTOYIkRVCmF4hJbK/Am0jIPrdW\nEW7yeHcx2QnvCwNT4rDXcCCG3WZGVJWKKUMKbZpKCTURsiM1XVr84pNA6O8lCDal\n/hlXeAfeHQKBgDnTNXHdsi2m+oFl9pztfBPRJ3QZ3nDY7wpQFuUkwpeHKAeN0I+b\nnAWPayYouS9O5mMgduO1ct7aGZfCcpOumhBDOpH2PGa7CFrEhLrlVYN0/MZKO4hT\nytNmTNFnFnnvFC7K4I5caxX05CgCqu4A9yqwbcWwg0JL/WbEgu/u8nbVAoGBAJmj\ngfLYBRfG0Ns5oukitosuJc8zC1Dcowq5lMDrMP4+dDtPV76LOLqOfoVfb7T8CR6z\naA62JG+rjtsZa4rFAfSDtTruL9V1bWuaoRgM3IZS6iaEY5nmdQrF299oUzF7516z\nHW74rTqDhsrVK5epXf7edPBTEUvvyAoHe+e+aIxVAoGAfDmyCU54rlDlaGmqXomx\nLiDrHWYeAdxUYcM5jjcdktJAVVybr9RHq6UmemyE6VsjskxackjyRPZOGRHRS12l\nV5+PMsIvWuN4XucTPvwlTGWJi9vTclf3k2IRGfSayUoxfQ6XagyW/rE6+TFYMb95\n02jBqCEOfru0XGb1fUjYwmU=\n-----END PRIVATE KEY-----\n"
+          },
+          "expected": "ACCEPT_CANDIDATE_ONLY",
+          "trustedFixture": "Exact consumer declaresvariant; noactualnetwork calls; test-local synthetic targetcontext where needed"
+        },
+        {
+          "id": "PRIVATE_KEY-SEMANTIC-NEGATIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "PKCS8_PEM_PRIVATE_KEY_V1",
+            "pem": "-----BEGIN PRIVATE KEY-----\nU1lOVEhFVElDX09OTFk=\n-----END PRIVATE KEY-----\n"
+          },
+          "expectedStableCode": "PRIVATE_KEY_PEM_INVALID",
+          "expectedPointer": "/pem",
+          "violation": "syntactically PEM but invalid PKCS8 DER",
+          "baseline": "derived from positive witness above; parser/schema must first accept otherfields",
+          "scope": "type-specificcandidatepolicy"
+        }
+      ]
+    },
+    {
+      "proposalId": "PROPOSAL-SECRET-DATABASE_CREDENTIAL",
+      "secretType": "DATABASE_CREDENTIAL",
+      "status": "PENDING_OWNER_FORMAT_REVIEW",
+      "effectiveContract": false,
+      "authority": [
+        {
+          "source": "SSOT §8.2",
+          "claim": "Type exists",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §72.21 secret.value",
+          "claim": "TYPE_SPECIFIC + NO_SILENT_NORMALIZATION required",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §8.4 /25.6",
+          "claim": "Encrypted immutable version, server cipher/digest metadata",
+          "explicitFormatAuthority": false
+        }
+      ],
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "urn:kcml:proposal:secret-database_credential:1",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "variant": {
+                "const": "DATABASE_USER_PASSWORD_V1"
+              },
+              "username": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "password": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1048576
+              },
+              "database": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              }
+            },
+            "required": [
+              "variant",
+              "username",
+              "password"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "semanticPredicates": [
+        "Exact username/password UTF8 bytes without normalization",
+        "Endpoint/vendor/TLS/network guard remains in exact target binding; no credentials embedded in URI",
+        "Consumer rejects absent database if its explicit connection contract requires it; import itself performs no login"
+      ],
+      "consumerContract": "Exact DB connector declares DATABASE_USER_PASSWORD_V1, binds host/port/database and TLS separately; alternative service-account/token/DSN formats need separate variants",
+      "specificErrors": [
+        "DATABASE_CREDENTIAL_FIELD_INVALID",
+        "DATABASE_CREDENTIAL_TARGET_MISMATCH",
+        "SECRET_VARIANT_UNSUPPORTED"
+      ],
+      "reviewDecisions": [
+        "Approve minimaluser/password and optional database value shape",
+        "Approve target endpoint remains bindingmetadata instead of secretvalue"
+      ],
+      "syntheticCases": [
+        {
+          "id": "DATABASE_CREDENTIAL-0-POSITIVE",
+          "expected": "SCHEMA_ACCEPT",
+          "value": {
+            "variant": "DATABASE_USER_PASSWORD_V1",
+            "username": "synthetic-user",
+            "password": "SYNTHETIC_ONLY",
+            "database": "syntheticdb"
+          },
+          "scope": "Synthetic proposal schema witness; requires semantic predicates before admission"
+        },
+        {
+          "id": "DATABASE_CREDENTIAL-0-MISSING_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required variant missing",
+          "value": {
+            "username": "synthetic-user",
+            "password": "SYNTHETIC_ONLY",
+            "database": "syntheticdb"
+          }
+        },
+        {
+          "id": "DATABASE_CREDENTIAL-0-UNKNOWN_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "variant not declared",
+          "value": {
+            "variant": "UNDECLARED_VARIANT",
+            "username": "synthetic-user",
+            "password": "SYNTHETIC_ONLY",
+            "database": "syntheticdb"
+          }
+        },
+        {
+          "id": "DATABASE_CREDENTIAL-0-EXTRA_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "extra generic payload field",
+          "value": {
+            "variant": "DATABASE_USER_PASSWORD_V1",
+            "username": "synthetic-user",
+            "password": "SYNTHETIC_ONLY",
+            "database": "syntheticdb",
+            "canonicalJson": "{}"
+          }
+        },
+        {
+          "id": "DATABASE_CREDENTIAL-0-NULL",
+          "expected": "SCHEMA_REJECT",
+          "violation": "nonnull required field",
+          "value": {
+            "variant": "DATABASE_USER_PASSWORD_V1",
+            "username": null,
+            "password": "SYNTHETIC_ONLY",
+            "database": "syntheticdb"
+          }
+        },
+        {
+          "id": "DATABASE_CREDENTIAL-0-REQUIRED_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required username missing",
+          "value": {
+            "variant": "DATABASE_USER_PASSWORD_V1",
+            "password": "SYNTHETIC_ONLY",
+            "database": "syntheticdb"
+          }
+        }
+      ],
+      "fieldRules": {
+        "required": "schema.required per explicit variant",
+        "optional": "omission only; no null except cookie session expiry explicitly proposed",
+        "sensitive": "All credential data remain encrypted; no value or accepted-requestecho in create/import responses/events/logs/audit",
+        "origin": "Caller-supplied import value only; server-derived execution/auth/digests/bindings cannot be supplied in imported value"
+      },
+      "proposedSemanticCases": [
+        {
+          "id": "DATABASE_CREDENTIAL-SEMANTIC-POSITIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "DATABASE_USER_PASSWORD_V1",
+            "username": "synthetic-user",
+            "password": "SYNTHETIC_ONLY",
+            "database": "syntheticdb"
+          },
+          "expected": "ACCEPT_CANDIDATE_ONLY",
+          "trustedFixture": "Exact consumer declaresvariant; noactualnetwork calls; test-local synthetic targetcontext where needed"
+        },
+        {
+          "id": "DATABASE_CREDENTIAL-SEMANTIC-NEGATIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "DATABASE_USER_PASSWORD_V1",
+            "username": "synthetic-user",
+            "password": "SYNTHETIC_ONLY",
+            "database": "another-syntheticdb"
+          },
+          "expectedStableCode": "DATABASE_CREDENTIAL_TARGET_MISMATCH",
+          "expectedPointer": "/database",
+          "violation": "runtime consumer exact bound target syntheticdb differs; not create syntactic failure",
+          "baseline": "derived from positive witness above; parser/schema must first accept otherfields",
+          "scope": "runtime targetsemantic"
+        }
+      ]
+    },
+    {
+      "proposalId": "PROPOSAL-SECRET-COOKIE_JAR",
+      "secretType": "COOKIE_JAR",
+      "status": "PENDING_OWNER_FORMAT_REVIEW",
+      "effectiveContract": false,
+      "authority": [
+        {
+          "source": "SSOT §8.2",
+          "claim": "Type exists",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §72.21 secret.value",
+          "claim": "TYPE_SPECIFIC + NO_SILENT_NORMALIZATION required",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §8.4 /25.6",
+          "claim": "Encrypted immutable version, server cipher/digest metadata",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §13.15",
+          "claim": "Exact serializer and cookie/origin state semantics plus verifiedaccount condition; concrete proposedvariant is restricted member subset",
+          "explicitFormatAuthority": false
+        }
+      ],
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "urn:kcml:proposal:secret-cookie_jar:1",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "variant": {
+                "const": "HTTP_COOKIE_JAR_V1"
+              },
+              "cookies": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "value": {
+                      "type": "string",
+                      "maxLength": 1048576
+                    },
+                    "domain": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "path": {
+                      "type": "string",
+                      "pattern": "^/"
+                    },
+                    "secure": {
+                      "type": "boolean"
+                    },
+                    "httpOnly": {
+                      "type": "boolean"
+                    },
+                    "sameSite": {
+                      "enum": [
+                        "Strict",
+                        "Lax",
+                        "None"
+                      ]
+                    },
+                    "expires": {
+                      "oneOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 9007199254740991
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "value",
+                    "domain",
+                    "path",
+                    "secure",
+                    "httpOnly",
+                    "sameSite",
+                    "expires"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 4096,
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "variant",
+              "cookies"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "semanticPredicates": [
+        "Cookie key(name,domain,path) unique; reject exactdom duplicate even if value differs",
+        "Domain syntax valid and actual allowedtarget scope separately verified; path absolute",
+        "SameSite None requires secure=true; session expires=null, otherwise Unixsecondsinteger",
+        "Cookie value exact; no URLdecode/trim, no opaque extra partition metadata fallback"
+      ],
+      "consumerContract": "Browser serializer must declare HTTP_COOKIE_JAR_V1 and unpartitioned-cookie support; partitionedcookies rejected pending explicit additional variant",
+      "specificErrors": [
+        "COOKIE_DUPLICATE",
+        "COOKIE_DOMAIN_INVALID",
+        "COOKIE_SAMESITE_SECURE_REQUIRED",
+        "COOKIE_SCOPE_MISMATCH",
+        "SECRET_VARIANT_UNSUPPORTED"
+      ],
+      "reviewDecisions": [
+        "Approve unpartitioned cookie variant; partitioned/browserengine additions require declared variant",
+        "Approve sessionexpiry null and epochsecond expiration schema"
+      ],
+      "syntheticCases": [
+        {
+          "id": "COOKIE_JAR-0-POSITIVE",
+          "expected": "SCHEMA_ACCEPT",
+          "value": {
+            "variant": "HTTP_COOKIE_JAR_V1",
+            "cookies": [
+              {
+                "name": "synthetic_session",
+                "value": "SYNTHETIC_ONLY",
+                "domain": "example.invalid",
+                "path": "/",
+                "secure": true,
+                "httpOnly": true,
+                "sameSite": "Lax",
+                "expires": null
+              }
+            ]
+          },
+          "scope": "Synthetic proposal schema witness; requires semantic predicates before admission"
+        },
+        {
+          "id": "COOKIE_JAR-0-MISSING_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required variant missing",
+          "value": {
+            "cookies": [
+              {
+                "name": "synthetic_session",
+                "value": "SYNTHETIC_ONLY",
+                "domain": "example.invalid",
+                "path": "/",
+                "secure": true,
+                "httpOnly": true,
+                "sameSite": "Lax",
+                "expires": null
+              }
+            ]
+          }
+        },
+        {
+          "id": "COOKIE_JAR-0-UNKNOWN_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "variant not declared",
+          "value": {
+            "variant": "UNDECLARED_VARIANT",
+            "cookies": [
+              {
+                "name": "synthetic_session",
+                "value": "SYNTHETIC_ONLY",
+                "domain": "example.invalid",
+                "path": "/",
+                "secure": true,
+                "httpOnly": true,
+                "sameSite": "Lax",
+                "expires": null
+              }
+            ]
+          }
+        },
+        {
+          "id": "COOKIE_JAR-0-EXTRA_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "extra generic payload field",
+          "value": {
+            "variant": "HTTP_COOKIE_JAR_V1",
+            "cookies": [
+              {
+                "name": "synthetic_session",
+                "value": "SYNTHETIC_ONLY",
+                "domain": "example.invalid",
+                "path": "/",
+                "secure": true,
+                "httpOnly": true,
+                "sameSite": "Lax",
+                "expires": null
+              }
+            ],
+            "canonicalJson": "{}"
+          }
+        },
+        {
+          "id": "COOKIE_JAR-0-NULL",
+          "expected": "SCHEMA_REJECT",
+          "violation": "nonnull required field",
+          "value": {
+            "variant": "HTTP_COOKIE_JAR_V1",
+            "cookies": null
+          }
+        },
+        {
+          "id": "COOKIE_JAR-0-REQUIRED_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required cookies missing",
+          "value": {
+            "variant": "HTTP_COOKIE_JAR_V1"
+          }
+        }
+      ],
+      "fieldRules": {
+        "required": "schema.required per explicit variant",
+        "optional": "omission only; no null except cookie session expiry explicitly proposed",
+        "sensitive": "All credential data remain encrypted; no value or accepted-requestecho in create/import responses/events/logs/audit",
+        "origin": "Caller-supplied import value only; server-derived execution/auth/digests/bindings cannot be supplied in imported value"
+      },
+      "proposedSemanticCases": [
+        {
+          "id": "COOKIE_JAR-SEMANTIC-POSITIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "HTTP_COOKIE_JAR_V1",
+            "cookies": [
+              {
+                "name": "synthetic_session",
+                "value": "SYNTHETIC_ONLY",
+                "domain": "example.invalid",
+                "path": "/",
+                "secure": true,
+                "httpOnly": true,
+                "sameSite": "Lax",
+                "expires": null
+              }
+            ]
+          },
+          "expected": "ACCEPT_CANDIDATE_ONLY",
+          "trustedFixture": "Exact consumer declaresvariant; noactualnetwork calls; test-local synthetic targetcontext where needed"
+        },
+        {
+          "id": "COOKIE_JAR-SEMANTIC-NEGATIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "HTTP_COOKIE_JAR_V1",
+            "cookies": [
+              {
+                "name": "synthetic_session",
+                "value": "SYNTHETIC_ONLY",
+                "domain": "example.invalid",
+                "path": "/",
+                "secure": false,
+                "httpOnly": true,
+                "sameSite": "None",
+                "expires": null
+              }
+            ]
+          },
+          "expectedStableCode": "COOKIE_SAMESITE_SECURE_REQUIRED",
+          "expectedPointer": "/cookies/0/secure",
+          "violation": "SameSite=None with insecurecookie",
+          "baseline": "derived from positive witness above; parser/schema must first accept otherfields",
+          "scope": "type-specificcandidatepolicy"
+        }
+      ]
+    },
+    {
+      "proposalId": "PROPOSAL-SECRET-SESSION_STATE",
+      "secretType": "SESSION_STATE",
+      "status": "PENDING_OWNER_FORMAT_REVIEW",
+      "effectiveContract": false,
+      "authority": [
+        {
+          "source": "SSOT §8.2",
+          "claim": "Type exists",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §72.21 secret.value",
+          "claim": "TYPE_SPECIFIC + NO_SILENT_NORMALIZATION required",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §8.4 /25.6",
+          "claim": "Encrypted immutable version, server cipher/digest metadata",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §13.15",
+          "claim": "Exact serializer and cookie/origin state semantics plus verifiedaccount condition; concrete proposedvariant is restricted member subset",
+          "explicitFormatAuthority": false
+        }
+      ],
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "urn:kcml:proposal:secret-session_state:1",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "variant": {
+                "const": "BROWSER_COOKIE_LOCAL_STORAGE_V1"
+              },
+              "cookies": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "value": {
+                      "type": "string",
+                      "maxLength": 1048576
+                    },
+                    "domain": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "path": {
+                      "type": "string",
+                      "pattern": "^/"
+                    },
+                    "secure": {
+                      "type": "boolean"
+                    },
+                    "httpOnly": {
+                      "type": "boolean"
+                    },
+                    "sameSite": {
+                      "enum": [
+                        "Strict",
+                        "Lax",
+                        "None"
+                      ]
+                    },
+                    "expires": {
+                      "oneOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 9007199254740991
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "value",
+                    "domain",
+                    "path",
+                    "secure",
+                    "httpOnly",
+                    "sameSite",
+                    "expires"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 4096,
+                "uniqueItems": true
+              },
+              "origins": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "origin": {
+                      "type": "string",
+                      "format": "uri",
+                      "pattern": "^https?://"
+                    },
+                    "localStorage": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 4096
+                          },
+                          "value": {
+                            "type": "string",
+                            "maxLength": 1048576
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "value"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "maxItems": 4096,
+                      "uniqueItems": true
+                    }
+                  },
+                  "required": [
+                    "origin",
+                    "localStorage"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 4096,
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "variant",
+              "cookies",
+              "origins"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "semanticPredicates": [
+        "All cookie predicates above apply",
+        "Origin exact scheme+host+port; no path/query/fragment/userinfo; duplicate origin rejects",
+        "localStorage name unique perorigin even differentvalue; exact strings no normalization",
+        "Imported state is untrusted data, not server BrowserStateBundle receipt; server verifies enginecapability, expectedaccount/tenant, auth/credentialepoch, contentdigest before candidate capture/activation",
+        "No sessionStorage/IndexedDB/permissions/WebAuthn/privatekey/rawprofile implicit capture in this restricted variant"
+      ],
+      "consumerContract": "Browser serializer declares BROWSER_COOKIE_LOCAL_STORAGE_V1 and exact supported state kinds; restores freshcontext before navigation then proves authenticated account condition (§13.15); failure does not create partialauthenticated success",
+      "specificErrors": [
+        "BROWSER_STATE_ORIGIN_INVALID",
+        "BROWSER_STATE_DUPLICATE_ORIGIN",
+        "BROWSER_STATE_DUPLICATE_STORAGE_KEY",
+        "BROWSER_STATE_MEMBER_UNSUPPORTED",
+        "BROWSER_STATE_AUTH_POSTCONDITION_FAILED"
+      ],
+      "reviewDecisions": [
+        "Approve restricted cookies/localStorage initial variant; otherallowedSSOTmembers require future declared variants",
+        "Approve importonlydata separate from server-created bundle metadata/immutablelineage"
+      ],
+      "syntheticCases": [
+        {
+          "id": "SESSION_STATE-0-POSITIVE",
+          "expected": "SCHEMA_ACCEPT",
+          "value": {
+            "variant": "BROWSER_COOKIE_LOCAL_STORAGE_V1",
+            "cookies": [
+              {
+                "name": "synthetic_session",
+                "value": "SYNTHETIC_ONLY",
+                "domain": "example.invalid",
+                "path": "/",
+                "secure": true,
+                "httpOnly": true,
+                "sameSite": "Lax",
+                "expires": null
+              }
+            ],
+            "origins": [
+              {
+                "origin": "https://example.invalid",
+                "localStorage": [
+                  {
+                    "name": "synthetic-key",
+                    "value": "SYNTHETIC_ONLY"
+                  }
+                ]
+              }
+            ]
+          },
+          "scope": "Synthetic proposal schema witness; requires semantic predicates before admission"
+        },
+        {
+          "id": "SESSION_STATE-0-MISSING_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required variant missing",
+          "value": {
+            "cookies": [
+              {
+                "name": "synthetic_session",
+                "value": "SYNTHETIC_ONLY",
+                "domain": "example.invalid",
+                "path": "/",
+                "secure": true,
+                "httpOnly": true,
+                "sameSite": "Lax",
+                "expires": null
+              }
+            ],
+            "origins": [
+              {
+                "origin": "https://example.invalid",
+                "localStorage": [
+                  {
+                    "name": "synthetic-key",
+                    "value": "SYNTHETIC_ONLY"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "SESSION_STATE-0-UNKNOWN_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "variant not declared",
+          "value": {
+            "variant": "UNDECLARED_VARIANT",
+            "cookies": [
+              {
+                "name": "synthetic_session",
+                "value": "SYNTHETIC_ONLY",
+                "domain": "example.invalid",
+                "path": "/",
+                "secure": true,
+                "httpOnly": true,
+                "sameSite": "Lax",
+                "expires": null
+              }
+            ],
+            "origins": [
+              {
+                "origin": "https://example.invalid",
+                "localStorage": [
+                  {
+                    "name": "synthetic-key",
+                    "value": "SYNTHETIC_ONLY"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "SESSION_STATE-0-EXTRA_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "extra generic payload field",
+          "value": {
+            "variant": "BROWSER_COOKIE_LOCAL_STORAGE_V1",
+            "cookies": [
+              {
+                "name": "synthetic_session",
+                "value": "SYNTHETIC_ONLY",
+                "domain": "example.invalid",
+                "path": "/",
+                "secure": true,
+                "httpOnly": true,
+                "sameSite": "Lax",
+                "expires": null
+              }
+            ],
+            "origins": [
+              {
+                "origin": "https://example.invalid",
+                "localStorage": [
+                  {
+                    "name": "synthetic-key",
+                    "value": "SYNTHETIC_ONLY"
+                  }
+                ]
+              }
+            ],
+            "canonicalJson": "{}"
+          }
+        },
+        {
+          "id": "SESSION_STATE-0-NULL",
+          "expected": "SCHEMA_REJECT",
+          "violation": "nonnull required field",
+          "value": {
+            "variant": "BROWSER_COOKIE_LOCAL_STORAGE_V1",
+            "cookies": null,
+            "origins": [
+              {
+                "origin": "https://example.invalid",
+                "localStorage": [
+                  {
+                    "name": "synthetic-key",
+                    "value": "SYNTHETIC_ONLY"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "SESSION_STATE-0-REQUIRED_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required cookies missing",
+          "value": {
+            "variant": "BROWSER_COOKIE_LOCAL_STORAGE_V1",
+            "origins": [
+              {
+                "origin": "https://example.invalid",
+                "localStorage": [
+                  {
+                    "name": "synthetic-key",
+                    "value": "SYNTHETIC_ONLY"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "fieldRules": {
+        "required": "schema.required per explicit variant",
+        "optional": "omission only; no null except cookie session expiry explicitly proposed",
+        "sensitive": "All credential data remain encrypted; no value or accepted-requestecho in create/import responses/events/logs/audit",
+        "origin": "Caller-supplied import value only; server-derived execution/auth/digests/bindings cannot be supplied in imported value"
+      },
+      "proposedSemanticCases": [
+        {
+          "id": "SESSION_STATE-SEMANTIC-POSITIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "BROWSER_COOKIE_LOCAL_STORAGE_V1",
+            "cookies": [
+              {
+                "name": "synthetic_session",
+                "value": "SYNTHETIC_ONLY",
+                "domain": "example.invalid",
+                "path": "/",
+                "secure": true,
+                "httpOnly": true,
+                "sameSite": "Lax",
+                "expires": null
+              }
+            ],
+            "origins": [
+              {
+                "origin": "https://example.invalid",
+                "localStorage": [
+                  {
+                    "name": "synthetic-key",
+                    "value": "SYNTHETIC_ONLY"
+                  }
+                ]
+              }
+            ]
+          },
+          "expected": "ACCEPT_CANDIDATE_ONLY",
+          "trustedFixture": "Exact consumer declaresvariant; noactualnetwork calls; test-local synthetic targetcontext where needed"
+        },
+        {
+          "id": "SESSION_STATE-SEMANTIC-NEGATIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "BROWSER_COOKIE_LOCAL_STORAGE_V1",
+            "cookies": [
+              {
+                "name": "synthetic_session",
+                "value": "SYNTHETIC_ONLY",
+                "domain": "example.invalid",
+                "path": "/",
+                "secure": true,
+                "httpOnly": true,
+                "sameSite": "Lax",
+                "expires": null
+              }
+            ],
+            "origins": [
+              {
+                "origin": "https://example.invalid",
+                "localStorage": [
+                  {
+                    "name": "synthetic-key",
+                    "value": "SYNTHETIC_ONLY"
+                  },
+                  {
+                    "name": "synthetic-key",
+                    "value": "DIFFERENT_SYNTHETIC"
+                  }
+                ]
+              }
+            ]
+          },
+          "expectedStableCode": "BROWSER_STATE_DUPLICATE_STORAGE_KEY",
+          "expectedPointer": "/origins/0/localStorage/1/name",
+          "violation": "same origin key name even differingvalue",
+          "baseline": "derived from positive witness above; parser/schema must first accept otherfields",
+          "scope": "type-specificcandidatepolicy"
+        }
+      ]
+    },
+    {
+      "proposalId": "PROPOSAL-SECRET-SSH_CREDENTIAL",
+      "secretType": "SSH_CREDENTIAL",
+      "status": "PENDING_OWNER_FORMAT_REVIEW",
+      "effectiveContract": false,
+      "authority": [
+        {
+          "source": "SSOT §8.2",
+          "claim": "Type exists",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §72.21 secret.value",
+          "claim": "TYPE_SPECIFIC + NO_SILENT_NORMALIZATION required",
+          "explicitFormatAuthority": false
+        },
+        {
+          "source": "SSOT §8.4 /25.6",
+          "claim": "Encrypted immutable version, server cipher/digest metadata",
+          "explicitFormatAuthority": false
+        }
+      ],
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "urn:kcml:proposal:secret-ssh_credential:1",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "variant": {
+                "const": "SSH_PASSWORD_V1"
+              },
+              "username": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "password": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1048576
+              }
+            },
+            "required": [
+              "variant",
+              "username",
+              "password"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "variant": {
+                "const": "SSH_OPENSSH_PRIVATE_KEY_V1"
+              },
+              "username": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "privateKeyPem": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1048576
+              },
+              "passphrase": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1048576
+              }
+            },
+            "required": [
+              "variant",
+              "username",
+              "privateKeyPem"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "semanticPredicates": [
+        "PASSWORD variant exactnonempty UTF8 username/password",
+        "KEY variant exactlyone OPENSSH PRIVATE KEY PEM block complete parse; encryptedkey requires explicit passphrase, unencryptedkey forbids passphrase (semanticcondition)",
+        "No conversion to PKCS8 or silentalgorithmfallback; supportedalgorithm bound by SSH adapter",
+        "Endpoint/host-key fingerprint trusted binding separate; import cannot assert trust or disablehost-key verification"
+      ],
+      "consumerContract": "SSH adapter declares exact variant; pins server-authorized target/host-key verification policy before authentication",
+      "specificErrors": [
+        "SSH_KEY_INVALID",
+        "SSH_KEY_PASSPHRASE_REQUIRED",
+        "SSH_KEY_PASSPHRASE_UNEXPECTED",
+        "SSH_HOST_KEY_MISMATCH",
+        "SECRET_VARIANT_UNSUPPORTED"
+      ],
+      "reviewDecisions": [
+        "Approve password and OpenSSHkey variants; PKCS8agent/hardwareauth absent",
+        "Approve encrypted-key passphrase as distinct sensitive field; no autodetectfallback"
+      ],
+      "syntheticCases": [
+        {
+          "id": "SSH_CREDENTIAL-0-POSITIVE",
+          "expected": "SCHEMA_ACCEPT",
+          "value": {
+            "variant": "SSH_PASSWORD_V1",
+            "username": "synthetic-user",
+            "password": "SYNTHETIC_ONLY"
+          },
+          "scope": "Synthetic proposal schema witness; requires semantic predicates before admission"
+        },
+        {
+          "id": "SSH_CREDENTIAL-0-MISSING_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required variant missing",
+          "value": {
+            "username": "synthetic-user",
+            "password": "SYNTHETIC_ONLY"
+          }
+        },
+        {
+          "id": "SSH_CREDENTIAL-0-UNKNOWN_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "variant not declared",
+          "value": {
+            "variant": "UNDECLARED_VARIANT",
+            "username": "synthetic-user",
+            "password": "SYNTHETIC_ONLY"
+          }
+        },
+        {
+          "id": "SSH_CREDENTIAL-0-EXTRA_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "extra generic payload field",
+          "value": {
+            "variant": "SSH_PASSWORD_V1",
+            "username": "synthetic-user",
+            "password": "SYNTHETIC_ONLY",
+            "canonicalJson": "{}"
+          }
+        },
+        {
+          "id": "SSH_CREDENTIAL-0-NULL",
+          "expected": "SCHEMA_REJECT",
+          "violation": "nonnull required field",
+          "value": {
+            "variant": "SSH_PASSWORD_V1",
+            "username": null,
+            "password": "SYNTHETIC_ONLY"
+          }
+        },
+        {
+          "id": "SSH_CREDENTIAL-0-REQUIRED_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required username missing",
+          "value": {
+            "variant": "SSH_PASSWORD_V1",
+            "password": "SYNTHETIC_ONLY"
+          }
+        },
+        {
+          "id": "SSH_CREDENTIAL-1-POSITIVE",
+          "expected": "SCHEMA_ACCEPT",
+          "value": {
+            "variant": "SSH_OPENSSH_PRIVATE_KEY_V1",
+            "username": "synthetic-user",
+            "privateKeyPem": "-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABFwAAAAdz\nc2gtcnNhAAAAAwEAAQAAAQEArejTSDjqVDe+uV+WmfJPx+cYCxMbYFUxzmEn67OI\ntwt8s8UfXG8dE4OwsvAlyc0shizDR/Kl8woxIQt5QMky+YVuUOR4Mu7lWUbr8pMy\n8xGJQ/NuXKERhA/LCjJ74TluyqioesJDRO3yGufpxnrRkVss7q3LBMCOS4HYrJVO\niH3QiPjsiZs0Sr+w8wLxFrsGMcSoNHXu8nMoqBFZc8O+JyFzQkS3aAG8BT1549rL\n9sQKaP+45BUzEFRqKjarCy1zB4GAWpGoUbEIzHhwiqmcYyM/jgNxRmCv1MZdBNEx\neN+nBXNWxjiIOpHn1rJs84oxplOz64W+WogYz3TjRfOMdwAAA7iYOuT2mDrk9gAA\nAAdzc2gtcnNhAAABAQCt6NNIOOpUN765X5aZ8k/H5xgLExtgVTHOYSfrs4i3C3yz\nxR9cbx0Tg7Cy8CXJzSyGLMNH8qXzCjEhC3lAyTL5hW5Q5Hgy7uVZRuvykzLzEYlD\n825coRGED8sKMnvhOW7KqKh6wkNE7fIa5+nGetGRWyzurcsEwI5LgdislU6IfdCI\n+OyJmzRKv7DzAvEWuwYxxKg0de7ycyioEVlzw74nIXNCRLdoAbwFPXnj2sv2xApo\n/7jkFTMQVGoqNqsLLXMHgYBakahRsQjMeHCKqZxjIz+OA3FGYK/Uxl0E0TF436cF\nc1bGOIg6kefWsmzzijGmU7Prhb5aiBjPdONF84x3AAAAAwEAAQAAAQAHnwRjTds3\nBZpeFUpMRMoqQH5VPekdN56PJMLTGXMMUnyMhD7zlgr4J/U+YjfFuDATUTLdnEyZ\ncgDlKdOOe0K4nJhRAzIhSUbTur/sSXcaH9KcH7beaFCUMPz83WmAXTv1tZ5sgsbf\n5m2NsEwWXpuAezZk30jeVHHn7TDJn2FpqcdRsaM/atERgN/tnBZhC3ajgB6gFnI9\nIHDFO+pz1rLbMIhkgFCMqQsJHCix2FAi26F6Z6E6bGc0/iSMcZxNDqBZcCtBwpqY\njMDwJEzdASLxrLjJxJD/a+Ak/AZOAssahW6zQ00QGJbIzfuEd1M0TX+xt+0NK7Kd\nf2ZiZopMWOhBAAAAgHw5sglOeK5Q5Whpql6JsS4g6x1mHgHcVGHDOY43HZLSQFVc\nm6/UR6ulJnpshOlbI7JMWnJI8kT2ThkR0UtdpVefjzLCL1rjeF7nEz78JUxliYvb\n03JX95NiERn0mslKMX0Ol2oMlv6xOvkxWDG/edNowaghDn67tFxm9X1I2MJlAAAA\ngQDYxqyTiWMguxbg/dy4zdh7M0V1X5oAwJdndYwoWlFsPfci6Hvn7akmricIo0vT\nQBN59vNSNt0Qj7+YYdqLIbw2b0ZHEA4DcpZyHbCfeFjtf26qfvUsAkWiHxs0GcVh\nwR835UfNHO1+9cBIu3tHqhaazntjlLSRXvlkZT3j+GugowAAAIEAzWCE9FxhZHf0\nRcC8U6NIixYju7oFy6XahBQnF3Mxi4DAdPuX3rj0xxCQOGH75eP9554pUGNE0zmC\nJEVQpheISWyvwJtIyD63VhFu8nh3MdkJ7wsDU+Kw13Aght1mRlSViilDCm2aSgk1\nEbIjNV1a/OKTQOjvJQg2pf4ZV3gH3h0AAAAAAQID\n-----END OPENSSH PRIVATE KEY-----\n"
+          },
+          "scope": "Synthetic proposal schema witness; requires semantic predicates before admission"
+        },
+        {
+          "id": "SSH_CREDENTIAL-1-MISSING_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required variant missing",
+          "value": {
+            "username": "synthetic-user",
+            "privateKeyPem": "-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABFwAAAAdz\nc2gtcnNhAAAAAwEAAQAAAQEArejTSDjqVDe+uV+WmfJPx+cYCxMbYFUxzmEn67OI\ntwt8s8UfXG8dE4OwsvAlyc0shizDR/Kl8woxIQt5QMky+YVuUOR4Mu7lWUbr8pMy\n8xGJQ/NuXKERhA/LCjJ74TluyqioesJDRO3yGufpxnrRkVss7q3LBMCOS4HYrJVO\niH3QiPjsiZs0Sr+w8wLxFrsGMcSoNHXu8nMoqBFZc8O+JyFzQkS3aAG8BT1549rL\n9sQKaP+45BUzEFRqKjarCy1zB4GAWpGoUbEIzHhwiqmcYyM/jgNxRmCv1MZdBNEx\neN+nBXNWxjiIOpHn1rJs84oxplOz64W+WogYz3TjRfOMdwAAA7iYOuT2mDrk9gAA\nAAdzc2gtcnNhAAABAQCt6NNIOOpUN765X5aZ8k/H5xgLExtgVTHOYSfrs4i3C3yz\nxR9cbx0Tg7Cy8CXJzSyGLMNH8qXzCjEhC3lAyTL5hW5Q5Hgy7uVZRuvykzLzEYlD\n825coRGED8sKMnvhOW7KqKh6wkNE7fIa5+nGetGRWyzurcsEwI5LgdislU6IfdCI\n+OyJmzRKv7DzAvEWuwYxxKg0de7ycyioEVlzw74nIXNCRLdoAbwFPXnj2sv2xApo\n/7jkFTMQVGoqNqsLLXMHgYBakahRsQjMeHCKqZxjIz+OA3FGYK/Uxl0E0TF436cF\nc1bGOIg6kefWsmzzijGmU7Prhb5aiBjPdONF84x3AAAAAwEAAQAAAQAHnwRjTds3\nBZpeFUpMRMoqQH5VPekdN56PJMLTGXMMUnyMhD7zlgr4J/U+YjfFuDATUTLdnEyZ\ncgDlKdOOe0K4nJhRAzIhSUbTur/sSXcaH9KcH7beaFCUMPz83WmAXTv1tZ5sgsbf\n5m2NsEwWXpuAezZk30jeVHHn7TDJn2FpqcdRsaM/atERgN/tnBZhC3ajgB6gFnI9\nIHDFO+pz1rLbMIhkgFCMqQsJHCix2FAi26F6Z6E6bGc0/iSMcZxNDqBZcCtBwpqY\njMDwJEzdASLxrLjJxJD/a+Ak/AZOAssahW6zQ00QGJbIzfuEd1M0TX+xt+0NK7Kd\nf2ZiZopMWOhBAAAAgHw5sglOeK5Q5Whpql6JsS4g6x1mHgHcVGHDOY43HZLSQFVc\nm6/UR6ulJnpshOlbI7JMWnJI8kT2ThkR0UtdpVefjzLCL1rjeF7nEz78JUxliYvb\n03JX95NiERn0mslKMX0Ol2oMlv6xOvkxWDG/edNowaghDn67tFxm9X1I2MJlAAAA\ngQDYxqyTiWMguxbg/dy4zdh7M0V1X5oAwJdndYwoWlFsPfci6Hvn7akmricIo0vT\nQBN59vNSNt0Qj7+YYdqLIbw2b0ZHEA4DcpZyHbCfeFjtf26qfvUsAkWiHxs0GcVh\nwR835UfNHO1+9cBIu3tHqhaazntjlLSRXvlkZT3j+GugowAAAIEAzWCE9FxhZHf0\nRcC8U6NIixYju7oFy6XahBQnF3Mxi4DAdPuX3rj0xxCQOGH75eP9554pUGNE0zmC\nJEVQpheISWyvwJtIyD63VhFu8nh3MdkJ7wsDU+Kw13Aght1mRlSViilDCm2aSgk1\nEbIjNV1a/OKTQOjvJQg2pf4ZV3gH3h0AAAAAAQID\n-----END OPENSSH PRIVATE KEY-----\n"
+          }
+        },
+        {
+          "id": "SSH_CREDENTIAL-1-UNKNOWN_DISCRIMINATOR",
+          "expected": "SCHEMA_REJECT",
+          "violation": "variant not declared",
+          "value": {
+            "variant": "UNDECLARED_VARIANT",
+            "username": "synthetic-user",
+            "privateKeyPem": "-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABFwAAAAdz\nc2gtcnNhAAAAAwEAAQAAAQEArejTSDjqVDe+uV+WmfJPx+cYCxMbYFUxzmEn67OI\ntwt8s8UfXG8dE4OwsvAlyc0shizDR/Kl8woxIQt5QMky+YVuUOR4Mu7lWUbr8pMy\n8xGJQ/NuXKERhA/LCjJ74TluyqioesJDRO3yGufpxnrRkVss7q3LBMCOS4HYrJVO\niH3QiPjsiZs0Sr+w8wLxFrsGMcSoNHXu8nMoqBFZc8O+JyFzQkS3aAG8BT1549rL\n9sQKaP+45BUzEFRqKjarCy1zB4GAWpGoUbEIzHhwiqmcYyM/jgNxRmCv1MZdBNEx\neN+nBXNWxjiIOpHn1rJs84oxplOz64W+WogYz3TjRfOMdwAAA7iYOuT2mDrk9gAA\nAAdzc2gtcnNhAAABAQCt6NNIOOpUN765X5aZ8k/H5xgLExtgVTHOYSfrs4i3C3yz\nxR9cbx0Tg7Cy8CXJzSyGLMNH8qXzCjEhC3lAyTL5hW5Q5Hgy7uVZRuvykzLzEYlD\n825coRGED8sKMnvhOW7KqKh6wkNE7fIa5+nGetGRWyzurcsEwI5LgdislU6IfdCI\n+OyJmzRKv7DzAvEWuwYxxKg0de7ycyioEVlzw74nIXNCRLdoAbwFPXnj2sv2xApo\n/7jkFTMQVGoqNqsLLXMHgYBakahRsQjMeHCKqZxjIz+OA3FGYK/Uxl0E0TF436cF\nc1bGOIg6kefWsmzzijGmU7Prhb5aiBjPdONF84x3AAAAAwEAAQAAAQAHnwRjTds3\nBZpeFUpMRMoqQH5VPekdN56PJMLTGXMMUnyMhD7zlgr4J/U+YjfFuDATUTLdnEyZ\ncgDlKdOOe0K4nJhRAzIhSUbTur/sSXcaH9KcH7beaFCUMPz83WmAXTv1tZ5sgsbf\n5m2NsEwWXpuAezZk30jeVHHn7TDJn2FpqcdRsaM/atERgN/tnBZhC3ajgB6gFnI9\nIHDFO+pz1rLbMIhkgFCMqQsJHCix2FAi26F6Z6E6bGc0/iSMcZxNDqBZcCtBwpqY\njMDwJEzdASLxrLjJxJD/a+Ak/AZOAssahW6zQ00QGJbIzfuEd1M0TX+xt+0NK7Kd\nf2ZiZopMWOhBAAAAgHw5sglOeK5Q5Whpql6JsS4g6x1mHgHcVGHDOY43HZLSQFVc\nm6/UR6ulJnpshOlbI7JMWnJI8kT2ThkR0UtdpVefjzLCL1rjeF7nEz78JUxliYvb\n03JX95NiERn0mslKMX0Ol2oMlv6xOvkxWDG/edNowaghDn67tFxm9X1I2MJlAAAA\ngQDYxqyTiWMguxbg/dy4zdh7M0V1X5oAwJdndYwoWlFsPfci6Hvn7akmricIo0vT\nQBN59vNSNt0Qj7+YYdqLIbw2b0ZHEA4DcpZyHbCfeFjtf26qfvUsAkWiHxs0GcVh\nwR835UfNHO1+9cBIu3tHqhaazntjlLSRXvlkZT3j+GugowAAAIEAzWCE9FxhZHf0\nRcC8U6NIixYju7oFy6XahBQnF3Mxi4DAdPuX3rj0xxCQOGH75eP9554pUGNE0zmC\nJEVQpheISWyvwJtIyD63VhFu8nh3MdkJ7wsDU+Kw13Aght1mRlSViilDCm2aSgk1\nEbIjNV1a/OKTQOjvJQg2pf4ZV3gH3h0AAAAAAQID\n-----END OPENSSH PRIVATE KEY-----\n"
+          }
+        },
+        {
+          "id": "SSH_CREDENTIAL-1-EXTRA_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "extra generic payload field",
+          "value": {
+            "variant": "SSH_OPENSSH_PRIVATE_KEY_V1",
+            "username": "synthetic-user",
+            "privateKeyPem": "-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABFwAAAAdz\nc2gtcnNhAAAAAwEAAQAAAQEArejTSDjqVDe+uV+WmfJPx+cYCxMbYFUxzmEn67OI\ntwt8s8UfXG8dE4OwsvAlyc0shizDR/Kl8woxIQt5QMky+YVuUOR4Mu7lWUbr8pMy\n8xGJQ/NuXKERhA/LCjJ74TluyqioesJDRO3yGufpxnrRkVss7q3LBMCOS4HYrJVO\niH3QiPjsiZs0Sr+w8wLxFrsGMcSoNHXu8nMoqBFZc8O+JyFzQkS3aAG8BT1549rL\n9sQKaP+45BUzEFRqKjarCy1zB4GAWpGoUbEIzHhwiqmcYyM/jgNxRmCv1MZdBNEx\neN+nBXNWxjiIOpHn1rJs84oxplOz64W+WogYz3TjRfOMdwAAA7iYOuT2mDrk9gAA\nAAdzc2gtcnNhAAABAQCt6NNIOOpUN765X5aZ8k/H5xgLExtgVTHOYSfrs4i3C3yz\nxR9cbx0Tg7Cy8CXJzSyGLMNH8qXzCjEhC3lAyTL5hW5Q5Hgy7uVZRuvykzLzEYlD\n825coRGED8sKMnvhOW7KqKh6wkNE7fIa5+nGetGRWyzurcsEwI5LgdislU6IfdCI\n+OyJmzRKv7DzAvEWuwYxxKg0de7ycyioEVlzw74nIXNCRLdoAbwFPXnj2sv2xApo\n/7jkFTMQVGoqNqsLLXMHgYBakahRsQjMeHCKqZxjIz+OA3FGYK/Uxl0E0TF436cF\nc1bGOIg6kefWsmzzijGmU7Prhb5aiBjPdONF84x3AAAAAwEAAQAAAQAHnwRjTds3\nBZpeFUpMRMoqQH5VPekdN56PJMLTGXMMUnyMhD7zlgr4J/U+YjfFuDATUTLdnEyZ\ncgDlKdOOe0K4nJhRAzIhSUbTur/sSXcaH9KcH7beaFCUMPz83WmAXTv1tZ5sgsbf\n5m2NsEwWXpuAezZk30jeVHHn7TDJn2FpqcdRsaM/atERgN/tnBZhC3ajgB6gFnI9\nIHDFO+pz1rLbMIhkgFCMqQsJHCix2FAi26F6Z6E6bGc0/iSMcZxNDqBZcCtBwpqY\njMDwJEzdASLxrLjJxJD/a+Ak/AZOAssahW6zQ00QGJbIzfuEd1M0TX+xt+0NK7Kd\nf2ZiZopMWOhBAAAAgHw5sglOeK5Q5Whpql6JsS4g6x1mHgHcVGHDOY43HZLSQFVc\nm6/UR6ulJnpshOlbI7JMWnJI8kT2ThkR0UtdpVefjzLCL1rjeF7nEz78JUxliYvb\n03JX95NiERn0mslKMX0Ol2oMlv6xOvkxWDG/edNowaghDn67tFxm9X1I2MJlAAAA\ngQDYxqyTiWMguxbg/dy4zdh7M0V1X5oAwJdndYwoWlFsPfci6Hvn7akmricIo0vT\nQBN59vNSNt0Qj7+YYdqLIbw2b0ZHEA4DcpZyHbCfeFjtf26qfvUsAkWiHxs0GcVh\nwR835UfNHO1+9cBIu3tHqhaazntjlLSRXvlkZT3j+GugowAAAIEAzWCE9FxhZHf0\nRcC8U6NIixYju7oFy6XahBQnF3Mxi4DAdPuX3rj0xxCQOGH75eP9554pUGNE0zmC\nJEVQpheISWyvwJtIyD63VhFu8nh3MdkJ7wsDU+Kw13Aght1mRlSViilDCm2aSgk1\nEbIjNV1a/OKTQOjvJQg2pf4ZV3gH3h0AAAAAAQID\n-----END OPENSSH PRIVATE KEY-----\n",
+            "canonicalJson": "{}"
+          }
+        },
+        {
+          "id": "SSH_CREDENTIAL-1-NULL",
+          "expected": "SCHEMA_REJECT",
+          "violation": "nonnull required field",
+          "value": {
+            "variant": "SSH_OPENSSH_PRIVATE_KEY_V1",
+            "username": null,
+            "privateKeyPem": "-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABFwAAAAdz\nc2gtcnNhAAAAAwEAAQAAAQEArejTSDjqVDe+uV+WmfJPx+cYCxMbYFUxzmEn67OI\ntwt8s8UfXG8dE4OwsvAlyc0shizDR/Kl8woxIQt5QMky+YVuUOR4Mu7lWUbr8pMy\n8xGJQ/NuXKERhA/LCjJ74TluyqioesJDRO3yGufpxnrRkVss7q3LBMCOS4HYrJVO\niH3QiPjsiZs0Sr+w8wLxFrsGMcSoNHXu8nMoqBFZc8O+JyFzQkS3aAG8BT1549rL\n9sQKaP+45BUzEFRqKjarCy1zB4GAWpGoUbEIzHhwiqmcYyM/jgNxRmCv1MZdBNEx\neN+nBXNWxjiIOpHn1rJs84oxplOz64W+WogYz3TjRfOMdwAAA7iYOuT2mDrk9gAA\nAAdzc2gtcnNhAAABAQCt6NNIOOpUN765X5aZ8k/H5xgLExtgVTHOYSfrs4i3C3yz\nxR9cbx0Tg7Cy8CXJzSyGLMNH8qXzCjEhC3lAyTL5hW5Q5Hgy7uVZRuvykzLzEYlD\n825coRGED8sKMnvhOW7KqKh6wkNE7fIa5+nGetGRWyzurcsEwI5LgdislU6IfdCI\n+OyJmzRKv7DzAvEWuwYxxKg0de7ycyioEVlzw74nIXNCRLdoAbwFPXnj2sv2xApo\n/7jkFTMQVGoqNqsLLXMHgYBakahRsQjMeHCKqZxjIz+OA3FGYK/Uxl0E0TF436cF\nc1bGOIg6kefWsmzzijGmU7Prhb5aiBjPdONF84x3AAAAAwEAAQAAAQAHnwRjTds3\nBZpeFUpMRMoqQH5VPekdN56PJMLTGXMMUnyMhD7zlgr4J/U+YjfFuDATUTLdnEyZ\ncgDlKdOOe0K4nJhRAzIhSUbTur/sSXcaH9KcH7beaFCUMPz83WmAXTv1tZ5sgsbf\n5m2NsEwWXpuAezZk30jeVHHn7TDJn2FpqcdRsaM/atERgN/tnBZhC3ajgB6gFnI9\nIHDFO+pz1rLbMIhkgFCMqQsJHCix2FAi26F6Z6E6bGc0/iSMcZxNDqBZcCtBwpqY\njMDwJEzdASLxrLjJxJD/a+Ak/AZOAssahW6zQ00QGJbIzfuEd1M0TX+xt+0NK7Kd\nf2ZiZopMWOhBAAAAgHw5sglOeK5Q5Whpql6JsS4g6x1mHgHcVGHDOY43HZLSQFVc\nm6/UR6ulJnpshOlbI7JMWnJI8kT2ThkR0UtdpVefjzLCL1rjeF7nEz78JUxliYvb\n03JX95NiERn0mslKMX0Ol2oMlv6xOvkxWDG/edNowaghDn67tFxm9X1I2MJlAAAA\ngQDYxqyTiWMguxbg/dy4zdh7M0V1X5oAwJdndYwoWlFsPfci6Hvn7akmricIo0vT\nQBN59vNSNt0Qj7+YYdqLIbw2b0ZHEA4DcpZyHbCfeFjtf26qfvUsAkWiHxs0GcVh\nwR835UfNHO1+9cBIu3tHqhaazntjlLSRXvlkZT3j+GugowAAAIEAzWCE9FxhZHf0\nRcC8U6NIixYju7oFy6XahBQnF3Mxi4DAdPuX3rj0xxCQOGH75eP9554pUGNE0zmC\nJEVQpheISWyvwJtIyD63VhFu8nh3MdkJ7wsDU+Kw13Aght1mRlSViilDCm2aSgk1\nEbIjNV1a/OKTQOjvJQg2pf4ZV3gH3h0AAAAAAQID\n-----END OPENSSH PRIVATE KEY-----\n"
+          }
+        },
+        {
+          "id": "SSH_CREDENTIAL-1-REQUIRED_FIELD",
+          "expected": "SCHEMA_REJECT",
+          "violation": "required username missing",
+          "value": {
+            "variant": "SSH_OPENSSH_PRIVATE_KEY_V1",
+            "privateKeyPem": "-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABFwAAAAdz\nc2gtcnNhAAAAAwEAAQAAAQEArejTSDjqVDe+uV+WmfJPx+cYCxMbYFUxzmEn67OI\ntwt8s8UfXG8dE4OwsvAlyc0shizDR/Kl8woxIQt5QMky+YVuUOR4Mu7lWUbr8pMy\n8xGJQ/NuXKERhA/LCjJ74TluyqioesJDRO3yGufpxnrRkVss7q3LBMCOS4HYrJVO\niH3QiPjsiZs0Sr+w8wLxFrsGMcSoNHXu8nMoqBFZc8O+JyFzQkS3aAG8BT1549rL\n9sQKaP+45BUzEFRqKjarCy1zB4GAWpGoUbEIzHhwiqmcYyM/jgNxRmCv1MZdBNEx\neN+nBXNWxjiIOpHn1rJs84oxplOz64W+WogYz3TjRfOMdwAAA7iYOuT2mDrk9gAA\nAAdzc2gtcnNhAAABAQCt6NNIOOpUN765X5aZ8k/H5xgLExtgVTHOYSfrs4i3C3yz\nxR9cbx0Tg7Cy8CXJzSyGLMNH8qXzCjEhC3lAyTL5hW5Q5Hgy7uVZRuvykzLzEYlD\n825coRGED8sKMnvhOW7KqKh6wkNE7fIa5+nGetGRWyzurcsEwI5LgdislU6IfdCI\n+OyJmzRKv7DzAvEWuwYxxKg0de7ycyioEVlzw74nIXNCRLdoAbwFPXnj2sv2xApo\n/7jkFTMQVGoqNqsLLXMHgYBakahRsQjMeHCKqZxjIz+OA3FGYK/Uxl0E0TF436cF\nc1bGOIg6kefWsmzzijGmU7Prhb5aiBjPdONF84x3AAAAAwEAAQAAAQAHnwRjTds3\nBZpeFUpMRMoqQH5VPekdN56PJMLTGXMMUnyMhD7zlgr4J/U+YjfFuDATUTLdnEyZ\ncgDlKdOOe0K4nJhRAzIhSUbTur/sSXcaH9KcH7beaFCUMPz83WmAXTv1tZ5sgsbf\n5m2NsEwWXpuAezZk30jeVHHn7TDJn2FpqcdRsaM/atERgN/tnBZhC3ajgB6gFnI9\nIHDFO+pz1rLbMIhkgFCMqQsJHCix2FAi26F6Z6E6bGc0/iSMcZxNDqBZcCtBwpqY\njMDwJEzdASLxrLjJxJD/a+Ak/AZOAssahW6zQ00QGJbIzfuEd1M0TX+xt+0NK7Kd\nf2ZiZopMWOhBAAAAgHw5sglOeK5Q5Whpql6JsS4g6x1mHgHcVGHDOY43HZLSQFVc\nm6/UR6ulJnpshOlbI7JMWnJI8kT2ThkR0UtdpVefjzLCL1rjeF7nEz78JUxliYvb\n03JX95NiERn0mslKMX0Ol2oMlv6xOvkxWDG/edNowaghDn67tFxm9X1I2MJlAAAA\ngQDYxqyTiWMguxbg/dy4zdh7M0V1X5oAwJdndYwoWlFsPfci6Hvn7akmricIo0vT\nQBN59vNSNt0Qj7+YYdqLIbw2b0ZHEA4DcpZyHbCfeFjtf26qfvUsAkWiHxs0GcVh\nwR835UfNHO1+9cBIu3tHqhaazntjlLSRXvlkZT3j+GugowAAAIEAzWCE9FxhZHf0\nRcC8U6NIixYju7oFy6XahBQnF3Mxi4DAdPuX3rj0xxCQOGH75eP9554pUGNE0zmC\nJEVQpheISWyvwJtIyD63VhFu8nh3MdkJ7wsDU+Kw13Aght1mRlSViilDCm2aSgk1\nEbIjNV1a/OKTQOjvJQg2pf4ZV3gH3h0AAAAAAQID\n-----END OPENSSH PRIVATE KEY-----\n"
+          }
+        }
+      ],
+      "fieldRules": {
+        "required": "schema.required per explicit variant",
+        "optional": "omission only; no null except cookie session expiry explicitly proposed",
+        "sensitive": "All credential data remain encrypted; no value or accepted-requestecho in create/import responses/events/logs/audit",
+        "origin": "Caller-supplied import value only; server-derived execution/auth/digests/bindings cannot be supplied in imported value"
+      },
+      "proposedSemanticCases": [
+        {
+          "id": "SSH_CREDENTIAL-SEMANTIC-POSITIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "SSH_PASSWORD_V1",
+            "username": "synthetic-user",
+            "password": "SYNTHETIC_ONLY"
+          },
+          "expected": "ACCEPT_CANDIDATE_ONLY",
+          "trustedFixture": "Exact consumer declaresvariant; noactualnetwork calls; test-local synthetic targetcontext where needed"
+        },
+        {
+          "id": "SSH_CREDENTIAL-SEMANTIC-NEGATIVE",
+          "status": "NOT_EXECUTED_PROPOSAL",
+          "value": {
+            "variant": "SSH_OPENSSH_PRIVATE_KEY_V1",
+            "username": "synthetic-user",
+            "privateKeyPem": "-----BEGIN OPENSSH PRIVATE KEY-----\nU1lOVEhFVElDX09OTFk=\n-----END OPENSSH PRIVATE KEY-----\n"
+          },
+          "expectedStableCode": "SSH_KEY_INVALID",
+          "expectedPointer": "/privateKeyPem",
+          "violation": "invalid OpenSSH cryptographic structure",
+          "baseline": "derived from positive witness above; parser/schema must first accept otherfields",
+          "scope": "type-specificcandidatepolicy"
+        }
+      ]
+    }
+  ],
+  "proposalSchemaEvidence": {
+    "cases": 60,
+    "passed": 60,
+    "failed": 0,
+    "casesResults": [
+      {
+        "caseId": "OAUTH_CLIENT-0-POSITIVE",
+        "expected": "SCHEMA_ACCEPT",
+        "passed": true,
+        "errorCount": 0,
+        "violation": null
+      },
+      {
+        "caseId": "OAUTH_CLIENT-0-MISSING_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required variant missing"
+      },
+      {
+        "caseId": "OAUTH_CLIENT-0-UNKNOWN_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "variant not declared"
+      },
+      {
+        "caseId": "OAUTH_CLIENT-0-EXTRA_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "extra generic payload field"
+      },
+      {
+        "caseId": "OAUTH_CLIENT-0-NULL",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "nonnull required field"
+      },
+      {
+        "caseId": "OAUTH_CLIENT-0-REQUIRED_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required clientId missing"
+      },
+      {
+        "caseId": "OAUTH_TOKEN_SET-0-POSITIVE",
+        "expected": "SCHEMA_ACCEPT",
+        "passed": true,
+        "errorCount": 0,
+        "violation": null
+      },
+      {
+        "caseId": "OAUTH_TOKEN_SET-0-MISSING_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required variant missing"
+      },
+      {
+        "caseId": "OAUTH_TOKEN_SET-0-UNKNOWN_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "variant not declared"
+      },
+      {
+        "caseId": "OAUTH_TOKEN_SET-0-EXTRA_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "extra generic payload field"
+      },
+      {
+        "caseId": "OAUTH_TOKEN_SET-0-NULL",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "nonnull required field"
+      },
+      {
+        "caseId": "OAUTH_TOKEN_SET-0-REQUIRED_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required accessToken missing"
+      },
+      {
+        "caseId": "TOTP_SEED-0-POSITIVE",
+        "expected": "SCHEMA_ACCEPT",
+        "passed": true,
+        "errorCount": 0,
+        "violation": null
+      },
+      {
+        "caseId": "TOTP_SEED-0-MISSING_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required variant missing"
+      },
+      {
+        "caseId": "TOTP_SEED-0-UNKNOWN_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "variant not declared"
+      },
+      {
+        "caseId": "TOTP_SEED-0-EXTRA_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "extra generic payload field"
+      },
+      {
+        "caseId": "TOTP_SEED-0-NULL",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "nonnull required field"
+      },
+      {
+        "caseId": "TOTP_SEED-0-REQUIRED_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required seedBase32 missing"
+      },
+      {
+        "caseId": "CERTIFICATE-0-POSITIVE",
+        "expected": "SCHEMA_ACCEPT",
+        "passed": true,
+        "errorCount": 0,
+        "violation": null
+      },
+      {
+        "caseId": "CERTIFICATE-0-MISSING_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required variant missing"
+      },
+      {
+        "caseId": "CERTIFICATE-0-UNKNOWN_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "variant not declared"
+      },
+      {
+        "caseId": "CERTIFICATE-0-EXTRA_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "extra generic payload field"
+      },
+      {
+        "caseId": "CERTIFICATE-0-NULL",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "nonnull required field"
+      },
+      {
+        "caseId": "CERTIFICATE-0-REQUIRED_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required certificatesPem missing"
+      },
+      {
+        "caseId": "PRIVATE_KEY-0-POSITIVE",
+        "expected": "SCHEMA_ACCEPT",
+        "passed": true,
+        "errorCount": 0,
+        "violation": null
+      },
+      {
+        "caseId": "PRIVATE_KEY-0-MISSING_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required variant missing"
+      },
+      {
+        "caseId": "PRIVATE_KEY-0-UNKNOWN_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "variant not declared"
+      },
+      {
+        "caseId": "PRIVATE_KEY-0-EXTRA_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "extra generic payload field"
+      },
+      {
+        "caseId": "PRIVATE_KEY-0-NULL",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "nonnull required field"
+      },
+      {
+        "caseId": "PRIVATE_KEY-0-REQUIRED_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required pem missing"
+      },
+      {
+        "caseId": "DATABASE_CREDENTIAL-0-POSITIVE",
+        "expected": "SCHEMA_ACCEPT",
+        "passed": true,
+        "errorCount": 0,
+        "violation": null
+      },
+      {
+        "caseId": "DATABASE_CREDENTIAL-0-MISSING_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required variant missing"
+      },
+      {
+        "caseId": "DATABASE_CREDENTIAL-0-UNKNOWN_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "variant not declared"
+      },
+      {
+        "caseId": "DATABASE_CREDENTIAL-0-EXTRA_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "extra generic payload field"
+      },
+      {
+        "caseId": "DATABASE_CREDENTIAL-0-NULL",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "nonnull required field"
+      },
+      {
+        "caseId": "DATABASE_CREDENTIAL-0-REQUIRED_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required username missing"
+      },
+      {
+        "caseId": "COOKIE_JAR-0-POSITIVE",
+        "expected": "SCHEMA_ACCEPT",
+        "passed": true,
+        "errorCount": 0,
+        "violation": null
+      },
+      {
+        "caseId": "COOKIE_JAR-0-MISSING_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required variant missing"
+      },
+      {
+        "caseId": "COOKIE_JAR-0-UNKNOWN_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "variant not declared"
+      },
+      {
+        "caseId": "COOKIE_JAR-0-EXTRA_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "extra generic payload field"
+      },
+      {
+        "caseId": "COOKIE_JAR-0-NULL",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "nonnull required field"
+      },
+      {
+        "caseId": "COOKIE_JAR-0-REQUIRED_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required cookies missing"
+      },
+      {
+        "caseId": "SESSION_STATE-0-POSITIVE",
+        "expected": "SCHEMA_ACCEPT",
+        "passed": true,
+        "errorCount": 0,
+        "violation": null
+      },
+      {
+        "caseId": "SESSION_STATE-0-MISSING_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required variant missing"
+      },
+      {
+        "caseId": "SESSION_STATE-0-UNKNOWN_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "variant not declared"
+      },
+      {
+        "caseId": "SESSION_STATE-0-EXTRA_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "extra generic payload field"
+      },
+      {
+        "caseId": "SESSION_STATE-0-NULL",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "nonnull required field"
+      },
+      {
+        "caseId": "SESSION_STATE-0-REQUIRED_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required cookies missing"
+      },
+      {
+        "caseId": "SSH_CREDENTIAL-0-POSITIVE",
+        "expected": "SCHEMA_ACCEPT",
+        "passed": true,
+        "errorCount": 0,
+        "violation": null
+      },
+      {
+        "caseId": "SSH_CREDENTIAL-0-MISSING_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required variant missing"
+      },
+      {
+        "caseId": "SSH_CREDENTIAL-0-UNKNOWN_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "variant not declared"
+      },
+      {
+        "caseId": "SSH_CREDENTIAL-0-EXTRA_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "extra generic payload field"
+      },
+      {
+        "caseId": "SSH_CREDENTIAL-0-NULL",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "nonnull required field"
+      },
+      {
+        "caseId": "SSH_CREDENTIAL-0-REQUIRED_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required username missing"
+      },
+      {
+        "caseId": "SSH_CREDENTIAL-1-POSITIVE",
+        "expected": "SCHEMA_ACCEPT",
+        "passed": true,
+        "errorCount": 0,
+        "violation": null
+      },
+      {
+        "caseId": "SSH_CREDENTIAL-1-MISSING_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required variant missing"
+      },
+      {
+        "caseId": "SSH_CREDENTIAL-1-UNKNOWN_DISCRIMINATOR",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "variant not declared"
+      },
+      {
+        "caseId": "SSH_CREDENTIAL-1-EXTRA_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "extra generic payload field"
+      },
+      {
+        "caseId": "SSH_CREDENTIAL-1-NULL",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "nonnull required field"
+      },
+      {
+        "caseId": "SSH_CREDENTIAL-1-REQUIRED_FIELD",
+        "expected": "SCHEMA_REJECT",
+        "passed": true,
+        "errorCount": 1,
+        "violation": "required username missing"
+      }
+    ]
+  },
+  "decisionCount": 18,
+  "proposedSemanticCases": {
+    "total": 18,
+    "executed": 0,
+    "status": "NOT_EXECUTED_PROPOSAL"
+  }
+}

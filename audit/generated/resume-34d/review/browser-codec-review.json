@@ -1,0 +1,52 @@
+{
+  "sourceDocumentSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+  "codecSha256": "f7e407280cbbc7eba1e6c222fc78e4cf7f9d1f8208e748a22af5c14db5ebb11b",
+  "browserVersion": "151.0.7922.173",
+  "cases": [
+    {
+      "case": "dense-array",
+      "exactNativeCloneSemanticsPreserved": true,
+      "nativeOwnKeys": [
+        "0",
+        "1",
+        "2"
+      ],
+      "hydratedOwnKeys": [
+        "0",
+        "1",
+        "2"
+      ]
+    },
+    {
+      "case": "sparse-array",
+      "exactNativeCloneSemanticsPreserved": true,
+      "nativeOwnKeys": [
+        "2"
+      ],
+      "hydratedOwnKeys": [
+        "2"
+      ]
+    },
+    {
+      "case": "array-own-property",
+      "exactNativeCloneSemanticsPreserved": true,
+      "nativeOwnKeys": [
+        "0",
+        "syntheticExtra"
+      ],
+      "hydratedOwnKeys": [
+        "0",
+        "syntheticExtra"
+      ]
+    },
+    {
+      "case": "required-transport-sized-500k-buffer",
+      "exactNativeCloneSemanticsPreserved": true,
+      "accepted": true,
+      "length": 500000,
+      "encodedLength": 666668
+    }
+  ],
+  "scope": "ActualisolatedChromium native structuredClone versus authoredcodec forarray hole/ownproperty preservation; syntheticnonsensitive values, no fullbrowserpostconditionclaim",
+  "wholeOperationCertified": false
+}

@@ -1,0 +1,729 @@
+{
+  "inputCommit": "34d3a75c47a92ab7d8e0dac84f581549a15445ca",
+  "sourceSha256": "2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854",
+  "currentWorkingRepairInput": {
+    "commit": "34d3a75c47a92ab7d8e0dac84f581549a15445ca",
+    "ssotSha256": "2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854",
+    "priorSchemaSha256": "3ef24d4a5bebdb86e6716767453f4be053d77c769a404db06c6a2d38f82f6699"
+  },
+  "schemaSha256": "54320e2663ad40326de1ce8ec583eb0566a0b5c948378bfab8bb9c4b3224dc07",
+  "supportSha256": {
+    "profile_reference.py": "5c2e35b89fcbca59209fdad74d6fa0507850659a5b6942269d184020c3d6c19e",
+    "secret_value_parsers.py": "06afca2e41b10c8055cc5a553cea014c5a3d96600e93f9e01c8d921cbf3d0f9a",
+    "verify_reference.py": "8d7662868cf7d0580509137101a27814dcd056c77b48b6a2660b6c9aa514a0e2"
+  },
+  "dependencies": {
+    "cryptography": "50.0.0",
+    "jsonschema": "4.26.0"
+  },
+  "checked": 115,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "OAUTH_CLIENT_SECRET_V1/real-parser",
+      "passed": true
+    },
+    {
+      "id": "OAUTH_CLIENT_SECRET_V1/declared-consumer",
+      "passed": true
+    },
+    {
+      "id": "OAUTH_CLIENT_SECRET_V1/unsupported-consumer",
+      "passed": true,
+      "actualCode": "SECRET_VARIANT_UNSUPPORTED",
+      "expectedCode": "SECRET_VARIANT_UNSUPPORTED",
+      "pointer": "/consumer/profiles"
+    },
+    {
+      "id": "OAUTH_CLIENT_SECRET_V1/extra-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "OAUTH_CLIENT_SECRET_V1/required-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "OAUTH_CLIENT_SECRET_V1/exact-import-store-load-bytes",
+      "passed": true
+    },
+    {
+      "id": "OAUTH_CLIENT_SECRET_V1/stored-identity-tamper",
+      "passed": true,
+      "actualCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "expectedCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "pointer": "/metadata"
+    },
+    {
+      "id": "OAUTH_CLIENT_SECRET_V1/duplicate-import-key",
+      "passed": true,
+      "actualCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "expectedCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "pointer": "/variant"
+    },
+    {
+      "id": "OAUTH_BEARER_TOKEN_SET_V1/real-parser",
+      "passed": true
+    },
+    {
+      "id": "OAUTH_BEARER_TOKEN_SET_V1/declared-consumer",
+      "passed": true
+    },
+    {
+      "id": "OAUTH_BEARER_TOKEN_SET_V1/unsupported-consumer",
+      "passed": true,
+      "actualCode": "SECRET_VARIANT_UNSUPPORTED",
+      "expectedCode": "SECRET_VARIANT_UNSUPPORTED",
+      "pointer": "/consumer/profiles"
+    },
+    {
+      "id": "OAUTH_BEARER_TOKEN_SET_V1/extra-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "OAUTH_BEARER_TOKEN_SET_V1/required-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "OAUTH_BEARER_TOKEN_SET_V1/exact-import-store-load-bytes",
+      "passed": true
+    },
+    {
+      "id": "OAUTH_BEARER_TOKEN_SET_V1/stored-identity-tamper",
+      "passed": true,
+      "actualCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "expectedCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "pointer": "/metadata"
+    },
+    {
+      "id": "OAUTH_BEARER_TOKEN_SET_V1/duplicate-import-key",
+      "passed": true,
+      "actualCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "expectedCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "pointer": "/variant"
+    },
+    {
+      "id": "TOTP_BASE32_V1/real-parser",
+      "passed": true
+    },
+    {
+      "id": "TOTP_BASE32_V1/declared-consumer",
+      "passed": true
+    },
+    {
+      "id": "TOTP_BASE32_V1/unsupported-consumer",
+      "passed": true,
+      "actualCode": "SECRET_VARIANT_UNSUPPORTED",
+      "expectedCode": "SECRET_VARIANT_UNSUPPORTED",
+      "pointer": "/consumer/profiles"
+    },
+    {
+      "id": "TOTP_BASE32_V1/extra-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "TOTP_BASE32_V1/required-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "TOTP_BASE32_V1/exact-import-store-load-bytes",
+      "passed": true
+    },
+    {
+      "id": "TOTP_BASE32_V1/stored-identity-tamper",
+      "passed": true,
+      "actualCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "expectedCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "pointer": "/metadata"
+    },
+    {
+      "id": "TOTP_BASE32_V1/duplicate-import-key",
+      "passed": true,
+      "actualCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "expectedCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "pointer": "/variant"
+    },
+    {
+      "id": "X509_PEM_CHAIN_V1/real-parser",
+      "passed": true
+    },
+    {
+      "id": "X509_PEM_CHAIN_V1/declared-consumer",
+      "passed": true
+    },
+    {
+      "id": "X509_PEM_CHAIN_V1/unsupported-consumer",
+      "passed": true,
+      "actualCode": "SECRET_VARIANT_UNSUPPORTED",
+      "expectedCode": "SECRET_VARIANT_UNSUPPORTED",
+      "pointer": "/consumer/profiles"
+    },
+    {
+      "id": "X509_PEM_CHAIN_V1/extra-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "X509_PEM_CHAIN_V1/required-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "X509_PEM_CHAIN_V1/exact-import-store-load-bytes",
+      "passed": true
+    },
+    {
+      "id": "X509_PEM_CHAIN_V1/stored-identity-tamper",
+      "passed": true,
+      "actualCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "expectedCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "pointer": "/metadata"
+    },
+    {
+      "id": "X509_PEM_CHAIN_V1/duplicate-import-key",
+      "passed": true,
+      "actualCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "expectedCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "pointer": "/variant"
+    },
+    {
+      "id": "PKCS8_PEM_PRIVATE_KEY_V1/real-parser",
+      "passed": true
+    },
+    {
+      "id": "PKCS8_PEM_PRIVATE_KEY_V1/declared-consumer",
+      "passed": true
+    },
+    {
+      "id": "PKCS8_PEM_PRIVATE_KEY_V1/unsupported-consumer",
+      "passed": true,
+      "actualCode": "SECRET_VARIANT_UNSUPPORTED",
+      "expectedCode": "SECRET_VARIANT_UNSUPPORTED",
+      "pointer": "/consumer/profiles"
+    },
+    {
+      "id": "PKCS8_PEM_PRIVATE_KEY_V1/extra-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "PKCS8_PEM_PRIVATE_KEY_V1/required-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "PKCS8_PEM_PRIVATE_KEY_V1/exact-import-store-load-bytes",
+      "passed": true
+    },
+    {
+      "id": "PKCS8_PEM_PRIVATE_KEY_V1/stored-identity-tamper",
+      "passed": true,
+      "actualCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "expectedCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "pointer": "/metadata"
+    },
+    {
+      "id": "PKCS8_PEM_PRIVATE_KEY_V1/duplicate-import-key",
+      "passed": true,
+      "actualCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "expectedCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "pointer": "/variant"
+    },
+    {
+      "id": "DATABASE_USER_PASSWORD_V1/real-parser",
+      "passed": true
+    },
+    {
+      "id": "DATABASE_USER_PASSWORD_V1/declared-consumer",
+      "passed": true
+    },
+    {
+      "id": "DATABASE_USER_PASSWORD_V1/unsupported-consumer",
+      "passed": true,
+      "actualCode": "SECRET_VARIANT_UNSUPPORTED",
+      "expectedCode": "SECRET_VARIANT_UNSUPPORTED",
+      "pointer": "/consumer/profiles"
+    },
+    {
+      "id": "DATABASE_USER_PASSWORD_V1/extra-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "DATABASE_USER_PASSWORD_V1/required-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "DATABASE_USER_PASSWORD_V1/exact-import-store-load-bytes",
+      "passed": true
+    },
+    {
+      "id": "DATABASE_USER_PASSWORD_V1/stored-identity-tamper",
+      "passed": true,
+      "actualCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "expectedCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "pointer": "/metadata"
+    },
+    {
+      "id": "DATABASE_USER_PASSWORD_V1/duplicate-import-key",
+      "passed": true,
+      "actualCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "expectedCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "pointer": "/variant"
+    },
+    {
+      "id": "HTTP_COOKIE_JAR_V1/real-parser",
+      "passed": true
+    },
+    {
+      "id": "HTTP_COOKIE_JAR_V1/declared-consumer",
+      "passed": true
+    },
+    {
+      "id": "HTTP_COOKIE_JAR_V1/unsupported-consumer",
+      "passed": true,
+      "actualCode": "SECRET_VARIANT_UNSUPPORTED",
+      "expectedCode": "SECRET_VARIANT_UNSUPPORTED",
+      "pointer": "/consumer/profiles"
+    },
+    {
+      "id": "HTTP_COOKIE_JAR_V1/extra-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "HTTP_COOKIE_JAR_V1/required-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "HTTP_COOKIE_JAR_V1/exact-import-store-load-bytes",
+      "passed": true
+    },
+    {
+      "id": "HTTP_COOKIE_JAR_V1/stored-identity-tamper",
+      "passed": true,
+      "actualCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "expectedCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "pointer": "/metadata"
+    },
+    {
+      "id": "HTTP_COOKIE_JAR_V1/duplicate-import-key",
+      "passed": true,
+      "actualCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "expectedCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "pointer": "/variant"
+    },
+    {
+      "id": "BROWSER_COOKIE_LOCAL_STORAGE_V1/real-parser",
+      "passed": true
+    },
+    {
+      "id": "BROWSER_COOKIE_LOCAL_STORAGE_V1/declared-consumer",
+      "passed": true
+    },
+    {
+      "id": "BROWSER_COOKIE_LOCAL_STORAGE_V1/unsupported-consumer",
+      "passed": true,
+      "actualCode": "SECRET_VARIANT_UNSUPPORTED",
+      "expectedCode": "SECRET_VARIANT_UNSUPPORTED",
+      "pointer": "/consumer/profiles"
+    },
+    {
+      "id": "BROWSER_COOKIE_LOCAL_STORAGE_V1/extra-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "BROWSER_COOKIE_LOCAL_STORAGE_V1/required-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "BROWSER_COOKIE_LOCAL_STORAGE_V1/exact-import-store-load-bytes",
+      "passed": true
+    },
+    {
+      "id": "BROWSER_COOKIE_LOCAL_STORAGE_V1/stored-identity-tamper",
+      "passed": true,
+      "actualCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "expectedCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "pointer": "/metadata"
+    },
+    {
+      "id": "BROWSER_COOKIE_LOCAL_STORAGE_V1/duplicate-import-key",
+      "passed": true,
+      "actualCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "expectedCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "pointer": "/variant"
+    },
+    {
+      "id": "SSH_PASSWORD_V1/real-parser",
+      "passed": true
+    },
+    {
+      "id": "SSH_PASSWORD_V1/declared-consumer",
+      "passed": true
+    },
+    {
+      "id": "SSH_PASSWORD_V1/unsupported-consumer",
+      "passed": true,
+      "actualCode": "SECRET_VARIANT_UNSUPPORTED",
+      "expectedCode": "SECRET_VARIANT_UNSUPPORTED",
+      "pointer": "/consumer/profiles"
+    },
+    {
+      "id": "SSH_PASSWORD_V1/extra-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "SSH_PASSWORD_V1/required-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "SSH_PASSWORD_V1/exact-import-store-load-bytes",
+      "passed": true
+    },
+    {
+      "id": "SSH_PASSWORD_V1/stored-identity-tamper",
+      "passed": true,
+      "actualCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "expectedCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "pointer": "/metadata"
+    },
+    {
+      "id": "SSH_PASSWORD_V1/duplicate-import-key",
+      "passed": true,
+      "actualCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "expectedCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "pointer": "/variant"
+    },
+    {
+      "id": "SSH_OPENSSH_PRIVATE_KEY_V1/real-parser",
+      "passed": true
+    },
+    {
+      "id": "SSH_OPENSSH_PRIVATE_KEY_V1/declared-consumer",
+      "passed": true
+    },
+    {
+      "id": "SSH_OPENSSH_PRIVATE_KEY_V1/unsupported-consumer",
+      "passed": true,
+      "actualCode": "SECRET_VARIANT_UNSUPPORTED",
+      "expectedCode": "SECRET_VARIANT_UNSUPPORTED",
+      "pointer": "/consumer/profiles"
+    },
+    {
+      "id": "SSH_OPENSSH_PRIVATE_KEY_V1/extra-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "SSH_OPENSSH_PRIVATE_KEY_V1/required-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "SSH_OPENSSH_PRIVATE_KEY_V1/exact-import-store-load-bytes",
+      "passed": true
+    },
+    {
+      "id": "SSH_OPENSSH_PRIVATE_KEY_V1/stored-identity-tamper",
+      "passed": true,
+      "actualCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "expectedCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "pointer": "/metadata"
+    },
+    {
+      "id": "SSH_OPENSSH_PRIVATE_KEY_V1/duplicate-import-key",
+      "passed": true,
+      "actualCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "expectedCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "pointer": "/variant"
+    },
+    {
+      "id": "BROWSER_AUTH_STATE_GRAPH_V1/real-parser",
+      "passed": true
+    },
+    {
+      "id": "BROWSER_AUTH_STATE_GRAPH_V1/declared-consumer",
+      "passed": true
+    },
+    {
+      "id": "BROWSER_AUTH_STATE_GRAPH_V1/unsupported-consumer",
+      "passed": true,
+      "actualCode": "SECRET_VARIANT_UNSUPPORTED",
+      "expectedCode": "SECRET_VARIANT_UNSUPPORTED",
+      "pointer": "/consumer/profiles"
+    },
+    {
+      "id": "BROWSER_AUTH_STATE_GRAPH_V1/extra-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "BROWSER_AUTH_STATE_GRAPH_V1/required-field",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$"
+    },
+    {
+      "id": "BROWSER_AUTH_STATE_GRAPH_V1/exact-import-store-load-bytes",
+      "passed": true
+    },
+    {
+      "id": "BROWSER_AUTH_STATE_GRAPH_V1/stored-identity-tamper",
+      "passed": true,
+      "actualCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "expectedCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "pointer": "/metadata"
+    },
+    {
+      "id": "BROWSER_AUTH_STATE_GRAPH_V1/duplicate-import-key",
+      "passed": true,
+      "actualCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "expectedCode": "SECRET_IMPORT_DUPLICATE_JSON_KEY",
+      "pointer": "/variant"
+    },
+    {
+      "id": "malformed-http-json",
+      "passed": true,
+      "actualCode": "SECRET_IMPORT_JSON_INVALID",
+      "expectedCode": "SECRET_IMPORT_JSON_INVALID",
+      "pointer": ""
+    },
+    {
+      "id": "nonfinite-http-json",
+      "passed": true,
+      "actualCode": "SECRET_IMPORT_NONFINITE_NUMBER",
+      "expectedCode": "SECRET_IMPORT_NONFINITE_NUMBER",
+      "pointer": "/extra"
+    },
+    {
+      "id": "unchanged-raw-password-whitespace",
+      "passed": true
+    },
+    {
+      "id": "complex-legacy-value-not-sniffed",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_REQUIRED",
+      "expectedCode": "SECRET_PROFILE_REQUIRED",
+      "pointer": "/value"
+    },
+    {
+      "id": "expired-token-import-is-candidate",
+      "passed": true
+    },
+    {
+      "id": "expired-token-use-is-rejected",
+      "passed": true,
+      "actualCode": "OAUTH_TOKEN_EXPIRED",
+      "expectedCode": "OAUTH_TOKEN_EXPIRED",
+      "pointer": "/expiresAt"
+    },
+    {
+      "id": "endpoint-full-binding-not-host-only",
+      "passed": true,
+      "actualCode": "OAUTH_TOKEN_ENDPOINT_BINDING_MISMATCH",
+      "expectedCode": "OAUTH_TOKEN_ENDPOINT_BINDING_MISMATCH",
+      "pointer": "/tokenEndpoint"
+    },
+    {
+      "id": "actual-IDB-graph-reference",
+      "passed": true,
+      "actualCode": "BROWSER_STATE_GRAPH_REFERENCE_INVALID",
+      "expectedCode": "BROWSER_STATE_GRAPH_REFERENCE_INVALID",
+      "pointer": "/origins/0/indexedDB/0/objectStores/0/records/0/value/nodes"
+    },
+    {
+      "id": "partition-exact-type",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$.cookies[0].partition"
+    },
+    {
+      "id": "virtual-WebAuthn-backup-relation",
+      "passed": true,
+      "actualCode": "BROWSER_VIRTUAL_CREDENTIAL_BACKUP_INVALID",
+      "expectedCode": "BROWSER_VIRTUAL_CREDENTIAL_BACKUP_INVALID",
+      "pointer": "/virtualAuthenticators/0/credentials/0/backupState"
+    },
+    {
+      "id": "mandatory-member-no-silent-fallback",
+      "passed": true,
+      "actualCode": "BROWSER_STATE_MEMBER_UNSUPPORTED",
+      "expectedCode": "BROWSER_STATE_MEMBER_UNSUPPORTED",
+      "pointer": "/consumer/browserMembers"
+    },
+    {
+      "id": "missing-IDB-serializer-rejected",
+      "passed": true,
+      "actualCode": "BROWSER_STATE_SERIALIZER_UNSUPPORTED",
+      "expectedCode": "BROWSER_STATE_SERIALIZER_UNSUPPORTED",
+      "pointer": "/consumer/serializerIds"
+    },
+    {
+      "id": "account-boolean-not-proof",
+      "passed": true,
+      "actualCode": "BROWSER_STATE_AUTH_POSTCONDITION_FAILED",
+      "expectedCode": "BROWSER_STATE_AUTH_POSTCONDITION_FAILED",
+      "pointer": "/consumer/account"
+    },
+    {
+      "id": "account-identity-mismatch",
+      "passed": true,
+      "actualCode": "BROWSER_STATE_AUTH_POSTCONDITION_FAILED",
+      "expectedCode": "BROWSER_STATE_AUTH_POSTCONDITION_FAILED",
+      "pointer": "/consumer/account"
+    },
+    {
+      "id": "duplicate-clone-node-identity",
+      "passed": true,
+      "actualCode": "BROWSER_STATE_DUPLICATE_NODE",
+      "expectedCode": "BROWSER_STATE_DUPLICATE_NODE",
+      "pointer": "/origins/0/indexedDB/0/objectStores/0/records/0/value/nodes"
+    },
+    {
+      "id": "typed-array-buffer-range",
+      "passed": true,
+      "actualCode": "BROWSER_STATE_TYPED_ARRAY_RANGE_INVALID",
+      "expectedCode": "BROWSER_STATE_TYPED_ARRAY_RANGE_INVALID",
+      "pointer": "/origins/0/indexedDB/0/objectStores/0/records/0/value/nodes/view"
+    },
+    {
+      "id": "regexp-u-v-conflict",
+      "passed": true,
+      "actualCode": "BROWSER_STATE_REGEXP_FLAGS_INVALID",
+      "expectedCode": "BROWSER_STATE_REGEXP_FLAGS_INVALID",
+      "pointer": "/origins/0/indexedDB/0/objectStores/0/records/0/value/nodes/rx/flags"
+    },
+    {
+      "id": "incompatible-type-profile-consumer-pair",
+      "passed": true,
+      "actualCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "expectedCode": "SECRET_PROFILE_SCHEMA_INVALID",
+      "pointer": "$.profiles[0].secretType"
+    },
+    {
+      "id": "actual-AEAD-authentication-tamper",
+      "passed": true,
+      "actualCode": "SECRET_STORED_AUTHENTICATION_FAILED",
+      "expectedCode": "SECRET_STORED_AUTHENTICATION_FAILED",
+      "pointer": "/ciphertext"
+    },
+    {
+      "id": "no-unjustified-4096-username-limit",
+      "passed": true
+    },
+    {
+      "id": "seed-and-period-no-invented-global-policy",
+      "passed": true
+    },
+    {
+      "id": "reviewer-MAP-SameValueZero-primitive-duplicate",
+      "passed": true,
+      "actualCode": "BROWSER_STATE_DUPLICATE_MAP_KEY",
+      "expectedCode": "BROWSER_STATE_DUPLICATE_MAP_KEY",
+      "pointer": "/origins/0/indexedDB/0/objectStores/0/records/0/value/nodes/collection/entries"
+    },
+    {
+      "id": "reviewer-SET-SameValueZero-primitive-duplicate",
+      "passed": true,
+      "actualCode": "BROWSER_STATE_DUPLICATE_SET_VALUE",
+      "expectedCode": "BROWSER_STATE_DUPLICATE_SET_VALUE",
+      "pointer": "/origins/0/indexedDB/0/objectStores/0/records/0/value/nodes/collection/items"
+    },
+    {
+      "id": "SameValueZero-signed-zero",
+      "passed": true,
+      "actualCode": "BROWSER_STATE_DUPLICATE_SET_VALUE",
+      "expectedCode": "BROWSER_STATE_DUPLICATE_SET_VALUE",
+      "pointer": "/origins/0/indexedDB/0/objectStores/0/records/0/value/nodes/set/items"
+    },
+    {
+      "id": "SameValueZero-NaN",
+      "passed": true,
+      "actualCode": "BROWSER_STATE_DUPLICATE_SET_VALUE",
+      "expectedCode": "BROWSER_STATE_DUPLICATE_SET_VALUE",
+      "pointer": "/origins/0/indexedDB/0/objectStores/0/records/0/value/nodes/set/items"
+    },
+    {
+      "id": "unknown-use-profile-structured-error",
+      "passed": true,
+      "actualCode": "SECRET_VARIANT_UNSUPPORTED",
+      "expectedCode": "SECRET_VARIANT_UNSUPPORTED",
+      "pointer": "/value/profileId"
+    },
+    {
+      "id": "valid-AEAD-other-version-substitution",
+      "passed": true,
+      "actualCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "expectedCode": "SECRET_STORED_REFERENCE_MISMATCH",
+      "pointer": "/metadata"
+    }
+  ],
+  "sensitiveValuesInReport": false,
+  "status": "REFERENCE_VERIFIED_BOUNDED_MASK_PARSER_STORAGE",
+  "activation": "NOT_ACTIVATED",
+  "runtimeAcceptance": "NOT_EVALUATED",
+  "excluded": [
+    "Real canonical systemd master key and production crypto implementation",
+    "Actual broker/context/database authorization",
+    "Actual TLS/OAuth/DB/SSH authentication",
+    "Full browser engine capture/restore implementation",
+    "IndexedDB keyPath/index/uniqueness postconditions",
+    "Client-certificate bridge and WebAuthn attestation/signature assertions"
+  ]
+}

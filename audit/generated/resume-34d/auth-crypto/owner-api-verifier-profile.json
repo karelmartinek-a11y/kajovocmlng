@@ -1,0 +1,15 @@
+{
+  "profileId": "KCML_OWNER_API_SHA256_V1",
+  "digestAlgorithm": "SHA256",
+  "exactTokenBytes": true,
+  "verifierEncoding": "KCML_OWNER_API_SHA256_V1:64_LOWER_HEX",
+  "constantTimePrimitive": "hmac.compare_digest(full32byteDigest)",
+  "fingerprintEncoding": "first16_LOWER_HEX_SHA256",
+  "credentialExpiry": "NOT_APPLICABLE_BY_SSOT_7_2",
+  "transportCeilingSource": "ACTUAL_PINNED_PUBLIC_GATEWAY_AUTHORIZATION_HEADER_POLICY",
+  "fixtureCeilingNotProductLimit": 4096,
+  "sourceSections": [
+    "7.2",
+    "51.20"
+  ]
+}

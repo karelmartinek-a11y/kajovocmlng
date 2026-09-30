@@ -1,0 +1,284 @@
+{
+  "sourceDocumentSha256": "327aff6e1fbd2d095b7e0b4a93870b96a7354d96b628517e2a344982a9834c8c",
+  "canonicalFoundationSha256": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+  "fields": [
+    {
+      "wireField": "jobId",
+      "physicalColumn": "generation_job.id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.id",
+      "nullable": false,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "ownerId",
+      "physicalColumn": "generation_job.owner_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.owner_id",
+      "nullable": false,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "initiatingAccessChannel",
+      "physicalColumn": "generation_job.initiating_access_channel",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.initiating_access_channel",
+      "nullable": false,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "initiatingExecutionContextId",
+      "physicalColumn": "generation_job.initiating_execution_context_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.initiating_execution_context_id",
+      "nullable": false,
+      "visibility": "SERVER_REPOSITORY_ONLY"
+    },
+    {
+      "wireField": "kind",
+      "physicalColumn": "generation_job.kind",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.kind",
+      "nullable": false,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "targetKind",
+      "physicalColumn": "generation_job.target_kind",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.target_kind",
+      "nullable": true,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "targetObjectId",
+      "physicalColumn": "generation_job.target_object_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.target_object_id",
+      "nullable": true,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "state",
+      "physicalColumn": "generation_job.state",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.state",
+      "nullable": false,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "currentPhase",
+      "physicalColumn": "generation_job.current_phase",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.current_phase",
+      "nullable": true,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "stateVersion",
+      "physicalColumn": "generation_job.state_version",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.state_version",
+      "nullable": false,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "eventSequence",
+      "physicalColumn": "generation_job.aggregate_event_sequence",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.aggregate_event_sequence",
+      "nullable": false,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "initialRequestSnapshotId",
+      "physicalColumn": "generation_job.initial_request_snapshot_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.initial_request_snapshot_id",
+      "nullable": false,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "initialRequestDigest",
+      "physicalColumn": "generation_job.initial_request_digest",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.initial_request_digest",
+      "nullable": false,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "parentJobId",
+      "physicalColumn": "generation_job.parent_job_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.parent_job_id",
+      "nullable": true,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "currentSpecRevisionId",
+      "physicalColumn": "generation_job.current_spec_revision_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.current_spec_revision_id",
+      "nullable": true,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "approvedSpecRevisionId",
+      "physicalColumn": "generation_job.approved_spec_revision_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.approved_spec_revision_id",
+      "nullable": true,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "approvedSpecificationDigest",
+      "physicalColumn": "generation_job.approved_specification_digest",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.approved_specification_digest",
+      "nullable": true,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "executionAuthorityId",
+      "physicalColumn": "generation_job.execution_authority_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.execution_authority_id",
+      "nullable": true,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "currentCapabilitySnapshotId",
+      "physicalColumn": "generation_job.current_capability_snapshot_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.current_capability_snapshot_id",
+      "nullable": true,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "currentPlanId",
+      "physicalColumn": "generation_job.current_plan_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.current_plan_id",
+      "nullable": true,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "activePhaseRunId",
+      "physicalColumn": "generation_job.active_phase_run_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.active_phase_run_id",
+      "nullable": true,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "latestCheckpointId",
+      "physicalColumn": "generation_job.latest_checkpoint_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.latest_checkpoint_id",
+      "nullable": true,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "previousReleaseId",
+      "physicalColumn": "generation_job.previous_release_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.previous_release_id",
+      "nullable": true,
+      "visibility": "SERVER_REPOSITORY_ONLY"
+    },
+    {
+      "wireField": "candidateReleaseId",
+      "physicalColumn": "generation_job.candidate_release_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.candidate_release_id",
+      "nullable": true,
+      "visibility": "SERVER_REPOSITORY_ONLY"
+    },
+    {
+      "wireField": "activationSetId",
+      "physicalColumn": "generation_job.activation_set_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.activation_set_id",
+      "nullable": true,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "cancellationVersion",
+      "physicalColumn": "generation_job.cancellation_version",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.cancellation_version",
+      "nullable": false,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "blockerId",
+      "physicalColumn": "generation_job.blocker_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.blocker_id",
+      "nullable": true,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "errorCode",
+      "physicalColumn": "generation_job.error_code",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.error_code",
+      "nullable": true,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "coordinatorLeaseOwnerId",
+      "physicalColumn": "generation_job.coordinator_lease_owner_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.coordinator_lease_owner_id",
+      "nullable": true,
+      "visibility": "SERVER_REPOSITORY_ONLY"
+    },
+    {
+      "wireField": "coordinatorFencingToken",
+      "physicalColumn": "generation_job.coordinator_fencing_token",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.coordinator_fencing_token",
+      "nullable": false,
+      "visibility": "SERVER_REPOSITORY_ONLY"
+    },
+    {
+      "wireField": "coordinatorLeaseExpiresAt",
+      "physicalColumn": "generation_job.coordinator_lease_expires_at",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.coordinator_lease_expires_at",
+      "nullable": true,
+      "visibility": "SERVER_REPOSITORY_ONLY"
+    },
+    {
+      "wireField": "coordinatorHeartbeatAt",
+      "physicalColumn": "generation_job.coordinator_heartbeat_at",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.coordinator_heartbeat_at",
+      "nullable": true,
+      "visibility": "SERVER_REPOSITORY_ONLY"
+    },
+    {
+      "wireField": "platformIncarnationId",
+      "physicalColumn": "generation_job.platform_incarnation_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.platform_incarnation_id",
+      "nullable": false,
+      "visibility": "SERVER_REPOSITORY_ONLY"
+    },
+    {
+      "wireField": "applicationDeploymentEpoch",
+      "physicalColumn": "generation_job.application_deployment_epoch",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.application_deployment_epoch",
+      "nullable": false,
+      "visibility": "SERVER_REPOSITORY_ONLY"
+    },
+    {
+      "wireField": "createdAt",
+      "physicalColumn": "generation_job.created_at",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.created_at",
+      "nullable": false,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "startedAt",
+      "physicalColumn": "generation_job.started_at",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.started_at",
+      "nullable": true,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "completedAt",
+      "physicalColumn": "generation_job.completed_at",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.completed_at",
+      "nullable": true,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "clientRequestId",
+      "physicalColumn": "generation_job.client_request_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.client_request_id",
+      "nullable": false,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    },
+    {
+      "wireField": "latestCommandLogicalOperationId",
+      "physicalColumn": "generation_job.latest_command_logical_operation_id",
+      "authority": "SSOT \u00a725.11; database/generation-create-foundations.sql generation_job.latest_command_logical_operation_id",
+      "nullable": false,
+      "visibility": "CANONICAL_ROOT_METADATA"
+    }
+  ],
+  "unresolvedOwnDictionaries": [
+    "currentPhase",
+    "errorCode"
+  ],
+  "notPublicReplacement": true
+}

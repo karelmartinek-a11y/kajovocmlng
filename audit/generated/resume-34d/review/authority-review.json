@@ -1,0 +1,33 @@
+{
+  "pinnedCommit": "34d3a75c47a92ab7d8e0dac84f581549a15445ca",
+  "sourceDocumentSha256": "2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854",
+  "canonicalFoundationSqlSha256": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+  "reviewType": "SEMANTIC_SOURCE_REVIEW_NOT_RUNTIME_PROOF",
+  "authorities": {
+    "OWNER_API_SINGLE_AUTHORITY": "\u00a77.2: no expiry, roles, scopes, account binding; minimum256bits encryptedSecret and separateconstant-time verifier",
+    "API_ACCEPTANCE_LINEARIZATION": "\u00a751.20: platform/deployment heads -> credentialFORSHARE -> actual boundedconstant-time check -> idempotency/OWNER_FULL context/usage/command/queue -> COMMIT; rotationFORUPDATE serializes",
+    "REPLAY_CURRENT_AUTH": "\u00a76.3: revoked credential cannot authenticate replay",
+    "MASTER_CREDENTIAL_SOURCE": "\u00a78.4/50.30: rootowned0600encrypted systemd source, read-only authorizedserviceperinvocation materialization, preservekey ondeploy",
+    "DESIGN_GATE": "\u00a773.7: R10/R16/UI/CLOSURE/R17 mandatory, noR17blockingfindings; R13historical notfinalgate",
+    "PROTECTED_INPUT": "\u00a712.52: opaque fixtureciphertext is explicitly not authenticatedplaintext proof"
+  },
+  "observations": [
+    {
+      "id": "AUTH_ACTUAL_VERIFIER_OPEN",
+      "status": "OPEN",
+      "detail": "Canonical context only compares current credential version/fingerprint to server acceptance receipt. No actual verifier check is installed in current foundation SQL. New check must retain credential lock through accepted command COMMIT and bind receipt/request/context; standalone receipt-ID input is never public authorization."
+    },
+    {
+      "id": "CRYPTO_SERVICE_SOURCE_OPEN",
+      "status": "OPEN",
+      "detail": "Current physical fixtures explicitly use opaque cipher data. Exact systemd materialization and authenticated opening remain A/B, independent deployed application C."
+    },
+    {
+      "id": "OBLIGATION_DOC_STALE",
+      "status": "STALE",
+      "detail": "SSOT_CREATE_OPERATION_OBLIGATIONS.md headerresume5334 and pendingformats/ownselectors/sixstates claims are historical; current obligations must be rebuilt from effective sources preserving remaining gates."
+    }
+  ],
+  "wholeOperationCertified": false,
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

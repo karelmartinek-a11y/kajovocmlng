@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "status": "ENVIRONMENT_FIXTURE_COLLISION",
+      "reportedBy": "coordinator",
+      "command": "parallel verify_failure_before_root.py and verify_pending_transfer.py",
+      "diagnostic": "duplicate owner_identity due to both fixtures resetting and using failure_sql_34d",
+      "contractVerdict": "NOT_EVALUATED_FOR_COLLIDING_INVOCATION",
+      "fix": "Pending fixture uses independent pending_transfer_34d database; failure fixture retains failure_sql_34d",
+      "evidenceLimitation": "This history records coordinator report, not a substituted successful test; original coordinator command log is retained by coordinator."
+    }
+  ]
+}

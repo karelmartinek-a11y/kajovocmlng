@@ -1,0 +1,29 @@
+# RETRY locked scan and inherited graph consumer integration
+
+Pinned input: `34d3a75c47a92ab7d8e0dac84f581549a15445ca`; source SHA-256 `2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854`. Only this directory was written. No Git, canonical/shared source, registry, checkpoint or projection changes were made.
+
+## Concrete deliverables
+
+1. `locked-retry-ledger.sql`: candidate bounded physical source ledger projection, actual generation_job producer FK, exact bytes/digests, gate serialization for all writers, current-state and evidence deferred joins, immutable request/target key and append-only attempts/evidence. Candidate resource name `database/generation-retry-scan.sql`; it is not canonical until root authors it.
+2. `locked_retry_hydration.py`: actual SQL-returned bytes → closed native phase/inventory/operation/attempt/state/evidence masks → existing native domain classifier. Takes no boolean valid/complete flag. Must execute while caller's scan transaction remains open, through frozen child admission commit.
+3. `retry_inventory_staged.py`: existing root helper plus explicit server-side `ADMISSION_DISCUSSION` / `EXECUTION_DISPATCH`. Default remains `EXECUTION_DISPATCH`, preserving all existing negatives. Discussion preserves no-repeat/final/no-auto facts without confusing them with dispatch policy approval. Unknown/reconciliation still rejects source eligibility under effective §12.51.
+4. `generation_graph_current.py`: previously reviewed native graph implementation rebound to actual root module. `generation_basis_consumer.py` consumes RETRY/REPAIR frozen approved source, hydrates actual native graph, creates only child-local `/jobId` projection and preserves source bytes/digest. No OWNER or inherited execution approval is manufactured. UPDATE producer join remains explicit instead of guessing a source.
+5. `normative-amendment.md`: proposed exact bounded effective contract and limitations. Coordinator must integrate and independently rerun current embedded bytes before recording VERIFIED.
+
+## Actual proof
+
+- `locked-retry-tests.json`: **18/18 PASS**, actual PostgreSQL **18.6**, fresh own database `retry_graph_34d`, exact canonical foundation bytes installed and byte equality asserted. Actual SQL phase gate, producer FK, immutable evidence/attempt, stale version/current pointer, target-key rebinding and deferred drift negatives. Five genuine two-session conflicts: operation mutation, state mutation, source delete/update and insert phantom; contender must get real PG lock timeout while scan transaction is open. Actual scanned bytes are fed to current native inventory/classifier validator.
+- `retry-stage-tests.json`: **9/9 PASS**, valid native source positives, explicit no-auto/applied/unknown stage decisions. Execution-stage blockers remain unchanged. Known FINAL is represented by staged policy but no final-rejection consumer fixture is claimed.
+- `generation-graph-tests.json`: **31/31 PASS**, pinned current native bundle/maps; 43 actual synthetic artifacts, 21 native records, 15 schema vectors. Source hashes prove binding, not runtime acceptance.
+- `basis-consumer-tests.json`: **9/9 PASS**, RETRY/REPAIR native graph and child-local consumption; positive-derived actual source bytes/digest, job identity, frozen identity, source availability and graph cycle negatives. This is bounded native consumer proof, not whole operation closure.
+
+## Integration order and remaining obligations
+
+1. Materialize SQL extension and norm as effective bounded sources; copied helper imports must refer to root `generation_admission_contracts`, and consumer to root graph module. Add new exact diagnostics individually to finite catalog/error mapping (three scan decoder/digest diagnostics plus stage/consumer diagnostics), never prefix-map unknown failures.
+2. Integrate create RETRY content selection with actual locked inventory validation, using server-owned scanner transaction and active compiled classifier registry. Existing `select_generation_basis` presently does not call inventory at all; this is a real mandatory gap. Cache/replay must reuse retained inventory and schema/classifier revisions, not rerun a moving source check for same key/digest.
+3. Actual ledger producers must publish into the protected adapter under the same phase lock and version/digest CAS. Projection completeness versus the full §49.8 physical ledger producer is not yet proven; deriving these projection rows from client JSON is forbidden. Full ledger fencing/outbox/evidence-sequence/lifecycle/reconciliation/compensation remains A (pre-generation mandatory), not moved to future acceptance.
+4. The SQL gate proves stability until transaction end; coupling that transaction to actual child persistence/event/outbox/audit is still A. Do not release the lock before content validation/frozen descriptor commit. No complete graph producer or cross-phase compensation scan is claimed by the selected-phase fixture.
+5. Archive actual schemas/policy/classifier bytes and consume them by retained digest. Current embedded source changes invalidate the proofs unless consumed native bytes stay equal and an explicit support/source rebind is performed. Actual source graph predicates/target/delegation/Secret-use, rule and verification-obligation declaration resolution, and UPDATE revision→source-spec join remain mandatory A.
+6. Real generated app/authenticated dispatch behavior is future C, NOT_EVALUATED. No new product choice is identified in this bounded scope. No blanket source-job terminality introduced.
+
+The native fixture classifier is one declared synthetic compare-and-set read-back consumer, not every required consumer or a universal side-effect oracle. SQL projection adapter fixtures do not replace full §49.8 producer proof. Whole generation.job.create remains OPEN.

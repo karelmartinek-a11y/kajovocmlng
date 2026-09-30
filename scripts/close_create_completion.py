@@ -86,8 +86,10 @@ idempotency key při transportním retry (§72.11/§72.21). Model proposal není
 serverový receipt. Schema a reference-model tests nedokazují executable SQL,
 skutečný backend, encryption service ani celou consumer pipeline.
 
-Otevřené policies jsou explicitní: přesné gramatiky devíti structured/crypto
-Secret typů a vlastní lifecycle admission matrix parent/target objektů.
+Otevřené policies jsou explicitní: technická aktivace deseti schválených omezených Secret profilů, úplný browser
+kontrakt a celá serverová policy/producer/consumer předávka. Vlastní generation
+selectors a native validators podle §12.51 již existují, úplná fyzická source
+projection a child-commit coupling zůstávají povinné.
 Samotný seznam valuePolicyTypes, existence reference ani lifecycle sousedního
 objektu nejsou jejich důkaz. Dokud nejsou vyřešeny, tyto varianty jsou BLOCKED
 a celé create operace nelze označit sémanticky uzavřené.

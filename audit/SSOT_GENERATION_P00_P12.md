@@ -318,3 +318,13 @@ R17 / 73.2–73.7: P00 musí doložit exact native/PGDG package versions a integ
 R16 orchestration and R17 native toolchain/PGDG/browser requirements must be incorporated in implementation evidence; this projection does not certify their semantic closure.
 
 Aktuální pokračování přidává canonical §12.51 native basis a §12.52 physical roots/atomic create handoff. P00 exit není počet zelených skriptů: explicitní dostupná sada má46kontrol a přetrvávající blokace. P02 má nyní skutečný boundedSQL fixture z embedded `database/generation-create-foundations.sql` naPostgreSQL18.6; source-built fixture nedokládá všechny native/PGDG package/R17 podmínky. Constant-time OWNER API verifier, canonical systemd/master-key/crypto, úplný locked RETRYscan, failure-before-root outcomes a native graph/read/UI/Secret consumers zůstávají předgeneračními exit criteria příslušných etap. Aktuální přesné výsledky a závislosti jsou v checkpointu a registru; žádná aplikace nevznikla.
+
+## Integrated generation chain at continuation 34d
+
+P00 keeps effective §73.7 precedence and all mandatory design/fixture gates. The historical R13 whole-document report alone does not grant readiness. Current authenticated generation modules are `contracts/generation/create-chain-handoffs.json` and the named canonical SQL dependencies, with actual PostgreSQL18.6 and independent native producer→consumer fixtures. Mandatory encrypted-systemd per-invocation proof remains BLOCKED in this managerless environment.
+
+P01–P03 must emit trusted acceptance/current auth, immutable protected input and own native source selectors with exact physical producer joins. Exit requires actual key/nonce authority, full locked RETRY membership through child COMMIT and every own eligibility predicate; a validity flag, opaque fixture ciphertext or phase projection alone fails.
+
+P04–P06 must consume retained protected bytes under exact archived schema/policy, native graph and immutable lineage; output discussion does not imply execution/activation authority. Pending/failure/unknown/cancel retention and pending→same-root transfer use the canonical pre-root module. Exit includes all recovery decision producers, complete event/outbox/audit/archive and retained reader joins.
+
+P07–P12 preserve existing business outputs/exit criteria. Exact public/native UI projections, three exposure producer-result joins, Secret broker profiles/legacy RAW, complete §13.15 browser members, MCP/agent/OpenAI/monitoring handoffs and production fixture gates remain required. Runtime application acceptance is separate and NOT_EVALUATED. No application was generated.

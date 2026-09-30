@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "checked": 9,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "known-not-applied/discussion",
+      "passed": true
+    },
+    {
+      "case": "known-not-applied/dispatch-still-not-authorized",
+      "passed": true
+    },
+    {
+      "case": "no-auto-retry/discussion",
+      "passed": true
+    },
+    {
+      "case": "no-auto-retry/dispatch-policy-unresolved",
+      "passed": true,
+      "actual": "GENERATION_RETRY_MANUAL_DISPATCH_POLICY_UNRESOLVED",
+      "expected": "GENERATION_RETRY_MANUAL_DISPATCH_POLICY_UNRESOLVED"
+    },
+    {
+      "case": "applied-effect/discussion-preserves-no-repeat",
+      "passed": true
+    },
+    {
+      "case": "applied-effect/repeat-dispatch-forbidden",
+      "passed": true,
+      "actual": "GENERATION_RETRY_CONFIRMED_EFFECT_REPEAT_FORBIDDEN",
+      "expected": "GENERATION_RETRY_CONFIRMED_EFFECT_REPEAT_FORBIDDEN"
+    },
+    {
+      "case": "unknown/not-completed-source/discussion",
+      "passed": true,
+      "actual": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "expected": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED"
+    },
+    {
+      "case": "unknown/dispatch",
+      "passed": true,
+      "actual": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED",
+      "expected": "GENERATION_RETRY_EFFECT_RECONCILIATION_REQUIRED"
+    },
+    {
+      "case": "unknown-stage-rejected",
+      "passed": true,
+      "actual": "GENERATION_RETRY_STAGE_INVALID",
+      "expected": "GENERATION_RETRY_STAGE_INVALID"
+    }
+  ],
+  "stageInterpretation": "\u00a712.51 ADMIT_DISCUSSION is not \u00a749.8 dispatch authority; known outcomes retain no-repeat/no-auto policy rather than requiring new dispatch policy to create discussion. Unknown source eligibility remains blocked by effective \u00a712.51 source known-failure requirement.",
+  "normativeStatus": "PROPOSED_STAGE_SPECIALIZATION_NOT_EFFECTIVE_UNTIL_COORDINATOR_REVIEW",
+  "wholeOperationClosed": false,
+  "supportSha256": {
+    "audit/generated/resume-34d/retry-graph/verify_retry_stages.py": "c2c5c30c9db1a7c95a6fd99e5d63560092b7e040510150ceb6e35c66b0688041",
+    "audit/generated/resume-34d/retry-graph/retry_inventory_staged.py": "7ed6a1542a499ee71277c2e319a3ac87fed6c041247e158367813fbe32190237",
+    "scripts/generation_retry_inventory.py": "c4146bd813ab9a8d6d94c4f7276d47aec1d3a524744350ef542b1c71f783f154"
+  }
+}

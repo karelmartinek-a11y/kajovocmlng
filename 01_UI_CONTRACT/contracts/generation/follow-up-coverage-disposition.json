@@ -1,0 +1,66 @@
+{
+  "version": "FOLLOW_UP_NATIVE_COVERAGE_DISPOSITION_V1",
+  "authority": [
+    "SSOT12.49",
+    "SSOT12.51",
+    "SSOT12.53"
+  ],
+  "historicalInput": {
+    "commit": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+    "reportSha256": "0a1209edb73d43cbf53e993fc7a1003ce063c2a8722f817ed5421a811db1e688",
+    "checked": 324
+  },
+  "intermediateChecked": 318,
+  "currentChecked": 324,
+  "replacements": [
+    {
+      "historicalCase": "INITIAL_REQUEST/consistent/FOLLOW_UP_BASIS_INCONSISTENT",
+      "replacementCase": "INITIAL_REQUEST/native-consistent",
+      "expectedDiagnostic": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "violation": "Actual duplicate source JSON key",
+      "disposition": "REPLACED_VALIDITY_FLAG_WITH_POSITIVE_DERIVED_ACTUAL_NATIVE_BYTES"
+    },
+    {
+      "historicalCase": "INITIAL_REQUEST/sufficient/FOLLOW_UP_BASIS_INSUFFICIENT",
+      "replacementCase": "INITIAL_REQUEST/native-sufficient",
+      "expectedDiagnostic": "GENERATION_BASIS_SCHEMA_INVALID",
+      "violation": "Actual source is missing required domain intent",
+      "disposition": "REPLACED_VALIDITY_FLAG_WITH_POSITIVE_DERIVED_ACTUAL_NATIVE_BYTES"
+    },
+    {
+      "historicalCase": "SPECIFICATION_REVISION/consistent/FOLLOW_UP_BASIS_INCONSISTENT",
+      "replacementCase": "SPECIFICATION_REVISION/native-consistent",
+      "expectedDiagnostic": "GENERATION_BASIS_DOCUMENT_JOB_MISMATCH",
+      "violation": "Valid native document belongs to another source job",
+      "disposition": "REPLACED_VALIDITY_FLAG_WITH_POSITIVE_DERIVED_ACTUAL_NATIVE_BYTES"
+    },
+    {
+      "historicalCase": "SPECIFICATION_REVISION/sufficient/FOLLOW_UP_BASIS_INSUFFICIENT",
+      "replacementCase": "SPECIFICATION_REVISION/native-sufficient",
+      "expectedDiagnostic": "GENERATION_BASIS_SCHEMA_INVALID",
+      "violation": "Actual source is missing required domain behavioralRequirements",
+      "disposition": "REPLACED_VALIDITY_FLAG_WITH_POSITIVE_DERIVED_ACTUAL_NATIVE_BYTES"
+    },
+    {
+      "historicalCase": "PUBLISHED_FINAL_OUTPUT/consistent/FOLLOW_UP_BASIS_INCONSISTENT",
+      "replacementCase": "PUBLISHED_FINAL_OUTPUT/native-consistent",
+      "expectedDiagnostic": "GENERATION_BASIS_DOCUMENT_JOB_MISMATCH",
+      "violation": "Valid native document belongs to another source job",
+      "disposition": "REPLACED_VALIDITY_FLAG_WITH_POSITIVE_DERIVED_ACTUAL_NATIVE_BYTES"
+    },
+    {
+      "historicalCase": "PUBLISHED_FINAL_OUTPUT/sufficient/FOLLOW_UP_BASIS_INSUFFICIENT",
+      "replacementCase": "PUBLISHED_FINAL_OUTPUT/native-sufficient",
+      "expectedDiagnostic": "GENERATION_BASIS_SCHEMA_INVALID",
+      "violation": "Actual source is missing required domain artifacts",
+      "disposition": "REPLACED_VALIDITY_FLAG_WITH_POSITIVE_DERIVED_ACTUAL_NATIVE_BYTES"
+    }
+  ],
+  "publicationReplacement": {
+    "historicalCase": "PUBLISHED_FINAL_OUTPUT/unpublished",
+    "replacementCase": "PUBLISHED_FINAL_OUTPUT/missing-final-declaration",
+    "reason": "Actual immutable output declaration replaces caller-like publication boolean"
+  },
+  "closureClaim": false,
+  "implementationProductionAcceptance": "NOT_EVALUATED"
+}

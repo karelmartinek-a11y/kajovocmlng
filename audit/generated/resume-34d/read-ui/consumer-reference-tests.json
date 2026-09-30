@@ -1,0 +1,221 @@
+{
+  "inputCommit": "34d3a75c47a92ab7d8e0dac84f581549a15445ca",
+  "sourceDocumentSha256": "2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854",
+  "scope": "Proposed bounded create-read consumer, immutable bytes/identity/retry semantics; not complete job.read or runtime facade dispatch",
+  "checks": 35,
+  "failed": 0,
+  "cases": [
+    {
+      "id": "domain-positive",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "status": "PASS"
+    },
+    {
+      "id": "wrong-job",
+      "expectedDiagnostic": "READ_JOB_IDENTITY_MISMATCH",
+      "actualDiagnostic": "READ_JOB_IDENTITY_MISMATCH",
+      "status": "PASS"
+    },
+    {
+      "id": "changed-kind",
+      "expectedDiagnostic": "IMMUTABLE_CREATE_LINK_MISMATCH",
+      "actualDiagnostic": "IMMUTABLE_CREATE_LINK_MISMATCH",
+      "status": "PASS"
+    },
+    {
+      "id": "changed-created-at",
+      "expectedDiagnostic": "IMMUTABLE_CREATE_LINK_MISMATCH",
+      "actualDiagnostic": "IMMUTABLE_CREATE_LINK_MISMATCH",
+      "status": "PASS"
+    },
+    {
+      "id": "changed-initial-digest",
+      "expectedDiagnostic": "IMMUTABLE_CREATE_LINK_MISMATCH",
+      "actualDiagnostic": "IMMUTABLE_CREATE_LINK_MISMATCH",
+      "status": "PASS"
+    },
+    {
+      "id": "state-version-regression",
+      "expectedDiagnostic": "READ_STATE_VERSION_REGRESSION",
+      "actualDiagnostic": "READ_STATE_VERSION_REGRESSION",
+      "status": "PASS"
+    },
+    {
+      "id": "unknown-state",
+      "expectedDiagnostic": "READ_PROJECTION_SCHEMA_INVALID",
+      "actualDiagnostic": "READ_PROJECTION_SCHEMA_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "counter-wrong-type",
+      "expectedDiagnostic": "READ_PROJECTION_SCHEMA_INVALID",
+      "actualDiagnostic": "READ_PROJECTION_SCHEMA_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "unknown-field",
+      "expectedDiagnostic": "READ_PROJECTION_SCHEMA_INVALID",
+      "actualDiagnostic": "READ_PROJECTION_SCHEMA_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "required-ref",
+      "expectedDiagnostic": "READ_PROJECTION_SCHEMA_INVALID",
+      "actualDiagnostic": "READ_PROJECTION_SCHEMA_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "missing-actual-bytes",
+      "expectedDiagnostic": "INITIAL_REQUEST_BYTES_UNAVAILABLE",
+      "actualDiagnostic": "INITIAL_REQUEST_BYTES_UNAVAILABLE",
+      "status": "PASS"
+    },
+    {
+      "id": "wrong-snapshot",
+      "expectedDiagnostic": "INITIAL_SNAPSHOT_IDENTITY_MISMATCH",
+      "actualDiagnostic": "INITIAL_SNAPSHOT_IDENTITY_MISMATCH",
+      "status": "PASS"
+    },
+    {
+      "id": "wrong-content-bytes",
+      "expectedDiagnostic": "INITIAL_REQUEST_BYTES_DIGEST_MISMATCH",
+      "actualDiagnostic": "INITIAL_REQUEST_BYTES_DIGEST_MISMATCH",
+      "status": "PASS"
+    },
+    {
+      "id": "duplicate-json",
+      "expectedDiagnostic": "DUPLICATE_JSON_KEY",
+      "actualDiagnostic": "DUPLICATE_JSON_KEY",
+      "status": "PASS"
+    },
+    {
+      "id": "invalid-json",
+      "expectedDiagnostic": "INVALID_JSON",
+      "actualDiagnostic": "INVALID_JSON",
+      "status": "PASS"
+    },
+    {
+      "id": "semantic-bytes-link",
+      "expectedDiagnostic": "INITIAL_REQUEST_SEMANTIC_DIGEST_MISMATCH",
+      "actualDiagnostic": "INITIAL_REQUEST_SEMANTIC_DIGEST_MISMATCH",
+      "status": "PASS"
+    },
+    {
+      "id": "model-producer",
+      "expectedDiagnostic": "UNTRUSTED_READ_PRODUCER",
+      "actualDiagnostic": "UNTRUSTED_READ_PRODUCER",
+      "status": "PASS"
+    },
+    {
+      "id": "latest-global-substitution",
+      "expectedDiagnostic": "READ_JOB_IDENTITY_MISMATCH",
+      "actualDiagnostic": "READ_JOB_IDENTITY_MISMATCH",
+      "status": "PASS"
+    },
+    {
+      "id": "current-version-regression",
+      "expectedDiagnostic": "READ_CURRENT_VERSION_REGRESSION",
+      "actualDiagnostic": "READ_CURRENT_VERSION_REGRESSION",
+      "status": "PASS"
+    },
+    {
+      "id": "terminal-state-rewrite",
+      "expectedDiagnostic": "TERMINAL_STATE_REWRITE",
+      "actualDiagnostic": "TERMINAL_STATE_REWRITE",
+      "status": "PASS"
+    },
+    {
+      "id": "unknown-reconcile",
+      "status": "PASS"
+    },
+    {
+      "id": "retry-key-changed",
+      "expectedDiagnostic": "UI_CREATE_RETRY_KEY_CHANGED",
+      "actualDiagnostic": "UI_CREATE_RETRY_KEY_CHANGED",
+      "status": "PASS"
+    },
+    {
+      "id": "unknown-status",
+      "expectedDiagnostic": "UI_CREATE_OUTCOME_SCHEMA_INVALID",
+      "actualDiagnostic": "UI_CREATE_OUTCOME_SCHEMA_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "unknown-classification",
+      "expectedDiagnostic": "UI_CREATE_OUTCOME_SCHEMA_INVALID",
+      "actualDiagnostic": "UI_CREATE_OUTCOME_SCHEMA_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "contradictory-success-unknown",
+      "expectedDiagnostic": "UI_CREATE_OUTCOME_SCHEMA_INVALID",
+      "actualDiagnostic": "UI_CREATE_OUTCOME_SCHEMA_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "contradictory-pending-unknown",
+      "expectedDiagnostic": "UI_CREATE_OUTCOME_SCHEMA_INVALID",
+      "actualDiagnostic": "UI_CREATE_OUTCOME_SCHEMA_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "wrong-retry-directive",
+      "expectedDiagnostic": "UI_CREATE_OUTCOME_SCHEMA_INVALID",
+      "actualDiagnostic": "UI_CREATE_OUTCOME_SCHEMA_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "unknown-terminal",
+      "expectedDiagnostic": "UI_CREATE_OUTCOME_SCHEMA_INVALID",
+      "actualDiagnostic": "UI_CREATE_OUTCOME_SCHEMA_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "outcome-digest-corrupt",
+      "expectedDiagnostic": "UI_CREATE_OUTCOME_DIGEST_MISMATCH",
+      "actualDiagnostic": "UI_CREATE_OUTCOME_DIGEST_MISMATCH",
+      "status": "PASS"
+    },
+    {
+      "id": "valid-success-outcome",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "status": "PASS"
+    },
+    {
+      "id": "valid-pending-outcome",
+      "status": "PASS"
+    },
+    {
+      "id": "START-closed-intent",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "status": "PASS"
+    },
+    {
+      "id": "START-client-context-forbidden",
+      "expectedDiagnostic": "FACADE_SCHEMA_INVALID",
+      "actualDiagnostic": "FACADE_SCHEMA_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "STOP-closed-intent",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "status": "PASS"
+    },
+    {
+      "id": "STOP-client-context-forbidden",
+      "expectedDiagnostic": "FACADE_SCHEMA_INVALID",
+      "actualDiagnostic": "FACADE_SCHEMA_INVALID",
+      "status": "PASS"
+    }
+  ],
+  "implementationProductionAcceptance": "NOT_EVALUATED",
+  "wholeOperationsClosed": 0,
+  "supportingFiles": {
+    "generation_consumer_reference.py": "a21d0bae09b554255f38fa8a0534d64c2f08801c7ab105a0bfafd47fe3799b19",
+    "verify_consumer_reference.py": "c609da26186c9471034746a113ebe2237c1b1769da5d9d466c3b4baabdc67d4e"
+  }
+}

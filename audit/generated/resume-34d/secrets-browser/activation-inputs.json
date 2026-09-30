@@ -1,0 +1,96 @@
+{
+  "input": {
+    "commit": "34d3a75c47a92ab7d8e0dac84f581549a15445ca",
+    "ssotSha256": "2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854",
+    "priorSchemaSha256": "3ef24d4a5bebdb86e6716767453f4be053d77c769a404db06c6a2d38f82f6699"
+  },
+  "profiles": [
+    {
+      "profileId": "OAUTH_CLIENT_SECRET_V1",
+      "secretType": "OAUTH_CLIENT",
+      "schemaId": "urn:kcml:secret-profile-handoffs:1#/$defs/OAUTH_CLIENT_SECRET_V1",
+      "schemaDigest": "sha256:7c66a6c5411f784091c332062cd50b5dac8e876b2a13187f19b6e36db20fc095",
+      "schemaBytesFile": "compiled-profile-schemas/OAUTH_CLIENT_SECRET_V1.json",
+      "activation": "REQUIRES_CURRENT_NORMATIVE_SOURCE_AND_REAL_REVIEW_RECEIPT"
+    },
+    {
+      "profileId": "OAUTH_BEARER_TOKEN_SET_V1",
+      "secretType": "OAUTH_TOKEN_SET",
+      "schemaId": "urn:kcml:secret-profile-handoffs:1#/$defs/OAUTH_BEARER_TOKEN_SET_V1",
+      "schemaDigest": "sha256:9a770e159d8d68dd882526a16deefa7ff301235ab0872c26c799c8bca83a00be",
+      "schemaBytesFile": "compiled-profile-schemas/OAUTH_BEARER_TOKEN_SET_V1.json",
+      "activation": "REQUIRES_CURRENT_NORMATIVE_SOURCE_AND_REAL_REVIEW_RECEIPT"
+    },
+    {
+      "profileId": "TOTP_BASE32_V1",
+      "secretType": "TOTP_SEED",
+      "schemaId": "urn:kcml:secret-profile-handoffs:1#/$defs/TOTP_BASE32_V1",
+      "schemaDigest": "sha256:84ed75b93112aade816e1141182ecaa46774e5e459cd3d3ee28d7c3c31eecd03",
+      "schemaBytesFile": "compiled-profile-schemas/TOTP_BASE32_V1.json",
+      "activation": "REQUIRES_CURRENT_NORMATIVE_SOURCE_AND_REAL_REVIEW_RECEIPT"
+    },
+    {
+      "profileId": "X509_PEM_CHAIN_V1",
+      "secretType": "CERTIFICATE",
+      "schemaId": "urn:kcml:secret-profile-handoffs:1#/$defs/X509_PEM_CHAIN_V1",
+      "schemaDigest": "sha256:836f30c90696165639de7ffde3dd18bf7debc736d71fc1e2468f4ea75e9e73dc",
+      "schemaBytesFile": "compiled-profile-schemas/X509_PEM_CHAIN_V1.json",
+      "activation": "REQUIRES_CURRENT_NORMATIVE_SOURCE_AND_REAL_REVIEW_RECEIPT"
+    },
+    {
+      "profileId": "PKCS8_PEM_PRIVATE_KEY_V1",
+      "secretType": "PRIVATE_KEY",
+      "schemaId": "urn:kcml:secret-profile-handoffs:1#/$defs/PKCS8_PEM_PRIVATE_KEY_V1",
+      "schemaDigest": "sha256:f3eff3e95e31e6f8cc3b534023936c734a76cdde0633e5f136c95608d4550d71",
+      "schemaBytesFile": "compiled-profile-schemas/PKCS8_PEM_PRIVATE_KEY_V1.json",
+      "activation": "REQUIRES_CURRENT_NORMATIVE_SOURCE_AND_REAL_REVIEW_RECEIPT"
+    },
+    {
+      "profileId": "DATABASE_USER_PASSWORD_V1",
+      "secretType": "DATABASE_CREDENTIAL",
+      "schemaId": "urn:kcml:secret-profile-handoffs:1#/$defs/DATABASE_USER_PASSWORD_V1",
+      "schemaDigest": "sha256:acfc2612336f0ae5837f20e9801bf9f6254654ed7c35a9cb4c1c47572fdedc63",
+      "schemaBytesFile": "compiled-profile-schemas/DATABASE_USER_PASSWORD_V1.json",
+      "activation": "REQUIRES_CURRENT_NORMATIVE_SOURCE_AND_REAL_REVIEW_RECEIPT"
+    },
+    {
+      "profileId": "HTTP_COOKIE_JAR_V1",
+      "secretType": "COOKIE_JAR",
+      "schemaId": "urn:kcml:secret-profile-handoffs:1#/$defs/HTTP_COOKIE_JAR_V1",
+      "schemaDigest": "sha256:da8ebc38142bb7096172c2133594689cb536880d93befc2e67f766d3319c11c3",
+      "schemaBytesFile": "compiled-profile-schemas/HTTP_COOKIE_JAR_V1.json",
+      "activation": "REQUIRES_CURRENT_NORMATIVE_SOURCE_AND_REAL_REVIEW_RECEIPT"
+    },
+    {
+      "profileId": "BROWSER_COOKIE_LOCAL_STORAGE_V1",
+      "secretType": "SESSION_STATE",
+      "schemaId": "urn:kcml:secret-profile-handoffs:1#/$defs/BROWSER_COOKIE_LOCAL_STORAGE_V1",
+      "schemaDigest": "sha256:f00eb742088d3f61498e56b24fedfbce9d3890562a4883a17f51925c5e6c365d",
+      "schemaBytesFile": "compiled-profile-schemas/BROWSER_COOKIE_LOCAL_STORAGE_V1.json",
+      "activation": "REQUIRES_CURRENT_NORMATIVE_SOURCE_AND_REAL_REVIEW_RECEIPT"
+    },
+    {
+      "profileId": "SSH_PASSWORD_V1",
+      "secretType": "SSH_CREDENTIAL",
+      "schemaId": "urn:kcml:secret-profile-handoffs:1#/$defs/SSH_PASSWORD_V1",
+      "schemaDigest": "sha256:c1bebeb6573973154f3e9308723888fa72595c72d61e4addb628bce2a1639b95",
+      "schemaBytesFile": "compiled-profile-schemas/SSH_PASSWORD_V1.json",
+      "activation": "REQUIRES_CURRENT_NORMATIVE_SOURCE_AND_REAL_REVIEW_RECEIPT"
+    },
+    {
+      "profileId": "SSH_OPENSSH_PRIVATE_KEY_V1",
+      "secretType": "SSH_CREDENTIAL",
+      "schemaId": "urn:kcml:secret-profile-handoffs:1#/$defs/SSH_OPENSSH_PRIVATE_KEY_V1",
+      "schemaDigest": "sha256:358df80835eb4259a50be4e7f1d495e14ebdf8eeb1063e1c919d72befb82a99b",
+      "schemaBytesFile": "compiled-profile-schemas/SSH_OPENSSH_PRIVATE_KEY_V1.json",
+      "activation": "REQUIRES_CURRENT_NORMATIVE_SOURCE_AND_REAL_REVIEW_RECEIPT"
+    }
+  ],
+  "fullBrowserRequiredProfile": {
+    "profileId": "BROWSER_AUTH_STATE_GRAPH_V1",
+    "activation": "NOT_ACTIVATED",
+    "obligationsFile": "browser-engine-tests.json"
+  },
+  "digestCircularity": "compiled schema bytes contain definitions only; normative source digest is stored outside its own SSOT source and supplied by verified server deployment registry",
+  "wholeSecretCreate": "OPEN"
+}

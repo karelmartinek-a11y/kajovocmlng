@@ -1,0 +1,36 @@
+# Accepted generation create before-root retention
+
+Input: `34d3a75c47a92ab7d8e0dac84f581549a15445ca`, canonical source `2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854`. Author owns only this directory. Current evidence separately records actual consumed source and exact SQL digests, rather than treating entry SHA as a current execution receipt.
+
+`failure-before-root-extension.sql` is a separately labeled extension after **unchanged canonical embedded** `database/generation-create-foundations.sql`. `verify_failure_before_root.py` executes both in the disposable `failure_sql_34d` database, PostgreSQL **18.6**. Current 29 checks pass, including native-mask-valid witnesses, four accepted-before-root outcomes, a retryable known-rollback outcome, five missing-join failures, wrong immutable identity/locator/idempotency, complete rollback, absence of root/created-event/domain-event-outbox, postcommit immutability, original-byte retained read, two-process locator contention and different-request conflict. Authentication acceptance rows and ciphertext remain explicitly synthetic prerequisites; this does not prove API token verification or canonical crypto.
+
+## Exact scope and sources
+
+- §12.48: parse/auth/pre-acceptance admission failure has `logicalOperationId=null` and never creates these tables' records. No durable command is invented for malformed JSON, invalid credentials or initial rejected admission.
+- §§49.3–4/25.11: an already accepted command has its own immutable identity, frozen request/descriptor/scope/key, persisted stage and canonical response. `ACCEPTED` is pending; `FAILED` with `RETRY_SAME_OPERATION` is nonterminal known-rollback recovery; `SIDE_EFFECT_OUTCOME_UNKNOWN / UNKNOWN / RECONCILE_THEN_RETRY` is nonterminal reconciliation; terminal `FAILED` and `CANCELLED` retain exact original outcomes.
+- §49.25: missing transport response is never positive rollback evidence. This extension represents outcomes, not the external producer of a rollback/unknown decision. It cannot turn a transport timeout into FAILED_FINAL.
+- §51.12: command + trusted context + protected pre-root snapshot + retained bytes + locator + business-idempotency state + command audit close in one transaction. Missing members fail a deferred constraint, preventing partial commit.
+- §12.48/49.5: no `generation.job.created` event exists without a generation root. There is no invented `generation.job.failed-before-create` event. Command audit uses the existing versioned chain; optional archive outbox remains required according to actual pinned archive policy. There is no domain-delivery outbox for a non-existent created event.
+- §§51.5–6/51.25: authenticate/acceptance locks, stable locator and original scope precede fresh admission. Audit-head lock is last. Replay returns original retained bytes; it does not create a second job or recompute current descriptor.
+
+## Physical handoff
+
+`generation_create_preroot_snapshot` holds immutable protected accepted input without a FK requiring a yet nonexistent job. Its `prospective_job_id` is a server-reserved identity, not a persisted job; it is the existing immutable command target. Every schema/content/profile digest and exact opaque ciphertext/nonce/key identifier is retained. No plaintext storage or new cryptosystem is introduced.
+
+`generation_create_preroot_outcome` keys immutable canonical native semantic response bytes by `(logical_operation_id,state_version)`, covering all semantic response members except the existing excluded `resultDigest` and `idempotencyReplay`. Its SHA is the command result digest and business-idempotency canonical outcome digest. Its audit ID is exact and immutable. The SQL guard checks required closed member cardinality, native route/operation/correlation identity, null output/version/event/activation, real current finite error tuple, error details digest, classification/terminal/retry semantics and matching retained scope. PostgreSQL JSON `WITH UNIQUE KEYS` rejects duplicate JSON keys before JSONB could collapse them. Byte-producing canonicalization remains the authoritative current response producer, not PostgreSQL JSONB output text.
+
+Pending-to-success keeps the exact same command/context/prospective job/snapshot identity. It creates the native job and job snapshot from byte-identical pre-root ciphertext/profile/schema data, adds existing success typed binding, advances the command and business idempotency, creates the actual created event/outbox/completion and appends audit sequence. The existing pre-root outcome remains immutable historical stage evidence; it does not become a second terminal outcome. `GENERATION_PREROOT_SNAPSHOT_TRANSFER_MISMATCH` rejects changed transfer data. `verify_pending_transfer.py` uses its own `pending_transfer_34d` database and adds seven actual PostgreSQL 18.6 checks: pending commit followed by success commit, immutable pending history, exact protected snapshot joins, wrong ciphertext transfer and skipped command version. It executes embedded prereoot bytes when present and asserts equality with this reviewed extension; independent reviewer reproduction remains a separate requirement.
+
+The shared audit `domain_event_id` becomes nullable **only with a deferred exact command-outcome link**; unattached null-event audit records fail. Successful generation publication still requires its real created domain event under unchanged canonical closure. Other operations are not given a generation-only FK.
+
+## Integration and remaining gates
+
+A (mandatory design): coordinator embeds extension and normative rules; adapt trusted infrastructure grants; connect the actual authentication verifier and protected-input envelope; pin actual audit archive policy; wire current-auth replay before locator read; connect actual expected-version CAS in the caller (the SQL +1 step guard is already present); connect failure decision producer and cancellation/unknown reconciliation evidence. Current null-event audit schema is a narrowly scoped command audit technical completion, not a new product event.
+
+B (mandatory fixtures): rerun against final embedded SQL (current evidence executes canonical foundation plus proposal extension separately); native-mask invalid error mutants; independent pending→success reproduction and failed-attempt→retry handoff; failure injection at every durable stage; complete opposite-order lock/backoff matrix; authenticated replay after credential/session changes; canonical crypto and actual protected bytes. Independent reviewer reproduces own database results, not this summary.
+
+C (future application acceptance): actual HTTP transport integration, worker/restart behavior, UI lookup, real publisher/inbox/archive and operating environment. A/B are not moved into C.
+
+All four generic operation helpers remain BLOCKED for the 262 generic call sites; this own exact generation retention implementation is not a substitute for unresolved domain-specific plans.
+
+The initial coordinator parallel invocation collided because both fixtures used failure_sql_34d. This is retained as ENVIRONMENT_FIXTURE_COLLISION, not a contract PASS/failure. Pending now owns pending_transfer_34d; failure owns failure_sql_34d. The successful reexecution consumed current canonical embedded prereoot bytes.

@@ -19840,7 +19840,7 @@
         "sourceRecord": "FOLLOW_UP_BASIS_INCONSISTENT",
         "sourceSection": "12.49",
         "sourceRef": "contracts/create-completion.json#/errorPredicates/15",
-        "condition": "source.consistent is not true; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: source.consistent is not true",
+        "condition": "Legacy retained failure receipt only: original immutable canonical outcome has FOLLOW_UP_BASIS_INCONSISTENT under its original pinned contract; fresh admission validates actual native bytes/schema/domain relationships; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: Legacy retained failure receipt only: original immutable canonical outcome has FOLLOW_UP_BASIS_INCONSISTENT under its original pinned contract; fresh admission validates actual native bytes/schema/domain relationships",
         "predicateStatus": "EXPLICIT",
         "operationIds": [
           "generation.job.create"
@@ -19863,9 +19863,9 @@
           "canonicalOutcome",
           "failedGuardOrRollbackEvidence"
         ],
-        "designPredicateSha256": "05b4d2dbaa5e2d4bc3fe4154e1f9bdea6514adfcd6a0df5d4125d6d3a6b4b900"
+        "designPredicateSha256": "e06e1c49f6352eb41dc852956e9b56609139ef58ee643c568c0ecc7eef9dc92e"
       },
-      "recoverability": "Resolve this exact guard before admission/hydration: source.consistent is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "recoverability": "Resolve this exact guard before admission/hydration: Legacy retained failure receipt only: original immutable canonical outcome has FOLLOW_UP_BASIS_INCONSISTENT under its original pinned contract; fresh admission validates actual native bytes/schema/domain relationships. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
       "automatic_retry_policy": {
         "mode": "DO_NOT_RETRY",
         "maxAttempts": 0,
@@ -19874,7 +19874,7 @@
         "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
       },
       "manual_recovery": {
-        "action": "Resolve this exact guard before admission/hydration: source.consistent is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "action": "Resolve this exact guard before admission/hydration: Legacy retained failure receipt only: original immutable canonical outcome has FOLLOW_UP_BASIS_INCONSISTENT under its original pinned contract; fresh admission validates actual native bytes/schema/domain relationships. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
         "sameCommandMayRepeat": false,
         "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
       },
@@ -19901,7 +19901,7 @@
         "sourceRecord": "FOLLOW_UP_BASIS_INSUFFICIENT",
         "sourceSection": "12.49",
         "sourceRef": "contracts/create-completion.json#/errorPredicates/16",
-        "condition": "source.sufficient is not true; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: source.sufficient is not true",
+        "condition": "Legacy retained failure receipt only: original immutable canonical outcome has FOLLOW_UP_BASIS_INSUFFICIENT under its original pinned contract; fresh admission validates required actual native content and declared consumer basis; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: Legacy retained failure receipt only: original immutable canonical outcome has FOLLOW_UP_BASIS_INSUFFICIENT under its original pinned contract; fresh admission validates required actual native content and declared consumer basis",
         "predicateStatus": "EXPLICIT",
         "operationIds": [
           "generation.job.create"
@@ -19924,9 +19924,9 @@
           "canonicalOutcome",
           "failedGuardOrRollbackEvidence"
         ],
-        "designPredicateSha256": "3fc64cc81567d22949960b54a3636817d18fd2316b56f0046f1b816c438fd293"
+        "designPredicateSha256": "f27fb615783399aefe97d27cad8583adc1dd5457a4b95e721eb8af20fcc32579"
       },
-      "recoverability": "Resolve this exact guard before admission/hydration: source.sufficient is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "recoverability": "Resolve this exact guard before admission/hydration: Legacy retained failure receipt only: original immutable canonical outcome has FOLLOW_UP_BASIS_INSUFFICIENT under its original pinned contract; fresh admission validates required actual native content and declared consumer basis. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
       "automatic_retry_policy": {
         "mode": "DO_NOT_RETRY",
         "maxAttempts": 0,
@@ -19935,7 +19935,7 @@
         "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
       },
       "manual_recovery": {
-        "action": "Resolve this exact guard before admission/hydration: source.sufficient is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "action": "Resolve this exact guard before admission/hydration: Legacy retained failure receipt only: original immutable canonical outcome has FOLLOW_UP_BASIS_INSUFFICIENT under its original pinned contract; fresh admission validates required actual native content and declared consumer basis. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
         "sameCommandMayRepeat": false,
         "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
       },
@@ -20145,7 +20145,7 @@
         "sourceRecord": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
         "sourceSection": "12.49",
         "sourceRef": "contracts/create-completion.json#/errorPredicates/20",
-        "condition": "PUBLISHED_FINAL_OUTPUT source.publishedFinal is not true; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: PUBLISHED_FINAL_OUTPUT source.publishedFinal is not true",
+        "condition": "Legacy retained failure receipt only: original immutable canonical outcome has FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED under its original pinned contract; fresh admission checks exact immutable publication receipt and declared final-output contract; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: Legacy retained failure receipt only: original immutable canonical outcome has FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED under its original pinned contract; fresh admission checks exact immutable publication receipt and declared final-output contract",
         "predicateStatus": "EXPLICIT",
         "operationIds": [
           "generation.job.create"
@@ -20168,9 +20168,9 @@
           "canonicalOutcome",
           "failedGuardOrRollbackEvidence"
         ],
-        "designPredicateSha256": "585bf1e298743c26032bc03c821721114e6dd7e8339600d24b09da7a0ac7b022"
+        "designPredicateSha256": "923ee6f9098964ae0bd43ef84975a542c20a829929dadbcd521a606daa112bb8"
       },
-      "recoverability": "Resolve this exact guard before admission/hydration: PUBLISHED_FINAL_OUTPUT source.publishedFinal is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "recoverability": "Resolve this exact guard before admission/hydration: Legacy retained failure receipt only: original immutable canonical outcome has FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED under its original pinned contract; fresh admission checks exact immutable publication receipt and declared final-output contract. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
       "automatic_retry_policy": {
         "mode": "DO_NOT_RETRY",
         "maxAttempts": 0,
@@ -20179,7 +20179,7 @@
         "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
       },
       "manual_recovery": {
-        "action": "Resolve this exact guard before admission/hydration: PUBLISHED_FINAL_OUTPUT source.publishedFinal is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "action": "Resolve this exact guard before admission/hydration: Legacy retained failure receipt only: original immutable canonical outcome has FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED under its original pinned contract; fresh admission checks exact immutable publication receipt and declared final-output contract. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
         "sameCommandMayRepeat": false,
         "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
       },

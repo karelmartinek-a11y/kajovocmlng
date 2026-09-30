@@ -1,0 +1,61 @@
+{
+  "reviewType": "EXECUTED_BOUNDED_PRIMITIVE_COUNTEREXAMPLES",
+  "sourceDocumentSha256": "2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854",
+  "candidateModuleSha256": "0f4068045c654e06c9875bbbeb502b134406c3289b3cc9887bcbbf1ed454a593",
+  "cases": [
+    {
+      "case": "synthetic-primitive-baseline-not-whole-native-request",
+      "accepted": true
+    },
+    {
+      "case": "invalid-ownerId",
+      "accepted": false,
+      "exception": "ValueError",
+      "diagnostic": "PROTECTED_INPUT_IDENTITY_INVALID"
+    },
+    {
+      "case": "invalid-jobId",
+      "accepted": false,
+      "exception": "ValueError",
+      "diagnostic": "PROTECTED_INPUT_IDENTITY_INVALID"
+    },
+    {
+      "case": "invalid-snapshotId",
+      "accepted": false,
+      "exception": "ValueError",
+      "diagnostic": "PROTECTED_INPUT_IDENTITY_INVALID"
+    },
+    {
+      "case": "invalid-logicalOperationId",
+      "accepted": false,
+      "exception": "ValueError",
+      "diagnostic": "PROTECTED_INPUT_IDENTITY_INVALID"
+    },
+    {
+      "case": "invalid-trustedContextId",
+      "accepted": false,
+      "exception": "ValueError",
+      "diagnostic": "PROTECTED_INPUT_IDENTITY_INVALID"
+    },
+    {
+      "case": "invalid-platformIncarnationId",
+      "accepted": false,
+      "exception": "ValueError",
+      "diagnostic": "PROTECTED_INPUT_IDENTITY_INVALID"
+    },
+    {
+      "case": "invalid-requestSchemaId",
+      "accepted": false,
+      "exception": "ValueError",
+      "diagnostic": "PROTECTED_INPUT_SCHEMA_ID_INVALID"
+    },
+    {
+      "case": "missing-metadata",
+      "accepted": false,
+      "exception": "ValueError",
+      "diagnostic": "PROTECTED_INPUT_METADATA_MASK_INVALID"
+    }
+  ],
+  "scope": "Valid fixed primitive identity witness then one invalid metadata field per mutant; not actual native domain request/actual systemd fixture/wholeoperation proof",
+  "wholeOperationCertified": false
+}

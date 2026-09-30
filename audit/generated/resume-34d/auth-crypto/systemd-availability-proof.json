@@ -1,0 +1,15 @@
+{
+  "sourceDocumentSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+  "status": "BLOCKED",
+  "blockerType": "AUDIT_ENVIRONMENT_REQUIRED_CANONICAL_MECHANISM_UNAVAILABLE",
+  "systemdVersion": "systemd 257 (257.13-1~deb13u1)",
+  "pid1": "tail",
+  "uid": 1000,
+  "actualCommand": "systemd-creds encrypt --user --with-key=host --name=kcml-master-key synthetic encrypted",
+  "exitCode": 1,
+  "diagnostic": "Failed to connect to io.systemd.Credentials: No such file or directory",
+  "rootOwnedSystemEncryptedSourceVerified": false,
+  "readOnlyPerInvocationMaterializationVerified": false,
+  "noNullKeyOrAlternateHostMechanismUsed": true,
+  "scope": "Actual supported user-host mechanism probe only. Cannot create/verify canonical root-owned system source or service invocation in managerless isolated environment. AES reference is not a replacement. Required A fixture stays BLOCKED."
+}

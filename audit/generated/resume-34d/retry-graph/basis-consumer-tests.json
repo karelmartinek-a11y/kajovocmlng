@@ -1,0 +1,72 @@
+{
+  "inputCommit": "34d3a75c47a92ab7d8e0dac84f581549a15445ca",
+  "sourceDocumentSha256": "2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854",
+  "checks": [
+    {
+      "case": "RETRY/native-source-graph-child-local-hydration",
+      "passed": true
+    },
+    {
+      "case": "REPAIR/native-source-graph-child-local-hydration",
+      "passed": true
+    },
+    {
+      "case": "duplicate-frozen-identity",
+      "passed": true,
+      "actual": "GENERATION_CONSUMER_FROZEN_IDENTITY_DUPLICATE",
+      "expected": "GENERATION_CONSUMER_FROZEN_IDENTITY_DUPLICATE"
+    },
+    {
+      "case": "actual-source-bytes-tamper",
+      "passed": true,
+      "actual": "GENERATION_BASIS_BYTES_DIGEST_MISMATCH",
+      "expected": "GENERATION_BASIS_BYTES_DIGEST_MISMATCH"
+    },
+    {
+      "case": "frozen-digest-conflict",
+      "passed": true,
+      "actual": "GENERATION_CONSUMER_FROZEN_SOURCE_DRIFT",
+      "expected": "GENERATION_CONSUMER_FROZEN_SOURCE_DRIFT"
+    },
+    {
+      "case": "wrong-source-job",
+      "passed": true,
+      "actual": "GENERATION_CONSUMER_SOURCE_JOB_MISMATCH",
+      "expected": "GENERATION_CONSUMER_SOURCE_JOB_MISMATCH"
+    },
+    {
+      "case": "source-not-frozen",
+      "passed": true,
+      "actual": "GENERATION_CONSUMER_SOURCE_NOT_FROZEN",
+      "expected": "GENERATION_CONSUMER_SOURCE_NOT_FROZEN"
+    },
+    {
+      "case": "source-missing",
+      "passed": true,
+      "actual": "GENERATION_CONSUMER_FROZEN_BYTES_UNAVAILABLE",
+      "expected": "GENERATION_CONSUMER_FROZEN_BYTES_UNAVAILABLE"
+    },
+    {
+      "case": "actual-native-graph-self-cycle",
+      "passed": true,
+      "actual": "GENERATION_GRAPH_REQUIREMENT_CYCLE",
+      "expected": "GENERATION_GRAPH_REQUIREMENT_CYCLE"
+    }
+  ],
+  "checkCount": 9,
+  "failedCount": 0,
+  "wholeOperationClosed": false,
+  "scope": "Actual native approved source graph hydratation to child-local specification for RETRY/REPAIR. UPDATE needs authoritative target revision\u2192source spec join; no caller assertion supplied as that join. No OWNER approval or dispatch authority is created. Raw future code remains explicit DesignArtifactExpectation.",
+  "remaining": [
+    "Source/delegation/Secret-use predicates and actual monitoring\u2192repair classification not executed by generic graph validation",
+    "Graph rule/verification obligation declaration closure and producer archive need own exact contracts",
+    "UPDATE immutable target revision\u2192actual source specification producer join remains mandatory"
+  ],
+  "supportSha256": {
+    "audit/generated/resume-34d/retry-graph/verify_basis_consumer.py": "ff689d8ddafc1cedf3b93a0f57f1c62891456c81e72ac1d4fd924fc59afd6747",
+    "audit/generated/resume-34d/retry-graph/generation_basis_consumer.py": "ce4f0dd6193c6ca255846f24dd44c4b14504d1a347b035756c6e90a5aef29d40",
+    "audit/generated/resume-34d/retry-graph/generation_graph_current.py": "f93f9156725c412323e85e0c8b793fb9a33aedfad19a46ac48eca5f2ea2537f9",
+    "audit/generated/resume-34d/retry-graph/graph_current_fixtures.py": "9f1c57f6360554e0102863138ba7123eebcfbd2834492626928e528a334deaa5",
+    "scripts/generation_admission_contracts.py": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5"
+  }
+}

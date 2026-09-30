@@ -1,0 +1,267 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kcml:protected-input-metadata:1",
+  "$defs": {
+    "GenerationInitialRequestIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ownerId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])"
+        },
+        "jobId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])"
+        },
+        "snapshotId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])"
+        },
+        "logicalOperationId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])"
+        },
+        "requestSchemaId": {
+          "type": "string",
+          "pattern": "^urn:kcml:"
+        },
+        "trustedContextId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])"
+        },
+        "platformIncarnationId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])"
+        },
+        "requestSchemaDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "contentDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "executionDescriptorDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "initiatingAccessChannel": {
+          "enum": [
+            "OWNER_SESSION",
+            "OWNER_API_KEY"
+          ]
+        },
+        "applicationDeploymentEpoch": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "ownerId",
+        "jobId",
+        "snapshotId",
+        "logicalOperationId",
+        "requestSchemaId",
+        "requestSchemaDigest",
+        "contentDigest",
+        "trustedContextId",
+        "platformIncarnationId",
+        "applicationDeploymentEpoch",
+        "executionDescriptorDigest",
+        "initiatingAccessChannel"
+      ]
+    },
+    "SecretImmutableVersionIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ownerId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])"
+        },
+        "secretId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])"
+        },
+        "secretVersionId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])"
+        },
+        "trustedContextId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])"
+        },
+        "logicalOperationId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])"
+        },
+        "secretType": {
+          "type": "string",
+          "enum": [
+            "PASSWORD",
+            "API_KEY",
+            "BEARER_TOKEN",
+            "OAUTH_CLIENT",
+            "OAUTH_TOKEN_SET",
+            "TOTP_SEED",
+            "CERTIFICATE",
+            "PRIVATE_KEY",
+            "WEBHOOK_SECRET",
+            "DATABASE_CREDENTIAL",
+            "SESSION_STATE",
+            "COOKIE_JAR",
+            "SSH_CREDENTIAL",
+            "GENERIC_TEXT",
+            "GENERIC_BINARY"
+          ]
+        },
+        "representation": {
+          "enum": [
+            "RAW_UTF8",
+            "RAW_BINARY",
+            "PROFILE_JSON_V1"
+          ]
+        },
+        "profileId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "schemaId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "schemaDigest": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "plaintextByteLength": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "originalImportBytesDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "canonicalValueDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "ownerId",
+        "secretId",
+        "secretVersionId",
+        "secretType",
+        "representation",
+        "profileId",
+        "schemaId",
+        "schemaDigest",
+        "plaintextByteLength",
+        "originalImportBytesDigest",
+        "canonicalValueDigest",
+        "trustedContextId",
+        "logicalOperationId"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "representation": {
+                "const": "PROFILE_JSON_V1"
+              }
+            },
+            "required": [
+              "representation"
+            ]
+          },
+          "then": {
+            "properties": {
+              "profileId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "schemaId": {
+                "type": "string",
+                "pattern": "^urn:kcml:"
+              },
+              "schemaDigest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "profileId": {
+                "type": "null"
+              },
+              "schemaId": {
+                "type": "null"
+              },
+              "schemaDigest": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "purpose": {
+          "const": "GENERATION_INITIAL_REQUEST"
+        },
+        "identity": {
+          "$ref": "#/$defs/GenerationInitialRequestIdentity"
+        }
+      },
+      "required": [
+        "purpose",
+        "identity"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "purpose": {
+          "const": "SECRET_IMMUTABLE_VERSION"
+        },
+        "identity": {
+          "$ref": "#/$defs/SecretImmutableVersionIdentity"
+        }
+      },
+      "required": [
+        "purpose",
+        "identity"
+      ]
+    }
+  ]
+}

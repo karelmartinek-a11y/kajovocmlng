@@ -1,0 +1,32 @@
+{
+  "sourceDocumentSha256": "2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854",
+  "canonicalSqlSha256": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+  "extensionSqlSha256": "1e92f182371b651bf14f44161675ef843256a3e09f9e8a030291d2b8759ab744",
+  "executedAuthorPrefixSha256": "c32ec05e1f34c5783cfb837dea7530f452858a3a3d547af154a37c0012c9487a",
+  "database": "review_preroot_34d",
+  "postgresqlVersion": "18.6",
+  "cases": [
+    {
+      "case": "actual-native-valid-retained-error-positive",
+      "accepted": true,
+      "diagnostic": ""
+    },
+    {
+      "case": "unknown-native-error-code",
+      "accepted": false,
+      "diagnostic": "ERROR:  GENERATION_PREROOT_NATIVE_OUTCOME_INVALID\nCONTEXT:  PL/pgSQL function kcml_generation_preroot_closure_v1() line 11 at RAISE\n"
+    },
+    {
+      "case": "wrong-native-error-classification",
+      "accepted": false,
+      "diagnostic": "ERROR:  GENERATION_PREROOT_NATIVE_OUTCOME_INVALID\nCONTEXT:  PL/pgSQL function kcml_generation_preroot_closure_v1() line 11 at RAISE\n"
+    },
+    {
+      "case": "extra-sensitive-error-field",
+      "accepted": false,
+      "diagnostic": "ERROR:  GENERATION_PREROOT_NATIVE_OUTCOME_INVALID\nCONTEXT:  PL/pgSQL function kcml_generation_preroot_closure_v1() line 11 at RAISE\n"
+    }
+  ],
+  "scope": "Author-native-error validity checked independently againsteffectivefinitecatalog beforeclaimingpositive-derivedfailurenegatives",
+  "wholeOperationCertified": false
+}

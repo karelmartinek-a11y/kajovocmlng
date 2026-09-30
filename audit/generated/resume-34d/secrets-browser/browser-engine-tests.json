@@ -1,0 +1,140 @@
+{
+  "input": {
+    "commit": "34d3a75c47a92ab7d8e0dac84f581549a15445ca",
+    "ssotSha256": "2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854",
+    "priorSchemaSha256": "3ef24d4a5bebdb86e6716767453f4be053d77c769a404db06c6a2d38f82f6699"
+  },
+  "browserVersion": "151.0.7922.173",
+  "checked": 28,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "native-500000-byte-binary-below-transport-ceiling-no-stack-failure",
+      "passed": true
+    },
+    {
+      "id": "native-engine-graph-valid-closed-mask",
+      "passed": true
+    },
+    {
+      "id": "native-sparse-array-and-extra-properties-preserved",
+      "passed": true
+    },
+    {
+      "id": "native-engine-clone-self",
+      "passed": true
+    },
+    {
+      "id": "native-engine-clone-negzero",
+      "passed": true
+    },
+    {
+      "id": "native-engine-clone-nan",
+      "passed": true
+    },
+    {
+      "id": "native-engine-clone-big",
+      "passed": true
+    },
+    {
+      "id": "native-engine-clone-date",
+      "passed": true
+    },
+    {
+      "id": "native-engine-clone-map",
+      "passed": true
+    },
+    {
+      "id": "native-engine-clone-set",
+      "passed": true
+    },
+    {
+      "id": "native-engine-clone-shared",
+      "passed": true
+    },
+    {
+      "id": "native-engine-clone-bytes",
+      "passed": true
+    },
+    {
+      "id": "native-engine-clone-exact",
+      "passed": true
+    },
+    {
+      "id": "native-engine-clone-blob",
+      "passed": true
+    },
+    {
+      "id": "native-engine-clone-file",
+      "passed": true
+    },
+    {
+      "id": "native-engine-clone-regex",
+      "passed": true
+    },
+    {
+      "id": "invalid-buffer-range-rejected-exactly",
+      "passed": true
+    },
+    {
+      "id": "unknown-engine-object-no-json-fallback",
+      "passed": true
+    },
+    {
+      "id": "idb-native-store-and-unique-index-captured",
+      "passed": true
+    },
+    {
+      "id": "idb-generator-probe-aborted-without-persisted-mutation",
+      "passed": true
+    },
+    {
+      "id": "native-cookie-captured-exact-value",
+      "passed": true
+    },
+    {
+      "id": "native-origin-permission-granted",
+      "passed": true
+    },
+    {
+      "id": "fresh-context-session-installed-before-bootstrap",
+      "passed": true
+    },
+    {
+      "id": "fresh-context-cookie-and-permission",
+      "passed": true
+    },
+    {
+      "id": "idb-native-restore-graph-and-generator",
+      "passed": true
+    },
+    {
+      "id": "actual-idb-unique-index-specific-negative",
+      "passed": true
+    },
+    {
+      "id": "virtual-webauthn-real-assertion-signature-rp-origin-challenge",
+      "passed": true
+    },
+    {
+      "id": "virtual-webauthn-tampered-signed-client-data",
+      "passed": true
+    }
+  ],
+  "supportSha256": {
+    "verify_browser_engine.py": "6609e8a4199685aa0ceb03d5eb64182a5571d6a595ee23057518d5e6e63d8ccc",
+    "browser_clone.js": "f7e407280cbbc7eba1e6c222fc78e4cf7f9d1f8208e748a22af5c14db5ebb11b",
+    "profile_reference.py": "5c2e35b89fcbca59209fdad74d6fa0507850659a5b6942269d184020c3d6c19e",
+    "secret-profile-handoffs.schema.json": "54320e2663ad40326de1ce8ec583eb0566a0b5c948378bfab8bb9c4b3224dc07"
+  },
+  "sensitiveValuesInReport": false,
+  "mandatoryUnverified": [
+    "Exact OWNER Device Bridge certificate binding resolution",
+    "Encrypted immutable bundle signing/storage/epoch-CAS integration",
+    "Partitioned-cookie exact context capture/restore fixture",
+    "Authenticated external account/tenant adapter postcondition",
+    "All indexedDB key/value variants and exhausted key generator"
+  ],
+  "activation": "FULL_PROFILE_NOT_ACTIVATED",
+  "runtimeAcceptance": "NOT_EVALUATED"
+}

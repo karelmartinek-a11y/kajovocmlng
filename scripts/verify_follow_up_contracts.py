@@ -146,6 +146,31 @@ def main():
   admit_follow_up(body,server)
   mutator(body,server,key)
   reject(name,body,server,code,pointer)
+ # Replace the six obsolete caller-like validity-flag mutants with actual
+ # source bytes/domain violations. Every negative first admits a valid witness.
+ native_replacements=[]
+ for basis_kind in ['INITIAL_REQUEST','SPECIFICATION_REVISION','PUBLISHED_FINAL_OUTPUT']:
+  for category in ['consistent','sufficient']:
+   body,server,key=fixture(basis_kind);admit_follow_up(body,server)
+   record=server['sourceSnapshots'][key];value=json.loads(record['bytes'])
+   if category=='consistent':
+    if basis_kind=='INITIAL_REQUEST':
+     raw=b'{"intent":"synthetic first","intent":"synthetic second","kind":"CREATE"}'
+     code='GENERATION_BASIS_DUPLICATE_JSON_KEY';pointer='/intent';violation='Actual duplicate source JSON key'
+    else:
+     value['jobId']=OTHER;raw=json.dumps(value,sort_keys=True,separators=(',',':')).encode()
+     code='GENERATION_BASIS_DOCUMENT_JOB_MISMATCH';pointer='';violation='Valid native document belongs to another source job'
+   else:
+    field={'INITIAL_REQUEST':'intent','SPECIFICATION_REVISION':'behavioralRequirements','PUBLISHED_FINAL_OUTPUT':'artifacts'}[basis_kind]
+    value.pop(field);raw=json.dumps(value,sort_keys=True,separators=(',',':')).encode()
+    code='GENERATION_BASIS_SCHEMA_INVALID';pointer='';violation='Actual source is missing required domain '+field
+   record['bytes']=raw;record['contentDigest']='sha256:'+hashlib.sha256(raw).hexdigest();body['followUpBasis']['expectedDigest']=record['contentDigest']
+   if basis_kind=='PUBLISHED_FINAL_OUTPUT':
+    server['publicationReceipts'][OTHER]['contentDigest']=record['contentDigest']
+    receipt=server['generationBasisRepository'].records[OTHER];rv=json.loads(receipt['bytes']);rv['contentDigest']=record['contentDigest'];receipt['bytes']=json.dumps(rv,sort_keys=True,separators=(',',':')).encode();receipt['contentDigest']='sha256:'+hashlib.sha256(receipt['bytes']).hexdigest()
+   name=basis_kind+'/native-'+category
+   reject(name,body,server,code,pointer)
+   native_replacements.append({'historicalCase':basis_kind+'/'+category+'/FOLLOW_UP_BASIS_'+('INCONSISTENT' if category=='consistent' else 'INSUFFICIENT'),'replacementCase':name,'expectedDiagnostic':code,'violation':violation,'disposition':'REPLACED_VALIDITY_FLAG_WITH_POSITIVE_DERIVED_ACTUAL_NATIVE_BYTES'})
  for state in states:
   for availability in ['MISSING','INCONSISTENT','INSUFFICIENT','UNPUBLISHED']:
    body,server,key=fixture('PUBLISHED_FINAL_OUTPUT',state);admit_follow_up(body,server)
@@ -165,7 +190,7 @@ def main():
  check('decision-matrix/no-terminal-only-shortcut',all(row['decision'].startswith('ALLOW_IF_') for row in authored_matrix['rows'] if row['kind']=='FOLLOW_UP' and row['basisAvailability']=='AVAILABLE_IMMUTABLE'))
  changed=hashlib.sha256(SSOT.read_bytes()).hexdigest()!=source or any(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()!=digest for p,digest in support.items())
  if changed:check('source-input-stability',False)
- report={'sourceDocumentSha256':source,'supportSha256':support,'scope':__doc__,'proofKind':'DESIGN_REFERENCE_MODEL','implementationAcceptance':'NOT_EVALUATED','authority':'Owner approval of explicit frozen FOLLOW_UP admission; generation-job states contracts/execution/model-catalog.json model.generation-job / authoritySection 49.15','checked':len(checks),'failed':sum(not c['passed'] for c in checks),'checks':checks,'matrix':matrix,'matrixCoverage':{'reviewedKind':'FOLLOW_UP','sourceStateCount':len(states),'basisKindCount':3,'positiveCells':len(states)*3,'authoredMatrixCells':authored_matrix['rowCount'],'specifiedFollowUpCells':authored_matrix['followUpRowCount'],'otherKinds':'OPEN; not semantically reviewed by this proof'},'remaining':['Actual-byte reference hydration is tested, but database atomic locking, SQL persistence, real artifact-store hydration, independent job identity and runtime shared-resource coordination are not evidenced by a pure reference function.','Concrete failure/unpublished availability matrix uses explicit rejection witnesses; no full-operation closure assertion.']}
+ report={'sourceDocumentSha256':source,'supportSha256':support,'scope':__doc__,'proofKind':'DESIGN_REFERENCE_MODEL','implementationAcceptance':'NOT_EVALUATED','authority':'Owner approval of explicit frozen FOLLOW_UP admission; generation-job states contracts/execution/model-catalog.json model.generation-job / authoritySection 49.15','checked':len(checks),'failed':sum(not c['passed'] for c in checks),'checks':checks,'nativeCoverageReplacements':native_replacements,'matrix':matrix,'matrixCoverage':{'reviewedKind':'FOLLOW_UP','sourceStateCount':len(states),'basisKindCount':3,'positiveCells':len(states)*3,'authoredMatrixCells':authored_matrix['rowCount'],'specifiedFollowUpCells':authored_matrix['followUpRowCount'],'otherKinds':'OPEN; not semantically reviewed by this proof'},'remaining':['Actual-byte reference hydration is tested, but database atomic locking, SQL persistence, real artifact-store hydration, independent job identity and runtime shared-resource coordination are not evidenced by a pure reference function.','Concrete failure/unpublished availability matrix uses explicit rejection witnesses; no full-operation closure assertion.']}
  out=ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/follow-up-tests');out.mkdir(parents=True,exist_ok=True)
  (out/'follow-up-tests.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
  print(json.dumps({k:report[k] for k in ['sourceDocumentSha256','checked','failed']}))

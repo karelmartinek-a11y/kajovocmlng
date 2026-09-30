@@ -1,0 +1,447 @@
+{
+  "createReadProjection": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "jobId": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "state": {
+        "enum": [
+          "ACTIVATING",
+          "ANALYZING",
+          "BLOCKED",
+          "CANCELLED",
+          "CML_CONFORMANCE",
+          "COMPLETED",
+          "DISCUSSING",
+          "FAILED",
+          "IMPLEMENTING",
+          "INTEGRATING",
+          "VALIDATING"
+        ]
+      },
+      "stateVersion": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 19,
+        "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])"
+      },
+      "initialRequestDigest": {
+        "type": "string",
+        "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "kind": {
+        "enum": [
+          "CREATE",
+          "UPDATE",
+          "FOLLOW_UP",
+          "RETRY",
+          "REPAIR"
+        ]
+      },
+      "frozenBasis": {
+        "oneOf": [
+          {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "sourceJobId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "snapshotId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "basisKind": {
+                    "const": "INITIAL_REQUEST"
+                  },
+                  "contentDigest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                  },
+                  "lineageDigest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                  }
+                },
+                "required": [
+                  "sourceJobId",
+                  "snapshotId",
+                  "basisKind",
+                  "contentDigest",
+                  "lineageDigest"
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "sourceJobId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "snapshotId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "basisKind": {
+                    "const": "SPECIFICATION_REVISION"
+                  },
+                  "contentDigest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                  },
+                  "lineageDigest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                  },
+                  "revisionId": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                },
+                "required": [
+                  "sourceJobId",
+                  "snapshotId",
+                  "basisKind",
+                  "contentDigest",
+                  "lineageDigest",
+                  "revisionId"
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "sourceJobId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "snapshotId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "basisKind": {
+                    "const": "PUBLISHED_FINAL_OUTPUT"
+                  },
+                  "contentDigest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                  },
+                  "lineageDigest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                  },
+                  "artifactId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "publicationReceiptId": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                },
+                "required": [
+                  "sourceJobId",
+                  "snapshotId",
+                  "basisKind",
+                  "contentDigest",
+                  "lineageDigest",
+                  "artifactId",
+                  "publicationReceiptId"
+                ]
+              }
+            ],
+            "$comment": "Server-owned immutable persisted reference; actual bytes hydration and lineage digest verification mandatory. No plaintext or execution authority in descriptor."
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "eventSequence": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 19,
+        "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])"
+      },
+      "initialRequestRef": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "snapshotId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "contentDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+          },
+          "mediaType": {
+            "const": "application/json"
+          }
+        },
+        "required": [
+          "snapshotId",
+          "contentDigest",
+          "mediaType"
+        ]
+      }
+    },
+    "required": [
+      "jobId",
+      "state",
+      "stateVersion",
+      "initialRequestDigest",
+      "createdAt",
+      "kind",
+      "frozenBasis",
+      "eventSequence",
+      "initialRequestRef"
+    ],
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "FOLLOW_UP"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "frozenBasis": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "sourceJobId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "snapshotId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "basisKind": {
+                      "const": "INITIAL_REQUEST"
+                    },
+                    "contentDigest": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                    },
+                    "lineageDigest": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                    }
+                  },
+                  "required": [
+                    "sourceJobId",
+                    "snapshotId",
+                    "basisKind",
+                    "contentDigest",
+                    "lineageDigest"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "sourceJobId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "snapshotId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "basisKind": {
+                      "const": "SPECIFICATION_REVISION"
+                    },
+                    "contentDigest": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                    },
+                    "lineageDigest": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                    },
+                    "revisionId": {
+                      "type": "string",
+                      "format": "uuid"
+                    }
+                  },
+                  "required": [
+                    "sourceJobId",
+                    "snapshotId",
+                    "basisKind",
+                    "contentDigest",
+                    "lineageDigest",
+                    "revisionId"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "sourceJobId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "snapshotId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "basisKind": {
+                      "const": "PUBLISHED_FINAL_OUTPUT"
+                    },
+                    "contentDigest": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                    },
+                    "lineageDigest": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                    },
+                    "artifactId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "publicationReceiptId": {
+                      "type": "string",
+                      "format": "uuid"
+                    }
+                  },
+                  "required": [
+                    "sourceJobId",
+                    "snapshotId",
+                    "basisKind",
+                    "contentDigest",
+                    "lineageDigest",
+                    "artifactId",
+                    "publicationReceiptId"
+                  ]
+                }
+              ],
+              "$comment": "Server-owned immutable persisted reference; actual bytes hydration and lineage digest verification mandatory. No plaintext or execution authority in descriptor."
+            }
+          }
+        },
+        "else": {
+          "properties": {
+            "frozenBasis": {
+              "type": "null"
+            }
+          }
+        }
+      }
+    ],
+    "$id": "urn:kcml:design:generation-created-read-projection:v1",
+    "$comment": "Closed create-consumer projection, NOT replacement for the complete generation.job.read or snapshot.read entity."
+  },
+  "runtimeOwnerIntentStart": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "schemaVersion": {
+        "const": "RUNTIME_OWNER_INTENT/1"
+      },
+      "action": {
+        "const": "START"
+      },
+      "componentId": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "expectedComponentStateVersion": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 19,
+        "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])"
+      },
+      "runtimeInstanceId": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "expectedRuntimeGeneration": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 19,
+        "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])"
+      },
+      "expectedActivationEpoch": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 19,
+        "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])"
+      }
+    },
+    "required": [
+      "schemaVersion",
+      "action",
+      "componentId",
+      "expectedComponentStateVersion",
+      "runtimeInstanceId",
+      "expectedRuntimeGeneration",
+      "expectedActivationEpoch"
+    ]
+  },
+  "runtimeOwnerIntentStop": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "schemaVersion": {
+        "const": "RUNTIME_OWNER_INTENT/1"
+      },
+      "action": {
+        "const": "STOP"
+      },
+      "componentId": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "expectedComponentStateVersion": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 19,
+        "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])"
+      },
+      "runtimeInstanceId": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "expectedRuntimeGeneration": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 19,
+        "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])"
+      },
+      "expectedActivationEpoch": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 19,
+        "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])"
+      }
+    },
+    "required": [
+      "schemaVersion",
+      "action",
+      "componentId",
+      "expectedComponentStateVersion",
+      "runtimeInstanceId",
+      "expectedRuntimeGeneration",
+      "expectedActivationEpoch"
+    ]
+  },
+  "activationStatus": "PROPOSED_NOT_NORMATIVE"
+}

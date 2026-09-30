@@ -102,7 +102,7 @@ def matrix():
             for availability in AVAILABILITY:
                 if kind=='FOLLOW_UP':
                     allow=availability=='AVAILABLE_IMMUTABLE'
-                    errors={'MISSING':'FOLLOW_UP_BASIS_UNAVAILABLE','INCONSISTENT':'FOLLOW_UP_BASIS_INCONSISTENT','INSUFFICIENT':'FOLLOW_UP_BASIS_INSUFFICIENT','UNPUBLISHED':'FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED'}
+                    errors={'MISSING':'FOLLOW_UP_BASIS_UNAVAILABLE','INCONSISTENT':'Actual identity/digest/JSON/native-schema/domain mismatch: exact finite diagnostic from12.51','INSUFFICIENT':'Actual required source content or declared final-output contract missing: exact finite diagnostic from12.51','UNPUBLISHED':'FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED or exact native publication-reference diagnostic'}
                     decision='ALLOW_IF_ATOMIC_IDENTITY_AUTHORITY_BYTES_AND_REQUIRED_PUBLICATION_VERIFIED' if allow else 'REJECT'
                     reason='Approved independent branch uses frozen sufficient basis; source terminality is not an admission prerequisite.' if allow else errors[availability]
                     status='SPECIFIED'

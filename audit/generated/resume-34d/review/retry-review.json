@@ -1,0 +1,39 @@
+{
+  "sourceDocumentSha256": "2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854",
+  "canonicalFoundationSqlSha256": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+  "extensionSqlSha256": "a18aba72b317ae6fac0a86c153eb914de6b4fda6916f02a0c612a235b2f07835",
+  "executedPrefixSha256": "9bb811de4d224f2c7cf263da8ecb5add8feecb7fcf7e43db9e233585db32e89f",
+  "database": "review_retry_34d",
+  "postgresqlVersion": "18.6",
+  "cases": [
+    {
+      "case": "scan-hydrate-actualbytes-same-live-lockedtransaction",
+      "passed": true
+    },
+    {
+      "case": "member-digest-drift",
+      "passed": true,
+      "expected": "GENERATION_RETRY_SCAN_MEMBER_BYTES_MISMATCH",
+      "actual": "GENERATION_RETRY_SCAN_MEMBER_BYTES_MISMATCH"
+    },
+    {
+      "case": "missing-current-state-bytes",
+      "passed": true,
+      "expected": "GENERATION_RETRY_EFFECT_EVIDENCE_UNAVAILABLE",
+      "actual": "GENERATION_RETRY_EFFECT_EVIDENCE_UNAVAILABLE"
+    },
+    {
+      "case": "duplicate-physical-operation",
+      "passed": true,
+      "expected": "GENERATION_RETRY_INVENTORY_DUPLICATE_OPERATION",
+      "actual": "GENERATION_RETRY_INVENTORY_DUPLICATE_OPERATION"
+    },
+    {
+      "case": "older-retained-currentprojection-cannot-commit",
+      "passed": true,
+      "actual": "ERROR:  RETRY_DEFERRED_CURRENT_JOIN_DRIFT\nCONTEXT:  PL/pgSQL function kcml_retry_v1.check_current_join() line 9 at RAISE\n"
+    }
+  ],
+  "scope": "OwnactualPGcanonicalfoundation+candidateledger; lockedscan\u2192actualbytecontenthydration executesinsideone liveTX; positive-derivedcontentviolations+currentprojectionCOMMITdrift. Child persistence/wholeconsumer/allclassifiers not claimed.",
+  "wholeOperationCertified": false
+}

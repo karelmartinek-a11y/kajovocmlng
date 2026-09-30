@@ -1,0 +1,182 @@
+{
+  "entryHead": "34d3a75c47a92ab7d8e0dac84f581549a15445ca",
+  "sourceDocumentSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+  "canonicalSqlSha256": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+  "canonicalReadSqlSha256": "9a91a4bd9c8f1f8b8376a63c0e90fa91b0b5ddeb3c69d3769bb1a98e6a93d7ed",
+  "postgresqlVersion": "18.6",
+  "database": "read_ui_34d",
+  "checks": [
+    {
+      "id": "exact-embedded-canonical-DDL-plus-own-read-query-install",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "canonical-native-positive-atomic-create-commit",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "joined-storage-read-one-row",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "all-39-root-columns",
+      "passed": true
+    },
+    {
+      "id": "no-protected-bytes-in-metadata-query",
+      "passed": true
+    },
+    {
+      "id": "wrong-owner-does-not-disclose-root",
+      "passed": true
+    },
+    {
+      "id": "wrong-selected-job-does-not-select-latest",
+      "passed": true
+    },
+    {
+      "id": "ungranted-auth-producer-cannot-execute-read-query",
+      "passed": true
+    },
+    {
+      "id": "actual-stored-receipt-event-root-request-bytes-consumer",
+      "passed": true
+    },
+    {
+      "id": "authenticated-open-receives-exact-immutable-reference",
+      "passed": true
+    },
+    {
+      "id": "public-consumer-result-does-not-echo-sensitive-inputs",
+      "passed": true
+    },
+    {
+      "id": "selected-owner-source-mismatch",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_READ_OWNER_MISMATCH",
+      "actualDiagnostic": "GENERATION_READ_OWNER_MISMATCH"
+    },
+    {
+      "id": "immutable-snapshot-swapped",
+      "passed": true,
+      "expectedDiagnostic": "INITIAL_SNAPSHOT_IDENTITY_MISMATCH",
+      "actualDiagnostic": "INITIAL_SNAPSHOT_IDENTITY_MISMATCH"
+    },
+    {
+      "id": "read-command-cross-link",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_READ_COMMAND_IDENTITY_MISMATCH",
+      "actualDiagnostic": "GENERATION_READ_COMMAND_IDENTITY_MISMATCH"
+    },
+    {
+      "id": "same-schema-different-event-root",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_READ_EVENT_IDENTITY_MISMATCH",
+      "actualDiagnostic": "GENERATION_READ_EVENT_IDENTITY_MISMATCH"
+    },
+    {
+      "id": "missing-atomic-audit-link",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_READ_ATOMIC_LINKS_MISSING",
+      "actualDiagnostic": "GENERATION_READ_ATOMIC_LINKS_MISSING"
+    },
+    {
+      "id": "retained-result-corrupt",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_READ_RETAINED_RESULT_DIGEST_MISMATCH",
+      "actualDiagnostic": "GENERATION_READ_RETAINED_RESULT_DIGEST_MISMATCH"
+    },
+    {
+      "id": "raw-event-encoding-corrupt",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_READ_STORED_BYTES_ENCODING_INVALID",
+      "actualDiagnostic": "GENERATION_READ_STORED_BYTES_ENCODING_INVALID"
+    },
+    {
+      "id": "frozen-schema-policy-unavailable",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_READ_FROZEN_REQUEST_POLICY_UNAVAILABLE",
+      "actualDiagnostic": "GENERATION_READ_FROZEN_REQUEST_POLICY_UNAVAILABLE"
+    },
+    {
+      "id": "missing-authenticated-open",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_READ_AUTHENTICATED_OPEN_UNAVAILABLE",
+      "actualDiagnostic": "GENERATION_READ_AUTHENTICATED_OPEN_UNAVAILABLE"
+    },
+    {
+      "id": "authenticated-open-returned-other-bytes",
+      "passed": true,
+      "expectedDiagnostic": "INITIAL_REQUEST_BYTES_DIGEST_MISMATCH",
+      "actualDiagnostic": "INITIAL_REQUEST_BYTES_DIGEST_MISMATCH"
+    },
+    {
+      "id": "actual-open-invalid-json",
+      "passed": true,
+      "expectedDiagnostic": "INVALID_JSON",
+      "actualDiagnostic": "INVALID_JSON"
+    },
+    {
+      "id": "actual-open-duplicate-json",
+      "passed": true,
+      "expectedDiagnostic": "DUPLICATE_JSON_KEY",
+      "actualDiagnostic": "DUPLICATE_JSON_KEY"
+    },
+    {
+      "id": "independent-read-snapshot-linearized",
+      "passed": true
+    },
+    {
+      "id": "concurrent-own-root-advance",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "same-read-snapshot-does-not-tear",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "fresh-read-sees-new-state-retains-create-event",
+      "passed": true
+    },
+    {
+      "id": "consumer-allows-own-current-state-advance-without-new-create",
+      "passed": true
+    },
+    {
+      "id": "read-has-no-command-event-outbox-audit-side-effects",
+      "passed": true
+    }
+  ],
+  "checked": 29,
+  "failed": 0,
+  "status": "PASS",
+  "supportSha256": {
+    "audit/generated/resume-34d/read-ui/verify_read_chain.py": "be67578cb3515566682f84fd528c6e8ced1634bd446a3177ab49b99793454bb0",
+    "audit/generated/resume-34d/read-ui/generation-create-read-storage.sql": "9a91a4bd9c8f1f8b8376a63c0e90fa91b0b5ddeb3c69d3769bb1a98e6a93d7ed",
+    "audit/generated/resume-34d/read-ui/generation-root-storage-read.schema.json": "f8dc136135b6ece165d5194e8e92292a821eb005388662e3cd32c0492d17cde7",
+    "audit/generated/resume-34d/read-ui/generation_read_hydration.py": "51baf69cc5366bb24bf16bb1a7afa87ead482d0f0ec45d03aff69fd0c533fd74",
+    "audit/generated/resume-34d/read-ui/generation_consumer_reference.py": "a21d0bae09b554255f38fa8a0534d64c2f08801c7ab105a0bfafd47fe3799b19",
+    "scripts/create_operation_contracts.py": "e3149fed4d5169d653199b638ac8f367b1618ce671d6e2860060ad09a576577a",
+    "scripts/create_completion_contracts.py": "5c6b739a8e27400eb0ca715660dc2abe0142e0b647af853bd2533660c849003f",
+    "scripts/follow_up_contracts.py": "21e08515ed3acacc7678d84d7915923aff825704414486a212f610a96a720ffa",
+    "scripts/verify_create_completion.py": "488c55d8e194e601e70b75503164e27e91caef1732e74e6c81b2651a5611cad8",
+    "audit/generated/resume-d362/review/verify_scoped_generation_links.py": "37da9f21cc2f5ce00476df4ecb2b3433d92f73d239834a63046d97501327f18d",
+    "audit/generated/resume-d362/events/verify_combined_generation.py": "a38bc59879e56c02b361afe22a791af1477b57308f22f3a7483e10fd950f58dd",
+    "audit/generated/resume-d362/persistence/generation_descriptor_registry.py": "9cb7f68a4f1e5d890ce074fbcd277498412c51b90a9068d98d02940d7fadf78a",
+    "audit/generated/resume-d362/persistence/context_fixture_exports.py": "ae90984993a96c5abca746cad6d618cade6fc3d322fbd99ec16373952fa27888"
+  },
+  "limitations": [
+    "Protected opening callback supplies actual fixture bytes; canonical crypto proof belongs to separate integrated verifier",
+    "Authenticated owner from trusted service; actual token verification and route/channel binding belong to dedicated verifier",
+    "39 physical root columns are INTERNAL projection; not full native child read/public UI contract",
+    "Failure-before-root retained outcomes remain separate persistence producer contract",
+    "No browser rerender or generated backend/runtime acceptance"
+  ],
+  "wholeOperationsClosed": 0,
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

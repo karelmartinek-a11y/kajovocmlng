@@ -1,0 +1,87 @@
+{
+  "version": "GENERATION_CREATE_CHAIN_HANDOFFS_V1",
+  "operationId": "generation.job.create",
+  "authority": [
+    "SSOT7.2",
+    "SSOT8.4",
+    "SSOT12.48",
+    "SSOT12.51",
+    "SSOT12.52",
+    "SSOT12.54",
+    "SSOT49.4",
+    "SSOT49.8",
+    "SSOT51.12",
+    "SSOT51.20"
+  ],
+  "sqlInstallationOrder": [
+    "database/generation-create-foundations.sql",
+    "database/canonical-crypto-registry.sql",
+    "database/generation-create-authentication.sql",
+    "database/generation-create-preroot.sql",
+    "database/generation-create-read.sql",
+    "database/generation-locked-retry.sql"
+  ],
+  "authentication": {
+    "source": "database/generation-create-authentication.sql",
+    "materialVerifier": "scripts/generation_auth_acceptance.py",
+    "requestBinding": [
+      "authenticated_request_digest",
+      "authenticated_descriptor_digest",
+      "api_credential_activation_epoch"
+    ],
+    "locksUntil": "complete accepted command/root/queue/event/outbox/audit COMMIT",
+    "replay": "Authenticate current material before retained locator read; frozen receipt is not new request authority",
+    "ownerApiExpiry": "NOT_APPLICABLE_BY_SSOT7.2",
+    "status": "BOUNDED_REFERENCE_VERIFIED_FULL_CHAIN_OPEN"
+  },
+  "protectedInput": {
+    "reference": "scripts/generation_auth_crypto.py",
+    "productionKeySource": "SSOT8.4/50.30 encrypted systemd credential source, read-only per invocation",
+    "status": "BLOCKED_ACTUAL_SYSTEMD_SOURCE_GLOBAL_KEY_NONCE_REGISTRY_AND_EFFECTIVE_TRANSPORT_POLICY"
+  },
+  "beforeRoot": {
+    "source": "database/generation-create-preroot.sql",
+    "preAcceptance": "No durable command/root/event; logicalOperationId=null",
+    "acceptedOutcomes": [
+      "ACCEPTED",
+      "FAILED_RETRY_SAME_OPERATION",
+      "FAILED_UNKNOWN_RECONCILE",
+      "FAILED_TERMINAL",
+      "CANCELLED_TERMINAL"
+    ],
+    "atomicMembers": [
+      "trusted context",
+      "protected pre-root input",
+      "domain command",
+      "immutable retained outcome",
+      "locator",
+      "business idempotency",
+      "typed command audit",
+      "archive outbox when pinned policy requires"
+    ],
+    "createdEvent": "Forbidden without successful root",
+    "status": "BOUNDED_SQL_REFERENCE_VERIFIED_RECOVERY_PRODUCER_AND_PENDING_TRANSFER_OPEN"
+  },
+  "read": {
+    "source": "database/generation-create-read.sql",
+    "internalRootMask": "contracts/generation/root-storage-read.schema.json",
+    "visibility": "SERVER_REPOSITORY_ONLY",
+    "consumerProjections": "contracts/generation/create-consumer-projections.json",
+    "retainedSchemaResolution": "Exact retained bundle digest/schema identity/declared dependency closure; never substitute current mask",
+    "status": "BOUNDED_READ_VERIFIED_ARCHIVED_POLICY_PRODUCER_FULL_PUBLIC_UI_OPEN"
+  },
+  "retry": {
+    "source": "database/generation-locked-retry.sql",
+    "scanner": "scripts/generation_locked_retry.py",
+    "writerGate": "Same selected phase FOR UPDATE for membership/current-state/evidence changes",
+    "lockLifetime": "scan, actual bytes validation, frozen child persistence COMMIT",
+    "stages": [
+      "ADMISSION_DISCUSSION",
+      "EXECUTION_DISPATCH"
+    ],
+    "status": "BOUNDED_PROJECTION_VERIFIED_FULL49_8_PRODUCER_CHILD_COMMIT_WIRING_OPEN"
+  },
+  "wholeOperationClosed": false,
+  "SSOT_CONTRACT_READY": "BLOCKED",
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

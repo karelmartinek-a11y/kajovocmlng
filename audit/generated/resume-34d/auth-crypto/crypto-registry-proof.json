@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "sourceDocumentSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+  "canonicalFoundationSha256": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+  "proposalRegistrySha256": "773310806845b2754bdd2675ee1a27ed7cc96697f54bccdcac2648ba9cd1c7d4",
+  "postgresqlVersion": "18.6",
+  "checked": 11,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "exact-profile-key-nonce-positive",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "same-key-bytes-second-id-forbidden",
+      "passed": true,
+      "expectedDiagnostic": "canonical_master_key_generation_key_fingerprint_key",
+      "actualDiagnostic": "ERROR:  duplicate key value violates unique constraint \"canonical_master_key_generation_key_fingerprint_key\"\nDETAIL:  Key (key_fingerprint)=(\\x871eb6562bb89e36a393e76379694c94c764ee8c83db5955c0ddaaf38845a66a) already exists.\n"
+    },
+    {
+      "case": "cross-purpose-same-key-nonce-forbidden",
+      "passed": true,
+      "expectedDiagnostic": "canonical_protected_nonce_reservation_pkey",
+      "actualDiagnostic": "ERROR:  duplicate key value violates unique constraint \"canonical_protected_nonce_reservation_pkey\"\nDETAIL:  Key (key_id, nonce)=(synthetic-one-immutable-key, \\x812d427fde720aee2f1173c5) already exists.\n"
+    },
+    {
+      "case": "same-object-reencryption-forbidden",
+      "passed": true,
+      "expectedDiagnostic": "canonical_crypto_nonce_one_object",
+      "actualDiagnostic": "ERROR:  duplicate key value violates unique constraint \"canonical_crypto_nonce_one_object\"\nDETAIL:  Key (purpose, protected_object_id)=(GENERATION_INITIAL_REQUEST, 1ed2f8e0-d202-476d-abcc-40f3bf3f39ca) already exists.\n"
+    },
+    {
+      "case": "invalid-nonce-length",
+      "passed": true,
+      "expectedDiagnostic": "canonical_protected_nonce_reservation_nonce_check",
+      "actualDiagnostic": "ERROR:  new row for relation \"canonical_protected_nonce_reservation\" violates check constraint \"canonical_protected_nonce_reservation_nonce_check\"\nDETAIL:  Failing row contains (synthetic-one-immutable-key, \\x73686f7274, GENERATION_INITIAL_REQUEST, 1ed2f8e0-d202-476d-abcc-40f3bf3f39ca, 7029dc74-c088-4967-ae0c-52a6256e2278, \\x7b226964656e74697479223a7b2273796e7468657469634578616d706c6522..., \\x7921241774581485ac13ae64e564ab103ec2745e3ad7247430b5add15542ca..., \\x6b41896fcf55e46971801e7a2892fb03befb4e1f7a17a16a11fe5c65fd3ba4...).\n"
+    },
+    {
+      "case": "profile-not-actual-source-bytes-digest",
+      "passed": true,
+      "expectedDiagnostic": "canonical_crypto_profile_bytes_digest",
+      "actualDiagnostic": "ERROR:  new row for relation \"canonical_authenticated_crypto_profile\" violates check constraint \"canonical_crypto_profile_bytes_digest\"\nDETAIL:  Failing row contains (KCML_PROTECTED_INPUT_AES256_GCM_V1, \\x7b22616164456e636f64696e67223a22534f525445445f434f4d504143545f..., \\x00000000000000000000000000000000000000000000000000000000000000..., AES_256_GCM).\n"
+    },
+    {
+      "case": "missing-linked-aad-purpose",
+      "passed": true,
+      "expectedDiagnostic": "canonical_crypto_nonce_purpose_binding",
+      "actualDiagnostic": "ERROR:  new row for relation \"canonical_protected_nonce_reservation\" violates check constraint \"canonical_crypto_nonce_purpose_binding\"\nDETAIL:  Failing row contains (synthetic-one-immutable-key, \\x812d427fde720aee2f1173c5, GENERATION_INITIAL_REQUEST, 1ed2f8e0-d202-476d-abcc-40f3bf3f39ca, 7029dc74-c088-4967-ae0c-52a6256e2278, \\x7b226964656e74697479223a7b2273796e7468657469634578616d706c6522..., \\x668ed0f402cd6e20910ab48ba958613c1a83b76bb8a394ed1e6102052a39d3..., \\x6b41896fcf55e46971801e7a2892fb03befb4e1f7a17a16a11fe5c65fd3ba4...).\n"
+    },
+    {
+      "case": "missing-linked-aad-keyId",
+      "passed": true,
+      "expectedDiagnostic": "canonical_crypto_nonce_key_binding",
+      "actualDiagnostic": "ERROR:  new row for relation \"canonical_protected_nonce_reservation\" violates check constraint \"canonical_crypto_nonce_key_binding\"\nDETAIL:  Failing row contains (synthetic-one-immutable-key, \\x812d427fde720aee2f1173c5, GENERATION_INITIAL_REQUEST, 1ed2f8e0-d202-476d-abcc-40f3bf3f39ca, 7029dc74-c088-4967-ae0c-52a6256e2278, \\x7b226964656e74697479223a7b2273796e7468657469634578616d706c6522..., \\x9a911f4343e0566f4c00ffb9aa3f8b53391189b6c53e4b70db8db11ce733b0..., \\x6b41896fcf55e46971801e7a2892fb03befb4e1f7a17a16a11fe5c65fd3ba4...).\n"
+    },
+    {
+      "case": "immutable-delete-canonical_authenticated_crypto_profile",
+      "passed": true,
+      "expectedDiagnostic": "CANONICAL_CRYPTO_REGISTRY_IMMUTABLE",
+      "actualDiagnostic": "ERROR:  CANONICAL_CRYPTO_REGISTRY_IMMUTABLE\nCONTEXT:  PL/pgSQL function public.kcml_canonical_crypto_registry_immutable_v1() line 3 at RAISE\n"
+    },
+    {
+      "case": "immutable-delete-canonical_master_key_generation",
+      "passed": true,
+      "expectedDiagnostic": "CANONICAL_CRYPTO_REGISTRY_IMMUTABLE",
+      "actualDiagnostic": "ERROR:  CANONICAL_CRYPTO_REGISTRY_IMMUTABLE\nCONTEXT:  PL/pgSQL function public.kcml_canonical_crypto_registry_immutable_v1() line 3 at RAISE\n"
+    },
+    {
+      "case": "immutable-delete-canonical_protected_nonce_reservation",
+      "passed": true,
+      "expectedDiagnostic": "CANONICAL_CRYPTO_REGISTRY_IMMUTABLE",
+      "actualDiagnostic": "ERROR:  CANONICAL_CRYPTO_REGISTRY_IMMUTABLE\nCONTEXT:  PL/pgSQL function public.kcml_canonical_crypto_registry_immutable_v1() line 3 at RAISE\n"
+    }
+  ],
+  "scope": "Actual PostgreSQL exact canonical foundation plus explicit candidate crypto registry. Global key/nonce uniqueness and immutable registry only; full typed producer FK/install/service/systemd proof remains required. Registry presence does NOT attest systemd or authorize plaintext.",
+  "wholeOperationClosed": false,
+  "supportSha256": {
+    "audit/generated/resume-34d/auth-crypto/verify_crypto_registry.py": "adcda1a9a0fd7faf79fe6bb313483e1b3512c0243439005fc0dfd7509b36a84b",
+    "audit/generated/resume-34d/auth-crypto/canonical-crypto-registry-proposed.sql": "773310806845b2754bdd2675ee1a27ed7cc96697f54bccdcac2648ba9cd1c7d4",
+    "audit/generated/resume-34d/auth-crypto/auth_crypto_reference.py": "5cfd85a6b0d7852509e8301b7a0b38f3e315ad292094544733a89f9b1939d259",
+    "audit/generated/resume-34d/auth-crypto/libpq_fixture.py": "c66ad6efc0e39dff1fcffc0825dd279deb84b53951d42af5e506e90b74e30095"
+  }
+}
