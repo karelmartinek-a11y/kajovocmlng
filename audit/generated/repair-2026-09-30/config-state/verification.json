@@ -1,0 +1,213 @@
+{
+  "sourceDocumentSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
+  "source": {
+    "section": "49.23",
+    "startLine": 45024,
+    "endLine": 45219,
+    "sectionSha256": "849eb305e7e3750065d7183d14375bf3798463188240180d6760abcbd1fd6ff5",
+    "modelId": "model.configuration-change",
+    "statePointer": "/states"
+  },
+  "resourceSha256": "348a986ff9fbe9555856396c352b9bc98e0c8eb804cd92e3d098be9fa343ed6d",
+  "projectionExact": true,
+  "positiveWitness": {
+    "configApplyRunId": "00000000-0000-4000-8000-000000000001",
+    "desiredDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "state": "PENDING",
+    "evidenceDigests": [
+      "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    ]
+  },
+  "states": [
+    "APPLIED",
+    "APPLYING",
+    "FAILED",
+    "MANUAL_REVIEW",
+    "PENDING",
+    "ROLLED_BACK",
+    "ROLLING_BACK",
+    "VALIDATING",
+    "VERIFYING"
+  ],
+  "checked": 18,
+  "failed": 0,
+  "negativeRejectionSpecific": true,
+  "checks": [
+    {
+      "case": "lifecycle/APPLIED",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/APPLYING",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/FAILED",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/MANUAL_REVIEW",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/PENDING",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/ROLLED_BACK",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/ROLLING_BACK",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/VALIDATING",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "lifecycle/VERIFYING",
+      "expectedValid": true,
+      "passed": true,
+      "rejections": []
+    },
+    {
+      "case": "invalid-state/'NOT_A_VALID_STATE'",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$.state",
+          "keyword": "enum"
+        }
+      ]
+    },
+    {
+      "case": "invalid-state/'ACTIVE'",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$.state",
+          "keyword": "enum"
+        }
+      ]
+    },
+    {
+      "case": "invalid-state/'SUCCEEDED'",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$.state",
+          "keyword": "enum"
+        }
+      ]
+    },
+    {
+      "case": "invalid-state/None",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$.state",
+          "keyword": "type"
+        },
+        {
+          "pointer": "$.state",
+          "keyword": "enum"
+        }
+      ]
+    },
+    {
+      "case": "invalid-state/0",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$.state",
+          "keyword": "type"
+        },
+        {
+          "pointer": "$.state",
+          "keyword": "enum"
+        }
+      ]
+    },
+    {
+      "case": "invalid-state/''",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$.state",
+          "keyword": "minLength"
+        },
+        {
+          "pointer": "$.state",
+          "keyword": "pattern"
+        },
+        {
+          "pointer": "$.state",
+          "keyword": "enum"
+        }
+      ]
+    },
+    {
+      "case": "invalid-state/'PENDING '",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$.state",
+          "keyword": "pattern"
+        },
+        {
+          "pointer": "$.state",
+          "keyword": "enum"
+        }
+      ]
+    },
+    {
+      "case": "required-state",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$",
+          "keyword": "required"
+        }
+      ]
+    },
+    {
+      "case": "unknown-result-field",
+      "expectedValid": false,
+      "passed": true,
+      "rejections": [
+        {
+          "pointer": "$",
+          "keyword": "additionalProperties"
+        }
+      ]
+    }
+  ],
+  "status": "PASS",
+  "scope": "Complete response witnesses for config rollback; not apply-service/runtime proof.",
+  "remaining": "Other config request/response/event/error semantics and persistence/recovery remain independently required."
+}

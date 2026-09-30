@@ -1,7 +1,7 @@
 {
   "scope": "Schema identity, counter and named status/outcome probes; state dictionaries and hydration remain open.",
   "status": "BLOCKED",
-  "sourceDocumentSha256": "0f29274b2f2b7ee94102cd5c034544a9369e536697bb48cd37357f7ad07eb4d3",
+  "sourceDocumentSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
   "eventInventory": [
     {
       "routeId": "route.0000",
@@ -2561,9 +2561,43 @@
       "status": "PASS"
     },
     {
-      "id": "state-fields-required-lifecycle-dictionaries",
+      "id": "lifecycle.owner.mfa.reset.enrollmentState",
       "status": "FAIL",
       "reason": "owner.mfa.reset.enrollmentState: required lifecycle dictionary remains open; authoritative enum review required"
+    },
+    {
+      "id": "lifecycle.chat.turn.steer.checkpointDisposition",
+      "status": "FAIL",
+      "reason": "chat.turn.steer.checkpointDisposition: required lifecycle dictionary remains open; authoritative enum review required"
+    },
+    {
+      "id": "lifecycle.config.rollback.state",
+      "status": "PASS"
+    },
+    {
+      "id": "lifecycle.backup.restore.state",
+      "status": "FAIL",
+      "reason": "backup.restore.state: required lifecycle dictionary remains open; authoritative enum review required"
+    },
+    {
+      "id": "lifecycle.acceptance.run.start.state",
+      "status": "FAIL",
+      "reason": "acceptance.run.start.state: required lifecycle dictionary remains open; authoritative enum review required"
+    },
+    {
+      "id": "lifecycle.acceptance.run.cancel.state",
+      "status": "FAIL",
+      "reason": "acceptance.run.cancel.state: required lifecycle dictionary remains open; authoritative enum review required"
+    },
+    {
+      "id": "lifecycle.acceptance.run.cancel.cleanupStatus",
+      "status": "FAIL",
+      "reason": "acceptance.run.cancel.cleanupStatus: required lifecycle dictionary remains open; authoritative enum review required"
+    },
+    {
+      "id": "lifecycle.acceptance.run.cancel.reconciliationStatus",
+      "status": "FAIL",
+      "reason": "acceptance.run.cancel.reconciliationStatus: required lifecycle dictionary remains open; authoritative enum review required"
     }
   ]
 }

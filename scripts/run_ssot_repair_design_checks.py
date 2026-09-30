@@ -7,7 +7,7 @@ CHECKS=[
  'phase1_schema_closure.py','verify_schema_references.py','verify_phase1_contracts.py',
  'verify_phase2_handoffs.py','verify_phase3_semantics.py','verify_phase4_ui.py',
  'verify_acceptance_gates.py','verify_authority_excerpt_coverage.py','verify_component_protocol_examples.py',
- 'verify_control_counter_masks.py','verify_errors.py','verify_experience.py',
+ 'verify_config_rollback_state.py','verify_control_counter_masks.py','verify_errors.py','verify_experience.py',
  'verify_generation_atomic_model.py','verify_generation_document_events.py','verify_generation_domain_payloads.py',
  'verify_generation_event_boundaries.py','verify_generation_http_contract.py','verify_generation_operation_masks.py',
  'verify_generation_read_design.py','verify_generation_read_errors.py','verify_mask_parity.py',

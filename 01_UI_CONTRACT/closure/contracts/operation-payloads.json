@@ -1304,7 +1304,19 @@
             "maxLength": 128,
             "minLength": 1,
             "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "APPLIED",
+              "APPLYING",
+              "FAILED",
+              "MANUAL_REVIEW",
+              "PENDING",
+              "ROLLED_BACK",
+              "ROLLING_BACK",
+              "VALIDATING",
+              "VERIFYING"
+            ],
+            "$comment": "SSOT 49.23 model.configuration-change /states; configuration_apply_run per 25.16 and config.rollback aggregateRoot/purpose; section sha256:849eb305e7e3750065d7183d14375bf3798463188240180d6760abcbd1fd6ff5"
           }
         },
         "required": [

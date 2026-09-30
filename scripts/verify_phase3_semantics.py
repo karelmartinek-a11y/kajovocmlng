@@ -144,15 +144,19 @@ def run():
         'acceptance.run.start': ['state'],
         'acceptance.run.cancel': ['state', 'cleanupStatus', 'reconciliationStatus'],
     }
-    def state_probes():
-        for operation, fields in state_fields.items():
-            row = next(r for r in operation_payloads['records'] if r['operationId'] == operation)
-            for field in fields:
+    for operation, fields in state_fields.items():
+        row = next(r for r in operation_payloads['records'] if r['operationId'] == operation)
+        for field in fields:
+            def state_probe(row=row, operation=operation, field=field):
                 schema = row['responseSchema']['properties'][field]
                 validator = Draft202012Validator(schema)
                 require(bool(list(validator.iter_errors('NOT_A_VALID_STATE'))),
                         f'{operation}.{field}: required lifecycle dictionary remains open; authoritative enum review required')
-    check('state-fields-required-lifecycle-dictionaries', state_probes)
+                if operation == 'config.rollback' and field == 'state':
+                    from close_config_rollback_state import authority
+                    model, source, section = authority(SSOT.read_text(encoding='utf8'), list(resources()))
+                    require(schema.get('enum') == model['states'], 'config rollback differs from authoritative 49.23 lifecycle')
+            check('lifecycle.'+operation+'.'+field, state_probe)
 
     result = {'scope': 'Schema identity, counter and named status/outcome probes; state dictionaries and hydration remain open.',
               'status':'BLOCKED' if any(c['status']=='FAIL' for c in checks) else 'PASS',
