@@ -1,0 +1,589 @@
+{
+  "evidenceLevel": "DESIGN",
+  "evidenceGate": "SSOT_CONTRACT_READY",
+  "resourceVersions": {
+    "contracts/generation/generation-contracts.schema.json": "d51aa2823977360e7c65acf958a63e712c31a9a42c2fefd53d5c3ea2ec65a235",
+    "scripts/ssot/ssot_control.py": "9930b3cf116a678861c26c80b82c5d14304cf6735437346d1a406014ca261f0d",
+    "contracts/payload-contracts.json": "697ffe00775c86730491c9bd28d0d0db707bfa48c1dfd5a2fb227925d5931661",
+    "contracts/generation/http-design.schema.json": "89e114f6a03ddbec1c9b55d56a6a213f659756068c4f4bbdfbcf61ce8e66bba4"
+  },
+  "modelSha256": "daf1dda3762e280262496d5a19e3214f251036906b023b40eeb200551dfad7a3",
+  "sourceSha256": "0f29274b2f2b7ee94102cd5c034544a9369e536697bb48cd37357f7ad07eb4d3",
+  "currentSSOThash": "0f29274b2f2b7ee94102cd5c034544a9369e536697bb48cd37357f7ad07eb4d3",
+  "source": "00_SSOT/KajovoCMLNG_SSOT.md",
+  "ruleSources": {
+    "sixWrites": "12.21 numbered items 1-6; 51.30 final paragraph forbids split T1",
+    "eligibility": "12.21 first three paragraphs: exact revision/turn/capability, no blocking questions",
+    "commit": "51.5 steps 8-15 and final paragraph; 12.21 crash paragraph",
+    "lockPlan": "51.6 SSOT-DECL-198 classes A-I; 51.12 locator subordinal 0 then record 1",
+    "replay": "49.4 stable locator/clientRequestDigest paragraphs; 51.12 claim steps 4-6 and terminal replay paragraph",
+    "auth": "51.12 terminal replay paragraph: authentication and result access remain mandatory",
+    "sequence": "49.5 first paragraph; 51.13 locked root allocation and rollback paragraph",
+    "audit": "49.5 audit_head paragraph; 51.5 steps 13-14",
+    "delivery": "49.5 outbox, post-commit publication and transactional inbox paragraphs",
+    "resume": "51.21 decision steps 1-7, replay and resume paragraphs; 51.30 Approval decision row",
+    "unknown": "49.4 unknown outcome/exactly-once limitations; 51.12 lost-response replay; conservative model lookup-only policy",
+    "cancellation": "49.4 immutable terminal outcomes and cancellation closure; 51.5 fresh cancellation guards; post-approval cancellation is separate work",
+    "precheck": "12.21 eligibility; 51.5 preflight is not authoritative: precheckAccepted is a trusted model fact, never caller authority",
+    "fieldNames": "12.21 and 12.44.3 ApprovalReceipt technical serialization; abstract receipt wrapper is not a public mask",
+    "phaseClosure": "12.3-12.5; 49.15 phase-success steps 1-7; 49.25 phase-terminal crash row; 51.16; 51.31 active-phase index",
+    "serverGuards": "12.5; 25.11 generation_job; 51.5/51.9; operation-contracts record 354 fencingPolicy; 26.1 server-derived authority",
+    "checkpoint": "49.15 complete output checkpoint; 51.21 immutable checkpoint/pointer paragraph",
+    "nativeEvent": "12.44.1: aggregate Counter eventId and two-field payload; receipt is separate"
+  },
+  "checked": 135,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "prepare/no-authority-planning-event-outbox-or-other-write",
+      "passed": true
+    },
+    {
+      "case": "prepare/cannot-deliver",
+      "passed": true
+    },
+    {
+      "case": "split-commit/idempotency",
+      "passed": true
+    },
+    {
+      "case": "split-rollback/idempotency",
+      "passed": true
+    },
+    {
+      "case": "split-commit/authority",
+      "passed": true
+    },
+    {
+      "case": "split-rollback/authority",
+      "passed": true
+    },
+    {
+      "case": "split-commit/approvedPointer",
+      "passed": true
+    },
+    {
+      "case": "split-rollback/approvedPointer",
+      "passed": true
+    },
+    {
+      "case": "split-commit/phaseClosure",
+      "passed": true
+    },
+    {
+      "case": "split-rollback/phaseClosure",
+      "passed": true
+    },
+    {
+      "case": "split-commit/terminalEvidence",
+      "passed": true
+    },
+    {
+      "case": "split-rollback/terminalEvidence",
+      "passed": true
+    },
+    {
+      "case": "split-commit/checkpointPointer",
+      "passed": true
+    },
+    {
+      "case": "split-rollback/checkpointPointer",
+      "passed": true
+    },
+    {
+      "case": "split-commit/successorReservation",
+      "passed": true
+    },
+    {
+      "case": "split-rollback/successorReservation",
+      "passed": true
+    },
+    {
+      "case": "split-commit/eventAudit",
+      "passed": true
+    },
+    {
+      "case": "split-rollback/eventAudit",
+      "passed": true
+    },
+    {
+      "case": "split-commit/jobTransition",
+      "passed": true
+    },
+    {
+      "case": "split-rollback/jobTransition",
+      "passed": true
+    },
+    {
+      "case": "split-commit/planningQueueOutbox",
+      "passed": true
+    },
+    {
+      "case": "split-rollback/planningQueueOutbox",
+      "passed": true
+    },
+    {
+      "case": "split-commit/queue",
+      "passed": true
+    },
+    {
+      "case": "split-rollback/queue",
+      "passed": true
+    },
+    {
+      "case": "split-commit/outbox",
+      "passed": true
+    },
+    {
+      "case": "split-rollback/outbox",
+      "passed": true
+    },
+    {
+      "case": "audit_failure",
+      "passed": true
+    },
+    {
+      "case": "audit_failure/rollback-including-counters",
+      "passed": true
+    },
+    {
+      "case": "crash_before",
+      "passed": true
+    },
+    {
+      "case": "crash_before/rollback-including-counters",
+      "passed": true
+    },
+    {
+      "case": "commit/exact-payload-fields",
+      "passed": true
+    },
+    {
+      "case": "commit/six-write-effects",
+      "passed": true
+    },
+    {
+      "case": "commit/contiguous-counters-after-rollback",
+      "passed": true
+    },
+    {
+      "case": "commit/snapshot-current-identities-and-precheck",
+      "passed": true
+    },
+    {
+      "case": "commit/input-not-mutated",
+      "passed": true
+    },
+    {
+      "case": "replay/no-new-writes-frozen-receipt",
+      "passed": true
+    },
+    {
+      "case": "replay/caller-cannot-mutate-stored-receipt",
+      "passed": true
+    },
+    {
+      "case": "replay/state-advance-keeps-original-result",
+      "passed": true
+    },
+    {
+      "case": "same-key/altered-digest-before-cas",
+      "passed": true
+    },
+    {
+      "case": "new-key/stale-cas",
+      "passed": true
+    },
+    {
+      "case": "race/second-prepared-command-loses-cas",
+      "passed": true
+    },
+    {
+      "case": "race/same-key-one-result",
+      "passed": true
+    },
+    {
+      "case": "replay/current-auth/authenticated",
+      "passed": true
+    },
+    {
+      "case": "replay/current-auth/resultAccess",
+      "passed": true
+    },
+    {
+      "case": "commit/revoked-auth",
+      "passed": true
+    },
+    {
+      "case": "fresh/snapshot/currentTurnId",
+      "passed": true
+    },
+    {
+      "case": "fresh/snapshot/currentTurnStatus",
+      "passed": true
+    },
+    {
+      "case": "fresh/snapshot/specificationRevisionId",
+      "passed": true
+    },
+    {
+      "case": "fresh/snapshot/specificationDigest",
+      "passed": true
+    },
+    {
+      "case": "fresh/snapshot/capabilitySnapshotId",
+      "passed": true
+    },
+    {
+      "case": "fresh/snapshot/capabilitySnapshotDigest",
+      "passed": true
+    },
+    {
+      "case": "fresh/eligibility/precheckAccepted",
+      "passed": true
+    },
+    {
+      "case": "fresh/eligibility/approvable",
+      "passed": true
+    },
+    {
+      "case": "fresh/eligibility/blockingQuestions",
+      "passed": true
+    },
+    {
+      "case": "fresh/eligibility/currentTurnStatus",
+      "passed": true
+    },
+    {
+      "case": "fresh/eligibility/cancellationRequested",
+      "passed": true
+    },
+    {
+      "case": "counter/0",
+      "passed": true
+    },
+    {
+      "case": "counter/True",
+      "passed": true
+    },
+    {
+      "case": "counter/'01'",
+      "passed": true
+    },
+    {
+      "case": "counter/'-1'",
+      "passed": true
+    },
+    {
+      "case": "counter/'1.0'",
+      "passed": true
+    },
+    {
+      "case": "counter/'9223372036854775808'",
+      "passed": true
+    },
+    {
+      "case": "unknown/uncommitted-lookup-never-creates-effect",
+      "passed": true
+    },
+    {
+      "case": "unknown/committed-lookup-recovers-receipt",
+      "passed": true
+    },
+    {
+      "case": "cancellation/after-commit-does-not-reverse-approval",
+      "passed": true
+    },
+    {
+      "case": "crash/before-delivery-keeps-durable-outbox",
+      "passed": true
+    },
+    {
+      "case": "crash/after-delivery-before-marker",
+      "passed": true
+    },
+    {
+      "case": "recovery/poll-redelivers-and-deduplicates",
+      "passed": true
+    },
+    {
+      "case": "inbox/same-id-altered-digest",
+      "passed": true
+    },
+    {
+      "case": "inbox/wrong-job-same-sequence",
+      "passed": true
+    },
+    {
+      "case": "inbox/extra-payload-job",
+      "passed": true
+    },
+    {
+      "case": "inbox/gap-no-silent-apply",
+      "passed": true
+    },
+    {
+      "case": "inbox/snapshot-then-next-sequence",
+      "passed": true
+    },
+    {
+      "case": "snapshot/wrong-job",
+      "passed": true
+    },
+    {
+      "case": "snapshot/regression",
+      "passed": true
+    },
+    {
+      "case": "inbox/old-sequence-without-history-requires-snapshot",
+      "passed": true
+    },
+    {
+      "case": "phase/waiting-owner-uses-running-edge",
+      "passed": true
+    },
+    {
+      "case": "phase/one-active-queued-successor",
+      "passed": true
+    },
+    {
+      "case": "checkpoint/immutable-chain-and-successor-input",
+      "passed": true
+    },
+    {
+      "case": "event/native-shape-separate-from-abstract-receipt",
+      "passed": true
+    },
+    {
+      "case": "phase/no-direct-waiting-success-edge",
+      "passed": true
+    },
+    {
+      "case": "server/required-on-fresh-command",
+      "passed": true
+    },
+    {
+      "case": "server/stale/platformIncarnation",
+      "passed": true
+    },
+    {
+      "case": "server/recheck-at-commit/platformIncarnation",
+      "passed": true
+    },
+    {
+      "case": "server/stale/deploymentEpoch",
+      "passed": true
+    },
+    {
+      "case": "server/recheck-at-commit/deploymentEpoch",
+      "passed": true
+    },
+    {
+      "case": "server/stale/recoveryEpoch",
+      "passed": true
+    },
+    {
+      "case": "server/recheck-at-commit/recoveryEpoch",
+      "passed": true
+    },
+    {
+      "case": "server/stale/coordinatorFence",
+      "passed": true
+    },
+    {
+      "case": "server/recheck-at-commit/coordinatorFence",
+      "passed": true
+    },
+    {
+      "case": "server/stale/phaseRunId",
+      "passed": true
+    },
+    {
+      "case": "server/recheck-at-commit/phaseRunId",
+      "passed": true
+    },
+    {
+      "case": "server/stale/phaseState",
+      "passed": true
+    },
+    {
+      "case": "server/recheck-at-commit/phaseState",
+      "passed": true
+    },
+    {
+      "case": "server/stale/phaseStateVersion",
+      "passed": true
+    },
+    {
+      "case": "server/recheck-at-commit/phaseStateVersion",
+      "passed": true
+    },
+    {
+      "case": "server/stale/phaseFence",
+      "passed": true
+    },
+    {
+      "case": "server/recheck-at-commit/phaseFence",
+      "passed": true
+    },
+    {
+      "case": "server/stale/cancellationVersion",
+      "passed": true
+    },
+    {
+      "case": "server/recheck-at-commit/cancellationVersion",
+      "passed": true
+    },
+    {
+      "case": "server/stale/checkpointId",
+      "passed": true
+    },
+    {
+      "case": "server/recheck-at-commit/checkpointId",
+      "passed": true
+    },
+    {
+      "case": "server/checkpointDigest",
+      "passed": true
+    },
+    {
+      "case": "server/leaseValidAtLock",
+      "passed": true
+    },
+    {
+      "case": "server/dependenciesCurrent",
+      "passed": true
+    },
+    {
+      "case": "request/cannot-supply-server/phaseFence",
+      "passed": true
+    },
+    {
+      "case": "request/cannot-supply-server/recoveryEpoch",
+      "passed": true
+    },
+    {
+      "case": "request/cannot-supply-server/checkpointId",
+      "passed": true
+    },
+    {
+      "case": "request/cannot-supply-server/serverContext",
+      "passed": true
+    },
+    {
+      "case": "phase/legal-completion/RUNNING",
+      "passed": true
+    },
+    {
+      "case": "phase/legal-completion/REPAIRING",
+      "passed": true
+    },
+    {
+      "case": "phase/deny-completion/QUEUED",
+      "passed": true
+    },
+    {
+      "case": "phase/deny-completion/CANCEL_REQUESTED",
+      "passed": true
+    },
+    {
+      "case": "phase/deny-completion/FAILED",
+      "passed": true
+    },
+    {
+      "case": "phase/deny-completion/SUCCEEDED",
+      "passed": true
+    },
+    {
+      "case": "phase/deny-completion/WAITING_FOR_DEPENDENCY",
+      "passed": true
+    },
+    {
+      "case": "phase/completed-turn-does-not-replace-phase",
+      "passed": true
+    },
+    {
+      "case": "phase/active-uniqueness-precondition",
+      "passed": true
+    },
+    {
+      "case": "checkpoint/reject/complete",
+      "passed": true
+    },
+    {
+      "case": "checkpoint/reject/phaseRunId",
+      "passed": true
+    },
+    {
+      "case": "checkpoint/reject/jobId",
+      "passed": true
+    },
+    {
+      "case": "checkpoint/missing",
+      "passed": true
+    },
+    {
+      "case": "checkpoint/fresh-digest-cannot-hide-stale-content",
+      "passed": true
+    },
+    {
+      "case": "race/server-authority-change/platformIncarnation",
+      "passed": true
+    },
+    {
+      "case": "race/server-authority-change/deploymentEpoch",
+      "passed": true
+    },
+    {
+      "case": "race/server-authority-change/recoveryEpoch",
+      "passed": true
+    },
+    {
+      "case": "race/server-authority-change/coordinatorFence",
+      "passed": true
+    },
+    {
+      "case": "race/cancellation-before-commit",
+      "passed": true
+    },
+    {
+      "case": "phase/duplicate-successor-reservation",
+      "passed": true
+    },
+    {
+      "case": "replay/bypasses-fresh-phase-fence-checkpoint-guards",
+      "passed": true
+    },
+    {
+      "case": "invariant/predecessor-left-active",
+      "passed": true
+    },
+    {
+      "case": "invariant/terminal-evidence-missing",
+      "passed": true
+    },
+    {
+      "case": "invariant/successor-reservation-missing",
+      "passed": true
+    },
+    {
+      "case": "invariant/immutable-checkpoint-overwrite",
+      "passed": true
+    },
+    {
+      "case": "failures/input-and-server-context-unchanged",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "DESIGN only: deterministic in-memory transitions, no SQL or external services.",
+    "Physical SQL plan is not runtime proof of locks, constraints, isolation or durability.",
+    "Auth/precheck/snapshot provenance and JSON canonicalization are trusted model inputs.",
+    "No worker execution authority: full dispatch/lease/cancellation design is outside this scoped model; real execution tests are separately production work.",
+    "Main integrates operation masks and transport separately; no package acceptance claim.",
+    "Server context is trusted test input; acquisition, DB-time lease validity and full guard applicability are not proven.",
+    "Only discussion-to-planning closure is modeled; no full lifecycle, wire or design coverage claim."
+  ],
+  "productionAcceptance": false,
+  "integration": "Main integrates masks and transport separately; this verifier does neither."
+}

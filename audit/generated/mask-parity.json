@@ -1,21 +1,21 @@
 {
   "status": "BLOCKED",
   "source": "00_SSOT/KajovoCMLNG_SSOT.md",
-  "sourceSha256": "sha256:4ee82539e50ce3b538f58d18b03206aef28ab7607201e878f15a61e8cb783450",
-  "sourceLineCount": 673202,
-  "embeddedResources": 320,
+  "sourceSha256": "sha256:0f29274b2f2b7ee94102cd5c034544a9369e536697bb48cd37357f7ad07eb4d3",
+  "sourceLineCount": 674105,
+  "embeddedResources": 323,
   "unparsedResources": [],
   "resourceDigestMismatches": [],
   "operationBoundarySummary": {
     "operations": 619,
     "routes": 542,
-    "unresolvedOperationReferences": 260,
-    "operationsWithUnresolvedReferences": 130,
+    "unresolvedOperationReferences": 242,
+    "operationsWithUnresolvedReferences": 121,
     "conflictingOperationReferences": 0,
-    "genericRoutes": 505,
-    "genericBoundaryDefinitions": 1515,
+    "genericRoutes": 502,
+    "genericBoundaryDefinitions": 1506,
     "nestedReferenceFailures": 0,
-    "unreviewedConcreteBoundaryDefinitions": 86,
+    "unreviewedConcreteBoundaryDefinitions": 111,
     "conflictingSchemaIdentities": 0,
     "unspecifiedEventApplicability": 152,
     "unparsedResources": 0
@@ -790,14 +790,14 @@
     "generationNodeKinds": 19,
     "integrationSteps": 14,
     "matrixRows": 3204,
-    "sourceCandidateOccurrences": 1009,
+    "sourceCandidateOccurrences": 1012,
     "eventApplicabilityBlockers": 152,
     "artifactKindsInModeledSlots": 81,
     "namedProducers": 667,
     "namedConsumers": 666,
     "statuses": {
-      "NOT_VERIFIED": 2765,
-      "BLOCKED_MISSING_CONTRACT": 439
+      "NOT_VERIFIED": 2783,
+      "BLOCKED_MISSING_CONTRACT": 421
     },
     "schemaIdentityConflicts": 0,
     "completeRelevantHandoffCoverageProven": false
@@ -34384,8 +34384,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "operation:generation.activation.switch:response",
@@ -34397,8 +34397,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "event-applicability:generation.activation.switch",
@@ -34618,8 +34618,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "operation:generation.candidate.publish:response",
@@ -34631,8 +34631,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "event-applicability:generation.candidate.publish",
@@ -34787,8 +34787,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "operation:generation.integration.step:response",
@@ -34800,8 +34800,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "event-applicability:generation.integration.step",
@@ -35918,8 +35918,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "operation:generation.workspace.patch:response",
@@ -35931,8 +35931,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "event-applicability:generation.workspace.patch",
@@ -36035,8 +36035,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "operation:generation.workspace.validate:response",
@@ -36048,8 +36048,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "event-applicability:generation.workspace.validate",
@@ -37296,8 +37296,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "operation:mcp.prompts.list:response",
@@ -37309,8 +37309,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "event-applicability:mcp.prompts.list",
@@ -37595,8 +37595,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "operation:mcp.resources.list:response",
@@ -37608,8 +37608,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "event-applicability:mcp.resources.list",
@@ -37673,8 +37673,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "operation:mcp.resources.templates.list:response",
@@ -37686,8 +37686,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "event-applicability:mcp.resources.templates.list",
@@ -38466,8 +38466,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "operation:mcp.tools.list:response",
@@ -38479,8 +38479,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "event-applicability:mcp.tools.list",

@@ -1,0 +1,754 @@
+{
+  "sourceSha256": "0f29274b2f2b7ee94102cd5c034544a9369e536697bb48cd37357f7ad07eb4d3",
+  "resourceSha256": {
+    "contracts/generation/generation-contracts.schema.json": "d51aa2823977360e7c65acf958a63e712c31a9a42c2fefd53d5c3ea2ec65a235",
+    "scripts/ssot/ssot_control.py": "9930b3cf116a678861c26c80b82c5d14304cf6735437346d1a406014ca261f0d",
+    "contracts/generation/document-events.schema.json": "15eccaa2fe8a0a53a29e3d91a4cc639854b8d0b9d8267678f967b776d294b777"
+  },
+  "operationId": "generation.plan.create",
+  "classification": "INVESTIGATION_OPEN",
+  "wholePairReady": false,
+  "solvedOperationReferences": [],
+  "ownerDecisionRequired": false,
+  "implementedBoundary": "TRUSTED_ALLOCATION_TO_COMMITTED_PLAN_EVENT_TO_IMMUTABLE_READ",
+  "evidenceKind": "TECHNICAL_DERIVATION_NOT_PRODUCTION_EVIDENCE",
+  "allocationMask": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "jobId": {
+        "$ref": "urn:kcml:generation-contracts:2#/$defs/Uuid"
+      },
+      "planId": {
+        "$ref": "urn:kcml:generation-contracts:2#/$defs/Uuid"
+      },
+      "scopeLock": {
+        "$ref": "urn:kcml:generation-contracts:2#/$defs/ScopeLock"
+      }
+    },
+    "required": [
+      "jobId",
+      "planId",
+      "scopeLock"
+    ],
+    "additionalProperties": false
+  },
+  "fields": [
+    {
+      "field": "schemaVersion",
+      "required": true,
+      "schema": {
+        "const": "1.0"
+      },
+      "sourceSections": "56.13",
+      "derivation": "Native constant; no new model wrapper."
+    },
+    {
+      "field": "planId",
+      "required": true,
+      "schema": {
+        "$ref": "#/$defs/Uuid"
+      },
+      "sourceSections": "56.10",
+      "derivation": "Exact server-preallocated plan ID; model may only quote it."
+    },
+    {
+      "field": "jobId",
+      "required": true,
+      "schema": {
+        "$ref": "#/$defs/Uuid"
+      },
+      "sourceSections": "12.23,56.10",
+      "derivation": "Exact job owning the trusted plan allocation."
+    },
+    {
+      "field": "specificationDigest",
+      "required": true,
+      "schema": {
+        "$ref": "#/$defs/Digest"
+      },
+      "sourceSections": "12.22,56.8",
+      "derivation": "Equals frozen approved digest in trusted scope lock."
+    },
+    {
+      "field": "scopeLock",
+      "required": true,
+      "schema": {
+        "$ref": "#/$defs/ScopeLock"
+      },
+      "sourceSections": "12.22,56.8",
+      "derivation": "Full native value must equal frozen allocation scope; not digest alone."
+    },
+    {
+      "field": "pathPlan",
+      "required": true,
+      "schema": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          {
+            "properties": {
+              "kind": {
+                "const": "PATH_PLAN"
+              }
+            }
+          }
+        ]
+      },
+      "sourceSections": "56.4,56.5,56.8",
+      "derivation": "Native PATH_PLAN ref; actual hydration remains required."
+    },
+    {
+      "field": "sdkLock",
+      "required": true,
+      "schema": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          {
+            "properties": {
+              "kind": {
+                "const": "SDK_LOCK"
+              }
+            }
+          }
+        ]
+      },
+      "sourceSections": "56.5,56.8",
+      "derivation": "Native SDK_LOCK ref; actual bytes/profile verification remains required."
+    },
+    {
+      "field": "rootArtifacts",
+      "required": true,
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "minItems": 1,
+        "maxItems": 4096
+      },
+      "sourceSections": "56.5,56.8",
+      "derivation": "Native refs; actual bytes/provenance and slot hydration remain required."
+    },
+    {
+      "field": "nodes",
+      "required": true,
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/PlanNode"
+        },
+        "minItems": 1,
+        "maxItems": 100000
+      },
+      "sourceSections": "12.23,56.8",
+      "derivation": "Native nodes; DAG, producer, phase and side-effect ordering remain required."
+    },
+    {
+      "field": "coverage",
+      "required": true,
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/RequirementCoverage"
+        },
+        "minItems": 1,
+        "maxItems": 65536
+      },
+      "sourceSections": "12.23,56.5",
+      "derivation": "Native coverage; equality with approved requirements remains required."
+    }
+  ],
+  "output": {
+    "event": "urn:kcml:generation-document-events:1#/$defs/PlanCreated",
+    "readOperation": "generation.plan.read",
+    "document": "urn:kcml:generation-contracts:2#/$defs/GenerationPlan",
+    "readSelectorProducer": "validate_generation_document_event"
+  },
+  "errorBindingsImplemented": [
+    {
+      "predicate": "native masks / event / commit / repository mismatch",
+      "code": "ARTIFACT_VALIDATION_FAILED",
+      "effect": "No adapter output; no writes"
+    },
+    {
+      "predicate": "allocation jobId / planId / full scopeLock mismatch",
+      "code": "GENERATION_PLAN_INVALID",
+      "effect": "No publication"
+    },
+    {
+      "predicate": "plan specificationDigest differs from frozen approval",
+      "code": "SPECIFICATION_DIGEST_STALE",
+      "effect": "No publication"
+    }
+  ],
+  "remainingPredicatesAndErrorBindings": [
+    {
+      "sections": "49.3-49.4,51.12",
+      "predicate": "Stable allocation/idempotency lookup and same-key digest comparison",
+      "errors": [
+        "IDEMPOTENCY_CONFLICT"
+      ],
+      "remaining": "Trusted DB collector and admission/replay transaction; adapter arguments are not proof of origin."
+    },
+    {
+      "sections": "49.15,51.5,56.5",
+      "predicate": "Current job/phase/fence/incarnation/cancellation/deadline and authority before creation",
+      "errors": [
+        "STATE_VERSION_CONFLICT",
+        "FENCING_TOKEN_STALE",
+        "PLATFORM_INCARNATION_STALE"
+      ],
+      "remaining": "Operation-specific code/required snapshot/retry bindings; replay must not rerun fresh admission."
+    },
+    {
+      "sections": "12.23,56.5,56.8",
+      "predicate": "Artifact hydration, exact scope coverage, DAG, node kinds, slots, SDK and path closure",
+      "errors": [
+        "GENERATION_PLAN_INVALID",
+        "CONTRACT_PACK_REFERENCE_INVALID",
+        "ARTIFACT_VALIDATION_FAILED"
+      ],
+      "remaining": "Run full validators against actual registry/bytes; creation is not phase success or permission to enter IMPLEMENTING."
+    },
+    {
+      "sections": "49.5,49.10,51.5,51.32",
+      "predicate": "Atomic plan/outcome/checkpoint/event/audit/outbox; cancel-versus-commit ordering",
+      "errors": [
+        "MANUAL_OUTCOME_CONFLICT",
+        "SIDE_EFFECT_OUTCOME_UNKNOWN"
+      ],
+      "remaining": "SQLSTATE/reconciliation and known failed/cancelled/unknown operation response masks. Never infer no commit from timeout."
+    },
+    {
+      "sections": "12.44.2,49.5,49.27",
+      "predicate": "Trusted outbox/inbox and immutable repository lookup",
+      "errors": [
+        "SEQUENCE_GAP"
+      ],
+      "remaining": "Real delivery dedupe, retention/resync and transport error bindings; frozen terminal replay after cancellation."
+    }
+  ],
+  "checked": 85,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "allocation-mask/exact-authoritative-specialization",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-mask/native",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "native-plan",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "producer-digest",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "exact-producer-event-selector",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "independent-immutable-repository-read",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-mask/jobId/missing",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-adapter/jobId/missing",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /allocation: Exact trusted projection fields required",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-mask/jobId/null",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-adapter/jobId/null",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /: None is not of type 'string'",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-mask/jobId/wrong-type",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-adapter/jobId/wrong-type",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /: 17 is not of type 'string'",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-mask/planId/missing",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-adapter/planId/missing",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /allocation: Exact trusted projection fields required",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-mask/planId/null",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-adapter/planId/null",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /: None is not of type 'string'",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-mask/planId/wrong-type",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-adapter/planId/wrong-type",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /: 17 is not of type 'string'",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-mask/scopeLock/missing",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-adapter/scopeLock/missing",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /allocation: Exact trusted projection fields required",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-mask/scopeLock/null",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-adapter/scopeLock/null",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /: None is not of type 'object'",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-mask/scopeLock/wrong-type",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-adapter/scopeLock/wrong-type",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /: 17 is not of type 'object'",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-mask/extra",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "allocation-adapter/extra",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /allocation: Exact trusted projection fields required",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "still-native/planId",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "model-chosen/planId",
+      "passed": true,
+      "error": "GENERATION_PLAN_INVALID /planId: Plan differs from trusted server allocation/frozen scope",
+      "expectedErrorCode": "GENERATION_PLAN_INVALID"
+    },
+    {
+      "case": "self-consistent-forgery/planId",
+      "passed": true,
+      "error": "GENERATION_PLAN_INVALID /planId: Plan differs from trusted server allocation/frozen scope",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "still-native/jobId",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "model-chosen/jobId",
+      "passed": true,
+      "error": "GENERATION_PLAN_INVALID /jobId: Plan differs from trusted server allocation/frozen scope",
+      "expectedErrorCode": "GENERATION_PLAN_INVALID"
+    },
+    {
+      "case": "self-consistent-forgery/jobId",
+      "passed": true,
+      "error": "GENERATION_PLAN_INVALID /jobId: Plan differs from trusted server allocation/frozen scope",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "scope/approvedSpecificationId",
+      "passed": true,
+      "error": "GENERATION_PLAN_INVALID /scopeLock: Plan differs from trusted server allocation/frozen scope",
+      "expectedErrorCode": "GENERATION_PLAN_INVALID"
+    },
+    {
+      "case": "scope/approvedSpecificationDigest",
+      "passed": true,
+      "error": "GENERATION_PLAN_INVALID /scopeLock: Plan differs from trusted server allocation/frozen scope",
+      "expectedErrorCode": "GENERATION_PLAN_INVALID"
+    },
+    {
+      "case": "scope/ownerDecisionSetDigest",
+      "passed": true,
+      "error": "GENERATION_PLAN_INVALID /scopeLock: Plan differs from trusted server allocation/frozen scope",
+      "expectedErrorCode": "GENERATION_PLAN_INVALID"
+    },
+    {
+      "case": "scope/requirementSetDigest",
+      "passed": true,
+      "error": "GENERATION_PLAN_INVALID /scopeLock: Plan differs from trusted server allocation/frozen scope",
+      "expectedErrorCode": "GENERATION_PLAN_INVALID"
+    },
+    {
+      "case": "scope/approvedTargetKeys",
+      "passed": true,
+      "error": "GENERATION_PLAN_INVALID /scopeLock: Plan differs from trusted server allocation/frozen scope",
+      "expectedErrorCode": "GENERATION_PLAN_INVALID"
+    },
+    {
+      "case": "scope/approvedRequirementIds",
+      "passed": true,
+      "error": "GENERATION_PLAN_INVALID /scopeLock: Plan differs from trusted server allocation/frozen scope",
+      "expectedErrorCode": "GENERATION_PLAN_INVALID"
+    },
+    {
+      "case": "wrong-specification-digest",
+      "passed": true,
+      "error": "SPECIFICATION_DIGEST_STALE /specificationDigest: Wrong frozen approved specification",
+      "expectedErrorCode": "SPECIFICATION_DIGEST_STALE"
+    },
+    {
+      "case": "changed-content/native",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "changed-content/stale-committed-digest",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /snapshot: Event/document/commit identity or digest mismatch",
+      "expectedErrorCode": "ARTIFACT_VALIDATION_FAILED"
+    },
+    {
+      "case": "model-wrapper-is-not-plan",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /: 'planId' is a required property",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "model-wrapper-is-not-event",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /: 'eventId' is a required property",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "no-publication-without-exact-commit/False",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /commit: Only exact committed event may be published",
+      "expectedErrorCode": "ARTIFACT_VALIDATION_FAILED"
+    },
+    {
+      "case": "no-returned-event/False",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "no-publication-without-exact-commit/None",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /commit: Only exact committed event may be published",
+      "expectedErrorCode": "ARTIFACT_VALIDATION_FAILED"
+    },
+    {
+      "case": "no-returned-event/None",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "no-publication-without-exact-commit/0",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /commit: Only exact committed event may be published",
+      "expectedErrorCode": "ARTIFACT_VALIDATION_FAILED"
+    },
+    {
+      "case": "no-returned-event/0",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "no-publication-without-exact-commit/1",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /commit: Only exact committed event may be published",
+      "expectedErrorCode": "ARTIFACT_VALIDATION_FAILED"
+    },
+    {
+      "case": "no-returned-event/1",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "no-publication-without-exact-commit/'true'",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /commit: Only exact committed event may be published",
+      "expectedErrorCode": "ARTIFACT_VALIDATION_FAILED"
+    },
+    {
+      "case": "no-returned-event/'true'",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "commit-snapshot/jobId",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /snapshot: Event/document/commit identity or digest mismatch",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "commit-snapshot/documentId",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /snapshot: Event/document/commit identity or digest mismatch",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "commit-snapshot/documentDigest",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /snapshot: Event/document/commit identity or digest mismatch",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "commit-snapshot/eventSequence",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /snapshot: Event/document/commit identity or digest mismatch",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "commit-snapshot/approvedSpecificationDigest",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /payload: Plan does not reference the frozen approved specification",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "wrong-event-kind",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /type: Only plan publication is in scope",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "missing-event",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /: None is not of type 'object'",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "event-payload/planId",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /snapshot: Event/document/commit identity or digest mismatch",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "event-payload/planDigest",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /snapshot: Event/document/commit identity or digest mismatch",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "event-payload/specificationDigest",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /payload: Plan does not reference the frozen approved specification",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "read/no-document/FAILED",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "read/no-success-injection/FAILED",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /response/output: A failed or pending read has no document",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "read/no-document/CANCELLED",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "read/no-success-injection/CANCELLED",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /response/output: A failed or pending read has no document",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "read/no-document/ACCEPTED",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "read/no-success-injection/ACCEPTED",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /response/output: A failed or pending read has no document",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "read/no-document/RUNNING",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "read/no-success-injection/RUNNING",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /response/output: A failed or pending read has no document",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "repository/jobId",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /repositorySnapshot/jobId: Immutable repository pointer differs from committed event",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "repository/documentId",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /repositorySnapshot/documentId: Immutable repository pointer differs from committed event",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "repository/documentDigest",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /repositorySnapshot/documentDigest: Immutable repository pointer differs from committed event",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "repository/absent-on-success",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /repositorySnapshot: Exact trusted projection fields required",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "read/changed-native-document",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /output: Read content differs from the immutable persisted digest",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "read/recover-exact-document",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "cancellation-after-commit/replay-frozen",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "cancellation-after-commit/immutable-read",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "cancellation-after-commit/current-snapshot-substitution-rejected",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /snapshot: Event/document/commit identity or digest mismatch",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "cancel-before-commit/no-event",
+      "passed": true,
+      "error": "ARTIFACT_VALIDATION_FAILED /: None is not of type 'object'",
+      "expectedErrorCode": null
+    },
+    {
+      "case": "replay/returned-mutation-isolated",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "inputs-remain-frozen",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "consumer/exact-delivery",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    },
+    {
+      "case": "consumer/replay-deduplicates",
+      "passed": true,
+      "error": null,
+      "expectedErrorCode": null
+    }
+  ],
+  "verification": "SYNTHETIC_HANDOFF_ONLY",
+  "scriptSha256": {
+    "verify_plan_create_handoff.py": "b1a7d5ebb87ce3f82d40c2f2ab511bdfc3bcca852d4f32271bda28f3fe7e1b11",
+    "plan_create_investigation.py": "b615ada0fbd80d86e243639acce67240d20881dde95926f80ad725ad622146ac"
+  }
+}

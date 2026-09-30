@@ -19,20 +19,27 @@
     "Package reports missing UI validationContract without KeyError and retains blockers",
     "Domain validator uses full Inventory registry with conflict rejection; success fixtures have terminal=true and mandatory HTTP meta",
     "Phase3 recognizes sequence/eventId/NOT_APPLICABLE envelopes and reports open lifecycle dictionaries as BLOCKED",
-    "CI uses pinned requirements-audit.txt on main and repair branch"
+    "CI uses pinned requirements-audit.txt on main and repair branch",
+    "SQL literals repaired in 262 wrappers / 1048 expressions, every decoded argument preserved; two invalid literal mutations rejected",
+    "P00-P12 projected with canonical deliverables, additive R14/R15 gates and concrete planned output paths",
+    "36 available design checks completed: 27 zero exits, 9 BLOCKED/failing, no validator exceptions/timeouts"
   ],
   "remaining": [
     "Stabilize validators and inventory",
     "Explicit domain families and event applicability",
     "SQL execution and full persisted handoffs",
     "UI/browser/OpenAI/agents/MCP/monitoring",
-    "Full required design universe and P00–P12 exit criteria"
+    "Full required design universe and P00–P12 exit criteria",
+    "Four SQL helper definitions unavailable in direct SQL resource registry; PostgreSQL 18.6 execution not performed",
+    "242 unresolved references / 121 operations; 502 generic routes; 152 unspecified event applicability",
+    "Open lifecycle fields and current UI action validation obligations / exposure blockers",
+    "258 error predicates and 149 provenance-layer detectors require semantic review"
   ],
   "evidence": [
     "audit/generated/repair-2026-09-30/baseline"
   ],
   "semanticCoverage": "No complete normative semantic review claimed",
-  "nextBlock": "Verify final domain witnesses, regenerate portable manifests/receipt and commit tool stabilization; then SQL parser/executable baseline and authoritative lifecycle excerpts.",
+  "nextBlock": "Close config.rollback.state from exact model.configuration-change in authoritative 49.23; project matching physical closure payload; verify positive state witnesses and negative unknown/null/missing state. Then investigate remaining lifecycle dictionaries and UI exposure bindings.",
   "gates": {
     "SSOT_CONTRACT_READY": "BLOCKED",
     "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
@@ -40,17 +47,23 @@
   "currentInventory": {
     "operations": 619,
     "routes": 542,
-    "unresolvedOperationReferences": 774,
-    "operationsWithUnresolvedReferences": 595,
+    "unresolvedOperationReferences": 242,
+    "operationsWithUnresolvedReferences": 121,
     "conflictingOperationReferences": 0,
     "genericRoutes": 502,
     "genericBoundaryDefinitions": 1506,
-    "nestedReferenceFailures": 39,
+    "nestedReferenceFailures": 0,
     "unreviewedConcreteBoundaryDefinitions": 111,
     "conflictingSchemaIdentities": 0,
     "unspecifiedEventApplicability": 152,
     "unparsedResources": 0
   },
-  "commandsEvidence": "audit/generated/repair-2026-09-30/tools/commands.json",
-  "evidenceInvalidation": "SSOT unchanged; old tool/inventory reports are superseded by repair-2026-09-30 evidence. Historical evidence remains hash-scoped."
+  "commandsEvidence": "audit/generated/repair-2026-09-30/design-current/commands.json",
+  "evidenceInvalidation": "All reports with source hash 742681f... are historical after SQL repair. Current design-current reports bind 0f29274b...; no earlier semantic readiness is inherited.",
+  "currentSourceDocumentSha256": "0f29274b2f2b7ee94102cd5c034544a9369e536697bb48cd37357f7ad07eb4d3",
+  "inventoryEnvironmentCorrection": {
+    "systemPythonUnavailableFormatCheckers": "774 references / 595 operations is environment-blocked evidence, not a contract defect count",
+    "pinnedAuditEnvironment": "242 references / 121 operations; nestedReferenceFailures=0"
+  },
+  "fullNormativeSemanticReview": "INCOMPLETE: available tool universe completed; per-operation normative semantic review and complete pipeline obligations remain required."
 }
