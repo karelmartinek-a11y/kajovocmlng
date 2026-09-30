@@ -137,7 +137,7 @@ def run():
  reject('secret/base64-nonzero-padding-bits',lambda:decode(oid,{**binary,'value':{'encoding':'BASE64','base64':'AB=='}}),'NONCANONICAL_BASE64','$.value.base64')
  reject('secret/duplicate-tag',lambda:decode(oid,{**body,'tags':['duplicate','duplicate']}),'SCHEMA_UNIQUEITEMS')
  reject('secret/name-collision',lambda:admit(decode(oid),{**server,'stableNames':['FIXTURE_SECRET']}),'STABLE_NAME_UNAVAILABLE','$.stableName')
- reject('secret/undefined-type-policy-blocks',lambda:admit(decode(oid,{**body,'type':'CERTIFICATE'}),server),'TYPE_SPECIFIC_POLICY_UNVERIFIED','$.type')
+ reject('secret/undefined-type-policy-blocks',lambda:admit(decode(oid,{**body,'type':'CERTIFICATE'}),server),'SECRET_PROFILE_REQUIRED','/value')
  for reserved in ['KCML_OWNER_API_KEY','PASS']:
   reject('secret/reserved/'+reserved,lambda reserved=reserved:admit(decode(oid,{**body,'stableName':reserved}),server),'RESERVED_CREDENTIAL_REQUIRES_SPECIAL_CONTRACT','$.stableName')
  assert_case('authoring/idempotent',lambda:specialize(payload)==payload)

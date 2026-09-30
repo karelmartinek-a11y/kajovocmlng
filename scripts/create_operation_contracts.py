@@ -42,9 +42,24 @@ def schema():
     secret['allOf']=[{'if':{'properties':{'type':{'const':'GENERIC_BINARY'}},'required':['type']},
         'then':{'properties':{'value':{'properties':{'encoding':{'const':'BASE64'}}}}},
         'else':{'properties':{'value':{'properties':{'encoding':{'const':'UTF8'}}}}}}]
+    from secret_profile_import import active_import_document
+    profiles=active_import_document();secret=copy.deepcopy(profiles['$defs']['SecretCreateBody'])
+    needed={}
+    def collect(node):
+        if isinstance(node,dict):
+            ref=node.get('$ref','')
+            if ref.startswith('#/$defs/'):
+                name=ref.split('/')[2]
+                if name not in needed:
+                    needed[name]=copy.deepcopy(profiles['$defs'][name]);collect(needed[name])
+            for value in node.values():collect(value)
+        elif isinstance(node,list):
+            for value in node:collect(value)
+    collect(secret);secret['$defs']=needed
+    secret['$id']='urn:kcml:secret-create-native-body:1'
     return {'$schema':'https://json-schema.org/draft/2020-12/schema','$id':ID,
         '$comment':'Technical field spelling/encoding per 12.18; authority 8.2-8.6.1, 12.1-12.3, 25.6/25.11, 26.7/26.9, 72.11/72.21. Limits inherit the prior 1 MiB transport value ceiling; no UI row count is a business length cap.',
-        '$defs':{'GenerationJobCreateBody':generation,'SecretCreateBody':secret,**__import__('create_completion_contracts').definitions()}}
+        '$defs':{'GenerationJobCreateBody':generation,'SecretCreateBody':secret,**needed,**__import__('create_completion_contracts').definitions()}}
 
 def specialize(payload):
     result=copy.deepcopy(payload);defs=schema()['$defs']
@@ -120,15 +135,25 @@ def decode_http(operation,method,path,query,headers,body):
     if any(k in normalized for k in ['if-match','x-authority-id','x-execution-authority-id','x-state-version']):
         raise ContractFailure('UNDECLARED_CREATE_GUARD_OR_AUTHORITY','/headers')
     if len(body)>1048576:raise ContractFailure('REQUEST_TOO_LARGE','/body')
-    value=strict_json(body);validate_body(operation,value)
-    computed=digest({'operationId':operation,'body':value})
+    value=strict_json(body)
+    if operation=='secret.create':
+        from secret_profile_import import strict_json as parse_secret,candidate_from_http,request_digest,Rejected
+        try:
+            value=parse_secret(body);validate_body(operation,value);candidate=candidate_from_http(body)
+        except Rejected as e:raise ContractFailure(e.code,e.pointer)
+        computed=request_digest(body) if candidate['representation']=='PROFILE_JSON_V1' else digest({'operationId':operation,'body':value})
+    else:
+        value=strict_json(body);validate_body(operation,value)
+        computed=digest({'operationId':operation,'body':value})
     hint=normalized.get('x-kcml-request-digest')
     if hint is not None and hint!=computed:raise ContractFailure('CLIENT_DIGEST_MISMATCH','/headers/x-kcml-request-digest')
-    return {'operationId':operation,'body':value,'idempotencyKey':key,'requestDigest':computed}
+    native={'operationId':operation,'body':value,'idempotencyKey':key,'requestDigest':computed}
+    if operation=='secret.create':native['secretImportCandidate']=candidate
+    return native
 
 def validate_body(operation,value):
     v=Draft202012Validator(schema()['$defs'][OPERATIONS[operation]],format_checker=FormatChecker())
-    errors=sorted(v.iter_errors(value),key=lambda e:e.json_path)
+    errors=sorted(v.iter_errors(value),key=lambda e:(e.json_path,0 if e.validator=='type' else 1))
     if errors:
         e=errors[0];raise ContractFailure('SCHEMA_'+e.validator.upper(),e.json_path)
     if operation=='generation.job.create':
@@ -139,7 +164,11 @@ def validate_body(operation,value):
         for field in ['stableName','displayName']:
             if not value[field].strip():raise ContractFailure('EMPTY_'+field.upper(),'$.'+field)
         val=value['value']
-        if val['encoding']=='BASE64':
+        if val.get('representation')=='PROFILE_JSON_V1':
+            from secret_profile_reference import parse_profile,Rejected
+            try:parse_profile(val['profileId'],json.dumps(val['profile'],ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode())
+            except Rejected as e:raise ContractFailure(e.code,e.pointer)
+        elif val['encoding']=='BASE64':
             try:raw=base64.b64decode(val['base64'],validate=True)
             except ValueError:raise ContractFailure('INVALID_BASE64','$.value.base64')
             if base64.b64encode(raw).decode()!=val['base64']:raise ContractFailure('NONCANONICAL_BASE64','$.value.base64')
@@ -216,7 +245,11 @@ def admit(request,server,replay=None):
         if body.get('targetObjectId') and body['targetObjectId'] not in server.get('targets',{}):raise ContractFailure('TARGET_UNRESOLVED','$.targetObjectId')
         if body['stableName'] in server.get('stableNames',[]):raise ContractFailure('STABLE_NAME_UNAVAILABLE','$.stableName')
         if body['stableName'] in ['KCML_OWNER_API_KEY','PASS']:raise ContractFailure('RESERVED_CREDENTIAL_REQUIRES_SPECIAL_CONTRACT','$.stableName')
-        if body['type'] not in ['PASSWORD','API_KEY','BEARER_TOKEN','WEBHOOK_SECRET','GENERIC_TEXT','GENERIC_BINARY']:raise ContractFailure('TYPE_SPECIFIC_POLICY_UNVERIFIED','$.type')
+        if body['value'].get('representation')=='PROFILE_JSON_V1':
+            from secret_profile_import import registry_profile,Rejected
+            try:registry_profile(body['value']['profileId'],server.get('secretProfileRegistryReader'),server.get('secretProfileNormativeSourceDigest'),server.get('secretProfileReviewReceiptDigest'))
+            except Rejected as e:raise ContractFailure(e.code,e.pointer)
+        elif body['type'] not in ['PASSWORD','API_KEY','BEARER_TOKEN','WEBHOOK_SECRET','GENERIC_TEXT','GENERIC_BINARY']:raise ContractFailure('SECRET_PROFILE_REQUIRED','/value')
         # Type name flags cannot replace a value grammar. Structured/crypto types
         # stay blocked until their exact authoritative formats are resolved.
     result={'action':'RESERVE_ATOMIC_CREATE','dispatchNew':True,'serverWriter':'generation-orchestrator' if request['operationId']=='generation.job.create' else 'secret'}

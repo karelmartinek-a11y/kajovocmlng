@@ -1,0 +1,307 @@
+{
+  "inputCommit": "34d3a75c47a92ab7d8e0dac84f581549a15445ca",
+  "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
+  "serverVersion": "PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+  "database": "secret_pg_integrated",
+  "schema": "kcml_secret_v1",
+  "ddlSha256": "524b3c067ff22a5a39d5b9a89e6c48bdaf6caf76db719200d439eea023b739eb",
+  "schemaSha256": "bce6c974949e69314f725e9fcacd20d257b7cadfa7003b09122fc57fff0e69da",
+  "scriptSha256": "dc15826e9d984e4b3de2caf9de12f05c4f43717cec99ed78687c4b96aa6d530c",
+  "supportSha256": {
+    "audit/generated/resume-34d/secrets-browser/verify_postgres.py": "e26d65367f7e4f8cb3264d1010865c7a498b1546fe7c27b443c404af1d52f284",
+    "audit/generated/resume-34d/secrets-browser/profile_reference.py": "5c2e35b89fcbca59209fdad74d6fa0507850659a5b6942269d184020c3d6c19e",
+    "audit/generated/resume-34d/secrets-browser/secret_value_parsers.py": "06afca2e41b10c8055cc5a553cea014c5a3d96600e93f9e01c8d921cbf3d0f9a",
+    "audit/generated/resume-34d/secrets-browser/verify_reference.py": "8d7662868cf7d0580509137101a27814dcd056c77b48b6a2660b6c9aa514a0e2",
+    "audit/generated/resume-34d/secrets-browser/synthetic_profile_fixtures.py": "1d746635c196263d6f51c4568eccfd2b47560b65d31cdb9d8884a7354a3b9c31",
+    "audit/generated/resume-34d/secrets-browser/input-source.json": "000293fbaa6a80f72ea2f9bc2d8ca10563785c2ba392633afb3d13338b85aca2",
+    "requirements-audit.txt": "468e79f63350bc445d6342ee45ec8259e0e7fc6ff16400229326bdfad134298f",
+    "scripts/secret_profile_reference.py": "be3dd0260405f6eb705cdfbcd0f95668ada277ef0ed231d61264aff3fe74f2a5",
+    "scripts/secret_profile_parsers.py": "774a5faa512a63d61f59e683985e5663c7879db47a9297825bba07757d880ea1",
+    "01_UI_CONTRACT/contracts/secrets/profile-handoffs.schema.json": "bce6c974949e69314f725e9fcacd20d257b7cadfa7003b09122fc57fff0e69da"
+  },
+  "checked": 37,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "server-version-is-18.6",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "OAUTH_CLIENT_SECRET_V1/real-registry-schema-bytes-digest",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "OAUTH_BEARER_TOKEN_SET_V1/real-registry-schema-bytes-digest",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "TOTP_BASE32_V1/real-registry-schema-bytes-digest",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "X509_PEM_CHAIN_V1/real-registry-schema-bytes-digest",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "PKCS8_PEM_PRIVATE_KEY_V1/real-registry-schema-bytes-digest",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "DATABASE_USER_PASSWORD_V1/real-registry-schema-bytes-digest",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "HTTP_COOKIE_JAR_V1/real-registry-schema-bytes-digest",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "BROWSER_COOKIE_LOCAL_STORAGE_V1/real-registry-schema-bytes-digest",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "SSH_PASSWORD_V1/real-registry-schema-bytes-digest",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "SSH_OPENSSH_PRIVATE_KEY_V1/real-registry-schema-bytes-digest",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "record-roots-insert",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "candidate-create-is-not-active",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "same-secret-version-number-unique",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SPECIFIC_REJECTION",
+      "expectedSQLState": "23505",
+      "expectedConstraint": "secret_version_secret_id_version_number_key",
+      "returnCode": 0
+    },
+    {
+      "id": "ciphertext-immutable",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SPECIFIC_REJECTION",
+      "expectedSQLState": "23514",
+      "expectedConstraint": "secret_version_crypto_immutable",
+      "returnCode": 0
+    },
+    {
+      "id": "version-delete-forbidden",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SPECIFIC_REJECTION",
+      "expectedSQLState": "23514",
+      "expectedConstraint": "secret_version_immutable",
+      "returnCode": 0
+    },
+    {
+      "id": "parent-selected-version-composite-FK",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SPECIFIC_REJECTION",
+      "expectedSQLState": "23503",
+      "expectedConstraint": "secret_active_version_owns_parent",
+      "returnCode": 0
+    },
+    {
+      "id": "pointer-without-ACTIVE-version",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SPECIFIC_REJECTION",
+      "expectedSQLState": "23514",
+      "expectedConstraint": "secret_active_pointer_consistency",
+      "returnCode": 0
+    },
+    {
+      "id": "atomic-activation-version-and-pointer",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "ACTIVE-root-type-must-match-selected-version",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SPECIFIC_REJECTION",
+      "expectedSQLState": "23503",
+      "expectedConstraint": "secret_active_version_owns_parent",
+      "returnCode": 0
+    },
+    {
+      "id": "inactive-root-metadata-edit-keeps-historic-version-type",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "second-ACTIVE-partial-unique",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SPECIFIC_REJECTION",
+      "expectedSQLState": "23505",
+      "expectedConstraint": "secret_one_active_version",
+      "returnCode": 0
+    },
+    {
+      "id": "atomic-retire-before-next-activate",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "historical-reactivation-allowed",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "soft-delete-retains-stable-name",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SQL",
+      "returnCode": 0
+    },
+    {
+      "id": "stable-name-no-soft-delete-reuse",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SPECIFIC_REJECTION",
+      "expectedSQLState": "23505",
+      "expectedConstraint": "secret_record_stable_name_key",
+      "returnCode": 0
+    },
+    {
+      "id": "profile-definition-immutable",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_SPECIFIC_REJECTION",
+      "expectedSQLState": "23514",
+      "expectedConstraint": "secret_profile_definition_immutable",
+      "returnCode": 0
+    },
+    {
+      "id": "OAUTH_CLIENT_SECRET_V1/actual-PG-encrypted-original-bytes-hydration",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_AND_SYNTHETIC_AEAD",
+      "productionMasterKeyEvidence": false
+    },
+    {
+      "id": "OAUTH_BEARER_TOKEN_SET_V1/actual-PG-encrypted-original-bytes-hydration",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_AND_SYNTHETIC_AEAD",
+      "productionMasterKeyEvidence": false
+    },
+    {
+      "id": "TOTP_BASE32_V1/actual-PG-encrypted-original-bytes-hydration",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_AND_SYNTHETIC_AEAD",
+      "productionMasterKeyEvidence": false
+    },
+    {
+      "id": "X509_PEM_CHAIN_V1/actual-PG-encrypted-original-bytes-hydration",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_AND_SYNTHETIC_AEAD",
+      "productionMasterKeyEvidence": false
+    },
+    {
+      "id": "PKCS8_PEM_PRIVATE_KEY_V1/actual-PG-encrypted-original-bytes-hydration",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_AND_SYNTHETIC_AEAD",
+      "productionMasterKeyEvidence": false
+    },
+    {
+      "id": "DATABASE_USER_PASSWORD_V1/actual-PG-encrypted-original-bytes-hydration",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_AND_SYNTHETIC_AEAD",
+      "productionMasterKeyEvidence": false
+    },
+    {
+      "id": "HTTP_COOKIE_JAR_V1/actual-PG-encrypted-original-bytes-hydration",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_AND_SYNTHETIC_AEAD",
+      "productionMasterKeyEvidence": false
+    },
+    {
+      "id": "BROWSER_COOKIE_LOCAL_STORAGE_V1/actual-PG-encrypted-original-bytes-hydration",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_AND_SYNTHETIC_AEAD",
+      "productionMasterKeyEvidence": false
+    },
+    {
+      "id": "SSH_PASSWORD_V1/actual-PG-encrypted-original-bytes-hydration",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_AND_SYNTHETIC_AEAD",
+      "productionMasterKeyEvidence": false
+    },
+    {
+      "id": "SSH_OPENSSH_PRIVATE_KEY_V1/actual-PG-encrypted-original-bytes-hydration",
+      "passed": true,
+      "kind": "ACTUAL_POSTGRES_AND_SYNTHETIC_AEAD",
+      "productionMasterKeyEvidence": false
+    }
+  ],
+  "actualPostgresExecuted": true,
+  "sensitiveValuesInReport": false,
+  "cryptoEvidence": "TEN_ACTUAL_PG_AND_EPHEMERAL_AESGCM_ROUNDTRIPS_NOT_CANONICAL_SYSTEMD_PROVIDER",
+  "excluded": [
+    "External exact creator_context/domain_command FKs pending coordinator integration",
+    "Atomic event/outbox/audit and reserved OWNER credential consistency",
+    "Production master-key/systemd/cipher fixture",
+    "Secret record status enum and metadata/rotation-policy projections",
+    "Full browser engine serializer"
+  ],
+  "sourceUnchangedDuringRun": true,
+  "canonicalEmbeddedSqlExecuted": true,
+  "canonicalResourceSha256": {
+    "database/secret-profile-roots.sql": "524b3c067ff22a5a39d5b9a89e6c48bdaf6caf76db719200d439eea023b739eb",
+    "contracts/secrets/profile-handoffs.schema.json": "bce6c974949e69314f725e9fcacd20d257b7cadfa7003b09122fc57fff0e69da"
+  },
+  "adaptation": "Fixture SQL -f candidate loading replaced with subprocess stdin of actual canonical resource bytes; byte equality asserted. Current canonical secret_profile_reference module supplies current effective Cookie and SecretCreateBody masks; original proposal mask equality was correctly rejected. Private output/database changed; no SQL constraint or fixture weakening.",
+  "historicalProposalSchemaSha256": "54320e2663ad40326de1ce8ec583eb0566a0b5c948378bfab8bb9c4b3224dc07",
+  "originalFixtureScriptSha256": "e26d65367f7e4f8cb3264d1010865c7a498b1546fe7c27b443c404af1d52f284",
+  "historicalProposalInput": {
+    "commit": "34d3a75c47a92ab7d8e0dac84f581549a15445ca",
+    "ssotSha256": "2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854",
+    "priorSchemaSha256": "3ef24d4a5bebdb86e6716767453f4be053d77c769a404db06c6a2d38f82f6699"
+  },
+  "inputSourceMeaning": "Current sourceSha256/canonicalResourceSha256 bind this run; historicalProposalInput and inputCommit identify reused fixture origin only",
+  "invocationDiagnostics": [
+    {
+      "stage": "Initial current-mask equality check",
+      "result": "REJECTED_STALE_PROPOSAL_MASK",
+      "actualDifference": [
+        "Cookie",
+        "SecretCreateBody"
+      ],
+      "resolution": "Use current integrated secret_profile_reference and assert loaded SCHEMA equals effective canonical resource; no schema requirement removed."
+    }
+  ],
+  "adapterSha256": "dc15826e9d984e4b3de2caf9de12f05c4f43717cec99ed78687c4b96aa6d530c",
+  "executedAdaptedFixtureSha256": "868975b7250786af0df82bfd9d7b92fb2db0c7870f91e2806424a5164e11ef63",
+  "wholeOperationClosed": false,
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED",
+  "status": "PASS"
+}

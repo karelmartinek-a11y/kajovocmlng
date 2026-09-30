@@ -32,6 +32,11 @@ if __name__=='__main__':
         addition=[{'section':'8.11 Secret create request admission','status':'PASS' if current.count(SECRET_TEXT)==1 else 'FAIL',
             'scope':'Exact authored technical admission addendum; original policy must remain byte-identical.'}]
         if current.count(SECRET_TEXT)==1:current=current.replace(SECRET_TEXT,'',1)
+    if 'contracts/secrets/import.schema.json' in resource_index():
+        from close_secret_profile_handoffs import authored_secret_norm
+        secret_norm=authored_secret_norm()
+        addition.append({'section':'8.12/8.13 Secret explicit profiles and exact browser cookie preservation','status':'PASS'if current.count(secret_norm)==1 else'FAIL','scope':'Exact technical addendum only; all original policy bytes remain compared'})
+        if current.count(secret_norm)==1:current=current.replace(secret_norm,'',1)
     before=sections(original);after=sections(current)
     checks=[{'section':key,'originalSha256':value,'currentSha256':after.get(key),
              'status':'PASS' if after.get(key)==value else 'FAIL'} for key,value in before.items()]

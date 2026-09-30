@@ -40,7 +40,7 @@ def main():
    check(name+'/details-bound-to-diagnostic',result['error']['detailsDigest'],digest({'reason':expected_diag,'pointer':expected_pointer}))
   except Exception as exc:checks.append({'case':name,'passed':False,'diagnostic':'UNRELATED_EXCEPTION','reason':str(exc)})
  for op,body in BODIES.items():
-  native=decode(op);positives[op]={'body':body,'nativeRequest':native}
+  native=decode(op);positives[op]={'body':body,'nativeRequest':{k:v for k,v in native.items()if k!='secretImportCandidate'},'internalSecretBytesOmitted':op=='secret.create'}
   if op=='generation.job.create':
    kind_request=decode(op,body={**body,'kind':'RETRY','parentJobId':UID,'generationBasis':{'basisKind':'RETRY_FAILED_TECHNICAL_PART','phaseRunId':UID,'expectedDigest':'sha256:'+'0'*64,'planId':UID,'expectedPlanDigest':'sha256:'+'0'*64,'approvedRevisionId':UID,'expectedSpecificationDigest':'sha256:'+'0'*64,'authorityId':UID,'expectedAuthorityDigest':'sha256:'+'0'*64}})
    actual_failure(op+'/own-kind-policy-required',op,lambda:admit(kind_request,{**server,'jobs':{UID:{'jobId':UID}}}),'PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED','$.kind','CREATE_POLICY_UNRESOLVED')
@@ -60,7 +60,7 @@ def main():
   actual_failure(op+'/recovery',op,lambda:admit(native,{**server,'recovery':'RECOVERING'}),'RECOVERY_BARRIER','','CREATE_RECOVERY_BARRIER')
   if op=='secret.create':
    actual_failure(op+'/stable-name-conflict',op,lambda:admit(native,{**server,'stableNames':['FIXTURE_SECRET']}),'STABLE_NAME_UNAVAILABLE','$.stableName','CREATE_STABLE_NAME_CONFLICT')
-   actual_failure(op+'/structured-type-policy',op,lambda:admit(decode(op,body={**body,'type':'CERTIFICATE'}),server),'TYPE_SPECIFIC_POLICY_UNVERIFIED','$.type','CREATE_POLICY_UNRESOLVED')
+   actual_failure(op+'/structured-type-policy',op,lambda:admit(decode(op,body={**body,'type':'CERTIFICATE'}),server),'SECRET_PROFILE_REQUIRED','/value','CREATE_INPUT_INVALID')
    text_json={**body,'type':'GENERIC_TEXT','value':{'encoding':'UTF8','text':'{"credential":"synthetic","nested":[1,2]}'}}
    check(op+'/permitted-json-secret-text-preserved',decode(op,body=text_json)['body']['value']['text'],text_json['value']['text'])
   fixture=projection(op,ContractFailure('IDEMPOTENCY_CONFLICT'),logical=UID);check(op+'/full-http-error-positive',validator.is_valid(fixture));positives[op]['httpFailure']=fixture

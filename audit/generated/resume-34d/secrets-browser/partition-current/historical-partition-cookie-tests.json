@@ -1,0 +1,103 @@
+{
+  "inputSsotSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+  "inputSourceUnchangedDuringFixture": true,
+  "authority": [
+    "00_SSOT/KajovoCMLNG_SSOT.md \u00a713.15 cookies including partition/partition-key metadata",
+    "\u00a713.15 fresh context restore before navigation; no partially authenticated fallback",
+    "\u00a78.4 exact immutable protected bytes; \u00a772.21 NO_SILENT_NORMALIZATION"
+  ],
+  "browserVersion": "151.0.7922.173",
+  "checked": 14,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "actual-capture-five-closed-profile-cookie-masks",
+      "passed": true
+    },
+    {
+      "id": "same-site-cookie-ancestor-bits-not-collapsed",
+      "passed": true
+    },
+    {
+      "id": "exact-fractional-expiry-binary64",
+      "passed": true
+    },
+    {
+      "id": "native-unspecified-samesite-not-guessed-as-lax",
+      "passed": true
+    },
+    {
+      "id": "actual-fresh-context-exact-partition-value-expiry-unspecified-restore",
+      "passed": true
+    },
+    {
+      "id": "nonfresh-context-specific-rejection",
+      "passed": true,
+      "actualCode": "BROWSER_COOKIE_RESTORE_CONTEXT_NOT_FRESH",
+      "expectedCode": "BROWSER_COOKIE_RESTORE_CONTEXT_NOT_FRESH"
+    },
+    {
+      "id": "duplicate-native-partition-identity",
+      "passed": true,
+      "actualCode": "BROWSER_COOKIE_DUPLICATE_PARTITION_IDENTITY",
+      "expectedCode": "BROWSER_COOKIE_DUPLICATE_PARTITION_IDENTITY"
+    },
+    {
+      "id": "host-only-domain-incoherence",
+      "passed": true,
+      "actualCode": "BROWSER_COOKIE_HOST_SCOPE_MISMATCH",
+      "expectedCode": "BROWSER_COOKIE_HOST_SCOPE_MISMATCH"
+    },
+    {
+      "id": "engine-schemeful-site-normalization-rejected-exactly",
+      "passed": true,
+      "actualCode": "BROWSER_COOKIE_ENGINE_VALUE_OR_PARTITION_MISMATCH",
+      "expectedCode": "BROWSER_COOKIE_ENGINE_VALUE_OR_PARTITION_MISMATCH"
+    },
+    {
+      "id": "partitioned-cookie-secure-required",
+      "passed": true,
+      "actualCode": "BROWSER_COOKIE_PARTITION_SECURE_REQUIRED",
+      "expectedCode": "BROWSER_COOKIE_PARTITION_SECURE_REQUIRED"
+    },
+    {
+      "id": "expired-cookie-not-partial-auth-success",
+      "passed": true,
+      "actualCode": "BROWSER_COOKIE_EXPIRED_BEFORE_RESTORE",
+      "expectedCode": "BROWSER_COOKIE_EXPIRED_BEFORE_RESTORE"
+    },
+    {
+      "id": "invalid-native-cookie-encoding-specific-engine-error",
+      "passed": true,
+      "actualCode": "BROWSER_COOKIE_ENGINE_INPUT_REJECTED",
+      "expectedCode": "BROWSER_COOKIE_ENGINE_INPUT_REJECTED"
+    },
+    {
+      "id": "opaque-partition-no-silent-fallback",
+      "passed": true,
+      "actualCode": "BROWSER_COOKIE_OPAQUE_PARTITION_UNSUPPORTED",
+      "expectedCode": "BROWSER_COOKIE_OPAQUE_PARTITION_UNSUPPORTED"
+    },
+    {
+      "id": "source-context-cookie-snapshot-not-mutated-by-failed-restores",
+      "passed": true
+    }
+  ],
+  "supportSha256": {
+    "/tmp/ssot-secret-browser-next/verify_partition_cookie.py": "391be9f14532eb028011a9fb50300654979a0b1c315e2e5912436f5e3d311383",
+    "/tmp/ssot-secret-browser-next/partition_cookie_adapter.py": "b70fd167313c3dd3ed93390b85d1d2c3d9e006dc70389e56c88129e4de7c810f",
+    "/tmp/ssot-secret-browser-next/cookie-mask-patch.json": "89c1214f2dccd56c93e3a426c7ea7aa3d0d20ac96538e76f0951d8617ddd7026",
+    "/tmp/ssot-secret-browser-next/partition-cookie-member.schema.json": "76b1c9a464c6f2cf048e7193482a0284df1c5501cdaa343c9e15ad800217c548",
+    "/workspace/kajovocmlng/audit/generated/resume-34d/secrets-browser/profile_reference.py": "5c2e35b89fcbca59209fdad74d6fa0507850659a5b6942269d184020c3d6c19e",
+    "/workspace/kajovocmlng/audit/generated/resume-34d/secrets-browser/secret-profile-handoffs.schema.json": "54320e2663ad40326de1ce8ec583eb0566a0b5c948378bfab8bb9c4b3224dc07"
+  },
+  "sensitiveValuesInReport": false,
+  "scope": "REAL_CHROMIUM_PARTITION_COOKIE_MEMBER_CAPTURE_RESTORE",
+  "excluded": [
+    "Full required browser capture transaction/barrier/encryption/epoch-CAS",
+    "Real provider account/tenant marker",
+    "Client-certificate/OWNER Device Bridge",
+    "Whole profile activation"
+  ],
+  "fullProfileActivation": "NOT_ACTIVATED"
+}

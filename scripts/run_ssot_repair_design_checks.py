@@ -15,10 +15,10 @@ CHECKS=[
  'verify_plan_create_handoff.py','verify_preserved_policy.py','verify_provider_mapping.py',
  'verify_provider_outcome_mask.py','verify_read_boundary_completion.py','verify_retry_profile.py',
  'verify_route_guard_counters.py','verify_saga_handoffs.py','verify_transitive_mask_detection.py',
- 'verify_generation_chain_handoffs.py','verify_generation_physical_handoff.py','verify_generation_admission_basis.py','verify_operation_state_receipts.py','verify_create_storage_invariants.py','verify_visual_contracts.py','run_baseline_gates.py','verify_package.py']
+ 'verify_secret_profile_handoffs.py','verify_generation_chain_handoffs.py','verify_generation_physical_handoff.py','verify_generation_admission_basis.py','verify_operation_state_receipts.py','verify_create_storage_invariants.py','verify_visual_contracts.py','run_baseline_gates.py','verify_package.py']
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 
-EVIDENCE_INPUTS={'verify_generation_chain_handoffs.py':['audit/generated/resume-34d/review/authenticated-chain-review.json'],
+EVIDENCE_INPUTS={'verify_secret_profile_handoffs.py':['audit/generated/resume-34d/secrets-browser/synthetic_profile_fixtures.py','audit/generated/resume-34d/review/secret-current/secret-native-review.json','audit/generated/resume-34d/failure-sql/secret-profile-current/postgres-tests.json','audit/generated/resume-34d/secrets-browser/partition-current/partition-cookie-tests.json'],'verify_generation_chain_handoffs.py':['audit/generated/resume-34d/review/authenticated-chain-review.json'],
  'verify_generation_physical_handoff.py':['audit/generated/resume-d362/review/verify_scoped_generation_links.py','audit/generated/resume-d362/events/verify_combined_generation.py','audit/generated/resume-d362/persistence/generation_descriptor_registry.py','audit/generated/resume-d362/persistence/context_fixture_exports.py','/tmp/kcml-pg18/bin/psql','/tmp/kcml-pg18/bin/postgres'],
  'verify_generation_admission_basis.py':['audit/generated/resume-d362/admission/generation_admission_fixtures.py','audit/generated/resume-d362/admission/verify_generation_admission_reference.py','audit/generated/resume-d362/admission/generation_retry_inventory_fixtures.py','audit/generated/resume-d362/admission/verify_generation_retry_inventory.py'],
  'verify_phase4_ui.py':['audit/phase4-ui-action-matrix.json','audit/phase4-current-handoff-matrix.json','audit/phase4-unresolved.json'],

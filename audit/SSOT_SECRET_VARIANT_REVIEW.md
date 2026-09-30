@@ -1,6 +1,8 @@
 # Konkrétní Secret formáty k přezkumu
 
-**PENDING_OWNER_FORMAT_REVIEW. Žádná zde uvedená konkrétní varianta není účinná ani VERIFIED.**
+**HISTORICAL PROPOSAL REVIEW — superseded for current import by §§8.12–8.13 and `contracts/secrets/import.schema.json`.**
+
+Ten limited profile names are OWNER-approved. Current precise import masks/byte-preserving native decoder and bounded load checks are effective; trusted registry/command/crypto/broker and full browser activation remain OPEN. The historical proposal masks, limits and cases below are preserved for traceability and are not current authority or a pending request to approve the names again. Current evidence: `generated/resume-34d/coordinator/secret-profile-native-tests.json`, independent `review/secret-current/secret-native-review.json`, actual canonical PostgreSQL `failure-sql/secret-profile-current/postgres-tests.json`. Whole `secret.create` remains OPEN, implementation NOT_EVALUATED.
 
 SSOT dokládá devět typů, TYPE_SPECIFIC, zákaz tiché normalizace a šifrované immutable verze. Konkrétní formáty, pole, volitelnost a limity níže jsou nové návrhy. Schválení principu explicitních variant je neaktivovalo. Přesné JSON masks, syntetické příklady a chyby jsou v [návrhovém JSON](generated/create-review-authority/secret-variant-proposals.json).
 

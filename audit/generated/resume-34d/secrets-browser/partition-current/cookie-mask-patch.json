@@ -1,0 +1,12 @@
+{
+  "scope": "FULL_REQUIRED_BROWSER_COOKIE_PROFILE_ONLY",
+  "operation": "ADD_ENUM_MEMBER",
+  "pointer": "#/$defs/Cookie/properties/sameSite/enum",
+  "value": "UNSPECIFIED",
+  "authority": [
+    "SSOT \u00a713.15 exact cookies/SameSite state; explicit serializer",
+    "SSOT \u00a772.21 NO_SILENT_NORMALIZATION"
+  ],
+  "reason": "Actual Chromium cookie has no sameSite field; default-Lax is observably not identical to explicit SameSite=Lax. Explicit UNSPECIFIED emits no CDP SameSite field, never maps to Lax. Limited HTTP_COOKIE_JAR_V1 masks unchanged.",
+  "status": "ALREADY_INTEGRATED_IN_EFFECTIVE_SSOT_8_13_DO_NOT_APPLY_AGAIN"
+}

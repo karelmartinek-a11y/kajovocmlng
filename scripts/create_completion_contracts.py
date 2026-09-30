@@ -144,6 +144,9 @@ def http_failure(operation,failure,*,request_id,correlation_id,logical_operation
  elif code in __import__('generation_admission_diagnostics').codes():
   if operation!='generation.job.create':raise ContractFailure('HTTP_FAILURE_OPERATION_MISMATCH','/operationId')
   stable=__import__('generation_admission_diagnostics').codes()[code]
+ elif code in __import__('secret_profile_diagnostics').CODES:
+  if operation!='secret.create':raise ContractFailure('HTTP_FAILURE_OPERATION_MISMATCH','/operationId')
+  stable=__import__('secret_profile_diagnostics').CODES[code]
  elif code=='AUTHENTICATION_REQUIRED':stable='CREATE_AUTHENTICATION_REQUIRED'
  elif code=='RECOVERY_BARRIER':stable='CREATE_RECOVERY_BARRIER'
  elif code=='IDEMPOTENCY_CONFLICT':stable=code

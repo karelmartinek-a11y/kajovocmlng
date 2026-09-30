@@ -71,17 +71,18 @@ exact bindings nejsou novými volnými create JSON bags: spravují se přes
 kanonické metadata/rotation/binding operace; vytvoření secretu samo nedává
 consumerovi binding ani runtime authority.
 
-`value` je konkrétní přenos plaintext bytes nové verze: pro GENERIC_BINARY
-má `encoding=BASE64` a `base64`; pro ostatní typy má `encoding=UTF8` a `text`.
-BASE64 se strict dekóduje a musí znovu vytvořit stejné canonical BASE64.
-UTF-8 text se převádí na bytes beze změny case, whitespace nebo Unicode
-normalizace; není to JSON schovaný ve stringu místo domain metadata. Obsah
-secretu je skutečná důvěrná hodnota, kterou lze podle §8.6.1 dále přímo
-používat. Případný JSON obsah hodnoty se nesmí automaticky přepsat na jinou
-hodnotu. Type-specific content validation vyžaduje current explicitní
-serverovou policy daného typu (§72.21); missing/unverified policy znamená
-BLOCKED před persistencí, nikoli automatické přijetí libovolného certifikátu,
-OAuth token setu nebo browser session state.
+`value` má verzované explicitní RAW nebo PROFILE_JSON_V1 varianty podle §8.12.
+Přesná importní maska a type/profile/variant závislosti jsou v
+contracts/secrets/import.schema.json; reachable definice jsou beze změny významu
+projektované do native create masky. Deset schválených omezených profilů má
+skutečné typové parsers, nikoli obecné values nebo hádání formátu. Chybějící
+trusted registry/source/review receipt blokuje admission; klient tyto identity
+nedodává. Full §13.15 browser profil zůstává povinný a zatím NOT_ACTIVATED.
+RAW verze mají přesné UTF8/BASE64 bytes; nové komplexní importy vyžadují PROFILE,
+ale existující immutable RAW read/use/reveal se nezmění. Profile plaintext je
+přesný původní value.profile JSON span, nikoli znovu serializovaný objekt.
+Profile request digest navíc váže original import bytes SHA, takže matematicky
+shodné JSON číslo nebo jiné escapes nesloučí různé immutable hodnoty.
 
 Server odvozuje secret ID/version number, authenticated encryption metadata,
 fingerprint/value digest, timestamps, state version, activation epoch a audit.
@@ -134,7 +135,9 @@ def main():
     if args.check:
         print(json.dumps({'status':'BLOCKED' if pending else 'PASS','pending':pending}));return int(bool(pending))
     text=rewrite(text,items,updates)
-    if '### 8.11 Secret create request admission' not in text:text=text.replace('## 9. Externí systémy, API a webhooks',SECRET_TEXT+'## 9. Externí systémy, API a webhooks',1)
+    secret_section=re.search(r'^### 8\.11 Secret create request admission\n.*?(?=^### 8\.12 |^## 9\.)',text,re.M|re.S)
+    if secret_section:text=text[:secret_section.start()]+SECRET_TEXT+text[secret_section.end():]
+    else:text=text.replace('## 9. Externí systémy, API a webhooks',SECRET_TEXT+'## 9. Externí systémy, API a webhooks',1)
     if '### 12.47 Create request admission' in text:
         start=text.index('### 12.47 Create request admission');end=re.search(r'^### 12\.48 |^## 13\.',text[start:],re.M)
         if not end:raise ValueError('CREATE_REQUEST_SECTION_END_MISSING')

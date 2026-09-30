@@ -1,7 +1,7 @@
 {
   "status": "PARTIAL",
   "baselineCommit": "cfcb7b2f6a41d152cb799779252d9c1615a02d5a",
-  "sourceDocumentSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+  "sourceDocumentSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
   "previousWork": "main includes generation boundary closure; remote work/ssot-completion-2026-09-25 at 7006785; historical checkpoints preserved",
   "repositoryInstructions": "No AGENTS.md found in checkout or parent workspace",
   "remoteVerification": {
@@ -55,9 +55,14 @@
     "Durable frozen schema and domain-policy archive; full native/public read children and historical consumer compatibility",
     "Pinned audit archive producer and actual rollback/cancel/unknown/reconciliation decision producers/full recovery matrix",
     "dashboard.start/dashboard.stop/gen.editSpec exact worker→command→result→read joins; manual visual review remains distinct",
+    "Actual trusted registry review/context/command producer and locked root acceptance",
+    "Canonical systemd key/global nonce/typed protected rows",
+    "Atomic command/root/event/outbox/audit/locator and reserved OWNER credential joins",
+    "Real consumer target/activation/broker and complete read/UI",
+    "Full13.15 bridge/encrypted bundle/CAS/account and all serializer/key/generator variants",
     "242references/1500genericboundaries/500genericroutes/152eventapplicability; all remaining whole domain families",
-    "Four generic SQL helpers with262 call-site plans;258legacyerrorpredicates and169lexicalprovenance hits require semantic review",
-    "Secrets/browser/MCP/agents/OpenAI/monitoring and all13 P00–P12 handoffs"
+    "Four generic SQL helpers/262call-site plans;258legacyerrorpredicates and 175lexicalprovenancehits require semantic review",
+    "Browser/MCP/agents/OpenAI/monitoring and all13 P00–P12 handoffs"
   ],
   "evidence": [
     "audit/generated/repair-2026-09-30/baseline",
@@ -112,12 +117,13 @@
     "wholeOperationsDesignClosed": 0
   },
   "nextBlock": {
-    "id": "SECRET_CURRENT_IMPORT_STORAGE_USE_AND_GENERATION_PRODUCER_LINKS",
-    "scope": "Integrate approved limited profile masks/parser and exact HTTP import-byte/idempotency path into existing secret.create; preserve RAW and OWNER reveal; trusted review registry and complete Secret root/command/event/outbox/audit/broker remain required. Continue generationMandatoryRemaining, starting actual canonical key/invocation and RETRY producer→child commit.",
+    "id": "GENERATION_LOCKED_RETRY_PRODUCER_TO_CHILD_AND_CANONICAL_KEY_SOURCE",
+    "scope": "Complete full49.8 phase-ledger producer/completeness/fencing under source gate and hold scan transaction through child frozen-lineage/root commit. In parallel resolve actual systemd credential fixture availability and canonical key/global nonce protected-row authority. Continue trusted Secret registry/context/command/root/event/outbox/audit joins. No bool-valid inputs or mock key authority substitutes.",
     "inputs": [
-      "audit/generated/resume-34d/secrets-browser/INTEGRATION.md",
-      "audit/generated/resume-34d/secrets-browser/DELIVERY.json",
-      "audit/SSOT_CREATE_OPERATION_OBLIGATIONS.md"
+      "audit/SSOT_CREATE_OPERATION_OBLIGATIONS.md",
+      "audit/generated/resume-34d/retry-graph/INTEGRATION.md",
+      "contracts/generation/create-chain-handoffs.json",
+      "contracts/secrets/import-storage-use.json"
     ],
     "generationWholeOperation": "OPEN",
     "secretWholeOperation": "OPEN"
@@ -143,13 +149,13 @@
   },
   "commandsEvidence": "audit/generated/repair-2026-09-30/design-current/commands.json",
   "evidenceInvalidation": {
-    "sourceSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+    "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
     "allExplicitChecks": "RERUN_CURRENT_SOURCE_SUPPORT_AND_ENVIRONMENT",
     "originalAttempt": "audit/generated/resume-d362/coordinator/design-first-pass-with-follow-up-timeout.json",
     "timeoutResolution": "Actual-schema compilation cache keyed by exact raw schema bytes/root; fresh mutable fixture records and immutable registry only. Original240s timeout retained; final result is separate.",
-    "visual": "Fresh96 current renders after audit dependency change; SQL-only subsequent source changes checked against exact unchanged consumed UI inputs; source-mutation failed attempt retained."
+    "visual": "Exact consumed UI/schema/file/requirements/render bytes verified unchanged; reused current96 renders, no rerender in Secret block. Manual PENDING/runtime NOT_EVALUATED."
   },
-  "currentSourceDocumentSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+  "currentSourceDocumentSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
   "inventoryEnvironmentCorrection": {
     "systemPythonUnavailableFormatCheckers": "774 references / 595 operations is environment-blocked evidence, not a contract defect count",
     "pinnedAuditEnvironment": "242 references / 121 operations; nestedReferenceFailures=0"
@@ -165,24 +171,24 @@
     "createAdmissionStorageRendering": "401e44128362efd890c75f95f2cbcf72455bdbe1",
     "currentInventory": "f6159fbddb515da33341dcb508d9c6be0ed988c2",
     "producedProofCache": "7829d1404e54b2f7fc1c112a7fed5f5cb0466183",
-    "generationNativeBasisPredecessor": "34d3a75c47a92ab7d8e0dac84f581549a15445ca"
+    "generationNativeBasisPredecessor": "3288f1e0e277f3350fed6cdff6ceb9d120baa7cc"
   },
   "currentResults": {
-    "requiredAvailableChecks": 47,
-    "zeroExits": 40,
+    "requiredAvailableChecks": 48,
+    "zeroExits": 41,
     "nonzeroBlockedOrFailed": 7,
     "validatorExceptions": 0,
     "timeouts": 0,
     "blockedChecks": [
       "scripts/verify_schema_references.py",
       "scripts/phase1_schema_closure.py",
+      "scripts/verify_phase4_ui.py",
       "scripts/verify_operation_sql_literals.py",
       "scripts/verify_mask_parity.py",
       "scripts/verify_visual_contracts.py",
-      "scripts/verify_package.py",
-      "scripts/verify_phase4_ui.py"
+      "scripts/verify_package.py"
     ],
-    "provenanceDetectorHits": 169,
+    "provenanceDetectorHits": 175,
     "pendingLegacyErrorPredicates": 258,
     "remainingStateDictionaryFields": 0,
     "phase4ExposureBlocked": [
@@ -197,44 +203,44 @@
       "checked": 151,
       "failed": 0,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_create_operation_requests/create-request-tests.json",
-      "sha256": "ec055356e9855bb69a70558b82d60eacf411a8b44ec71ee58de0f3cfab761610"
+      "sha256": "f629f675a31ee20dcf6eae213f1b8bc2aec219b6944bf325fb92325ae41de1d1"
     },
     "createCompletion": {
       "checked": 439,
       "failed": 0,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_create_completion/completion-tests.json",
-      "sha256": "726fda8590fbbba95590765d4605214ed8ccf0d3abb14df4d842bc5f2af196e8"
+      "sha256": "9e80d6c67bf0016dfaf84ba92bbf9fd5ce7a143bd610d4e5b3f0580849c5b550"
     },
     "createHttpError": {
       "checked": 199,
       "failed": 0,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_create_http_errors/create-http-errors.json",
-      "sha256": "f77f6074eb8c60dfe0d8a6ce79a9344227abae2e63587db0f283ff6026cee826"
+      "sha256": "ecf4327a9dc1cafa35bb1f4c5790ddaeac56d231fcc4dbcb65ab537f7ef41aa8"
     },
     "followUp": {
       "checked": 324,
       "failed": 0,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_follow_up_contracts/follow-up-tests.json",
-      "sha256": "9937aa137c88764ec833ed6ae61d101b9c62f4d31e5c533b7d8832ce738c564e"
+      "sha256": "efa25d6f3df9903eb7309422d3e3232c0e410e105ebe6c1cb71e57ae5aeac71f"
     },
     "generationAdmission": {
       "checked": 240,
       "failed": 0,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_admission_basis/generation-admission-current-tests.json",
-      "sha256": "c02064b99d7e1f52d2dc591961965bdd9f6623618300e28da50f11ac6543eec8"
+      "sha256": "3304fceb84ef4da89e379fa938015f6a34f11e4be06226f8c3193f2b4d9520f1"
     },
     "ownState": {
       "checked": 63,
       "failed": 0,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_operation_state_receipts/operation-state-tests.json",
-      "sha256": "20e1b05946bad957ba28bf454049b1054c2013a4b2f1dc9fd18d4368c29ecfa5"
+      "sha256": "d90f12eba8485456a4aa1212b81de92f67ac3fb738aa72efd56d024336d26929"
     },
     "generationPhysical": {
       "checked": 21,
       "failed": 0,
       "postgresqlVersion": "PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_physical_handoff/generation-physical-tests.json",
-      "sha256": "d571a992ca2164060c3aaa846d46bc23f72af6c1913b6b8f42df5f763710eacc",
+      "sha256": "b34fcb6ca73839636c481b07f67b70b116ab85ecfd041219a65311fff218eb1a",
       "scope": "Actual isolated PG18 fixture using current embedded canonical foundation bytes.",
       "wholeOperationClosed": false
     },
@@ -250,9 +256,10 @@
     "attempt": "gh pr create --draft using supported authenticated CLI",
     "reason": "Post https://api.github.com/graphql: Forbidden",
     "body": "audit/SSOT_REPAIR_DRAFT_PR.md",
-    "title": "Repair SSOT generation admission, own state dictionaries and resumable evidence",
+    "title": "Repair SSOT authenticated create chains and exact Secret import handoffs",
     "compareUrl": "https://github.com/karelmartinek-a11y/kajovocmlng/compare/main...ssot-repair-2026-09-30",
-    "bypassAttempted": false
+    "bypassAttempted": false,
+    "currentAttemptEvidence": "audit/generated/resume-34d/coordinator/draft-pr-attempt.json"
   },
   "semanticCoverageEvidence": "audit/generated/repair-2026-09-30/review-coverage.json",
   "remainingLifecycleFields": [],
@@ -267,12 +274,13 @@
     "branch": "ssot-repair-2026-09-30",
     "verifiedInputHead": "34d3a75c47a92ab7d8e0dac84f581549a15445ca",
     "verifiedInputSSOTSha256": "2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854",
-    "sourceSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+    "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
     "resumeHeadRule": "Resolve actual local and remote HEAD; checkpoint embeds only prior committed HEAD, not own resulting commit",
     "initialIntegrity": "audit/generated/resume-34d/coordinator/entry-integrity.json",
     "workingTreeAtEntry": "CLEAN",
-    "currentBlock": "GENERATION_AUTHENTICATED_CANONICAL_CHAIN_BOUNDED",
-    "lastVerifiedCommittedBlock": "34d3a75c47a92ab7d8e0dac84f581549a15445ca"
+    "currentBlock": "SECRET_EFFECTIVE_IMPORT_AND_STORED_METADATA_BOUNDED",
+    "lastVerifiedCommittedBlock": "3288f1e0e277f3350fed6cdff6ceb9d120baa7cc",
+    "lastVerifiedCommittedBlockSSOTSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf"
   },
   "createBlock": {
     "status": "PARTIAL_OPERATION_CLOSURE",
@@ -328,15 +336,16 @@
     "mandatory": "Trusted worker evidence, real finalization/fence/SQL/receipt joins remain required"
   },
   "runnerResumeVerification": {
-    "sourceSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
-    "universe": 47,
-    "PASS": 40,
+    "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
+    "universe": 48,
+    "PASS": 41,
     "BLOCKED_OR_FAILED": 7,
     "validatorExceptionsOrTimeouts": [],
-    "cacheReuse": 0,
-    "commandsExecuted": 47,
+    "cacheReuse": 48,
+    "commandsExecuted": 0,
     "evidence": "audit/generated/repair-2026-09-30/design-current/commands.json",
-    "invalidatesOn": "Exact source/scripts/projections, audit environment, required evidence and external PG binaries for physical check"
+    "invalidatesOn": "Exact source/scripts/projections, audit environment, required evidence and external PG binaries for physical check",
+    "proof": "audit/generated/resume-34d/coordinator/runner-resume-proof.json"
   },
   "historicalAuditInput": {
     "baselineCommit": "cfcb7b2f6a41d152cb799779252d9c1615a02d5a",
@@ -357,19 +366,19 @@
     "runtime": "NOT_EVALUATED"
   },
   "secretVariants": {
-    "status": "LIMITED_PROFILE_NAMES_APPROVED",
+    "status": "LIMITED_PROFILE_MASKS_EFFECTIVE_WHOLE_OPERATION_OPEN",
     "types": 9,
     "variants": 10,
     "proposal": "audit/generated/create-review-authority/secret-variant-proposals.json",
-    "effective": "PENDING_CURRENT_ROUTE_IMPORT_STORAGE_USE_INTEGRATION",
+    "effective": "CURRENT_ROUTE_PROFILE_IMPORT_EFFECTIVE_BOUNDED_STORAGE_USE",
     "structuralProposalCases": 60,
-    "semanticProposalCases": "18 ORIGINAL_CASES_EXECUTED_WITH_VALID_SAME_VARIANT_WITNESSES;42 TOTAL_ISOLATED_CHECKS; PENDING_OWNER_FORMAT_REVIEW",
+    "semanticProposalCases": "HISTORICAL18/42 proposal cases; current precise native and independent proofs are in secretCurrentIntegration, not format approval",
     "reviewDocument": "audit/SSOT_SECRET_VARIANT_REVIEW.md",
-    "currentSourceReviewEvidence": "audit/generated/resume-d362/review/INDEPENDENT_REVIEW.md",
+    "currentSourceReviewEvidence": "audit/generated/resume-34d/review/secret-current/secret-native-review.json",
     "structuralVerification": "60/60; each negative derived from valid positive and exact violation diagnostics; NOT semantic/runtime format approval",
     "ownerDecisionReview": "audit/SSOT_SECRET_OWNER_DECISIONS.md",
     "candidateSemanticEvidence": "audit/generated/resume-5334/coordinator/secret-semantic-tests.json",
-    "concreteFormatApproval": "LIMITED_NAMES_APPROVED_EXACT_TECHNICAL_ACTIVATION_PENDING",
+    "concreteFormatApproval": "TEN_LIMITED_NAMES_APPROVED_NOT_UNIVERSAL_TYPES",
     "historicalSourceReviewEvidence": "audit/generated/create-review-authority/secret-proposals-current-review.json",
     "productApproval": {
       "profiles": [
@@ -386,15 +395,15 @@
       ],
       "scope": "Limited named declared-consumer profiles approved by OWNER; not universal type contracts, arbitrary limits/details or verification; mandatory browser13.15 scope preserved",
       "technicalAdditionalMandatoryProfiles": "AUTHORIZED",
-      "effectiveActivation": "TEN_LIMITED_NAMES_APPROVED_TECHNICAL_ACTIVATION_PENDING"
+      "effectiveActivation": "EXACT_LIMITED_IMPORT_EFFECTIVE_FULL_AUTHENTICATED_ACTIVATION_OPEN"
     }
   },
   "completionRegister": {
     "path": "audit/SSOT_COMPLETION_REGISTER.json",
-    "sourceSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+    "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
     "wholeOperationsClosed": 0,
-    "totalRegisteredObligations": 4041,
-    "verifiedBoundedObligations": 31,
+    "totalRegisteredObligations": 4051,
+    "verifiedBoundedObligations": 35,
     "limitations": "Overlapping inventory; bounded proof is not whole operation closure."
   },
   "completionRegisterCoverage": {
@@ -405,23 +414,23 @@
     "unresolvedReferenceObligationsDeduplicatedByOperationAndReference": 242,
     "errorPredicateRecords": 318,
     "errorPredicatesNeedingExplicitReview": 258,
-    "provenanceDetectorHits": 169,
+    "provenanceDetectorHits": 175,
     "processFamilies": 34,
     "phaseHandoffs": 13,
     "states": {
-      "OPEN": 1758,
+      "OPEN": 1764,
       "BLOCKED": 2252,
-      "VERIFIED": 31
+      "VERIFIED": 35
     },
     "levels": {
-      "SEMANTIC": 3642,
+      "SEMANTIC": 3648,
       "STRUCTURAL": 242,
       "SEMANTIC_DESIGN_DICTIONARY": 6,
       "SEMANTIC_DESIGN_REFERENCE": 26,
       "AUTOMATED_VISUAL_REFERENCE": 1,
       "SEMANTIC_PREDICATE": 116,
       "ACTUAL_PREGEN_POSTGRESQL_BOUNDED_FIXTURE": 1,
-      "ACTUAL_PREGEN_BOUNDED_FIXTURE": 7
+      "ACTUAL_PREGEN_BOUNDED_FIXTURE": 11
     },
     "limitations": [
       "Inventory is not semantic review. No entire operation is marked VERIFIED by schema resolution.",
@@ -430,7 +439,7 @@
       "Historical/unbound report links remain labeled and cannot confer VERIFIED.",
       "Auxiliary SQL/state/UI reviews must be revalidated against this SSOT snapshot before integration."
     ],
-    "totalRegisteredObligations": 4041,
+    "totalRegisteredObligations": 4051,
     "verifiedBoundedCreateDesignObligations": 9,
     "verifiedAdditionalBoundedDesignObligations": 9,
     "verifiedGenerationBasisDesignObligations": 5,
@@ -446,11 +455,10 @@
       "auth-crypto",
       "failure-sql",
       "retry-graph",
-      "read-ui"
-    ],
-    "preparedNotYetEffective": [
+      "read-ui",
       "secrets-browser"
     ],
+    "preparedNotYetEffective": [],
     "independent": "audit/generated/resume-34d/review/INDEPENDENT_REVIEW.md",
     "noExternalThreadsExpected": true
   },
@@ -576,74 +584,74 @@
   "integratedChainProofs": {
     "auth-crypto/auth-crypto-proof.json": {
       "path": "audit/generated/resume-34d/auth-crypto/auth-crypto-proof.json",
-      "sha256": "a1d565e42df38f8f9d7f70e29a8d0bd4e284dbe96b9d95c8c1b4d1587483fbbd",
+      "sha256": "0fea11d6f192377333c5e8ad6adf7af940e1a6e0855f4423739cbf10c9748aae",
       "checked": 38,
       "failed": 0,
-      "sourceSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+      "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
       "scope": "Bounded mandatory pre-generation fixture, not whole operation or app acceptance"
     },
     "auth-crypto/authenticated-full-chain-proof.json": {
       "path": "audit/generated/resume-34d/auth-crypto/authenticated-full-chain-proof.json",
-      "sha256": "95bce2c7d9038ec79c2eadaed1f9414514e68ee29dc560c8a2667b14241ae530",
+      "sha256": "cf3494e40636e401c2aa7d9b47b3e022d90857a800efcc565af212311f2ccc88",
       "checked": 7,
       "failed": 0,
-      "sourceSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+      "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
       "scope": "Bounded mandatory pre-generation fixture, not whole operation or app acceptance"
     },
     "auth-crypto/crypto-registry-proof.json": {
       "path": "audit/generated/resume-34d/auth-crypto/crypto-registry-proof.json",
-      "sha256": "279160f6200ad51ceb797e82664135e1dec6d3a9abfcf920005c76a8da5346b1",
+      "sha256": "48fe72f77c0dbadbb1af82590d882263841709913d0c503a40f60a5f8714205b",
       "checked": 11,
       "failed": 0,
-      "sourceSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+      "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
       "scope": "Bounded mandatory pre-generation fixture, not whole operation or app acceptance"
     },
     "review/authenticated-chain-review.json": {
       "path": "audit/generated/resume-34d/review/authenticated-chain-review.json",
-      "sha256": "b2c84f5de0530b8c0229d77c9a31d86e90da6a4339ddac21ccc09da893d82dfb",
+      "sha256": "2c8db23740d1487d574353e9cacf48f0049918b63c1268c0601044fbbbe15969",
       "checked": 14,
       "failed": 0,
-      "sourceSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+      "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
       "scope": "Bounded mandatory pre-generation fixture, not whole operation or app acceptance"
     },
     "review/crypto-registry-review.json": {
       "path": "audit/generated/resume-34d/review/crypto-registry-review.json",
-      "sha256": "86e10b5fcce4be565aa65ba98ca20affced44e5cd48266b5e07f6f1f0ffe0c54",
+      "sha256": "4dd5f5b8fcbbb62b9cc3a67746d5876897ca04370a623fef00c423aef2114932",
       "checked": 13,
       "failed": 0,
-      "sourceSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+      "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
       "scope": "Bounded mandatory pre-generation fixture, not whole operation or app acceptance"
     },
     "failure-sql/failure-before-root-proof.json": {
       "path": "audit/generated/resume-34d/failure-sql/failure-before-root-proof.json",
-      "sha256": "539f56da51c91a27f83ef43af99b4bbe79dc62abab158063813374f309962a5f",
+      "sha256": "86020b4cf49afe32e834710142f5b3637b7417b25cd43a654e5e20d8527ce301",
       "checked": 29,
       "failed": 0,
-      "sourceSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+      "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
       "scope": "Bounded mandatory pre-generation fixture, not whole operation or app acceptance"
     },
     "failure-sql/pending-transfer-proof.json": {
       "path": "audit/generated/resume-34d/failure-sql/pending-transfer-proof.json",
-      "sha256": "6951fd023beb9016e5b1feeceb449b62e64c2ad4159befbb966c0c6be5c09a65",
+      "sha256": "ed2184351d280858a0d135bc5b4a8793f6cec7fb48b138ca31364834d49166e6",
       "checked": 7,
       "failed": 0,
-      "sourceSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+      "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
       "scope": "Bounded mandatory pre-generation fixture, not whole operation or app acceptance"
     },
     "read-ui/read-chain-proof.json": {
       "path": "audit/generated/resume-34d/read-ui/read-chain-proof.json",
-      "sha256": "ababee3e0cc395f24aaa19c614e1c7af9869cbfe6cff4b11d85df4bcd88d1c45",
+      "sha256": "a107b0a6002b9fc14cbeff0ebd576d271c5396643160276802125d2fd4f080a0",
       "checked": 29,
       "failed": 0,
-      "sourceSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+      "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
       "scope": "Bounded mandatory pre-generation fixture, not whole operation or app acceptance"
     },
     "retry-graph/locked-retry-tests.json": {
       "path": "audit/generated/resume-34d/retry-graph/locked-retry-tests.json",
-      "sha256": "62278229139d18d8e632e551344baf8f8e010c623ba5be4e8141497027926bce",
+      "sha256": "1a6e7ea2ea39c4597a2fb08cea4a36a16761b45976bcece902af307b63586ff7",
       "checked": 18,
       "failed": 0,
-      "sourceSha256": "8e9f915fa95e7f1524992ec8677306a4133422f007b06abfff7c0861256abfdf",
+      "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
       "scope": "Bounded mandatory pre-generation fixture, not whole operation or app acceptance"
     }
   },
@@ -671,11 +679,16 @@
       "genericSQLHelpers": 4,
       "legacyErrorPredicatesPending": 258,
       "provenanceDetectorHits": 164,
-      "wholeOperationsClosed": 0
+      "wholeOperationsClosed": 0,
+      "genericBoundariesByRole": {
+        "request": 500,
+        "response": 500,
+        "event": 500
+      }
     },
     "after": {
-      "checks": 47,
-      "PASS": 40,
+      "checks": 48,
+      "PASS": 41,
       "BLOCKED": 7,
       "genericBoundaries": 1500,
       "genericRoutes": 500,
@@ -686,9 +699,88 @@
       "UIExposureBlockers": 3,
       "genericSQLHelpers": 4,
       "legacyErrorPredicatesPending": 258,
-      "provenanceDetectorHits": 169,
-      "wholeOperationsClosed": 0
+      "provenanceDetectorHits": 175,
+      "wholeOperationsClosed": 0,
+      "genericBoundariesByRole": {
+        "request": 500,
+        "response": 500,
+        "event": 500
+      }
     },
-    "interpretation": "New independent chain check, bounded content/SQL/auth/read closure. Broad metrics unchanged. Five added provenance lexical hits reflect new historical/retention wording, not five established defects or detector changes. No percentages."
+    "interpretation": "Two new required checks extend coverage46→48; broad overlapping inventory unchanged. Provenance lexical additions come from new source wording, not established defects or detector changes. Zero whole closed operations, no percent.",
+    "boundaryEvidence": "audit/generated/resume-34d/coordinator/generic-boundary-breakdown.json"
+  },
+  "secretCurrentIntegration": {
+    "normative": [
+      "§8.12",
+      "§8.13"
+    ],
+    "effectiveMasks": [
+      "contracts/secrets/import.schema.json",
+      "contracts/secrets/profile-handoffs.schema.json"
+    ],
+    "approvedLimitedProfiles": 10,
+    "fullBrowserProfile": "NOT_ACTIVATED",
+    "wholeOperationClosed": false,
+    "proofs": {
+      "native": {
+        "path": "audit/generated/resume-34d/coordinator/secret-profile-native-tests.json",
+        "sha256": "539ce0100920599896c0210c92d1e7f2afd275186a299fd1181e2fbe49a50b70",
+        "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
+        "checked": 205,
+        "failed": 0,
+        "scope": "Exact bounded proof only; whole operation and production acceptance excluded"
+      },
+      "independent": {
+        "path": "audit/generated/resume-34d/review/secret-current/secret-native-review.json",
+        "sha256": "42662d48ab4b62d52d60f1d29cf5a6a5e0d41d377a7b846d34085dfc2f0a62df",
+        "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
+        "checked": 21,
+        "failed": 0,
+        "scope": "Exact bounded proof only; whole operation and production acceptance excluded"
+      },
+      "PostgreSQL": {
+        "path": "audit/generated/resume-34d/failure-sql/secret-profile-current/postgres-tests.json",
+        "sha256": "a2b334e1e4e519ad6052b18f85be53c805994e70436d4d05413065ee8e125a20",
+        "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
+        "checked": 37,
+        "failed": 0,
+        "scope": "Exact bounded proof only; whole operation and production acceptance excluded"
+      },
+      "Chromium": {
+        "path": "audit/generated/resume-34d/secrets-browser/partition-current/partition-cookie-tests.json",
+        "sha256": "a49bfa89e7f46aa0f75fc0968cdde61658cad7180a0fd7ea02257499781da52e",
+        "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
+        "checked": 14,
+        "failed": 0,
+        "scope": "Exact bounded proof only; whole operation and production acceptance excluded"
+      }
+    },
+    "actualDefectsReproducedAndFixed": [
+      "Stored schemaId mismatch accepted",
+      "Stored type/profile mismatch accepted"
+    ],
+    "createDiagnosticMapping": "Only35 current import/parser/registry diagnostics; load/use failures never called create-input errors",
+    "mandatoryRemaining": [
+      "Actual trusted registry review/context/command producer and locked root acceptance",
+      "Canonical systemd key/global nonce/typed protected rows",
+      "Atomic command/root/event/outbox/audit/locator and reserved OWNER credential joins",
+      "Real consumer target/activation/broker and complete read/UI",
+      "Full13.15 bridge/encrypted bundle/CAS/account and all serializer/key/generator variants"
+    ]
+  },
+  "integrationDiagnostics": {
+    "historicalFailedRunner": "audit/generated/resume-34d/coordinator/secret-integration-diagnostics/initial-48-commands.json",
+    "repaired": [
+      "Audit native Secret candidate bytes omitted from JSON witness export",
+      "Norm8.11 old RAW text replaced by owned exact PROFILE addendum; original42 Secrets policy checks pass",
+      "PEM labels removed from35-code CREATE-stage diagnostic whitelist"
+    ],
+    "currentExceptionsOrTimeouts": []
+  },
+  "finalPackaging": {
+    "receipt": "audit/generated/integrity-receipt.json",
+    "verification": "INTEGRITY_MATCH verified after evidence and checkpoint finalization; packaging only, readiness remains BLOCKED",
+    "ownCommitShaIncluded": false
   }
 }
