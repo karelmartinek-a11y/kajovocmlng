@@ -1,0 +1,725 @@
+{
+  "inputCommit": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+  "physicalProposalSHA256": "28e78e41b62a7288c8b7a677ea31d7dc5728b6b37817746f16f4be503474388b",
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "jobId": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "ownerId": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "initiatingAccessChannel": {
+        "type": "string"
+      },
+      "initiatingExecutionContextId": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "kind": {
+        "enum": [
+          "CREATE",
+          "UPDATE",
+          "FOLLOW_UP",
+          "RETRY",
+          "REPAIR"
+        ]
+      },
+      "targetKind": {
+        "oneOf": [
+          {
+            "enum": [
+              "MCP_SERVER",
+              "MCP_TOOL",
+              "MCP_RESOURCE",
+              "MCP_PROMPT",
+              "AI_AGENT",
+              "AGENT_TOOL_ADAPTER",
+              "AGENT_AS_TOOL",
+              "AGENT_HANDOFF",
+              "PLATFORM_COMPONENT",
+              "MANAGED_RUNTIME",
+              "EXTERNAL_API_CONNECTOR",
+              "WEBHOOK_HANDLER",
+              "PULSE_INTEGRATION",
+              "BROWSER_AUTOMATION",
+              "OWNER_UI"
+            ]
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "targetObjectId": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "state": {
+        "enum": [
+          "ACTIVATING",
+          "ANALYZING",
+          "BLOCKED",
+          "CANCELLED",
+          "CML_CONFORMANCE",
+          "COMPLETED",
+          "DISCUSSING",
+          "FAILED",
+          "IMPLEMENTING",
+          "INTEGRATING",
+          "VALIDATING"
+        ]
+      },
+      "currentPhase": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "stateVersion": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 19,
+        "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])"
+      },
+      "eventSequence": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 19,
+        "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])"
+      },
+      "initialRequestSnapshotId": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "initialRequestDigest": {
+        "type": "string",
+        "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+      },
+      "parentJobId": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "currentSpecRevisionId": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "approvedSpecRevisionId": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "approvedSpecificationDigest": {
+        "oneOf": [
+          {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "executionAuthorityId": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "currentCapabilitySnapshotId": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "currentPlanId": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "activePhaseRunId": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "latestCheckpointId": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "previousReleaseId": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "candidateReleaseId": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "activationSetId": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "cancellationVersion": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 19,
+        "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])"
+      },
+      "blockerId": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "errorCode": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "coordinatorLeaseOwnerId": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "coordinatorFencingToken": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 19,
+        "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])"
+      },
+      "coordinatorLeaseExpiresAt": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "coordinatorHeartbeatAt": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "platformIncarnationId": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "applicationDeploymentEpoch": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 19,
+        "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])"
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "startedAt": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "completedAt": {
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "clientRequestId": {
+        "type": "string"
+      },
+      "latestCommandLogicalOperationId": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "required": [
+      "jobId",
+      "ownerId",
+      "initiatingAccessChannel",
+      "initiatingExecutionContextId",
+      "kind",
+      "targetKind",
+      "targetObjectId",
+      "state",
+      "currentPhase",
+      "stateVersion",
+      "eventSequence",
+      "initialRequestSnapshotId",
+      "initialRequestDigest",
+      "parentJobId",
+      "currentSpecRevisionId",
+      "approvedSpecRevisionId",
+      "approvedSpecificationDigest",
+      "executionAuthorityId",
+      "currentCapabilitySnapshotId",
+      "currentPlanId",
+      "activePhaseRunId",
+      "latestCheckpointId",
+      "previousReleaseId",
+      "candidateReleaseId",
+      "activationSetId",
+      "cancellationVersion",
+      "blockerId",
+      "errorCode",
+      "coordinatorLeaseOwnerId",
+      "coordinatorFencingToken",
+      "coordinatorLeaseExpiresAt",
+      "coordinatorHeartbeatAt",
+      "platformIncarnationId",
+      "applicationDeploymentEpoch",
+      "createdAt",
+      "startedAt",
+      "completedAt",
+      "clientRequestId",
+      "latestCommandLogicalOperationId"
+    ],
+    "$id": "urn:kcml:design:generation-job-root-read:review-v1",
+    "$comment": "Review-only complete root-row shape. Does not resolve currentPhase/access-channel/error dictionaries, external FKs or complete child hydration; do not mark whole read VERIFIED."
+  },
+  "fieldMappings": [
+    {
+      "wireField": "jobId",
+      "physicalColumn": "generation_job.id",
+      "physicalType": "uuid",
+      "nullAllowed": false,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "ownerId",
+      "physicalColumn": "generation_job.owner_id",
+      "physicalType": "uuid",
+      "nullAllowed": false,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "initiatingAccessChannel",
+      "physicalColumn": "generation_job.initiating_access_channel",
+      "physicalType": "text",
+      "nullAllowed": false,
+      "wireRepresentation": "exact text (unresolved own dictionary where stated)",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "initiatingExecutionContextId",
+      "physicalColumn": "generation_job.initiating_execution_context_id",
+      "physicalType": "uuid",
+      "nullAllowed": false,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "kind",
+      "physicalColumn": "generation_job.kind",
+      "physicalType": "text",
+      "nullAllowed": false,
+      "wireRepresentation": "exact text (unresolved own dictionary where stated)",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "targetKind",
+      "physicalColumn": "generation_job.target_kind",
+      "physicalType": "text",
+      "nullAllowed": true,
+      "wireRepresentation": "exact text (unresolved own dictionary where stated)",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "targetObjectId",
+      "physicalColumn": "generation_job.target_object_id",
+      "physicalType": "uuid",
+      "nullAllowed": true,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "state",
+      "physicalColumn": "generation_job.state",
+      "physicalType": "text",
+      "nullAllowed": false,
+      "wireRepresentation": "exact text (unresolved own dictionary where stated)",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "currentPhase",
+      "physicalColumn": "generation_job.current_phase",
+      "physicalType": "text",
+      "nullAllowed": true,
+      "wireRepresentation": "exact text (unresolved own dictionary where stated)",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "stateVersion",
+      "physicalColumn": "generation_job.state_version",
+      "physicalType": "bigint",
+      "nullAllowed": false,
+      "wireRepresentation": "canonical nonnegative decimal string, signed bigint maximum",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "eventSequence",
+      "physicalColumn": "generation_job.aggregate_event_sequence",
+      "physicalType": "bigint",
+      "nullAllowed": false,
+      "wireRepresentation": "canonical nonnegative decimal string, signed bigint maximum",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "initialRequestSnapshotId",
+      "physicalColumn": "generation_job.initial_request_snapshot_id",
+      "physicalType": "uuid",
+      "nullAllowed": false,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "initialRequestDigest",
+      "physicalColumn": "generation_job.initial_request_digest",
+      "physicalType": "bytea",
+      "nullAllowed": false,
+      "wireRepresentation": "sha256:<lowercase64hex>",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "parentJobId",
+      "physicalColumn": "generation_job.parent_job_id",
+      "physicalType": "uuid",
+      "nullAllowed": true,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "currentSpecRevisionId",
+      "physicalColumn": "generation_job.current_spec_revision_id",
+      "physicalType": "uuid",
+      "nullAllowed": true,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "approvedSpecRevisionId",
+      "physicalColumn": "generation_job.approved_spec_revision_id",
+      "physicalType": "uuid",
+      "nullAllowed": true,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "approvedSpecificationDigest",
+      "physicalColumn": "generation_job.approved_specification_digest",
+      "physicalType": "bytea",
+      "nullAllowed": true,
+      "wireRepresentation": "sha256:<lowercase64hex>",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "executionAuthorityId",
+      "physicalColumn": "generation_job.execution_authority_id",
+      "physicalType": "uuid",
+      "nullAllowed": true,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "currentCapabilitySnapshotId",
+      "physicalColumn": "generation_job.current_capability_snapshot_id",
+      "physicalType": "uuid",
+      "nullAllowed": true,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "currentPlanId",
+      "physicalColumn": "generation_job.current_plan_id",
+      "physicalType": "uuid",
+      "nullAllowed": true,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "activePhaseRunId",
+      "physicalColumn": "generation_job.active_phase_run_id",
+      "physicalType": "uuid",
+      "nullAllowed": true,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "latestCheckpointId",
+      "physicalColumn": "generation_job.latest_checkpoint_id",
+      "physicalType": "uuid",
+      "nullAllowed": true,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "previousReleaseId",
+      "physicalColumn": "generation_job.previous_release_id",
+      "physicalType": "uuid",
+      "nullAllowed": true,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "candidateReleaseId",
+      "physicalColumn": "generation_job.candidate_release_id",
+      "physicalType": "uuid",
+      "nullAllowed": true,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "activationSetId",
+      "physicalColumn": "generation_job.activation_set_id",
+      "physicalType": "uuid",
+      "nullAllowed": true,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "cancellationVersion",
+      "physicalColumn": "generation_job.cancellation_version",
+      "physicalType": "bigint",
+      "nullAllowed": false,
+      "wireRepresentation": "canonical nonnegative decimal string, signed bigint maximum",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "blockerId",
+      "physicalColumn": "generation_job.blocker_id",
+      "physicalType": "uuid",
+      "nullAllowed": true,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "errorCode",
+      "physicalColumn": "generation_job.error_code",
+      "physicalType": "text",
+      "nullAllowed": true,
+      "wireRepresentation": "exact text (unresolved own dictionary where stated)",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "coordinatorLeaseOwnerId",
+      "physicalColumn": "generation_job.coordinator_lease_owner_id",
+      "physicalType": "uuid",
+      "nullAllowed": true,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "coordinatorFencingToken",
+      "physicalColumn": "generation_job.coordinator_fencing_token",
+      "physicalType": "bigint",
+      "nullAllowed": false,
+      "wireRepresentation": "canonical nonnegative decimal string, signed bigint maximum",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "coordinatorLeaseExpiresAt",
+      "physicalColumn": "generation_job.coordinator_lease_expires_at",
+      "physicalType": "timestamptz",
+      "nullAllowed": true,
+      "wireRepresentation": "RFC3339 timestamp",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "coordinatorHeartbeatAt",
+      "physicalColumn": "generation_job.coordinator_heartbeat_at",
+      "physicalType": "timestamptz",
+      "nullAllowed": true,
+      "wireRepresentation": "RFC3339 timestamp",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "platformIncarnationId",
+      "physicalColumn": "generation_job.platform_incarnation_id",
+      "physicalType": "uuid",
+      "nullAllowed": false,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "applicationDeploymentEpoch",
+      "physicalColumn": "generation_job.application_deployment_epoch",
+      "physicalType": "bigint",
+      "nullAllowed": false,
+      "wireRepresentation": "canonical nonnegative decimal string, signed bigint maximum",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "createdAt",
+      "physicalColumn": "generation_job.created_at",
+      "physicalType": "timestamptz",
+      "nullAllowed": false,
+      "wireRepresentation": "RFC3339 timestamp",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "startedAt",
+      "physicalColumn": "generation_job.started_at",
+      "physicalType": "timestamptz",
+      "nullAllowed": true,
+      "wireRepresentation": "RFC3339 timestamp",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "completedAt",
+      "physicalColumn": "generation_job.completed_at",
+      "physicalType": "timestamptz",
+      "nullAllowed": true,
+      "wireRepresentation": "RFC3339 timestamp",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "clientRequestId",
+      "physicalColumn": "generation_job.client_request_id",
+      "physicalType": "text",
+      "nullAllowed": false,
+      "wireRepresentation": "exact text (unresolved own dictionary where stated)",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    },
+    {
+      "wireField": "latestCommandLogicalOperationId",
+      "physicalColumn": "generation_job.latest_command_logical_operation_id",
+      "physicalType": "uuid",
+      "nullAllowed": false,
+      "wireRepresentation": "canonical UUID",
+      "authority": "SSOT \u00a725.11 generation_job corresponding field; candidate physical root reviewed independently"
+    }
+  ],
+  "unresolved": [
+    "currentPhase own token/state map",
+    "initiatingAccessChannel own dictionary and authenticated context provenance",
+    "errorCode exact applicability dictionary",
+    "Same-job current/approved spec/authority/capability/plan/phase/checkpoint joins",
+    "Exact targetKind\u2192actual canonical root identity binding",
+    "Public projection authority/minimal exposure for initiating context/leases",
+    "Child byte hydration and producer schema pin lineage",
+    "Full response error/transport/event applicability masks"
+  ],
+  "activationStatus": "REVIEW_ONLY_NOT_NORMATIVE"
+}

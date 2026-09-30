@@ -1,0 +1,33 @@
+# Own-kind immutable generation basis — integration proposal
+
+Pinned SSOT input: `d362487999bd795d4723c2a930e93fc7aa8aa295`, SHA-256 `22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee`.
+
+Coordinator owns all canonical/shared edits. These files have **not** activated policy or closed a whole operation. Ninety positive-derived checks pass under `/tmp/ssot-audit-venv/bin/python`; no PostgreSQL/application claim. The independent reviewer is executing separate mutants.
+
+## Concrete code and mask
+
+`generation_admission_reference.py` implements `selector_schema()`, `request_schema()`, exact closed server snapshot/receipt definitions, `Repository.hydrate()`, `select_generation_basis()`, and `validate_follow_up_content()`. `generation-admission-contract-proposed.json` describes all 21 selector-field occurrences and their sources. `generation-admission.schema.json` is the emitted draft mask; `diagnostics-proposed.json` lists the exact finite diagnostic → stable create error mapping. Unknown diagnostics remain BLOCKED.
+
+The new `generationBasis` field has three explicit variants: `UPDATE_TARGET_REVISION`, `RETRY_FAILED_TECHNICAL_PART`, `REPAIR_MONITORING_EVIDENCE`. It is forbidden on CREATE/FOLLOW_UP. The approved `followUpBasis` contract stays distinct. Native body validation and `specialize(payload)` must update together. Required request selectors are not caller-generated authority or trusted receipts.
+
+All successful create admission decisions remain **DISCUSSING**. UPDATE compatibility/migration plans are mandatory before execution; requiring completed plans just to open discussion would conflate stages. RETRY and REPAIR preserve an already-approved source functional contract and need a separate `INHERITED_TECHNICAL` authority commit before execution. They cannot alter behavioral requirements, external semantics, exact bindings or OWNER decisions. No whole-source-job terminal guard is added. RETRY uses the exact terminal **FAILED phase attempt**, actual known-failure result, and exact failed plan-node subset. Higher attempt sequence belongs to its own physical attempt machine; the proposal deliberately does not force a child job to copy the source job's counter.
+
+For REPAIR, current locked target head resolves an immutable snapshot with last-approved authority/revision/digest. An arbitrary historic approved revision is insufficient. The historical authority target snapshot, when present, is checked for preserved object/component/runtime identities; changing activation epochs/current revision does not require its historic full digest to equal today's full snapshot digest.
+
+## Critical integration requirements
+
+1. Place the reference module as a pure script module with correct ROOT lookup. Build `generationBasisRepository` solely from authenticated server repository state; never merge HTTP/model fields. `Repository` assumes physical immutable records/roles/locking are supplied. Their real PostgreSQL proof belongs to the persistence block.
+2. Update `create_operation_contracts.schema()` with the selector and own-kind requiredness. Replace the blanket unresolved own-kind guard with `select_generation_basis(body, serverRepository)` only when that repository is actually provided. Missing context retains a finite `CREATE_POLICY_UNRESOLVED` diagnostic. Do not silently accept a boolean policy flag.
+3. Add §12.51 and exact embedded masks. Preserve §12.50 and later sections when rerunning earlier create composers.
+4. Add the finite diagnostics to the HTTP projection, preserving existing stable code meanings. Invalid persisted source JSON is `GENERATION_BASIS_JSON_INVALID`/`...DUPLICATE_JSON_KEY` → `CREATE_REFERENCE_INVALID`; it must not be mislabeled as invalid caller HTTP. Mandatory missing schema/approval/content evidence is policy-unresolved. No prefix catchall.
+5. Replace FOLLOW_UP `consistent`/`sufficient` booleans with actual source content validation. Use INITIAL_REQUEST snapshotId, SPECIFICATION_REVISION revisionId, or PUBLISHED_FINAL_OUTPUT artifactId to resolve bytes. Plain ASCII “frozen source” is not a valid positive request/specification/artifact fixture. Keep existing atomic owner/identity/lineage/publication guards and the approved nonterminal-source permission.
+6. Freeze **all** consulted records and consumed schema bundle digests: source specification, native authority-model record, authority snapshot, OWNER approval receipt, failed phase result/plan, target snapshots, monitoring evidence, observation schema artifact, and publication receipts. The returned lineage digest covers this closure, not just the initial selector records.
+7. Re-run against the final integrated source/support hash. These evidence files explicitly remain pinned to d362 until then.
+
+## Precise unclosed obligations (not concealed by ninety checks)
+
+- **§12.20, GenerationSpecification ContractRecordRef graphs**: actual hydration of each behavioral requirement/input/output/acceptance/authority/delegation/Secret-use/target-derivation record and predicate implementation remains necessary. This module checks source document schema and exact native authority-model bytes, not every graph predicate. UPDATE/FOLLOW_UP discussion does not require an already complete new specification. RETRY/REPAIR do require authentic committed source approval; complete unchanged source graph hydration is required before execution/dispatch.
+- **§12.41 and `EvidenceRecord.observationSchema`**: the actual monitoring observation bytes, schema bytes, digest and exact target binding are checked. A target's concrete monitoring profile → consumer repair predicate implementation still needs declaration/hydration/execution to authorize automatic repair dispatch. The synthetic `failureCount >= 1` profile proves only that fixture. Schema validity alone is not general repair eligibility.
+- **§8.4 / §12.2 / §12.47 / §72.21**: optional ephemeral credential policy, Secret source exact purpose/target context, URL navigation policy and own target/source state/load contracts remain separate exact policies. Existing trusted boolean `ephemeralCredentialPolicyVerified` is not made valid by this selector block.
+- **§49.4 / §49.15 / §51.12 / §73.7**: authenticated SQL context, physical roots/FK, locking/current heads/recovery fences, immutable constraints and atomic commit/replay require real PostgreSQL fixture evidence. This is pre-generation work, not a deferred application gate.
+- **Future application acceptance**: deployed HTTP/application/consumer execution is NOT_EVALUATED. It is separate from the preceding mandatory design/fixture obligations.

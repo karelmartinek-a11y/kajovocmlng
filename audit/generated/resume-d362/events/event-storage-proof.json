@@ -1,0 +1,187 @@
+{
+  "format": "KCML-GENERATION-EVENT-STORAGE-PROOF/1",
+  "entryHead": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+  "sourceSha256": "9bf5510b189ef4f71216d56bf293599ac129d200ec92e90ff7c2c22f6b15e57b",
+  "files": {
+    "generation-event-storage-proposed.sql": "b79b6b4fc5e5d8fdbb8325a66def8a51322624af5a0bbae51876d5fc56e684c3",
+    "verify_event_storage.py": "394f3f6b9869894c185154f77fd656a6b139cfcd25e4168af30ef77783f3d8f2"
+  },
+  "postgres": {
+    "status": "EXECUTED",
+    "version": "PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+    "fixtureRoot": "MINIMAL_FK_DEPENDENCY_NOT_COMPLETE_ROOT"
+  },
+  "checks": [
+    {
+      "case": "positive-exact-response",
+      "passed": true
+    },
+    {
+      "case": "positive-exact-event",
+      "passed": true
+    },
+    {
+      "case": "outer-postgres17-parser",
+      "passed": true
+    },
+    {
+      "case": "hash-vector-deterministic/1",
+      "passed": true
+    },
+    {
+      "case": "hash-vector-deterministic/2",
+      "passed": true
+    },
+    {
+      "case": "hash-vector-deterministic/9223372036854775807",
+      "passed": true
+    },
+    {
+      "case": "postgres-DDL-and-plpgsql-executable",
+      "passed": true
+    },
+    {
+      "case": "postgres-hash-vector/1",
+      "passed": true
+    },
+    {
+      "case": "postgres-hash-vector/2",
+      "passed": true
+    },
+    {
+      "case": "postgres-hash-vector/9223372036854775807",
+      "passed": true
+    },
+    {
+      "case": "reject-missing-outbox",
+      "passed": true
+    },
+    {
+      "case": "rollback-no-root/outbox",
+      "passed": true
+    },
+    {
+      "case": "reject-missing-idempotency",
+      "passed": true
+    },
+    {
+      "case": "rollback-no-root/idempotency",
+      "passed": true
+    },
+    {
+      "case": "reject-missing-locator",
+      "passed": true
+    },
+    {
+      "case": "rollback-no-root/locator",
+      "passed": true
+    },
+    {
+      "case": "reject-missing-audit",
+      "passed": true
+    },
+    {
+      "case": "rollback-no-root/audit",
+      "passed": true
+    },
+    {
+      "case": "reject-audit-bytes-wrong-object-despite-valid-hash",
+      "passed": true
+    },
+    {
+      "case": "reject-head-hash-not-current-audit-tail",
+      "passed": true
+    },
+    {
+      "case": "postgres-valid-atomic-create",
+      "passed": true
+    },
+    {
+      "case": "committed-root-event-outbox-audit-join",
+      "passed": true
+    },
+    {
+      "case": "immutable-event-specific-rejection",
+      "passed": true
+    },
+    {
+      "case": "frozen-command-replay-specific-rejection",
+      "passed": true
+    },
+    {
+      "case": "idempotency-request-immutable-specific-rejection",
+      "passed": true
+    },
+    {
+      "case": "locator-operation-immutable-specific-rejection",
+      "passed": true
+    },
+    {
+      "case": "outbox-payload-digest-frozen-specific-rejection",
+      "passed": true
+    },
+    {
+      "case": "outbox-event-retarget-frozen-specific-rejection",
+      "passed": true
+    },
+    {
+      "case": "outbox-deletion-requires-retention-authority",
+      "passed": true
+    },
+    {
+      "case": "outbox-ready-cannot-skip-claim",
+      "passed": true
+    },
+    {
+      "case": "outbox-positive-fenced-claim",
+      "passed": true
+    },
+    {
+      "case": "outbox-positive-fenced-delivery",
+      "passed": true
+    },
+    {
+      "case": "outbox-delivered-terminal-immutable",
+      "passed": true
+    },
+    {
+      "case": "terminal-idempotency-state-immutable-specific-rejection",
+      "passed": true
+    },
+    {
+      "case": "terminal-idempotency-outcome-immutable-specific-rejection",
+      "passed": true
+    },
+    {
+      "case": "concurrent-locator-holder-established",
+      "passed": true
+    },
+    {
+      "case": "concurrent-same-locator-replay",
+      "passed": true
+    },
+    {
+      "case": "different-request-specific-idempotency-conflict",
+      "passed": true
+    },
+    {
+      "case": "unknown-transport-outcome-reconciles-original-receipt",
+      "passed": true
+    },
+    {
+      "case": "replay-frozen-result-no-second-event",
+      "passed": true
+    }
+  ],
+  "summary": {
+    "checks": 40,
+    "failed": 0
+  },
+  "runtimeAcceptance": "NOT_EVALUATED",
+  "open": [
+    "Full trusted context and exact owner/platform foreign keys",
+    "Full generic outbox purpose extensions",
+    "Archive policy collector and retention governance",
+    "Independent semantic integration review"
+  ]
+}

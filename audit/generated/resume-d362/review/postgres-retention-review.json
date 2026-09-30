@@ -1,0 +1,64 @@
+{
+  "scope": "Independent post-commit PostgreSQL retention/adversarial checks; every mutation runs inside rollback-only transaction. Not production implementation acceptance.",
+  "version": "PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+  "checks": [
+    {
+      "id": "terminal-idempotency-state",
+      "mutation": "UPDATE domain_idempotency_record SET state='EXECUTING';",
+      "expectedDiagnostic": "CREATE_IDEMPOTENCY_FROZEN_SCOPE",
+      "rejected": true,
+      "diagnostic": "ERROR:  55000: CREATE_IDEMPOTENCY_FROZEN_SCOPE\nCONTEXT:  PL/pgSQL function public.kcml_create_idempotency_frozen_v1() line 6 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "id": "terminal-idempotency-outcome",
+      "mutation": "UPDATE domain_idempotency_record SET canonical_outcome_digest=decode(repeat('00',32),'hex');",
+      "expectedDiagnostic": "CREATE_IDEMPOTENCY_FROZEN_SCOPE",
+      "rejected": true,
+      "diagnostic": "ERROR:  55000: CREATE_IDEMPOTENCY_FROZEN_SCOPE\nCONTEXT:  PL/pgSQL function public.kcml_create_idempotency_frozen_v1() line 6 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "id": "outbox-consumer-retarget",
+      "mutation": "UPDATE transactional_outbox SET consumer_scope='untrusted-consumer';",
+      "expectedDiagnostic": "CREATE_OUTBOX_FROZEN_DELIVERY",
+      "rejected": true,
+      "diagnostic": "ERROR:  55000: CREATE_OUTBOX_FROZEN_DELIVERY\nCONTEXT:  PL/pgSQL function public.kcml_create_outbox_frozen_v1() line 9 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "id": "outbox-payload-retarget",
+      "mutation": "UPDATE transactional_outbox SET payload_digest=decode(repeat('00',32),'hex');",
+      "expectedDiagnostic": "CREATE_OUTBOX_FROZEN_DELIVERY",
+      "rejected": true,
+      "diagnostic": "ERROR:  55000: CREATE_OUTBOX_FROZEN_DELIVERY\nCONTEXT:  PL/pgSQL function public.kcml_create_outbox_frozen_v1() line 9 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "id": "outbox-delete-after-delivery",
+      "mutation": "DELETE FROM transactional_outbox;",
+      "expectedDiagnostic": "CREATE_OUTBOX_RETENTION_AUTHORITY_REQUIRED",
+      "rejected": true,
+      "diagnostic": "ERROR:  55000: CREATE_OUTBOX_RETENTION_AUTHORITY_REQUIRED\nCONTEXT:  PL/pgSQL function public.kcml_create_outbox_frozen_v1() line 4 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "id": "terminal-delivery-state-rewrite",
+      "mutation": "UPDATE transactional_outbox SET state='DELIVERED',state_version=state_version+1;",
+      "expectedDiagnostic": "CREATE_OUTBOX_TERMINAL_IMMUTABLE",
+      "rejected": true,
+      "diagnostic": "ERROR:  55000: CREATE_OUTBOX_TERMINAL_IMMUTABLE\nCONTEXT:  PL/pgSQL function public.kcml_create_outbox_frozen_v1() line 17 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    },
+    {
+      "id": "terminal-command-delete",
+      "mutation": "DELETE FROM domain_command;",
+      "expectedDiagnostic": "domain_event_logical_operation_id_fkey",
+      "rejected": true,
+      "diagnostic": "ERROR:  23503: update or delete on table \"domain_command\" violates foreign key constraint \"domain_event_logical_operation_id_fkey\" on table \"domain_event\"\nDETAIL:  Key (logical_operation_id)=(00000000-0000-4000-8000-000000000001) is still referenced from table \"domain_event\".\nSCHEMA NAME:  public\nTABLE NAME:  domain_event\nCONSTRAINT NAME:  domain_event_logical_operation_id_fkey\nLOCATION:  ri_ReportViolation, ri_triggers.c:2799"
+    },
+    {
+      "id": "audit-byte-change",
+      "mutation": "UPDATE audit_event SET canonical_bytes=convert_to('{}','UTF8');",
+      "expectedDiagnostic": "CREATE_IMMUTABLE_RECORD",
+      "rejected": true,
+      "diagnostic": "ERROR:  55000: CREATE_IMMUTABLE_RECORD\nCONTEXT:  PL/pgSQL function public.kcml_create_record_immutable_v1() line 3 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909"
+    }
+  ],
+  "unexpectedAccepted": 0,
+  "sqlSha256": "632055791993c6569bd7798146768aad5e23b5bdb79bcaf34165dc1e5a9fcabd"
+}

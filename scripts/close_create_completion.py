@@ -179,7 +179,7 @@ def main():
   print(json.dumps({'status':'PASS' if exact else 'BLOCKED','pending':pending,'normativeTextExact':text.count(TEXT)==1}));return int(not exact)
  text=rewrite(text,items,updates)
  if '### 12.48 Create completion contracts' in text:
-  start=text.index('### 12.48 Create completion contracts');end=re.search(r'^## 13\.',text[start:],re.M)
+  start=text.index('### 12.48 Create completion contracts');end=re.search(r'^### 12\.(?:[5-9]\d|\d{3,}) |^## 13\.',text[start:],re.M)
   if not end:raise ValueError('CREATE_COMPLETION_SECTION_END_MISSING')
   text=text[:start]+TEXT+text[start+end.start():]
  if '### 12.48 Create completion contracts' not in text:

@@ -1,0 +1,138 @@
+{
+  "pointer": "contracts/operation-contracts.json#/records/540",
+  "record": {
+    "acceptanceGateIds": [
+      "ARCH_FAILURE_RECOVERY_CONSISTENT",
+      "ARCH_OPERATION_LIFECYCLE_COMPLETE",
+      "ARCH_TRACEABILITY_COMPLETE"
+    ],
+    "activationRelation": "CURRENT_EXACT_REVISION_BINDING_SET_ACTIVATION_EPOCH",
+    "aggregateRoot": "runtime_instance",
+    "allowedTransitionIds": [
+      "ADMIT",
+      "DISPATCH_OR_EXECUTE",
+      "RECONCILE_IF_NEEDED",
+      "TERMINAL_COMMIT"
+    ],
+    "apiOperationIds": [],
+    "auditEventTypes": [
+      "OPERATION_ADMITTED",
+      "OPERATION_STATE_CHANGED",
+      "OPERATION_TERMINAL"
+    ],
+    "authoritySourceRefs": [
+      {
+        "anchor": "section.50.25",
+        "relation": "AUTHORITY",
+        "section": "50.25",
+        "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+      },
+      {
+        "anchor": "section.50.31",
+        "relation": "AUTHORITY",
+        "section": "50.31",
+        "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+      }
+    ],
+    "cancellationPolicy": "NO_NEW_CHILD_AFTER_CANCEL_INTENT; POSSIBLE_EFFECT_REQUIRES_RECONCILIATION",
+    "canonicalDigest": "sha256:1b6189354d7fa77545a204b050516367a84280831a2383499cdb15b504fbcfa9",
+    "canonicalWriterId": "writer.runtime-gateway",
+    "chatCapabilityIds": [],
+    "checkpointPolicy": "BEFORE_AND_AFTER_EACH_NONATOMIC_EFFECT; TERMINAL_CHECKPOINT_AT_CLOSURE",
+    "cleanupPolicy": "TERMINAL_CLOSURE_REQUIRES_ALL_MANDATORY_CLEANUP_COMPLETE",
+    "closurePredicateId": "closure.operation.runtime.stop",
+    "commandSchemaRef": {
+      "schemaId": "urn:kcml:r9:operation:runtime.stop:command"
+    },
+    "completeRegistryOperation": true,
+    "concurrencyClaimPoint": "T1_BEFORE_DOMAIN_MUTATION",
+    "concurrencyKeyDerivation": "PERSISTED_BUSINESS_TARGET_TO_ROOT_RESOLUTION",
+    "concurrencyScope": "runtime_instance",
+    "deadlinePolicy": "ABSOLUTE_EFFECTIVE_MIN_OF_CALLER_PARENT_OPERATION_PLATFORM",
+    "expectedStateVersionPolicy": "REQUIRED_FOR_NONCOMMUTATIVE_MUTATION; NOT_APPLICABLE_FOR_READ_ONLY_OR_IMMUTABLE_APPEND",
+    "expectedStates": [
+      "SOURCE_CURRENT_STATE_OR_NO_STATE_FOR_CREATE_QUERY"
+    ],
+    "exposureClass": "AUTOMATED_MAINTENANCE",
+    "fencingPolicy": "CURRENT_PLATFORM_INCARNATION_RECOVERY_EPOCH_AND_LEASE_FENCE_ON_EVERY_WRITE",
+    "idempotencyKeySource": "Idempotency-Key header or server-derived stable key for automated source",
+    "idempotencyScope": "runtime.stop:caller:business-target",
+    "operationFamily": "RUNTIME",
+    "operationId": "runtime.stop",
+    "operationName": "runtime.stop",
+    "operationRevision": "R9.1",
+    "orderedLockPlanId": "lock.r9.runtime_instance",
+    "outboxPurposes": [
+      "DOMAIN_EVENT",
+      "SIDE_EFFECT_DISPATCH_IF_APPLICABLE"
+    ],
+    "possibleEffectTrigger": "EXTERNAL_DISPATCH_INTENT_CLAIM",
+    "reconciliationOracleId": "recovery.r9.runtime.stop",
+    "requestDigestProfile": "KCML-CANONICAL-JSON/1_EXCLUDING_TRANSPORT_EPHEMERA",
+    "requirementIds": [
+      "KCML-REQ-CH50-063881c54e6fcbfa3fae37feb0768435219ac217f1695550ff1444eacb91bf61",
+      "KCML-REQ-CH50-0e41f9af6b737682da3f3b786ca610228f9b5739e4882934e53d1f8c6124b9aa",
+      "KCML-REQ-CH50-16b1240a319700501eec2391f7f4f74857142dbbc0d593f91102aae320874eb3",
+      "KCML-REQ-CH50-16deb96ac5586e24aeefc6173c2f5c43c796e77f997dafd8f452eebc164ce078",
+      "KCML-REQ-CH50-1905db7b237de652a0b2a5058afe0a9a6c30b55ef9b5eb6c92c4139436e09709",
+      "KCML-REQ-CH50-1e69034e0f9b3ef5e2059cb4da4c6c052f0a8a8d51c19de559677aeedf0c925c",
+      "KCML-REQ-CH50-1e7dc19d6fd88d32b432ab8c73ff66746830ffeb1c4ea3ed686830bc82bfd37d",
+      "KCML-REQ-CH50-26c8a14a4c490e1035e930fd6bab961679b9389410e2dfa97cadd7bc277214c1",
+      "KCML-REQ-CH50-27639269c18ce5673058e8fead45d2b0ed14e4c52efaa404ac15238cb8bed8f3",
+      "KCML-REQ-CH50-2f5c9d1dc43de2b9efcffc96a4557011a00acf3f9cc602cf462dd1330e697596",
+      "KCML-REQ-CH50-2fe099d30c60611c2b262c5b328e36ffd98ab8cacb5eb381ffeb637776968492",
+      "KCML-REQ-CH50-34a19bf6f25c764346d4551ceba6cfb6eb6f42111f581f1e11ff4d67ed35a065",
+      "KCML-REQ-CH50-38ea7a4fdb09a88445f680f63bae1fa4ba4000ba516eef3d3ff1490ad546c743",
+      "KCML-REQ-CH50-39c433d06b7e701b3a46e91076399ad3659b63f48ff3fde95eb72715ceb10988",
+      "KCML-REQ-CH50-3d506b814dfae639468a22683d3b769edfce2d5917859d67f63831e53cf96873",
+      "KCML-REQ-CH50-3ed02db2a537322fd19115a672c43094908f32063fd479e93dda23c8e111e276",
+      "KCML-REQ-CH50-45c060a272a2009c24a907621793c4da16facedf98c9ed10168c651dcfbccc24",
+      "KCML-REQ-CH50-481f1f33e536068e981fcc28ab771cdd1117aec7b8a444bc36838de738e28d3b",
+      "KCML-REQ-CH50-49ac11f67b7385631c2a8302a2532a89343169edd58b9b3e4a092df42b49a930",
+      "KCML-REQ-CH50-4bb9d327b90fd195043b82310ae90e33e9905531d5dac4ab10f8ee153b064a51",
+      "KCML-REQ-CH50-5abbb4fd954c2d701d120269b1f91939462962b9ff67924e3b77b9834ea2fe2a",
+      "KCML-REQ-CH50-62f6af8f88b015cf6b680b67b56ac11ba3f0d0ccae41fbf6b27317cbc8ed4458",
+      "KCML-REQ-CH50-646c2a4213874378266e4e73538a1c993bb773b465aafc7fade2cedd00a43347",
+      "KCML-REQ-CH50-6a6345a56d0e1b8f3cdd8f95803a03d704d8157566ea8d706b8a2a94c1e185b6",
+      "KCML-REQ-CH50-7a14e7056bd92817d46b696ffd46c130fbaf5c062bb7bd12a4ff62f7e9defd17",
+      "KCML-REQ-CH50-875eb7578e006a1cf3c16793f96a693ef0e4a879a40f73676811b0c3ecf4f8f7",
+      "KCML-REQ-CH50-98a360d7ff20a033ff9370638bffd3c5a178e37cfaf0cbe0af2322bb4422b17d",
+      "KCML-REQ-CH50-a2ff9955396af3f95ea33e094016a43e3ac5b24b96fec42ce0122f98468862f9",
+      "KCML-REQ-CH50-a41731969bd795d54bd05ee0316602be7e1aa39fd170887378d08b999768945c",
+      "KCML-REQ-CH50-a67643db6153b0607eabe9506e05ca5b77098a244e5a69e22367f25a4f57d564",
+      "KCML-REQ-CH50-b0381d684be8c6764a22d8c588acd0a1457275f40ce2de433230a368eb477513",
+      "KCML-REQ-CH50-c482b5addee46484c8167b1512a603a1745ad2febcfd7bff6b308662cf563291",
+      "KCML-REQ-CH50-c83af28cf81007e165668d1fc2ff0addf741f985dab2cc32335638fb5e944cbd",
+      "KCML-REQ-CH50-cc40e1c3a4a100fc28a2534681cfde505571c81208b33739c8f1951dfd14b0a2",
+      "KCML-REQ-CH50-d1bde0390bfb65194d1db15dad25db0152e611de417da82777b51ecd9511fdf1",
+      "KCML-REQ-CH50-d8a00244281017aca8d070907c6e5a1a7c4999e82bf3aa96c84ca9afb981ac31",
+      "KCML-REQ-CH50-e19fbdd298194df8383c8f4ab88edce1642c1654007d2f9aa9dc6bfe84bbe70e",
+      "KCML-REQ-CH50-e78c089deeb5102c539fdd80c41569743d1c485ac5e02aaa2ed2e97e89de39c9",
+      "KCML-REQ-CH50-f41bd2c7b82ed1c0e478a4b11e2db72b4559ce0c7cfa3afe5ce10d210fb1346a",
+      "KCML-REQ-CH50-f60733e1d8ba67bb9efa942be1438a38d2a40dca1377862b24a05937abbf201e",
+      "KCML-REQ-CH50-f62a242c374faaaad627b5fe9a517d160ef2e17f681ec88ef0034a8632ede4fc",
+      "KCML-REQ-CH50-fa048bef3f893d56f034e27bb9df320e34051b2ea40d14ae91ab6985e2862f1a",
+      "KCML-REQ-CH50-fdb52d8af2ce9b6d8beb1ca92d14c24a0fd6b2a7a27f7324cf102715dd693275"
+    ],
+    "responseSchemaRef": {
+      "schemaId": "urn:kcml:r9:operation:runtime.stop:response"
+    },
+    "retryClass": "RECONCILE_BEFORE_RETRY",
+    "retryDirectiveMapRef": "contracts/registries/RecoveryDecisionTable.json#recovery.common.v5",
+    "selfTestCaseIds": [
+      "selftest.contract.runtime.stop"
+    ],
+    "sideEffectClass": "EXTERNAL_EFFECT",
+    "stateMachineId": "model.r9.operation-execution",
+    "subsystemSideEffectClass": "EXTERNAL_EFFECT",
+    "successorPolicy": "SUCCESSOR_RESERVED_IN_SAME_TERMINAL_TRANSACTION_WHEN_WORKFLOW_REQUIRES",
+    "terminalOutcomes": [
+      "SUCCEEDED",
+      "FAILED_KNOWN",
+      "CANCELLED_CONFIRMED",
+      "MANUAL_REVIEW_BLOCKING"
+    ],
+    "transactionProfileId": "WORKER_COMMIT",
+    "uiActionIds": []
+  }
+}

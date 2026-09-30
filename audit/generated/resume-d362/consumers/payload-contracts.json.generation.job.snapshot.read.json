@@ -1,0 +1,598 @@
+{
+  "pointer": "contracts/payload-contracts.json#/records/218",
+  "record": {
+    "authContract": "EXISTING_BOUNDARY_AUTH_ONLY_NO_PAYLOAD_AUTHORITY",
+    "base": "API_ROOT",
+    "eventSchema": {
+      "$id": "urn:kcml:r9:route:route.0218:event",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "correlationId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "eventType": {
+          "enum": [
+            "ACCEPTED",
+            "PROGRESS",
+            "WAITING_FOR_INPUT",
+            "RECONCILING",
+            "TERMINAL"
+          ],
+          "type": "string"
+        },
+        "logicalOperationId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "operationId": {
+          "const": "generation.job.snapshot.read"
+        },
+        "payload": {
+          "$id": "urn:kcml:r9:semantic:route.0218:event-payload",
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "schemaId": {
+              "const": "urn:kcml:r9:semantic:route.0218:event-payload"
+            },
+            "values": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "canonicalJson": {
+                    "maxLength": 1048576,
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "requirementId": {
+                    "enum": [
+                      "__ROUTE_CONTRACT_ONLY__"
+                    ],
+                    "type": "string"
+                  },
+                  "slot": {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "pattern": "^[A-Za-z0-9_.:/-]+$",
+                    "type": "string"
+                  },
+                  "value": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "maxLength": 1048576,
+                        "type": "string"
+                      },
+                      {
+                        "maximum": 9007199254740991,
+                        "minimum": -9007199254740991,
+                        "type": "integer"
+                      }
+                    ]
+                  },
+                  "valueDigest": {
+                    "pattern": "^sha256:[0-9a-f]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "requirementId",
+                  "slot",
+                  "value",
+                  "canonicalJson",
+                  "valueDigest"
+                ],
+                "type": "object"
+              },
+              "maxItems": 4096,
+              "type": "array"
+            }
+          },
+          "required": [
+            "schemaId",
+            "values"
+          ],
+          "type": "object"
+        },
+        "payloadDigest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "routeId": {
+          "const": "route.0218"
+        },
+        "sequence": {
+          "maxLength": 19,
+          "minLength": 1,
+          "pattern": "^(?:[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+          "type": "string"
+        }
+      },
+      "required": [
+        "routeId",
+        "operationId",
+        "eventType",
+        "logicalOperationId",
+        "correlationId",
+        "sequence",
+        "payload",
+        "payloadDigest"
+      ],
+      "type": "object"
+    },
+    "method": "GET",
+    "operationId": "generation.job.snapshot.read",
+    "path": "/generation/jobs/{id}/snapshot",
+    "requestSchema": {
+      "$id": "urn:kcml:r9:route:route.0218:request",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$id": "urn:kcml:r9:semantic:route.0218:body",
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "additionalProperties": false,
+              "properties": {
+                "schemaId": {
+                  "const": "urn:kcml:r9:semantic:route.0218:body"
+                },
+                "values": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "canonicalJson": {
+                        "maxLength": 1048576,
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "requirementId": {
+                        "enum": [
+                          "__ROUTE_CONTRACT_ONLY__"
+                        ],
+                        "type": "string"
+                      },
+                      "slot": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z0-9_.:/-]+$",
+                        "type": "string"
+                      },
+                      "value": {
+                        "oneOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "maxLength": 1048576,
+                            "type": "string"
+                          },
+                          {
+                            "maximum": 9007199254740991,
+                            "minimum": -9007199254740991,
+                            "type": "integer"
+                          }
+                        ]
+                      },
+                      "valueDigest": {
+                        "pattern": "^sha256:[0-9a-f]{64}$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "requirementId",
+                      "slot",
+                      "value",
+                      "canonicalJson",
+                      "valueDigest"
+                    ],
+                    "type": "object"
+                  },
+                  "maxItems": 4096,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "schemaId",
+                "values"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "guards": {
+          "additionalProperties": false,
+          "properties": {
+            "clientRequestDigest": {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "deadlineAt": {
+              "format": "date-time",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedActivationEpoch": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedBindingSetRevision": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedReleaseId": {
+              "maxLength": 256,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedRevisionId": {
+              "maxLength": 256,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedStateVersion": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "idempotencyKey": {
+              "maxLength": 512,
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "idempotencyKey",
+            "expectedStateVersion",
+            "expectedRevisionId",
+            "expectedReleaseId",
+            "expectedBindingSetRevision",
+            "expectedActivationEpoch",
+            "deadlineAt",
+            "clientRequestDigest"
+          ],
+          "type": "object"
+        },
+        "operationId": {
+          "const": "generation.job.snapshot.read"
+        },
+        "pathParameters": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 36,
+              "minLength": 36,
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "type": "object"
+        },
+        "query": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "maxLength": 128,
+                "minLength": 1,
+                "type": "string"
+              },
+              "value": {
+                "maxLength": 65536,
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "value"
+            ],
+            "type": "object"
+          },
+          "maxItems": 256,
+          "type": "array"
+        },
+        "routeId": {
+          "const": "route.0218"
+        }
+      },
+      "required": [
+        "routeId",
+        "operationId",
+        "pathParameters",
+        "query",
+        "body",
+        "guards"
+      ],
+      "type": "object"
+    },
+    "reservedPlatformFieldsRejected": true,
+    "resolvedObligationIds": [
+      "open.bb9a53e94a9fcdd5801e3761"
+    ],
+    "responseSchema": {
+      "$id": "urn:kcml:r9:route:route.0218:response",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "SUCCEEDED",
+                  "ACCEPTED"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "error": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "FAILED",
+                  "CANCELLED"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "output": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "correlationId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "error": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "classification": {
+                  "enum": [
+                    "VALIDATION",
+                    "AUTHENTICATION",
+                    "CONFLICT",
+                    "CAPACITY",
+                    "DEPENDENCY",
+                    "TIMEOUT",
+                    "CANCELLED",
+                    "UNKNOWN",
+                    "INTERNAL"
+                  ],
+                  "type": "string"
+                },
+                "detailsDigest": {
+                  "pattern": "^sha256:[0-9a-f]{64}$",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "message": {
+                  "maxLength": 8192,
+                  "type": "string"
+                },
+                "retryDirective": {
+                  "enum": [
+                    "DO_NOT_RETRY",
+                    "RETRY_SAME_OPERATION",
+                    "REFRESH_AND_RETRY_NEW_COMMAND",
+                    "RECONCILE_THEN_RETRY",
+                    "MANUAL_REVIEW"
+                  ],
+                  "type": "string"
+                },
+                "stableCode": {
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "stableCode",
+                "classification",
+                "retryDirective",
+                "message",
+                "detailsDigest"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "logicalOperationId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "operationId": {
+          "const": "generation.job.snapshot.read"
+        },
+        "output": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$id": "urn:kcml:r9:semantic:route.0218:output",
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "additionalProperties": false,
+              "properties": {
+                "schemaId": {
+                  "const": "urn:kcml:r9:semantic:route.0218:output"
+                },
+                "values": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "canonicalJson": {
+                        "maxLength": 1048576,
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "requirementId": {
+                        "enum": [
+                          "__ROUTE_CONTRACT_ONLY__"
+                        ],
+                        "type": "string"
+                      },
+                      "slot": {
+                        "maxLength": 256,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z0-9_.:/-]+$",
+                        "type": "string"
+                      },
+                      "value": {
+                        "oneOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "maxLength": 1048576,
+                            "type": "string"
+                          },
+                          {
+                            "maximum": 9007199254740991,
+                            "minimum": -9007199254740991,
+                            "type": "integer"
+                          }
+                        ]
+                      },
+                      "valueDigest": {
+                        "pattern": "^sha256:[0-9a-f]{64}$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "requirementId",
+                      "slot",
+                      "value",
+                      "canonicalJson",
+                      "valueDigest"
+                    ],
+                    "type": "object"
+                  },
+                  "maxItems": 4096,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "schemaId",
+                "values"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "resultDigest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "routeId": {
+          "const": "route.0218"
+        },
+        "status": {
+          "enum": [
+            "SUCCEEDED",
+            "ACCEPTED",
+            "FAILED",
+            "CANCELLED"
+          ],
+          "type": "string"
+        },
+        "terminal": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "routeId",
+        "operationId",
+        "logicalOperationId",
+        "correlationId",
+        "status",
+        "terminal",
+        "output",
+        "error",
+        "resultDigest"
+      ],
+      "type": "object"
+    },
+    "routeId": "route.0218",
+    "semanticRules": [
+      "DUPLICATE_SLOT_REJECT",
+      "CANONICAL_JSON_MUST_MATCH_VALUE_WHEN_NON_NULL",
+      "VALUE_DIGEST_OVER_CANONICAL_VALUE",
+      "PLATFORM_IDENTITY_FIELDS_FORBIDDEN_IN_BUSINESS_BODY",
+      "SERVER_REVALIDATES_OPERATION_NATIVE_CONTRACT_BEFORE_DISPATCH"
+    ],
+    "sourceRequirementIds": [],
+    "transportKind": "HTTP_ROUTE",
+    "unresolvedObligationIds": []
+  }
+}

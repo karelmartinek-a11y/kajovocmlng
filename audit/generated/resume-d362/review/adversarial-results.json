@@ -1,0 +1,62 @@
+{
+  "sourceHead": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+  "scope": "Independent adversarial model inputs. No runtime or PostgreSQL acceptance. Findings intentionally expose current accepted counterexamples.",
+  "findings": [
+    {
+      "id": "invented-evidence-hashes-and-finalization-boolean",
+      "result": "ACCEPTED",
+      "value": {
+        "state": "CANCELLED",
+        "cleanupStatus": "COMPLETE",
+        "reconciliationStatus": "COMPLETE"
+      },
+      "interpretation": "Digest shape and boolean do not prove durable closure/fence. Projection only, not proof of full cancellation closure."
+    },
+    {
+      "id": "unknown-evidence-bytes-still-terminal",
+      "result": "ACCEPTED",
+      "value": {
+        "state": "CANCELLED",
+        "cleanupStatus": "COMPLETE",
+        "reconciliationStatus": "COMPLETE"
+      },
+      "interpretation": "No evidence repository resolver exists; syntactically valid arbitrary digest remains accepted."
+    },
+    {
+      "id": "malformed-authoritative-obligation-id",
+      "result": "ACCEPTED",
+      "value": {
+        "state": "CANCELLED",
+        "cleanupStatus": "COMPLETE",
+        "reconciliationStatus": "COMPLETE"
+      },
+      "interpretation": "Reference must type its trusted inputs, or state explicit prevalidated-input prerequisite."
+    },
+    {
+      "id": "falsey-finalization-string",
+      "result": "ACCEPTED",
+      "value": {
+        "state": "CANCELLED",
+        "cleanupStatus": "COMPLETE",
+        "reconciliationStatus": "COMPLETE"
+      },
+      "interpretation": "Truthy string must not mean committed terminalization; bool input currently unvalidated."
+    },
+    {
+      "id": "unknown-ui-outcome-classification",
+      "result": "ACCEPTED",
+      "value": "DISPLAY_CANONICAL_OUTCOME",
+      "interpretation": "UI reducer accepts undefined classification/status rather than structured contract rejection."
+    },
+    {
+      "id": "unknown-with-accepted-status",
+      "result": "ACCEPTED",
+      "value": "RECONCILE_ORIGINAL_LOGICAL_OPERATION",
+      "interpretation": "Outcome coherence must be checked upstream or explicitly in reducer; current branch trusts string hints."
+    }
+  ],
+  "consumedSha256": {
+    "audit/generated/resume-d362/sql-lifecycle/state_reference.py": "10ce0e730dfffc9b518f245117a095e74495294105bd13d4fefdd4edcfaaa861",
+    "audit/generated/resume-d362/consumers/generation_consumer_reference.py": "5a1fe7c84ed8b5dcec7afbd7fb27bdb76d755692cd30e754ae504282047cc2ab"
+  }
+}

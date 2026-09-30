@@ -1,0 +1,398 @@
+{
+  "sourceDocumentSha256": "9bf5510b189ef4f71216d56bf293599ac129d200ec92e90ff7c2c22f6b15e57b",
+  "structuralFields": 39,
+  "semanticScope": "All17 field groups of generation_job25.11, not proof of missing external FK semantics",
+  "fields": [
+    {
+      "field": "id",
+      "sqlType": "uuid",
+      "nullable": false,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/1",
+      "authoritativeClause": "id, fixed OWNER actor a initiating access channel/execution context",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "PRIMARY KEY"
+    },
+    {
+      "field": "owner_id",
+      "sqlType": "uuid",
+      "nullable": false,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/1",
+      "authoritativeClause": "id, fixed OWNER actor a initiating access channel/execution context",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NOT NULL REFERENCES owner_identity(id) ON DELETE RESTRICT"
+    },
+    {
+      "field": "initiating_access_channel",
+      "sqlType": "text",
+      "nullable": false,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/1",
+      "authoritativeClause": "id, fixed OWNER actor a initiating access channel/execution context",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "exact own enum or unmodified text",
+      "sqlConstraint": "NOT NULL"
+    },
+    {
+      "field": "initiating_execution_context_id",
+      "sqlType": "uuid",
+      "nullable": false,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/1",
+      "authoritativeClause": "id, fixed OWNER actor a initiating access channel/execution context",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NOT NULL"
+    },
+    {
+      "field": "kind",
+      "sqlType": "text",
+      "nullable": false,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/2",
+      "authoritativeClause": "kind CREATE, UPDATE, FOLLOW_UP, RETRY, REPAIR",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "exact own enum or unmodified text",
+      "sqlConstraint": "NOT NULL CHECK (kind IN ('CREATE','UPDATE','FOLLOW_UP','RETRY','REPAIR'))"
+    },
+    {
+      "field": "target_kind",
+      "sqlType": "text",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/3",
+      "authoritativeClause": "target kind a voliteln\u00fd target object",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "exact own enum or unmodified text",
+      "sqlConstraint": "NULL CHECK (target_kind IN ('MCP_SERVER','MCP_TOOL','MCP_RESOURCE','MCP_PROMPT','AI_AGENT','AGENT_TOOL_ADAPTER','AGENT_AS_TOOL','AGENT_HANDOFF','PLATFORM_COMPONENT','MANAGED_RUNTIME','EXTERNAL_API_CONNECTOR','WEBHOOK_HANDLER','PULSE_INTEGRATION','BROWSER_AUTOMATION','OWNER_UI'))"
+    },
+    {
+      "field": "target_object_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/3",
+      "authoritativeClause": "target kind a voliteln\u00fd target object",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "state",
+      "sqlType": "text",
+      "nullable": false,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/4",
+      "authoritativeClause": "lifecycle state a current phase",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "exact own enum or unmodified text",
+      "sqlConstraint": "NOT NULL CHECK (state IN ('ACTIVATING','ANALYZING','BLOCKED','CANCELLED','CML_CONFORMANCE','COMPLETED','DISCUSSING','FAILED','IMPLEMENTING','INTEGRATING','VALIDATING'))"
+    },
+    {
+      "field": "current_phase",
+      "sqlType": "text",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/4",
+      "authoritativeClause": "lifecycle state a current phase",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "exact own enum or unmodified text",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "state_version",
+      "sqlType": "bigint",
+      "nullable": false,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/5",
+      "authoritativeClause": "state_version a aggregate event sequence",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical decimal string",
+      "sqlConstraint": "NOT NULL DEFAULT 0 CHECK (state_version>=0)"
+    },
+    {
+      "field": "aggregate_event_sequence",
+      "sqlType": "bigint",
+      "nullable": false,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/5",
+      "authoritativeClause": "state_version a aggregate event sequence",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical decimal string",
+      "sqlConstraint": "NOT NULL DEFAULT 0 CHECK (aggregate_event_sequence>=0)"
+    },
+    {
+      "field": "initial_request_snapshot_id",
+      "sqlType": "uuid",
+      "nullable": false,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/6",
+      "authoritativeClause": "immutable initial request a digest",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NOT NULL UNIQUE"
+    },
+    {
+      "field": "initial_request_digest",
+      "sqlType": "bytea",
+      "nullable": false,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/6",
+      "authoritativeClause": "immutable initial request a digest",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "sha256:<lowerhex> for32-byte digest",
+      "sqlConstraint": "NOT NULL CHECK (octet_length(initial_request_digest)=32)"
+    },
+    {
+      "field": "parent_job_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/7",
+      "authoritativeClause": "parent/source job",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NULL REFERENCES generation_job(id) ON DELETE RESTRICT"
+    },
+    {
+      "field": "current_spec_revision_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/8",
+      "authoritativeClause": "current/approved spec pointers a approved digest",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "approved_spec_revision_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/8",
+      "authoritativeClause": "current/approved spec pointers a approved digest",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "approved_specification_digest",
+      "sqlType": "bytea",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/8",
+      "authoritativeClause": "current/approved spec pointers a approved digest",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "sha256:<lowerhex> for32-byte digest",
+      "sqlConstraint": "NULL CHECK (octet_length(approved_specification_digest)=32)"
+    },
+    {
+      "field": "execution_authority_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/9",
+      "authoritativeClause": "execution authority ID",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "current_capability_snapshot_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/10",
+      "authoritativeClause": "current capability snapshot a plan ID",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "current_plan_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/10",
+      "authoritativeClause": "current capability snapshot a plan ID",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "active_phase_run_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/11",
+      "authoritativeClause": "active phase run a latest checkpoint",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "latest_checkpoint_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/11",
+      "authoritativeClause": "active phase run a latest checkpoint",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "previous_release_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/12",
+      "authoritativeClause": "previous/candidate release a activation set",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "candidate_release_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/12",
+      "authoritativeClause": "previous/candidate release a activation set",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "activation_set_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/12",
+      "authoritativeClause": "previous/candidate release a activation set",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "cancellation_version",
+      "sqlType": "bigint",
+      "nullable": false,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/13",
+      "authoritativeClause": "cancellation version, blocker a error",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical decimal string",
+      "sqlConstraint": "NOT NULL DEFAULT 0 CHECK (cancellation_version>=0)"
+    },
+    {
+      "field": "blocker_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/13",
+      "authoritativeClause": "cancellation version, blocker a error",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "error_code",
+      "sqlType": "text",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/13",
+      "authoritativeClause": "cancellation version, blocker a error",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "exact own enum or unmodified text",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "coordinator_lease_owner_id",
+      "sqlType": "uuid",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/14",
+      "authoritativeClause": "coordinator lease owner/fencing token/expiry/heartbeat",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "coordinator_fencing_token",
+      "sqlType": "bigint",
+      "nullable": false,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/14",
+      "authoritativeClause": "coordinator lease owner/fencing token/expiry/heartbeat",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical decimal string",
+      "sqlConstraint": "NOT NULL DEFAULT 0 CHECK (coordinator_fencing_token>=0)"
+    },
+    {
+      "field": "coordinator_lease_expires_at",
+      "sqlType": "timestamptz",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/14",
+      "authoritativeClause": "coordinator lease owner/fencing token/expiry/heartbeat",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "RFC3339 UTC timestamp",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "coordinator_heartbeat_at",
+      "sqlType": "timestamptz",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/14",
+      "authoritativeClause": "coordinator lease owner/fencing token/expiry/heartbeat",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "RFC3339 UTC timestamp",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "platform_incarnation_id",
+      "sqlType": "uuid",
+      "nullable": false,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/15",
+      "authoritativeClause": "coordinator platform incarnation a application deployment epoch",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NOT NULL"
+    },
+    {
+      "field": "application_deployment_epoch",
+      "sqlType": "bigint",
+      "nullable": false,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/15",
+      "authoritativeClause": "coordinator platform incarnation a application deployment epoch",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical decimal string",
+      "sqlConstraint": "NOT NULL CHECK (application_deployment_epoch>=0)"
+    },
+    {
+      "field": "created_at",
+      "sqlType": "timestamptz",
+      "nullable": false,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/16",
+      "authoritativeClause": "created/started/completed timestamps",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "RFC3339 UTC timestamp",
+      "sqlConstraint": "NOT NULL"
+    },
+    {
+      "field": "started_at",
+      "sqlType": "timestamptz",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/16",
+      "authoritativeClause": "created/started/completed timestamps",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "RFC3339 UTC timestamp",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "completed_at",
+      "sqlType": "timestamptz",
+      "nullable": true,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/16",
+      "authoritativeClause": "created/started/completed timestamps",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "RFC3339 UTC timestamp",
+      "sqlConstraint": "NULL"
+    },
+    {
+      "field": "client_request_id",
+      "sqlType": "text",
+      "nullable": false,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/17",
+      "authoritativeClause": "client request ID a latest command logical operation",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "exact own enum or unmodified text",
+      "sqlConstraint": "NOT NULL"
+    },
+    {
+      "field": "latest_command_logical_operation_id",
+      "sqlType": "uuid",
+      "nullable": false,
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#25.11/generation_job/bullet/17",
+      "authoritativeClause": "client request ID a latest command logical operation",
+      "origin": "canonical server/locked persisted records; never client assertion",
+      "wireConversion": "canonical UUID string",
+      "sqlConstraint": "NOT NULL REFERENCES domain_command(logical_operation_id) ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED"
+    }
+  ],
+  "entryCanonicalSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+}

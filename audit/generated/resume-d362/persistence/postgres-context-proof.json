@@ -1,0 +1,216 @@
+{
+  "format": "KCML-PG-TRUSTED-CONTEXT-CONSUMER/1",
+  "inputCommit": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+  "sourceDocumentSha256": "9bf5510b189ef4f71216d56bf293599ac129d200ec92e90ff7c2c22f6b15e57b",
+  "postgresVersion": "18.6",
+  "sqlSha256": "2f9d0cef4b1ae85d66c9325f1550c4d90bdb45400a264cc122363969abe836bf",
+  "roleSqlSha256": "1dbe9ba834c39a4fc5304c2f27288059bc784a79a15d958d92bcdc600bfa80eb",
+  "verifierSha256": "8d81defbc0bcfc5d3b518702d4334211c2531641baebe7d6ca60662879b4b198",
+  "fixtureSetupSha256": "b0ea931e3f6ce8b05212dc831b8bd98fbb550c62050b1eec47c7274ad35cbff7",
+  "checks": [
+    {
+      "id": "session-context-from-current-owned-receipt",
+      "status": "PASS",
+      "expectedSqlstate": null,
+      "actualSqlstate": null,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "api-context-from-current-singleton-receipt",
+      "status": "PASS",
+      "expectedSqlstate": null,
+      "actualSqlstate": null,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "physical-singleton-key-one-owner_identity",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "physical-singleton-key-one-platform_incarnation",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "physical-singleton-key-one-application_deployment_head",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "physical-singleton-key-one-owner-api",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "domain-writer-executes-reviewed-constructor",
+      "status": "PASS",
+      "expectedSqlstate": null,
+      "actualSqlstate": null,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "domain-writer-cannot-forge-authentication-receipt",
+      "status": "PASS",
+      "expectedSqlstate": "42501",
+      "actualSqlstate": "42501",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "domain-writer-cannot-forge-context-row",
+      "status": "PASS",
+      "expectedSqlstate": "42501",
+      "actualSqlstate": "42501",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "domain-writer-cannot-set-builder-role",
+      "status": "PASS",
+      "expectedSqlstate": "42501",
+      "actualSqlstate": "42501",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "revoked-session-specific-reject",
+      "status": "PASS",
+      "expectedSqlstate": "28000",
+      "actualSqlstate": "28000",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "expired-session-specific-reject",
+      "status": "PASS",
+      "expectedSqlstate": "28000",
+      "actualSqlstate": "28000",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "session-owner-epoch-changed",
+      "status": "PASS",
+      "expectedSqlstate": "28000",
+      "actualSqlstate": "28000",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "session-record-epoch-changed",
+      "status": "PASS",
+      "expectedSqlstate": "28000",
+      "actualSqlstate": "28000",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "session-lookup-digest-changed",
+      "status": "PASS",
+      "expectedSqlstate": "28000",
+      "actualSqlstate": "28000",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "rotated-api-version-specific-reject",
+      "status": "PASS",
+      "expectedSqlstate": "28000",
+      "actualSqlstate": "28000",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "rotated-api-fingerprint-specific-reject",
+      "status": "PASS",
+      "expectedSqlstate": "28000",
+      "actualSqlstate": "28000",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "incarnation-mismatch-specific-reject",
+      "status": "PASS",
+      "expectedSqlstate": "40001",
+      "actualSqlstate": "40001",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "authentication-receipt-immutable",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "context-immutable",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "short-request-digest-specific-reject",
+      "status": "PASS",
+      "expectedSqlstate": "22023",
+      "actualSqlstate": "22023",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "no-fake-receipt-specific-reject",
+      "status": "PASS",
+      "expectedSqlstate": "P0002",
+      "actualSqlstate": "P0002",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "temporary-relation-cannot-forge-trusted-auth-receipt",
+      "status": "PASS",
+      "expectedSqlstate": "P0002",
+      "actualSqlstate": "P0002",
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    },
+    {
+      "id": "descriptor-derived-digest-actual-bytes",
+      "status": "PASS",
+      "expectedSqlstate": null,
+      "actualSqlstate": null,
+      "witness": "persisted synthetic server authentication acceptance +actual current-row values",
+      "secretValuesIncluded": false
+    }
+  ],
+  "summary": {
+    "checks": 24,
+    "failed": 0
+  },
+  "notProven": [
+    "actual session/API authentication hash verification service",
+    "complete source authentication tableDDL",
+    "actual deployed service-login group grants",
+    "main-mutation recovery/admission guard",
+    "whole operation transaction closure"
+  ],
+  "futureImplementationAcceptance": "NOT_EVALUATED"
+}

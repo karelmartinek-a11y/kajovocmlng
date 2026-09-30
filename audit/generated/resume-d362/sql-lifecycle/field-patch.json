@@ -1,0 +1,116 @@
+{
+  "sourceHead": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+  "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+  "resourceBindings": {
+    "closure/contracts/operation-payloads.json": "5b3e55556392de8451780634767750ac0c16496682b372c47befc28c0f7dcfbd",
+    "closure/contracts/operation-overlay.json": "844a0a188f24997d63d32f13c5078a6767ac2b177a5065ec911824f12f59663e",
+    "database/operation-functions.sql": "55f69f9d58f6d45dc79329762a182792be0f5b422ed11f0af9fac8a7d9d200e8"
+  },
+  "resource": "closure/contracts/operation-payloads.json",
+  "patch": [
+    {
+      "op": "replace",
+      "path": "/records/0/responseSchema/properties/enrollmentState",
+      "value": {
+        "type": "string",
+        "const": "ENROLLMENT_REQUIRED"
+      },
+      "operationId": "owner.mfa.reset",
+      "oldValue": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+        "type": "string"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/records/1/responseSchema/properties/checkpointDisposition",
+      "value": {
+        "type": "string",
+        "const": "STEERING_COMMITTED"
+      },
+      "operationId": "chat.turn.steer",
+      "oldValue": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+        "type": "string"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/records/12/responseSchema/properties/state",
+      "value": {
+        "type": "string",
+        "const": "QUEUED"
+      },
+      "operationId": "acceptance.run.start",
+      "oldValue": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+        "type": "string"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/records/13/responseSchema/properties/state",
+      "value": {
+        "type": "string",
+        "enum": [
+          "CANCEL_REQUESTED",
+          "RECONCILING",
+          "MANUAL_REVIEW",
+          "CANCELLED"
+        ]
+      },
+      "operationId": "acceptance.run.cancel",
+      "oldValue": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+        "type": "string"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/records/13/responseSchema/properties/cleanupStatus",
+      "value": {
+        "type": "string",
+        "enum": [
+          "PENDING",
+          "COMPLETE",
+          "FAILED"
+        ]
+      },
+      "operationId": "acceptance.run.cancel",
+      "oldValue": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+        "type": "string"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/records/13/responseSchema/properties/reconciliationStatus",
+      "value": {
+        "type": "string",
+        "enum": [
+          "PENDING",
+          "COMPLETE",
+          "UNKNOWN",
+          "MANUAL_REVIEW"
+        ]
+      },
+      "operationId": "acceptance.run.cancel",
+      "oldValue": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+        "type": "string"
+      }
+    }
+  ]
+}

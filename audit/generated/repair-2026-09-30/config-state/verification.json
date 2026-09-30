@@ -1,14 +1,14 @@
 {
-  "sourceDocumentSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+  "sourceDocumentSha256": "9bf5510b189ef4f71216d56bf293599ac129d200ec92e90ff7c2c22f6b15e57b",
   "source": {
     "section": "49.23",
-    "startLine": 46251,
-    "endLine": 46446,
+    "startLine": 46266,
+    "endLine": 46461,
     "sectionSha256": "849eb305e7e3750065d7183d14375bf3798463188240180d6760abcbd1fd6ff5",
     "modelId": "model.configuration-change",
     "statePointer": "/states"
   },
-  "resourceSha256": "5b3e55556392de8451780634767750ac0c16496682b372c47befc28c0f7dcfbd",
+  "resourceSha256": "acff7e1564ccc19cbe40ec397ec2f71a71da00bb564dfee2665f39597f0be233",
   "projectionExact": true,
   "positiveWitness": {
     "configApplyRunId": "00000000-0000-4000-8000-000000000001",
@@ -127,11 +127,11 @@
       "rejections": [
         {
           "pointer": "$.state",
-          "keyword": "type"
+          "keyword": "enum"
         },
         {
           "pointer": "$.state",
-          "keyword": "enum"
+          "keyword": "type"
         }
       ]
     },
@@ -142,11 +142,11 @@
       "rejections": [
         {
           "pointer": "$.state",
-          "keyword": "type"
+          "keyword": "enum"
         },
         {
           "pointer": "$.state",
-          "keyword": "enum"
+          "keyword": "type"
         }
       ]
     },
@@ -157,15 +157,15 @@
       "rejections": [
         {
           "pointer": "$.state",
+          "keyword": "enum"
+        },
+        {
+          "pointer": "$.state",
           "keyword": "minLength"
         },
         {
           "pointer": "$.state",
           "keyword": "pattern"
-        },
-        {
-          "pointer": "$.state",
-          "keyword": "enum"
         }
       ]
     },
@@ -176,11 +176,11 @@
       "rejections": [
         {
           "pointer": "$.state",
-          "keyword": "pattern"
+          "keyword": "enum"
         },
         {
           "pointer": "$.state",
-          "keyword": "enum"
+          "keyword": "pattern"
         }
       ]
     },

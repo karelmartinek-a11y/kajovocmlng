@@ -1,0 +1,896 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kcml:generation-admission-basis:1",
+  "$defs": {
+    "JsonSchemaBundle": {
+      "$ref": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "PublicationReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receiptId",
+        "jobId",
+        "artifactId",
+        "contentDigest",
+        "outcome"
+      ],
+      "properties": {
+        "receiptId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "jobId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "artifactId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "contentDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "outcome": {
+          "enum": [
+            "COMMITTED",
+            "FAILED",
+            "UNKNOWN"
+          ]
+        }
+      }
+    },
+    "OwnerApprovalReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receiptId",
+        "sourceJobId",
+        "revisionId",
+        "specificationDigest",
+        "outcome"
+      ],
+      "properties": {
+        "receiptId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "sourceJobId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "revisionId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "specificationDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "outcome": {
+          "enum": [
+            "COMMITTED",
+            "FAILED",
+            "UNKNOWN"
+          ]
+        }
+      }
+    },
+    "TargetIdentitySnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "snapshotId",
+        "objectId",
+        "targetKind",
+        "componentId",
+        "runtimeInstanceIds",
+        "revisionId",
+        "releaseId",
+        "bindingSetRevision",
+        "activationEpoch",
+        "lastApprovedAuthorityId",
+        "lastApprovedSpecificationRevisionId",
+        "lastApprovedSpecificationDigest"
+      ],
+      "properties": {
+        "snapshotId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "objectId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "targetKind": {
+          "type": "string",
+          "enum": [
+            "MCP_SERVER",
+            "MCP_TOOL",
+            "MCP_RESOURCE",
+            "MCP_PROMPT",
+            "AI_AGENT",
+            "AGENT_TOOL_ADAPTER",
+            "AGENT_AS_TOOL",
+            "AGENT_HANDOFF",
+            "PLATFORM_COMPONENT",
+            "MANAGED_RUNTIME",
+            "EXTERNAL_API_CONNECTOR",
+            "WEBHOOK_HANDLER",
+            "PULSE_INTEGRATION",
+            "BROWSER_AUTOMATION",
+            "OWNER_UI"
+          ]
+        },
+        "componentId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "runtimeInstanceIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "revisionId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "releaseId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "bindingSetRevision": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/Counter"
+        },
+        "activationEpoch": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/Counter"
+        },
+        "lastApprovedAuthorityId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "lastApprovedSpecificationRevisionId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "lastApprovedSpecificationDigest": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "GenerationExecutionAuthoritySnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authorityId",
+        "sourceJobId",
+        "specificationRevisionId",
+        "specificationDigest",
+        "kind",
+        "ownerApprovalEventId",
+        "authority",
+        "targetSnapshotDigest",
+        "frozenAt"
+      ],
+      "properties": {
+        "authorityId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "sourceJobId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "specificationRevisionId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "specificationDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "kind": {
+          "enum": [
+            "OWNER_APPROVED",
+            "INHERITED_TECHNICAL"
+          ]
+        },
+        "ownerApprovalEventId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "authority": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/GenerationAuthority"
+        },
+        "targetSnapshotDigest": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "frozenAt": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/Timestamp"
+        }
+      }
+    },
+    "FailedTechnicalPhaseRun": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "phaseRunId",
+        "jobId",
+        "phase",
+        "attempt",
+        "state",
+        "resultDigest",
+        "failedNodeIds",
+        "planId",
+        "planDigest",
+        "authorityId",
+        "authorityDigest",
+        "specificationDigest",
+        "pendingSideEffectIds",
+        "completedAt"
+      ],
+      "properties": {
+        "phaseRunId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "jobId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "phase": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/Phase"
+        },
+        "attempt": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/PositiveCounter"
+        },
+        "state": {
+          "const": "FAILED"
+        },
+        "resultDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "failedNodeIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "urn:kcml:generation-contracts:2#/$defs/Id"
+          }
+        },
+        "planId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "planDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "authorityId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "authorityDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "specificationDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "pendingSideEffectIds": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "completedAt": {
+          "$ref": "urn:kcml:generation-contracts:2#/$defs/Timestamp"
+        }
+      }
+    },
+    "KnownTechnicalFailureResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "jobId",
+        "phaseRunId",
+        "failedNodeIds",
+        "outcome",
+        "errorCodes"
+      ],
+      "properties": {
+        "jobId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "phaseRunId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "failedNodeIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "urn:kcml:generation-contracts:2#/$defs/Id"
+          }
+        },
+        "outcome": {
+          "const": "KNOWN_FAILURE"
+        },
+        "errorCodes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "urn:kcml:generation-contracts:2#/$defs/SourceEnum110"
+          }
+        }
+      }
+    },
+    "GenerationJobCreateBody": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "intent": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1048576
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "CREATE",
+            "UPDATE",
+            "FOLLOW_UP",
+            "RETRY",
+            "REPAIR"
+          ]
+        },
+        "targetKind": {
+          "type": "string",
+          "enum": [
+            "MCP_SERVER",
+            "MCP_TOOL",
+            "MCP_RESOURCE",
+            "MCP_PROMPT",
+            "AI_AGENT",
+            "AGENT_TOOL_ADAPTER",
+            "AGENT_AS_TOOL",
+            "AGENT_HANDOFF",
+            "PLATFORM_COMPONENT",
+            "MANAGED_RUNTIME",
+            "EXTERNAL_API_CONNECTOR",
+            "WEBHOOK_HANDLER",
+            "PULSE_INTEGRATION",
+            "BROWSER_AUTOMATION",
+            "OWNER_UI"
+          ]
+        },
+        "targetObjectId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "parentJobId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "requestedModel": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "credential": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1048576
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "kind": {
+                    "const": "TEXT"
+                  },
+                  "text": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1048576
+                  }
+                },
+                "required": [
+                  "kind",
+                  "text"
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "FILE",
+                      "IMAGE",
+                      "API_DOC"
+                    ]
+                  },
+                  "artifactId": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "artifactId"
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "kind": {
+                    "const": "URL"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "maxLength": 1048576,
+                    "pattern": "^https?://"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "url"
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "kind": {
+                    "const": "CREDENTIAL_REF"
+                  },
+                  "stableName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
+                  }
+                },
+                "required": [
+                  "kind",
+                  "stableName"
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "kind": {
+                    "const": "OBJECT_REF"
+                  },
+                  "objectId": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "objectId"
+                ]
+              }
+            ]
+          },
+          "maxItems": 4096,
+          "uniqueItems": true
+        },
+        "followUpBasis": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "basisKind": {
+                  "const": "INITIAL_REQUEST"
+                },
+                "expectedDigest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                }
+              },
+              "required": [
+                "basisKind",
+                "expectedDigest"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "basisKind": {
+                  "const": "SPECIFICATION_REVISION"
+                },
+                "expectedDigest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                },
+                "revisionId": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "required": [
+                "basisKind",
+                "expectedDigest",
+                "revisionId"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "basisKind": {
+                  "const": "PUBLISHED_FINAL_OUTPUT"
+                },
+                "expectedDigest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                },
+                "artifactId": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "required": [
+                "basisKind",
+                "expectedDigest",
+                "artifactId"
+              ]
+            }
+          ],
+          "$comment": "Explicit caller selector and digest precondition only; server verifies owned immutable persisted bytes and required publication evidence atomically. Approved FOLLOW_UP rule 2026-09-30."
+        },
+        "generationBasis": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "basisKind",
+                "snapshotId",
+                "expectedDigest"
+              ],
+              "properties": {
+                "basisKind": {
+                  "const": "UPDATE_TARGET_REVISION"
+                },
+                "snapshotId": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "expectedDigest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "basisKind",
+                "phaseRunId",
+                "expectedDigest",
+                "planId",
+                "expectedPlanDigest",
+                "approvedRevisionId",
+                "expectedSpecificationDigest",
+                "authorityId",
+                "expectedAuthorityDigest"
+              ],
+              "properties": {
+                "basisKind": {
+                  "const": "RETRY_FAILED_TECHNICAL_PART"
+                },
+                "phaseRunId": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "expectedDigest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                },
+                "planId": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "expectedPlanDigest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                },
+                "approvedRevisionId": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "expectedSpecificationDigest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                },
+                "authorityId": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "expectedAuthorityDigest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "basisKind",
+                "monitoringArtifactId",
+                "expectedDigest",
+                "snapshotId",
+                "expectedTargetDigest",
+                "approvedRevisionId",
+                "expectedSpecificationDigest",
+                "authorityId",
+                "expectedAuthorityDigest"
+              ],
+              "properties": {
+                "basisKind": {
+                  "const": "REPAIR_MONITORING_EVIDENCE"
+                },
+                "monitoringArtifactId": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "expectedDigest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                },
+                "snapshotId": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "expectedTargetDigest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                },
+                "approvedRevisionId": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "expectedSpecificationDigest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                },
+                "authorityId": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "expectedAuthorityDigest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "intent"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "FOLLOW_UP"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "parentJobId",
+              "followUpBasis"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "followUpBasis"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "targetObjectId"
+            ]
+          },
+          "then": {
+            "required": [
+              "targetKind"
+            ]
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "UPDATE"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "targetObjectId",
+              "targetKind"
+            ]
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "UPDATE"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "generationBasis",
+              "targetObjectId",
+              "targetKind"
+            ],
+            "properties": {
+              "generationBasis": {
+                "properties": {
+                  "basisKind": {
+                    "const": "UPDATE_TARGET_REVISION"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "RETRY"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "generationBasis",
+              "parentJobId"
+            ],
+            "properties": {
+              "generationBasis": {
+                "properties": {
+                  "basisKind": {
+                    "const": "RETRY_FAILED_TECHNICAL_PART"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "REPAIR"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "generationBasis",
+              "targetObjectId",
+              "targetKind"
+            ],
+            "properties": {
+              "generationBasis": {
+                "properties": {
+                  "basisKind": {
+                    "const": "REPAIR_MONITORING_EVIDENCE"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "UPDATE",
+                  "RETRY",
+                  "REPAIR"
+                ]
+              }
+            }
+          },
+          "else": {
+            "not": {
+              "required": [
+                "generationBasis"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

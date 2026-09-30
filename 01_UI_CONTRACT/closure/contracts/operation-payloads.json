@@ -49,9 +49,7 @@
             "type": "string"
           },
           "enrollmentState": {
-            "maxLength": 128,
-            "minLength": 1,
-            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "const": "ENROLLMENT_REQUIRED",
             "type": "string"
           },
           "logicalOperationId": {
@@ -244,9 +242,7 @@
         "additionalProperties": false,
         "properties": {
           "checkpointDisposition": {
-            "maxLength": 128,
-            "minLength": 1,
-            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "const": "STEERING_COMMITTED",
             "type": "string"
           },
           "correlationId": {
@@ -1301,10 +1297,7 @@
             "uniqueItems": true
           },
           "state": {
-            "maxLength": 128,
-            "minLength": 1,
-            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
-            "type": "string",
+            "$comment": "SSOT 49.23 model.configuration-change /states; configuration_apply_run per 25.16 and config.rollback aggregateRoot/purpose; section sha256:849eb305e7e3750065d7183d14375bf3798463188240180d6760abcbd1fd6ff5",
             "enum": [
               "APPLIED",
               "APPLYING",
@@ -1316,7 +1309,10 @@
               "VALIDATING",
               "VERIFYING"
             ],
-            "$comment": "SSOT 49.23 model.configuration-change /states; configuration_apply_run per 25.16 and config.rollback aggregateRoot/purpose; section sha256:849eb305e7e3750065d7183d14375bf3798463188240180d6760abcbd1fd6ff5"
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "type": "string"
           }
         },
         "required": [
@@ -1754,10 +1750,7 @@
             "type": "string"
           },
           "state": {
-            "maxLength": 128,
-            "minLength": 1,
-            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
-            "type": "string",
+            "$comment": "SSOT 49.24 model.application-deployment /states; deployment_run per 25.14 and backup.restore aggregateRoot/purpose; section sha256:b9254bb8e9459256ac03340c8e8fef5ff8dd13ee40052318e43d1e8640e56270",
             "enum": [
               "ACTIVE",
               "BACKED_UP",
@@ -1773,7 +1766,10 @@
               "SWITCHING",
               "VERIFYING"
             ],
-            "$comment": "SSOT 49.24 model.application-deployment /states; deployment_run per 25.14 and backup.restore aggregateRoot/purpose; section sha256:b9254bb8e9459256ac03340c8e8fef5ff8dd13ee40052318e43d1e8640e56270"
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "type": "string"
           }
         },
         "required": [
@@ -1866,9 +1862,7 @@
             "type": "string"
           },
           "state": {
-            "maxLength": 128,
-            "minLength": 1,
-            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "const": "QUEUED",
             "type": "string"
           }
         },
@@ -1926,17 +1920,50 @@
         "$id": "urn:kcml:closure:acceptance.run.cancel:response",
         "$schema": "https://json-schema.org/draft/2020-12/schema",
         "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "state": {
+                  "const": "CANCELLED"
+                }
+              },
+              "required": [
+                "state"
+              ]
+            },
+            "then": {
+              "properties": {
+                "cleanupStatus": {
+                  "const": "COMPLETE"
+                },
+                "reconciliationStatus": {
+                  "const": "COMPLETE"
+                }
+              },
+              "required": [
+                "cleanupStatus",
+                "reconciliationStatus"
+              ]
+            }
+          }
+        ],
         "properties": {
           "cleanupStatus": {
-            "maxLength": 128,
-            "minLength": 1,
-            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "enum": [
+              "PENDING",
+              "COMPLETE",
+              "FAILED"
+            ],
             "type": "string"
           },
           "reconciliationStatus": {
-            "maxLength": 128,
-            "minLength": 1,
-            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "enum": [
+              "PENDING",
+              "COMPLETE",
+              "UNKNOWN",
+              "MANUAL_REVIEW"
+            ],
             "type": "string"
           },
           "runId": {
@@ -1946,9 +1973,12 @@
             "type": "string"
           },
           "state": {
-            "maxLength": 128,
-            "minLength": 1,
-            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,127}$",
+            "enum": [
+              "CANCEL_REQUESTED",
+              "RECONCILING",
+              "MANUAL_REVIEW",
+              "CANCELLED"
+            ],
             "type": "string"
           }
         },

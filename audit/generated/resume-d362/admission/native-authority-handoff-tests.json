@@ -1,0 +1,54 @@
+{
+  "inputCommit": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+  "ssotSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+  "proofKind": "ACTUAL_EMBEDDED_RESOLVER_SYNTHETIC_NATIVE_BYTES",
+  "mapChanged": false,
+  "artifactMapBaseSha256": "6ae42e26d18cdf5541ab63555c38bd36a5a323dd27dac3d9e40661e0bea46f9c",
+  "checks": [
+    {
+      "case": "native/pinned-map-hydrates-actual-authority-bytes",
+      "passed": true
+    },
+    {
+      "case": "native/required-map-entry-mutation-rejected",
+      "passed": true,
+      "actualCode": "CONTRACT_PACK_REFERENCE_INVALID",
+      "actualPointer": "/kind",
+      "expectedCode": "CONTRACT_PACK_REFERENCE_INVALID",
+      "expectedPointer": "/kind"
+    },
+    {
+      "case": "native/wrong-kind",
+      "passed": true,
+      "actualCode": "CONTRACT_PACK_REFERENCE_INVALID",
+      "actualPointer": "/schema",
+      "expectedCode": "CONTRACT_PACK_REFERENCE_INVALID",
+      "expectedPointer": "/schema"
+    },
+    {
+      "case": "native/wrong-byte-size",
+      "passed": true,
+      "actualCode": "ARTIFACT_VALIDATION_FAILED",
+      "actualPointer": "/contentDigest",
+      "expectedCode": "ARTIFACT_VALIDATION_FAILED",
+      "expectedPointer": "/contentDigest"
+    },
+    {
+      "case": "native/wrong-domain-record-digest",
+      "passed": true,
+      "actualCode": "CONTRACT_PACK_DRIFT",
+      "actualPointer": "/recordDigest",
+      "expectedCode": "CONTRACT_PACK_DRIFT",
+      "expectedPointer": "/recordDigest"
+    }
+  ],
+  "checkCount": 5,
+  "failedCount": 0,
+  "productionAcceptance": "NOT_EVALUATED",
+  "sourceBindings": {
+    "control": "9930b3cf116a678861c26c80b82c5d14304cf6735437346d1a406014ca261f0d",
+    "domainRecordMap": "991012a51b98b81e184317b548a4f13a41eacbaaea5fa3dd4c1effbcf5780651",
+    "schemaBundle": "5cf483812abcbfd834c54537a444724d227fe36ddb1ad0604af13205b4494943"
+  },
+  "scope": "Actual existing GENERATION_AUTHORITY map entry and native domain record hydration. No SQL/publisher/runtime claim."
+}

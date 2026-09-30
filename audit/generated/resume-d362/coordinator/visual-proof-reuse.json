@@ -1,0 +1,36 @@
+{
+  "sourceDocumentSha256": "9bf5510b189ef4f71216d56bf293599ac129d200ec92e90ff7c2c22f6b15e57b",
+  "executionSourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+  "evidencePath": "audit/visual-validation.json",
+  "evidenceSha256": "3e405ff57f3908ef26e2cd247e1908dd4f4076e4524fc384ef830cd60ddd5866",
+  "status": "VALID_REUSE_UNCHANGED_CONSUMED_UI_SOURCES",
+  "actualRendersReused": 96,
+  "newRenders": 0,
+  "checks": [
+    {
+      "case": "missing-render",
+      "passed": true,
+      "specificDiagnostics": [
+        "reference count differs from effective view/locale/viewport contract",
+        "incomplete/duplicate reference render universe"
+      ]
+    },
+    {
+      "case": "bad-source-digest",
+      "passed": true,
+      "specificDiagnostics": [
+        "render source drift scripts/render_reference.py"
+      ]
+    },
+    {
+      "case": "missing-bound-contract",
+      "passed": true,
+      "specificDiagnostics": [
+        "missing embedded render contract bindings"
+      ]
+    }
+  ],
+  "semanticVisualClosure": "NOT_CLAIMED",
+  "manualInspection": "PENDING_INDIVIDUAL_REVIEW",
+  "implementationAcceptance": "NOT_EVALUATED"
+}

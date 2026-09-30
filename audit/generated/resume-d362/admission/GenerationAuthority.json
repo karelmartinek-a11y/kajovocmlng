@@ -1,0 +1,70 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "argumentSlotIds": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "containmentPredicate": {
+      "$ref": "#/$defs/PredicateContract"
+    },
+    "delegatedSourceIds": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "ownerDecisionIds": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "rootIntentId": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "secretPurposeIds": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "sideEffectCeiling": {
+      "$ref": "#/$defs/SideEffectClass"
+    },
+    "targetKeys": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 4096,
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "rootIntentId",
+    "ownerDecisionIds",
+    "delegatedSourceIds",
+    "targetKeys",
+    "argumentSlotIds",
+    "sideEffectCeiling",
+    "secretPurposeIds",
+    "containmentPredicate"
+  ],
+  "type": "object"
+}

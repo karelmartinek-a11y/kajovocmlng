@@ -1,0 +1,85 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "coverage": {
+      "items": {
+        "$ref": "#/$defs/RequirementCoverage"
+      },
+      "maxItems": 65536,
+      "minItems": 1,
+      "type": "array"
+    },
+    "jobId": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "nodes": {
+      "items": {
+        "$ref": "#/$defs/PlanNode"
+      },
+      "maxItems": 100000,
+      "minItems": 1,
+      "type": "array"
+    },
+    "pathPlan": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "PATH_PLAN"
+            }
+          }
+        }
+      ]
+    },
+    "planId": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "rootArtifacts": {
+      "items": {
+        "$ref": "#/$defs/ArtifactRef"
+      },
+      "maxItems": 4096,
+      "minItems": 1,
+      "type": "array"
+    },
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "scopeLock": {
+      "$ref": "#/$defs/ScopeLock"
+    },
+    "sdkLock": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "SDK_LOCK"
+            }
+          }
+        }
+      ]
+    },
+    "specificationDigest": {
+      "$ref": "#/$defs/Digest"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "planId",
+    "jobId",
+    "specificationDigest",
+    "scopeLock",
+    "pathPlan",
+    "sdkLock",
+    "rootArtifacts",
+    "nodes",
+    "coverage"
+  ],
+  "type": "object"
+}

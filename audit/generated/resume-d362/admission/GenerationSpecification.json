@@ -1,0 +1,484 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "acceptanceCriteria": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/ContractRecordRef"
+          },
+          {
+            "properties": {
+              "recordKind": {
+                "const": "ACCEPTANCE_CRITERION"
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 4096,
+      "minItems": 1,
+      "type": "array"
+    },
+    "agenticSecurityRequirements": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/ContractRecordRef"
+          },
+          {
+            "properties": {
+              "recordKind": {
+                "const": "AGENTIC_SECURITY"
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "agents": {
+      "items": {
+        "$ref": "#/$defs/AgentContract"
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "authorityModel": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContractRecordRef"
+        },
+        {
+          "properties": {
+            "recordKind": {
+              "const": "GENERATION_AUTHORITY"
+            }
+          }
+        }
+      ]
+    },
+    "behavioralRequirements": {
+      "items": {
+        "$ref": "#/$defs/Requirement"
+      },
+      "maxItems": 65536,
+      "minItems": 1,
+      "type": "array"
+    },
+    "bindings": {
+      "items": {
+        "$ref": "#/$defs/BindingContract"
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "browserRequirements": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/ContractRecordRef"
+          },
+          {
+            "properties": {
+              "recordKind": {
+                "const": "BROWSER_REQUIREMENT"
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "businessRules": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/ContractRecordRef"
+          },
+          {
+            "properties": {
+              "recordKind": {
+                "const": "BUSINESS_RULE"
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "capabilityDecision": {
+      "$ref": "#/$defs/CapabilityDecision"
+    },
+    "constraints": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/ContractRecordRef"
+          },
+          {
+            "properties": {
+              "recordKind": {
+                "const": "CONSTRAINT"
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "contentProvenance": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/ContractRecordRef"
+          },
+          {
+            "properties": {
+              "recordKind": {
+                "const": "CONTENT_PROVENANCE"
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "dataDerivations": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/ContractRecordRef"
+          },
+          {
+            "properties": {
+              "recordKind": {
+                "const": "VALUE_DERIVATION"
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "evaluationPlan": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContractRecordRef"
+        },
+        {
+          "properties": {
+            "recordKind": {
+              "const": "EVALUATION_PLAN"
+            }
+          }
+        }
+      ]
+    },
+    "externalSystems": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/ContractRecordRef"
+          },
+          {
+            "properties": {
+              "recordKind": {
+                "const": "EXTERNAL_TARGET"
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "inputs": {
+      "items": {
+        "$ref": "#/$defs/DataPort"
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "integrationEdges": {
+      "items": {
+        "$ref": "#/$defs/BindingContract"
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "jobId": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "mcpElements": {
+      "items": {
+        "$ref": "#/$defs/McpElement"
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "monitoringRequirements": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/ContractRecordRef"
+          },
+          {
+            "properties": {
+              "recordKind": {
+                "const": "MONITORING_REQUIREMENT"
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "objective": {
+      "$ref": "#/$defs/Objective"
+    },
+    "openQuestions": {
+      "items": {
+        "$ref": "#/$defs/Question"
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "outputs": {
+      "items": {
+        "$ref": "#/$defs/DataPort"
+      },
+      "maxItems": 4096,
+      "minItems": 1,
+      "type": "array"
+    },
+    "ownerDecisions": {
+      "items": {
+        "$ref": "#/$defs/OwnerDecision"
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "releasePlan": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContractRecordRef"
+        },
+        {
+          "properties": {
+            "recordKind": {
+              "const": "RELEASE_PLAN"
+            }
+          }
+        }
+      ]
+    },
+    "resultContract": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContractRecordRef"
+        },
+        {
+          "properties": {
+            "recordKind": {
+              "const": "GENERATION_RESULT"
+            }
+          }
+        }
+      ]
+    },
+    "rollbackPlan": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContractRecordRef"
+        },
+        {
+          "properties": {
+            "recordKind": {
+              "const": "ROLLBACK_PLAN"
+            }
+          }
+        }
+      ]
+    },
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "secretUseRequirements": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/ContractRecordRef"
+          },
+          {
+            "properties": {
+              "recordKind": {
+                "const": "SECRET_USE"
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "secrets": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/ContractRecordRef"
+          },
+          {
+            "properties": {
+              "recordKind": {
+                "const": "SECRET_REQUIREMENT"
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "sources": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          {
+            "properties": {
+              "kind": {
+                "const": "SOURCE"
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "stateContracts": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/ContractRecordRef"
+          },
+          {
+            "properties": {
+              "recordKind": {
+                "const": "STATE_MACHINE"
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "targetGraph": {
+      "$ref": "#/$defs/TargetGraph"
+    },
+    "uiRequirements": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/ContractRecordRef"
+          },
+          {
+            "properties": {
+              "recordKind": {
+                "const": "UI_REQUIREMENT"
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "verifiedFacts": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/ContractRecordRef"
+          },
+          {
+            "properties": {
+              "recordKind": {
+                "const": "VERIFIED_FACT"
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "jobId",
+    "objective",
+    "resultContract",
+    "behavioralRequirements",
+    "inputs",
+    "outputs",
+    "businessRules",
+    "ownerDecisions",
+    "authorityModel",
+    "sources",
+    "contentProvenance",
+    "verifiedFacts",
+    "dataDerivations",
+    "constraints",
+    "capabilityDecision",
+    "targetGraph",
+    "mcpElements",
+    "agents",
+    "integrationEdges",
+    "externalSystems",
+    "secrets",
+    "secretUseRequirements",
+    "bindings",
+    "agenticSecurityRequirements",
+    "stateContracts",
+    "uiRequirements",
+    "browserRequirements",
+    "monitoringRequirements",
+    "evaluationPlan",
+    "acceptanceCriteria",
+    "releasePlan",
+    "rollbackPlan",
+    "openQuestions"
+  ],
+  "type": "object"
+}

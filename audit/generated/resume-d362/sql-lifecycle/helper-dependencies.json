@@ -1,0 +1,100 @@
+{
+  "format": "KCML-SQL-HELPER-DEPENDENCIES/2",
+  "inputHead": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+  "inputSourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+  "consumedResourceSha256": "55f69f9d58f6d45dc79329762a182792be0f5b422ed11f0af9fac8a7d9d200e8",
+  "historicalReview": "audit/generated/resume-5334/sql/helper-review.json",
+  "entries": [
+    {
+      "id": "kcml_apply_exact_domain_plan_v1",
+      "state": "BLOCKED",
+      "callSites": 262,
+      "requiredAlgorithm": [
+        "Select an explicit operation-specific persisted typed mutation plan, not a generic semantic-field JSON interpreter",
+        "Claim locator and idempotency record without replacing an existing request/outcome",
+        "After all locks, recompute guards from current rows and execute exactly the permitted atomic transition",
+        "Persist root/immutable request-or-secret-version/frozen basis/typed receipt/event/audit/outbox/canonical outcome together",
+        "Commit is sole linearization; publish response/SSE/outbox only from committed state",
+        "Rollback/failure/unknown and replay reconcile the same locator without second root/event",
+        "No network/provider/browser I/O inside SQL transaction"
+      ],
+      "unbound": [
+        "every semantic field to exact physical typed column mapping; currentfieldUpdatePlan is descriptive storage fallback",
+        "generation_job/secret_record/secret_version and domain command/event/outbox schemas",
+        "secret authenticated-encryption provider/type-specific validated payload handoff",
+        "typed response/event hydration joins and immutable lineage constraints"
+      ],
+      "preGeneration": true,
+      "reuseProof": "operation-functions SQL bytes exactly unchanged, not old source SHA treated current",
+      "boundedGenerationAlternative": "Exact generation context + explicit generation mutation transaction function, not pretending shared helper closes all262 operations."
+    },
+    {
+      "id": "kcml_assert_operation_descriptor_v1",
+      "state": "BLOCKED",
+      "callSites": 262,
+      "requiredAlgorithm": [
+        "Authenticated server context only; caller cannot supply trusted authority or descriptor digest",
+        "Stable locator lookup before fresh admission",
+        "Replay selects the retained frozen operation/caller revision and execution descriptor, never recomputes it from the current registry",
+        "Fresh admission resolves effective operationId/revision/native descriptor digest and exact typed masks",
+        "Unknown/missing/conflicting descriptor means BLOCKED before domain mutation"
+      ],
+      "unbound": [
+        "kcml_operation_context_v1 exact physical type and trusted construction boundary",
+        "retained effective/frozen descriptor registry storage and access",
+        "wrapper-current descriptor digest versus retained replay descriptor reconciliation"
+      ],
+      "preGeneration": true,
+      "reuseProof": "operation-functions SQL bytes exactly unchanged, not old source SHA treated current",
+      "boundedGenerationAlternative": "Exact generation context + explicit generation mutation transaction function, not pretending shared helper closes all262 operations."
+    },
+    {
+      "id": "kcml_assert_recovery_and_incarnation_v1",
+      "state": "BLOCKED",
+      "callSites": 262,
+      "requiredAlgorithm": [
+        "Lock platform/deployment/security heads in canonical order",
+        "Read current recovery/incarnation/deployment/fence from locked server rows",
+        "Fresh mutation requires READY and exact current incarnation/fence; re-evaluate after lock acquisition",
+        "Recheck every authoritative write using expected CAS/fence; nonmatching guards are conflict, not PASS",
+        "Terminal replay does not become fresh admission; authenticate result access and retained identity"
+      ],
+      "unbound": [
+        "exact platform/deployment/security-head physical tables and current field bindings",
+        "trusted context creation and lease/fence applicability per operation"
+      ],
+      "preGeneration": true,
+      "reuseProof": "operation-functions SQL bytes exactly unchanged, not old source SHA treated current",
+      "boundedGenerationAlternative": "Exact generation context + explicit generation mutation transaction function, not pretending shared helper closes all262 operations."
+    },
+    {
+      "id": "kcml_lock_exact_root_plan_v1",
+      "state": "BLOCKED",
+      "callSites": 262,
+      "requiredAlgorithm": [
+        "Derive all actual parents from persisted relationships, never caller root declarations",
+        "Acquire class A advisory, B singleton, C locator/idempotency, D activation, E parent roots/children and audit head last",
+        "Order roots by native ordinal then uuid_send(id); multi-parent roots acquire all actual parents",
+        "CREATE absent new root uses stable parent/namespace guard plus first-create advisory, never just new random root UUID",
+        "Do not perform mutation inside a lock-only helper; eventual write keeps CAS and fence predicates"
+      ],
+      "unbound": [
+        "precise trusted physical root-resolution relation path for each262 wrapper operations",
+        "new-create namespace/first-create advisory key derivation",
+        "exact composite context and per-class lock object columns"
+      ],
+      "preGeneration": true,
+      "reuseProof": "operation-functions SQL bytes exactly unchanged, not old source SHA treated current",
+      "boundedGenerationAlternative": "Exact generation context + explicit generation mutation transaction function, not pretending shared helper closes all262 operations."
+    }
+  ],
+  "coordination": {
+    "trustedContextOwner": "generation_persistence",
+    "eventOutboxAuditOwner": "generation_events",
+    "canonicalIntegrationOwner": "root",
+    "candidateContextAPI": "kcml_generation_create_context_v1(auth_receipt_id, request_digest, contract_digest, descriptor_bytes)",
+    "candidateContextTrustRule": "Resolved persisted auth acceptance and exact current session/API generation under locked heads, never arbitrary client composite or model booleans. Constructor contract must be reviewed before caller helper integration."
+  },
+  "readiness": "BLOCKED",
+  "implementationAcceptance": "NOT_EVALUATED"
+}

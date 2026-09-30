@@ -1,7 +1,7 @@
 {
   "scope": "Schema identity, counter and named status/outcome probes; state dictionaries and hydration remain open.",
-  "status": "BLOCKED",
-  "sourceDocumentSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+  "status": "PASS",
+  "sourceDocumentSha256": "9bf5510b189ef4f71216d56bf293599ac129d200ec92e90ff7c2c22f6b15e57b",
   "eventInventory": [
     {
       "routeId": "route.0000",
@@ -2562,13 +2562,11 @@
     },
     {
       "id": "lifecycle.owner.mfa.reset.enrollmentState",
-      "status": "FAIL",
-      "reason": "owner.mfa.reset.enrollmentState: required lifecycle dictionary remains open; authoritative enum review required"
+      "status": "PASS"
     },
     {
       "id": "lifecycle.chat.turn.steer.checkpointDisposition",
-      "status": "FAIL",
-      "reason": "chat.turn.steer.checkpointDisposition: required lifecycle dictionary remains open; authoritative enum review required"
+      "status": "PASS"
     },
     {
       "id": "lifecycle.config.rollback.state",
@@ -2580,23 +2578,19 @@
     },
     {
       "id": "lifecycle.acceptance.run.start.state",
-      "status": "FAIL",
-      "reason": "acceptance.run.start.state: required lifecycle dictionary remains open; authoritative enum review required"
+      "status": "PASS"
     },
     {
       "id": "lifecycle.acceptance.run.cancel.state",
-      "status": "FAIL",
-      "reason": "acceptance.run.cancel.state: required lifecycle dictionary remains open; authoritative enum review required"
+      "status": "PASS"
     },
     {
       "id": "lifecycle.acceptance.run.cancel.cleanupStatus",
-      "status": "FAIL",
-      "reason": "acceptance.run.cancel.cleanupStatus: required lifecycle dictionary remains open; authoritative enum review required"
+      "status": "PASS"
     },
     {
       "id": "lifecycle.acceptance.run.cancel.reconciliationStatus",
-      "status": "FAIL",
-      "reason": "acceptance.run.cancel.reconciliationStatus: required lifecycle dictionary remains open; authoritative enum review required"
+      "status": "PASS"
     }
   ]
 }

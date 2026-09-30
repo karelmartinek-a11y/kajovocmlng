@@ -1,0 +1,72 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "attachments": {
+      "items": {
+        "$ref": "#/$defs/ArtifactRef"
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array"
+    },
+    "environmentDigest": {
+      "$ref": "#/$defs/Digest"
+    },
+    "evaluatorDigest": {
+      "$ref": "#/$defs/Digest"
+    },
+    "evaluatorId": {
+      "$ref": "#/$defs/Id"
+    },
+    "evidenceId": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "kind": {
+      "$ref": "#/$defs/Id"
+    },
+    "observationSchema": {
+      "$ref": "#/$defs/SchemaArtifact"
+    },
+    "observations": {
+      "$ref": "#/$defs/JsonValue"
+    },
+    "producerArtifactDigest": {
+      "$ref": "#/$defs/Digest"
+    },
+    "recordedAt": {
+      "$ref": "#/$defs/Timestamp"
+    },
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "sourceOperationId": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Uuid"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "subjectDigest": {
+      "$ref": "#/$defs/Digest"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "evidenceId",
+    "kind",
+    "subjectDigest",
+    "recordedAt",
+    "producerArtifactDigest",
+    "evaluatorId",
+    "evaluatorDigest",
+    "environmentDigest",
+    "sourceOperationId",
+    "observationSchema",
+    "observations",
+    "attachments"
+  ],
+  "type": "object"
+}

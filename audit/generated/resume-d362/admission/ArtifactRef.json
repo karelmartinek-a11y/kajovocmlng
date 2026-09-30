@@ -1,0 +1,63 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "artifactId": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "contentDigest": {
+      "$ref": "#/$defs/Digest"
+    },
+    "kind": {
+      "$ref": "#/$defs/Id"
+    },
+    "mediaType": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[a-z0-9.+-]+/[a-z0-9.+-]+$(?![\\s\\S])",
+      "type": "string"
+    },
+    "path": {
+      "$ref": "#/$defs/RelPath"
+    },
+    "producerNodeId": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Id"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "provenanceDigest": {
+      "$ref": "#/$defs/Digest"
+    },
+    "schema": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/SchemaAddress"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "sizeBytes": {
+      "maximum": 9007199254740991,
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "artifactId",
+    "kind",
+    "schema",
+    "mediaType",
+    "path",
+    "contentDigest",
+    "sizeBytes",
+    "producerNodeId",
+    "provenanceDigest"
+  ],
+  "type": "object"
+}

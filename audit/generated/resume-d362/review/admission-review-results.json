@@ -1,0 +1,68 @@
+{
+  "scope": "Independent positive-derived admission mutations; design reference only. \u00a712.20 graph-wide semantic eligibility remains separate.",
+  "checks": [
+    {
+      "id": "UPDATE-independent-positive",
+      "passed": true
+    },
+    {
+      "id": "RETRY-independent-positive",
+      "passed": true
+    },
+    {
+      "id": "REPAIR-independent-positive",
+      "passed": true
+    },
+    {
+      "id": "repair-foreign-document-job",
+      "expected": "GENERATION_BASIS_DOCUMENT_JOB_MISMATCH",
+      "actual": "GENERATION_BASIS_DOCUMENT_JOB_MISMATCH",
+      "passed": true
+    },
+    {
+      "id": "repair-replaced-native-authority",
+      "expected": "GENERATION_APPROVED_AUTHORITY_CONTENT_MISMATCH",
+      "actual": "GENERATION_APPROVED_AUTHORITY_CONTENT_MISMATCH",
+      "passed": true
+    },
+    {
+      "id": "repair-unresolvable-observation-bundle",
+      "expected": "GENERATION_BASIS_SCHEMA_BUNDLE_UNAVAILABLE",
+      "actual": "GENERATION_BASIS_SCHEMA_BUNDLE_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "id": "repair-missing-owner-approval",
+      "expected": "GENERATION_OWNER_APPROVAL_UNAVAILABLE",
+      "actual": "GENERATION_OWNER_APPROVAL_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "id": "RETRY-consulted-dependency-lineage-retention",
+      "requiredRetainedIds": [
+        "00000000-0000-4000-8000-000000000008",
+        "00000000-0000-4000-8000-000000000044",
+        "sha256:cf72d741849a95ad2245292a3f97546cb61fa639079a8997b04a232f7cbbddf4"
+      ],
+      "missing": [],
+      "passed": true
+    },
+    {
+      "id": "REPAIR-consulted-dependency-lineage-retention",
+      "requiredRetainedIds": [
+        "00000000-0000-4000-8000-000000000008",
+        "00000000-0000-4000-8000-000000000010",
+        "00000000-0000-4000-8000-000000000011",
+        "00000000-0000-4000-8000-000000000012",
+        "00000000-0000-4000-8000-000000000044"
+      ],
+      "missing": [],
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "inputFilesSha256": {
+    "generation_admission_reference.py": "c13636c8d40c784ce9b25d393ad63db1b10b42f222d6ea0141ed3af57a3bc5d0",
+    "generation_admission_fixtures.py": "f960daf87b1da6964b1f04e17929c64eb79d87443cd0c0b4719552a361e11be3"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "items": {
+        "$ref": "#/$defs/ArtifactRef"
+      },
+      "maxItems": 100000,
+      "minItems": 1,
+      "type": "array"
+    },
+    "buildReceipt": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "BUILD_RECEIPT"
+            }
+          }
+        }
+      ]
+    },
+    "jobId": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "pathPlanDigest": {
+      "$ref": "#/$defs/Digest"
+    },
+    "planDigest": {
+      "$ref": "#/$defs/Digest"
+    },
+    "requirementCoverage": {
+      "items": {
+        "$ref": "#/$defs/RequirementCoverage"
+      },
+      "maxItems": 65536,
+      "minItems": 1,
+      "type": "array"
+    },
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "sdkLockDigest": {
+      "$ref": "#/$defs/Digest"
+    },
+    "specificationDigest": {
+      "$ref": "#/$defs/Digest"
+    },
+    "workspaceDigest": {
+      "$ref": "#/$defs/Digest"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "jobId",
+    "specificationDigest",
+    "planDigest",
+    "workspaceDigest",
+    "pathPlanDigest",
+    "sdkLockDigest",
+    "artifacts",
+    "requirementCoverage",
+    "buildReceipt"
+  ],
+  "type": "object"
+}

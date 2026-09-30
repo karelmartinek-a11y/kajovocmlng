@@ -1,0 +1,152 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "budget": {
+      "$ref": "#/$defs/ResourceBudget"
+    },
+    "checkpointContract": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContractRecordRef"
+        },
+        {
+          "properties": {
+            "recordKind": {
+              "const": "CHECKPOINT_CONTRACT"
+            }
+          }
+        }
+      ]
+    },
+    "compensationContract": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContractRecordRef"
+        },
+        {
+          "properties": {
+            "recordKind": {
+              "const": "COMPENSATION_CONTRACT"
+            }
+          }
+        }
+      ]
+    },
+    "dependencies": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "executionRole": {
+      "enum": [
+        "COORDINATOR",
+        "OPENAI_WORKER",
+        "WORKSPACE_WORKER",
+        "INTEGRATION_WORKER",
+        "VALIDATION_WORKER",
+        "ACTIVATION_WORKER"
+      ],
+      "type": "string"
+    },
+    "idempotencyContract": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContractRecordRef"
+        },
+        {
+          "properties": {
+            "recordKind": {
+              "const": "IDEMPOTENCY_CONTRACT"
+            }
+          }
+        }
+      ]
+    },
+    "inputBindings": {
+      "items": {
+        "$ref": "#/$defs/NodeInputBinding"
+      },
+      "maxItems": 4096,
+      "minItems": 1,
+      "type": "array"
+    },
+    "kind": {
+      "$ref": "#/$defs/NodeKind"
+    },
+    "nodeId": {
+      "$ref": "#/$defs/Id"
+    },
+    "operationId": {
+      "$ref": "#/$defs/Id"
+    },
+    "outputSchema": {
+      "$ref": "#/$defs/SchemaAddress"
+    },
+    "pathSlotIds": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 100000,
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "phase": {
+      "$ref": "#/$defs/Phase"
+    },
+    "purpose": {
+      "maxLength": 8192,
+      "minLength": 1,
+      "type": "string"
+    },
+    "requiredGateIds": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 4096,
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "requirementIds": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 65536,
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "retryClass": {
+      "$ref": "#/$defs/RetryClass"
+    },
+    "sideEffectClass": {
+      "$ref": "#/$defs/SideEffectClass"
+    }
+  },
+  "required": [
+    "nodeId",
+    "kind",
+    "phase",
+    "purpose",
+    "requirementIds",
+    "dependencies",
+    "inputBindings",
+    "outputSchema",
+    "executionRole",
+    "operationId",
+    "sideEffectClass",
+    "retryClass",
+    "idempotencyContract",
+    "budget",
+    "requiredGateIds",
+    "checkpointContract",
+    "compensationContract",
+    "pathSlotIds"
+  ],
+  "type": "object"
+}

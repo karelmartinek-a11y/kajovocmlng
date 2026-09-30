@@ -1,0 +1,92 @@
+{
+  "format": "KCML-OWNER-UI-FACADE-PATCH/1",
+  "pinnedInputCommit": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+  "scope": "Technical realization of existing required UI actions; incomplete operation records are not silently added to canonical registry",
+  "records": [
+    {
+      "actionId": "dashboard.start",
+      "proposedOwnerOperationId": "runtime.owner.start.request",
+      "proposedExposureClass": "OWNER_COMMAND",
+      "canonicalWriterId": "writer.runtime-gateway",
+      "workerOperationId": "runtime.instance.start",
+      "workerExposurePreserved": "AUTOMATED_MAINTENANCE",
+      "authoritySources": [
+        "50.10",
+        "50.11",
+        "49.3",
+        "49.4",
+        "49.5"
+      ],
+      "inputSchemaPointer": "audit/generated/resume-d362/consumers/ui-facade-native-inputs.proposed.json#/inputSchemas/dashboard.start",
+      "nativePatchStatus": "BLOCKED_NOT_APPLIED",
+      "requiredBeforeBinding": [
+        "Exact operation/route/context/response/error/event/worker child schemas and metadata",
+        "Full normative pipeline plus current own eligibility conditions",
+        "PostgreSQL atomic event/outbox/audit fixture",
+        "Read/hydration and original operation reconciliation"
+      ],
+      "forbidden": [
+        "Change old worker exposure to OWNER",
+        "Use generation.create context for facade",
+        "Report ACCEPTED as successful runtime or published specification"
+      ]
+    },
+    {
+      "actionId": "dashboard.stop",
+      "proposedOwnerOperationId": "runtime.owner.stop.request",
+      "proposedExposureClass": "OWNER_COMMAND",
+      "canonicalWriterId": "writer.runtime-gateway",
+      "workerOperationId": "runtime.stop",
+      "workerExposurePreserved": "AUTOMATED_MAINTENANCE",
+      "authoritySources": [
+        "50.25",
+        "50.31",
+        "49.3",
+        "49.4",
+        "49.5"
+      ],
+      "inputSchemaPointer": "audit/generated/resume-d362/consumers/ui-facade-native-inputs.proposed.json#/inputSchemas/dashboard.stop",
+      "nativePatchStatus": "BLOCKED_NOT_APPLIED",
+      "requiredBeforeBinding": [
+        "Exact operation/route/context/response/error/event/worker child schemas and metadata",
+        "Full normative pipeline plus current own eligibility conditions",
+        "PostgreSQL atomic event/outbox/audit fixture",
+        "Read/hydration and original operation reconciliation"
+      ],
+      "forbidden": [
+        "Change old worker exposure to OWNER",
+        "Use generation.create context for facade",
+        "Report ACCEPTED as successful runtime or published specification"
+      ]
+    },
+    {
+      "actionId": "gen.editSpec",
+      "proposedOwnerOperationId": "generation.spec.owner_input.append",
+      "proposedExposureClass": "OWNER_COMMAND",
+      "canonicalWriterId": "writer.generation-orchestrator",
+      "workerOperationId": "generation.spec.propose",
+      "workerExposurePreserved": "INTERNAL_PROTOCOL",
+      "authoritySources": [
+        "43.3",
+        "25.11",
+        "49.3",
+        "49.4",
+        "49.5"
+      ],
+      "inputSchemaPointer": "audit/generated/resume-d362/consumers/ui-facade-native-inputs.proposed.json#/inputSchemas/gen.editSpec",
+      "nativePatchStatus": "BLOCKED_NOT_APPLIED",
+      "requiredBeforeBinding": [
+        "Exact operation/route/context/response/error/event/worker child schemas and metadata",
+        "Full normative pipeline plus current own eligibility conditions",
+        "PostgreSQL atomic event/outbox/audit fixture",
+        "Read/hydration and original operation reconciliation"
+      ],
+      "forbidden": [
+        "Change old worker exposure to OWNER",
+        "Use generation.create context for facade",
+        "Report ACCEPTED as successful runtime or published specification"
+      ]
+    }
+  ],
+  "exposuresClosed": 0
+}

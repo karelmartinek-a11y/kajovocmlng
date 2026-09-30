@@ -1,0 +1,127 @@
+{
+  "pointer": "contracts/operation-contracts.json#/records/533",
+  "record": {
+    "acceptanceGateIds": [
+      "ARCH_FAILURE_RECOVERY_CONSISTENT",
+      "ARCH_OPERATION_LIFECYCLE_COMPLETE",
+      "ARCH_TRACEABILITY_COMPLETE"
+    ],
+    "activationRelation": "CURRENT_EXACT_REVISION_BINDING_SET_ACTIVATION_EPOCH",
+    "aggregateRoot": "runtime_instance",
+    "allowedTransitionIds": [
+      "ADMIT",
+      "DISPATCH_OR_EXECUTE",
+      "RECONCILE_IF_NEEDED",
+      "TERMINAL_COMMIT"
+    ],
+    "apiOperationIds": [],
+    "auditEventTypes": [
+      "OPERATION_ADMITTED",
+      "OPERATION_STATE_CHANGED",
+      "OPERATION_TERMINAL"
+    ],
+    "authoritySourceRefs": [
+      {
+        "anchor": "section.50.10",
+        "relation": "AUTHORITY",
+        "section": "50.10",
+        "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+      },
+      {
+        "anchor": "section.50.11",
+        "relation": "AUTHORITY",
+        "section": "50.11",
+        "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+      }
+    ],
+    "cancellationPolicy": "NO_NEW_CHILD_AFTER_CANCEL_INTENT; POSSIBLE_EFFECT_REQUIRES_RECONCILIATION",
+    "canonicalDigest": "sha256:cbd1244b48a75f81d5bf62baaad37cea807d65aa0818ea33eca0fcd6e6f56934",
+    "canonicalWriterId": "writer.runtime-gateway",
+    "chatCapabilityIds": [],
+    "checkpointPolicy": "BEFORE_AND_AFTER_EACH_NONATOMIC_EFFECT; TERMINAL_CHECKPOINT_AT_CLOSURE",
+    "cleanupPolicy": "TERMINAL_CLOSURE_REQUIRES_ALL_MANDATORY_CLEANUP_COMPLETE",
+    "closurePredicateId": "closure.operation.runtime.instance.start",
+    "commandSchemaRef": {
+      "schemaId": "urn:kcml:r9:operation:runtime.instance.start:command"
+    },
+    "completeRegistryOperation": true,
+    "concurrencyClaimPoint": "T1_BEFORE_DOMAIN_MUTATION",
+    "concurrencyKeyDerivation": "PERSISTED_BUSINESS_TARGET_TO_ROOT_RESOLUTION",
+    "concurrencyScope": "runtime_instance",
+    "deadlinePolicy": "ABSOLUTE_EFFECTIVE_MIN_OF_CALLER_PARENT_OPERATION_PLATFORM",
+    "expectedStateVersionPolicy": "REQUIRED_FOR_NONCOMMUTATIVE_MUTATION; NOT_APPLICABLE_FOR_READ_ONLY_OR_IMMUTABLE_APPEND",
+    "expectedStates": [
+      "SOURCE_CURRENT_STATE_OR_NO_STATE_FOR_CREATE_QUERY"
+    ],
+    "exposureClass": "AUTOMATED_MAINTENANCE",
+    "fencingPolicy": "CURRENT_PLATFORM_INCARNATION_RECOVERY_EPOCH_AND_LEASE_FENCE_ON_EVERY_WRITE",
+    "idempotencyKeySource": "Idempotency-Key header or server-derived stable key for automated source",
+    "idempotencyScope": "runtime.instance.start:caller:business-target",
+    "operationFamily": "RUNTIME",
+    "operationId": "runtime.instance.start",
+    "operationName": "runtime.instance.start",
+    "operationRevision": "R9.1",
+    "orderedLockPlanId": "lock.r9.runtime_instance",
+    "outboxPurposes": [
+      "DOMAIN_EVENT",
+      "SIDE_EFFECT_DISPATCH_IF_APPLICABLE"
+    ],
+    "possibleEffectTrigger": "EXTERNAL_DISPATCH_INTENT_CLAIM",
+    "reconciliationOracleId": "recovery.r9.runtime.instance.start",
+    "requestDigestProfile": "KCML-CANONICAL-JSON/1_EXCLUDING_TRANSPORT_EPHEMERA",
+    "requirementIds": [
+      "KCML-REQ-CH50-0a1999114fcbd0651636fd7ee633bde4336a5b279957bf88e518be414196726e",
+      "KCML-REQ-CH50-0c6d6f6f1b94369fb85cd96b64a7e01815bbc7f33b56faf44b01d79481a6f032",
+      "KCML-REQ-CH50-1e53975eec02a6cd3b863785d46c576023c9350fc67c53fc6e3a748fa9bbd6c4",
+      "KCML-REQ-CH50-42a8ea2edebe8e166950e768b2baf8f83dc31d51c7a6a5fb4de8b51dea5c7a8b",
+      "KCML-REQ-CH50-46841adc6cf83ef4c72f77f9c317b2f7f15ecc346e67601b5379256282d16224",
+      "KCML-REQ-CH50-574f22dfb188413b206a1ec85dfe6f51e4a75f9334afa51b1c86b2274ef1aea0",
+      "KCML-REQ-CH50-5c3e76a7663c866539e6802c43852dd0f91a2a4dbee3713da87bdd7d74ef4818",
+      "KCML-REQ-CH50-66c0c68895987ce17aed22fb7f3ffda90c2f2ec5242cc6bd6c77ca65ecaa6702",
+      "KCML-REQ-CH50-743b174552bc55184dea05fdddbe37676493080ab0304e5004a3988c1c8f052c",
+      "KCML-REQ-CH50-7470ed6470caba6c8ced2285c0f81ac2b35e105fa8badbd48b24850158e9f9e4",
+      "KCML-REQ-CH50-766df85f6c402e62b711fb5596449f807f6227cb7caa1d2c89fe5058df5fbfae",
+      "KCML-REQ-CH50-77922c2df19f0328b1020cd13f8e0cdba5a3705217ee3b252f1a25c182c63769",
+      "KCML-REQ-CH50-8c7756c5c4f54ca7164adb7e7da712190251df111dfc4cf013c66e0b520718e3",
+      "KCML-REQ-CH50-92bec607eea2262c24eb093f4183257a09088fb9ae3371ab5b58b263279aafb4",
+      "KCML-REQ-CH50-92fac0b15f1c8e61b7bf5365bd6db9abf7e873cb7bcca0e77e0a0648d3139077",
+      "KCML-REQ-CH50-9bbccc0cea96c7eb468991591a5c1a49a6d2d3d1c041af302ae536a018993959",
+      "KCML-REQ-CH50-a29a0886581eae2b3877352f9b798ba8cb0ca58c2c9112eeed6329886ab9f284",
+      "KCML-REQ-CH50-a6f19b22e3344d9d0ef1bbc833dcb7fe2086ce0bf36866a3a7bbb794eec8d2dc",
+      "KCML-REQ-CH50-a74d0ec88751ea41d50ee17abbbefec12bfc911eba3cdc376fe0e6f46859e25f",
+      "KCML-REQ-CH50-aa6b8afbc9afea0918aa67d3b6724f23d6f1742cc861d4f3c06be95220ceb5aa",
+      "KCML-REQ-CH50-acd2f97572e26160db629e188f691bb5503513f52c98f4600bc85894688fba51",
+      "KCML-REQ-CH50-b24cff2d0a92ba8f72a203dbdfc4dbb2562604b895b9c6a07a4ed6d758b51954",
+      "KCML-REQ-CH50-bb26bd4bb158652b6185985e8d50771f6f30f8d818453df779d2fd9262a67567",
+      "KCML-REQ-CH50-c18adae3b665d7490d3698f803bc27b04fdc82f8c45e0c253310387fd4b4c3aa",
+      "KCML-REQ-CH50-c574f4d3d6b6dfb5678467ad957a47ae169d99e6a3b942ef49bdf96b5b289405",
+      "KCML-REQ-CH50-d52b2e916defc05f33e57e9591db0bfed3f7c826b922e07e0bdb6952be80de85",
+      "KCML-REQ-CH50-d64471c1aae51149756c35fc31d416a1550c75579501d134eead9d1f1a3ef314",
+      "KCML-REQ-CH50-d8b0b1dd440beea7793d99214ae1b1ab9830b7461421639e4e2b94ae0472e0e9",
+      "KCML-REQ-CH50-dd22208a4d5de8f6fe04885b4ff2eef6aac692f1a10d21151eee37a1b58b6987",
+      "KCML-REQ-CH50-ed097b9af7a8e09c1f8d275bb6ee46df1ef11fe54196f3d98e3e4aac8946466a",
+      "KCML-REQ-CH50-f72fe5bb1f20aa717262f04dd99c4022ae63b355929be1709278fce9d76266e7",
+      "KCML-REQ-CH50-f9cd896e5b3ed4dd528753919be7e64a470530adba406213ccdce777c3921876"
+    ],
+    "responseSchemaRef": {
+      "schemaId": "urn:kcml:r9:operation:runtime.instance.start:response"
+    },
+    "retryClass": "RECONCILE_BEFORE_RETRY",
+    "retryDirectiveMapRef": "contracts/registries/RecoveryDecisionTable.json#recovery.common.v5",
+    "selfTestCaseIds": [
+      "selftest.contract.runtime.instance.start"
+    ],
+    "sideEffectClass": "EXTERNAL_EFFECT",
+    "stateMachineId": "model.r9.operation-execution",
+    "subsystemSideEffectClass": "EXTERNAL_EFFECT",
+    "successorPolicy": "SUCCESSOR_RESERVED_IN_SAME_TERMINAL_TRANSACTION_WHEN_WORKFLOW_REQUIRES",
+    "terminalOutcomes": [
+      "SUCCEEDED",
+      "FAILED_KNOWN",
+      "CANCELLED_CONFIRMED",
+      "MANUAL_REVIEW_BLOCKING"
+    ],
+    "transactionProfileId": "WORKER_COMMIT",
+    "uiActionIds": []
+  }
+}

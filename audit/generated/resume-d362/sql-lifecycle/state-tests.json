@@ -1,0 +1,280 @@
+{
+  "sourceHead": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+  "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+  "resourceBindings": {
+    "closure/contracts/operation-payloads.json": "5b3e55556392de8451780634767750ac0c16496682b372c47befc28c0f7dcfbd",
+    "closure/contracts/operation-overlay.json": "844a0a188f24997d63d32f13c5078a6767ac2b177a5065ec911824f12f59663e",
+    "database/operation-functions.sql": "55f69f9d58f6d45dc79329762a182792be0f5b422ed11f0af9fac8a7d9d200e8"
+  },
+  "cases": [
+    {
+      "id": "owner.mfa.reset/records/0/responseSchema/properties/enrollmentState:positive",
+      "status": "PASS"
+    },
+    {
+      "id": "owner.mfa.reset/records/0/responseSchema/properties/enrollmentState:negative:None",
+      "status": "PASS"
+    },
+    {
+      "id": "owner.mfa.reset/records/0/responseSchema/properties/enrollmentState:negative:1",
+      "status": "PASS"
+    },
+    {
+      "id": "owner.mfa.reset/records/0/responseSchema/properties/enrollmentState:negative:{}",
+      "status": "PASS"
+    },
+    {
+      "id": "owner.mfa.reset/records/0/responseSchema/properties/enrollmentState:negative:UNSPECIFIED",
+      "status": "PASS"
+    },
+    {
+      "id": "chat.turn.steer/records/1/responseSchema/properties/checkpointDisposition:positive",
+      "status": "PASS"
+    },
+    {
+      "id": "chat.turn.steer/records/1/responseSchema/properties/checkpointDisposition:negative:None",
+      "status": "PASS"
+    },
+    {
+      "id": "chat.turn.steer/records/1/responseSchema/properties/checkpointDisposition:negative:1",
+      "status": "PASS"
+    },
+    {
+      "id": "chat.turn.steer/records/1/responseSchema/properties/checkpointDisposition:negative:{}",
+      "status": "PASS"
+    },
+    {
+      "id": "chat.turn.steer/records/1/responseSchema/properties/checkpointDisposition:negative:UNSPECIFIED",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.start/records/12/responseSchema/properties/state:positive",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.start/records/12/responseSchema/properties/state:negative:None",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.start/records/12/responseSchema/properties/state:negative:1",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.start/records/12/responseSchema/properties/state:negative:{}",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.start/records/12/responseSchema/properties/state:negative:UNSPECIFIED",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.cancel/records/13/responseSchema/properties/state:positive",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.cancel/records/13/responseSchema/properties/state:negative:None",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.cancel/records/13/responseSchema/properties/state:negative:1",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.cancel/records/13/responseSchema/properties/state:negative:{}",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.cancel/records/13/responseSchema/properties/state:negative:UNSPECIFIED",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.cancel/records/13/responseSchema/properties/cleanupStatus:positive",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.cancel/records/13/responseSchema/properties/cleanupStatus:negative:None",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.cancel/records/13/responseSchema/properties/cleanupStatus:negative:1",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.cancel/records/13/responseSchema/properties/cleanupStatus:negative:{}",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.cancel/records/13/responseSchema/properties/cleanupStatus:negative:UNSPECIFIED",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.cancel/records/13/responseSchema/properties/reconciliationStatus:positive",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.cancel/records/13/responseSchema/properties/reconciliationStatus:negative:None",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.cancel/records/13/responseSchema/properties/reconciliationStatus:negative:1",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.cancel/records/13/responseSchema/properties/reconciliationStatus:negative:{}",
+      "status": "PASS"
+    },
+    {
+      "id": "acceptance.run.cancel/records/13/responseSchema/properties/reconciliationStatus:negative:UNSPECIFIED",
+      "status": "PASS"
+    },
+    {
+      "id": "terminal-positive-retained-record",
+      "status": "PASS"
+    },
+    {
+      "id": "no-retained-finalization-no-terminal",
+      "status": "PASS"
+    },
+    {
+      "id": "cleanupPENDING:terminal-rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "cleanupPENDING:own-stage",
+      "status": "PASS"
+    },
+    {
+      "id": "cleanupFAILED:terminal-rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "cleanupFAILED:own-stage",
+      "status": "PASS"
+    },
+    {
+      "id": "effectsUNKNOWN:terminal-rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "effectsUNKNOWN:own-stage",
+      "status": "PASS"
+    },
+    {
+      "id": "effectsPENDING:terminal-rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "effectsPENDING:own-stage",
+      "status": "PASS"
+    },
+    {
+      "id": "checksPENDING:terminal-rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "checksPENDING:own-stage",
+      "status": "PASS"
+    },
+    {
+      "id": "missing-bytes",
+      "status": "PASS"
+    },
+    {
+      "id": "all-zero-evidence",
+      "status": "PASS"
+    },
+    {
+      "id": "extra-valid-flag",
+      "status": "PASS"
+    },
+    {
+      "id": "integer-obligation",
+      "status": "PASS"
+    },
+    {
+      "id": "integer-row",
+      "status": "PASS"
+    },
+    {
+      "id": "foreign-run",
+      "status": "PASS"
+    },
+    {
+      "id": "missing-check",
+      "status": "PASS"
+    },
+    {
+      "id": "duplicate-item",
+      "status": "PASS"
+    },
+    {
+      "id": "claimed-other-outcome",
+      "status": "PASS"
+    },
+    {
+      "id": "tampered-evidence-bytes",
+      "status": "PASS"
+    },
+    {
+      "id": "nonrecord-finalization:True",
+      "status": "PASS"
+    },
+    {
+      "id": "nonrecord-finalization:False",
+      "status": "PASS"
+    },
+    {
+      "id": "nonrecord-finalization:false",
+      "status": "PASS"
+    },
+    {
+      "id": "nonrecord-finalization:17",
+      "status": "PASS"
+    },
+    {
+      "id": "stale-fence",
+      "status": "PASS"
+    },
+    {
+      "id": "finalization-inventoryDigest",
+      "status": "PASS"
+    },
+    {
+      "id": "finalization-fixtureNamespace",
+      "status": "PASS"
+    },
+    {
+      "id": "finalization-state",
+      "status": "PASS"
+    },
+    {
+      "id": "atomic-event-other-transaction",
+      "status": "PASS"
+    },
+    {
+      "id": "atomic-outbox-other-transaction",
+      "status": "PASS"
+    },
+    {
+      "id": "atomic-audit-other-transaction",
+      "status": "PASS"
+    },
+    {
+      "id": "rolled-back-transaction",
+      "status": "PASS"
+    },
+    {
+      "id": "duplicate-json-evidence",
+      "status": "PASS"
+    }
+  ],
+  "checks": 65,
+  "failed": 0,
+  "referenceOnly": true,
+  "implementationAcceptance": "NOT_EVALUATED",
+  "limitations": [
+    "Obligation sets and retained evidence stores must originate at the server-owned persistence boundary; this reference does not prove that origin.",
+    "Typed transaction commit/member records verify semantic binding, not a real PostgreSQL commit or fence acquisition.",
+    "Six field dictionaries do not close complete operations."
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "allowedTechnicalDerivationContract": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContractRecordRef"
+        },
+        {
+          "properties": {
+            "recordKind": {
+              "const": "TECHNICAL_DERIVATION"
+            }
+          }
+        }
+      ]
+    },
+    "approvedRequirementIds": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 65536,
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "approvedSpecificationDigest": {
+      "$ref": "#/$defs/Digest"
+    },
+    "approvedSpecificationId": {
+      "$ref": "#/$defs/Uuid"
+    },
+    "approvedTargetKeys": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 4096,
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "ownerDecisionSetDigest": {
+      "$ref": "#/$defs/Digest"
+    },
+    "requirementSetDigest": {
+      "$ref": "#/$defs/Digest"
+    },
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "scopeChangeAllowed": {
+      "const": false
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "approvedSpecificationId",
+    "approvedSpecificationDigest",
+    "ownerDecisionSetDigest",
+    "requirementSetDigest",
+    "approvedRequirementIds",
+    "approvedTargetKeys",
+    "allowedTechnicalDerivationContract",
+    "scopeChangeAllowed"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,129 @@
+{
+  "format": "KCML-PG-GENERATION-COMBINED-PROOF/1",
+  "entryHead": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+  "sourceSha256": "9bf5510b189ef4f71216d56bf293599ac129d200ec92e90ff7c2c22f6b15e57b",
+  "postgresVersion": "18.6",
+  "foundationSha256": "f4d7fafa2e4d02e700da35c2214aa6fdcb7c8844442ea2455900a83999f20567",
+  "nativeRequestDecoderPositive": true,
+  "syntheticOnly": true,
+  "crypto": "OPAQUE_FIXTURE_NOT_PROOF",
+  "sourceAuthenticationRoots": "FIXTURE_REQUIRED_COLUMNS_NOT_COMPLETE_AUTH_DDL",
+  "checks": [
+    {
+      "case": "combined-actual-proposals-executable",
+      "passed": true
+    },
+    {
+      "case": "full-root-context-snapshot-event-outbox-audit-positive",
+      "passed": true,
+      "detail": {
+        "expectedSqlstate": null,
+        "actualSqlstate": null,
+        "expectedMessage": null,
+        "actualMessage": null
+      }
+    },
+    {
+      "case": "missing-event-rejects-entire-create",
+      "passed": true,
+      "detail": {
+        "expectedSqlstate": "23503",
+        "actualSqlstate": "23503",
+        "expectedMessage": null,
+        "actualMessage": "insert or update on table \"transactional_outbox\" violates foreign key constraint \"transactional_outbox_event_id_fkey\""
+      }
+    },
+    {
+      "case": "missing-outbox-rejects-entire-create",
+      "passed": true,
+      "detail": {
+        "expectedSqlstate": "23514",
+        "actualSqlstate": "23514",
+        "expectedMessage": null,
+        "actualMessage": "GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE"
+      }
+    },
+    {
+      "case": "missing-audit-rejects-entire-create",
+      "passed": true,
+      "detail": {
+        "expectedSqlstate": "23514",
+        "actualSqlstate": "23514",
+        "expectedMessage": null,
+        "actualMessage": "GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE"
+      }
+    },
+    {
+      "case": "missing-snapshot-rejects-entire-create",
+      "passed": true,
+      "detail": {
+        "expectedSqlstate": "23503",
+        "actualSqlstate": "23503",
+        "expectedMessage": null,
+        "actualMessage": "insert or update on table \"domain_command\" violates foreign key constraint \"fk_command_frozen_argument_snapshot\""
+      }
+    },
+    {
+      "case": "command-target-must-equal-frozen-snapshot-job",
+      "passed": true,
+      "detail": {
+        "expectedSqlstate": "23514",
+        "actualSqlstate": "23514",
+        "expectedMessage": "GENERATION_COMMAND_TRUSTED_LINKAGE_INVALID",
+        "actualMessage": "GENERATION_COMMAND_TRUSTED_LINKAGE_INVALID"
+      }
+    },
+    {
+      "case": "context-caller-digest-cannot-disagree-with-command",
+      "passed": true,
+      "detail": {
+        "expectedSqlstate": "23514",
+        "actualSqlstate": "23514",
+        "expectedMessage": "GENERATION_COMMAND_TRUSTED_LINKAGE_INVALID",
+        "actualMessage": "GENERATION_COMMAND_TRUSTED_LINKAGE_INVALID"
+      }
+    },
+    {
+      "case": "root-body-digest-cannot-disagree-with-frozen-receipt-and-snapshot",
+      "passed": true,
+      "detail": {
+        "expectedSqlstate": "23514",
+        "actualSqlstate": "23514",
+        "expectedMessage": "GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE",
+        "actualMessage": "GENERATION_CREATE_ATOMIC_CLOSURE_INCOMPLETE"
+      }
+    },
+    {
+      "case": "persisted-auth-context-for-concurrency",
+      "passed": true
+    },
+    {
+      "case": "fresh-create-race-first-transaction-ready",
+      "passed": true
+    },
+    {
+      "case": "concurrent-first-create-valid-commit",
+      "passed": true
+    },
+    {
+      "case": "concurrent-same-key-resolves-first-operation-no-new-root",
+      "passed": true
+    },
+    {
+      "case": "fresh-concurrent-creation-exactly-one-observable-outcome",
+      "passed": true
+    }
+  ],
+  "summary": {
+    "checks": 14,
+    "failed": 0
+  },
+  "wholeOperationClosed": false,
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED",
+  "open": [
+    "Canonical authentication service credential verification and grants",
+    "Exact caller-channel adapter binding",
+    "Actual authenticated crypto profile and snapshot decrypt/hash/native hydration",
+    "Fresh new-scope idempotency concurrency and full failure injection"
+  ]
+}

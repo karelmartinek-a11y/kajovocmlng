@@ -1,0 +1,24 @@
+### 51.30 Povinná transaction-boundary matice autoritativních operací
+
+Následující operace mají nejméně tuto atomickou hranici. Sloupec T1 je autoritativní prepare/intent nebo transition commit. Sloupec D je nová krátká claim/pre-dispatch transakce bez zděděných row locků; je povinná před každým non-DB side effectem. T2/T3 jsou nové outcome/reconciliation/terminal transakce.
+
+| Operace | T1 — jedna DB transakce | D — fresh claim/pre-dispatch DB transakce | Mimo DB transakci | T2/T3 — následující DB transakce |
+|---|---|---|---|---|
+| Component lifecycle command | idempotency + domain admission + component CAS + desired command + control intent/attempt + audit + authority outbox | current component/domain/lease/fence/epoch + attempt `DISPATCHING` | runtime/control command | raw ACK/read-back, reconcile, effective projection a terminal |
+| Phase completion | phase terminal + job transition + next phase row/reservation + queue + checkpoint + audit | successor queue/concurrency/phase lease claim a fresh job/phase guards | next phase worker execution; jeho externí kroky mají vlastní T1/D | next checkpoint/outcome nebo terminal + další successor |
+| Tool/MCP dispatch | call/run transition + checkpoint + immutable attempt/state + authority outbox | exact admission, call/parent/concurrency/delivery fences + `DISPATCHING` | handler/runtime/provider call | raw outcome evidence, reconcile, result/terminal + idempotency outcome |
+| Model submit | run/model intent + checkpoint + immutable submit attempt + authority outbox | current run/model lease/fence, request digest a provider-submit attempt `DISPATCHING` | OpenAI submit/retrieve | response/output evidence, reconcile, next tool/final transition |
+| Approval decision | approval terminal + run transition + právě jedna resume reservation/queue + audit | resume queue/concurrency/run claim | resumed run work; případné model/tool calls mají vlastní T1/D | checkpoint/outcome/terminal |
+| MRTR/task input | exact response consume + task/call transition + resume queue | resume claim + current call/task/input/checkpoint guards | další MCP request, pokud je vyžadován | raw outcome, reconcile, task/call terminal |
+| Secret activation | version lifecycle + active pointer + epochs + invalidation intent/outbox + audit | invalidation worker claim + current secret/binding/session epoch guards | dependent service/session/browser invalidation | effective ACK/read-back, reconcile a invalidation terminal |
+| OWNER API-key rotation | new version + secret pointer + verifier + credential version/epoch + audit/outbox | pouze případné dependent invalidation claims; samotná rotace nemá external step | žádný nutný external effect | invalidation/evidence; rotation outcome již existuje v T1 |
+| Activation switch | global epoch + všechny pointers + set/domain states + reconcile outbox + audit | per-target runtime/route reconcile claim s exact switch epoch | runtime/route apply + smoke | effective ACK, `ACTIVE`, nebo nový reverse-switch T1 a jeho D/T2/T3 |
+| Browser takeover | old lease revoke + new control epoch/fence/lease + checkpoint + invalidation/host-transfer intent | current session/control/host lease a transfer attempt `DISPATCHING` | browser-host control transfer | attach/read-back/action evidence, reconcile nebo terminal |
+| Browser action | input/action reservation + pre-checkpoint + intent/attempt + authority outbox | exact session/control/page/frame/target/delivery fences + `DISPATCHING` | browser input/action | raw observation, postcondition, reconcile a action terminal |
+| Configuration change | desired revision/pointer + apply run + queue/outbox + audit | target apply claim + desired version/deployment/activation guards | service apply | per-service ACK/read-back + success/rollback terminal |
+| Cleanup step | resource transition + checkpoint + intent/attempt + authority outbox | cleanup/resource/current-pointer/fence revalidation + `DISPATCHING` | OS/provider/browser/filesystem cleanup | read-back + resource `COMPLETE|FAILED|RECONCILING` + successor |
+| Audit archive | domain audit + archive outbox | archive delivery claim/fence | archive upload | delivery evidence/marker; canonical audit chain se nemění |
+| Deployment epoch switch | deployment head/release state + recovery intents/outbox + audit | exact deployment-step lease/fence a process target preflight | symlink/systemd/process/DNS/TLS krok podle deployment sagy | effective heartbeats/read-back/acceptance nebo reconcile/rollback step |
+
+Jakýkoli implementation split, který oddělí položky uvnitř jednoho T1, D nebo T2/T3 commitu, je nevyhovující. T1 a D se nikdy nespojí přes external I/O a D nikdy nepřebírá row lock z claim transakce. Přidání dalšího external side effectu vyžaduje vlastní immutable attempt, authority outbox, D commit a reconciliation contract; nesmí se vložit do jiné DB transakce ani sdílet dispatch authority s jiným effectem.
+

@@ -1,0 +1,33 @@
+{
+  "postgresVersion": "18.6",
+  "source": "https://codeload.github.com/postgres/postgres/tar.gz/refs/tags/REL_18_6",
+  "sourceAndBuildDependencies": {
+    "source.tar.gz": "ff9b1187e3ab120282b9f3e09a5efba2425838b3a843150c5cb2f019f47ac400",
+    "bison.deb": "a414afd7519c53bfa33415ba5b951bc8b4906877004c49723ffda50a6033c3e8",
+    "flex.deb": "da3fd55dbb6aff4f7b3187580813e0ef707d0c596402e37c8fd144df60003636",
+    "m4.deb": "b2dd7bfca426712416e651bb5ff6dabe7d05e4caebbac61d714dbe261b31e4c3"
+  },
+  "configure": [
+    "--prefix=/tmp/kcml-pg18",
+    "--without-readline",
+    "--without-icu"
+  ],
+  "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+  "server": "Unix socket /tmp/kcml-pg18-socket port55432; listen_addresses empty, isolated datadir /tmp/kcml-pg18-data",
+  "fixtureAuth": "trust is local isolated synthetic fixture only; not production role/authentication proof",
+  "buildSystemWrites": "/tmp only; Debian bison/flex/m4 packages extracted, not system-installed",
+  "logs": [
+    "/tmp/kcml-pg18-build/configure.log",
+    "/tmp/kcml-pg18-build/make.log",
+    "/tmp/kcml-pg18-build/install.log",
+    "/tmp/kcml-pg18-build/initdb.log",
+    "/tmp/kcml-pg18-build/server.log"
+  ],
+  "readinessLimit": "Actual18.6 DDL/constraint behavior; production auth/TLS/master-key and full-operation acceptance remain unproven",
+  "binSha256": {
+    "postgres": "634fecf6c8a65ae3b3e3eef148cd85ac99bb66a8629739572cd3b6b09aa63add",
+    "psql": "164750395edbbc1137219a73ba8137d94fcf6a0955d1b3ba77ed9a3027137f11",
+    "initdb": "d48f729e6d460b6d6e092d7b30a63f16c8b37dd6a182edba6656ca5bd3c60d26",
+    "pg_ctl": "0df6f33a08a289727892563e667cca3db877a5ab4e6604f64c53d52551c831b0"
+  }
+}

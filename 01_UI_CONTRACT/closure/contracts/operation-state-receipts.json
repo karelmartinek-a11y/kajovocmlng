@@ -1,0 +1,98 @@
+{
+  "format": "KCML-OPERATION-STATE-RECEIPTS/1",
+  "authority": [
+    "12.18",
+    "21.3",
+    "11.24",
+    "25.14",
+    "29.5",
+    "49.4",
+    "49.5",
+    "12.50"
+  ],
+  "fields": [
+    {
+      "operationId": "owner.mfa.reset",
+      "field": "enrollmentState",
+      "schemaPointer": "closure/contracts/operation-payloads.json/records/0/responseSchema/properties/enrollmentState",
+      "mask": {
+        "type": "string",
+        "const": "ENROLLMENT_REQUIRED"
+      },
+      "authority": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.50"
+    },
+    {
+      "operationId": "chat.turn.steer",
+      "field": "checkpointDisposition",
+      "schemaPointer": "closure/contracts/operation-payloads.json/records/1/responseSchema/properties/checkpointDisposition",
+      "mask": {
+        "type": "string",
+        "const": "STEERING_COMMITTED"
+      },
+      "authority": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.50"
+    },
+    {
+      "operationId": "acceptance.run.start",
+      "field": "state",
+      "schemaPointer": "closure/contracts/operation-payloads.json/records/12/responseSchema/properties/state",
+      "mask": {
+        "type": "string",
+        "const": "QUEUED"
+      },
+      "authority": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.50"
+    },
+    {
+      "operationId": "acceptance.run.cancel",
+      "field": "state",
+      "schemaPointer": "closure/contracts/operation-payloads.json/records/13/responseSchema/properties/state",
+      "mask": {
+        "type": "string",
+        "enum": [
+          "CANCEL_REQUESTED",
+          "RECONCILING",
+          "MANUAL_REVIEW",
+          "CANCELLED"
+        ]
+      },
+      "authority": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.50"
+    },
+    {
+      "operationId": "acceptance.run.cancel",
+      "field": "cleanupStatus",
+      "schemaPointer": "closure/contracts/operation-payloads.json/records/13/responseSchema/properties/cleanupStatus",
+      "mask": {
+        "type": "string",
+        "enum": [
+          "PENDING",
+          "COMPLETE",
+          "FAILED"
+        ]
+      },
+      "authority": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.50"
+    },
+    {
+      "operationId": "acceptance.run.cancel",
+      "field": "reconciliationStatus",
+      "schemaPointer": "closure/contracts/operation-payloads.json/records/13/responseSchema/properties/reconciliationStatus",
+      "mask": {
+        "type": "string",
+        "enum": [
+          "PENDING",
+          "COMPLETE",
+          "UNKNOWN",
+          "MANUAL_REVIEW"
+        ]
+      },
+      "authority": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.50"
+    }
+  ],
+  "scope": "Six bounded own response dictionary definitions, not whole operation/worker/transaction closure",
+  "receiptKinds": {
+    "owner.mfa.reset": "IMMUTABLE_AS_COMMITTED_RESET_POSTCONDITION",
+    "chat.turn.steer": "IMMUTABLE_AS_COMMITTED_INSTRUCTION_INTENT",
+    "acceptance.run.start": "IMMUTABLE_AS_COMMITTED_QUEUE_ADMISSION",
+    "acceptance.run.cancel": "PERSISTED_CANCELLATION_STAGE_UNTIL_IMMUTABLE_TERMINAL_OUTCOME"
+  },
+  "terminalPredicate": "CANCELLED requires exact run/release/plan/fixture obligations, actual retained successful cleanup/terminal effect+check evidence, no unknown/orphan/manual requirement and typed frozen finalization joins; digest-shaped strings or bool flags are insufficient",
+  "implementationAcceptance": "NOT_EVALUATED"
+}

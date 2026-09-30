@@ -1,0 +1,267 @@
+{
+  "sourceDocumentSha256": "9bf5510b189ef4f71216d56bf293599ac129d200ec92e90ff7c2c22f6b15e57b",
+  "checked": 63,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "owner.mfa.reset.enrollmentState/own-mask",
+      "passed": true
+    },
+    {
+      "case": "owner.mfa.reset.enrollmentState/required",
+      "passed": true
+    },
+    {
+      "case": "owner.mfa.reset.enrollmentState/positive/ENROLLMENT_REQUIRED",
+      "passed": true
+    },
+    {
+      "case": "owner.mfa.reset.enrollmentState/reject/None",
+      "passed": true
+    },
+    {
+      "case": "owner.mfa.reset.enrollmentState/reject/0",
+      "passed": true
+    },
+    {
+      "case": "owner.mfa.reset.enrollmentState/reject/True",
+      "passed": true
+    },
+    {
+      "case": "owner.mfa.reset.enrollmentState/reject/{}",
+      "passed": true
+    },
+    {
+      "case": "owner.mfa.reset.enrollmentState/reject/UNSPECIFIED",
+      "passed": true
+    },
+    {
+      "case": "chat.turn.steer.checkpointDisposition/own-mask",
+      "passed": true
+    },
+    {
+      "case": "chat.turn.steer.checkpointDisposition/required",
+      "passed": true
+    },
+    {
+      "case": "chat.turn.steer.checkpointDisposition/positive/STEERING_COMMITTED",
+      "passed": true
+    },
+    {
+      "case": "chat.turn.steer.checkpointDisposition/reject/None",
+      "passed": true
+    },
+    {
+      "case": "chat.turn.steer.checkpointDisposition/reject/0",
+      "passed": true
+    },
+    {
+      "case": "chat.turn.steer.checkpointDisposition/reject/True",
+      "passed": true
+    },
+    {
+      "case": "chat.turn.steer.checkpointDisposition/reject/{}",
+      "passed": true
+    },
+    {
+      "case": "chat.turn.steer.checkpointDisposition/reject/UNSPECIFIED",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.start.state/own-mask",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.start.state/required",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.start.state/positive/QUEUED",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.start.state/reject/None",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.start.state/reject/0",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.start.state/reject/True",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.start.state/reject/{}",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.start.state/reject/UNSPECIFIED",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.state/own-mask",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.state/required",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.state/positive/CANCEL_REQUESTED",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.state/positive/RECONCILING",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.state/positive/MANUAL_REVIEW",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.state/positive/CANCELLED",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.state/reject/None",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.state/reject/0",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.state/reject/True",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.state/reject/{}",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.state/reject/UNSPECIFIED",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.cleanupStatus/own-mask",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.cleanupStatus/required",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.cleanupStatus/positive/PENDING",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.cleanupStatus/positive/COMPLETE",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.cleanupStatus/positive/FAILED",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.cleanupStatus/reject/None",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.cleanupStatus/reject/0",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.cleanupStatus/reject/True",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.cleanupStatus/reject/{}",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.cleanupStatus/reject/UNSPECIFIED",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.reconciliationStatus/own-mask",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.reconciliationStatus/required",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.reconciliationStatus/positive/PENDING",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.reconciliationStatus/positive/COMPLETE",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.reconciliationStatus/positive/UNKNOWN",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.reconciliationStatus/positive/MANUAL_REVIEW",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.reconciliationStatus/reject/None",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.reconciliationStatus/reject/0",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.reconciliationStatus/reject/True",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.reconciliationStatus/reject/{}",
+      "passed": true
+    },
+    {
+      "case": "acceptance.run.cancel.reconciliationStatus/reject/UNSPECIFIED",
+      "passed": true
+    },
+    {
+      "case": "cancel/valid-terminal-tuple",
+      "passed": true
+    },
+    {
+      "case": "cancel/reject-terminal-cleanupStatusPENDING",
+      "passed": true
+    },
+    {
+      "case": "cancel/reject-terminal-cleanupStatusFAILED",
+      "passed": true
+    },
+    {
+      "case": "cancel/reject-terminal-reconciliationStatusPENDING",
+      "passed": true
+    },
+    {
+      "case": "cancel/reject-terminal-reconciliationStatusUNKNOWN",
+      "passed": true
+    },
+    {
+      "case": "cancel/reject-terminal-reconciliationStatusMANUAL_REVIEW",
+      "passed": true
+    },
+    {
+      "case": "authoring/current",
+      "passed": true
+    }
+  ],
+  "scope": "Verify six own response dictionaries and terminal tuple, not entire operations.",
+  "sourceResourceSha256": {
+    "closure/contracts/operation-state-receipts.json": "309fa75f6fffd42d17f8a7011961cd595b05b188b7392e4c8fb325c7b4954181",
+    "closure/contracts/operation-payloads.json": "acff7e1564ccc19cbe40ec397ec2f71a71da00bb564dfee2665f39597f0be233"
+  },
+  "requiredRemaining": "Actual authoritative inventory/evidence provenance, worker/fence/transaction joins and full operation transport/error/event/UI remain separate obligations",
+  "wholeOperationsClosed": 0,
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

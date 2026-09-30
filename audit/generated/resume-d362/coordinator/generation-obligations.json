@@ -1,0 +1,583 @@
+{
+  "sourceDocumentSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+  "pinnedHead": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+  "operationId": "generation.job.create",
+  "scope": "Whole create operation and required persisted consumer handoffs;25 top-level scoped obligations, not an exhaustive per-field semantic-review claim",
+  "obligations": [
+    {
+      "id": "generation.job.create:http",
+      "scope": "Exact path/query/header/body; UTF8 and duplicate-key JSON decoding; caller/server identity separation",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.47",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.49.3",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:create",
+      "scope": "CREATE admission and optional parent semantics; owned target/source/credential purposes",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.41",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.47",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.11",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:http"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:update",
+      "scope": "Own immutable target/component/runtime selector, admissible discussion snapshot; migration execution/activation prerequisites separately",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.41",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.25.11",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:http"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:retry",
+      "scope": "Exact failed technical attempt and retained approved functional authority; new attempt identity; no root-state shortcut",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.41",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.25.11",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:http"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:repair",
+      "scope": "Committed monitoring evidence and last approved lineage; preserved target identity; technical-only changes and later regression",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.41",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.25.11",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:http"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:followup",
+      "scope": "Three approved frozen basis variants, exact content schemas/digests/identities/publication/sufficiency and owner; nonterminal source accepted when suitable",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.49",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.25.11",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:http"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:sources",
+      "scope": "Actual owned artifact bytes/MIME/digest/image/text URL and Secret-reference purpose eligibility; no current/latest fallback",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.47",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.11",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.13.15",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:http"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:credential",
+      "scope": "Exact explicit credential provenance, protected immutable storage and authorized use, no automatic Secret creation",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.4",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.11",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.47",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:http"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:root",
+      "scope": "Executable generation_job columns, constraints, states/counters, timestamps, identity/parent refs and mandatory initial-request binding",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.25.11",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.49.15",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.51.9",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:create",
+        "generation.job.create:update",
+        "generation.job.create:retry",
+        "generation.job.create:repair",
+        "generation.job.create:followup"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:context",
+      "scope": "Closed trusted server context with owner/auth/recovery/fences/server-created IDs and capabilities; request/model cannot populate authority",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.49.3",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.49.4",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.51.12",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:http"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:locks",
+      "scope": "Exact stable locator/root/source locks, SQL transaction boundaries, concurrent changes and fencing before one commit",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.49.4",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.49.5",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.51.8",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.51.12",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:root",
+        "generation.job.create:context"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:snapshot",
+      "scope": "Immutable protected typed initial request and exact frozen basis actual bytes, digest/schema/identity lineage and crypto-profile binding",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.8.4",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.25.11",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.49",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:root",
+        "generation.job.create:locks",
+        "generation.job.create:credential"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:idempotency",
+      "scope": "Stable owner/operation/key locator and original request digest; frozen outcome and same/different-key concurrency",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.49.4",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.49",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:locks",
+        "generation.job.create:snapshot"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:receipt",
+      "scope": "Exact server CREATED discussion receipt and counters, committed request/basis digest, new job not completed",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.48",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.25.11",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:root",
+        "generation.job.create:snapshot"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:error",
+      "scope": "All actual admission/transport/persistence predicates and exact HTTP mappings; pre-admission no logical ID and no sensitive echo",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.48",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.49.3",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.49.25",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:http",
+        "generation.job.create:receipt"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:event",
+      "scope": "Immutable generation.job.created payload equals canonical receipt/committed state; own event sequence and no source mutation",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.48",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.49.5",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:receipt"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:outbox",
+      "scope": "Physical event→outbox→inbox identities and transactional delivery/recovery joins; committed generation row inseparable from required publish intent",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.49.5",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.51.12",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:event"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:audit",
+      "scope": "Exact audit chain canonical bytes/result/correlation and commit joins, privacy, no orphan/partial success",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.49.5",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.51.12",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:receipt",
+        "generation.job.create:event",
+        "generation.job.create:outbox"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:failure",
+      "scope": "Known rolled back transaction versus unknown commit; cancellation/admission race and reconciliation of original operation",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.49.25",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.32.6",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.48",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:idempotency",
+        "generation.job.create:audit"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:replay",
+      "scope": "Frozen successful/failed/unknown descriptor and persisted original version; current source progress/cancel cannot rewrite child input",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.49.4",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.49",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:failure",
+        "generation.job.create:idempotency"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:read",
+      "scope": "Precise job.read/snapshot request/output/errors and own state/version, typed immutable initial request/receipt/basis read",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.25.11",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.49",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:receipt",
+        "generation.job.create:snapshot"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:hydrate",
+      "scope": "Reference→actual bytes→schema/digest/identity/owner→consumer postconditions; no moving source pointer",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.49",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.13.15",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.25.11",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:read"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:ui",
+      "scope": "Exact create form/selected-object mapping, new job selection/result, read hydration, retry key, supported OWNER operation exposure",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.43.3",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.49.3",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.47",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:read",
+        "generation.job.create:hydrate",
+        "generation.job.create:error"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:postgres-fixture",
+      "scope": "Required isolated exact PostgreSQL18.6 SQL fixtures: DDL/helpers/constraints/locks/rollback/replay/concurrency, no SQLite substitution",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.73.2",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.73.7",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.51.12",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:root",
+        "generation.job.create:locks",
+        "generation.job.create:outbox",
+        "generation.job.create:audit",
+        "generation.job.create:replay"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    },
+    {
+      "id": "generation.job.create:design-evidence",
+      "scope": "Positive domain witnesses and exact negative failures; all consumed sources/evidence current and independent review; design/fixture/runtime gates separate",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.73.7",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.12.18",
+          "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee"
+        }
+      ],
+      "dependencies": [
+        "generation.job.create:http",
+        "generation.job.create:ui",
+        "generation.job.create:postgres-fixture"
+      ],
+      "stage": "A_REQUIRED_BEFORE_GENERATION;B_DESIGN_REFERENCE_OR_REQUIRED_FIXTURE",
+      "state": "OPEN",
+      "evidence": []
+    }
+  ],
+  "wholeOperationClosed": false,
+  "futureImplementationAcceptance": "C_NOT_EVALUATED: actual generated application HTTP/services/liveconsumer/production behavior; mandatory pregeneration fixtures remain A"
+}

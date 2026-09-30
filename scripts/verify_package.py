@@ -88,7 +88,9 @@ def audit():
   results.append({'family':fam,'exitCode':run.returncode,'stdout':run.stdout.strip(),'stderr':run.stderr.strip()});check(run.returncode==0,'validator failed '+fam)
  visual_path=ROOT/'audit/visual-validation.json';check(visual_path.exists(),'missing visual validation')
  if visual_path.exists():
-  v=json.loads(visual_path.read_text());check(v['status']=='PASS' and v['views']==48,'visual validation failed')
+  v=json.loads(visual_path.read_text())
+  from visual_evidence import verify_reference
+  structural.extend(verify_reference(v))
   for file,digest in v.get('sourceHashes',{}).items():check((ROOT/file).exists() and sha(ROOT/file)==digest,'render source drift '+file)
 
  return {'format':'KCML-FINAL-AUDIT/1','scope':'whole repository structure plus explicit semantic detectors; not a claim of manual line-by-line semantic certification','sourceBranch':subprocess.check_output(['git','branch','--show-current'],cwd=ROOT).decode().strip(),'freezePerformed':False,'status':'BLOCKED' if structural or findings else 'READY_FOR_INDEPENDENT_AUDIT','structuralStatus':'FAIL' if structural else 'PASS','stats':stats,'legacyValidators':results,'structuralFailures':structural,'archivalSyntaxFindings':archival,'blockers':findings,'claims':{'FORENSICALLY_COMPLETE':not(structural or findings),'IMPLEMENTATION_READY':not(structural or findings),'VISUALLY_CLOSED':not(structural or findings),'CONTRACT_CLOSED':not(structural or findings),'FREEZE_READY':not(structural or findings)},'sourceDocumentSha256':sha(SSOT)}

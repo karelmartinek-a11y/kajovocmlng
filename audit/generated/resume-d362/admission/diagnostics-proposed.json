@@ -1,0 +1,1418 @@
+{
+  "format": "KCML-GENERATION-ADMISSION-DIAGNOSTICS/1",
+  "diagnostics": [
+    {
+      "diagnostic": "GENERATION_ADMISSION_AUTHORITY_MAP_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "mapping.get('GENERATION_AUTHORITY') != 'GenerationAuthority'",
+          "implementationLine": 129
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_ADMISSION_CONTRACT_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "Explicit mandatory schema or format validation raises this exact typed diagnostic",
+          "implementationLine": 127
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_APPROVED_AUTHORITY_ARTIFACT_KIND_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "authority_ref['artifact']['kind'] != 'GENERATION_AUTHORITY' or repo.artifact_map.get('GENERATION_AUTHORITY') != 'GenerationAuthority'",
+          "implementationLine": 215
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_APPROVED_AUTHORITY_ARTIFACT_REF_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "authority_record.get('artifactRef') != authority_ref['artifact']",
+          "implementationLine": 217
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_APPROVED_AUTHORITY_ARTIFACT_SIZE_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "len(authority_record['bytes']) != authority_ref['artifact']['sizeBytes']",
+          "implementationLine": 218
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_APPROVED_AUTHORITY_CONTENT_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "canonical(authority_content) != canonical(authority['authority'])",
+          "implementationLine": 221
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_APPROVED_AUTHORITY_RECORD_DIGEST_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "authority_ref['recordDigest'] != authority_record['contentDigest']",
+          "implementationLine": 220
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_APPROVED_AUTHORITY_RECORD_KIND_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "authority_ref['recordKind'] != 'GENERATION_AUTHORITY'",
+          "implementationLine": 214
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_APPROVED_AUTHORITY_SCHEMA_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "authority_ref['schema'] != authority_record['schema'] or authority_ref['artifact']['schema'] != authority_record['schema']",
+          "implementationLine": 219
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_APPROVED_LINEAGE_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(authority['specificationRevisionId'], authority['specificationDigest'], authority['sourceJobId']) != (selector['approvedRevisionId'], selector['expectedSpecificationDigest'], revision['jobId'])",
+          "implementationLine": 206
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_AUTHORITY_IDENTITY_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "authority['authorityId'] != selector['authorityId']",
+          "implementationLine": 205
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_ARTIFACT_KIND_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "required_kind is not None and kind != required_kind",
+          "implementationLine": 169
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_ARTIFACT_KIND_UNSUPPORTED",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "definition is None",
+          "implementationLine": 171
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_BYTES_DIGEST_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "record.get('contentDigest') != actual",
+          "implementationLine": 140
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_BYTES_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "not isinstance(raw, bytes)",
+          "implementationLine": 138
+        },
+        {
+          "condition": "not isinstance(raw, bytes)",
+          "implementationLine": 183
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_DEFINITION_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "definition is not None and address['definition'] != definition",
+          "implementationLine": 147
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_DEFINITION_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "address['definition'] not in bundle.get('$defs', {})",
+          "implementationLine": 148
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_DIGEST_CONFLICT",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "expected_digest != actual",
+          "implementationLine": 141
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_DOCUMENT_JOB_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "'jobId' in value and value['jobId'] != record.get('jobId')",
+          "implementationLine": 151
+        },
+        {
+          "condition": "'sourceJobId' in value and value['sourceJobId'] != record.get('jobId')",
+          "implementationLine": 152
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "The exact pinned schema or strict persisted UTF-8 JSON decoder rejects this named violation; unrelated exceptions fail the proof",
+          "implementationLine": null
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_IDENTITY_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "record.get('recordId') != key",
+          "implementationLine": 134
+        },
+        {
+          "condition": "source_record_id != basis['revisionId']",
+          "implementationLine": 294
+        },
+        {
+          "condition": "source_record_id != basis['artifactId']",
+          "implementationLine": 297
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_JOB_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "job_id is not None and record.get('jobId') != job_id",
+          "implementationLine": 136
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_JSON_INVALID",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "The exact pinned schema or strict persisted UTF-8 JSON decoder rejects this named violation; unrelated exceptions fail the proof",
+          "implementationLine": null
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_NONCANONICAL_JSON",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "raw != canonical(value)",
+          "implementationLine": 154
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_NONFINITE_JSON_NUMBER",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "The exact pinned schema or strict persisted UTF-8 JSON decoder rejects this named violation; unrelated exceptions fail the proof",
+          "implementationLine": null
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_OWNER_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "record.get('owner') != self.owner",
+          "implementationLine": 135
+        },
+        {
+          "condition": "record.get('owner') != self.owner",
+          "implementationLine": 181
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_PUBLICATION_IDENTITY_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "payload['receiptId'] != receipt_id",
+          "implementationLine": 162
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_PUBLICATION_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(payload['artifactId'], payload['contentDigest']) != (record['recordId'], record['contentDigest'])",
+          "implementationLine": 163
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_PUBLICATION_UNAVAILABLE",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "receipt is None",
+          "implementationLine": 159
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_SCHEMA_ADDRESS_INVALID",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "not isinstance(address, dict) or set(address) != {'bundleDigest', 'schemaId', 'definition'}",
+          "implementationLine": 143
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_SCHEMA_BUNDLE_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "bundle is None",
+          "implementationLine": 145
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_SCHEMA_ID_MISMATCH",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "bundle['$id'] != address['schemaId']",
+          "implementationLine": 146
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_SCHEMA_INVALID",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "The exact pinned schema or strict persisted UTF-8 JSON decoder rejects this named violation; unrelated exceptions fail the proof",
+          "implementationLine": null
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_SCHEMA_REFERENCE_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "isinstance(e, (Unresolvable, _WrappedReferencingError))",
+          "implementationLine": 39
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_UNAVAILABLE",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "record is None",
+          "implementationLine": 133
+        },
+        {
+          "condition": "record is None",
+          "implementationLine": 167
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_UNICODE_INVALID",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "The exact pinned schema or strict persisted UTF-8 JSON decoder rejects this named violation; unrelated exceptions fail the proof",
+          "implementationLine": null
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_UNPUBLISHED",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "payload['outcome'] != 'COMMITTED'",
+          "implementationLine": 161
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_BASIS_UTF8_INVALID",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "The exact pinned schema or strict persisted UTF-8 JSON decoder rejects this named violation; unrelated exceptions fail the proof",
+          "implementationLine": null
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_KIND_OWN_BASIS_NOT_APPLICABLE",
+      "stableCode": "CREATE_INPUT_INVALID",
+      "httpStatus": 400,
+      "predicate": [
+        {
+          "condition": "kind not in ['UPDATE', 'RETRY', 'REPAIR']",
+          "implementationLine": 227
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_OWNER_APPROVAL_IDENTITY_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "approval['receiptId'] != authority['ownerApprovalEventId']",
+          "implementationLine": 211
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_OWNER_APPROVAL_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(approval['revisionId'], approval['specificationDigest'], approval['sourceJobId'], approval['outcome']) != (selector['approvedRevisionId'], selector['expectedSpecificationDigest'], revision['jobId'], 'COMMITTED')",
+          "implementationLine": 212
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_OWNER_APPROVAL_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "approval_record is None",
+          "implementationLine": 209
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_REPAIR_APPROVED_TARGET_UNAVAILABLE",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "len(historical) != 1",
+          "implementationLine": 266
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_REPAIR_CURRENT_TARGET_SNAPSHOT_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "repo.targetHeads.get(body['targetObjectId']) != {'snapshotId': selector['snapshotId'], 'contentDigest': selector['expectedTargetDigest']}",
+          "implementationLine": 262
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_REPAIR_LAST_APPROVED_LINEAGE_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(target['lastApprovedAuthorityId'], target['lastApprovedSpecificationRevisionId'], target['lastApprovedSpecificationDigest']) != (selector['authorityId'], selector['approvedRevisionId'], selector['expectedSpecificationDigest'])",
+          "implementationLine": 263
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_REPAIR_MONITORING_TARGET_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "evidence['subjectDigest'] != selector['expectedTargetDigest']",
+          "implementationLine": 270
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_REPAIR_PRESERVED_IDENTITY_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(prior['objectId'], prior['targetKind'], prior['componentId'], set(prior['runtimeInstanceIds'])) != (target['objectId'], target['targetKind'], target['componentId'], set(target['runtimeInstanceIds']))",
+          "implementationLine": 268
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_REQUEST_INVALID",
+      "stableCode": "CREATE_INPUT_INVALID",
+      "httpStatus": 400,
+      "predicate": [
+        {
+          "condition": "The exact pinned schema or strict persisted UTF-8 JSON decoder rejects this named violation; unrelated exceptions fail the proof",
+          "implementationLine": null
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_DUPLICATE_PLAN_NODE",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "len(nodes) != len(plan['nodes'])",
+          "implementationLine": 244
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_FAILED_PART_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "not failed <= set(nodes) or any((nodes[n]['phase'] != run['phase'] for n in failed))",
+          "implementationLine": 245
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_LINEAGE_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(run['phaseRunId'], run['planId'], run['planDigest'], run['authorityId'], run['authorityDigest'], run['specificationDigest']) != (selector['phaseRunId'], selector['planId'], selector['expectedPlanDigest'], selector['authorityId'], selector['expectedAuthorityDigest'], selector['expectedSpecificationDigest'])",
+          "implementationLine": 241
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_NONTECHNICAL_PART",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "run['phase'] == 'DISCUSSING'",
+          "implementationLine": 246
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_PLAN_SPECIFICATION_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "plan['specificationDigest'] != selector['expectedSpecificationDigest']",
+          "implementationLine": 242
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_TERMINAL_RESULT_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(result_doc['phaseRunId'], set(result_doc['failedNodeIds'])) != (run['phaseRunId'], failed)",
+          "implementationLine": 251
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_RETRY_TERMINAL_RESULT_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "evidence is None",
+          "implementationLine": 249
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_SCHEMA_BUNDLE_DIGEST_MISMATCH",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "not isinstance(raw, bytes) or digest(raw) != expected",
+          "implementationLine": 111
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_SCHEMA_BUNDLE_ID_AMBIGUOUS",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "schema_id in ids and ids[schema_id] != expected",
+          "implementationLine": 115
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_SCHEMA_BUNDLE_ID_MISSING",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "not isinstance(schema_id, str) or not schema_id",
+          "implementationLine": 114
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_SCHEMA_BUNDLE_INVALID",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "Explicit mandatory schema or format validation raises this exact typed diagnostic",
+          "implementationLine": 94
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "GENERATION_TARGET_SNAPSHOT_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "(target['snapshotId'], target['objectId'], target['targetKind']) != (selector['snapshotId'], body['targetObjectId'], body['targetKind'])",
+          "implementationLine": 231
+        },
+        {
+          "condition": "(target['snapshotId'], target['objectId'], target['targetKind']) != (selector['snapshotId'], body['targetObjectId'], body['targetKind'])",
+          "implementationLine": 261
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_INVALID",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "The exact pinned schema or strict persisted UTF-8 JSON decoder rejects this named violation; unrelated exceptions fail the proof",
+          "implementationLine": null
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_SCHEMA_ADDRESS_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "ref['schema'] != record['schema']",
+          "implementationLine": 190
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_SCHEMA_BYTES_DIGEST_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "digest(raw) != ref['contentDigest'] or record.get('contentDigest') != ref['contentDigest']",
+          "implementationLine": 184
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_SCHEMA_DIGEST_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "digest(canonical(selected)) != descriptor['nativeSchemaDigest']",
+          "implementationLine": 196
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_SCHEMA_IDENTITY_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "record.get('recordId') != ref['artifactId'] or record.get('artifactKind') != 'JSON_SCHEMA_BUNDLE'",
+          "implementationLine": 180
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_SCHEMA_ID_MISMATCH",
+      "stableCode": "CREATE_REFERENCE_INVALID",
+      "httpStatus": 422,
+      "predicate": [
+        {
+          "condition": "descriptor['schemaId'] != schema_value.get('$id')",
+          "implementationLine": 189
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_SCHEMA_INVALID",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "Explicit mandatory schema or format validation raises this exact typed diagnostic",
+          "implementationLine": 187
+        },
+        {
+          "condition": "Explicit mandatory schema or format validation raises this exact typed diagnostic",
+          "implementationLine": 198
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_SCHEMA_POINTER_UNRESOLVED",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "not isinstance(selected, dict) or token not in selected",
+          "implementationLine": 194
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    },
+    {
+      "diagnostic": "MONITORING_OBSERVATION_SCHEMA_UNAVAILABLE",
+      "stableCode": "CREATE_POLICY_UNRESOLVED",
+      "httpStatus": 503,
+      "predicate": [
+        {
+          "condition": "record is None",
+          "implementationLine": 179
+        }
+      ],
+      "pointerRule": "JSON/RFC6901 source field path when available; empty pointer denotes repository cross-record invariant, never sensitive field value",
+      "sources": [
+        "SSOT \u00a712.41",
+        "SSOT \u00a712.49",
+        "SSOT \u00a725.11",
+        "SSOT \u00a749.4",
+        "SSOT \u00a749.15",
+        "PROPOSED SSOT \u00a712.51"
+      ]
+    }
+  ],
+  "unknownDiagnostic": "HTTP_FAILURE_PROJECTION_UNRESOLVED; BLOCKED; no prefix fallback"
+}

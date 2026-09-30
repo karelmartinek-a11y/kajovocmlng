@@ -1,0 +1,223 @@
+{
+  "format": "KCML-PG-GENERATION-ROOT-FIXTURE/1",
+  "inputCommit": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+  "sourceDocumentSha256": "9bf5510b189ef4f71216d56bf293599ac129d200ec92e90ff7c2c22f6b15e57b",
+  "postgresVersion": "18.6",
+  "connection": "isolated Unix socket; TCP disabled",
+  "sourceArchiveSha256": "ff9b1187e3ab120282b9f3e09a5efba2425838b3a843150c5cb2f019f47ac400",
+  "rootSqlSha256": "3d2313c94919ad496354973b9ee7d525b833bc3fd2a955b60cec2415a2cdd365",
+  "verifierSha256": "1edd34decee11382784cd8f7cee9b86e7b0621956f42500f4d6fbebe812e2a27",
+  "fixtureSetupSha256": "111385a5f3620f93ee1eec0350b39aaf1e9fc5c4202c5c96d1721a9591c0867b",
+  "subordinateSqlSha256": "4ab0a6521cfe3df19fd9d3655ef87e8fa1982d8aad8c5ce7f07c6fd4840dd24d",
+  "checks": [
+    {
+      "id": "typed-create-root-snapshot-roundtrip",
+      "status": "PASS",
+      "expectedSqlstate": null,
+      "actualSqlstate": null,
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "missing-owner-identity",
+      "status": "PASS",
+      "expectedSqlstate": "23503",
+      "actualSqlstate": "23503",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "missing-logical-operation",
+      "status": "PASS",
+      "expectedSqlstate": "23503",
+      "actualSqlstate": "23503",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "unknown-job-kind",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "unknown-job-state",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "wrong-owned-digest",
+      "status": "PASS",
+      "expectedSqlstate": "23503",
+      "actualSqlstate": "23503",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "wrong-snapshot-identity",
+      "status": "PASS",
+      "expectedSqlstate": "23503",
+      "actualSqlstate": "23503",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "unknown-request-schema",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "null-required-request-digest",
+      "status": "PASS",
+      "expectedSqlstate": "23502",
+      "actualSqlstate": "23502",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "root-id-immutable",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "owner-immutable",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "initiating-context-immutable",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "target-identity-immutable",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "request-bytes-digest-immutable",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "state-version-exact-increment",
+      "status": "PASS",
+      "expectedSqlstate": "40001",
+      "actualSqlstate": "40001",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "state-version-positive-increment",
+      "status": "PASS",
+      "expectedSqlstate": null,
+      "actualSqlstate": null,
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "terminal-row-immutable",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "snapshot-update-forbidden",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "replay-does-not-create-second-root",
+      "status": "PASS",
+      "expectedSqlstate": "23505",
+      "actualSqlstate": "23505",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "update-requires-existing-target",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "follow-up-requires-own-source-job",
+      "status": "PASS",
+      "expectedSqlstate": "23514",
+      "actualSqlstate": "23514",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "parent-self-forbidden",
+      "status": "PASS",
+      "expectedSqlstate": "55000",
+      "actualSqlstate": "55000",
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "initial-counter-zero",
+      "status": "PASS",
+      "expectedSqlstate": null,
+      "actualSqlstate": null,
+      "positiveWitness": "typed-create-body+root+immutable-snapshot",
+      "valuesIncluded": false
+    },
+    {
+      "id": "failed-commit-rolls-back-root-snapshot",
+      "status": "PASS",
+      "expectedSqlstate": "23503",
+      "valuesIncluded": false
+    }
+  ],
+  "summary": {
+    "checks": 24,
+    "failed": 0
+  },
+  "fixtureOnlyPrerequisites": [
+    "owner_identity UUID identity fixture",
+    "domain_command UUID identity fixture"
+  ],
+  "notProven": [
+    "trusted authentication constructor",
+    "full physical external FK roots",
+    "current phase own-map",
+    "native policy admission",
+    "atomic event/outbox/audit closure",
+    "canonical production cryptography",
+    "generated application"
+  ],
+  "wholeOperationClosed": false,
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

@@ -1,0 +1,4086 @@
+[
+  {
+    "modelId": "model.side-effect",
+    "schemaVersion": "2.0",
+    "states": [
+      "CONFIRMED_APPLIED",
+      "CONFIRMED_NOT_APPLIED",
+      "DISPATCHING",
+      "FAILED_FINAL",
+      "INTENT_RECORDED",
+      "OUTCOME_RECORDED",
+      "RECONCILING",
+      "UNKNOWN"
+    ],
+    "initialStates": [
+      "INTENT_RECORDED"
+    ],
+    "terminalStates": [
+      "CONFIRMED_APPLIED",
+      "FAILED_FINAL"
+    ],
+    "edges": [
+      {
+        "from": "CONFIRMED_NOT_APPLIED",
+        "to": "INTENT_RECORDED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.8"
+      },
+      {
+        "from": "DISPATCHING",
+        "to": "OUTCOME_RECORDED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.8"
+      },
+      {
+        "from": "DISPATCHING",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.8"
+      },
+      {
+        "from": "INTENT_RECORDED",
+        "to": "CONFIRMED_NOT_APPLIED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "NO_NEW_EFFECT",
+          "CANCEL"
+        ],
+        "authoritySection": "49.8"
+      },
+      {
+        "from": "INTENT_RECORDED",
+        "to": "DISPATCHING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.8"
+      },
+      {
+        "from": "OUTCOME_RECORDED",
+        "to": "CONFIRMED_APPLIED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.8"
+      },
+      {
+        "from": "OUTCOME_RECORDED",
+        "to": "CONFIRMED_NOT_APPLIED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.8"
+      },
+      {
+        "from": "OUTCOME_RECORDED",
+        "to": "FAILED_FINAL",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.8"
+      },
+      {
+        "from": "OUTCOME_RECORDED",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.8"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "CONFIRMED_APPLIED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.8"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "CONFIRMED_NOT_APPLIED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.8"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "FAILED_FINAL",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.8"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "UNKNOWN",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.8"
+      },
+      {
+        "from": "UNKNOWN",
+        "to": "CONFIRMED_APPLIED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.8"
+      },
+      {
+        "from": "UNKNOWN",
+        "to": "CONFIRMED_NOT_APPLIED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.8"
+      },
+      {
+        "from": "UNKNOWN",
+        "to": "FAILED_FINAL",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.8"
+      },
+      {
+        "from": "UNKNOWN",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.8"
+      }
+    ],
+    "writerId": "writer.side-effect",
+    "authoritySection": "49.8",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.mcp-mrtr",
+    "schemaVersion": "2.0",
+    "states": [
+      "CONSUMED",
+      "EXPIRED",
+      "FULFILLED",
+      "INVALIDATED",
+      "PARTIALLY_FULFILLED",
+      "PENDING"
+    ],
+    "initialStates": [
+      "PENDING"
+    ],
+    "terminalStates": [
+      "CONSUMED",
+      "EXPIRED",
+      "INVALIDATED"
+    ],
+    "edges": [
+      {
+        "from": "FULFILLED",
+        "to": "CONSUMED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.13.3"
+      },
+      {
+        "from": "FULFILLED",
+        "to": "INVALIDATED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.13.3"
+      },
+      {
+        "from": "PARTIALLY_FULFILLED",
+        "to": "EXPIRED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.13.3"
+      },
+      {
+        "from": "PARTIALLY_FULFILLED",
+        "to": "FULFILLED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.13.3"
+      },
+      {
+        "from": "PARTIALLY_FULFILLED",
+        "to": "INVALIDATED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.13.3"
+      },
+      {
+        "from": "PENDING",
+        "to": "EXPIRED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.13.3"
+      },
+      {
+        "from": "PENDING",
+        "to": "FULFILLED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.13.3"
+      },
+      {
+        "from": "PENDING",
+        "to": "INVALIDATED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.13.3"
+      },
+      {
+        "from": "PENDING",
+        "to": "PARTIALLY_FULFILLED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.13.3"
+      }
+    ],
+    "writerId": "writer.mcp-mrtr",
+    "authoritySection": "49.13.3",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.mcp-subscription",
+    "schemaVersion": "2.0",
+    "states": [
+      "ACTIVE",
+      "CANCEL_REQUESTED",
+      "CLOSED",
+      "FAILED",
+      "GRACEFUL_CLOSING",
+      "OPENING"
+    ],
+    "initialStates": [
+      "OPENING"
+    ],
+    "terminalStates": [
+      "CLOSED",
+      "FAILED"
+    ],
+    "edges": [
+      {
+        "from": "ACTIVE",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.13.5"
+      },
+      {
+        "from": "ACTIVE",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.13.5"
+      },
+      {
+        "from": "ACTIVE",
+        "to": "GRACEFUL_CLOSING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.13.5"
+      },
+      {
+        "from": "CANCEL_REQUESTED",
+        "to": "CLOSED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP"
+        ],
+        "authoritySection": "49.13.5"
+      },
+      {
+        "from": "GRACEFUL_CLOSING",
+        "to": "CLOSED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP"
+        ],
+        "authoritySection": "49.13.5"
+      },
+      {
+        "from": "GRACEFUL_CLOSING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.13.5"
+      },
+      {
+        "from": "OPENING",
+        "to": "ACTIVE",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.13.5"
+      },
+      {
+        "from": "OPENING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.13.5"
+      },
+      {
+        "from": "OPENING",
+        "to": "GRACEFUL_CLOSING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.13.5"
+      }
+    ],
+    "writerId": "writer.mcp-subscription",
+    "authoritySection": "49.13.5",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.mcp-task",
+    "schemaVersion": "2.0",
+    "states": [
+      "CANCELLED",
+      "COMPLETED",
+      "FAILED",
+      "INPUT_REQUIRED",
+      "WORKING"
+    ],
+    "initialStates": [
+      "WORKING"
+    ],
+    "terminalStates": [
+      "CANCELLED",
+      "COMPLETED",
+      "FAILED"
+    ],
+    "edges": [
+      {
+        "from": "INPUT_REQUIRED",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.13.6"
+      },
+      {
+        "from": "INPUT_REQUIRED",
+        "to": "COMPLETED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP"
+        ],
+        "authoritySection": "49.13.6"
+      },
+      {
+        "from": "INPUT_REQUIRED",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.13.6"
+      },
+      {
+        "from": "INPUT_REQUIRED",
+        "to": "WORKING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.13.6"
+      },
+      {
+        "from": "WORKING",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.13.6"
+      },
+      {
+        "from": "WORKING",
+        "to": "COMPLETED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP"
+        ],
+        "authoritySection": "49.13.6"
+      },
+      {
+        "from": "WORKING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.13.6"
+      },
+      {
+        "from": "WORKING",
+        "to": "INPUT_REQUIRED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.13.6"
+      }
+    ],
+    "writerId": "writer.mcp-task",
+    "authoritySection": "49.13.6",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.generation-job",
+    "schemaVersion": "2.0",
+    "states": [
+      "ACTIVATING",
+      "ANALYZING",
+      "BLOCKED",
+      "CANCELLED",
+      "CML_CONFORMANCE",
+      "COMPLETED",
+      "DISCUSSING",
+      "FAILED",
+      "IMPLEMENTING",
+      "INTEGRATING",
+      "VALIDATING"
+    ],
+    "initialStates": [
+      "DISCUSSING"
+    ],
+    "terminalStates": [
+      "CANCELLED",
+      "COMPLETED",
+      "FAILED"
+    ],
+    "edges": [
+      {
+        "from": "ACTIVATING",
+        "to": "COMPLETED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "ANALYZING",
+        "to": "IMPLEMENTING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "CML_CONFORMANCE",
+        "to": "ACTIVATING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "DISCUSSING",
+        "to": "ANALYZING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "IMPLEMENTING",
+        "to": "INTEGRATING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "INTEGRATING",
+        "to": "VALIDATING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "VALIDATING",
+        "to": "CML_CONFORMANCE",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "DISCUSSING",
+        "to": "BLOCKED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "DISCUSSING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "DISCUSSING",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "BLOCKED",
+        "to": "DISCUSSING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "RESUME"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "ANALYZING",
+        "to": "BLOCKED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "ANALYZING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "ANALYZING",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "BLOCKED",
+        "to": "ANALYZING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES",
+          "RESUME"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "IMPLEMENTING",
+        "to": "BLOCKED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "IMPLEMENTING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "IMPLEMENTING",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "BLOCKED",
+        "to": "IMPLEMENTING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES",
+          "RESUME"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "INTEGRATING",
+        "to": "BLOCKED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "INTEGRATING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "INTEGRATING",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "BLOCKED",
+        "to": "INTEGRATING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES",
+          "RESUME"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "VALIDATING",
+        "to": "BLOCKED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "VALIDATING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "VALIDATING",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "BLOCKED",
+        "to": "VALIDATING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES",
+          "RESUME"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "CML_CONFORMANCE",
+        "to": "BLOCKED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "CML_CONFORMANCE",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "CML_CONFORMANCE",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "BLOCKED",
+        "to": "CML_CONFORMANCE",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES",
+          "RESUME"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "ACTIVATING",
+        "to": "BLOCKED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "ACTIVATING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "ACTIVATING",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "BLOCKED",
+        "to": "ACTIVATING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES",
+          "RESUME"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "BLOCKED",
+        "to": "DISCUSSING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "FUNCTIONAL_CHANGE"
+        ],
+        "authoritySection": "49.15"
+      }
+    ],
+    "writerId": "writer.generation-job",
+    "authoritySection": "49.15",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.generation-phase",
+    "schemaVersion": "2.0",
+    "states": [
+      "CANCELLED",
+      "CANCEL_REQUESTED",
+      "FAILED",
+      "QUEUED",
+      "REPAIRING",
+      "RUNNING",
+      "SUCCEEDED",
+      "WAITING_FOR_DEPENDENCY",
+      "WAITING_FOR_OWNER"
+    ],
+    "initialStates": [
+      "QUEUED"
+    ],
+    "terminalStates": [
+      "CANCELLED",
+      "FAILED",
+      "SUCCEEDED"
+    ],
+    "edges": [
+      {
+        "from": "CANCEL_REQUESTED",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "CANCEL_REQUESTED",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "QUEUED",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "QUEUED",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "NO_NEW_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "QUEUED",
+        "to": "RUNNING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "REPAIRING",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "REPAIRING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "REPAIRING",
+        "to": "RUNNING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "REPAIRING",
+        "to": "SUCCEEDED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "RUNNING",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "RUNNING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "RUNNING",
+        "to": "REPAIRING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "RUNNING",
+        "to": "SUCCEEDED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "RUNNING",
+        "to": "WAITING_FOR_DEPENDENCY",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "RUNNING",
+        "to": "WAITING_FOR_OWNER",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "WAITING_FOR_DEPENDENCY",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "WAITING_FOR_DEPENDENCY",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "WAITING_FOR_DEPENDENCY",
+        "to": "RUNNING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "WAITING_FOR_OWNER",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "WAITING_FOR_OWNER",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "WAITING_FOR_OWNER",
+        "to": "RUNNING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.15"
+      }
+    ],
+    "writerId": "writer.generation-phase",
+    "authoritySection": "49.15",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.generation-source",
+    "schemaVersion": "2.0",
+    "states": [
+      "PARSED",
+      "PARSING",
+      "RECEIVED",
+      "REJECTED",
+      "SUPERSEDED",
+      "VERIFIED"
+    ],
+    "initialStates": [
+      "RECEIVED"
+    ],
+    "terminalStates": [
+      "REJECTED",
+      "SUPERSEDED"
+    ],
+    "edges": [
+      {
+        "from": "PARSED",
+        "to": "REJECTED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "PARSED",
+        "to": "SUPERSEDED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "PARSED",
+        "to": "VERIFIED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "PARSING",
+        "to": "PARSED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "PARSING",
+        "to": "REJECTED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "PARSING",
+        "to": "SUPERSEDED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "RECEIVED",
+        "to": "PARSING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "RECEIVED",
+        "to": "REJECTED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "RECEIVED",
+        "to": "SUPERSEDED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "VERIFIED",
+        "to": "SUPERSEDED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      }
+    ],
+    "writerId": "writer.generation-source",
+    "authoritySection": "49.15",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.generation-discussion",
+    "schemaVersion": "2.0",
+    "states": [
+      "COMPLETED",
+      "FAILED",
+      "INTERRUPTED",
+      "INTERRUPT_REQUESTED",
+      "QUEUED",
+      "RUNNING"
+    ],
+    "initialStates": [
+      "QUEUED"
+    ],
+    "terminalStates": [
+      "COMPLETED",
+      "FAILED",
+      "INTERRUPTED"
+    ],
+    "edges": [
+      {
+        "from": "INTERRUPT_REQUESTED",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "INTERRUPT_REQUESTED",
+        "to": "INTERRUPTED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "QUEUED",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "NO_NEW_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "QUEUED",
+        "to": "INTERRUPT_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "QUEUED",
+        "to": "RUNNING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "RUNNING",
+        "to": "COMPLETED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "RUNNING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.15"
+      },
+      {
+        "from": "RUNNING",
+        "to": "INTERRUPT_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.15"
+      }
+    ],
+    "writerId": "writer.generation-discussion",
+    "authoritySection": "49.15",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.generation-node",
+    "schemaVersion": "2.0",
+    "states": [
+      "CANCELLED",
+      "FAILED",
+      "MANUAL_REVIEW",
+      "PENDING",
+      "READY",
+      "RECONCILING",
+      "RUNNING",
+      "SUCCEEDED",
+      "WAITING_FOR_DEPENDENCY"
+    ],
+    "initialStates": [
+      "PENDING"
+    ],
+    "terminalStates": [
+      "CANCELLED",
+      "FAILED",
+      "SUCCEEDED"
+    ],
+    "edges": [
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "RUNNING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "PENDING",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "PENDING",
+        "to": "READY",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "READY",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "READY",
+        "to": "RUNNING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "RUNNING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "SUCCEEDED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "RUNNING",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "RUNNING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "RUNNING",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "RUNNING",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "RUNNING",
+        "to": "SUCCEEDED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "RUNNING",
+        "to": "WAITING_FOR_DEPENDENCY",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "WAITING_FOR_DEPENDENCY",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "WAITING_FOR_DEPENDENCY",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "WAITING_FOR_DEPENDENCY",
+        "to": "READY",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.16"
+      }
+    ],
+    "writerId": "writer.generation-node",
+    "authoritySection": "49.16",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.generation-integration",
+    "schemaVersion": "2.0",
+    "states": [
+      "CANCELLED",
+      "COMPENSATED",
+      "COMPENSATING",
+      "EXECUTING",
+      "FAILED",
+      "INTENT_RECORDED",
+      "MANUAL_REVIEW",
+      "PENDING",
+      "RECONCILING",
+      "SUCCEEDED"
+    ],
+    "initialStates": [
+      "PENDING"
+    ],
+    "terminalStates": [
+      "CANCELLED",
+      "COMPENSATED",
+      "FAILED"
+    ],
+    "edges": [
+      {
+        "from": "COMPENSATING",
+        "to": "COMPENSATED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "COMPENSATING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "COMPENSATING",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "EXECUTING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "EXECUTING",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "EXECUTING",
+        "to": "SUCCEEDED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "INTENT_RECORDED",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "INTENT_RECORDED",
+        "to": "EXECUTING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "COMPENSATING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "ROLLBACK"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "PENDING",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "PENDING",
+        "to": "INTENT_RECORDED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "SUCCEEDED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.16"
+      },
+      {
+        "from": "SUCCEEDED",
+        "to": "COMPENSATING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "ROLLBACK"
+        ],
+        "authoritySection": "49.16"
+      }
+    ],
+    "writerId": "writer.generation-integration",
+    "authoritySection": "49.16",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.browser-session",
+    "schemaVersion": "2.0",
+    "states": [
+      "ACTIVE",
+      "CHALLENGE_REQUIRED",
+      "CLOSED",
+      "CLOSING",
+      "CREATING",
+      "EXPIRED",
+      "FAILED",
+      "PAUSED",
+      "READY",
+      "RECOVERING"
+    ],
+    "initialStates": [
+      "CREATING"
+    ],
+    "terminalStates": [
+      "CLOSED",
+      "EXPIRED",
+      "FAILED"
+    ],
+    "edges": [
+      {
+        "from": "ACTIVE",
+        "to": "CHALLENGE_REQUIRED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "ACTIVE",
+        "to": "CLOSING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "ACTIVE",
+        "to": "EXPIRED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "ACTIVE",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "ACTIVE",
+        "to": "PAUSED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "ACTIVE",
+        "to": "RECOVERING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CHALLENGE_REQUIRED",
+        "to": "ACTIVE",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CHALLENGE_REQUIRED",
+        "to": "CLOSING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CHALLENGE_REQUIRED",
+        "to": "EXPIRED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CHALLENGE_REQUIRED",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CHALLENGE_REQUIRED",
+        "to": "PAUSED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CHALLENGE_REQUIRED",
+        "to": "RECOVERING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CLOSING",
+        "to": "CLOSED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CLOSING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CREATING",
+        "to": "CLOSING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CREATING",
+        "to": "EXPIRED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CREATING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CREATING",
+        "to": "READY",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CREATING",
+        "to": "RECOVERING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "PAUSED",
+        "to": "ACTIVE",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "PAUSED",
+        "to": "CLOSING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "PAUSED",
+        "to": "EXPIRED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "PAUSED",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "PAUSED",
+        "to": "RECOVERING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "READY",
+        "to": "ACTIVE",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "READY",
+        "to": "CLOSING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "READY",
+        "to": "EXPIRED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "READY",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "READY",
+        "to": "PAUSED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "READY",
+        "to": "RECOVERING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "RECOVERING",
+        "to": "ACTIVE",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "RECOVERING",
+        "to": "CHALLENGE_REQUIRED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "RECOVERING",
+        "to": "CLOSING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "RECOVERING",
+        "to": "EXPIRED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "RECOVERING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "RECOVERING",
+        "to": "READY",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.19"
+      }
+    ],
+    "writerId": "writer.browser-session",
+    "authoritySection": "49.19",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.browser-control",
+    "schemaVersion": "2.0",
+    "states": [
+      "CANCELLED",
+      "DRAINING",
+      "GRANTED",
+      "MANUAL_REVIEW",
+      "REJECTED",
+      "REQUESTED",
+      "RESETTING_INPUT"
+    ],
+    "initialStates": [
+      "REQUESTED"
+    ],
+    "terminalStates": [
+      "CANCELLED",
+      "GRANTED",
+      "REJECTED"
+    ],
+    "edges": [
+      {
+        "from": "DRAINING",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "DRAINING",
+        "to": "GRANTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "INPUT_BARRIER"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "DRAINING",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "DRAINING",
+        "to": "REJECTED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "DRAINING",
+        "to": "RESETTING_INPUT",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "DRAINING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "REJECTED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "RESETTING_INPUT",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "REQUESTED",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "REQUESTED",
+        "to": "DRAINING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "REQUESTED",
+        "to": "REJECTED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "RESETTING_INPUT",
+        "to": "GRANTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "INPUT_BARRIER"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "RESETTING_INPUT",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      }
+    ],
+    "writerId": "writer.browser-control",
+    "authoritySection": "49.19",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.browser-action",
+    "schemaVersion": "2.0",
+    "states": [
+      "CANCELLED",
+      "CANCEL_REQUESTED",
+      "CLAIMED",
+      "DISPATCHING",
+      "FAILED",
+      "INTENT_RECORDED",
+      "MANUAL_REVIEW",
+      "QUEUED",
+      "RECONCILING",
+      "SUCCEEDED",
+      "VALIDATING",
+      "VERIFYING",
+      "WAITING_FOR_PAGE"
+    ],
+    "initialStates": [
+      "QUEUED"
+    ],
+    "terminalStates": [
+      "CANCELLED",
+      "FAILED",
+      "SUCCEEDED"
+    ],
+    "edges": [
+      {
+        "from": "CANCEL_REQUESTED",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CANCEL_REQUESTED",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CANCEL_REQUESTED",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CLAIMED",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CLAIMED",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "CLAIMED",
+        "to": "INTENT_RECORDED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "DISPATCHING",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "DISPATCHING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "DISPATCHING",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "DISPATCHING",
+        "to": "VERIFYING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "INTENT_RECORDED",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "INTENT_RECORDED",
+        "to": "DISPATCHING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "INTENT_RECORDED",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "SUCCEEDED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "QUEUED",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "QUEUED",
+        "to": "VALIDATING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "SUCCEEDED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "VALIDATING",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "VALIDATING",
+        "to": "CLAIMED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "VALIDATING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "VALIDATING",
+        "to": "WAITING_FOR_PAGE",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "VERIFYING",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "VERIFYING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "VERIFYING",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "VERIFYING",
+        "to": "SUCCEEDED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "WAITING_FOR_PAGE",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "WAITING_FOR_PAGE",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.19"
+      },
+      {
+        "from": "WAITING_FOR_PAGE",
+        "to": "VALIDATING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.19"
+      }
+    ],
+    "writerId": "writer.browser-action",
+    "authoritySection": "49.19",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.browser-challenge",
+    "schemaVersion": "2.0",
+    "states": [
+      "CANCELLED",
+      "EXPIRED",
+      "PENDING",
+      "REJECTED",
+      "RESOLVED"
+    ],
+    "initialStates": [
+      "PENDING"
+    ],
+    "terminalStates": [
+      "CANCELLED",
+      "EXPIRED",
+      "REJECTED",
+      "RESOLVED"
+    ],
+    "edges": [
+      {
+        "from": "PENDING",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "PENDING",
+        "to": "EXPIRED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "PENDING",
+        "to": "REJECTED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "PENDING",
+        "to": "RESOLVED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.20"
+      }
+    ],
+    "writerId": "writer.browser-challenge",
+    "authoritySection": "49.20",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.browser-cleanup",
+    "schemaVersion": "2.0",
+    "states": [
+      "CAPTURING_FINAL_EVIDENCE",
+      "COMPLETE",
+      "FAILED",
+      "MANUAL_REVIEW",
+      "PENDING",
+      "RECONCILING",
+      "RELEASING_BROWSER_RESOURCES",
+      "RELEASING_PLATFORM_RESOURCES",
+      "REVOKING_ADMISSION"
+    ],
+    "initialStates": [
+      "PENDING"
+    ],
+    "terminalStates": [
+      "COMPLETE",
+      "FAILED"
+    ],
+    "edges": [
+      {
+        "from": "CAPTURING_FINAL_EVIDENCE",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "CAPTURING_FINAL_EVIDENCE",
+        "to": "RELEASING_BROWSER_RESOURCES",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "RELEASING_BROWSER_RESOURCES",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "PENDING",
+        "to": "REVOKING_ADMISSION",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "CAPTURING_FINAL_EVIDENCE",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "RELEASING_BROWSER_RESOURCES",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "RELEASING_BROWSER_RESOURCES",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "RELEASING_BROWSER_RESOURCES",
+        "to": "RELEASING_PLATFORM_RESOURCES",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "RELEASING_PLATFORM_RESOURCES",
+        "to": "COMPLETE",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "RELEASING_PLATFORM_RESOURCES",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "REVOKING_ADMISSION",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.20"
+      },
+      {
+        "from": "REVOKING_ADMISSION",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.20"
+      }
+    ],
+    "writerId": "writer.browser-cleanup",
+    "authoritySection": "49.20",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.automation-step",
+    "schemaVersion": "2.0",
+    "states": [
+      "CANCELLED",
+      "CANCEL_REQUESTED",
+      "CHALLENGE_REQUIRED",
+      "CLAIMED",
+      "DISPATCHING",
+      "FAILED",
+      "INTENT_RECORDED",
+      "MANUAL_REVIEW",
+      "PENDING",
+      "RECONCILING",
+      "SUCCEEDED",
+      "VALIDATING",
+      "VERIFYING",
+      "WAITING_FOR_PAGE"
+    ],
+    "initialStates": [
+      "PENDING"
+    ],
+    "terminalStates": [
+      "CANCELLED",
+      "FAILED",
+      "SUCCEEDED"
+    ],
+    "edges": [
+      {
+        "from": "CANCEL_REQUESTED",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "CANCEL_REQUESTED",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "CANCEL_REQUESTED",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "CHALLENGE_REQUIRED",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "CHALLENGE_REQUIRED",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "CHALLENGE_REQUIRED",
+        "to": "VALIDATING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "CLAIMED",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "CLAIMED",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "CLAIMED",
+        "to": "INTENT_RECORDED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "DISPATCHING",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "DISPATCHING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "DISPATCHING",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "DISPATCHING",
+        "to": "VERIFYING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "INTENT_RECORDED",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "INTENT_RECORDED",
+        "to": "DISPATCHING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "INTENT_RECORDED",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "SUCCEEDED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "PENDING",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "PENDING",
+        "to": "VALIDATING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "SUCCEEDED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "VALIDATING",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "VALIDATING",
+        "to": "CHALLENGE_REQUIRED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "VALIDATING",
+        "to": "CLAIMED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "VALIDATING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "VALIDATING",
+        "to": "WAITING_FOR_PAGE",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "VERIFYING",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "VERIFYING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "VERIFYING",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "VERIFYING",
+        "to": "SUCCEEDED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "WAITING_FOR_PAGE",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "WAITING_FOR_PAGE",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.21"
+      },
+      {
+        "from": "WAITING_FOR_PAGE",
+        "to": "VALIDATING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.21"
+      }
+    ],
+    "writerId": "writer.automation-step",
+    "authoritySection": "49.21",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.configuration-change",
+    "schemaVersion": "2.0",
+    "states": [
+      "APPLIED",
+      "APPLYING",
+      "FAILED",
+      "MANUAL_REVIEW",
+      "PENDING",
+      "ROLLED_BACK",
+      "ROLLING_BACK",
+      "VALIDATING",
+      "VERIFYING"
+    ],
+    "initialStates": [
+      "PENDING"
+    ],
+    "terminalStates": [
+      "APPLIED",
+      "FAILED",
+      "ROLLED_BACK"
+    ],
+    "edges": [
+      {
+        "from": "APPLYING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.23"
+      },
+      {
+        "from": "APPLYING",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.23"
+      },
+      {
+        "from": "APPLYING",
+        "to": "ROLLING_BACK",
+        "guardIds": [
+          "PRECONDITIONS",
+          "ROLLBACK"
+        ],
+        "authoritySection": "49.23"
+      },
+      {
+        "from": "APPLYING",
+        "to": "VERIFYING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.23"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.23"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "ROLLING_BACK",
+        "guardIds": [
+          "PRECONDITIONS",
+          "ROLLBACK"
+        ],
+        "authoritySection": "49.23"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "VERIFYING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.23"
+      },
+      {
+        "from": "PENDING",
+        "to": "VALIDATING",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.23"
+      },
+      {
+        "from": "ROLLING_BACK",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.23"
+      },
+      {
+        "from": "ROLLING_BACK",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.23"
+      },
+      {
+        "from": "ROLLING_BACK",
+        "to": "ROLLED_BACK",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP"
+        ],
+        "authoritySection": "49.23"
+      },
+      {
+        "from": "VALIDATING",
+        "to": "APPLYING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.23"
+      },
+      {
+        "from": "VALIDATING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.23"
+      },
+      {
+        "from": "VERIFYING",
+        "to": "APPLIED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.23"
+      },
+      {
+        "from": "VERIFYING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.23"
+      },
+      {
+        "from": "VERIFYING",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.23"
+      },
+      {
+        "from": "VERIFYING",
+        "to": "ROLLING_BACK",
+        "guardIds": [
+          "PRECONDITIONS",
+          "ROLLBACK"
+        ],
+        "authoritySection": "49.23"
+      }
+    ],
+    "writerId": "writer.configuration-change",
+    "authoritySection": "49.23",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.application-deployment",
+    "schemaVersion": "2.0",
+    "states": [
+      "ACTIVE",
+      "BACKED_UP",
+      "FAILED",
+      "MANUAL_REVIEW",
+      "MIGRATING",
+      "PREPARING",
+      "QUEUED",
+      "RESTARTING",
+      "ROLLED_BACK",
+      "ROLLING_BACK",
+      "STAGING",
+      "SWITCHING",
+      "VERIFYING"
+    ],
+    "initialStates": [
+      "QUEUED"
+    ],
+    "terminalStates": [
+      "ACTIVE",
+      "FAILED",
+      "ROLLED_BACK"
+    ],
+    "edges": [
+      {
+        "from": "BACKED_UP",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "BACKED_UP",
+        "to": "MIGRATING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "BACKED_UP",
+        "to": "ROLLING_BACK",
+        "guardIds": [
+          "PRECONDITIONS",
+          "ROLLBACK"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "ROLLING_BACK",
+        "guardIds": [
+          "PRECONDITIONS",
+          "ROLLBACK"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "VERIFYING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "MIGRATING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "MIGRATING",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "MIGRATING",
+        "to": "ROLLING_BACK",
+        "guardIds": [
+          "PRECONDITIONS",
+          "ROLLBACK"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "MIGRATING",
+        "to": "STAGING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "PREPARING",
+        "to": "BACKED_UP",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "PREPARING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "QUEUED",
+        "to": "PREPARING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "RESTARTING",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "RESTARTING",
+        "to": "ROLLING_BACK",
+        "guardIds": [
+          "PRECONDITIONS",
+          "ROLLBACK"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "RESTARTING",
+        "to": "VERIFYING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "ROLLING_BACK",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "ROLLING_BACK",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "ROLLING_BACK",
+        "to": "ROLLED_BACK",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "STAGING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "STAGING",
+        "to": "ROLLING_BACK",
+        "guardIds": [
+          "PRECONDITIONS",
+          "ROLLBACK"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "STAGING",
+        "to": "SWITCHING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "SWITCHING",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "SWITCHING",
+        "to": "RESTARTING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "SWITCHING",
+        "to": "ROLLING_BACK",
+        "guardIds": [
+          "PRECONDITIONS",
+          "ROLLBACK"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "VERIFYING",
+        "to": "ACTIVE",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "VERIFYING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "VERIFYING",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.24"
+      },
+      {
+        "from": "VERIFYING",
+        "to": "ROLLING_BACK",
+        "guardIds": [
+          "PRECONDITIONS",
+          "ROLLBACK"
+        ],
+        "authoritySection": "49.24"
+      }
+    ],
+    "writerId": "writer.application-deployment",
+    "authoritySection": "49.24",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.agentic-context",
+    "schemaVersion": "2.0",
+    "states": [
+      "COMPILED",
+      "DISPATCHED",
+      "DISPATCH_RESERVED",
+      "INVALIDATED",
+      "MANUAL_REVIEW",
+      "TERMINAL",
+      "VALIDATED"
+    ],
+    "initialStates": [
+      "COMPILED"
+    ],
+    "terminalStates": [
+      "INVALIDATED",
+      "TERMINAL"
+    ],
+    "edges": [
+      {
+        "from": "COMPILED",
+        "to": "INVALIDATED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.32"
+      },
+      {
+        "from": "COMPILED",
+        "to": "VALIDATED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.32"
+      },
+      {
+        "from": "DISPATCHED",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.32"
+      },
+      {
+        "from": "DISPATCHED",
+        "to": "TERMINAL",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.32"
+      },
+      {
+        "from": "DISPATCH_RESERVED",
+        "to": "DISPATCHED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.32"
+      },
+      {
+        "from": "DISPATCH_RESERVED",
+        "to": "INVALIDATED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.32"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "TERMINAL",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "49.32"
+      },
+      {
+        "from": "VALIDATED",
+        "to": "DISPATCH_RESERVED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.32"
+      },
+      {
+        "from": "VALIDATED",
+        "to": "INVALIDATED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.32"
+      }
+    ],
+    "writerId": "writer.agentic-context",
+    "authoritySection": "49.32",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.platform-recovery",
+    "schemaVersion": "2.0",
+    "states": [
+      "BLOCKED",
+      "MANUAL_REVIEW",
+      "READY",
+      "RECONCILING",
+      "STARTING"
+    ],
+    "initialStates": [
+      "STARTING"
+    ],
+    "terminalStates": [],
+    "edges": [
+      {
+        "from": "BLOCKED",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.33"
+      },
+      {
+        "from": "BLOCKED",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.33"
+      },
+      {
+        "from": "MANUAL_REVIEW",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.33"
+      },
+      {
+        "from": "READY",
+        "to": "STARTING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.33"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "BLOCKED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.33"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "MANUAL_REVIEW",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.33"
+      },
+      {
+        "from": "RECONCILING",
+        "to": "READY",
+        "guardIds": [
+          "PRECONDITIONS",
+          "DEPENDENCIES"
+        ],
+        "authoritySection": "49.33"
+      },
+      {
+        "from": "STARTING",
+        "to": "RECONCILING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "49.33"
+      }
+    ],
+    "writerId": "writer.platform-recovery",
+    "authoritySection": "49.33",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  },
+  {
+    "modelId": "model.openai-model-call",
+    "schemaVersion": "2.0",
+    "states": [
+      "CANCELLED",
+      "CANCEL_REQUESTED",
+      "COMPLETED",
+      "EXPIRED",
+      "FAILED",
+      "INCOMPLETE",
+      "IN_PROGRESS",
+      "QUEUED",
+      "REFUSED",
+      "STREAMING",
+      "SUBMITTING",
+      "WAITING_FOR_TOOL_OUTPUT"
+    ],
+    "initialStates": [
+      "QUEUED"
+    ],
+    "terminalStates": [
+      "CANCELLED",
+      "COMPLETED",
+      "EXPIRED",
+      "FAILED",
+      "INCOMPLETE",
+      "REFUSED"
+    ],
+    "edges": [
+      {
+        "from": "CANCEL_REQUESTED",
+        "to": "CANCELLED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP",
+          "CANCEL"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "CANCEL_REQUESTED",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "IN_PROGRESS",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "IN_PROGRESS",
+        "to": "COMPLETED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "IN_PROGRESS",
+        "to": "EXPIRED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "IN_PROGRESS",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "IN_PROGRESS",
+        "to": "INCOMPLETE",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "IN_PROGRESS",
+        "to": "REFUSED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "IN_PROGRESS",
+        "to": "STREAMING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "IN_PROGRESS",
+        "to": "WAITING_FOR_TOOL_OUTPUT",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "QUEUED",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "QUEUED",
+        "to": "SUBMITTING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "STREAMING",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "STREAMING",
+        "to": "COMPLETED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "STREAMING",
+        "to": "EXPIRED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "STREAMING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "STREAMING",
+        "to": "INCOMPLETE",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "STREAMING",
+        "to": "IN_PROGRESS",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "STREAMING",
+        "to": "REFUSED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "STREAMING",
+        "to": "WAITING_FOR_TOOL_OUTPUT",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "SUBMITTING",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "SUBMITTING",
+        "to": "COMPLETED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "SUBMITTING",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "SUBMITTING",
+        "to": "INCOMPLETE",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "SUBMITTING",
+        "to": "IN_PROGRESS",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "SUBMITTING",
+        "to": "REFUSED",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "SUBMITTING",
+        "to": "STREAMING",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "SUBMITTING",
+        "to": "WAITING_FOR_TOOL_OUTPUT",
+        "guardIds": [
+          "PRECONDITIONS"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "WAITING_FOR_TOOL_OUTPUT",
+        "to": "CANCEL_REQUESTED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "CANCEL"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "WAITING_FOR_TOOL_OUTPUT",
+        "to": "COMPLETED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT",
+          "CLEANUP"
+        ],
+        "authoritySection": "52.7"
+      },
+      {
+        "from": "WAITING_FOR_TOOL_OUTPUT",
+        "to": "FAILED",
+        "guardIds": [
+          "PRECONDITIONS",
+          "KNOWN_EFFECT"
+        ],
+        "authoritySection": "52.7"
+      }
+    ],
+    "writerId": "writer.openai-model-call",
+    "authoritySection": "52.7",
+    "deniedByDefault": true,
+    "successRequiresKnownOutcome": true,
+    "terminalClosureSeparate": true
+  }
+]

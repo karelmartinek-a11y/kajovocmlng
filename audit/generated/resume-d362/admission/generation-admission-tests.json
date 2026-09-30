@@ -1,0 +1,704 @@
+{
+  "inputCommit": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+  "ssotSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+  "schemaBundleSha256": "5cf483812abcbfd834c54537a444724d227fe36ddb1ad0604af13205b4494943",
+  "proofKind": "DESIGN_REFERENCE_SYNTHETIC_NATIVE_BYTES",
+  "supportSha256": {
+    "audit/generated/resume-d362/admission/generation_admission_reference.py": "618c53ef50f01896faf9e0374af274195d1c84792f29d457da801ed748c678e7",
+    "audit/generated/resume-d362/admission/generation_admission_fixtures.py": "f9910310bbd443dfd33b581f1555159b6d2d3c6f527100a11d017b3191c98101",
+    "audit/generated/resume-d362/admission/verify_generation_admission_reference.py": "fdc3eda8f5a49573c996a9e83c6110de7323f22a63857a252c0a66db782ec8fb",
+    "scripts/create_operation_contracts.py": "2eb6b6460d626fa10349bf1b4d45d31d4cde9c0dbd32ba4848c90531c386e104",
+    "scripts/follow_up_contracts.py": "5d9e111c32f65e74e7182fc8d104dc2931bd0fdae21d147daac196c8881c7f7d",
+    "scripts/verify_phase2_handoffs.py": "60e3476d9ab9d67aec3f1a784135598686c6d501075041d9dc4ef2d2dd17215e",
+    "scripts/ssot_sources.py": "6ce4622b95aba18f9afd26dbbe57ab57490c74b7c72d5b68289bd8268868b3f1"
+  },
+  "environment": {
+    "interpreter": "/tmp/ssot-audit-venv/bin/python",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "jsonschemaVersion": "4.26.0",
+    "formatChecker": "jsonschema.FormatChecker installed dependency baseline"
+  },
+  "checks": [
+    {
+      "case": "UPDATE/native-positive",
+      "passed": true
+    },
+    {
+      "case": "UPDATE/discussion-only",
+      "passed": true
+    },
+    {
+      "case": "UPDATE/missing/basisKind",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "UPDATE/missing/snapshotId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "UPDATE/missing/expectedDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "UPDATE/basis-type/None",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "UPDATE/basis-type/False",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "UPDATE/basis-type/[]",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "UPDATE/basis-type/42",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "UPDATE/extra-server-authority",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "UPDATE/digest-conflict",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DIGEST_CONFLICT",
+      "actualCode": "GENERATION_BASIS_DIGEST_CONFLICT",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "UPDATE/bytes-unavailable",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_BYTES_UNAVAILABLE",
+      "actualCode": "GENERATION_BASIS_BYTES_UNAVAILABLE",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "UPDATE/bytes-digest-mismatch",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_BYTES_DIGEST_MISMATCH",
+      "actualCode": "GENERATION_BASIS_BYTES_DIGEST_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "UPDATE/owner",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "actualCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "UPDATE/record-identity",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_IDENTITY_MISMATCH",
+      "actualCode": "GENERATION_BASIS_IDENTITY_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "UPDATE/wrong-definition",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DEFINITION_MISMATCH",
+      "actualCode": "GENERATION_BASIS_DEFINITION_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "UPDATE/valid-flags-not-content",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "actualCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/native-positive",
+      "passed": true
+    },
+    {
+      "case": "RETRY/discussion-only",
+      "passed": true
+    },
+    {
+      "case": "RETRY/missing/basisKind",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/missing/phaseRunId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/missing/expectedDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/missing/planId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/missing/expectedPlanDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/missing/approvedRevisionId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/missing/expectedSpecificationDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/missing/authorityId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/missing/expectedAuthorityDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/basis-type/None",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/basis-type/False",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/basis-type/[]",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/basis-type/42",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/extra-server-authority",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "RETRY/digest-conflict",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DIGEST_CONFLICT",
+      "actualCode": "GENERATION_BASIS_DIGEST_CONFLICT",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/bytes-unavailable",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_BYTES_UNAVAILABLE",
+      "actualCode": "GENERATION_BASIS_BYTES_UNAVAILABLE",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/bytes-digest-mismatch",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_BYTES_DIGEST_MISMATCH",
+      "actualCode": "GENERATION_BASIS_BYTES_DIGEST_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/owner",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "actualCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/record-identity",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_IDENTITY_MISMATCH",
+      "actualCode": "GENERATION_BASIS_IDENTITY_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/wrong-definition",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DEFINITION_MISMATCH",
+      "actualCode": "GENERATION_BASIS_DEFINITION_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/valid-flags-not-content",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "actualCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/native-positive",
+      "passed": true
+    },
+    {
+      "case": "REPAIR/discussion-only",
+      "passed": true
+    },
+    {
+      "case": "REPAIR/missing/basisKind",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/missing/monitoringArtifactId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/missing/expectedDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/missing/snapshotId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/missing/expectedTargetDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/missing/approvedRevisionId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/missing/expectedSpecificationDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/missing/authorityId",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/missing/expectedAuthorityDigest",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/basis-type/None",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/basis-type/False",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/basis-type/[]",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/basis-type/42",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/extra-server-authority",
+      "passed": true,
+      "expectedCode": "GENERATION_REQUEST_INVALID",
+      "actualCode": "GENERATION_REQUEST_INVALID",
+      "expectedPointer": null,
+      "actualPointer": "/generationBasis"
+    },
+    {
+      "case": "REPAIR/digest-conflict",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DIGEST_CONFLICT",
+      "actualCode": "GENERATION_BASIS_DIGEST_CONFLICT",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/bytes-unavailable",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_BYTES_UNAVAILABLE",
+      "actualCode": "GENERATION_BASIS_BYTES_UNAVAILABLE",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/bytes-digest-mismatch",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_BYTES_DIGEST_MISMATCH",
+      "actualCode": "GENERATION_BASIS_BYTES_DIGEST_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/owner",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "actualCode": "GENERATION_BASIS_OWNER_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/record-identity",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_IDENTITY_MISMATCH",
+      "actualCode": "GENERATION_BASIS_IDENTITY_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/wrong-definition",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DEFINITION_MISMATCH",
+      "actualCode": "GENERATION_BASIS_DEFINITION_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/valid-flags-not-content",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "actualCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "UPDATE/target-identity",
+      "passed": true,
+      "expectedCode": "GENERATION_TARGET_SNAPSHOT_MISMATCH",
+      "actualCode": "GENERATION_TARGET_SNAPSHOT_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/failed-node-not-in-plan",
+      "passed": true,
+      "expectedCode": "GENERATION_RETRY_FAILED_PART_MISMATCH",
+      "actualCode": "GENERATION_RETRY_FAILED_PART_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/unknown-side-effects",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "actualCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "expectedPointer": "/pendingSideEffectIds",
+      "actualPointer": "/pendingSideEffectIds"
+    },
+    {
+      "case": "RETRY/success-not-failure",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "actualCode": "GENERATION_BASIS_SCHEMA_INVALID",
+      "expectedPointer": "/state",
+      "actualPointer": "/state"
+    },
+    {
+      "case": "RETRY/authority-digest-conflict",
+      "passed": true,
+      "expectedCode": "GENERATION_RETRY_LINEAGE_MISMATCH",
+      "actualCode": "GENERATION_RETRY_LINEAGE_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/subject-target",
+      "passed": true,
+      "expectedCode": "GENERATION_REPAIR_MONITORING_TARGET_MISMATCH",
+      "actualCode": "GENERATION_REPAIR_MONITORING_TARGET_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/actual-observation",
+      "passed": true,
+      "expectedCode": "MONITORING_OBSERVATION_INVALID",
+      "actualCode": "MONITORING_OBSERVATION_INVALID",
+      "expectedPointer": "/observations/failureCount",
+      "actualPointer": "/observations/failureCount"
+    },
+    {
+      "case": "REPAIR/observation-schema-digest",
+      "passed": true,
+      "expectedCode": "MONITORING_OBSERVATION_SCHEMA_DIGEST_MISMATCH",
+      "actualCode": "MONITORING_OBSERVATION_SCHEMA_DIGEST_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/publication-unknown",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_UNPUBLISHED",
+      "actualCode": "GENERATION_BASIS_UNPUBLISHED",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "FOLLOW_UP/INITIAL_REQUEST/actual-native-content",
+      "passed": true
+    },
+    {
+      "case": "FOLLOW_UP/INITIAL_REQUEST/GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "actualCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "expectedPointer": "/intent",
+      "actualPointer": "/intent"
+    },
+    {
+      "case": "FOLLOW_UP/INITIAL_REQUEST/GENERATION_BASIS_JSON_INVALID",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "FOLLOW_UP/SPECIFICATION_REVISION/actual-native-content",
+      "passed": true
+    },
+    {
+      "case": "FOLLOW_UP/SPECIFICATION_REVISION/GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "actualCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "expectedPointer": "/intent",
+      "actualPointer": "/intent"
+    },
+    {
+      "case": "FOLLOW_UP/SPECIFICATION_REVISION/GENERATION_BASIS_JSON_INVALID",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "FOLLOW_UP/PUBLISHED_FINAL_OUTPUT/actual-native-content",
+      "passed": true
+    },
+    {
+      "case": "FOLLOW_UP/PUBLISHED_FINAL_OUTPUT/GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "actualCode": "GENERATION_BASIS_DUPLICATE_JSON_KEY",
+      "expectedPointer": "/intent",
+      "actualPointer": "/intent"
+    },
+    {
+      "case": "FOLLOW_UP/PUBLISHED_FINAL_OUTPUT/GENERATION_BASIS_JSON_INVALID",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_JSON_INVALID",
+      "actualCode": "GENERATION_BASIS_JSON_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "UPDATE/moving-current-pointer-ignored",
+      "passed": true
+    },
+    {
+      "case": "registry/bundle-bytes-digest",
+      "passed": true,
+      "expectedCode": "GENERATION_SCHEMA_BUNDLE_DIGEST_MISMATCH",
+      "actualCode": "GENERATION_SCHEMA_BUNDLE_DIGEST_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "RETRY/consulted-dependency-closure",
+      "passed": true
+    },
+    {
+      "case": "REPAIR/consulted-dependency-closure",
+      "passed": true
+    },
+    {
+      "case": "REPAIR/document-job-vs-repository-job",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_DOCUMENT_JOB_MISMATCH",
+      "actualCode": "GENERATION_BASIS_DOCUMENT_JOB_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/actual-authority-content-mismatch",
+      "passed": true,
+      "expectedCode": "GENERATION_APPROVED_AUTHORITY_CONTENT_MISMATCH",
+      "actualCode": "GENERATION_APPROVED_AUTHORITY_CONTENT_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/schema-meta-bundle-unresolved",
+      "passed": true,
+      "expectedCode": "GENERATION_BASIS_SCHEMA_BUNDLE_UNAVAILABLE",
+      "actualCode": "GENERATION_BASIS_SCHEMA_BUNDLE_UNAVAILABLE",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/stale-current-target-head",
+      "passed": true,
+      "expectedCode": "GENERATION_REPAIR_CURRENT_TARGET_SNAPSHOT_MISMATCH",
+      "actualCode": "GENERATION_REPAIR_CURRENT_TARGET_SNAPSHOT_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    },
+    {
+      "case": "REPAIR/wrong-last-approved-authority",
+      "passed": true,
+      "expectedCode": "GENERATION_REPAIR_LAST_APPROVED_LINEAGE_MISMATCH",
+      "actualCode": "GENERATION_REPAIR_LAST_APPROVED_LINEAGE_MISMATCH",
+      "expectedPointer": null,
+      "actualPointer": ""
+    }
+  ],
+  "checkCount": 90,
+  "failedCount": 0,
+  "runtimeAcceptance": "NOT_EVALUATED",
+  "scopeExclusions": [
+    "SQL roles/locking/atomic persistence are separate required fixture proofs",
+    "Native specification schema is validated; all ContractRecordRef graphs and implementation predicate executions remain separate §12.20 obligations",
+    "All selectors and local record masks are technical proposals pending coordinator normative materialization",
+    "Monitoring observed schema proves actual observation shape; the exact consumer repair-policy semantic predicate still requires declared consumer/implementation binding"
+  ]
+}

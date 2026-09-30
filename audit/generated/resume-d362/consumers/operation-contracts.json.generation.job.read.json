@@ -1,0 +1,85 @@
+{
+  "pointer": "contracts/operation-contracts.json#/records/336",
+  "record": {
+    "acceptanceGateIds": [
+      "ARCH_FAILURE_RECOVERY_CONSISTENT",
+      "ARCH_OPERATION_LIFECYCLE_COMPLETE"
+    ],
+    "activationRelation": "CURRENT_EXACT_REVISION_BINDING_SET_ACTIVATION_EPOCH",
+    "aggregateRoot": "generation_job",
+    "allowedTransitionIds": [
+      "ADMIT",
+      "DISPATCH_OR_EXECUTE",
+      "RECONCILE_IF_NEEDED",
+      "TERMINAL_COMMIT"
+    ],
+    "apiOperationIds": [
+      "route.0217"
+    ],
+    "auditEventTypes": [
+      "OPERATION_ADMITTED",
+      "OPERATION_STATE_CHANGED",
+      "OPERATION_TERMINAL"
+    ],
+    "authoritySourceRefs": [],
+    "cancellationPolicy": "NO_NEW_CHILD_AFTER_CANCEL_INTENT; POSSIBLE_EFFECT_REQUIRES_RECONCILIATION",
+    "canonicalDigest": "sha256:333e31ed8781af41b5aa8266e07c2109f5d3fa7f834d6de189361492e6cc44a4",
+    "canonicalWriterId": "writer.generation-orchestrator",
+    "chatCapabilityIds": [],
+    "checkpointPolicy": "BEFORE_AND_AFTER_EACH_NONATOMIC_EFFECT; TERMINAL_CHECKPOINT_AT_CLOSURE",
+    "cleanupPolicy": "TERMINAL_CLOSURE_REQUIRES_ALL_MANDATORY_CLEANUP_COMPLETE",
+    "closurePredicateId": "closure.operation.generation.job.read",
+    "commandSchemaRef": {
+      "catalog": "contracts/payload-contracts.json",
+      "routeIds": [
+        "route.0217"
+      ]
+    },
+    "completeRegistryOperation": true,
+    "concurrencyClaimPoint": "READ_SNAPSHOT",
+    "concurrencyKeyDerivation": "PERSISTED_BUSINESS_TARGET_TO_ROOT_RESOLUTION",
+    "concurrencyScope": "generation_job",
+    "deadlinePolicy": "ABSOLUTE_EFFECTIVE_MIN_OF_CALLER_PARENT_OPERATION_PLATFORM",
+    "expectedStateVersionPolicy": "REQUIRED_FOR_NONCOMMUTATIVE_MUTATION; NOT_APPLICABLE_FOR_READ_ONLY_OR_IMMUTABLE_APPEND",
+    "expectedStates": [
+      "SOURCE_CURRENT_STATE_OR_NO_STATE_FOR_CREATE_QUERY"
+    ],
+    "exposureClass": "OWNER_QUERY",
+    "fencingPolicy": "NOT_APPLICABLE_READ_ONLY",
+    "idempotencyKeySource": "Idempotency-Key header or server-derived stable key for automated source",
+    "idempotencyScope": "generation.job.read:caller:business-target",
+    "operationFamily": "GENERATION",
+    "operationId": "generation.job.read",
+    "operationName": "generation.job.read",
+    "operationRevision": "R9.1",
+    "orderedLockPlanId": "lock.r9.generation_job",
+    "outboxPurposes": [],
+    "possibleEffectTrigger": "NONE",
+    "reconciliationOracleId": "recovery.r9.generation.job.read",
+    "requestDigestProfile": "KCML-CANONICAL-JSON/1_EXCLUDING_TRANSPORT_EPHEMERA",
+    "requirementIds": [],
+    "responseSchemaRef": {
+      "catalog": "contracts/payload-contracts.json",
+      "routeIds": [
+        "route.0217"
+      ]
+    },
+    "retryClass": "SAFE_RETRY",
+    "retryDirectiveMapRef": "contracts/registries/RecoveryDecisionTable.json#recovery.common.v5",
+    "selfTestCaseIds": [
+      "selftest.contract.generation.job.read"
+    ],
+    "sideEffectClass": "READ_ONLY",
+    "stateMachineId": "model.r9.operation-execution",
+    "subsystemSideEffectClass": "READ_ONLY",
+    "successorPolicy": "SUCCESSOR_RESERVED_IN_SAME_TERMINAL_TRANSACTION_WHEN_WORKFLOW_REQUIRES",
+    "terminalOutcomes": [
+      "SUCCEEDED",
+      "FAILED_KNOWN",
+      "CANCELLED_CONFIRMED",
+      "MANUAL_REVIEW_BLOCKING"
+    ],
+    "transactionProfileId": "CONSISTENT_READ",
+    "uiActionIds": []
+  }
+}

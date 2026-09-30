@@ -1,0 +1,108 @@
+{
+  "format": "KCML-GENERATION-ROOT-PHYSICAL-REVIEW/1",
+  "inputCommit": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+  "sourceDocumentSha256": "9bf5510b189ef4f71216d56bf293599ac129d200ec92e90ff7c2c22f6b15e57b",
+  "operationId": "generation.job.create",
+  "sources": [
+    "\u00a712.3",
+    "\u00a712.41",
+    "\u00a712.47",
+    "\u00a712.48",
+    "\u00a712.49",
+    "\u00a725.11 generation_job",
+    "\u00a749.4",
+    "\u00a749.15",
+    "\u00a751.5",
+    "\u00a751.6",
+    "\u00a751.9",
+    "\u00a751.12",
+    "\u00a725.3",
+    "\u00a726.1",
+    "\u00a712.18",
+    "\u00a751.11"
+  ],
+  "status": "PARTIAL",
+  "columnRule": "Every column in generation-root-proposed.sql maps to the corresponding item of \u00a725.11. UUIDs are server identities. Nullable pointers represent an absent not-yet-produced child; this does not permit omission after the owning lifecycle requires that child. Byte digests are32-byte SHA256, wire format sha256:<lowerhex>; bigint counters are canonical decimal strings on the wire.",
+  "createInitialState": {
+    "state": "DISCUSSING",
+    "stateVersion": "0 before first mutation",
+    "eventSequence": "0 before creation-event allocation; final receipt uses actual allocated counter",
+    "approvalAndExecutionPointers": "NULL until own approval/execution transaction",
+    "currentPhase": "Unresolved: source map does not define a phase token for discussion; never manufacture DISCUSSING as phase enum"
+  },
+  "trustedContext": {
+    "clientMayProvide": false,
+    "modelMayProvide": false,
+    "requiredEvidence": "Persisted server authentication acceptance bound to fixed owner_identity, original initiating access channel, exact authenticated session/API credential generation, current locked incarnation/deployment heads and immutable execution descriptor. Caller UUID, boolean authenticated, client receipt, or SQL composite alone is not authority.",
+    "SQLRole": "Restricted NOLOGIN builder owns reviewed controlled-schema SECURITYDEFINER constructor; onlyauthenticationwriter inserts receipt; domainwriterEXECUTEonly, no directINSERT/contextorbuilderrole. Fixed installation searchpath pg_tempLAST. Infrastructuregroups do not alter OWNER_FULL product model.",
+    "unresolved": "Exact descriptor schema+immutablecontractpin registry, complete canonical authentication/source tableDDL and actualtokenverifier issuance remain required; boundedguards+ACL materialized with20PG18.6 tests.",
+    "candidateResolved": "trusted-generation-context-proposed.sql materializes server authentication acceptance, selects current owned session+epoch/revocation/expiry or singletonAPIversion/fingerprint and fixedOWNER, persists exactdescriptor bytes/digest under currentheads; no valid flag. Constructor tested PG18.6. Authentication writer-only INSERT and actual deployed verifier remain required."
+  },
+  "locking": [
+    "BEGIN ONLINE_MUTATION settings before query",
+    "advisory recovery namespace1000/key0 shared",
+    "singleton platform/deployment heads FOR SHARE and actual API credential head when applicable",
+    "idempotency_locator classC0 then domain_idempotency_record classC1",
+    "applicable classD activation heads",
+    "all actual target/source roots classE sorted by ordinal then UUID raw bytes; insert generation_job at90",
+    "immutable snapshot/root children in classH owning order",
+    "event/outbox rows then audit_head classI last",
+    "COMMIT sole publication point"
+  ],
+  "joinsStillMandatoryBeforeGeneration": [
+    {
+      "id": "GENERATION-CONTEXT-ACCEPTANCE",
+      "source": "\u00a712.47,\u00a749.4,\u00a751.2,\u00a751.5-6",
+      "reason": "Complete source-owned authentication DDL and exact descriptor/pin mask; scoped infrastructure rolebindings and20PG18.6 currentrow/forgery checks now materialized.",
+      "class": "TECHNICAL"
+    },
+    {
+      "id": "GENERATION-PHASE-OWN-MAPPING",
+      "source": "\u00a725.11,\u00a749.15",
+      "reason": "Exact current_phase token/state mapping with own interruption/blocker phase cannot be inferred from state name",
+      "class": "TECHNICAL"
+    },
+    {
+      "id": "GENERATION-CHILD-COMPOSITE-FKS",
+      "source": "\u00a725.11",
+      "reason": "Same-job approved/current revision, authority, capability, plan, phase/checkpoint, release and activation exact physical child joins",
+      "class": "TECHNICAL"
+    },
+    {
+      "id": "GENERATION-TARGET-IDENTITY-FKS",
+      "source": "\u00a712.41,\u00a712.47,\u00a751.6",
+      "reason": "Target kind maps to actual canonical root (MCP identity children of component; agent/automation own roots); exact immutable selected revision bindings required",
+      "class": "TECHNICAL"
+    },
+    {
+      "id": "GENERATION-PROTECTED-CRYPTO-PROFILE",
+      "source": "\u00a78.4,\u00a750.30",
+      "reason": "Master-key mechanism exists, but exact algorithm/nonce/AAD profile must be materialized; AEAD fixture does not choose production crypto",
+      "class": "TECHNICAL"
+    }
+  ],
+  "futureImplementationAcceptance": [
+    "Actual generated authentication service and domain writer",
+    "Deployed roles and pool-reset behavior",
+    "Application admission and provider/browser/model integration"
+  ],
+  "ownerDecisionIdentified": [],
+  "entryCanonicalSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+  "singletonPrecedence": {
+    "logicalIdentitySource": "\u00a725.3 OWNER and OWNER_API symbolic identity",
+    "physicalKeySource": "\u00a751.11",
+    "column": "singleton_key",
+    "sqlType": "smallint",
+    "required": true,
+    "nullable": false,
+    "default": 1,
+    "check": "singleton_key=1",
+    "tables": [
+      "owner_identity",
+      "owner_api_credential",
+      "platform_incarnation",
+      "application_deployment_head"
+    ],
+    "consumerRule": "SQL constructor WHEREsingleton_key=1; no automatic text-label coercion"
+  }
+}

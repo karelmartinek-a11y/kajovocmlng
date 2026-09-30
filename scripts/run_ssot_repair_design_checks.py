@@ -15,7 +15,7 @@ CHECKS=[
  'verify_plan_create_handoff.py','verify_preserved_policy.py','verify_provider_mapping.py',
  'verify_provider_outcome_mask.py','verify_read_boundary_completion.py','verify_retry_profile.py',
  'verify_route_guard_counters.py','verify_saga_handoffs.py','verify_transitive_mask_detection.py',
- 'verify_create_storage_invariants.py','verify_visual_contracts.py','run_baseline_gates.py','verify_package.py']
+ 'verify_operation_state_receipts.py','verify_create_storage_invariants.py','verify_visual_contracts.py','run_baseline_gates.py','verify_package.py']
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 
 EVIDENCE_INPUTS={

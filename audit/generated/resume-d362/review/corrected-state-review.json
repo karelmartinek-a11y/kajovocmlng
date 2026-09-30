@@ -1,0 +1,46 @@
+{
+  "scope": "Independent exact domain witness, corrected lifecycle reference. No old-signature TypeError accepted as proof.",
+  "cases": [
+    {
+      "id": "corrected-domain-positive",
+      "passed": true
+    },
+    {
+      "id": "zero-hash-no-bytes",
+      "expected": "EVIDENCE_BYTES_UNAVAILABLE",
+      "actual": "EVIDENCE_BYTES_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "id": "integer-id-both-obligation-and-item",
+      "expected": "OBLIGATION_ID_INVALID",
+      "actual": "OBLIGATION_ID_INVALID",
+      "passed": true
+    },
+    {
+      "id": "boolean-finalization-is-not-record",
+      "expected": "FINALIZATION_UNAVAILABLE",
+      "actual": "FINALIZATION_UNAVAILABLE",
+      "passed": true
+    },
+    {
+      "id": "same-valid-shape-other-namespace",
+      "expected": "EVIDENCE_BINDING_MISMATCH",
+      "actual": "EVIDENCE_BINDING_MISMATCH",
+      "passed": true
+    },
+    {
+      "id": "outbox-same-transaction-other-operation",
+      "expected": "ATOMIC_MEMBER_BINDING_MISMATCH",
+      "actual": "ATOMIC_MEMBER_BINDING_MISMATCH",
+      "passed": true
+    }
+  ],
+  "checks": 6,
+  "failed": 0,
+  "consumedSha256": {
+    "state_reference.py": "6943f682a294bc955d8499ff8fbbe204d07d632484b743807d0ecdf8181eaf14",
+    "verify_states.py": "6b75f39fef819f52cba3c39b70528aeb34ed0b51262cf0d90c9ca34f2720ff10"
+  },
+  "trustedOriginAndRealCommit": "NOT_PROVEN"
+}

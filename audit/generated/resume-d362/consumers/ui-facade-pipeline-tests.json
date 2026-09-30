@@ -1,0 +1,171 @@
+{
+  "inputCommit": "d362487999bd795d4723c2a930e93fc7aa8aa295",
+  "scope": "Staged OWNERintent atomic reference, exact launch/spec bytes and CAS, receipt/event/outbox/audit links; worker execution and actual authentication not proved",
+  "checks": 32,
+  "failed": 0,
+  "cases": [
+    {
+      "id": "dashboard.start/atomic-positive",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/replay-no-extra-publication",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/replay-conflict",
+      "diagnostic": "IDEMPOTENCY_CONFLICT",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/rollback",
+      "diagnostic": "OWNER_FACADE_REFERENCE_ROLLBACK",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/expectedComponentStateVersion",
+      "diagnostic": "STATE_VERSION_CONFLICT",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/expectedRuntimeGeneration",
+      "diagnostic": "STATE_VERSION_CONFLICT",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/expectedActivationEpoch",
+      "diagnostic": "STATE_VERSION_CONFLICT",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/actual-byte-digest",
+      "diagnostic": "OWNER_FACADE_LAUNCH_SNAPSHOT_DIGEST_MISMATCH",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/digest-valid-invalid-manifest",
+      "diagnostic": "OWNER_FACADE_LAUNCH_SNAPSHOT_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/digest-valid-wrong-manifest-identity",
+      "diagnostic": "OWNER_FACADE_MANIFEST_TARGET_MISMATCH",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/duplicate-json-actual-decoder",
+      "diagnostic": "DUPLICATE_JSON_KEY",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/outbox-link",
+      "diagnostic": "OWNER_FACADE_OUTBOX_INTENT_MISMATCH",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/missing-audit",
+      "diagnostic": "OWNER_FACADE_ATOMIC_LINK_INCOMPLETE",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/forged-worker-context",
+      "diagnostic": "OWNER_FACADE_INPUT_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/atomic-positive",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/replay-no-extra-publication",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/replay-conflict",
+      "diagnostic": "IDEMPOTENCY_CONFLICT",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/rollback",
+      "diagnostic": "OWNER_FACADE_REFERENCE_ROLLBACK",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/expectedComponentStateVersion",
+      "diagnostic": "STATE_VERSION_CONFLICT",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/expectedRuntimeGeneration",
+      "diagnostic": "STATE_VERSION_CONFLICT",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/expectedActivationEpoch",
+      "diagnostic": "STATE_VERSION_CONFLICT",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/actual-byte-digest",
+      "diagnostic": "OWNER_FACADE_LAUNCH_SNAPSHOT_DIGEST_MISMATCH",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/digest-valid-invalid-manifest",
+      "diagnostic": "OWNER_FACADE_LAUNCH_SNAPSHOT_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/digest-valid-wrong-manifest-identity",
+      "diagnostic": "OWNER_FACADE_MANIFEST_TARGET_MISMATCH",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/duplicate-json-actual-decoder",
+      "diagnostic": "DUPLICATE_JSON_KEY",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/outbox-link",
+      "diagnostic": "OWNER_FACADE_OUTBOX_INTENT_MISMATCH",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/missing-audit",
+      "diagnostic": "OWNER_FACADE_ATOMIC_LINK_INCOMPLETE",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/forged-worker-context",
+      "diagnostic": "OWNER_FACADE_INPUT_INVALID",
+      "status": "PASS"
+    },
+    {
+      "id": "edit/pending-owner-input-not-server-proposal",
+      "status": "PASS"
+    },
+    {
+      "id": "edit/same-canonical-no-new-revision",
+      "status": "PASS"
+    },
+    {
+      "id": "edit/wrong-candidate-job",
+      "diagnostic": "OWNER_FACADE_CANDIDATE_JOB_MISMATCH",
+      "status": "PASS"
+    },
+    {
+      "id": "edit/invalid-real-specification",
+      "diagnostic": "OWNER_FACADE_BASE_SPECIFICATION_INVALID",
+      "status": "PASS"
+    }
+  ],
+  "exposureClosed": 0,
+  "implementationProductionAcceptance": "NOT_EVALUATED",
+  "sourceDocumentSha256": "9bf5510b189ef4f71216d56bf293599ac129d200ec92e90ff7c2c22f6b15e57b",
+  "consumedGenerationSchemaDigest": "sha256:7c149525b9ca11d710544914ae92d8a7631bbe030c068c9f186ebfb59cdd20b1",
+  "supportingFiles": {
+    "ui_facade_pipeline_reference.py": "6737c0a5fdf24061ef6deade54e7d80ff455d3a8819a16e9f5f09ff3eaf456dc",
+    "verify_ui_facade_pipeline.py": "f059183a776647b460cecd00da6f3b85ac90093656e92c3247faea3de42fd790",
+    "generation_consumer_reference.py": "a21d0bae09b554255f38fa8a0534d64c2f08801c7ab105a0bfafd47fe3799b19"
+  }
+}
