@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/kajovocmlng/scripts/verify_package.py", line 96, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--write-audit',action='store_true');p.add_argument('--freeze',action='store_true');p.add_argument('--skip-manifest',action='store_true');a=p.parse_args();r=audit()
+                                                                                                                                                                                                            ^^^^^^^
+  File "/workspace/kajovocmlng/scripts/verify_package.py", line 84, in audit
+    vr=verify_visual();structural.extend(vr['failures']);stats.update({k:v for k,v in vr.items() if k not in ['failures','status']})
+       ^^^^^^^^^^^^^^^
+  File "/workspace/kajovocmlng/scripts/verify_visual_contracts.py", line 15, in verify
+    check(set(a['validationContract']['canonicalOperationIds'])<=ops,aid+' unknown operation')
+              ~^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'validationContract'
