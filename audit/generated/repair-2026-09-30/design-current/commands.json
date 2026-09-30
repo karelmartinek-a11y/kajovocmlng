@@ -1,7 +1,7 @@
 {
   "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
   "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
-  "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+  "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
   "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
   "installedAuditPackages": {
     "Pillow": "12.3.0",
@@ -54,6 +54,7 @@
     "verify_route_guard_counters.py",
     "verify_saga_handoffs.py",
     "verify_transitive_mask_detection.py",
+    "verify_create_storage_invariants.py",
     "verify_visual_contracts.py",
     "run_baseline_gates.py",
     "verify_package.py"
@@ -65,13 +66,15 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "9a6ddc5ebb828e236f38d3df01d9b1a8502e3882e440f9a8ca6be553e1775636",
       "scriptSha256": "d77fc62c0a2173efeef91e2d9b71e6479f947e4fb6d93acef61a3ff38ee78bb6",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 7.91,
+      "seconds": 6.79,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_phase1_contracts.py.log"
     },
     {
@@ -80,29 +83,16 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "56df6cfb88416af112f402a382c2d4f818c72c65accdc9c3c1bd331ab6b45d93",
       "scriptSha256": "60e3476d9ab9d67aec3f1a784135598686c6d501075041d9dc4ef2d2dd17215e",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.99,
+      "seconds": 1.88,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_phase2_handoffs.py.log"
-    },
-    {
-      "script": "scripts/verify_schema_references.py",
-      "command": "scripts/verify_schema_references.py",
-      "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
-      "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
-      "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "evidenceLogSha256": "84d5d587ac1821329e2aad7fd815f8dcc1971c77296b1d19ab0a197b91d87e8c",
-      "scriptSha256": "c8a26afc541a45833e6b922a42f85630fc759f09acab85911c71e7325fd28e87",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
-      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
-      "exitCode": 1,
-      "diagnostic": "CHECK_FAILED_OR_BLOCKED",
-      "seconds": 30.9,
-      "evidence": "audit/generated/repair-2026-09-30/design-current/verify_schema_references.py.log"
     },
     {
       "script": "scripts/verify_phase3_semantics.py",
@@ -110,29 +100,16 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "321f63f563ca5b7a107ec50c3325a8356766ce1ca7567a36fb21c18c06ac8d05",
       "scriptSha256": "e11e46ec6babcfd89816cdcd99a1bbb541fb4942e1edb7600742d4b1964a56b8",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 1,
       "diagnostic": "CHECK_FAILED_OR_BLOCKED",
-      "seconds": 21.01,
+      "seconds": 22.96,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_phase3_semantics.py.log"
-    },
-    {
-      "script": "scripts/verify_acceptance_gates.py",
-      "command": "scripts/verify_acceptance_gates.py",
-      "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
-      "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
-      "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "evidenceLogSha256": "0ce74279f743f72cae7e7bb5f35b4c8067f8a4160fedadf7cf5b25369d2bdbaa",
-      "scriptSha256": "d6c7e1994925770c5af71099381522e1809edf92e229e958aa53987e4a02e0f5",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
-      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
-      "exitCode": 0,
-      "diagnostic": "PASS",
-      "seconds": 0.07,
-      "evidence": "audit/generated/repair-2026-09-30/design-current/verify_acceptance_gates.py.log"
     },
     {
       "script": "scripts/phase1_schema_closure.py",
@@ -140,14 +117,52 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "e5fa3b04c36ae14d28ab67590ad6cb012e7b7fdba8fd0533ea124d3858a430c2",
       "scriptSha256": "d616201ce8521322b3df967339dba4f00140541477e8e2c1278ac209abb56018",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 1,
       "diagnostic": "CHECK_FAILED_OR_BLOCKED",
-      "seconds": 31.16,
+      "seconds": 32.5,
       "evidence": "audit/generated/repair-2026-09-30/design-current/phase1_schema_closure.py.log"
+    },
+    {
+      "script": "scripts/verify_acceptance_gates.py",
+      "command": "scripts/verify_acceptance_gates.py",
+      "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+      "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
+      "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_acceptance_gates/gate-separation.json": "cb3628a5857f458a87fb68937341a47494b6d33a64b9e9d56532c47a6f2219ea"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
+      "evidenceLogSha256": "0ce74279f743f72cae7e7bb5f35b4c8067f8a4160fedadf7cf5b25369d2bdbaa",
+      "scriptSha256": "d6c7e1994925770c5af71099381522e1809edf92e229e958aa53987e4a02e0f5",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
+      "exitCode": 0,
+      "diagnostic": "PASS",
+      "seconds": 0.08,
+      "evidence": "audit/generated/repair-2026-09-30/design-current/verify_acceptance_gates.py.log"
+    },
+    {
+      "script": "scripts/verify_schema_references.py",
+      "command": "scripts/verify_schema_references.py",
+      "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+      "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
+      "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
+      "evidenceLogSha256": "84d5d587ac1821329e2aad7fd815f8dcc1971c77296b1d19ab0a197b91d87e8c",
+      "scriptSha256": "c8a26afc541a45833e6b922a42f85630fc759f09acab85911c71e7325fd28e87",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
+      "exitCode": 1,
+      "diagnostic": "CHECK_FAILED_OR_BLOCKED",
+      "seconds": 32.86,
+      "evidence": "audit/generated/repair-2026-09-30/design-current/verify_schema_references.py.log"
     },
     {
       "script": "scripts/verify_authority_excerpt_coverage.py",
@@ -155,13 +170,17 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_authority_excerpt_coverage/authority-excerpt-tests.json": "aa595d917fc40498acfe77fd995a0472dc4cd827c8fe41276d58f4c0744985bf"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "789b404665f77fee0594461b44b4fbaf6cf7b432429c664ec6d2a69c60847643",
       "scriptSha256": "f607af141969e23692dd4c524c579f53e760d300a1d04bf0719775f5c1060053",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 0.76,
+      "seconds": 0.79,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_authority_excerpt_coverage.py.log"
     },
     {
@@ -170,13 +189,15 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "55a435d945daa7d95a61c53a32536b3c0d66e4fbcbe86cbbbbfac8b6005bfe8f",
       "scriptSha256": "c48890b1f7ac91029b78f9adb689b7067245c4a90a1bfe94fcd12928f5232856",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.28,
+      "seconds": 1.41,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_component_protocol_examples.py.log"
     },
     {
@@ -185,13 +206,17 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_create_http_errors/create-http-errors.json": "c527755b99d8fff1a0fa7388f8cee2f3dd6fcb64583238357f0e970797cd0561"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "40874e4d053f8b349a53a71ef06b0c6e8dff8548d3292f63101344ec800667fb",
       "scriptSha256": "f3955131777f7942ddaf37a48f72bd4a924848289dbf49062986d4c519a5356e",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.3,
+      "seconds": 1.33,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_create_http_errors.py.log"
     },
     {
@@ -200,13 +225,17 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_create_completion/completion-tests.json": "ea2677070aefe04d5b430ca8443dd2c22f0bf4a835efe508c1e0ba8b1aabc351"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "dda61649697dabb37b676b2b77d8efa11fb791a49e735e9d3928788c1bdf8475",
       "scriptSha256": "488c55d8e194e601e70b75503164e27e91caef1732e74e6c81b2651a5611cad8",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 4.8,
+      "seconds": 4.47,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_create_completion.py.log"
     },
     {
@@ -215,13 +244,17 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_follow_up_contracts/follow-up-tests.json": "0a1209edb73d43cbf53e993fc7a1003ce063c2a8722f817ed5421a811db1e688"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "903a19e1f4037e90ae8b06943a8a43cfbc2d7b139a064d8e7f347f37c004ef70",
       "scriptSha256": "65de91833a571f6ad2b13e47b01d9237a0709a1581d0d6ae8eff6e90daeeb4d4",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 5.02,
+      "seconds": 4.8,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_follow_up_contracts.py.log"
     },
     {
@@ -230,13 +263,15 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "04733991f0e5dae595684036988c9692495164aa029c786d36df94c05b60f48d",
       "scriptSha256": "d0564101b986285c9b802874ea33310de2b2a210879cbffa1461838b197704dd",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 2.01,
+      "seconds": 1.7,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_config_rollback_state.py.log"
     },
     {
@@ -245,13 +280,15 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "ff189b7f85043c0b90812c5df49d43695806a035cd37d15dce9763a24cf72579",
       "scriptSha256": "7d383bab8a1f4abe097493d118eecd983922acb29b5a3352cfdec64417ebf3b1",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.66,
+      "seconds": 1.7,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_backup_restore_state.py.log"
     },
     {
@@ -260,13 +297,15 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "e65c15c4c4be8de5ad20c665ebc569480d3d1783fea00118972dd361745c42bd",
       "scriptSha256": "3529fa6c45a3679258c74499474dfea6b173d789c2afe646913a2671e73be585",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.2,
+      "seconds": 1.16,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_control_counter_masks.py.log"
     },
     {
@@ -275,13 +314,15 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "923fbc7fc26dcc9bfa9e8ecfb6d561c80e06ca937a7175c30ae91b35226e544e",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "b0b0007d910eed6803bf3c673cb46e921992a58e098850e964b49f9f7f79ce70",
       "scriptSha256": "05e5c6bb599179a63c4fb8ea173e7cdc5d8fbb5268af07fd1ad8998a84397b92",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 1,
       "diagnostic": "CHECK_FAILED_OR_BLOCKED",
-      "seconds": 13.7,
+      "seconds": 13.62,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_phase4_ui.py.log"
     },
     {
@@ -290,13 +331,15 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "577e14f24c0d304284e82219a862cbb94c2025d00779f0eb7fa8e1fe35d7d879",
       "scriptSha256": "f55037c51b470ba752bef7207d62dae9c730ab6e61e166865770fc2f85d8b1ae",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.5,
+      "seconds": 1.44,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_errors.py.log"
     },
     {
@@ -305,13 +348,17 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_generation_atomic_model/generation-atomic-model-tests.json": "f7ccbe7e9eb2e12889bf0af9f67aa3241ff5e8d6bdb3673445c84c5a5cbb9631"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "8247adbeef061ba5a56f1f160c3136cdeac05dadaf6bc3a919350d54438dc42d",
       "scriptSha256": "82a490ff3dcdfa2fbb071403a1ad865a214fd89bd8a17ec326a8ad2d94386a63",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.25,
+      "seconds": 1.18,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_atomic_model.py.log"
     },
     {
@@ -320,13 +367,17 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_create_operation_requests/create-request-tests.json": "321647957df238a48b9cb0c4ecf73f711953034274c522ac596376ce84a5626f"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "335c5a7569cd0cf0553a0647cb3ccba8407ac61f73b8c802406ef9021e0a9e14",
       "scriptSha256": "f3ebef2ff708dda4e8ab98a821142bf8090b53c914c21b1771d7ccbf40f90245",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 9.92,
+      "seconds": 9.77,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_create_operation_requests.py.log"
     },
     {
@@ -335,13 +386,15 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "b7162478714e841fdd7c436421b34bf25d6ed0d477c15c7d81298657ddd30a07",
       "scriptSha256": "035e4bfb87aa215b92ffd094494894e9a233b5eb89a82df353d8684ee040a14f",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 4.02,
+      "seconds": 4.09,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_experience.py.log"
     },
     {
@@ -350,13 +403,17 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_generation_document_events/document-events-current.json": "9903060b28499ac607bc37e524c80ad1ed6ee03f9c379e276d756fae51223c48"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "c2a188dd0925bca232e16f3a972600e8d74dd379941239433a3337a7cdee9b89",
       "scriptSha256": "fe3e443e145d03647648ee2f02885e588f56eff46bb8cf6017b1d33e645df5c2",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 2.24,
+      "seconds": 1.93,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_document_events.py.log"
     },
     {
@@ -365,13 +422,17 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_generation_domain_payloads/domain-current.json": "955485f9aa33d35d24e3d1733a9cf18e7a5387b06849c0a0cd2ebdfc47df2ed4"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "9e04d31823bad5ba7fc38c3c2437e4e0760137fa05646612b3a2e94bde87bb54",
       "scriptSha256": "2c29a3645f972261e57a0098bfae1f0eed1cb5d8a4e012999e42b182e0f93082",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 8.04,
+      "seconds": 7.96,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_domain_payloads.py.log"
     },
     {
@@ -380,13 +441,17 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_generation_event_boundaries/events-current.json": "6cc39ec200d15637e1c9fcd10901a116ca2c19959ba64c4816e451421f9a4381"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "b769b7d77951c450ac1d9bf36e9c0d2873e3a5797885c38bd21fafde5f807e1d",
       "scriptSha256": "1d28d243e68329f0c72997f773d2b9a3708af158af09b9dc0b45e43c498a98e1",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 6.78,
+      "seconds": 6.97,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_event_boundaries.py.log"
     },
     {
@@ -395,13 +460,17 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_generation_read_design/read-design.json": "038b95ccf0c7c3a3c50d529ab3fd1d4b0ea9a193ff1579d895a621537188400e"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "e61512c9ed180b32d6bbd04e048e03f15c3edae6e40d55b4f1a16fd5c7ab682d",
       "scriptSha256": "3da015bb1313e85aa490e274814972e2e7e59f27e1bc7dc6db3e4e8982ab5c98",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 2.83,
+      "seconds": 2.71,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_read_design.py.log"
     },
     {
@@ -410,13 +479,17 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_generation_read_errors/read-errors-current.json": "b25c0d4752690e443c1d032c74b64b42af9f0eb86ae781ca1407b77679facf07"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "2b9037cbb1b45f1e2834a30606deb69e72d965f49c37c7f0f1acf989403442df",
       "scriptSha256": "6cf1f456c55c0c4af011bb24ee09e94d55d801f20dcd453209aada361e01c698",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 4.68,
+      "seconds": 4.89,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_read_errors.py.log"
     },
     {
@@ -425,13 +498,17 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_generation_http_contract/generation-http-current.json": "120d1da78b4386a0335080a66d705178618ba27140b67476c636ce5eb067126c"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "40fa8235c5a2c63d2371284b8697ff86faeaecc446b2a50b2a28e92df2d09602",
       "scriptSha256": "ca2280065d8598306df3769e76f28b6906ca62c575819c4489b0fd6f590b9d79",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 15.04,
+      "seconds": 14.77,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_http_contract.py.log"
     },
     {
@@ -440,13 +517,17 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_native_manifest_continuation/manifest-current.json": "07ccf85dbbd062a69e7ced447908cd1f852052889b0c99d3d295bbfac14f0fe2"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "dd0c6903fca12c2544a67a15c012ee08050dcf58296710fabaff9192afe5a00f",
       "scriptSha256": "21a064ab6acc881fc02ad37bac5d2980c8f066823cea989cfe862d8deaa9aed2",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.56,
+      "seconds": 1.6,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_native_manifest_continuation.py.log"
     },
     {
@@ -455,13 +536,17 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_generation_operation_masks/generation-operation-mask-tests.json": "e2b26678eb6d211105ffb1bf7fb1711504601c8cda299f032bda09be83645d60"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "79728210390e01f15c4c9837f7adf9fa0c67f6fa9f72219a4bda187a0fe7d750",
       "scriptSha256": "1233dd580d8ad2b822c2f4d6d5f6a679a664cb874dad12b94af91887e50e0c4f",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 11.44,
+      "seconds": 11.21,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_generation_operation_masks.py.log"
     },
     {
@@ -470,13 +555,15 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "8900ad20a75f5c44f94c2fe8d9f76aa92f62d4c21591ee1565df2807f7123302",
       "scriptSha256": "a0b01978d5b239b15302d0686356906e68ae8d81328d6296490f0251fb70aa84",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.05,
+      "seconds": 1.09,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_observability.py.log"
     },
     {
@@ -485,13 +572,15 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "371fca6060c1e40c06b8331182a03e762907655e9c296c41381af225ad3ffc58",
       "scriptSha256": "d4dbaaf3c8cfcd43d4b8a375cf4bc5c4cf8dd491b5367fa8ec4a51e264a82d37",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 1,
       "diagnostic": "CHECK_FAILED_OR_BLOCKED",
-      "seconds": 1.29,
+      "seconds": 1.39,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_operation_sql_literals.py.log"
     },
     {
@@ -500,13 +589,15 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "2ea76c2f9e8e98fed97165a7adac4c6dd393d0d5f613f73ab5f842621cf84161",
       "scriptSha256": "b1a7d5ebb87ce3f82d40c2f2ab511bdfc3bcca852d4f32271bda28f3fe7e1b11",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 2.04,
+      "seconds": 2.23,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_plan_create_handoff.py.log"
     },
     {
@@ -515,13 +606,15 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "8f06e75e33e3dfad0e2d5127c594dd32b67ead6f22fe74f4143081882c52d77d",
       "scriptSha256": "241cfb91bbb28d3ffcb7740b4ced3743b264424fc26f83aa7f2e05bcaafec846",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 0.98,
+      "seconds": 0.95,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_provider_mapping.py.log"
     },
     {
@@ -530,13 +623,15 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "082247725fb4c230b01a66458b41497aa5cd9186f880f3cd30bfc9ed634861ff",
       "scriptSha256": "cdc08c8f949763be4ac648c1c71ca9edd608a38dae6df704cec93ad64ae17f57",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 2.21,
+      "seconds": 2.34,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_preserved_policy.py.log"
     },
     {
@@ -545,9 +640,13 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_provider_outcome_mask/provider-current.json": "83bdd9889b18a2635ed4f7ddf83aa160aed0303b3f5c558d3cb5f787f5b1ab2e"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "683146a94a6d96bc47d49b9c0087ab07263dd5e5d168aa1ea6b89e5ff83b5dab",
       "scriptSha256": "9d2ba11aca49054008e2c5fcd2558d9aba254f4cddb4d657f202ba3d9ca81c77",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
@@ -560,13 +659,17 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_read_boundary_completion/read-current.json": "092b408771dcb30d2c191b055b0a60debf1b28c4115735dc5c0d5ecf07b1c018"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "b680bec5c666a7a60151fcf0418ae4475f3f500087547ee3649c7f9340bd4889",
       "scriptSha256": "b5190b164cbd916e07e301306e40536b81dcfe8e69676f81177ce64ab5b60378",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.73,
+      "seconds": 1.79,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_read_boundary_completion.py.log"
     },
     {
@@ -575,13 +678,15 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "08d9a7375a6545499a09f9ca265a0a1d3048b00d1f708f116bfc21a957b88cff",
       "scriptSha256": "17b3edcac99e42fde6e83f4b3cdc3d9415317778b8c4c422126fb64055f924ab",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.06,
+      "seconds": 1.04,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_retry_profile.py.log"
     },
     {
@@ -590,13 +695,17 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_saga_handoffs/saga-current.json": "6e8be3782fc54cf3f98506c4a75d2e1f6280df17e5e2defc519210ab0f4401f7"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "cbe0302ab2832c6a4edfb0ce2ba66eee4dd2b86ad6d5f3ee80e0cddcbad23d55",
       "scriptSha256": "54fc89d97a3390b8fda0827cceb970f9ba4d5a9bb31831e7a8f8d04405448153",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 1.74,
+      "seconds": 1.61,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_saga_handoffs.py.log"
     },
     {
@@ -605,13 +714,15 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "789d4e102a382b4456edf9ecefff3bac48e7fc5f576ecf45fde5084436eab0ea",
       "scriptSha256": "f5f4f8713acfc6cf10dbda5b06fc8442306f0d05467f983bfada6f858da16ce1",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 0.16,
+      "seconds": 0.14,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_transitive_mask_detection.py.log"
     },
     {
@@ -620,13 +731,15 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "f4a14cea3d3c220006ee03f21cdf3007f81d1224c222538de74ea2ee3f84ea86",
       "scriptSha256": "bcb2f74aed10862482103c7870abda539a1f5c3f031a8e2f85bc0071d060e24b",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 1,
       "diagnostic": "CHECK_FAILED_OR_BLOCKED",
-      "seconds": 0.17,
+      "seconds": 0.25,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_visual_contracts.py.log"
     },
     {
@@ -635,13 +748,17 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_route_guard_counters/current.json": "c3942effcfcb093109f84dd45ee9fc41c92fd0f756e824f967326e253ae8de08"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "3c13c411e7fccf781eb78429a62ff8874ccd926ffd0b87dae9242463c378483b",
       "scriptSha256": "8ed4aa81b954c3bc70020f58fd3520da9b43c96fddf26acbf66c6fd85fe0c077",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 5.22,
+      "seconds": 5.56,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_route_guard_counters.py.log"
     },
     {
@@ -650,29 +767,16 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
       "evidenceLogSha256": "15914708d0e368de805f8949078e393886e32daa352c4d705ce7981be0cf56e5",
       "scriptSha256": "ada9963cd5e3839825f2dfe84d098c0a8d53aa00768715b3bdc4941ff77afb28",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 0,
       "diagnostic": "PASS",
-      "seconds": 3.96,
+      "seconds": 4.41,
       "evidence": "audit/generated/repair-2026-09-30/design-current/run_baseline_gates.py.log"
-    },
-    {
-      "script": "scripts/verify_mask_parity.py",
-      "command": "scripts/verify_mask_parity.py",
-      "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
-      "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
-      "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "evidenceLogSha256": "266cf55752b7975cbde3c6417af91797db2fa320ae1bd96d01f1be6178db9305",
-      "scriptSha256": "637563472a80f5d2bd72a02cc6d4d9688f8822c8d831d96bca768082a2e08233",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
-      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
-      "exitCode": 1,
-      "diagnostic": "CHECK_FAILED_OR_BLOCKED",
-      "seconds": 37.47,
-      "evidence": "audit/generated/repair-2026-09-30/design-current/verify_mask_parity.py.log"
     },
     {
       "script": "scripts/verify_package.py",
@@ -680,14 +784,52 @@
       "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
       "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
       "evidenceInputsSha256": "3bcd889fa2d5d479ce1503de51a57bedb2adf69d798abc6845e95e897a8a315b",
-      "evidenceLogSha256": "88c326e82024bd94c4990f632292266f0c89063e0b53890275bf4f0fe67ce6ae",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
+      "evidenceLogSha256": "71d22ba508f5c9dea54f584b6b83ed257a80d19afbb2db4e9f3a35145e21d671",
       "scriptSha256": "fa6015791b1a55ff076ca597c2997a44c861368df5fd29c68aefa9404c9dc65d",
-      "supportInputsSha256": "174be84f6f3e69c869275796beff178688c11817c3c0d82cebcc43114be2e0f0",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
       "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
       "exitCode": 1,
       "diagnostic": "CHECK_FAILED_OR_BLOCKED",
-      "seconds": 24.51,
+      "seconds": 24.79,
       "evidence": "audit/generated/repair-2026-09-30/design-current/verify_package.py.log"
+    },
+    {
+      "script": "scripts/verify_mask_parity.py",
+      "command": "scripts/verify_mask_parity.py",
+      "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+      "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
+      "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {},
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
+      "evidenceLogSha256": "266cf55752b7975cbde3c6417af91797db2fa320ae1bd96d01f1be6178db9305",
+      "scriptSha256": "637563472a80f5d2bd72a02cc6d4d9688f8822c8d831d96bca768082a2e08233",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
+      "exitCode": 1,
+      "diagnostic": "CHECK_FAILED_OR_BLOCKED",
+      "seconds": 39.28,
+      "evidence": "audit/generated/repair-2026-09-30/design-current/verify_mask_parity.py.log"
+    },
+    {
+      "script": "scripts/verify_create_storage_invariants.py",
+      "command": "scripts/verify_create_storage_invariants.py",
+      "sourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+      "requirementsSha256": "1bd32c2e5021ff720a7287bf9d4b8636d8527f684831174ab5fde401f7d63bd5",
+      "evidenceInputsSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "producedEvidenceHashes": {
+        "audit/generated/repair-2026-09-30/design-current/verify_create_storage_invariants/create-storage-invariants.json": "ca206e51bccccac674b0b977afb8b442121f4c6e680ae1f3daa7d62867bb336a"
+      },
+      "producedEvidenceScope": "Dedicated per-check JSON reports; log and consumed input hashes verified separately",
+      "evidenceLogSha256": "584c90ba9ae24560d1f7c8262936dbc4709847718dad8f75af1435b15d31bb62",
+      "scriptSha256": "0f5147d91c44ffd1c8853a45b2eaa407eb304ecc368f5c48fcfc6e912dede1a5",
+      "supportInputsSha256": "c66eeda7b685c655a5a3b5d3fd3321275c6942ed483096e5904e50ba3288e074",
+      "environmentSha256": "b10487785977732b3f241921e5cca259bb793deea50bfc3679aafcb0ffa4b2c3",
+      "exitCode": 0,
+      "diagnostic": "PASS",
+      "seconds": 1.16,
+      "evidence": "audit/generated/repair-2026-09-30/design-current/verify_create_storage_invariants.py.log"
     }
   ],
   "allCommandsFinished": true,

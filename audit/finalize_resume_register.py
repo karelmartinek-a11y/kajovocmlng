@@ -12,8 +12,11 @@ def main():
  # The verifier's stable destination is explicit, not inferred from old logs.
  if not storage_path.exists():storage_path=ROOT/'audit/generated/resume-5334/coordinator/create-storage-invariants.json'
  storage=json.loads(storage_path.read_text());assert storage['sourceDocumentSha256']==source and storage['failed']==0
+ assert storage['scriptSha256']==sha(ROOT/'scripts/verify_create_storage_invariants.py')
+ assert storage['requirementsSha256']==sha(ROOT/'requirements-audit.txt')
  visual_path=ROOT/'audit/visual-validation.json';visual=json.loads(visual_path.read_text())
  assert visual['sourceDocumentSha256']==source and visual['status']=='PASS' and visual['failed']==0
+ assert visual['scriptSha256']==sha(ROOT/'scripts/render_reference.py')
  for item in visual['results']:
   assert sha(ROOT/item['screenshot'])==item['screenshotSha256']
  for name,digest in visual['sourceHashes'].items():assert sha(ROOT/name)==digest
