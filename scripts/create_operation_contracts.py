@@ -1,5 +1,5 @@
 """Exact create request projections and strict HTTP decoder; reference design only."""
-import base64,copy,hashlib,io,json,re
+import base64,copy,hashlib,io,json,re,math
 from urllib.parse import urlsplit
 from jsonschema import Draft202012Validator,FormatChecker
 ID='urn:kcml:create-operation-design:1'
@@ -24,8 +24,9 @@ def schema():
         obj({'kind':{'const':'OBJECT_REF'},'objectId':UID})]}
     generation=obj({'intent':TEXT,'kind':{'type':'string','enum':['CREATE','UPDATE','FOLLOW_UP','RETRY','REPAIR']},
         'targetKind':{'type':'string','enum':TARGETS},'targetObjectId':UID,'parentJobId':UID,
-        'requestedModel':SHORT,'credential':TEXT,'sources':array(source)},['intent'])
+        'requestedModel':SHORT,'credential':TEXT,'sources':array(source),'followUpBasis':__import__('follow_up_contracts').request_schema()},['intent'])
     generation['allOf']=[
+        {'if':{'required':['kind'],'properties':{'kind':{'const':'FOLLOW_UP'}}},'then':{'required':['parentJobId','followUpBasis']},'else':{'not':{'required':['followUpBasis']}}},
         {'if':{'required':['targetObjectId']},'then':{'required':['targetKind']}},
         {'if':{'required':['kind'],'properties':{'kind':{'const':'UPDATE'}}},'then':{'required':['targetObjectId','targetKind']}}]
     value={'oneOf':[obj({'encoding':{'const':'UTF8'},'text':TEXT}),
@@ -42,7 +43,7 @@ def schema():
         'else':{'properties':{'value':{'properties':{'encoding':{'const':'UTF8'}}}}}}]
     return {'$schema':'https://json-schema.org/draft/2020-12/schema','$id':ID,
         '$comment':'Technical field spelling/encoding per 12.18; authority 8.2-8.6.1, 12.1-12.3, 25.6/25.11, 26.7/26.9, 72.11/72.21. Limits inherit the prior 1 MiB transport value ceiling; no UI row count is a business length cap.',
-        '$defs':{'GenerationJobCreateBody':generation,'SecretCreateBody':secret}}
+        '$defs':{'GenerationJobCreateBody':generation,'SecretCreateBody':secret,**__import__('create_completion_contracts').definitions()}}
 
 def specialize(payload):
     result=copy.deepcopy(payload);defs=schema()['$defs']
@@ -63,6 +64,7 @@ def specialize(payload):
             'EXACT_CREATE_DOMAIN_BODY','SERVER_RESOLVES_REFERENCES_AND_RECOMPUTES_REQUEST_DIGEST',
             'CLIENT_SNAPSHOT_OR_AUTHORITY_FIELDS_ARE_NOT_TRUSTED','IDEMPOTENCY_REPLAY_EXACT_OWNER_OPERATION_KEY_DIGEST']
         row['semanticRules']=list(dict.fromkeys(row['semanticRules']))
+    result=__import__('create_completion_contracts').specialize(result)
     result['canonicalDigest']='sha256:'+hashlib.sha256(json.dumps({**result,'canonicalDigest':None},ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
     return result
 
@@ -72,15 +74,20 @@ class ContractFailure(ValueError):
 
 def digest(value):return 'sha256:'+hashlib.sha256(json.dumps(value,ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
 def strict_json(raw):
-    def pairs(items):
-        d={}
-        for key,value in items:
-            if key in d:raise ContractFailure('DUPLICATE_JSON_KEY','/'+key)
-            d[key]=value
-        return d
+    class ObjectPairs(list):pass
+    def convert(v,path=''):
+        if isinstance(v,ObjectPairs):
+            result={}
+            for key,item in v:
+                at=path+'/'+key.replace('~','~0').replace('/','~1')
+                if key in result:raise ContractFailure('DUPLICATE_JSON_KEY',at)
+                result[key]=convert(item,at)
+            return result
+        if isinstance(v,list):return [convert(item,path+'/'+str(i)) for i,item in enumerate(v)]
+        if isinstance(v,float) and not math.isfinite(v):raise ContractFailure('NONFINITE_JSON_NUMBER',path)
+        return v
     try:
-        value=json.loads(raw.decode('utf8'),object_pairs_hook=pairs,
-            parse_constant=lambda v:(_ for _ in ()).throw(ContractFailure('NONFINITE_JSON_NUMBER')))
+        value=convert(json.loads(raw.decode('utf8'),object_pairs_hook=ObjectPairs))
         def unicode_check(v):
             if isinstance(v,str):
                 try:v.encode('utf8')
@@ -93,7 +100,7 @@ def strict_json(raw):
         return value
     except ContractFailure:raise
     except UnicodeDecodeError:raise ContractFailure('INVALID_UTF8')
-    except (ValueError,TypeError):raise ContractFailure('INVALID_JSON')
+    except (ValueError,TypeError,RecursionError):raise ContractFailure('INVALID_JSON')
 
 def decode_http(operation,method,path,query,headers,body):
     expected='/generation/jobs' if operation=='generation.job.create' else '/secrets' if operation=='secret.create' else None
@@ -149,12 +156,18 @@ def admit(request,server,replay=None):
         if replay['owner']!=server['owner'] or replay['operationId']!=request['operationId'] or replay['key']!=request['idempotencyKey']:
             raise ContractFailure('REPLAY_SCOPE_MISMATCH')
         if replay['requestDigest']!=request['requestDigest']:raise ContractFailure('IDEMPOTENCY_CONFLICT')
+        from create_replay_contract import verify_record
+        verify_record(request,server,replay)
         if replay['outcome']=='UNKNOWN':return {'action':'RECONCILE_ORIGINAL_OPERATION','dispatchNew':False}
         if replay['outcome']=='FAILED':return {'action':'REPLAY_FAILURE','dispatchNew':False}
         if replay['outcome']=='COMMITTED':return {'action':'REPLAY_RECEIPT','dispatchNew':False}
         raise ContractFailure('INVALID_REPLAY_OUTCOME')
     body=request['body']
+    frozen=None
     if request['operationId']=='generation.job.create':
+        if body.get('kind')=='FOLLOW_UP':
+            from follow_up_contracts import admit_follow_up
+            frozen=admit_follow_up(body,server)['frozenBasis']
         if body.get('credential') and not server.get('ephemeralCredentialPolicyVerified'):raise ContractFailure('EPHEMERAL_CREDENTIAL_POLICY_UNVERIFIED','$.credential')
         if body.get('targetObjectId') and body['targetObjectId'] not in server.get('targets',{}):raise ContractFailure('TARGET_UNRESOLVED','$.targetObjectId')
         if body.get('targetObjectId') and server['targets'][body['targetObjectId']].get('kind')!=body['targetKind']:raise ContractFailure('TARGET_KIND_MISMATCH','$.targetKind')
@@ -170,9 +183,10 @@ def admit(request,server,replay=None):
                 if artifact.get('owner')!=server['owner']:raise ContractFailure('ARTIFACT_OWNER_MISMATCH',f'$.sources[{i}]')
                 if not isinstance(artifact.get('bytes'),bytes):raise ContractFailure('ARTIFACT_BYTES_UNAVAILABLE',f'$.sources[{i}]')
                 if artifact.get('artifactId')!=source['artifactId']:raise ContractFailure('ARTIFACT_IDENTITY_MISMATCH',f'$.sources[{i}].artifactId')
+                if not isinstance(artifact.get('contentSha256'),str):raise ContractFailure('ARTIFACT_DIGEST_UNAVAILABLE',f'$.sources[{i}]')
                 if hashlib.sha256(artifact['bytes']).hexdigest()!=artifact['contentSha256']:raise ContractFailure('ARTIFACT_BYTES_DIGEST_MISMATCH',f'$.sources[{i}]')
                 if source['kind']=='IMAGE':
-                    if not artifact['mediaType'].startswith('image/'):raise ContractFailure('ARTIFACT_MEDIA_TYPE_MISMATCH',f'$.sources[{i}]')
+                    if not isinstance(artifact.get('mediaType'),str) or not artifact['mediaType'].startswith('image/'):raise ContractFailure('ARTIFACT_MEDIA_TYPE_MISMATCH',f'$.sources[{i}]')
                     from PIL import Image,UnidentifiedImageError
                     try:
                         with Image.open(io.BytesIO(artifact['bytes'])) as image:image.verify()
@@ -191,5 +205,10 @@ def admit(request,server,replay=None):
         if body.get('targetObjectId') and body['targetObjectId'] not in server.get('targets',{}):raise ContractFailure('TARGET_UNRESOLVED','$.targetObjectId')
         if body['stableName'] in server.get('stableNames',[]):raise ContractFailure('STABLE_NAME_UNAVAILABLE','$.stableName')
         if body['stableName'] in ['KCML_OWNER_API_KEY','PASS']:raise ContractFailure('RESERVED_CREDENTIAL_REQUIRES_SPECIAL_CONTRACT','$.stableName')
-        if body['type'] not in server.get('valuePolicyTypes',[]):raise ContractFailure('TYPE_SPECIFIC_POLICY_UNVERIFIED','$.type')
-    return {'action':'RESERVE_ATOMIC_CREATE','dispatchNew':True,'serverWriter':'generation-orchestrator' if request['operationId']=='generation.job.create' else 'secret'}
+        if body['type'] not in ['PASSWORD','API_KEY','BEARER_TOKEN','WEBHOOK_SECRET','GENERIC_TEXT','GENERIC_BINARY']:raise ContractFailure('TYPE_SPECIFIC_POLICY_UNVERIFIED','$.type')
+        # Type name flags cannot replace a value grammar. Structured/crypto types
+        # stay blocked until their exact authoritative formats are resolved.
+    result={'action':'RESERVE_ATOMIC_CREATE','dispatchNew':True,'serverWriter':'generation-orchestrator' if request['operationId']=='generation.job.create' else 'secret'}
+
+    if frozen is not None: result['frozenBasis']=frozen
+    return result

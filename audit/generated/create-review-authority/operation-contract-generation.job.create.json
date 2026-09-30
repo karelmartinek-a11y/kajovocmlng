@@ -1,0 +1,28 @@
+{
+  "pointer": "contracts/operation-contracts.json#/records/332",
+  "record": {
+    "operationId": "generation.job.create",
+    "aggregateRoot": "generation_job",
+    "canonicalWriterId": "writer.generation-orchestrator",
+    "operationFamily": "GENERATION",
+    "operationRevision": "R9.1",
+    "auditEventTypes": [
+      "OPERATION_ADMITTED",
+      "OPERATION_STATE_CHANGED",
+      "OPERATION_TERMINAL"
+    ],
+    "outboxPurposes": [
+      "DOMAIN_EVENT",
+      "SIDE_EFFECT_DISPATCH_IF_APPLICABLE"
+    ],
+    "idempotencyScope": "generation.job.create:caller:business-target",
+    "retryClass": "IDEMPOTENT_REPLAY_ONLY",
+    "terminalOutcomes": [
+      "SUCCEEDED",
+      "FAILED_KNOWN",
+      "CANCELLED_CONFIRMED",
+      "MANUAL_REVIEW_BLOCKING"
+    ]
+  },
+  "fullRecordIncluded": false
+}

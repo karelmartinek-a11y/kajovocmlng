@@ -1,0 +1,2374 @@
+{
+  "sourceDocumentSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+  "scriptSha256": "e728fd8596330a5222819bfbf81258a33eee06d4502eced876c0c52ccc33bab5",
+  "supportSha256": {
+    "scripts/create_operation_contracts.py": "f34ba13f0f13f4fb0045dfa6c09c4467e432ab865ce8e8b7c0ac55d9d28a3c67",
+    "scripts/create_completion_contracts.py": "a61dd69606d5299e22d5cc6c48a65c0f813205b1abea9fb328c07fb56a5cd8f0",
+    "scripts/verify_create_completion.py": "488c55d8e194e601e70b75503164e27e91caef1732e74e6c81b2651a5611cad8"
+  },
+  "resourceSha256": {
+    "contracts/create-operation-design.schema.json": "3a0cd68cbf06c1adfe3d54e66818dcc6d050058169ee1e433d133e3a0553de04",
+    "contracts/create-completion.json": "45558a2ca824ba1d88166df54c7530d1f9d777d8101c32e25eccc812d17e5d3e"
+  },
+  "scope": "Synthetic native decoder/admission diagnostics → exact HTTP error projection; no running HTTP server.",
+  "authority": [
+    "SSOT §12.48",
+    "SSOT §49.4",
+    "SSOT §32.6",
+    "contracts/create-completion.json#/errorPredicates",
+    "contracts/create-operation-design.schema.json#/$defs/HttpCreateFailure"
+  ],
+  "witnesses": {
+    "generation.job.create": {
+      "body": {
+        "intent": "Create fixture component",
+        "sources": [
+          {
+            "kind": "TEXT",
+            "text": "Fixture requirements"
+          }
+        ]
+      },
+      "nativeRequest": {
+        "operationId": "generation.job.create",
+        "body": {
+          "intent": "Create fixture component",
+          "sources": [
+            {
+              "kind": "TEXT",
+              "text": "Fixture requirements"
+            }
+          ]
+        },
+        "idempotencyKey": "fixture-key",
+        "requestDigest": "sha256:0a7620a475ffb412531fb4b58106bfa162babfe86f14311ece05942747e6020d"
+      },
+      "httpFailure": {
+        "operationId": "generation.job.create",
+        "requestId": "00000000-0000-4000-8000-000000000002",
+        "correlationId": "00000000-0000-4000-8000-000000000003",
+        "logicalOperationId": "00000000-0000-4000-8000-000000000001",
+        "statusCode": 409,
+        "error": {
+          "stableCode": "IDEMPOTENCY_CONFLICT",
+          "classification": "CONFLICT",
+          "retryDirective": "DO_NOT_RETRY",
+          "message": "IDEMPOTENCY_CONFLICT",
+          "detailsDigest": "sha256:341872ed9393d9c1ab5a0270d010deb8931035d1e479901cc1bf797a19d2a6ab"
+        }
+      }
+    },
+    "secret.create": {
+      "body": {
+        "stableName": "FIXTURE_SECRET",
+        "displayName": "Fixture",
+        "type": "PASSWORD",
+        "value": {
+          "encoding": "UTF8",
+          "text": "  Synthetic fixture bytes\n  "
+        }
+      },
+      "nativeRequest": {
+        "operationId": "secret.create",
+        "body": {
+          "stableName": "FIXTURE_SECRET",
+          "displayName": "Fixture",
+          "type": "PASSWORD",
+          "value": {
+            "encoding": "UTF8",
+            "text": "  Synthetic fixture bytes\n  "
+          }
+        },
+        "idempotencyKey": "fixture-key",
+        "requestDigest": "sha256:b956a56dad35b2569911072af8c694beca4081da795c89811718f3aa5e493a15"
+      },
+      "httpFailure": {
+        "operationId": "secret.create",
+        "requestId": "00000000-0000-4000-8000-000000000002",
+        "correlationId": "00000000-0000-4000-8000-000000000003",
+        "logicalOperationId": "00000000-0000-4000-8000-000000000001",
+        "statusCode": 409,
+        "error": {
+          "stableCode": "IDEMPOTENCY_CONFLICT",
+          "classification": "CONFLICT",
+          "retryDirective": "DO_NOT_RETRY",
+          "message": "IDEMPOTENCY_CONFLICT",
+          "detailsDigest": "sha256:341872ed9393d9c1ab5a0270d010deb8931035d1e479901cc1bf797a19d2a6ab"
+        }
+      }
+    }
+  },
+  "checked": 195,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "generation.job.create/domain-positive-decoder",
+      "passed": true,
+      "actual": {
+        "intent": "Create fixture component",
+        "sources": [
+          {
+            "kind": "TEXT",
+            "text": "Fixture requirements"
+          }
+        ]
+      },
+      "expected": {
+        "intent": "Create fixture component",
+        "sources": [
+          {
+            "kind": "TEXT",
+            "text": "Fixture requirements"
+          }
+        ]
+      }
+    },
+    {
+      "case": "generation.job.create/domain-positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/malformed-json/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "generation.job.create/malformed-json/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/malformed-json/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "generation.job.create/malformed-json/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:d90567d747cbd682f5c1c6476db2e07976abf132297c5ffc365487c119c75334",
+      "expected": "sha256:d90567d747cbd682f5c1c6476db2e07976abf132297c5ffc365487c119c75334"
+    },
+    {
+      "case": "generation.job.create/invalid-utf8/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "generation.job.create/invalid-utf8/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/invalid-utf8/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "generation.job.create/invalid-utf8/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:c12c5379fdaffb637b273c9891b69115615398d343001f08aa2b703fc1eaa2f1",
+      "expected": "sha256:c12c5379fdaffb637b273c9891b69115615398d343001f08aa2b703fc1eaa2f1"
+    },
+    {
+      "case": "generation.job.create/duplicate-root/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "generation.job.create/duplicate-root/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/duplicate-root/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "generation.job.create/duplicate-root/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:a58bfc3ebbbadfefa9ddcfd39d7ff7bef94e55cceda5c41905922f62165f7906",
+      "expected": "sha256:a58bfc3ebbbadfefa9ddcfd39d7ff7bef94e55cceda5c41905922f62165f7906"
+    },
+    {
+      "case": "generation.job.create/duplicate-nested/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "generation.job.create/duplicate-nested/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/duplicate-nested/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "generation.job.create/duplicate-nested/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:44f209a0a011bc4befa3dc07f13d030610b53e209529f6b5495acfb3d8af29b6",
+      "expected": "sha256:44f209a0a011bc4befa3dc07f13d030610b53e209529f6b5495acfb3d8af29b6"
+    },
+    {
+      "case": "generation.job.create/nonfinite/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "generation.job.create/nonfinite/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/nonfinite/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "generation.job.create/nonfinite/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:b904e0de1d6d92b54700b3aaae2b42788351fafacb6aac89474915528f103415",
+      "expected": "sha256:b904e0de1d6d92b54700b3aaae2b42788351fafacb6aac89474915528f103415"
+    },
+    {
+      "case": "generation.job.create/numeric-overflow/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "generation.job.create/numeric-overflow/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/numeric-overflow/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "generation.job.create/numeric-overflow/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:b904e0de1d6d92b54700b3aaae2b42788351fafacb6aac89474915528f103415",
+      "expected": "sha256:b904e0de1d6d92b54700b3aaae2b42788351fafacb6aac89474915528f103415"
+    },
+    {
+      "case": "generation.job.create/invalid-unicode/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "generation.job.create/invalid-unicode/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/invalid-unicode/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "generation.job.create/invalid-unicode/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:844cfc3c731a926a7874147a758a9e79b7b156c6af98b809a3a07bea06baf56b",
+      "expected": "sha256:844cfc3c731a926a7874147a758a9e79b7b156c6af98b809a3a07bea06baf56b"
+    },
+    {
+      "case": "generation.job.create/unknown-query/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "generation.job.create/unknown-query/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/unknown-query/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "generation.job.create/unknown-query/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:2b0b7a420f82b7ab15d08dd87309b8f13615fcc71b1cefeeb7daaf27e4925d0c",
+      "expected": "sha256:2b0b7a420f82b7ab15d08dd87309b8f13615fcc71b1cefeeb7daaf27e4925d0c"
+    },
+    {
+      "case": "generation.job.create/duplicate-header/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "generation.job.create/duplicate-header/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/duplicate-header/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "generation.job.create/duplicate-header/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:2a79b71902407a87901bafdf408a86f930d308d6899e395bfd63fa8166cb7036",
+      "expected": "sha256:2a79b71902407a87901bafdf408a86f930d308d6899e395bfd63fa8166cb7036"
+    },
+    {
+      "case": "generation.job.create/missing-header/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "generation.job.create/missing-header/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/missing-header/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "generation.job.create/missing-header/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:4eaf5b163bf5365fa394c4ebb33853786fc0203a22524e469e64a1b6e56190e1",
+      "expected": "sha256:4eaf5b163bf5365fa394c4ebb33853786fc0203a22524e469e64a1b6e56190e1"
+    },
+    {
+      "case": "generation.job.create/extra-body/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "generation.job.create/extra-body/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/extra-body/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "generation.job.create/extra-body/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:32c103f900f76c5c312ee3c970cf736bb3b92bff7e8c404a6d8e4ce8d2d0732b",
+      "expected": "sha256:32c103f900f76c5c312ee3c970cf736bb3b92bff7e8c404a6d8e4ce8d2d0732b"
+    },
+    {
+      "case": "generation.job.create/auth/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_AUTHENTICATION_REQUIRED",
+        "classification": "AUTHENTICATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 401
+      },
+      "expected": {
+        "stableCode": "CREATE_AUTHENTICATION_REQUIRED",
+        "classification": "AUTHENTICATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 401
+      }
+    },
+    {
+      "case": "generation.job.create/auth/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/auth/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "generation.job.create/auth/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:ccaac927b3a9cdbfe47b9d5bfc2e1a5b372520a8333e6782b87446e2522e9aa9",
+      "expected": "sha256:ccaac927b3a9cdbfe47b9d5bfc2e1a5b372520a8333e6782b87446e2522e9aa9"
+    },
+    {
+      "case": "generation.job.create/recovery/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_RECOVERY_BARRIER",
+        "classification": "CONFLICT",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 423
+      },
+      "expected": {
+        "stableCode": "CREATE_RECOVERY_BARRIER",
+        "classification": "CONFLICT",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 423
+      }
+    },
+    {
+      "case": "generation.job.create/recovery/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/recovery/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "generation.job.create/recovery/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:191e109e9ade3ae9c0e3e38c6d83007a34a3c48b49f7c13cb5ce784184f99b4c",
+      "expected": "sha256:191e109e9ade3ae9c0e3e38c6d83007a34a3c48b49f7c13cb5ce784184f99b4c"
+    },
+    {
+      "case": "generation.job.create/full-http-error-positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/http-missing/operationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/operationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/operationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-null/operationId",
+      "passed": true,
+      "expectedKeyword": "enum",
+      "expectedPointer": "/operationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "enum",
+          "pointer": "/operationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-missing/requestId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/requestId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/requestId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-null/requestId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/requestId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/requestId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-missing/correlationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/correlationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/correlationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-null/correlationId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/correlationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/correlationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-missing/logicalOperationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/logicalOperationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/logicalOperationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-missing/statusCode",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/statusCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/statusCode"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-null/statusCode",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/statusCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/statusCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        },
+        {
+          "keyword": "type",
+          "pointer": "/statusCode"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-missing/error",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        },
+        {
+          "keyword": "required",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-null/error",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-extra",
+      "passed": true,
+      "expectedKeyword": "additionalProperties",
+      "expectedPointer": "/createdRoot",
+      "actualDiagnostics": [
+        {
+          "keyword": "additionalProperties",
+          "pointer": "/createdRoot"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-error-missing/stableCode",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/stableCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        },
+        {
+          "keyword": "required",
+          "pointer": "/error/stableCode"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-error-null/stableCode",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error/stableCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/statusCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error/stableCode"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-error-missing/classification",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/error/classification"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-error-null/classification",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/statusCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error/classification"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-error-missing/retryDirective",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/error/retryDirective"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-error-null/retryDirective",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/statusCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error/retryDirective"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-error-missing/message",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/message",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/error/message"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-error-null/message",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error/message",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/error/message"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-error-missing/detailsDigest",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/detailsDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/error/detailsDigest"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-error-wrong/stableCode",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/stableCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/statusCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-error-wrong/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/statusCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-error-wrong/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/statusCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-error-wrong-status",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/statusCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/statusCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-bad-server-id/requestId",
+      "passed": true,
+      "expectedKeyword": "format",
+      "expectedPointer": "/requestId",
+      "actualDiagnostics": [
+        {
+          "keyword": "format",
+          "pointer": "/requestId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-bad-server-id/correlationId",
+      "passed": true,
+      "expectedKeyword": "format",
+      "expectedPointer": "/correlationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "format",
+          "pointer": "/correlationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/http-bad-server-id/logicalOperationId",
+      "passed": true,
+      "expectedKeyword": "format",
+      "expectedPointer": "/logicalOperationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "format",
+          "pointer": "/logicalOperationId"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/logicalOperationId"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/logicalOperationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/unknown-diagnostic/MODEL_SAYS_SUCCESS",
+      "passed": true,
+      "actual": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      },
+      "expected": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      }
+    },
+    {
+      "case": "generation.job.create/unknown-diagnostic/SCHEMA_MODEL_SAYS_SUCCESS",
+      "passed": true,
+      "actual": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      },
+      "expected": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      }
+    },
+    {
+      "case": "generation.job.create/unknown-diagnostic/ARTIFACT_MODEL_SAYS_SUCCESS",
+      "passed": true,
+      "actual": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      },
+      "expected": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      }
+    },
+    {
+      "case": "generation.job.create/unknown-diagnostic/TARGET_MODEL_SAYS_SUCCESS",
+      "passed": true,
+      "actual": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      },
+      "expected": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      }
+    },
+    {
+      "case": "generation.job.create/unknown-diagnostic/PARENT_JOB_MODEL_SAYS_SUCCESS",
+      "passed": true,
+      "actual": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      },
+      "expected": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      }
+    },
+    {
+      "case": "generation.job.create/unknown-diagnostic/OBJECT_REFERENCE_MODEL_SAYS_SUCCESS",
+      "passed": true,
+      "actual": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      },
+      "expected": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      }
+    },
+    {
+      "case": "generation.job.create/unknown-diagnostic/SECRET_REFERENCE_MODEL_SAYS_SUCCESS",
+      "passed": true,
+      "actual": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      },
+      "expected": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      }
+    },
+    {
+      "case": "generation.job.create/unknown-diagnostic/FOLLOW_UP_MODEL_SAYS_SUCCESS",
+      "passed": true,
+      "actual": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      },
+      "expected": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      }
+    },
+    {
+      "case": "secret.create/domain-positive-decoder",
+      "passed": true,
+      "actual": {
+        "stableName": "FIXTURE_SECRET",
+        "displayName": "Fixture",
+        "type": "PASSWORD",
+        "value": {
+          "encoding": "UTF8",
+          "text": "  Synthetic fixture bytes\n  "
+        }
+      },
+      "expected": {
+        "stableName": "FIXTURE_SECRET",
+        "displayName": "Fixture",
+        "type": "PASSWORD",
+        "value": {
+          "encoding": "UTF8",
+          "text": "  Synthetic fixture bytes\n  "
+        }
+      }
+    },
+    {
+      "case": "secret.create/domain-positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/malformed-json/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "secret.create/malformed-json/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/malformed-json/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "secret.create/malformed-json/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:d90567d747cbd682f5c1c6476db2e07976abf132297c5ffc365487c119c75334",
+      "expected": "sha256:d90567d747cbd682f5c1c6476db2e07976abf132297c5ffc365487c119c75334"
+    },
+    {
+      "case": "secret.create/invalid-utf8/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "secret.create/invalid-utf8/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/invalid-utf8/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "secret.create/invalid-utf8/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:c12c5379fdaffb637b273c9891b69115615398d343001f08aa2b703fc1eaa2f1",
+      "expected": "sha256:c12c5379fdaffb637b273c9891b69115615398d343001f08aa2b703fc1eaa2f1"
+    },
+    {
+      "case": "secret.create/duplicate-root/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "secret.create/duplicate-root/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/duplicate-root/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "secret.create/duplicate-root/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:1fbc2c67db669b0fbf1071c15d0829384aa412d337c7403af1dcc3006d7df2ad",
+      "expected": "sha256:1fbc2c67db669b0fbf1071c15d0829384aa412d337c7403af1dcc3006d7df2ad"
+    },
+    {
+      "case": "secret.create/duplicate-nested/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "secret.create/duplicate-nested/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/duplicate-nested/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "secret.create/duplicate-nested/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:79316c8b5f26d98dc9411a23b86abb11794cd35eaa78f7424d17da111be0066d",
+      "expected": "sha256:79316c8b5f26d98dc9411a23b86abb11794cd35eaa78f7424d17da111be0066d"
+    },
+    {
+      "case": "secret.create/nonfinite/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "secret.create/nonfinite/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/nonfinite/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "secret.create/nonfinite/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:64a34f718fe860016435c3e1743c1f9ef5d6328d11f7466800f26f7464e7fbc8",
+      "expected": "sha256:64a34f718fe860016435c3e1743c1f9ef5d6328d11f7466800f26f7464e7fbc8"
+    },
+    {
+      "case": "secret.create/numeric-overflow/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "secret.create/numeric-overflow/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/numeric-overflow/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "secret.create/numeric-overflow/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:64a34f718fe860016435c3e1743c1f9ef5d6328d11f7466800f26f7464e7fbc8",
+      "expected": "sha256:64a34f718fe860016435c3e1743c1f9ef5d6328d11f7466800f26f7464e7fbc8"
+    },
+    {
+      "case": "secret.create/invalid-unicode/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "secret.create/invalid-unicode/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/invalid-unicode/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "secret.create/invalid-unicode/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:844cfc3c731a926a7874147a758a9e79b7b156c6af98b809a3a07bea06baf56b",
+      "expected": "sha256:844cfc3c731a926a7874147a758a9e79b7b156c6af98b809a3a07bea06baf56b"
+    },
+    {
+      "case": "secret.create/unknown-query/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "secret.create/unknown-query/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/unknown-query/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "secret.create/unknown-query/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:2b0b7a420f82b7ab15d08dd87309b8f13615fcc71b1cefeeb7daaf27e4925d0c",
+      "expected": "sha256:2b0b7a420f82b7ab15d08dd87309b8f13615fcc71b1cefeeb7daaf27e4925d0c"
+    },
+    {
+      "case": "secret.create/duplicate-header/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "secret.create/duplicate-header/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/duplicate-header/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "secret.create/duplicate-header/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:2a79b71902407a87901bafdf408a86f930d308d6899e395bfd63fa8166cb7036",
+      "expected": "sha256:2a79b71902407a87901bafdf408a86f930d308d6899e395bfd63fa8166cb7036"
+    },
+    {
+      "case": "secret.create/missing-header/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "secret.create/missing-header/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/missing-header/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "secret.create/missing-header/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:4eaf5b163bf5365fa394c4ebb33853786fc0203a22524e469e64a1b6e56190e1",
+      "expected": "sha256:4eaf5b163bf5365fa394c4ebb33853786fc0203a22524e469e64a1b6e56190e1"
+    },
+    {
+      "case": "secret.create/extra-body/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      },
+      "expected": {
+        "stableCode": "CREATE_INPUT_INVALID",
+        "classification": "VALIDATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 400
+      }
+    },
+    {
+      "case": "secret.create/extra-body/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/extra-body/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "secret.create/extra-body/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:32c103f900f76c5c312ee3c970cf736bb3b92bff7e8c404a6d8e4ce8d2d0732b",
+      "expected": "sha256:32c103f900f76c5c312ee3c970cf736bb3b92bff7e8c404a6d8e4ce8d2d0732b"
+    },
+    {
+      "case": "secret.create/auth/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_AUTHENTICATION_REQUIRED",
+        "classification": "AUTHENTICATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 401
+      },
+      "expected": {
+        "stableCode": "CREATE_AUTHENTICATION_REQUIRED",
+        "classification": "AUTHENTICATION",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 401
+      }
+    },
+    {
+      "case": "secret.create/auth/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/auth/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "secret.create/auth/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:ccaac927b3a9cdbfe47b9d5bfc2e1a5b372520a8333e6782b87446e2522e9aa9",
+      "expected": "sha256:ccaac927b3a9cdbfe47b9d5bfc2e1a5b372520a8333e6782b87446e2522e9aa9"
+    },
+    {
+      "case": "secret.create/recovery/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_RECOVERY_BARRIER",
+        "classification": "CONFLICT",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 423
+      },
+      "expected": {
+        "stableCode": "CREATE_RECOVERY_BARRIER",
+        "classification": "CONFLICT",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 423
+      }
+    },
+    {
+      "case": "secret.create/recovery/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/recovery/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "secret.create/recovery/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:191e109e9ade3ae9c0e3e38c6d83007a34a3c48b49f7c13cb5ce784184f99b4c",
+      "expected": "sha256:191e109e9ade3ae9c0e3e38c6d83007a34a3c48b49f7c13cb5ce784184f99b4c"
+    },
+    {
+      "case": "secret.create/stable-name-conflict/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_STABLE_NAME_CONFLICT",
+        "classification": "CONFLICT",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 409
+      },
+      "expected": {
+        "stableCode": "CREATE_STABLE_NAME_CONFLICT",
+        "classification": "CONFLICT",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 409
+      }
+    },
+    {
+      "case": "secret.create/stable-name-conflict/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/stable-name-conflict/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "secret.create/stable-name-conflict/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:200de5a479ee2326f9a5bb09720ef749dd855975cd6042d53e42f43ea9eb86db",
+      "expected": "sha256:200de5a479ee2326f9a5bb09720ef749dd855975cd6042d53e42f43ea9eb86db"
+    },
+    {
+      "case": "secret.create/structured-type-policy/exact-tuple",
+      "passed": true,
+      "actual": {
+        "stableCode": "CREATE_POLICY_UNRESOLVED",
+        "classification": "DEPENDENCY",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 503
+      },
+      "expected": {
+        "stableCode": "CREATE_POLICY_UNRESOLVED",
+        "classification": "DEPENDENCY",
+        "retryDirective": "DO_NOT_RETRY",
+        "statusCode": 503
+      }
+    },
+    {
+      "case": "secret.create/structured-type-policy/exact-mask",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/structured-type-policy/no-logical-operation-before-admission",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "secret.create/structured-type-policy/details-bound-to-diagnostic",
+      "passed": true,
+      "actual": "sha256:b91bbb27f8e4a200c42889c9de10a177b26566272f38ff3775cb7021301eadd5",
+      "expected": "sha256:b91bbb27f8e4a200c42889c9de10a177b26566272f38ff3775cb7021301eadd5"
+    },
+    {
+      "case": "secret.create/permitted-json-secret-text-preserved",
+      "passed": true,
+      "actual": "{\"credential\":\"synthetic\",\"nested\":[1,2]}",
+      "expected": "{\"credential\":\"synthetic\",\"nested\":[1,2]}"
+    },
+    {
+      "case": "secret.create/full-http-error-positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/http-missing/operationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/operationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/operationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-null/operationId",
+      "passed": true,
+      "expectedKeyword": "enum",
+      "expectedPointer": "/operationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "enum",
+          "pointer": "/operationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-missing/requestId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/requestId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/requestId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-null/requestId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/requestId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/requestId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-missing/correlationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/correlationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/correlationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-null/correlationId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/correlationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/correlationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-missing/logicalOperationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/logicalOperationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/logicalOperationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-missing/statusCode",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/statusCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/statusCode"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-null/statusCode",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/statusCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/statusCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        },
+        {
+          "keyword": "type",
+          "pointer": "/statusCode"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-missing/error",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        },
+        {
+          "keyword": "required",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-null/error",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-extra",
+      "passed": true,
+      "expectedKeyword": "additionalProperties",
+      "expectedPointer": "/createdRoot",
+      "actualDiagnostics": [
+        {
+          "keyword": "additionalProperties",
+          "pointer": "/createdRoot"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-error-missing/stableCode",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/stableCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        },
+        {
+          "keyword": "required",
+          "pointer": "/error/stableCode"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-error-null/stableCode",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error/stableCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/statusCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error/stableCode"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-error-missing/classification",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/error/classification"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-error-null/classification",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/statusCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error/classification"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-error-missing/retryDirective",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/error/retryDirective"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-error-null/retryDirective",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/statusCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error/retryDirective"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-error-missing/message",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/message",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/error/message"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-error-null/message",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error/message",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/error/message"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-error-missing/detailsDigest",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/detailsDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/error/detailsDigest"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-error-wrong/stableCode",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/stableCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/statusCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-error-wrong/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/statusCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-error-wrong/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/statusCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-error-wrong-status",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/statusCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/statusCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": ""
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-bad-server-id/requestId",
+      "passed": true,
+      "expectedKeyword": "format",
+      "expectedPointer": "/requestId",
+      "actualDiagnostics": [
+        {
+          "keyword": "format",
+          "pointer": "/requestId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-bad-server-id/correlationId",
+      "passed": true,
+      "expectedKeyword": "format",
+      "expectedPointer": "/correlationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "format",
+          "pointer": "/correlationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/http-bad-server-id/logicalOperationId",
+      "passed": true,
+      "expectedKeyword": "format",
+      "expectedPointer": "/logicalOperationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "format",
+          "pointer": "/logicalOperationId"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/logicalOperationId"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/logicalOperationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/unknown-diagnostic/MODEL_SAYS_SUCCESS",
+      "passed": true,
+      "actual": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      },
+      "expected": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      }
+    },
+    {
+      "case": "secret.create/unknown-diagnostic/SCHEMA_MODEL_SAYS_SUCCESS",
+      "passed": true,
+      "actual": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      },
+      "expected": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      }
+    },
+    {
+      "case": "secret.create/unknown-diagnostic/ARTIFACT_MODEL_SAYS_SUCCESS",
+      "passed": true,
+      "actual": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      },
+      "expected": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      }
+    },
+    {
+      "case": "secret.create/unknown-diagnostic/TARGET_MODEL_SAYS_SUCCESS",
+      "passed": true,
+      "actual": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      },
+      "expected": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      }
+    },
+    {
+      "case": "secret.create/unknown-diagnostic/PARENT_JOB_MODEL_SAYS_SUCCESS",
+      "passed": true,
+      "actual": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      },
+      "expected": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      }
+    },
+    {
+      "case": "secret.create/unknown-diagnostic/OBJECT_REFERENCE_MODEL_SAYS_SUCCESS",
+      "passed": true,
+      "actual": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      },
+      "expected": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      }
+    },
+    {
+      "case": "secret.create/unknown-diagnostic/SECRET_REFERENCE_MODEL_SAYS_SUCCESS",
+      "passed": true,
+      "actual": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      },
+      "expected": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      }
+    },
+    {
+      "case": "secret.create/unknown-diagnostic/FOLLOW_UP_MODEL_SAYS_SUCCESS",
+      "passed": true,
+      "actual": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      },
+      "expected": {
+        "code": "HTTP_FAILURE_PROJECTION_UNRESOLVED",
+        "pointer": "/error"
+      }
+    },
+    {
+      "case": "generation/http-reject-secret-only-stable-name-error",
+      "passed": true,
+      "expectedKeyword": "not",
+      "expectedPointer": "/error/stableCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "not",
+          "pointer": "/error/stableCode"
+        }
+      ]
+    },
+    {
+      "case": "generation/projector-secret-only-error-rejected",
+      "passed": true,
+      "actual": {
+        "code": "HTTP_FAILURE_OPERATION_MISMATCH",
+        "pointer": "/operationId"
+      },
+      "expected": {
+        "code": "HTTP_FAILURE_OPERATION_MISMATCH",
+        "pointer": "/operationId"
+      }
+    },
+    {
+      "case": "input-source-unchanged",
+      "passed": true,
+      "actual": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+      "expected": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa"
+    },
+    {
+      "case": "input-support-unchanged",
+      "passed": true,
+      "actual": {
+        "scripts/create_operation_contracts.py": "f34ba13f0f13f4fb0045dfa6c09c4467e432ab865ce8e8b7c0ac55d9d28a3c67",
+        "scripts/create_completion_contracts.py": "a61dd69606d5299e22d5cc6c48a65c0f813205b1abea9fb328c07fb56a5cd8f0",
+        "scripts/verify_create_completion.py": "488c55d8e194e601e70b75503164e27e91caef1732e74e6c81b2651a5611cad8"
+      },
+      "expected": {
+        "scripts/create_operation_contracts.py": "f34ba13f0f13f4fb0045dfa6c09c4467e432ab865ce8e8b7c0ac55d9d28a3c67",
+        "scripts/create_completion_contracts.py": "a61dd69606d5299e22d5cc6c48a65c0f813205b1abea9fb328c07fb56a5cd8f0",
+        "scripts/verify_create_completion.py": "488c55d8e194e601e70b75503164e27e91caef1732e74e6c81b2651a5611cad8"
+      }
+    }
+  ],
+  "wholeOperationsClosed": [],
+  "runtimeAcceptance": "NOT_EVALUATED",
+  "remaining": [
+    "Actual HTTP server and preadmission authentication implementation",
+    "Structured Secret and parent/target admission policies",
+    "Full persistence/read/consumer pipeline"
+  ]
+}

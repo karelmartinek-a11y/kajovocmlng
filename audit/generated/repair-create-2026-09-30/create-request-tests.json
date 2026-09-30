@@ -1,5 +1,5 @@
 {
-  "sourceDocumentSha256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
+  "sourceDocumentSha256": "4f1c6c6bb8e8399f0b4084ac77ffa9388d841ed5996fa3f01c6be9dc13c3a22e",
   "scope": "Actual domain witnesses and exact decoder/admission rejections; synthetic design proof.",
   "witnesses": {
     "generation.job.create": {
@@ -37,8 +37,8 @@
       "expiration": "2026-12-31T00:00:00Z"
     }
   },
-  "checked": 131,
-  "failed": 0,
+  "checked": 132,
+  "failed": 1,
   "checks": [
     {
       "case": "generation.job.create/positive-domain-decoder",
@@ -120,6 +120,13 @@
       "expectedCode": "SCHEMA_TYPE",
       "actualCode": "SCHEMA_TYPE",
       "pointer": "$.sources"
+    },
+    {
+      "case": "generation.job.create/optional-null/followUpBasis",
+      "passed": false,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_NOT",
+      "pointer": "$"
     },
     {
       "case": "generation.job.create/extra-server-or-legacy/schemaId",
@@ -273,14 +280,14 @@
       "passed": true,
       "expectedCode": "DUPLICATE_JSON_KEY",
       "actualCode": "DUPLICATE_JSON_KEY",
-      "pointer": "/kind"
+      "pointer": "/sources/0/kind"
     },
     {
       "case": "generation.job.create/nonfinite",
       "passed": true,
       "expectedCode": "NONFINITE_JSON_NUMBER",
       "actualCode": "NONFINITE_JSON_NUMBER",
-      "pointer": ""
+      "pointer": "/intent"
     },
     {
       "case": "generation.job.create/wrong-root-type",
@@ -631,14 +638,14 @@
       "passed": true,
       "expectedCode": "DUPLICATE_JSON_KEY",
       "actualCode": "DUPLICATE_JSON_KEY",
-      "pointer": "/encoding"
+      "pointer": "/value/encoding"
     },
     {
       "case": "secret.create/nonfinite",
       "passed": true,
       "expectedCode": "NONFINITE_JSON_NUMBER",
       "actualCode": "NONFINITE_JSON_NUMBER",
-      "pointer": ""
+      "pointer": "/stableName"
     },
     {
       "case": "secret.create/wrong-root-type",
@@ -940,16 +947,16 @@
   "boundaries": {
     "generation.job.create": {
       "request": "EXPLICIT_DOMAIN_SHAPE_AND_DECODER",
-      "response": "OPEN_GENERIC",
-      "event": "OPEN_GENERIC_APPLICABILITY",
+      "response": "EXPLICIT_CREATE_OUTPUT_ERROR_UNION",
+      "event": "EXPLICIT_AGGREGATE_CREATE_RECEIPT_EVENT",
       "runtime": "NOT_EVALUATED"
     },
     "secret.create": {
       "request": "EXPLICIT_DOMAIN_SHAPE_AND_DECODER",
-      "response": "OPEN_GENERIC",
-      "event": "OPEN_GENERIC_APPLICABILITY",
+      "response": "EXPLICIT_CREATE_OUTPUT_ERROR_UNION",
+      "event": "EXPLICIT_AGGREGATE_CREATE_RECEIPT_EVENT",
       "runtime": "NOT_EVALUATED"
     }
   },
-  "remaining": "Exact type-specific policies for structured/cryptographic secrets, parent/target state guards, full persistence/artifact parsing/consumer pipeline, typed response/error/event masks remain mandatory; no whole-operation closure claim."
+  "remaining": "Exact type-specific policies for structured/cryptographic secrets, parent/target state guards, full persistence/artifact parsing/consumer pipeline, full HTTP error adapter, exact request policies and complete consumer pipeline remain mandatory; no whole-operation closure claim."
 }

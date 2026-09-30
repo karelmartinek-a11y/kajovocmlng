@@ -1,0 +1,17 @@
+{
+  "sourceDocumentSha256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
+  "checks": {
+    "uniqueStableIds": 3843,
+    "allStatesSupported": true,
+    "allRowsSourceBound": true,
+    "blockedRowsHaveReasonAndKind": true,
+    "implementationNotInferred": true
+  },
+  "provenanceRecount": {
+    "actual": 152,
+    "verifyPackageEquivalentRegex": 152,
+    "historicalCheckpoint": 149,
+    "interpretation": "Detector hit inventory only; no semantic defect conclusion."
+  },
+  "reproduction": "/tmp/ssot-audit-venv/bin/python scripts/completion_register.py --output audit/SSOT_COMPLETION_REGISTER.json"
+}

@@ -1,0 +1,127 @@
+{
+  "status": "PARTIAL_SEMANTIC_REVIEW",
+  "sourceSHA256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
+  "baselineCommit": "003cef7e1f6bcf87f3a23d9db3825e4fa0600560",
+  "scope": "Two create operations response/event/Secret policy/persistence prose and targeted resources; excludes actual implementation, SQL helper availability and UI exposure investigation",
+  "sourceSections": {
+    "section-12.18.md": "0fb525210c9ecb225ee6c89216745011cdba39ae181dcdd2bc655a140bc70f12",
+    "section-12.2.md": "2a32a56379522bc4bb801af074845ea25a5abffa2e7b3b7e2d4bda0febe6f99a",
+    "section-12.3.md": "2abd7f98b2144c0e4a33437d85d54226fdc5564e7ca727f4269a946587dda4df",
+    "section-12.4.md": "f050003ac2e758851f99d999ea53f093425ca483cde6b00414999aa5bb7a3af0",
+    "section-12.41.md": "0c7a8bb5754e1844f0d5d3edf2c1fae91a31013f464b0721a4308f42bd6b1fbd",
+    "section-12.44.md": "79dbecddcf672a6193f93e54f5539f0762d03fbbbdb6cf3b8842be8d28a37e93",
+    "section-25.11.md": "adc3acaca3e25415185e4cb47a3e9dec0d846e9feecc7474e1eebe53da2eab8b",
+    "section-25.6.md": "24c4cf2b92cacafceb1f0fb8c318f17652f0ebb73392b8b743e544cc47d2c625",
+    "section-26.1.md": "316a3e3e0b4a5d29d743c9f0a6f36a1f78e8fbcd14b55faaca90651f8426f147",
+    "section-49.15.md": "0821f7a85cd68915b152dd36bbfd95a27d5f79f5982230d07044eedcae908140",
+    "section-49.18.md": "8e752bc58cba2c1a7724f3e1067edc08f602bab936d051d392ea3ee4ebcf6136",
+    "section-49.22.1.md": "25d3407b8ef9f5c04ada358d528a384d3a3a24b9506915e498c58e1cbceaa65f",
+    "section-49.4.md": "57a68b663367b6bfffb88ccedf80f7e94a9b3f882f7643a32c48d8daee1ce24e",
+    "section-49.5.md": "037a113529d9036cec6eef5cbc5c53617e966c3f8274c4783faf0de9d36d63b5",
+    "section-51.12.md": "208606f1e7626055b8af07ba874657953e72400471f4ff16212a1b9f8986b31d",
+    "section-51.13.md": "bc1fb59aeaefc3cbeaa87c47900a3938bd6a52b002ba8aef2198945f408a9f4e",
+    "section-51.14.md": "ab97f6479369d7b897f281276312efacc28d324f8ec0ddb08d2a6fa7399d9613",
+    "section-72.21.md": "41506e320bb6d629e6695befcc4d7de53f38bfb394cb665bb253c67ab7bf5e74",
+    "section-8.2.md": "b42a779042f1c758c2c2b02445fad44549c93b913f42707340cfaedd232faaa3",
+    "section-8.3.md": "685b3e8466548015b78c8781b282b4be35c6f79cd3af4419f974ed9fda2c0963",
+    "section-8.4.md": "f385327efefd180dd9ab62e2ced6230a078893b08aa8e7388470f123be1e4e94",
+    "section-8.7.md": "e6cb54b83aba023251fbc787581d7bf3039dde58d19ec6f68bf09992687d384c",
+    "section-8.8.md": "939df805a0012e8c53b1b68d8b4a91cd0d0e38e12082adbd11ddfe00a6425f16"
+  },
+  "findings": [
+    {
+      "id": "CREATE-AUTH-01",
+      "source": "SSOT §12.4/49.15; contracts/generation/generation-contracts.schema.json#/$defs/SourceEnum044",
+      "finding": "generation.job.create success is durable creation of DISCUSSING job, not COMPLETED generation outcome. generation.job.created is explicit listed event and cannot be NOT_APPLICABLE.",
+      "derivableFields": [
+        "jobId UUID",
+        "state DISCUSSING",
+        "stateVersion server counter",
+        "initialRequestDigest server canonical digest",
+        "createdAt server timestamp",
+        "owner server identity",
+        "monotonic eventSequence server allocated"
+      ]
+    },
+    {
+      "id": "CREATE-AUTH-02",
+      "source": "SSOT §25.11 generation_event + §49.5",
+      "finding": "Generation created event has job/monotonic sequence, event type, emittedAt/persistedAt, payload/digest, appropriate optional artifact references and correlation/causation/trace. No dedicated exact generation.job.created payload schema exists in frozen resources: technical specialization required. No spec/plan/release/authority yet claimed by receipt."
+    },
+    {
+      "id": "CREATE-AUTH-03",
+      "source": "SSOT §49.22.1; §25.6; §72.21",
+      "finding": "secret.create creates record and first immutable CREATED candidate version. Activation/rotation is separate; no binding/runtime grant or automatic ACTIVE. Active version pointer absent/null until activation. Initial active epoch should represent no activation, but exact starting counter convention requires technical explicit addition.",
+      "derivableFields": [
+        "secretId UUID",
+        "versionId UUID",
+        "versionNumber server allocation",
+        "versionState CREATED",
+        "stableName immutable caller value",
+        "type exact §8.2 enum",
+        "stateVersion server counter",
+        "createdAt server timestamp"
+      ],
+      "notExistingAuthority": [
+        "versionNumber constant1",
+        "record status enum for unactivated secret"
+      ]
+    },
+    {
+      "id": "CREATE-AUTH-04",
+      "source": "contracts/operation-contracts.json#/records/546; SSOT §49.4/49.5",
+      "finding": "secret.create descriptor mandates outbox DOMAIN_EVENT and audit OPERATION_TERMINAL. No existing secret.created event name or payload schema found. Can define technical typed OPERATION_TERMINAL subject secret_record receipt using existing descriptor; cannot mark no-event. Exactly one immutable terminal domain event/outcome per logical create; generation created event alone must not be confused with later jobterminal."
+    },
+    {
+      "id": "CREATE-AUTH-05",
+      "source": "SSOT §49.4 stable locator paragraphs; §51.12",
+      "finding": "Stable locator lookup excludes current contract/caller revisions, session/credential identity, workers/leases. OWNER_FULL stays stable across sessions/API key. Frozen accepted revision tuple stored separately. Replay digest based only canonical caller arguments/original target/CAS; executionDescriptorDigest adds server revisions/context and is retained from original record. Current revisions must not split retry into new operation."
+    },
+    {
+      "id": "CREATE-AUTH-06",
+      "source": "SSOT §12.41 + §49.18",
+      "finding": "UPDATE preserves component/runtime identities, RETRY retains approved functionalauthority and retries failed technical portion, REPAIR monitoringevidence retains identities/approved lineage, FOLLOW_UP creates new discussion branch/spec revision. Do not create simple universal parent-terminal enum allowlist: distinct kind admission predicates derive from these facts. Parent identity existence alone insufficient; frozen approved lineage/known failed work required RETRY, monitoring evidence required REPAIR. Exact active-parent branch policy absent."
+    },
+    {
+      "id": "CREATE-AUTH-07",
+      "source": "SSOT §8.2/§72.21/§8.11",
+      "finding": "15type enum and TYPE_SPECIFIC+NO_SILENT_NORMALIZATION are binding. Apart from audit-added UTF8/BASE64 transport, original sources do not define accepted cert/key/oauth/db/SSH/TOTP/session/cookie formats, fields, supported algorithms, emptyvalue acceptance or expiry semantics. Generic provider validation allowflag is not actual type semantic proof. Derive encoding validation without fabricating format policy; freeze unresolved format choices explicitly."
+    },
+    {
+      "id": "CREATE-AUTH-08",
+      "source": "SSOT §12.2/§25.11/§49.5/§51.12",
+      "finding": "Initial request and sources immutable and persisted before model invocation; actual bytes and digest hydration precedes parsing, source RECEIVED vs VERIFIED distinguished. Atomic acceptance/queueoutbox required before HTTP202. Creation commit request/source/job/event/audit/outbox joins retained logicaloperation outcome; failed/unknown cannot emit created outcome; replay cannot allocate root/version/event again."
+    }
+  ],
+  "ownerDecisionCandidates": [
+    {
+      "id": "OWNER-SECRET-TYPE-FORMATS",
+      "question": "Which concrete serialized value formats are accepted for OAUTH_CLIENT/OAUTH_TOKEN_SET/TOTP_SEED/CERTIFICATE/PRIVATE_KEY/DATABASE_CREDENTIAL/SESSION_STATE/COOKIE_JAR/SSH_CREDENTIAL?",
+      "sources": [
+        "§8.2",
+        "§72.21 TYPE_SPECIFIC",
+        "§8.11 missingpolicy BLOCKED"
+      ],
+      "variants": [
+        "single declared standard format for each type, explicit typed mask and reject alternatives",
+        "multiple explicit tagged formats with pervariant validators",
+        "opaque secret bytes stored for namedtypes plus validation delegated to exact consumer contracts (must explicitly decide if satisfies TYPE_SPECIFIC)"
+      ],
+      "impact": "Changes what OWNER may enter/import and downstream consumer interoperability; cannot silently demand new OAuth fields/certificate algorithms."
+    },
+    {
+      "id": "OWNER-CREATE-PARENT-POLICY",
+      "question": "May FOLLOW_UP/new generation branch be created while source job remains active, and which state/evidence admits RETRY/REPAIR create versus existing dedicated operations?",
+      "sources": [
+        "§12.41",
+        "§25.11 parent/source job",
+        "§12.47"
+      ],
+      "variants": [
+        "all existing parent states with frozen immutable evidence where kind permits",
+        "explicit kind-specific eligible state set and activebranch conflict rule"
+      ],
+      "impact": "Concurrency and recovery; blanket parent terminal filter would introduce unsupported behavior."
+    }
+  ]
+}

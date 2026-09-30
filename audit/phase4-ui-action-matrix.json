@@ -4004,7 +4004,10 @@
           "intent": "gen.intent OWNER text",
           "sources": "gen.url -> URL source when present",
           "credential": "gen.credential exact OWNER value when present"
-        }
+        },
+        "responseContractRef": "urn:kcml:create-operation-design:1#/$defs/GenerationCreated",
+        "resultConsumption": "Accept only canonical committed server receipt; preserve original idempotency key for retry; read/hydrate by server jobId",
+        "consumerVerificationStatus": "DESIGN_MAPPING_ONLY_RUNTIME_NOT_EVALUATED"
       },
       "declaredPageFields": [
         {
@@ -7837,7 +7840,10 @@
           "sources": "gen.url -> URL source when present",
           "credential": "gen.credential exact OWNER value when present"
         },
-        "targetContextMapping": "selected component -> server-resolved targetObjectId/targetKind; sourceContext is presentation context, not a native body field"
+        "targetContextMapping": "selected component -> server-resolved targetObjectId/targetKind; sourceContext is presentation context, not a native body field",
+        "responseContractRef": "urn:kcml:create-operation-design:1#/$defs/GenerationCreated",
+        "resultConsumption": "Accept only canonical committed server receipt; preserve original idempotency key for retry; read/hydrate by server jobId",
+        "consumerVerificationStatus": "DESIGN_MAPPING_ONLY_RUNTIME_NOT_EVALUATED"
       },
       "declaredPageFields": [
         {
@@ -9977,7 +9983,10 @@
           "notes": "secret.notes",
           "expiration": "secret.expiration",
           "value": "secret.value -> exact UTF8 bytes or BASE64 binary bytes according to type; no normalization"
-        }
+        },
+        "responseContractRef": "urn:kcml:create-operation-design:1#/$defs/SecretCreated",
+        "resultConsumption": "Accept only canonical committed server receipt; read by server secretId/versionId; CREATED is not active; no sensitive value in create receipt",
+        "consumerVerificationStatus": "DESIGN_MAPPING_ONLY_RUNTIME_NOT_EVALUATED"
       },
       "declaredPageFields": [
         {

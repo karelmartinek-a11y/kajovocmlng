@@ -1,4 +1,4 @@
-"""Author exact create requests without modifying their still-open response/events."""
+"""Author exact create requests together with precise completion masks."""
 import argparse,hashlib,json,re
 from ssot_sources import ROOT,SSOT,resources,resource_index
 from author_resource_updates import rewrite
@@ -48,7 +48,8 @@ root snapshot guards jsou null. Client digest se nikdy nepřevezme bez
 serverového přepočtu. Native body je přesně dekódovaný domain body, žádný
 schemaId/slot/values/canonicalJson adapter.
 
-Idempotency scope je exact OWNER + operation + key; serverový request digest
+Stable locator je operation family + OWNER_FULL + stable OWNER ID +
+CREATE_ROOT namespace + client key digest (§49.4); serverový request digest
 váže canonical operationId a domain body. Tentýž key/digest replayuje původní
 receipt či failure, jiný digest je konflikt. UNKNOWN outcome vyžaduje lookup
 nebo reconciliation původní operace; nesmí vytvořit další root ani být
@@ -120,6 +121,13 @@ def main():
             binding['argumentProfile']['requestContractRef']='urn:kcml:create-operation-design:1#/$defs/SecretCreateBody'
             binding['argumentProfile']['fieldMappings']={k:'secret.'+k for k in ['stableName','displayName','type','description','url','username','notes','expiration']}
             binding['argumentProfile']['fieldMappings']['value']='secret.value -> exact UTF8 bytes or BASE64 binary bytes according to type; no normalization'
+    for binding in ui['bindings']:
+        oid=binding.get('canonicalOperationId')
+        if oid in ['generation.job.create','secret.create']:
+            profile=binding['argumentProfile']
+            profile['responseContractRef']='urn:kcml:create-operation-design:1#/$defs/'+('GenerationCreated' if oid=='generation.job.create' else 'SecretCreated')
+            profile['resultConsumption']='Accept only canonical committed server receipt; preserve original idempotency key for retry; read/hydrate by server jobId' if oid=='generation.job.create' else 'Accept only canonical committed server receipt; read by server secretId/versionId; CREATED is not active; no sensitive value in create receipt'
+            profile['consumerVerificationStatus']='DESIGN_MAPPING_ONLY_RUNTIME_NOT_EVALUATED'
     ui_raw=(json.dumps(ui,ensure_ascii=False,indent=2)+'\n').encode()
     updates={PATH:design,PAYLOAD:payload,ui_path:ui_raw,'manifest.json':encoded(manifest,rs['manifest.json']['raw'])}
     pending=[k for k,v in updates.items() if k not in rs or rs[k]['raw']!=v]
@@ -127,6 +135,10 @@ def main():
         print(json.dumps({'status':'BLOCKED' if pending else 'PASS','pending':pending}));return int(bool(pending))
     text=rewrite(text,items,updates)
     if '### 8.11 Secret create request admission' not in text:text=text.replace('## 9. Externí systémy, API a webhooks',SECRET_TEXT+'## 9. Externí systémy, API a webhooks',1)
+    if '### 12.47 Create request admission' in text:
+        start=text.index('### 12.47 Create request admission');end=re.search(r'^### 12\.48 |^## 13\.',text[start:],re.M)
+        if not end:raise ValueError('CREATE_REQUEST_SECTION_END_MISSING')
+        text=text[:start]+GEN_TEXT+text[start+end.start():]
     if '### 12.47 Create request admission' not in text:
         match=re.search(r'^## 13\.',text,re.M)
         if not match:raise ValueError('GENERATION_SECTION_END_NOT_FOUND')

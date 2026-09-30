@@ -1,11 +1,11 @@
 {
-  "sourceSha256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
+  "sourceSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
   "baselineCommit": "5d72ccd",
   "baseline": false,
   "scriptSha256": "15896be7b4f40e4645325a56448880f9affbf85011304d75f5dca326a2c03dcb",
   "resourceVersions": {
-    "contracts/generation/generation-contracts.schema.json": "d51aa2823977360e7c65acf958a63e712c31a9a42c2fefd53d5c3ea2ec65a235",
-    "contracts/payload-contracts.json": "0679213011bd92b81ba6a1bfb8cb71cfffaf64ec7119ca2d1304b40a2a5841ac",
+    "contracts/generation/generation-contracts.schema.json": "5cf483812abcbfd834c54537a444724d227fe36ddb1ad0604af13205b4494943",
+    "contracts/payload-contracts.json": "2eb9c91d314415e4043c46c6c98ffc0af92efc059aeaf921f7060c5068b383a6",
     "scripts/ssot/ssot_control.py": "9930b3cf116a678861c26c80b82c5d14304cf6735437346d1a406014ca261f0d",
     "contracts/generation/http-design.schema.json": "89e114f6a03ddbec1c9b55d56a6a213f659756068c4f4bbdfbcf61ce8e66bba4"
   },
@@ -3061,9 +3061,9 @@
     },
     {
       "case": "native-masks-unchanged",
-      "actual": true,
+      "actual": false,
       "expected": true,
-      "passed": true
+      "passed": false
     },
     {
       "case": "native-predicates-exact-document-event-addition",
@@ -3697,6 +3697,6 @@
     }
   ],
   "checked": 614,
-  "failed": 0,
+  "failed": 1,
   "wholeRoutesClosed": []
 }

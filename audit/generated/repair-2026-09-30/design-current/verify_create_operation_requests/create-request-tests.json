@@ -1,5 +1,5 @@
 {
-  "sourceDocumentSha256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
+  "sourceDocumentSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
   "scope": "Actual domain witnesses and exact decoder/admission rejections; synthetic design proof.",
   "witnesses": {
     "generation.job.create": {
@@ -37,7 +37,7 @@
       "expiration": "2026-12-31T00:00:00Z"
     }
   },
-  "checked": 131,
+  "checked": 141,
   "failed": 0,
   "checks": [
     {
@@ -273,14 +273,14 @@
       "passed": true,
       "expectedCode": "DUPLICATE_JSON_KEY",
       "actualCode": "DUPLICATE_JSON_KEY",
-      "pointer": "/kind"
+      "pointer": "/sources/0/kind"
     },
     {
       "case": "generation.job.create/nonfinite",
       "passed": true,
       "expectedCode": "NONFINITE_JSON_NUMBER",
       "actualCode": "NONFINITE_JSON_NUMBER",
-      "pointer": ""
+      "pointer": "/intent"
     },
     {
       "case": "generation.job.create/wrong-root-type",
@@ -341,6 +341,40 @@
       "expectedCode": "INVALID_REPLAY_OUTCOME",
       "actualCode": "INVALID_REPLAY_OUTCOME",
       "pointer": ""
+    },
+    {
+      "case": "generation.job.create/current-revision-does-not-change-frozen-replay",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/missing-frozen-replay/locator",
+      "passed": true,
+      "expectedCode": "REPLAY_LOCATOR_UNVERIFIED",
+      "actualCode": "REPLAY_LOCATOR_UNVERIFIED",
+      "pointer": "/replay/locator"
+    },
+    {
+      "case": "generation.job.create/missing-frozen-replay/executionDescriptor",
+      "passed": true,
+      "expectedCode": "REPLAY_DESCRIPTOR_UNVERIFIED",
+      "actualCode": "REPLAY_DESCRIPTOR_UNVERIFIED",
+      "pointer": "/replay/executionDescriptor"
+    },
+    {
+      "case": "generation.job.create/missing-frozen-replay/executionDescriptorDigest",
+      "passed": true,
+      "expectedCode": "REPLAY_DESCRIPTOR_DIGEST_MISMATCH",
+      "actualCode": "REPLAY_DESCRIPTOR_DIGEST_MISMATCH",
+      "pointer": "/replay/executionDescriptorDigest"
+    },
+    {
+      "case": "generation.job.create/wrong-frozen-target",
+      "passed": true,
+      "expectedCode": "REPLAY_FROZEN_SCOPE_MISMATCH",
+      "actualCode": "REPLAY_FROZEN_SCOPE_MISMATCH",
+      "pointer": "/replay/executionDescriptor"
     },
     {
       "case": "secret.create/positive-domain-decoder",
@@ -631,14 +665,14 @@
       "passed": true,
       "expectedCode": "DUPLICATE_JSON_KEY",
       "actualCode": "DUPLICATE_JSON_KEY",
-      "pointer": "/encoding"
+      "pointer": "/value/encoding"
     },
     {
       "case": "secret.create/nonfinite",
       "passed": true,
       "expectedCode": "NONFINITE_JSON_NUMBER",
       "actualCode": "NONFINITE_JSON_NUMBER",
-      "pointer": ""
+      "pointer": "/stableName"
     },
     {
       "case": "secret.create/wrong-root-type",
@@ -699,6 +733,40 @@
       "expectedCode": "INVALID_REPLAY_OUTCOME",
       "actualCode": "INVALID_REPLAY_OUTCOME",
       "pointer": ""
+    },
+    {
+      "case": "secret.create/current-revision-does-not-change-frozen-replay",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/missing-frozen-replay/locator",
+      "passed": true,
+      "expectedCode": "REPLAY_LOCATOR_UNVERIFIED",
+      "actualCode": "REPLAY_LOCATOR_UNVERIFIED",
+      "pointer": "/replay/locator"
+    },
+    {
+      "case": "secret.create/missing-frozen-replay/executionDescriptor",
+      "passed": true,
+      "expectedCode": "REPLAY_DESCRIPTOR_UNVERIFIED",
+      "actualCode": "REPLAY_DESCRIPTOR_UNVERIFIED",
+      "pointer": "/replay/executionDescriptor"
+    },
+    {
+      "case": "secret.create/missing-frozen-replay/executionDescriptorDigest",
+      "passed": true,
+      "expectedCode": "REPLAY_DESCRIPTOR_DIGEST_MISMATCH",
+      "actualCode": "REPLAY_DESCRIPTOR_DIGEST_MISMATCH",
+      "pointer": "/replay/executionDescriptorDigest"
+    },
+    {
+      "case": "secret.create/wrong-frozen-target",
+      "passed": true,
+      "expectedCode": "REPLAY_FROZEN_SCOPE_MISMATCH",
+      "actualCode": "REPLAY_FROZEN_SCOPE_MISMATCH",
+      "pointer": "/replay/executionDescriptor"
     },
     {
       "case": "generation/blank-intent",
@@ -940,16 +1008,16 @@
   "boundaries": {
     "generation.job.create": {
       "request": "EXPLICIT_DOMAIN_SHAPE_AND_DECODER",
-      "response": "OPEN_GENERIC",
-      "event": "OPEN_GENERIC_APPLICABILITY",
+      "response": "EXPLICIT_CREATE_OUTPUT_ERROR_UNION",
+      "event": "EXPLICIT_AGGREGATE_CREATE_RECEIPT_EVENT",
       "runtime": "NOT_EVALUATED"
     },
     "secret.create": {
       "request": "EXPLICIT_DOMAIN_SHAPE_AND_DECODER",
-      "response": "OPEN_GENERIC",
-      "event": "OPEN_GENERIC_APPLICABILITY",
+      "response": "EXPLICIT_CREATE_OUTPUT_ERROR_UNION",
+      "event": "EXPLICIT_AGGREGATE_CREATE_RECEIPT_EVENT",
       "runtime": "NOT_EVALUATED"
     }
   },
-  "remaining": "Exact type-specific policies for structured/cryptographic secrets, parent/target state guards, full persistence/artifact parsing/consumer pipeline, typed response/error/event masks remain mandatory; no whole-operation closure claim."
+  "remaining": "Exact type-specific policies for structured/cryptographic secrets, parent/target state guards, full persistence/artifact parsing/consumer pipeline, full HTTP error adapter, exact request policies and complete consumer pipeline remain mandatory; no whole-operation closure claim."
 }

@@ -1,0 +1,152 @@
+{
+  "sourceDocumentSha256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
+  "scriptSha256": "6318476c6cd335f9a406cc4922b294261047cc35294f54df232086a5564a90c9",
+  "evidenceKind": "INDEPENDENT_DESIGN_GAP_REPRODUCTIONS_NOT_RUNTIME",
+  "probes": [
+    {
+      "case": "invalid-certificate-type-whitelist",
+      "observed": "ACCEPTED",
+      "result": {
+        "action": "RESERVE_ATOMIC_CREATE",
+        "dispatchNew": true,
+        "serverWriter": "secret"
+      },
+      "scope": "type policy",
+      "verdict": "GAP_REQUIRES_REVIEW"
+    },
+    {
+      "case": "password-positive",
+      "observed": "ACCEPTED",
+      "result": {
+        "action": "RESERVE_ATOMIC_CREATE",
+        "dispatchNew": true,
+        "serverWriter": "secret"
+      },
+      "scope": "type policy",
+      "verdict": "POSITIVE_CONTROL_ONLY"
+    },
+    {
+      "case": "target-owner-mismatch",
+      "observed": "ACCEPTED",
+      "result": {
+        "action": "RESERVE_ATOMIC_CREATE",
+        "dispatchNew": true,
+        "serverWriter": "generation-orchestrator"
+      },
+      "scope": "server resolved snapshot scope/state",
+      "verdict": "GAP_REQUIRES_REVIEW"
+    },
+    {
+      "case": "parent-owner-mismatch",
+      "observed": "ACCEPTED",
+      "result": {
+        "action": "RESERVE_ATOMIC_CREATE",
+        "dispatchNew": true,
+        "serverWriter": "generation-orchestrator"
+      },
+      "scope": "server resolved snapshot scope/state",
+      "verdict": "GAP_REQUIRES_REVIEW"
+    },
+    {
+      "case": "parent-state-unverified",
+      "observed": "ACCEPTED",
+      "result": {
+        "action": "RESERVE_ATOMIC_CREATE",
+        "dispatchNew": true,
+        "serverWriter": "generation-orchestrator"
+      },
+      "scope": "server resolved snapshot scope/state",
+      "verdict": "GAP_REQUIRES_REVIEW"
+    },
+    {
+      "case": "target-state-unverified",
+      "observed": "ACCEPTED",
+      "result": {
+        "action": "RESERVE_ATOMIC_CREATE",
+        "dispatchNew": true,
+        "serverWriter": "generation-orchestrator"
+      },
+      "scope": "server resolved snapshot scope/state",
+      "verdict": "GAP_REQUIRES_REVIEW"
+    },
+    {
+      "case": "missing-artifact-content-digest",
+      "observed": "UNRELATED_EXCEPTION",
+      "type": "KeyError",
+      "scope": "structured diagnostics",
+      "verdict": "NOT_A_VALID_NEGATIVE_PASS"
+    },
+    {
+      "case": "generation.job.create/success-null-output",
+      "observed": "ACCEPTED",
+      "result": {
+        "schemaAccepted": true
+      },
+      "scope": "response coupling: schema only, no full semantic closure",
+      "verdict": "GAP_REQUIRES_REVIEW"
+    },
+    {
+      "case": "generation.job.create/success-nonterminal",
+      "observed": "ACCEPTED",
+      "result": {
+        "schemaAccepted": true
+      },
+      "scope": "response coupling: schema only, no full semantic closure",
+      "verdict": "GAP_REQUIRES_REVIEW"
+    },
+    {
+      "case": "generation.job.create/failure-no-error",
+      "observed": "ACCEPTED",
+      "result": {
+        "schemaAccepted": true
+      },
+      "scope": "response coupling: schema only, no full semantic closure",
+      "verdict": "GAP_REQUIRES_REVIEW"
+    },
+    {
+      "case": "generation.job.create/accepted-terminal",
+      "observed": "ACCEPTED",
+      "result": {
+        "schemaAccepted": true
+      },
+      "scope": "response coupling: schema only, no full semantic closure",
+      "verdict": "GAP_REQUIRES_REVIEW"
+    },
+    {
+      "case": "secret.create/success-null-output",
+      "observed": "ACCEPTED",
+      "result": {
+        "schemaAccepted": true
+      },
+      "scope": "response coupling: schema only, no full semantic closure",
+      "verdict": "GAP_REQUIRES_REVIEW"
+    },
+    {
+      "case": "secret.create/success-nonterminal",
+      "observed": "ACCEPTED",
+      "result": {
+        "schemaAccepted": true
+      },
+      "scope": "response coupling: schema only, no full semantic closure",
+      "verdict": "GAP_REQUIRES_REVIEW"
+    },
+    {
+      "case": "secret.create/failure-no-error",
+      "observed": "ACCEPTED",
+      "result": {
+        "schemaAccepted": true
+      },
+      "scope": "response coupling: schema only, no full semantic closure",
+      "verdict": "GAP_REQUIRES_REVIEW"
+    },
+    {
+      "case": "secret.create/accepted-terminal",
+      "observed": "ACCEPTED",
+      "result": {
+        "schemaAccepted": true
+      },
+      "scope": "response coupling: schema only, no full semantic closure",
+      "verdict": "GAP_REQUIRES_REVIEW"
+    }
+  ]
+}

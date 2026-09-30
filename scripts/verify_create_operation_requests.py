@@ -44,6 +44,8 @@ def run():
    bad=copy.deepcopy(body);bad[field]=None;reject(prefix+'null/'+field,lambda bad=bad:decode(oid,bad),'SCHEMA_TYPE' if field!='value' else 'SCHEMA_ONEOF')
   for field in schema()['$defs'][OPERATIONS[oid]]['properties']:
    if field in schema()['$defs'][OPERATIONS[oid]]['required']:continue
+   # Discriminated FOLLOW_UP field is tested from its valid variant by the dedicated verifier.
+   if field=='followUpBasis':continue
    bad=copy.deepcopy(body);bad[field]=None
    reject(prefix+'optional-null/'+field,lambda bad=bad:decode(oid,bad),'SCHEMA_TYPE')
   for field in ['schemaId','values','canonicalJson','authorityId','ownerId','jobId','secretId','state','stateVersion','contentDigest','fingerprint','encryptedValue','receipt']:
@@ -68,12 +70,22 @@ def run():
   reject(prefix+'auth',lambda:admit(native,{**server,'authenticated':False}),'AUTHENTICATION_REQUIRED')
   reject(prefix+'recovery',lambda:admit(native,{**server,'recovery':'RECOVERING'}),'RECOVERY_BARRIER')
   replay={'owner':UID,'operationId':oid,'key':native['idempotencyKey'],'requestDigest':native['requestDigest'],'outcome':'COMMITTED'}
+  from create_replay_contract import locator,freeze_descriptor
+  replay.update(locator=locator(native,UID),executionDescriptor=freeze_descriptor(native,server,'R9.1'))
+  replay['executionDescriptorDigest']=digest(replay['executionDescriptor'])
   assert_case(prefix+'same-key-replay',lambda:admit(native,server,replay)=={'action':'REPLAY_RECEIPT','dispatchNew':False})
   assert_case(prefix+'unknown-never-new-dispatch',lambda:admit(native,server,{**replay,'outcome':'UNKNOWN'})=={'action':'RECONCILE_ORIGINAL_OPERATION','dispatchNew':False})
   assert_case(prefix+'failure-replayed',lambda:admit(native,server,{**replay,'outcome':'FAILED'})=={'action':'REPLAY_FAILURE','dispatchNew':False})
   reject(prefix+'replay-conflict',lambda:admit(native,server,{**replay,'requestDigest':'sha256:'+'0'*64}),'IDEMPOTENCY_CONFLICT')
   reject(prefix+'replay-wrong-owner',lambda:admit(native,server,{**replay,'owner':UID2}),'REPLAY_SCOPE_MISMATCH')
   reject(prefix+'invalid-outcome',lambda:admit(native,server,{**replay,'outcome':'MODEL_SAYS_DONE'}),'INVALID_REPLAY_OUTCOME')
+  assert_case(prefix+'current-revision-does-not-change-frozen-replay',lambda:admit(native,{**server,'currentContractRevision':'R-next'},replay)=={'action':'REPLAY_RECEIPT','dispatchNew':False})
+  for field,code,pointer in [('locator','REPLAY_LOCATOR_UNVERIFIED','/replay/locator'),('executionDescriptor','REPLAY_DESCRIPTOR_UNVERIFIED','/replay/executionDescriptor'),('executionDescriptorDigest','REPLAY_DESCRIPTOR_DIGEST_MISMATCH','/replay/executionDescriptorDigest')]:
+   bad=copy.deepcopy(replay);bad.pop(field)
+   reject(prefix+'missing-frozen-replay/'+field,lambda bad=bad:admit(native,server,bad),code,pointer)
+  bad=copy.deepcopy(replay);bad['executionDescriptor']['stableBusinessTargetKey']='MODEL_TARGET';bad['executionDescriptorDigest']=digest(bad['executionDescriptor'])
+  reject(prefix+'wrong-frozen-target',lambda bad=bad:admit(native,server,bad),'REPLAY_FROZEN_SCOPE_MISMATCH','/replay/executionDescriptor')
+
  oid='generation.job.create';body=witnesses[oid]
  reject('generation/blank-intent',lambda:decode(oid,{**body,'intent':'  '}),'EMPTY_INTENT','$.intent')
  reject('generation/unknown-kind',lambda:decode(oid,{**body,'kind':'AUTOMATIC_SUCCESS'}),'SCHEMA_ENUM')
@@ -126,8 +138,8 @@ def run():
  assert_case('authoring/unrelated-routes-byte-shape-preserved',lambda:unchanged)
  report={'sourceDocumentSha256':hashlib.sha256(SSOT.read_bytes()).hexdigest(),'scope':__doc__,'witnesses':witnesses,
   'checked':len(checks),'failed':sum(not r['passed'] for r in checks),'checks':checks,
-  'boundaries':{o:{'request':'EXPLICIT_DOMAIN_SHAPE_AND_DECODER','response':'OPEN_GENERIC','event':'OPEN_GENERIC_APPLICABILITY','runtime':'NOT_EVALUATED'} for o in OPERATIONS},
-  'remaining':'Exact type-specific policies for structured/cryptographic secrets, parent/target state guards, full persistence/artifact parsing/consumer pipeline, typed response/error/event masks remain mandatory; no whole-operation closure claim.'}
+  'boundaries':{o:{'request':'EXPLICIT_DOMAIN_SHAPE_AND_DECODER','response':'EXPLICIT_CREATE_OUTPUT_ERROR_UNION','event':'EXPLICIT_AGGREGATE_CREATE_RECEIPT_EVENT','runtime':'NOT_EVALUATED'} for o in OPERATIONS},
+  'remaining':'Exact type-specific policies for structured/cryptographic secrets, parent/target state guards, full persistence/artifact parsing/consumer pipeline, full HTTP error adapter, exact request policies and complete consumer pipeline remain mandatory; no whole-operation closure claim.'}
  out=ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/repair-create-2026-09-30');out.mkdir(parents=True,exist_ok=True)
  (out/'create-request-tests.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
  print(json.dumps({k:report[k] for k in ['sourceDocumentSha256','checked','failed']}))

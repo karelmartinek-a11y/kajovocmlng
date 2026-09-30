@@ -1,0 +1,53 @@
+{
+  "ssotSha256": "b3296d9577fbef411617508f9e39fad152b81502dbf8f142030b1b66d7b1d015",
+  "authority": [
+    {
+      "section": "12.41",
+      "file": "authority-12.41.md",
+      "sha256": "0c7a8bb5754e1844f0d5d3edf2c1fae91a31013f464b0721a4308f42bd6b1fbd",
+      "coverage": "TARGETED_SEMANTIC_REVIEW_FOLLOW_UP_ONLY",
+      "startLine": 3901,
+      "endLine": 3911
+    },
+    {
+      "section": "25.11",
+      "file": "authority-25.11.md",
+      "sha256": "adc3acaca3e25415185e4cb47a3e9dec0d846e9feecc7474e1eebe53da2eab8b",
+      "coverage": "TARGETED_SEMANTIC_REVIEW_FOLLOW_UP_ONLY",
+      "startLine": 7156,
+      "endLine": 7487
+    },
+    {
+      "section": "49.4",
+      "file": "authority-49.4.md",
+      "sha256": "57a68b663367b6bfffb88ccedf80f7e94a9b3f882f7643a32c48d8daee1ce24e",
+      "coverage": "TARGETED_SEMANTIC_REVIEW_FOLLOW_UP_ONLY",
+      "startLine": 40987,
+      "endLine": 41054
+    },
+    {
+      "section": "49.5",
+      "file": "authority-49.5.md",
+      "sha256": "037a113529d9036cec6eef5cbc5c53617e966c3f8274c4783faf0de9d36d63b5",
+      "coverage": "TARGETED_SEMANTIC_REVIEW_FOLLOW_UP_ONLY",
+      "startLine": 41054,
+      "endLine": 41072
+    },
+    {
+      "section": "49.15",
+      "file": "authority-49.15.md",
+      "sha256": "0821f7a85cd68915b152dd36bbfd95a27d5f79f5982230d07044eedcae908140",
+      "coverage": "TARGETED_SEMANTIC_REVIEW_FOLLOW_UP_ONLY",
+      "startLine": 42211,
+      "endLine": 43048
+    }
+  ],
+  "productDecision": "USER_APPROVED_FOLLOW_UP_2026_09_30_CONDITIONS_1_TO_7",
+  "precedenceResolution": "\u00a712.41 specifies new discussion/specification revision and new authority only after OWNER approval. It does not require terminal source job. Approved admission rule adds precise immutable input eligibility; frozen basis is not execution authority and does not bypass later approval. \u00a725.11 terminal immutability applies to source job own state; accepting isolated child does not mutate source state. \u00a749.4 exact scoped replay is checked before fresh source admission; replay uses frozen original descriptor rather than current pointers. \u00a749.5 child mutation/audit/outbox atomicity remains mandatory.",
+  "limitations": [
+    "Matrix other-kind rows are OPEN, not verified admission policies.",
+    "Reference server eligibility flags stand for transactionally computed sufficiency; real parser/schema/resource eligibility must be implemented and proven separately.",
+    "No SQL lock, commit, durable byte hydration or production consumer proof is claimed.",
+    "Imported authority section snapshots must be rebound to current SSOT after integration; byte extraction is not whole-document semantic review."
+  ]
+}

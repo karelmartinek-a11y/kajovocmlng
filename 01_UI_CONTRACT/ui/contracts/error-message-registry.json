@@ -2,7 +2,7 @@
   "format": "KCML-ERROR-MESSAGES/1",
   "authority": "SSOT chapter 32; SourceErrorRecord stable codes retained",
   "unknownCodePolicy": "block build for internal unmapped code; external unknown maps THIRD_PARTY_UNKNOWN_ERROR",
-  "recordCount": 288,
+  "recordCount": 318,
   "providerClassifierOrder": [
     "OpenAI 429 insufficient_quota => OPENAI_BILLING_QUOTA_EXHAUSTED",
     "OpenAI 429 other => OPENAI_RATE_LIMITED",
@@ -18999,6 +18999,1874 @@
         "audit action and outcome"
       ],
       "presentationCompleteness": "CLASS_LEVEL_TEXT_REQUIRES_CODE_SPECIFIC_REVIEW"
+    },
+    {
+      "error_code": "CREATE_AUTHENTICATION_REQUIRED",
+      "source": "create",
+      "category": "authentication",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "CREATE_AUTHENTICATION_REQUIRED",
+        "sourceSection": "12.48",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/2",
+        "condition": "No current authenticated OWNER context",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create",
+          "secret.create"
+        ],
+        "httpStatus": 401,
+        "producerHelperRef": "scripts/create_completion_contracts.py#http_failure",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Vytvoření vyžaduje platné přihlášení vlastníka. Přihlaste se a ověřte aktuální požadavek.",
+      "user_message_en": "Creation requires a current authenticated owner session. Sign in and review the current request.",
+      "operator_detail": {
+        "stableCondition": "CREATE_AUTHENTICATION_REQUIRED",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/2",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "2f3fb1f79839c3a1563e871be484e5961143f9d95b6767327d3ee10fc9d07a9b"
+      },
+      "recoverability": "Resolve OWNER authentication; refresh current guards before submitting.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve OWNER authentication; refresh current guards before submitting.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "CREATE_CANCELLED",
+      "source": "create",
+      "category": "cancelled",
+      "severity": "warning",
+      "technical_condition": {
+        "sourceRecord": "CREATE_CANCELLED",
+        "sourceSection": "12.48",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/0",
+        "condition": "Cancellation won before create commit; no created root; after commit only canonical completed receipt may replay",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create",
+          "secret.create"
+        ],
+        "httpStatus": 409,
+        "producerHelperRef": "scripts/create_completion_contracts.py#http_failure",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Vytvoření bylo zrušeno před uložením. Nový objekt nebyl vytvořen.",
+      "user_message_en": "Creation was cancelled before commit. No new object was created.",
+      "operator_detail": {
+        "stableCondition": "CREATE_CANCELLED",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/0",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "4faafee8a8c22b42d80e51b642552e4399c91352e093e2f39524a8664d3f9c00"
+      },
+      "recoverability": "Cancelled creation is terminal; submit a new intent only when desired.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Cancelled creation is terminal; submit a new intent only when desired.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "CREATE_INPUT_INVALID",
+      "source": "create",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "CREATE_INPUT_INVALID",
+        "sourceSection": "12.48",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/1",
+        "condition": "Strict HTTP/UTF8/JSON/schema input rejected before domain mutation",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create",
+          "secret.create"
+        ],
+        "httpStatus": 400,
+        "producerHelperRef": "scripts/create_completion_contracts.py#http_failure",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Vstup pro vytvoření není platný. Opravte uvedená chybná pole nebo formát požadavku.",
+      "user_message_en": "The creation input is invalid. Correct the reported fields or request encoding.",
+      "operator_detail": {
+        "stableCondition": "CREATE_INPUT_INVALID",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/1",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "1c8445ddbfb77213b6a1c22eec967343d3bc6760ee370741999c7964f5c65022"
+      },
+      "recoverability": "Correct the rejected input; do not automatically repeat the unchanged request.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Correct the rejected input; do not automatically repeat the unchanged request.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "CREATE_PERSISTENCE_FAILED",
+      "source": "create",
+      "category": "internal",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "CREATE_PERSISTENCE_FAILED",
+        "sourceSection": "12.48",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/8",
+        "condition": "Positive evidence proves the entire create transaction rolled back; no committed root/event/outbox/outcome",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create",
+          "secret.create"
+        ],
+        "httpStatus": 500,
+        "producerHelperRef": "scripts/create_completion_contracts.py#http_failure",
+        "canonicalRetryDirective": "RETRY_SAME_OPERATION",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Vytvoření se neuložilo; je ověřeno úplné vrácení transakce. Opakování musí zachovat původní operaci a platná pravidla.",
+      "user_message_en": "Creation was not committed; full transaction rollback is verified. A retry must preserve the original operation and valid policy.",
+      "operator_detail": {
+        "stableCondition": "CREATE_PERSISTENCE_FAILED",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/8",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "4bba2029f429da8bafebc41c7ca02feaf058678370073344e82d73f164376f4d"
+      },
+      "recoverability": "Canonical same-operation retry is permitted only with positive full-rollback evidence, pinned input and current authority; the bounded default profile never grants permission.",
+      "automatic_retry_policy": {
+        "mode": "CANONICAL_OPERATION_POLICY_ONLY",
+        "authoritySections": [
+          "32.3",
+          "41.10",
+          "49.4",
+          "49.8",
+          "49.25",
+          "51.12"
+        ],
+        "requiredPinnedFields": [
+          "policyRevision",
+          "maxAttempts",
+          "baseDelayMs",
+          "maxDelayMs",
+          "jitterSeed",
+          "deadlineAt",
+          "retryDirective",
+          "replaySafety",
+          "jitterMaxMs",
+          "maxRetries",
+          "retryIndex",
+          "eligibleAt",
+          "inputDigest"
+        ],
+        "missingPolicy": "Canonical same-operation retry is permitted only with positive full-rollback evidence, pinned input and current authority; the bounded default profile never grants permission.",
+        "delay": "retryIndex starts at zero for the first retry. Earliest retry = now + min(maxDelayMs, baseDelayMs * 2^retryIndex) + deterministic jitter in [0,jitterMaxMs] from the pinned seed; not before provider Retry-After. If earliest retry reaches deadlineAt, do not retry.",
+        "stop": [
+          "attempt limit",
+          "deadline",
+          "cancellation",
+          "unknown possible effect",
+          "stale authority",
+          "terminal outcome"
+        ],
+        "sideEffects": "Same logical operation and input digest; new attempt identity. Confirmed effects are never repeated; unknown effects require reconciliation.",
+        "defaultProfileRef": "ui/contracts/error-presentation.json#/defaultRetryProfile"
+      },
+      "manual_recovery": {
+        "action": "Canonical same-operation retry is permitted only with positive full-rollback evidence, pinned input and current authority; the bounded default profile never grants permission.",
+        "sameCommandMayRepeat": true,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "CREATE_POLICY_UNRESOLVED",
+      "source": "create",
+      "category": "dependency",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "CREATE_POLICY_UNRESOLVED",
+        "sourceSection": "12.48",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/4",
+        "condition": "Mandatory exact Secret type, ephemeral credential or parent/target admission policy is not resolved; dispatch remains blocked",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create",
+          "secret.create"
+        ],
+        "httpStatus": 503,
+        "producerHelperRef": "scripts/create_completion_contracts.py#http_failure",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Vytvoření je blokováno nevyřešeným povinným pravidlem. Otevřete podrobnosti chybějícího kontraktu.",
+      "user_message_en": "Creation is blocked by an unresolved mandatory policy. Open the missing-contract details.",
+      "operator_detail": {
+        "stableCondition": "CREATE_POLICY_UNRESOLVED",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/4",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "cb27c81214b708e24557b4ca08c164c487d2125749d42b19fe2f9c81eda9de53"
+      },
+      "recoverability": "Resolve the indicated authoritative type, credential or parent/target admission policy before dispatch.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve the indicated authoritative type, credential or parent/target admission policy before dispatch.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "CREATE_RECOVERY_BARRIER",
+      "source": "create",
+      "category": "conflict",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "CREATE_RECOVERY_BARRIER",
+        "sourceSection": "12.48",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/5",
+        "condition": "Platform recovery is not READY; no fresh create admission",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create",
+          "secret.create"
+        ],
+        "httpStatus": 423,
+        "producerHelperRef": "scripts/create_completion_contracts.py#http_failure",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Obnova platformy ještě není dokončena. Vytvoření může pokračovat až po ověřeném návratu do připraveného stavu.",
+      "user_message_en": "Platform recovery has not completed. Creation can proceed only after a verified return to the ready state.",
+      "operator_detail": {
+        "stableCondition": "CREATE_RECOVERY_BARRIER",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/5",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "9e38edb3ffd01d1fa4e6a7def60ead9a48bbfb31a43f21d67d3d0b87c709ca62"
+      },
+      "recoverability": "Resolve the recovery barrier and refresh current authority; do not bypass recovery.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve the recovery barrier and refresh current authority; do not bypass recovery.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "CREATE_REFERENCE_INVALID",
+      "source": "create",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "CREATE_REFERENCE_INVALID",
+        "sourceSection": "12.48",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/3",
+        "condition": "Referenced artifact/object/parent is missing, wrong identity/kind, or bytes/digest/media evidence is invalid",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create",
+          "secret.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/create_completion_contracts.py#http_failure",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Odkazovaný podklad nebo objekt nelze ověřit. Zkontrolujte jeho identitu, dostupnost a obsah.",
+      "user_message_en": "A referenced source or object could not be verified. Check its identity, availability and content.",
+      "operator_detail": {
+        "stableCondition": "CREATE_REFERENCE_INVALID",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/3",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "b3089d48861f860fac37d25f72d699251773509c5e5d6a47897426f531222c79"
+      },
+      "recoverability": "Resolve the exact failed reference guard; do not trust client-declared identity or digests.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve the exact failed reference guard; do not trust client-declared identity or digests.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "CREATE_STABLE_NAME_CONFLICT",
+      "source": "create",
+      "category": "conflict",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "CREATE_STABLE_NAME_CONFLICT",
+        "sourceSection": "12.48",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/6",
+        "condition": "secret stableName already exists, including soft-deleted records",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "secret.create"
+        ],
+        "httpStatus": 409,
+        "producerHelperRef": "scripts/create_completion_contracts.py#http_failure",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Tento stabilní název tajemství již existuje, včetně případného smazaného záznamu. Zvolte dostupný název.",
+      "user_message_en": "This secret stable name already exists, including a possible deleted record. Choose an available name.",
+      "operator_detail": {
+        "stableCondition": "CREATE_STABLE_NAME_CONFLICT",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/6",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "7fd0550bcd9024a20becfa36501eef86dad8a2400175580e4b3ae50c6f34c153"
+      },
+      "recoverability": "Choose an available stableName; a soft-deleted name remains reserved by the existing uniqueness contract.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Choose an available stableName; a soft-deleted name remains reserved by the existing uniqueness contract.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED",
+      "source": "follow-up",
+      "category": "dependency",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/10",
+        "condition": "server.atomicGenerationAdmission is not true; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: server.atomicGenerationAdmission is not true",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 503,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Atomický snímek pro přijetí není ověřen.",
+      "user_message_en": "Follow-up generation: The atomic admission snapshot is unverified.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/10",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "12c8e2b1b2f8e76bbd385e885914a58bd373d44691fdf7bcbec79e15a7a7af40"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: server.atomicGenerationAdmission is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: server.atomicGenerationAdmission is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/11",
+        "condition": "SHA256(actual source bytes) differs from persisted contentDigest; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: SHA256(actual source bytes) differs from persisted contentDigest",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Skutečné bajty podkladu neodpovídají uloženému digestu.",
+      "user_message_en": "Follow-up generation: The actual basis bytes do not match the stored digest.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/11",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "32fb7025aa374d2d08226ba7dd8d391ab4259b2ccd89916a24d83368b4d9a18b"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: SHA256(actual source bytes) differs from persisted contentDigest. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: SHA256(actual source bytes) differs from persisted contentDigest. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "source": "follow-up",
+      "category": "dependency",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/12",
+        "condition": "source.bytes is not available as bytes; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: source.bytes is not available as bytes",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 503,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Skutečné bajty podkladu nejsou dostupné.",
+      "user_message_en": "Follow-up generation: The actual basis bytes are unavailable.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/12",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "36ce2d147d2eaf9feedd800528850756e7255c1bd51717b99d5613b2a7373cb8"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: source.bytes is not available as bytes. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: source.bytes is not available as bytes. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_DIGEST_CONFLICT",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_BASIS_DIGEST_CONFLICT",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/13",
+        "condition": "caller expectedDigest differs from SHA256(actual persisted source bytes); evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: caller expectedDigest differs from SHA256(actual persisted source bytes)",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Očekávaný digest podkladu neodpovídá jeho ověřenému obsahu.",
+      "user_message_en": "Follow-up generation: The expected basis digest differs from its verified content.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_BASIS_DIGEST_CONFLICT",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/13",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "41eeedb00ede7b270596b23fe4d604eb5dc70eaa9c73613472c057439233385e"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: caller expectedDigest differs from SHA256(actual persisted source bytes). Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: caller expectedDigest differs from SHA256(actual persisted source bytes). Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/14",
+        "condition": "persisted jobId/basisKind/revisionId/artifactId differs from the caller selector; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: persisted jobId/basisKind/revisionId/artifactId differs from the caller selector",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Podklad nepatří k vybranému zdrojovému úkolu nebo variantě.",
+      "user_message_en": "Follow-up generation: The basis does not belong to the selected source job or variant.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/14",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "3c350a76cf20c24b8ef186ce3d6eb4b9ac987e785025ac723a01cf06dd2f4fcf"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: persisted jobId/basisKind/revisionId/artifactId differs from the caller selector. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: persisted jobId/basisKind/revisionId/artifactId differs from the caller selector. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_BASIS_INCONSISTENT",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/15",
+        "condition": "source.consistent is not true; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: source.consistent is not true",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Podklad není potvrzen jako konzistentní.",
+      "user_message_en": "Follow-up generation: The basis is not confirmed consistent.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_BASIS_INCONSISTENT",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/15",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "05b4d2dbaa5e2d4bc3fe4154e1f9bdea6514adfcd6a0df5d4125d6d3a6b4b900"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: source.consistent is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: source.consistent is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_BASIS_INSUFFICIENT",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/16",
+        "condition": "source.sufficient is not true; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: source.sufficient is not true",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Podklad není potvrzen jako dostatečný pro navazující práci.",
+      "user_message_en": "Follow-up generation: The basis is not confirmed sufficient for follow-up work.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_BASIS_INSUFFICIENT",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/16",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "3fc64cc81567d22949960b54a3636817d18fd2316b56f0046f1b816c438fd293"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: source.sufficient is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: source.sufficient is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_INVALID",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_BASIS_INVALID",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/17",
+        "condition": "followUpBasis fails the exact request_schema variant; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: followUpBasis fails the exact request_schema variant",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Volba podkladu neodpovídá přesné vstupní variantě.",
+      "user_message_en": "Follow-up generation: The basis selector does not match an exact input variant.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_BASIS_INVALID",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/17",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "0a849d388b5e910cff042fbb7aad6c8eac970b09fab2ba77b5d943d48c9fdc13"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: followUpBasis fails the exact request_schema variant. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: followUpBasis fails the exact request_schema variant. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/18",
+        "condition": "source.immutable is not true; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: source.immutable is not true",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Podklad není neměnným uloženým snímkem.",
+      "user_message_en": "Follow-up generation: The basis is not an immutable persisted snapshot.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/18",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "a4f7c0f43343fea65130dda27ab4c3978c702299a279cec92ec2a079e58fa3d2"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: source.immutable is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: source.immutable is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_BASIS_UNAVAILABLE",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/19",
+        "condition": "selected source snapshot is absent or source.available is not true; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: selected source snapshot is absent or source.available is not true",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Vybraný uložený podklad není dostupný.",
+      "user_message_en": "Follow-up generation: The selected persisted basis is unavailable.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_BASIS_UNAVAILABLE",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/19",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "778395a978d5e597b1d558dd2bcbb5a45a992f2fd65b33014b9c7892ef52e8a1"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: selected source snapshot is absent or source.available is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: selected source snapshot is absent or source.available is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/20",
+        "condition": "PUBLISHED_FINAL_OUTPUT source.publishedFinal is not true; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: PUBLISHED_FINAL_OUTPUT source.publishedFinal is not true",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Vybraný finální výstup není potvrzen jako publikovaný.",
+      "user_message_en": "Follow-up generation: The selected final output is not confirmed published.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/20",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "585bf1e298743c26032bc03c821721114e6dd7e8339600d24b09da7a0ac7b022"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: PUBLISHED_FINAL_OUTPUT source.publishedFinal is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: PUBLISHED_FINAL_OUTPUT source.publishedFinal is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/21",
+        "condition": "hydrated descriptor fails frozen_basis_schema; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: hydrated descriptor fails frozen_basis_schema",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Uložený popis zmrazeného podkladu nemá platný formát.",
+      "user_message_en": "Follow-up generation: The persisted frozen-basis descriptor has an invalid format.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/21",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "744494d5fc62865cd139aefa524098e92e1b03f403aefb09aa4a07e1c90ebd75"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: hydrated descriptor fails frozen_basis_schema. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: hydrated descriptor fails frozen_basis_schema. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_FROZEN_IDENTITY_MISMATCH",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_FROZEN_IDENTITY_MISMATCH",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/22",
+        "condition": "selected persisted snapshot identities differ from descriptor sourceJobId/basisKind/contentDigest/revisionId/artifactId/publicationReceiptId; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: selected persisted snapshot identities differ from descriptor sourceJobId/basisKind/contentDigest/revisionId/artifactId/publicationReceiptId",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Identita uloženého podkladu neodpovídá zmrazenému popisu.",
+      "user_message_en": "Follow-up generation: The persisted basis identity differs from the frozen descriptor.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_FROZEN_IDENTITY_MISMATCH",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/22",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "a64d22f073defc62245f5eec7e0298af9e5e18c7cfabe0c143a6a86623b3a1fb"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: selected persisted snapshot identities differ from descriptor sourceJobId/basisKind/contentDigest/revisionId/artifactId/publicationReceiptId. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: selected persisted snapshot identities differ from descriptor sourceJobId/basisKind/contentDigest/revisionId/artifactId/publicationReceiptId. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/23",
+        "condition": "descriptor.lineageDigest differs from SHA256(canonical descriptor excluding lineageDigest); evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: descriptor.lineageDigest differs from SHA256(canonical descriptor excluding lineageDigest)",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Digest neměnné návaznosti podkladu neodpovídá jeho popisu.",
+      "user_message_en": "Follow-up generation: The immutable basis lineage digest does not match its descriptor.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/23",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "1147e2473af55d884d6f1f767b55ad6a9b9126902b73b3688a3629ed662b6845"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: descriptor.lineageDigest differs from SHA256(canonical descriptor excluding lineageDigest). Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: descriptor.lineageDigest differs from SHA256(canonical descriptor excluding lineageDigest). Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/24",
+        "condition": "snapshotId resolves to other than exactly one retained source snapshot; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: snapshotId resolves to other than exactly one retained source snapshot",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Zmrazený snímek podkladu nelze jednoznačně načíst.",
+      "user_message_en": "Follow-up generation: The frozen basis snapshot cannot be uniquely loaded.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/24",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "c247170d2b2a71f999548b7b8f3f9dac46facbc3e5f25f760954d362e58583bc"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: snapshotId resolves to other than exactly one retained source snapshot. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: snapshotId resolves to other than exactly one retained source snapshot. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_KIND_REQUIRED",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_KIND_REQUIRED",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/25",
+        "condition": "request.kind is not FOLLOW_UP; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: request.kind is not FOLLOW_UP",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 400,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Tato předávka vyžaduje variantu FOLLOW_UP.",
+      "user_message_en": "Follow-up generation: This handoff requires the FOLLOW_UP variant.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_KIND_REQUIRED",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/25",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "246a00ef965795511f055bea4398fb3c13d385a4cdf1cc1c68c6129ab76711a7"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: request.kind is not FOLLOW_UP. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: request.kind is not FOLLOW_UP. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_PARENT_REQUIRED",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_PARENT_REQUIRED",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/26",
+        "condition": "parentJobId is absent or not a UUID; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: parentJobId is absent or not a UUID",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Chybí platná identita zdrojového úkolu.",
+      "user_message_en": "Follow-up generation: A valid source job identity is required.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_PARENT_REQUIRED",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/26",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "18d6099796535eba9701b01c8598bef5ddd6160cb69fe5ef64910e3367b51075"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: parentJobId is absent or not a UUID. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: parentJobId is absent or not a UUID. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/27",
+        "condition": "committed receipt identity/job/artifact/contentDigest differs from selected persisted output; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: committed receipt identity/job/artifact/contentDigest differs from selected persisted output",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Publikační potvrzení neodpovídá vybranému výstupu a jeho obsahu.",
+      "user_message_en": "Follow-up generation: The publication receipt differs from the selected output and its content.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/27",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "b1a037734bf5d7eadaee4e54031aa44ae961a47f4f13f199fd0c2986565cc876"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: committed receipt identity/job/artifact/contentDigest differs from selected persisted output. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: committed receipt identity/job/artifact/contentDigest differs from selected persisted output. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "source": "follow-up",
+      "category": "dependency",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/28",
+        "condition": "publicationReceiptId is invalid, receipt missing or outcome is not COMMITTED; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: publicationReceiptId is invalid, receipt missing or outcome is not COMMITTED",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 503,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Publikační potvrzení není ověřeno jako uložené a dokončené.",
+      "user_message_en": "Follow-up generation: The publication receipt is not verified as persisted and committed.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/28",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "75312514842cdbb5373c25eb015f3c045e029c204597cf07d08f3444c9db82ac"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: publicationReceiptId is invalid, receipt missing or outcome is not COMMITTED. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: publicationReceiptId is invalid, receipt missing or outcome is not COMMITTED. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/29",
+        "condition": "source.snapshotId is not a UUID; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: source.snapshotId is not a UUID",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Uložený podklad nemá platnou identitu snímku.",
+      "user_message_en": "Follow-up generation: The persisted basis lacks a valid snapshot identity.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/29",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "d89d979e820674a0b59d754da448cd492487665192f7df11eef88d10ef5c02ba"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: source.snapshotId is not a UUID. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: source.snapshotId is not a UUID. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "source": "follow-up",
+      "category": "authorization",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/30",
+        "condition": "server-owned source/parent owner differs from current authenticated OWNER; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: server-owned source/parent owner differs from current authenticated OWNER",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 403,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Zdrojový úkol nebo podklad nepatří ověřenému vlastníkovi.",
+      "user_message_en": "Follow-up generation: The source job or basis does not belong to the authenticated owner.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/30",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "31bb8365a547fd2a1a5e43a354a193c04daca024c8d420d1539e38d0009357eb"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: server-owned source/parent owner differs from current authenticated OWNER. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: server-owned source/parent owner differs from current authenticated OWNER. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
+    },
+    {
+      "error_code": "FOLLOW_UP_SOURCE_STATE_INVALID",
+      "source": "follow-up",
+      "category": "validation",
+      "severity": "error",
+      "technical_condition": {
+        "sourceRecord": "FOLLOW_UP_SOURCE_STATE_INVALID",
+        "sourceSection": "12.49",
+        "sourceRef": "contracts/create-completion.json#/errorPredicates/31",
+        "condition": "parent.state is not in follow_up_contracts.STATES; completed/failed/cancelled states themselves are allowed; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: parent.state is not in follow_up_contracts.STATES; completed/failed/cancelled states themselves are allowed",
+        "predicateStatus": "EXPLICIT",
+        "operationIds": [
+          "generation.job.create"
+        ],
+        "httpStatus": 422,
+        "producerHelperRef": "scripts/follow_up_contracts.py#admit_follow_up-and-hydrate_frozen_basis",
+        "canonicalRetryDirective": "DO_NOT_RETRY",
+        "definitionScope": "Only generation.job.create and/or secret.create as explicitly listed; no global closure of legacy codes.",
+        "verificationRequired": "scripts/verify_follow_up_contracts.py plus scripts/verify_create_http_errors.py current source/helper/environment-bound design proof; runtime NOT_EVALUATED"
+      },
+      "user_message_cs": "Navazující generování: Zdrojový úkol nemá stav z vlastního platného lifecycle.",
+      "user_message_en": "Follow-up generation: The source job state is outside its own valid lifecycle.",
+      "operator_detail": {
+        "stableCondition": "FOLLOW_UP_SOURCE_STATE_INVALID",
+        "predicateRef": "contracts/create-completion.json#/errorPredicates/31",
+        "required": [
+          "operationId",
+          "requestId",
+          "correlationId",
+          "canonicalOutcome",
+          "failedGuardOrRollbackEvidence"
+        ],
+        "designPredicateSha256": "1a0910c5d9e624f809441524f28316e3d498d0950c39de7042308fd0db8f5a7d"
+      },
+      "recoverability": "Resolve this exact guard before admission/hydration: parent.state is not in follow_up_contracts.STATES; completed/failed/cancelled states themselves are allowed. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      },
+      "manual_recovery": {
+        "action": "Resolve this exact guard before admission/hydration: parent.state is not in follow_up_contracts.STATES; completed/failed/cancelled states themselves are allowed. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+        "sameCommandMayRepeat": false,
+        "guard": "Only canonical same-locator/input policy with positive rollback evidence and current authority; unknown outcome requires reconciliation."
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "logging_requirements": [
+        "exact producer predicate and canonical code",
+        "operation and request correlation",
+        "failed guard or canonical persistence evidence",
+        "existing Secrets/trusted-perimeter logging policy"
+      ]
     }
   ]
 }

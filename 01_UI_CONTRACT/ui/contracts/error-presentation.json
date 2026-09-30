@@ -15762,6 +15762,997 @@
       ],
       "logging_requirements": "Structured DEBUG and canonical audit/retention according to SSOT 19.3; existing Secrets/trusted-perimeter policy remains unchanged.",
       "messageKey": "error.architecture_readiness_blocked"
+    },
+    {
+      "error_code": "CREATE_AUTHENTICATION_REQUIRED",
+      "source": "CREATE",
+      "category": "authentication",
+      "severity": "ERROR",
+      "operator_detail": "No current authenticated OWNER context; operations: generation.job.create, secret.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve OWNER authentication; refresh current guards before submitting.",
+      "manual_recovery": "Resolve OWNER authentication; refresh current guards before submitting.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Vytvoření vyžaduje platné přihlášení vlastníka. Přihlaste se a ověřte aktuální požadavek.",
+      "user_message_en": "Creation requires a current authenticated owner session. Sign in and review the current request.",
+      "messageKey": "error.create_authentication_required",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "CREATE_AUTHENTICATION_REQUIRED",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/2"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "CREATE_CANCELLED",
+      "source": "CREATE",
+      "category": "cancelled",
+      "severity": "WARNING",
+      "operator_detail": "Cancellation won before create commit; no created root; after commit only canonical completed receipt may replay; operations: generation.job.create, secret.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Cancelled creation is terminal; submit a new intent only when desired.",
+      "manual_recovery": "Cancelled creation is terminal; submit a new intent only when desired.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Vytvoření bylo zrušeno před uložením. Nový objekt nebyl vytvořen.",
+      "user_message_en": "Creation was cancelled before commit. No new object was created.",
+      "messageKey": "error.create_cancelled",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "CREATE_CANCELLED",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/0"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "CREATE_INPUT_INVALID",
+      "source": "CREATE",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "Strict HTTP/UTF8/JSON/schema input rejected before domain mutation; operations: generation.job.create, secret.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Correct the rejected input; do not automatically repeat the unchanged request.",
+      "manual_recovery": "Correct the rejected input; do not automatically repeat the unchanged request.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Vstup pro vytvoření není platný. Opravte uvedená chybná pole nebo formát požadavku.",
+      "user_message_en": "The creation input is invalid. Correct the reported fields or request encoding.",
+      "messageKey": "error.create_input_invalid",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "CREATE_INPUT_INVALID",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/1"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "CREATE_PERSISTENCE_FAILED",
+      "source": "CREATE",
+      "category": "internal",
+      "severity": "ERROR",
+      "operator_detail": "Positive evidence proves the entire create transaction rolled back; no committed root/event/outbox/outcome; operations: generation.job.create, secret.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Canonical same-operation retry is permitted only with positive full-rollback evidence, pinned input and current authority; the bounded default profile never grants permission.",
+      "manual_recovery": "Canonical same-operation retry is permitted only with positive full-rollback evidence, pinned input and current authority; the bounded default profile never grants permission.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Vytvoření se neuložilo; je ověřeno úplné vrácení transakce. Opakování musí zachovat původní operaci a platná pravidla.",
+      "user_message_en": "Creation was not committed; full transaction rollback is verified. A retry must preserve the original operation and valid policy.",
+      "messageKey": "error.create_persistence_failed",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "CREATE_PERSISTENCE_FAILED",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/8"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "CANONICAL_OPERATION_POLICY_ONLY",
+        "authoritySections": [
+          "32.3",
+          "41.10",
+          "49.4",
+          "49.8",
+          "49.25",
+          "51.12"
+        ],
+        "requiredPinnedFields": [
+          "policyRevision",
+          "maxAttempts",
+          "baseDelayMs",
+          "maxDelayMs",
+          "jitterSeed",
+          "deadlineAt",
+          "retryDirective",
+          "replaySafety",
+          "jitterMaxMs",
+          "maxRetries",
+          "retryIndex",
+          "eligibleAt",
+          "inputDigest"
+        ],
+        "missingPolicy": "Canonical same-operation retry is permitted only with positive full-rollback evidence, pinned input and current authority; the bounded default profile never grants permission.",
+        "delay": "retryIndex starts at zero for the first retry. Earliest retry = now + min(maxDelayMs, baseDelayMs * 2^retryIndex) + deterministic jitter in [0,jitterMaxMs] from the pinned seed; not before provider Retry-After. If earliest retry reaches deadlineAt, do not retry.",
+        "stop": [
+          "attempt limit",
+          "deadline",
+          "cancellation",
+          "unknown possible effect",
+          "stale authority",
+          "terminal outcome"
+        ],
+        "sideEffects": "Same logical operation and input digest; new attempt identity. Confirmed effects are never repeated; unknown effects require reconciliation.",
+        "defaultProfileRef": "ui/contracts/error-presentation.json#/defaultRetryProfile"
+      }
+    },
+    {
+      "error_code": "CREATE_POLICY_UNRESOLVED",
+      "source": "CREATE",
+      "category": "dependency",
+      "severity": "ERROR",
+      "operator_detail": "Mandatory exact Secret type, ephemeral credential or parent/target admission policy is not resolved; dispatch remains blocked; operations: generation.job.create, secret.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve the indicated authoritative type, credential or parent/target admission policy before dispatch.",
+      "manual_recovery": "Resolve the indicated authoritative type, credential or parent/target admission policy before dispatch.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Vytvoření je blokováno nevyřešeným povinným pravidlem. Otevřete podrobnosti chybějícího kontraktu.",
+      "user_message_en": "Creation is blocked by an unresolved mandatory policy. Open the missing-contract details.",
+      "messageKey": "error.create_policy_unresolved",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "CREATE_POLICY_UNRESOLVED",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/4"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "CREATE_RECOVERY_BARRIER",
+      "source": "CREATE",
+      "category": "conflict",
+      "severity": "ERROR",
+      "operator_detail": "Platform recovery is not READY; no fresh create admission; operations: generation.job.create, secret.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve the recovery barrier and refresh current authority; do not bypass recovery.",
+      "manual_recovery": "Resolve the recovery barrier and refresh current authority; do not bypass recovery.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Obnova platformy ještě není dokončena. Vytvoření může pokračovat až po ověřeném návratu do připraveného stavu.",
+      "user_message_en": "Platform recovery has not completed. Creation can proceed only after a verified return to the ready state.",
+      "messageKey": "error.create_recovery_barrier",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "CREATE_RECOVERY_BARRIER",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/5"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "CREATE_REFERENCE_INVALID",
+      "source": "CREATE",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "Referenced artifact/object/parent is missing, wrong identity/kind, or bytes/digest/media evidence is invalid; operations: generation.job.create, secret.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve the exact failed reference guard; do not trust client-declared identity or digests.",
+      "manual_recovery": "Resolve the exact failed reference guard; do not trust client-declared identity or digests.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Odkazovaný podklad nebo objekt nelze ověřit. Zkontrolujte jeho identitu, dostupnost a obsah.",
+      "user_message_en": "A referenced source or object could not be verified. Check its identity, availability and content.",
+      "messageKey": "error.create_reference_invalid",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "CREATE_REFERENCE_INVALID",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/3"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "CREATE_STABLE_NAME_CONFLICT",
+      "source": "CREATE",
+      "category": "conflict",
+      "severity": "ERROR",
+      "operator_detail": "secret stableName already exists, including soft-deleted records; operations: secret.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Choose an available stableName; a soft-deleted name remains reserved by the existing uniqueness contract.",
+      "manual_recovery": "Choose an available stableName; a soft-deleted name remains reserved by the existing uniqueness contract.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Tento stabilní název tajemství již existuje, včetně případného smazaného záznamu. Zvolte dostupný název.",
+      "user_message_en": "This secret stable name already exists, including a possible deleted record. Choose an available name.",
+      "messageKey": "error.create_stable_name_conflict",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "CREATE_STABLE_NAME_CONFLICT",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/6"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED",
+      "source": "FOLLOW_UP",
+      "category": "dependency",
+      "severity": "ERROR",
+      "operator_detail": "server.atomicGenerationAdmission is not true; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: server.atomicGenerationAdmission is not true; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: server.atomicGenerationAdmission is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: server.atomicGenerationAdmission is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Atomický snímek pro přijetí není ověřen.",
+      "user_message_en": "Follow-up generation: The atomic admission snapshot is unverified.",
+      "messageKey": "error.follow_up_atomic_admission_unverified",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/10"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "SHA256(actual source bytes) differs from persisted contentDigest; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: SHA256(actual source bytes) differs from persisted contentDigest; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: SHA256(actual source bytes) differs from persisted contentDigest. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: SHA256(actual source bytes) differs from persisted contentDigest. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Skutečné bajty podkladu neodpovídají uloženému digestu.",
+      "user_message_en": "Follow-up generation: The actual basis bytes do not match the stored digest.",
+      "messageKey": "error.follow_up_basis_bytes_digest_mismatch",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/11"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "source": "FOLLOW_UP",
+      "category": "dependency",
+      "severity": "ERROR",
+      "operator_detail": "source.bytes is not available as bytes; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: source.bytes is not available as bytes; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: source.bytes is not available as bytes. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: source.bytes is not available as bytes. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Skutečné bajty podkladu nejsou dostupné.",
+      "user_message_en": "Follow-up generation: The actual basis bytes are unavailable.",
+      "messageKey": "error.follow_up_basis_bytes_unavailable",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/12"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_DIGEST_CONFLICT",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "caller expectedDigest differs from SHA256(actual persisted source bytes); evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: caller expectedDigest differs from SHA256(actual persisted source bytes); operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: caller expectedDigest differs from SHA256(actual persisted source bytes). Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: caller expectedDigest differs from SHA256(actual persisted source bytes). Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Očekávaný digest podkladu neodpovídá jeho ověřenému obsahu.",
+      "user_message_en": "Follow-up generation: The expected basis digest differs from its verified content.",
+      "messageKey": "error.follow_up_basis_digest_conflict",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_BASIS_DIGEST_CONFLICT",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/13"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "persisted jobId/basisKind/revisionId/artifactId differs from the caller selector; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: persisted jobId/basisKind/revisionId/artifactId differs from the caller selector; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: persisted jobId/basisKind/revisionId/artifactId differs from the caller selector. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: persisted jobId/basisKind/revisionId/artifactId differs from the caller selector. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Podklad nepatří k vybranému zdrojovému úkolu nebo variantě.",
+      "user_message_en": "Follow-up generation: The basis does not belong to the selected source job or variant.",
+      "messageKey": "error.follow_up_basis_identity_mismatch",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/14"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "source.consistent is not true; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: source.consistent is not true; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: source.consistent is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: source.consistent is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Podklad není potvrzen jako konzistentní.",
+      "user_message_en": "Follow-up generation: The basis is not confirmed consistent.",
+      "messageKey": "error.follow_up_basis_inconsistent",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_BASIS_INCONSISTENT",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/15"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "source.sufficient is not true; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: source.sufficient is not true; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: source.sufficient is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: source.sufficient is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Podklad není potvrzen jako dostatečný pro navazující práci.",
+      "user_message_en": "Follow-up generation: The basis is not confirmed sufficient for follow-up work.",
+      "messageKey": "error.follow_up_basis_insufficient",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_BASIS_INSUFFICIENT",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/16"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_INVALID",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "followUpBasis fails the exact request_schema variant; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: followUpBasis fails the exact request_schema variant; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: followUpBasis fails the exact request_schema variant. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: followUpBasis fails the exact request_schema variant. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Volba podkladu neodpovídá přesné vstupní variantě.",
+      "user_message_en": "Follow-up generation: The basis selector does not match an exact input variant.",
+      "messageKey": "error.follow_up_basis_invalid",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_BASIS_INVALID",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/17"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "source.immutable is not true; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: source.immutable is not true; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: source.immutable is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: source.immutable is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Podklad není neměnným uloženým snímkem.",
+      "user_message_en": "Follow-up generation: The basis is not an immutable persisted snapshot.",
+      "messageKey": "error.follow_up_basis_not_immutable",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/18"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "selected source snapshot is absent or source.available is not true; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: selected source snapshot is absent or source.available is not true; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: selected source snapshot is absent or source.available is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: selected source snapshot is absent or source.available is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Vybraný uložený podklad není dostupný.",
+      "user_message_en": "Follow-up generation: The selected persisted basis is unavailable.",
+      "messageKey": "error.follow_up_basis_unavailable",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_BASIS_UNAVAILABLE",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/19"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "PUBLISHED_FINAL_OUTPUT source.publishedFinal is not true; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: PUBLISHED_FINAL_OUTPUT source.publishedFinal is not true; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: PUBLISHED_FINAL_OUTPUT source.publishedFinal is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: PUBLISHED_FINAL_OUTPUT source.publishedFinal is not true. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Vybraný finální výstup není potvrzen jako publikovaný.",
+      "user_message_en": "Follow-up generation: The selected final output is not confirmed published.",
+      "messageKey": "error.follow_up_final_output_unpublished",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/20"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "hydrated descriptor fails frozen_basis_schema; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: hydrated descriptor fails frozen_basis_schema; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: hydrated descriptor fails frozen_basis_schema. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: hydrated descriptor fails frozen_basis_schema. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Uložený popis zmrazeného podkladu nemá platný formát.",
+      "user_message_en": "Follow-up generation: The persisted frozen-basis descriptor has an invalid format.",
+      "messageKey": "error.follow_up_frozen_descriptor_invalid",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/21"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_FROZEN_IDENTITY_MISMATCH",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "selected persisted snapshot identities differ from descriptor sourceJobId/basisKind/contentDigest/revisionId/artifactId/publicationReceiptId; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: selected persisted snapshot identities differ from descriptor sourceJobId/basisKind/contentDigest/revisionId/artifactId/publicationReceiptId; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: selected persisted snapshot identities differ from descriptor sourceJobId/basisKind/contentDigest/revisionId/artifactId/publicationReceiptId. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: selected persisted snapshot identities differ from descriptor sourceJobId/basisKind/contentDigest/revisionId/artifactId/publicationReceiptId. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Identita uloženého podkladu neodpovídá zmrazenému popisu.",
+      "user_message_en": "Follow-up generation: The persisted basis identity differs from the frozen descriptor.",
+      "messageKey": "error.follow_up_frozen_identity_mismatch",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_FROZEN_IDENTITY_MISMATCH",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/22"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "descriptor.lineageDigest differs from SHA256(canonical descriptor excluding lineageDigest); evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: descriptor.lineageDigest differs from SHA256(canonical descriptor excluding lineageDigest); operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: descriptor.lineageDigest differs from SHA256(canonical descriptor excluding lineageDigest). Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: descriptor.lineageDigest differs from SHA256(canonical descriptor excluding lineageDigest). Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Digest neměnné návaznosti podkladu neodpovídá jeho popisu.",
+      "user_message_en": "Follow-up generation: The immutable basis lineage digest does not match its descriptor.",
+      "messageKey": "error.follow_up_frozen_lineage_digest_mismatch",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/23"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "snapshotId resolves to other than exactly one retained source snapshot; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: snapshotId resolves to other than exactly one retained source snapshot; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: snapshotId resolves to other than exactly one retained source snapshot. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: snapshotId resolves to other than exactly one retained source snapshot. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Zmrazený snímek podkladu nelze jednoznačně načíst.",
+      "user_message_en": "Follow-up generation: The frozen basis snapshot cannot be uniquely loaded.",
+      "messageKey": "error.follow_up_frozen_snapshot_unavailable",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/24"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_KIND_REQUIRED",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "request.kind is not FOLLOW_UP; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: request.kind is not FOLLOW_UP; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: request.kind is not FOLLOW_UP. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: request.kind is not FOLLOW_UP. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Tato předávka vyžaduje variantu FOLLOW_UP.",
+      "user_message_en": "Follow-up generation: This handoff requires the FOLLOW_UP variant.",
+      "messageKey": "error.follow_up_kind_required",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_KIND_REQUIRED",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/25"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_PARENT_REQUIRED",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "parentJobId is absent or not a UUID; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: parentJobId is absent or not a UUID; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: parentJobId is absent or not a UUID. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: parentJobId is absent or not a UUID. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Chybí platná identita zdrojového úkolu.",
+      "user_message_en": "Follow-up generation: A valid source job identity is required.",
+      "messageKey": "error.follow_up_parent_required",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_PARENT_REQUIRED",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/26"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "committed receipt identity/job/artifact/contentDigest differs from selected persisted output; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: committed receipt identity/job/artifact/contentDigest differs from selected persisted output; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: committed receipt identity/job/artifact/contentDigest differs from selected persisted output. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: committed receipt identity/job/artifact/contentDigest differs from selected persisted output. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Publikační potvrzení neodpovídá vybranému výstupu a jeho obsahu.",
+      "user_message_en": "Follow-up generation: The publication receipt differs from the selected output and its content.",
+      "messageKey": "error.follow_up_publication_receipt_mismatch",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/27"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "source": "FOLLOW_UP",
+      "category": "dependency",
+      "severity": "ERROR",
+      "operator_detail": "publicationReceiptId is invalid, receipt missing or outcome is not COMMITTED; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: publicationReceiptId is invalid, receipt missing or outcome is not COMMITTED; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: publicationReceiptId is invalid, receipt missing or outcome is not COMMITTED. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: publicationReceiptId is invalid, receipt missing or outcome is not COMMITTED. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Publikační potvrzení není ověřeno jako uložené a dokončené.",
+      "user_message_en": "Follow-up generation: The publication receipt is not verified as persisted and committed.",
+      "messageKey": "error.follow_up_publication_receipt_unverified",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/28"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "source.snapshotId is not a UUID; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: source.snapshotId is not a UUID; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: source.snapshotId is not a UUID. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: source.snapshotId is not a UUID. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Uložený podklad nemá platnou identitu snímku.",
+      "user_message_en": "Follow-up generation: The persisted basis lacks a valid snapshot identity.",
+      "messageKey": "error.follow_up_snapshot_identity_invalid",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/29"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "source": "FOLLOW_UP",
+      "category": "authorization",
+      "severity": "ERROR",
+      "operator_detail": "server-owned source/parent owner differs from current authenticated OWNER; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: server-owned source/parent owner differs from current authenticated OWNER; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: server-owned source/parent owner differs from current authenticated OWNER. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: server-owned source/parent owner differs from current authenticated OWNER. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Zdrojový úkol nebo podklad nepatří ověřenému vlastníkovi.",
+      "user_message_en": "Follow-up generation: The source job or basis does not belong to the authenticated owner.",
+      "messageKey": "error.follow_up_source_owner_mismatch",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/30"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
+    },
+    {
+      "error_code": "FOLLOW_UP_SOURCE_STATE_INVALID",
+      "source": "FOLLOW_UP",
+      "category": "validation",
+      "severity": "ERROR",
+      "operator_detail": "parent.state is not in follow_up_contracts.STATES; completed/failed/cancelled states themselves are allowed; evaluated only against trusted atomic admission/persisted hydration, not client assertions; exact guard: parent.state is not in follow_up_contracts.STATES; completed/failed/cancelled states themselves are allowed; operations: generation.job.create. Inspect server-authored correlation, failed guard and canonical persistence evidence; a design test is not a runtime receipt.",
+      "recoverability": "Resolve this exact guard before admission/hydration: parent.state is not in follow_up_contracts.STATES; completed/failed/cancelled states themselves are allowed. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "manual_recovery": "Resolve this exact guard before admission/hydration: parent.state is not in follow_up_contracts.STATES; completed/failed/cancelled states themselves are allowed. Preserve the immutable source; never retry blindly or infer execution authority from client selectors.",
+      "logging_requirements": "Structured condition, canonical code, operation identity and correlation/evidence digests per SSOT19/32; preserve existing Secrets/trusted-perimeter rules.",
+      "user_message_cs": "Navazující generování: Zdrojový úkol nemá stav z vlastního platného lifecycle.",
+      "user_message_en": "Follow-up generation: The source job state is outside its own valid lifecycle.",
+      "messageKey": "error.follow_up_source_state_invalid",
+      "technical_condition": {
+        "match": "CANONICAL_STABLE_CODE_EQUALS",
+        "value": "FOLLOW_UP_SOURCE_STATE_INVALID",
+        "authorityRef": "contracts/create-completion.json#/errorPredicates/31"
+      },
+      "correlation_requirements": [
+        "operationId",
+        "requestId",
+        "correlationId",
+        "logicalOperationId or explicit null before admission",
+        "evidenceRef"
+      ],
+      "automatic_retry_policy": {
+        "mode": "DO_NOT_RETRY",
+        "maxAttempts": 0,
+        "delayMs": 0,
+        "stop": "This canonical create predicate prohibits automatic retry.",
+        "sideEffects": "No blind retry. Preserve canonical locator and inspect the exact persisted outcome before any further decision."
+      }
     }
   ],
   "fallback": {

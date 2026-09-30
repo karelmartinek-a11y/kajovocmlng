@@ -1,0 +1,840 @@
+{
+  "sourceDocumentSha256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
+  "supportSha256": {
+    "scripts/create_operation_contracts.py": "6318476c6cd335f9a406cc4922b294261047cc35294f54df232086a5564a90c9",
+    "scripts/verify_create_operation_requests.py": "80f91038bcd0a912a2821905b03c8a6118802ae27be7fd33a6fad17dfb04597a"
+  },
+  "runtimeEvidence": "NOT_EVALUATED",
+  "artifactKind": "INDEPENDENT_NEGATIVE_CASE_SPECIFICATIONS",
+  "caseCount": 45,
+  "implementedOrExecuted": 0,
+  "cases": [
+    {
+      "id": "generation.job.create/rootIdentity",
+      "operationId": "generation.job.create",
+      "boundary": "commit/result",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Change only rootIdentity on otherwise valid persisted receipt/result",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "PERSISTED_CREATE_RECEIPT_MISMATCH",
+        "pointer": "$.receipt.rootIdentity",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4",
+        "49.5",
+        "25.11"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation.job.create/logicalOperationId",
+      "operationId": "generation.job.create",
+      "boundary": "commit/result",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Change only logicalOperationId on otherwise valid persisted receipt/result",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "PERSISTED_CREATE_RECEIPT_MISMATCH",
+        "pointer": "$.receipt.logicalOperationId",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4",
+        "49.5",
+        "25.11"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation.job.create/requestDigest",
+      "operationId": "generation.job.create",
+      "boundary": "commit/result",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Change only requestDigest on otherwise valid persisted receipt/result",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "PERSISTED_CREATE_RECEIPT_MISMATCH",
+        "pointer": "$.receipt.requestDigest",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4",
+        "49.5",
+        "25.11"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation.job.create/executionDescriptorDigest",
+      "operationId": "generation.job.create",
+      "boundary": "commit/result",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Change only executionDescriptorDigest on otherwise valid persisted receipt/result",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "PERSISTED_CREATE_RECEIPT_MISMATCH",
+        "pointer": "$.receipt.executionDescriptorDigest",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4",
+        "49.5",
+        "25.11"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation.job.create/result-bytes",
+      "operationId": "generation.job.create",
+      "boundary": "persist→bytes→hydrate",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Replace persisted immutable bytes with different valid bytes while retaining content digest",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_ARTIFACT_CONTENT_DIGEST_MISMATCH",
+        "pointer": "$.artifact.contentDigest",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "12.2",
+        "12.7",
+        "25.11"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation.job.create/uncommitted-success",
+      "operationId": "generation.job.create",
+      "boundary": "persist→response",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Keep schema-valid success output but set trusted commit evidence false",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_COMMIT_NOT_VERIFIED",
+        "pointer": "$.commit",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4",
+        "49.5"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation.job.create/audit-failure",
+      "operationId": "generation.job.create",
+      "boundary": "transaction boundary",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Trusted transaction snapshot marks required audit write failed but domain row exists",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_COMMIT_NOT_VERIFIED",
+        "pointer": "$.commit.audit",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.5"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation.job.create/failure-no-error",
+      "operationId": "generation.job.create",
+      "boundary": "response",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Set FAILED and remove/null error on valid error witness",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_RESPONSE_ERROR_REQUIRED",
+        "pointer": "$.error",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation.job.create/success-null-output",
+      "operationId": "generation.job.create",
+      "boundary": "response",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Set successful known-committed response output null",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_RESPONSE_OUTPUT_REQUIRED",
+        "pointer": "$.output",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "25.11"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation.job.create/replay-frozen-descriptor",
+      "operationId": "generation.job.create",
+      "boundary": "replay",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Change current server revisions after commit; request/key/locator unchanged",
+      "expected": {
+        "outcome": "REPLAY_SAME_RECEIPT_NO_NEW_DISPATCH",
+        "diagnosticCode": "REPLAY_ORIGINAL_RECEIPT",
+        "pointer": "$.receipt.executionDescriptorDigest",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation.job.create/replay-descriptor-tamper",
+      "operationId": "generation.job.create",
+      "boundary": "replay",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Change stored frozen descriptor while retaining original descriptor digest",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "FROZEN_EXECUTION_DESCRIPTOR_DIGEST_MISMATCH",
+        "pointer": "$.replay.executionDescriptorDigest",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation.job.create/unknown-no-terminal",
+      "operationId": "generation.job.create",
+      "boundary": "recovery",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Original operation has UNKNOWN effect outcome and no verified reconciliation, then request successful terminal response",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_OUTCOME_NOT_KNOWN",
+        "pointer": "$.outcome",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation.job.create/event-before-commit",
+      "operationId": "generation.job.create",
+      "boundary": "event/outbox",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Event candidate matches bytes but trusted event/outbox transaction uncommitted",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_EVENT_NOT_COMMITTED",
+        "pointer": "$.event",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.5"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation.job.create/outbox-missing",
+      "operationId": "generation.job.create",
+      "boundary": "event/outbox",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Committed event intended for consumer has no same-transaction outbox row",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_EVENT_OUTBOX_MISSING",
+        "pointer": "$.outbox",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.5"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation.job.create/duplicate-event-altered",
+      "operationId": "generation.job.create",
+      "boundary": "consumer/inbox",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Repeat immutable event identity/sequence with valid changed payload and recomputed candidate digest",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "EVENT_ID_DIGEST_CONFLICT",
+        "pointer": "$.event",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.5"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation.job.create/duplicate-event",
+      "operationId": "generation.job.create",
+      "boundary": "consumer/inbox",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Deliver exact same immutable event twice under same consumer scope",
+      "expected": {
+        "outcome": "RETURN_ORIGINAL_OUTCOME_NO_SECOND_WRITE",
+        "diagnosticCode": "DUPLICATE_IGNORED",
+        "pointer": "$.event",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.5"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation.job.create/gap-event",
+      "operationId": "generation.job.create",
+      "boundary": "consumer/inbox",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Valid ordered event sequence exceeds next expected sequence",
+      "expected": {
+        "outcome": "NO_APPLY_REQUIRE_REPLAY_OR_SNAPSHOT",
+        "diagnosticCode": "SEQUENCE_GAP",
+        "pointer": "$.event.sequence",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.5"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation.job.create/read-hydration-identity",
+      "operationId": "generation.job.create",
+      "boundary": "consumer/read",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Read-back decodes valid object but root identity differs from receipt/event root",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_READ_IDENTITY_MISMATCH",
+        "pointer": "$.read.rootIdentity",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "25.11"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/rootIdentity",
+      "operationId": "secret.create",
+      "boundary": "commit/result",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Change only rootIdentity on otherwise valid persisted receipt/result",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "PERSISTED_CREATE_RECEIPT_MISMATCH",
+        "pointer": "$.receipt.rootIdentity",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4",
+        "49.5",
+        "25.6"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/logicalOperationId",
+      "operationId": "secret.create",
+      "boundary": "commit/result",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Change only logicalOperationId on otherwise valid persisted receipt/result",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "PERSISTED_CREATE_RECEIPT_MISMATCH",
+        "pointer": "$.receipt.logicalOperationId",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4",
+        "49.5",
+        "25.6"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/requestDigest",
+      "operationId": "secret.create",
+      "boundary": "commit/result",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Change only requestDigest on otherwise valid persisted receipt/result",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "PERSISTED_CREATE_RECEIPT_MISMATCH",
+        "pointer": "$.receipt.requestDigest",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4",
+        "49.5",
+        "25.6"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/executionDescriptorDigest",
+      "operationId": "secret.create",
+      "boundary": "commit/result",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Change only executionDescriptorDigest on otherwise valid persisted receipt/result",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "PERSISTED_CREATE_RECEIPT_MISMATCH",
+        "pointer": "$.receipt.executionDescriptorDigest",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4",
+        "49.5",
+        "25.6"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/result-bytes",
+      "operationId": "secret.create",
+      "boundary": "persist→bytes→hydrate",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Replace persisted immutable bytes with different valid bytes while retaining content digest",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_ARTIFACT_CONTENT_DIGEST_MISMATCH",
+        "pointer": "$.artifact.contentDigest",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "8.4",
+        "25.6"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/uncommitted-success",
+      "operationId": "secret.create",
+      "boundary": "persist→response",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Keep schema-valid success output but set trusted commit evidence false",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_COMMIT_NOT_VERIFIED",
+        "pointer": "$.commit",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4",
+        "49.5"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/audit-failure",
+      "operationId": "secret.create",
+      "boundary": "transaction boundary",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Trusted transaction snapshot marks required audit write failed but domain row exists",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_COMMIT_NOT_VERIFIED",
+        "pointer": "$.commit.audit",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.5"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/failure-no-error",
+      "operationId": "secret.create",
+      "boundary": "response",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Set FAILED and remove/null error on valid error witness",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_RESPONSE_ERROR_REQUIRED",
+        "pointer": "$.error",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/success-null-output",
+      "operationId": "secret.create",
+      "boundary": "response",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Set successful known-committed response output null",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_RESPONSE_OUTPUT_REQUIRED",
+        "pointer": "$.output",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "25.6"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/replay-frozen-descriptor",
+      "operationId": "secret.create",
+      "boundary": "replay",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Change current server revisions after commit; request/key/locator unchanged",
+      "expected": {
+        "outcome": "REPLAY_SAME_RECEIPT_NO_NEW_DISPATCH",
+        "diagnosticCode": "REPLAY_ORIGINAL_RECEIPT",
+        "pointer": "$.receipt.executionDescriptorDigest",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/replay-descriptor-tamper",
+      "operationId": "secret.create",
+      "boundary": "replay",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Change stored frozen descriptor while retaining original descriptor digest",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "FROZEN_EXECUTION_DESCRIPTOR_DIGEST_MISMATCH",
+        "pointer": "$.replay.executionDescriptorDigest",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/unknown-no-terminal",
+      "operationId": "secret.create",
+      "boundary": "recovery",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Original operation has UNKNOWN effect outcome and no verified reconciliation, then request successful terminal response",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_OUTCOME_NOT_KNOWN",
+        "pointer": "$.outcome",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.4"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/event-before-commit",
+      "operationId": "secret.create",
+      "boundary": "event/outbox",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Event candidate matches bytes but trusted event/outbox transaction uncommitted",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_EVENT_NOT_COMMITTED",
+        "pointer": "$.event",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.5"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/outbox-missing",
+      "operationId": "secret.create",
+      "boundary": "event/outbox",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Committed event intended for consumer has no same-transaction outbox row",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_EVENT_OUTBOX_MISSING",
+        "pointer": "$.outbox",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.5"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/duplicate-event-altered",
+      "operationId": "secret.create",
+      "boundary": "consumer/inbox",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Repeat immutable event identity/sequence with valid changed payload and recomputed candidate digest",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "EVENT_ID_DIGEST_CONFLICT",
+        "pointer": "$.event",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.5"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/duplicate-event",
+      "operationId": "secret.create",
+      "boundary": "consumer/inbox",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Deliver exact same immutable event twice under same consumer scope",
+      "expected": {
+        "outcome": "RETURN_ORIGINAL_OUTCOME_NO_SECOND_WRITE",
+        "diagnosticCode": "DUPLICATE_IGNORED",
+        "pointer": "$.event",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.5"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/gap-event",
+      "operationId": "secret.create",
+      "boundary": "consumer/inbox",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Valid ordered event sequence exceeds next expected sequence",
+      "expected": {
+        "outcome": "NO_APPLY_REQUIRE_REPLAY_OR_SNAPSHOT",
+        "diagnosticCode": "SEQUENCE_GAP",
+        "pointer": "$.event.sequence",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.5"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret.create/read-hydration-identity",
+      "operationId": "secret.create",
+      "boundary": "consumer/read",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Read-back decodes valid object but root identity differs from receipt/event root",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "CREATE_READ_IDENTITY_MISMATCH",
+        "pointer": "$.read.rootIdentity",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "25.6"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation/create-initial-state",
+      "operationId": "generation.job.create",
+      "boundary": "response/event/snapshot",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Set known committed new job state to ANALYZING instead of DISCUSSING",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "GENERATION_CREATE_INITIAL_STATE_MISMATCH",
+        "pointer": "$.snapshot.state",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "49.15"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation/source-parser-authority",
+      "operationId": "generation.job.create",
+      "boundary": "source/hydration",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Source text contains instructions; parser promotes SOURCE_ASSERTION to OWNER_DECISION solely based on embedded text",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "SOURCE_AUTHORITY_ESCALATION",
+        "pointer": "$.hydration.contentRole",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "12.7"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation/target-state-policy-missing",
+      "operationId": "generation.job.create",
+      "boundary": "admission",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Omit verified target state/revision policy evidence while referenced identity/kind remain valid",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "TARGET_STATE_POLICY_UNVERIFIED",
+        "pointer": "$.targetObjectId",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "12.3",
+        "12.41",
+        "49.18"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "generation/parent-state-policy-missing",
+      "operationId": "generation.job.create",
+      "boundary": "admission",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Omit verified exact parent relationship/state policy evidence but parent jobId remains valid",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "PARENT_JOB_POLICY_UNVERIFIED",
+        "pointer": "$.parentJobId",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "25.11",
+        "12.41"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret/version-created",
+      "operationId": "secret.create",
+      "boundary": "response/snapshot",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Change new first version lifecycle CREATED to ACTIVE without activation logical operation and atomic activation commit",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "SECRET_CREATE_VERSION_STATE_MISMATCH",
+        "pointer": "$.snapshot.version.lifecycle",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "25.6",
+        "49.22.1"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret/value-type-policy-flag",
+      "operationId": "secret.create",
+      "boundary": "admission",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "CERTIFICATE request contains arbitrary text; trusted type whitelist contains CERTIFICATE but no actual content validation proof",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "TYPE_SPECIFIC_POLICY_UNVERIFIED",
+        "pointer": "$.type",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "8.2",
+        "72.21"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret/crypto-decrypt-hydrate",
+      "operationId": "secret.create",
+      "boundary": "persist→decrypt→consume",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Swap valid authenticated encrypted value from another secret/version or use wrong associated context",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "SECRET_DECRYPT_CONTEXT_MISMATCH",
+        "pointer": "$.hydration",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "8.4",
+        "25.6"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret/fingerprint-digest",
+      "operationId": "secret.create",
+      "boundary": "persist→response",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Modify plaintext bytes without updating server computed type-specific value digest/fingerprint",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "SECRET_VALUE_DIGEST_MISMATCH",
+        "pointer": "$.snapshot.version.valueDigest",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "25.6"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "secret/binding-not-created",
+      "operationId": "secret.create",
+      "boundary": "consumer",
+      "positiveWitness": "persisted-domain-create-commit-v1",
+      "mutation": "Create request valid, consumer attempts resolve without exact active binding/context",
+      "expected": {
+        "outcome": "REJECT",
+        "diagnosticCode": "SECRET_BINDING_REQUIRED",
+        "pointer": "$.consumer.binding",
+        "codeStatus": "PROPOSED_REFERENCE_DIAGNOSTIC_UNLESS_ALREADY_DEFINED"
+      },
+      "authority": [
+        "8.7",
+        "8.8"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    }
+  ],
+  "witnessRecipe": {
+    "generation": {
+      "authenticatedOwner": "synthetic UUID trusted authentication",
+      "body": {
+        "intent": "Create fixture component",
+        "kind": "CREATE",
+        "targetKind": "PLATFORM_COMPONENT",
+        "sources": [
+          {
+            "kind": "TEXT",
+            "text": "Fixture business requirement"
+          }
+        ]
+      },
+      "persistence": "server-generated job UUID, immutable initial request/OWNER message, DISCUSSING commit snapshot, logical operation locator/frozen descriptor, audit/outbox same commit",
+      "event": "generation.job.created selected from SourceEnum044; payload exact design remains coordinator authored, not inferred from neighboring event",
+      "consumer": "same committed immutable root/source bytes and digests hydrate/read under server authority"
+    },
+    "secret": {
+      "body": {
+        "stableName": "FIXTURE_SECRET",
+        "displayName": "Fixture secret",
+        "type": "PASSWORD",
+        "value": {
+          "encoding": "UTF8",
+          "text": "  synthetic fixture value\n  "
+        }
+      },
+      "persistence": "server-generated secret UUID, immutable version #1 CREATED; exact AEAD nonce/ciphertext/key/algorithm plus server digest/fingerprint; no implicit active binding",
+      "event": "requires explicit coordinator authority; cannot infer NOT_APPLICABLE from absence of source enum",
+      "consumer": "record/version read and authorized authenticated decrypt reproduce exact plaintext bytes; runtime binding separate operation"
+    }
+  },
+  "limits": "These are proposed exact diagnostics for reference validators, not newly invented API stable error codes. Positive witness must first pass actual authored schema/commit model. Source policy absence BLOCKED rather than guessed enum. No runtime certification."
+}

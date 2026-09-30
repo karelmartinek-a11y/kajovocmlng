@@ -1,40 +1,40 @@
 {
   "evidenceKind": "DESIGN_CONTRACT_TEST",
-  "sourceSha256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
-  "currentSourceSha256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
+  "sourceSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+  "currentSourceSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
   "baseline": false,
   "baselineCommit": "7006785",
   "resourceVersions": {
     "contracts/generation/http-design.schema.json": "89e114f6a03ddbec1c9b55d56a6a213f659756068c4f4bbdfbcf61ce8e66bba4",
-    "contracts/generation/generation-contracts.schema.json": "d51aa2823977360e7c65acf958a63e712c31a9a42c2fefd53d5c3ea2ec65a235",
-    "contracts/payload-contracts.json": "0679213011bd92b81ba6a1bfb8cb71cfffaf64ec7119ca2d1304b40a2a5841ac",
+    "contracts/generation/generation-contracts.schema.json": "5cf483812abcbfd834c54537a444724d227fe36ddb1ad0604af13205b4494943",
+    "contracts/payload-contracts.json": "2eb9c91d314415e4043c46c6c98ffc0af92efc059aeaf921f7060c5068b383a6",
     "scripts/ssot/ssot_control.py": "9930b3cf116a678861c26c80b82c5d14304cf6735437346d1a406014ca261f0d",
     "contracts/generation/document-events.schema.json": "15eccaa2fe8a0a53a29e3d91a4cc639854b8d0b9d8267678f967b776d294b777"
   },
   "resourceEvidence": {
     "contracts/generation/http-design.schema.json": {
       "sha256": "89e114f6a03ddbec1c9b55d56a6a213f659756068c4f4bbdfbcf61ce8e66bba4",
-      "line": 673900,
+      "line": 674581,
       "bytes": 74324
     },
     "contracts/generation/generation-contracts.schema.json": {
-      "sha256": "d51aa2823977360e7c65acf958a63e712c31a9a42c2fefd53d5c3ea2ec65a235",
-      "line": 52876,
-      "bytes": 771009
+      "sha256": "5cf483812abcbfd834c54537a444724d227fe36ddb1ad0604af13205b4494943",
+      "line": 54012,
+      "bytes": 772266
     },
     "contracts/payload-contracts.json": {
-      "sha256": "0679213011bd92b81ba6a1bfb8cb71cfffaf64ec7119ca2d1304b40a2a5841ac",
-      "line": 438370,
-      "bytes": 32735722
+      "sha256": "2eb9c91d314415e4043c46c6c98ffc0af92efc059aeaf921f7060c5068b383a6",
+      "line": 439566,
+      "bytes": 32697269
     },
     "scripts/ssot/ssot_control.py": {
       "sha256": "9930b3cf116a678861c26c80b82c5d14304cf6735437346d1a406014ca261f0d",
-      "line": 102789,
+      "line": 103955,
       "bytes": 60850
     },
     "contracts/generation/document-events.schema.json": {
       "sha256": "15eccaa2fe8a0a53a29e3d91a4cc639854b8d0b9d8267678f967b776d294b777",
-      "line": 673885,
+      "line": 674566,
       "bytes": 4749
     }
   },
@@ -398,7 +398,7 @@
     {
       "case": "route.0234/cas/invalid/\"9223372036854775808\"",
       "passed": true,
-      "rejection": "ValidationError: '9223372036854775808' does not match '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\\\s\\\\S])'\n\nFailed validating 'pattern' in schema:\n    {'type': 'string',\n     'minLength': 1,\n     'maxLength': 19,\n     'pattern"
+      "rejection": "ValidationError: '9223372036854775808' does not match '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\\\s\\\\S])'\n\nFailed validating 'pattern' in schema:\n    {'maxLength': 19,\n     'minLength': 1,\n     'pattern': '^(?:0|[1-9][0-9]{0,"
     },
     {
       "case": "route.0234/body/server-field/executionAuthorityId",
@@ -530,7 +530,7 @@
     {
       "case": "route.0234/response/invalid/meta",
       "passed": true,
-      "rejection": "ValidationError: None is not of type 'object'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']:\n    {'type': 'object',\n     'properties': {'correlationId': {'$ref': '#/$defs/Uuid'},\n                    'logicalOperationId': {'$ref': '#/$defs/Uuid'},\n                    'commandId': {'$ref': '#/$defs/Uuid'},\n                    'stateVersion': {'$ref': '#/$defs/Counter'},\n                    'eventSequence': {'$ref': '#/$defs/Counter'},\n                    'activationEpoch': {'$ref': '#/$defs/Counter'},\n                    'resultDigest': {'$ref': '#/$defs/Digest'},\n                "
+      "rejection": "ValidationError: None is not of type 'object'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']:\n    {'additionalProperties': False,\n     'properties': {'activationEpoch': {'$ref': '#/$defs/Counter'},\n                    'commandId': {'$ref': '#/$defs/Uuid'},\n                    'correlationId': {'$ref': '#/$defs/Uuid'},\n                    'eventSequence': {'$ref': '#/$defs/Counter'},\n                    'idempotencyReplay': {'type': 'boolean'},\n                    'logicalOperationId': {'$ref': '#/$defs/Uuid'},\n                    'resultDigest': {'$ref': '#/$defs/Digest'},\n      "
     },
     {
       "case": "route.0234/response/invalid/terminal",
@@ -570,17 +570,17 @@
     {
       "case": "route.0234/meta/not-decimal-counter/stateVersion",
       "passed": true,
-      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['stateVersion']:\n    {'type': 'string',\n     'minLength': 1,\n     'maxLength': 19,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2"
+      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['stateVersion']:\n    {'maxLength': 19,\n     'minLength': 1,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-"
     },
     {
       "case": "route.0234/meta/not-decimal-counter/eventSequence",
       "passed": true,
-      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['eventSequence']:\n    {'type': 'string',\n     'minLength': 1,\n     'maxLength': 19,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{"
+      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['eventSequence']:\n    {'maxLength': 19,\n     'minLength': 1,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0"
     },
     {
       "case": "route.0234/meta/not-decimal-counter/activationEpoch",
       "passed": true,
-      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['activationEpoch']:\n    {'type': 'string',\n     'minLength': 1,\n     'maxLength': 19,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9"
+      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['activationEpoch']:\n    {'maxLength': 19,\n     'minLength': 1,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580"
     },
     {
       "case": "route.0234/receipt/persisted-required",
@@ -1977,12 +1977,12 @@
     {
       "case": "route.0232/response/invalid/output",
       "passed": true,
-      "rejection": "ValidationError: None is not of type 'object'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['output']:\n    {'type': 'object',\n     'properties': {'schemaVersion': {'const': '1.0'},\n                    'jobId': {'$ref': '#/$defs/Uuid'},\n                    'objective': {'$ref': '#/$defs/Objective'},\n                    'resultContract': {'allOf': [{'$ref': '#/$defs/ContractRecordRef'},\n                                                 {'properties': {'recordKind': {'const': 'GENERATION_RESULT'}}}]},\n                    'behavioralRequirements': {'type': 'array',\n                          "
+      "rejection": "ValidationError: None is not of type 'object'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['output']:\n    {'additionalProperties': False,\n     'properties': {'acceptanceCriteria': {'items': {'allOf': [{'$ref': '#/$defs/ContractRecordRef'},\n                                                               {'properties': {'recordKind': {'const': 'ACCEPTANCE_CRITERION'}}}]},\n                                           'maxItems': 4096,\n                                           'minItems': 1,\n                                           'type': 'array'},\n                    'agenticSecurityRequ"
     },
     {
       "case": "route.0232/response/invalid/meta",
       "passed": true,
-      "rejection": "ValidationError: None is not of type 'object'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']:\n    {'type': 'object',\n     'properties': {'correlationId': {'$ref': '#/$defs/Uuid'},\n                    'logicalOperationId': {'$ref': '#/$defs/Uuid'},\n                    'commandId': {'$ref': '#/$defs/Uuid'},\n                    'stateVersion': {'$ref': '#/$defs/Counter'},\n                    'eventSequence': {'$ref': '#/$defs/Counter'},\n                    'activationEpoch': {'$ref': '#/$defs/Counter'},\n                    'resultDigest': {'$ref': '#/$defs/Digest'},\n                "
+      "rejection": "ValidationError: None is not of type 'object'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']:\n    {'additionalProperties': False,\n     'properties': {'activationEpoch': {'$ref': '#/$defs/Counter'},\n                    'commandId': {'$ref': '#/$defs/Uuid'},\n                    'correlationId': {'$ref': '#/$defs/Uuid'},\n                    'eventSequence': {'$ref': '#/$defs/Counter'},\n                    'idempotencyReplay': {'type': 'boolean'},\n                    'logicalOperationId': {'$ref': '#/$defs/Uuid'},\n                    'resultDigest': {'$ref': '#/$defs/Digest'},\n      "
     },
     {
       "case": "route.0232/response/invalid/terminal",
@@ -2022,22 +2022,22 @@
     {
       "case": "route.0232/meta/not-decimal-counter/stateVersion",
       "passed": true,
-      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['stateVersion']:\n    {'type': 'string',\n     'minLength': 1,\n     'maxLength': 19,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2"
+      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['stateVersion']:\n    {'maxLength': 19,\n     'minLength': 1,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-"
     },
     {
       "case": "route.0232/meta/not-decimal-counter/eventSequence",
       "passed": true,
-      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['eventSequence']:\n    {'type': 'string',\n     'minLength': 1,\n     'maxLength': 19,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{"
+      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['eventSequence']:\n    {'maxLength': 19,\n     'minLength': 1,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0"
     },
     {
       "case": "route.0232/meta/not-decimal-counter/activationEpoch",
       "passed": true,
-      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['activationEpoch']:\n    {'type': 'string',\n     'minLength': 1,\n     'maxLength': 19,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9"
+      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['activationEpoch']:\n    {'maxLength': 19,\n     'minLength': 1,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580"
     },
     {
       "case": "route.0232/read/generic-slot-not-document",
       "passed": true,
-      "rejection": "ValidationError: 'schemaVersion' is a required property\n\nFailed validating 'required' in schema['allOf'][0]['then']['properties']['output']:\n    {'type': 'object',\n     'properties': {'schemaVersion': {'const': '1.0'},\n                    'jobId': {'$ref': '#/$defs/Uuid'},\n                    'objective': {'$ref': '#/$defs/Objective'},\n                    'resultContract': {'allOf': [{'$ref': '#/$defs/ContractRecordRef'},\n                                                 {'properties': {'recordKind': {'const': 'GENERATION_RESULT'}}}]},\n                    'behavioralRequirements': {'type': 'array',\n            "
+      "rejection": "ValidationError: Additional properties are not allowed ('schemaId', 'values' were unexpected)\n\nFailed validating 'additionalProperties' in schema['allOf'][0]['then']['properties']['output']:\n    {'additionalProperties': False,\n     'properties': {'acceptanceCriteria': {'items': {'allOf': [{'$ref': '#/$defs/ContractRecordRef'},\n                                                               {'properties': {'recordKind': {'const': 'ACCEPTANCE_CRITERION'}}}]},\n                                           'maxItems': 4096,\n                                           'minItems': 1,\n                                     "
     },
     {
       "case": "route.0232/read/document-and-result-digests-distinct",
@@ -3131,12 +3131,12 @@
     {
       "case": "route.0237/response/invalid/output",
       "passed": true,
-      "rejection": "ValidationError: None is not of type 'object'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['output']:\n    {'type': 'object',\n     'properties': {'schemaVersion': {'const': '1.0'},\n                    'planId': {'$ref': '#/$defs/Uuid'},\n                    'jobId': {'$ref': '#/$defs/Uuid'},\n                    'specificationDigest': {'$ref': '#/$defs/Digest'},\n                    'scopeLock': {'$ref': '#/$defs/ScopeLock'},\n                    'pathPlan': {'allOf': [{'$ref': '#/$defs/ArtifactRef'},\n                                           {'properties': {'kind': {'const': 'PATH_PLAN'}}"
+      "rejection": "ValidationError: None is not of type 'object'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['output']:\n    {'additionalProperties': False,\n     'properties': {'coverage': {'items': {'$ref': '#/$defs/RequirementCoverage'},\n                                 'maxItems': 65536,\n                                 'minItems': 1,\n                                 'type': 'array'},\n                    'jobId': {'$ref': '#/$defs/Uuid'},\n                    'nodes': {'items': {'$ref': '#/$defs/PlanNode'},\n                              'maxItems': 100000,\n                              'minItems': 1,\n "
     },
     {
       "case": "route.0237/response/invalid/meta",
       "passed": true,
-      "rejection": "ValidationError: None is not of type 'object'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']:\n    {'type': 'object',\n     'properties': {'correlationId': {'$ref': '#/$defs/Uuid'},\n                    'logicalOperationId': {'$ref': '#/$defs/Uuid'},\n                    'commandId': {'$ref': '#/$defs/Uuid'},\n                    'stateVersion': {'$ref': '#/$defs/Counter'},\n                    'eventSequence': {'$ref': '#/$defs/Counter'},\n                    'activationEpoch': {'$ref': '#/$defs/Counter'},\n                    'resultDigest': {'$ref': '#/$defs/Digest'},\n                "
+      "rejection": "ValidationError: None is not of type 'object'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']:\n    {'additionalProperties': False,\n     'properties': {'activationEpoch': {'$ref': '#/$defs/Counter'},\n                    'commandId': {'$ref': '#/$defs/Uuid'},\n                    'correlationId': {'$ref': '#/$defs/Uuid'},\n                    'eventSequence': {'$ref': '#/$defs/Counter'},\n                    'idempotencyReplay': {'type': 'boolean'},\n                    'logicalOperationId': {'$ref': '#/$defs/Uuid'},\n                    'resultDigest': {'$ref': '#/$defs/Digest'},\n      "
     },
     {
       "case": "route.0237/response/invalid/terminal",
@@ -3176,22 +3176,22 @@
     {
       "case": "route.0237/meta/not-decimal-counter/stateVersion",
       "passed": true,
-      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['stateVersion']:\n    {'type': 'string',\n     'minLength': 1,\n     'maxLength': 19,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2"
+      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['stateVersion']:\n    {'maxLength': 19,\n     'minLength': 1,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-"
     },
     {
       "case": "route.0237/meta/not-decimal-counter/eventSequence",
       "passed": true,
-      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['eventSequence']:\n    {'type': 'string',\n     'minLength': 1,\n     'maxLength': 19,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{"
+      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['eventSequence']:\n    {'maxLength': 19,\n     'minLength': 1,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0"
     },
     {
       "case": "route.0237/meta/not-decimal-counter/activationEpoch",
       "passed": true,
-      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['activationEpoch']:\n    {'type': 'string',\n     'minLength': 1,\n     'maxLength': 19,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9"
+      "rejection": "ValidationError: 8 is not of type 'string'\n\nFailed validating 'type' in schema['allOf'][0]['then']['properties']['meta']['properties']['activationEpoch']:\n    {'maxLength': 19,\n     'minLength': 1,\n     'pattern': '^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580"
     },
     {
       "case": "route.0237/read/generic-slot-not-document",
       "passed": true,
-      "rejection": "ValidationError: 'schemaVersion' is a required property\n\nFailed validating 'required' in schema['allOf'][0]['then']['properties']['output']:\n    {'type': 'object',\n     'properties': {'schemaVersion': {'const': '1.0'},\n                    'planId': {'$ref': '#/$defs/Uuid'},\n                    'jobId': {'$ref': '#/$defs/Uuid'},\n                    'specificationDigest': {'$ref': '#/$defs/Digest'},\n                    'scopeLock': {'$ref': '#/$defs/ScopeLock'},\n                    'pathPlan': {'allOf': [{'$ref': '#/$defs/ArtifactRef'},\n                                           {'properties': {'kind': {'const':"
+      "rejection": "ValidationError: Additional properties are not allowed ('schemaId', 'values' were unexpected)\n\nFailed validating 'additionalProperties' in schema['allOf'][0]['then']['properties']['output']:\n    {'additionalProperties': False,\n     'properties': {'coverage': {'items': {'$ref': '#/$defs/RequirementCoverage'},\n                                 'maxItems': 65536,\n                                 'minItems': 1,\n                                 'type': 'array'},\n                    'jobId': {'$ref': '#/$defs/Uuid'},\n                    'nodes': {'items': {'$ref': '#/$defs/PlanNode'},\n                              'm"
     },
     {
       "case": "route.0237/read/document-and-result-digests-distinct",

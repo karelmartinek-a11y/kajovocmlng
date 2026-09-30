@@ -1,0 +1,7097 @@
+{
+  "sourceDocumentSha256": "4aed522e79316417f76a55e145d00aa1a8d8a18907985f6857911e0896d044b6",
+  "scriptSha256": "488c55d8e194e601e70b75503164e27e91caef1732e74e6c81b2651a5611cad8",
+  "supportSha256": {
+    "scripts/create_completion_contracts.py": "a61dd69606d5299e22d5cc6c48a65c0f813205b1abea9fb328c07fb56a5cd8f0",
+    "scripts/create_operation_contracts.py": "f34ba13f0f13f4fb0045dfa6c09c4467e432ab865ce8e8b7c0ac55d9d28a3c67",
+    "scripts/follow_up_contracts.py": "5d9e111c32f65e74e7182fc8d104dc2931bd0fdae21d147daac196c8881c7f7d"
+  },
+  "resourceSha256": {
+    "contracts/payload-contracts.json": "2eb9c91d314415e4043c46c6c98ffc0af92efc059aeaf921f7060c5068b383a6",
+    "contracts/create-completion.json": "45558a2ca824ba1d88166df54c7530d1f9d777d8101c32e25eccc812d17e5d3e"
+  },
+  "scope": "Synthetic create completion/commit/hydration witnesses; not production runtime acceptance. Hydration tests cover frozen creation receipt bytes only; full domain/read hydration remains OPEN.",
+  "witnesses": {
+    "generation.job.create": {
+      "response": {
+        "routeId": "route.0215",
+        "operationId": "generation.job.create",
+        "logicalOperationId": "00000000-0000-4000-8000-000000000001",
+        "correlationId": "00000000-0000-4000-8000-000000000001",
+        "status": "SUCCEEDED",
+        "terminal": true,
+        "output": {
+          "jobId": "00000000-0000-4000-8000-000000000002",
+          "kind": "CREATE",
+          "state": "DISCUSSING",
+          "stateVersion": "1",
+          "initialRequestDigest": "sha256:ce8f0332b5df6ef859bc0ee405dafd1d10e429f460d3c5d4232ba2c683376080",
+          "createdAt": "2026-09-30T12:00:00Z",
+          "frozenBasis": null
+        },
+        "error": null,
+        "resultDigest": "sha256:67a0fd3dea84c1cae7b10800761762f8eed3ef18b2834fde4373f5abeddb575a",
+        "stateVersion": "1",
+        "eventSequence": "1",
+        "activationEpoch": null,
+        "idempotencyReplay": false
+      },
+      "event": {
+        "routeId": "route.0215",
+        "operationId": "generation.job.create",
+        "eventType": "generation.job.created",
+        "logicalOperationId": "00000000-0000-4000-8000-000000000001",
+        "correlationId": "00000000-0000-4000-8000-000000000001",
+        "sequence": "1",
+        "payload": {
+          "jobId": "00000000-0000-4000-8000-000000000002",
+          "kind": "CREATE",
+          "state": "DISCUSSING",
+          "stateVersion": "1",
+          "initialRequestDigest": "sha256:ce8f0332b5df6ef859bc0ee405dafd1d10e429f460d3c5d4232ba2c683376080",
+          "createdAt": "2026-09-30T12:00:00Z",
+          "frozenBasis": null
+        },
+        "payloadDigest": "sha256:309b8ac20e4290d51ff5cf5809ea321b020c487ff0ce0904a88cecb8422d2ae4",
+        "immutableEventId": "00000000-0000-4000-8000-000000000004",
+        "aggregateId": "00000000-0000-4000-8000-000000000002",
+        "occurredAt": "2026-09-30T12:00:00Z"
+      }
+    },
+    "secret.create": {
+      "response": {
+        "routeId": "route.0386",
+        "operationId": "secret.create",
+        "logicalOperationId": "00000000-0000-4000-8000-000000000001",
+        "correlationId": "00000000-0000-4000-8000-000000000001",
+        "status": "SUCCEEDED",
+        "terminal": true,
+        "output": {
+          "secretId": "00000000-0000-4000-8000-000000000002",
+          "stableName": "FIXTURE_SECRET",
+          "type": "PASSWORD",
+          "versionId": "00000000-0000-4000-8000-000000000003",
+          "versionNumber": "1",
+          "versionState": "CREATED",
+          "activeVersionId": null,
+          "stateVersion": "1",
+          "createdAt": "2026-09-30T12:00:00Z"
+        },
+        "error": null,
+        "resultDigest": "sha256:66901c4be4f98e94b76f0215617de630762debf07887b4b0d576ea20716250ce",
+        "stateVersion": "1",
+        "eventSequence": "1",
+        "activationEpoch": null,
+        "idempotencyReplay": false
+      },
+      "event": {
+        "routeId": "route.0386",
+        "operationId": "secret.create",
+        "eventType": "OPERATION_TERMINAL",
+        "logicalOperationId": "00000000-0000-4000-8000-000000000001",
+        "correlationId": "00000000-0000-4000-8000-000000000001",
+        "sequence": "1",
+        "payload": {
+          "secretId": "00000000-0000-4000-8000-000000000002",
+          "stableName": "FIXTURE_SECRET",
+          "type": "PASSWORD",
+          "versionId": "00000000-0000-4000-8000-000000000003",
+          "versionNumber": "1",
+          "versionState": "CREATED",
+          "activeVersionId": null,
+          "stateVersion": "1",
+          "createdAt": "2026-09-30T12:00:00Z"
+        },
+        "payloadDigest": "sha256:9624c0a9191ea5d68eff2a6738d6f7e0d5d2ad6a4b03c785224e3fb88b1154ba",
+        "immutableEventId": "00000000-0000-4000-8000-000000000004",
+        "aggregateId": "00000000-0000-4000-8000-000000000002",
+        "occurredAt": "2026-09-30T12:00:00Z"
+      }
+    }
+  },
+  "checked": 439,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "generation.job.create/response/positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/event/positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/event/explicit-applicability",
+      "passed": true,
+      "actual": "AGGREGATE_STREAM",
+      "expected": "AGGREGATE_STREAM"
+    },
+    {
+      "case": "generation.job.create/response/missing/routeId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/routeId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/routeId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/null/routeId",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/routeId",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/routeId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/missing/operationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/operationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/operationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/null/operationId",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/operationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/operationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/missing/logicalOperationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/logicalOperationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/logicalOperationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/null/logicalOperationId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/logicalOperationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/logicalOperationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/missing/correlationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/correlationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/correlationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/null/correlationId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/correlationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/correlationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/missing/status",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/status",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/status"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/null/status",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/status",
+      "actualDiagnostics": [
+        {
+          "keyword": "enum",
+          "pointer": "/status"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/status"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/missing/terminal",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/terminal",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/terminal"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/null/terminal",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/terminal",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/terminal"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/missing/output",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/null/output",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/missing/error",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/status"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/missing/resultDigest",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/resultDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/resultDigest"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/null/resultDigest",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/resultDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/resultDigest"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/missing/stateVersion",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/null/stateVersion",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/missing/eventSequence",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/eventSequence",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/eventSequence"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/null/eventSequence",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/eventSequence",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/eventSequence"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/missing/activationEpoch",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/activationEpoch",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/activationEpoch"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/missing/idempotencyReplay",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/idempotencyReplay",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/idempotencyReplay"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/null/idempotencyReplay",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/idempotencyReplay",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/idempotencyReplay"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/extra",
+      "passed": true,
+      "expectedKeyword": "additionalProperties",
+      "expectedPointer": "/modelReceipt",
+      "actualDiagnostics": [
+        {
+          "keyword": "additionalProperties",
+          "pointer": "/modelReceipt"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/receipt-missing/jobId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output/jobId",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/jobId"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/receipt-null/jobId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output/jobId",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/jobId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/receipt-missing/kind",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output/kind",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output/frozenBasis"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/kind"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/frozenBasis"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/receipt-null/kind",
+      "passed": true,
+      "expectedKeyword": "enum",
+      "expectedPointer": "/output/kind",
+      "actualDiagnostics": [
+        {
+          "keyword": "enum",
+          "pointer": "/output/kind"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/receipt-missing/state",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output/state",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/state"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/receipt-null/state",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/output/state",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/output/state"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/receipt-missing/stateVersion",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/stateVersion"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/receipt-null/stateVersion",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/receipt-missing/initialRequestDigest",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output/initialRequestDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/initialRequestDigest"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/receipt-null/initialRequestDigest",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output/initialRequestDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/initialRequestDigest"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/receipt-missing/createdAt",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output/createdAt",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/createdAt"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/receipt-null/createdAt",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output/createdAt",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/createdAt"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/receipt-missing/frozenBasis",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output/frozenBasis",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/frozenBasis"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/receipt-extra",
+      "passed": true,
+      "expectedKeyword": "additionalProperties",
+      "expectedPointer": "/output/authorityId",
+      "actualDiagnostics": [
+        {
+          "keyword": "additionalProperties",
+          "pointer": "/output/authorityId"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/counter/stateVersion/01",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/output/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "pattern",
+          "pointer": "/output/stateVersion"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/counter/stateVersion/9223372036854775808",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/output/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "pattern",
+          "pointer": "/output/stateVersion"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/counter/stateVersion/1",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/uuid/jobId",
+      "passed": true,
+      "expectedKeyword": "format",
+      "expectedPointer": "/output/jobId",
+      "actualDiagnostics": [
+        {
+          "keyword": "format",
+          "pointer": "/output/jobId"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/timestamp",
+      "passed": true,
+      "expectedKeyword": "format",
+      "expectedPointer": "/output/createdAt",
+      "actualDiagnostics": [
+        {
+          "keyword": "format",
+          "pointer": "/output/createdAt"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/missing/routeId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/routeId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/routeId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/null/routeId",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/routeId",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/routeId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/missing/operationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/operationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/operationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/null/operationId",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/operationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/operationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/missing/eventType",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/eventType",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/eventType"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/null/eventType",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/eventType",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/eventType"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/missing/logicalOperationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/logicalOperationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/logicalOperationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/null/logicalOperationId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/logicalOperationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/logicalOperationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/missing/correlationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/correlationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/correlationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/null/correlationId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/correlationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/correlationId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/missing/sequence",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/sequence",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/sequence"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/null/sequence",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/sequence",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/sequence"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/missing/payload",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/null/payload",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payload"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/missing/payloadDigest",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payloadDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payloadDigest"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/null/payloadDigest",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payloadDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payloadDigest"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/missing/immutableEventId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/immutableEventId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/immutableEventId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/null/immutableEventId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/immutableEventId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/immutableEventId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/missing/aggregateId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/aggregateId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/aggregateId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/null/aggregateId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/aggregateId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/aggregateId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/missing/occurredAt",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/occurredAt",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/occurredAt"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/null/occurredAt",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/occurredAt",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/occurredAt"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/extra",
+      "passed": true,
+      "expectedKeyword": "additionalProperties",
+      "expectedPointer": "/modelReceipt",
+      "actualDiagnostics": [
+        {
+          "keyword": "additionalProperties",
+          "pointer": "/modelReceipt"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/receipt-missing/jobId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload/jobId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload/jobId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/receipt-null/jobId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/jobId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payload/jobId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/receipt-missing/kind",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload/kind",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/payload/frozenBasis"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/payload/kind"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/payload/frozenBasis"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/receipt-null/kind",
+      "passed": true,
+      "expectedKeyword": "enum",
+      "expectedPointer": "/payload/kind",
+      "actualDiagnostics": [
+        {
+          "keyword": "enum",
+          "pointer": "/payload/kind"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/receipt-missing/state",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload/state",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload/state"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/receipt-null/state",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/payload/state",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/payload/state"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/receipt-missing/stateVersion",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/receipt-null/stateVersion",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payload/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/receipt-missing/initialRequestDigest",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload/initialRequestDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload/initialRequestDigest"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/receipt-null/initialRequestDigest",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/initialRequestDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payload/initialRequestDigest"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/receipt-missing/createdAt",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload/createdAt",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload/createdAt"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/receipt-null/createdAt",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/createdAt",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payload/createdAt"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/receipt-missing/frozenBasis",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload/frozenBasis",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload/frozenBasis"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/receipt-extra",
+      "passed": true,
+      "expectedKeyword": "additionalProperties",
+      "expectedPointer": "/payload/authorityId",
+      "actualDiagnostics": [
+        {
+          "keyword": "additionalProperties",
+          "pointer": "/payload/authorityId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/counter/stateVersion/01",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/payload/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "pattern",
+          "pointer": "/payload/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/counter/stateVersion/9223372036854775808",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/payload/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "pattern",
+          "pointer": "/payload/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/counter/stateVersion/1",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payload/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/uuid/jobId",
+      "passed": true,
+      "expectedKeyword": "format",
+      "expectedPointer": "/payload/jobId",
+      "actualDiagnostics": [
+        {
+          "keyword": "format",
+          "pointer": "/payload/jobId"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/timestamp",
+      "passed": true,
+      "expectedKeyword": "format",
+      "expectedPointer": "/payload/createdAt",
+      "actualDiagnostics": [
+        {
+          "keyword": "format",
+          "pointer": "/payload/createdAt"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/success-null-output",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/success-nonterminal",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/terminal",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/accepted-positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/accepted-terminal",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/terminal",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/CREATE_CANCELLED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/CREATE_CANCELLED/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/CREATE_CANCELLED/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/CREATE_INPUT_INVALID",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/CREATE_INPUT_INVALID/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/CREATE_INPUT_INVALID/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/CREATE_AUTHENTICATION_REQUIRED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/CREATE_AUTHENTICATION_REQUIRED/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/CREATE_AUTHENTICATION_REQUIRED/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/CREATE_REFERENCE_INVALID",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/CREATE_REFERENCE_INVALID/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/CREATE_REFERENCE_INVALID/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/CREATE_POLICY_UNRESOLVED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/CREATE_POLICY_UNRESOLVED/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/CREATE_POLICY_UNRESOLVED/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/CREATE_RECOVERY_BARRIER",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/CREATE_RECOVERY_BARRIER/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/CREATE_RECOVERY_BARRIER/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/IDEMPOTENCY_CONFLICT",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/IDEMPOTENCY_CONFLICT/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/IDEMPOTENCY_CONFLICT/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/CREATE_PERSISTENCE_FAILED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/CREATE_PERSISTENCE_FAILED/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/CREATE_PERSISTENCE_FAILED/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/retryable-attempt-not-terminal",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/terminal",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/SIDE_EFFECT_OUTCOME_UNKNOWN",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/SIDE_EFFECT_OUTCOME_UNKNOWN/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/SIDE_EFFECT_OUTCOME_UNKNOWN/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/unknown-terminal",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/terminal",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_BYTES_UNAVAILABLE/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_BYTES_UNAVAILABLE/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_BASIS_DIGEST_CONFLICT",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_DIGEST_CONFLICT/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_DIGEST_CONFLICT/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_IDENTITY_MISMATCH/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_IDENTITY_MISMATCH/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_BASIS_INCONSISTENT",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_INCONSISTENT/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_INCONSISTENT/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_BASIS_INSUFFICIENT",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_INSUFFICIENT/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_INSUFFICIENT/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_BASIS_INVALID",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_INVALID/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_INVALID/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_NOT_IMMUTABLE/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_NOT_IMMUTABLE/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_BASIS_UNAVAILABLE",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_UNAVAILABLE/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_BASIS_UNAVAILABLE/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_FROZEN_IDENTITY_MISMATCH",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_FROZEN_IDENTITY_MISMATCH/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_FROZEN_IDENTITY_MISMATCH/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_KIND_REQUIRED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_KIND_REQUIRED/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_KIND_REQUIRED/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_PARENT_REQUIRED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_PARENT_REQUIRED/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_PARENT_REQUIRED/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_SOURCE_OWNER_MISMATCH/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_SOURCE_OWNER_MISMATCH/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-positive/FOLLOW_UP_SOURCE_STATE_INVALID",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_SOURCE_STATE_INVALID/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-contradiction/FOLLOW_UP_SOURCE_STATE_INVALID/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-fields/positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/error-fields/missing/stableCode",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/stableCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/status"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-fields/null/stableCode",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error/stableCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "enum",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error/stableCode"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-fields/missing/classification",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-fields/null/classification",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error/classification"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-fields/missing/retryDirective",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-fields/null/retryDirective",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error/retryDirective"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-fields/missing/message",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/message",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/error/message"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-fields/null/message",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error/message",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error/message"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-fields/missing/detailsDigest",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/detailsDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/error/detailsDigest"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-fields/extra",
+      "passed": true,
+      "expectedKeyword": "additionalProperties",
+      "expectedPointer": "/error/httpStatus",
+      "actualDiagnostics": [
+        {
+          "keyword": "additionalProperties",
+          "pointer": "/error/httpStatus"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-fields/unknown-code",
+      "passed": true,
+      "expectedKeyword": "enum",
+      "expectedPointer": "/error/stableCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "enum",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/error-fields/noncanonical-digest",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/error/detailsDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error/detailsDigest"
+        },
+        {
+          "keyword": "pattern",
+          "pointer": "/error/detailsDigest"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error/detailsDigest"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/failure-null-error",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/cancel-wrong-code",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/stableCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/cancel-error-requires-cancel-status",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/status",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/status"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/reject-secret-only-error",
+      "passed": true,
+      "expectedKeyword": "enum",
+      "expectedPointer": "/error/stableCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "enum",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/digest-no-trailing-newline/resultDigest",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/resultDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "pattern",
+          "pointer": "/resultDigest"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/digest-no-trailing-newline/payloadDigest",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/payloadDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "pattern",
+          "pointer": "/payloadDigest"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event-sequence-positive",
+      "passed": true,
+      "expectedKeyword": "not",
+      "expectedPointer": "/sequence",
+      "actualDiagnostics": [
+        {
+          "keyword": "not",
+          "pointer": "/sequence"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/create-not-job-completed",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/payload/state",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/payload/state"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/follow-up-cannot-omit-basis",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output/frozenBasis",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output/frozenBasis"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/frozenBasis"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/response/create-cannot-assert-follow-up-basis",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output/frozenBasis",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output/frozenBasis"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/frozenBasis/artifactId"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/frozenBasis/basisKind"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/frozenBasis/contentDigest"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/frozenBasis/lineageDigest"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/frozenBasis/publicationReceiptId"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/frozenBasis/revisionId"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/frozenBasis/snapshotId"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/frozenBasis/sourceJobId"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/frozenBasis"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/follow-up-cannot-omit-basis",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/frozenBasis",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/payload/frozenBasis"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/payload/frozenBasis"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/event/create-cannot-assert-follow-up-basis",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/frozenBasis",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/payload/frozenBasis"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/payload/frozenBasis/artifactId"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/payload/frozenBasis/basisKind"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/payload/frozenBasis/contentDigest"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/payload/frozenBasis/lineageDigest"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/payload/frozenBasis/publicationReceiptId"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/payload/frozenBasis/revisionId"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/payload/frozenBasis/snapshotId"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/payload/frozenBasis/sourceJobId"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/payload/frozenBasis"
+        }
+      ]
+    },
+    {
+      "case": "generation.job.create/hydration-positive",
+      "passed": true,
+      "actual": {
+        "jobId": "00000000-0000-4000-8000-000000000002"
+      },
+      "expected": {
+        "jobId": "00000000-0000-4000-8000-000000000002"
+      }
+    },
+    {
+      "case": "generation.job.create/relations/uncommitted/False",
+      "passed": true,
+      "expectedCode": "COMMIT_NOT_VERIFIED",
+      "actualCode": "COMMIT_NOT_VERIFIED",
+      "expectedPointer": "/commit",
+      "actualPointer": "/commit"
+    },
+    {
+      "case": "generation.job.create/relations/uncommitted/None",
+      "passed": true,
+      "expectedCode": "COMMIT_NOT_VERIFIED",
+      "actualCode": "COMMIT_NOT_VERIFIED",
+      "expectedPointer": "/commit",
+      "actualPointer": "/commit"
+    },
+    {
+      "case": "generation.job.create/relations/bad-result-digest",
+      "passed": true,
+      "expectedCode": "RESULT_DIGEST_MISMATCH",
+      "actualCode": "RESULT_DIGEST_MISMATCH",
+      "expectedPointer": "/response/resultDigest",
+      "actualPointer": "/response/resultDigest"
+    },
+    {
+      "case": "generation.job.create/relations/state-version",
+      "passed": true,
+      "expectedCode": "RESPONSE_STATE_VERSION_MISMATCH",
+      "actualCode": "RESPONSE_STATE_VERSION_MISMATCH",
+      "expectedPointer": "/response/stateVersion",
+      "actualPointer": "/response/stateVersion"
+    },
+    {
+      "case": "generation.job.create/relations/activation",
+      "passed": true,
+      "expectedCode": "CREATE_ACTIVATION_FORBIDDEN",
+      "actualCode": "CREATE_ACTIVATION_FORBIDDEN",
+      "expectedPointer": "/response/activationEpoch",
+      "actualPointer": "/response/activationEpoch"
+    },
+    {
+      "case": "generation.job.create/relations/sequence",
+      "passed": true,
+      "expectedCode": "EVENT_SEQUENCE_MISMATCH",
+      "actualCode": "EVENT_SEQUENCE_MISMATCH",
+      "expectedPointer": "/event/sequence",
+      "actualPointer": "/event/sequence"
+    },
+    {
+      "case": "generation.job.create/relations/aggregate-id",
+      "passed": true,
+      "expectedCode": "EVENT_AGGREGATE_ID_MISMATCH",
+      "actualCode": "EVENT_AGGREGATE_ID_MISMATCH",
+      "expectedPointer": "/event/aggregateId",
+      "actualPointer": "/event/aggregateId"
+    },
+    {
+      "case": "generation.job.create/relations/logical-id",
+      "passed": true,
+      "expectedCode": "EVENT_OPERATION_CONTEXT_MISMATCH",
+      "actualCode": "EVENT_OPERATION_CONTEXT_MISMATCH",
+      "expectedPointer": "/event/logicalOperationId",
+      "actualPointer": "/event/logicalOperationId"
+    },
+    {
+      "case": "generation.job.create/relations/correlation-id",
+      "passed": true,
+      "expectedCode": "EVENT_OPERATION_CONTEXT_MISMATCH",
+      "actualCode": "EVENT_OPERATION_CONTEXT_MISMATCH",
+      "expectedPointer": "/event/correlationId",
+      "actualPointer": "/event/correlationId"
+    },
+    {
+      "case": "generation.job.create/relations/payload-digest",
+      "passed": true,
+      "expectedCode": "EVENT_PAYLOAD_DIGEST_MISMATCH",
+      "actualCode": "EVENT_PAYLOAD_DIGEST_MISMATCH",
+      "expectedPointer": "/event/payloadDigest",
+      "actualPointer": "/event/payloadDigest"
+    },
+    {
+      "case": "generation.job.create/relations/payload-receipt",
+      "passed": true,
+      "expectedCode": "EVENT_PAYLOAD_RECEIPT_MISMATCH",
+      "actualCode": "EVENT_PAYLOAD_RECEIPT_MISMATCH",
+      "expectedPointer": "/event/payload",
+      "actualPointer": "/event/payload"
+    },
+    {
+      "case": "generation.job.create/relations/persisted-missing/None",
+      "passed": true,
+      "expectedCode": "PERSISTED_COMPLETION_UNAVAILABLE",
+      "actualCode": "PERSISTED_COMPLETION_UNAVAILABLE",
+      "expectedPointer": "/persisted",
+      "actualPointer": "/persisted"
+    },
+    {
+      "case": "generation.job.create/relations/persisted-missing/0",
+      "passed": true,
+      "expectedCode": "PERSISTED_COMPLETION_UNAVAILABLE",
+      "actualCode": "PERSISTED_COMPLETION_UNAVAILABLE",
+      "expectedPointer": "/persisted",
+      "actualPointer": "/persisted"
+    },
+    {
+      "case": "generation.job.create/relations/persisted-missing/1",
+      "passed": true,
+      "expectedCode": "PERSISTED_COMPLETION_UNAVAILABLE",
+      "actualCode": "PERSISTED_COMPLETION_UNAVAILABLE",
+      "expectedPointer": "/persisted",
+      "actualPointer": "/persisted"
+    },
+    {
+      "case": "generation.job.create/relations/persisted-response",
+      "passed": true,
+      "expectedCode": "PERSISTED_RESPONSE_MISMATCH",
+      "actualCode": "PERSISTED_RESPONSE_MISMATCH",
+      "expectedPointer": "/persisted/response",
+      "actualPointer": "/persisted/response"
+    },
+    {
+      "case": "generation.job.create/relations/persisted-event",
+      "passed": true,
+      "expectedCode": "PERSISTED_EVENT_MISMATCH",
+      "actualCode": "PERSISTED_EVENT_MISMATCH",
+      "expectedPointer": "/persisted/event",
+      "actualPointer": "/persisted/event"
+    },
+    {
+      "case": "generation.job.create/relations/hydration-bytes/NoneType",
+      "passed": true,
+      "expectedCode": "HYDRATION_BYTES_UNAVAILABLE",
+      "actualCode": "HYDRATION_BYTES_UNAVAILABLE",
+      "expectedPointer": "/hydrated/bytes",
+      "actualPointer": "/hydrated/bytes"
+    },
+    {
+      "case": "generation.job.create/relations/hydration-bytes/dict",
+      "passed": true,
+      "expectedCode": "HYDRATION_BYTES_UNAVAILABLE",
+      "actualCode": "HYDRATION_BYTES_UNAVAILABLE",
+      "expectedPointer": "/hydrated/bytes",
+      "actualPointer": "/hydrated/bytes"
+    },
+    {
+      "case": "generation.job.create/relations/hydration-bytes/dict",
+      "passed": true,
+      "expectedCode": "HYDRATION_BYTES_UNAVAILABLE",
+      "actualCode": "HYDRATION_BYTES_UNAVAILABLE",
+      "expectedPointer": "/hydrated/bytes",
+      "actualPointer": "/hydrated/bytes"
+    },
+    {
+      "case": "generation.job.create/relations/hydration-digest-missing",
+      "passed": true,
+      "expectedCode": "HYDRATION_DIGEST_UNAVAILABLE",
+      "actualCode": "HYDRATION_DIGEST_UNAVAILABLE",
+      "expectedPointer": "/hydrated/contentDigest",
+      "actualPointer": "/hydrated/contentDigest"
+    },
+    {
+      "case": "generation.job.create/relations/hydration-digest-mismatch",
+      "passed": true,
+      "expectedCode": "HYDRATION_CONTENT_DIGEST_MISMATCH",
+      "actualCode": "HYDRATION_CONTENT_DIGEST_MISMATCH",
+      "expectedPointer": "/hydrated/contentDigest",
+      "actualPointer": "/hydrated/contentDigest"
+    },
+    {
+      "case": "generation.job.create/relations/hydration-valid-other-receipt",
+      "passed": true,
+      "expectedCode": "HYDRATION_RECEIPT_MISMATCH",
+      "actualCode": "HYDRATION_RECEIPT_MISMATCH",
+      "expectedPointer": "/hydrated/bytes",
+      "actualPointer": "/hydrated/bytes"
+    },
+    {
+      "case": "generation.job.create/relations/hydration-invalid-json",
+      "passed": true,
+      "expectedCode": "HYDRATION_INVALID_JSON",
+      "actualCode": "HYDRATION_INVALID_JSON",
+      "expectedPointer": "/hydrated/bytes",
+      "actualPointer": "/hydrated/bytes"
+    },
+    {
+      "case": "generation.job.create/relations/hydration-duplicate-json-key",
+      "passed": true,
+      "expectedCode": "HYDRATION_DUPLICATE_JSON_KEY",
+      "actualCode": "HYDRATION_DUPLICATE_JSON_KEY",
+      "expectedPointer": "/hydrated/bytes",
+      "actualPointer": "/hydrated/bytes"
+    },
+    {
+      "case": "generation.job.create/relations/hydration-invalid-utf8",
+      "passed": true,
+      "expectedCode": "HYDRATION_INVALID_UTF8",
+      "actualCode": "HYDRATION_INVALID_UTF8",
+      "expectedPointer": "/hydrated/bytes",
+      "actualPointer": "/hydrated/bytes"
+    },
+    {
+      "case": "generation.job.create/relations/replay-marker-preserves-frozen-selector",
+      "passed": true,
+      "actual": {
+        "jobId": "00000000-0000-4000-8000-000000000002"
+      },
+      "expected": {
+        "jobId": "00000000-0000-4000-8000-000000000002"
+      }
+    },
+    {
+      "case": "generation.job.create/relations/unknown-no-new-create",
+      "passed": true,
+      "actual": {
+        "action": "RECONCILE_ORIGINAL_OPERATION"
+      },
+      "expected": {
+        "action": "RECONCILE_ORIGINAL_OPERATION"
+      }
+    },
+    {
+      "case": "generation.job.create/relations/unknown-forbids-event",
+      "passed": true,
+      "expectedCode": "UNCOMMITTED_CREATE_EVENT",
+      "actualCode": "UNCOMMITTED_CREATE_EVENT",
+      "expectedPointer": "/event",
+      "actualPointer": "/event"
+    },
+    {
+      "case": "secret.create/response/positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/event/positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/event/explicit-applicability",
+      "passed": true,
+      "actual": "AGGREGATE_STREAM",
+      "expected": "AGGREGATE_STREAM"
+    },
+    {
+      "case": "secret.create/response/missing/routeId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/routeId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/routeId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/null/routeId",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/routeId",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/routeId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/missing/operationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/operationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/operationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/null/operationId",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/operationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/operationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/missing/logicalOperationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/logicalOperationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/logicalOperationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/null/logicalOperationId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/logicalOperationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/logicalOperationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/missing/correlationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/correlationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/correlationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/null/correlationId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/correlationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/correlationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/missing/status",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/status",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/status"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/null/status",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/status",
+      "actualDiagnostics": [
+        {
+          "keyword": "enum",
+          "pointer": "/status"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/status"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/missing/terminal",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/terminal",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/terminal"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/null/terminal",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/terminal",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/terminal"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/missing/output",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/null/output",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/missing/error",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/status"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/missing/resultDigest",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/resultDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/resultDigest"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/null/resultDigest",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/resultDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/resultDigest"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/missing/stateVersion",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/null/stateVersion",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/missing/eventSequence",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/eventSequence",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/eventSequence"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/null/eventSequence",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/eventSequence",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/eventSequence"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/missing/activationEpoch",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/activationEpoch",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/activationEpoch"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/missing/idempotencyReplay",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/idempotencyReplay",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/idempotencyReplay"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/null/idempotencyReplay",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/idempotencyReplay",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/idempotencyReplay"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/extra",
+      "passed": true,
+      "expectedKeyword": "additionalProperties",
+      "expectedPointer": "/modelReceipt",
+      "actualDiagnostics": [
+        {
+          "keyword": "additionalProperties",
+          "pointer": "/modelReceipt"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-missing/secretId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output/secretId",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/secretId"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-null/secretId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output/secretId",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/secretId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-missing/stableName",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output/stableName",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/stableName"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-null/stableName",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output/stableName",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/stableName"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-missing/type",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output/type",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/type"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-null/type",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output/type",
+      "actualDiagnostics": [
+        {
+          "keyword": "enum",
+          "pointer": "/output/type"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/type"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-missing/versionId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output/versionId",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/versionId"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-null/versionId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output/versionId",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/versionId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-missing/versionNumber",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output/versionNumber",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/versionNumber"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-null/versionNumber",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output/versionNumber",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/versionNumber"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-missing/versionState",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output/versionState",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/versionState"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-null/versionState",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/output/versionState",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/output/versionState"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-missing/activeVersionId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output/activeVersionId",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/activeVersionId"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-missing/stateVersion",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/stateVersion"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-null/stateVersion",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-missing/createdAt",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output/createdAt",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/createdAt"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-null/createdAt",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output/createdAt",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/createdAt"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-extra",
+      "passed": true,
+      "expectedKeyword": "additionalProperties",
+      "expectedPointer": "/output/authorityId",
+      "actualDiagnostics": [
+        {
+          "keyword": "additionalProperties",
+          "pointer": "/output/authorityId"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/counter/stateVersion/01",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/output/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "pattern",
+          "pointer": "/output/stateVersion"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/counter/stateVersion/9223372036854775808",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/output/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "pattern",
+          "pointer": "/output/stateVersion"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/counter/stateVersion/1",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/counter/versionNumber/01",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/output/versionNumber",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "pattern",
+          "pointer": "/output/versionNumber"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/counter/versionNumber/9223372036854775808",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/output/versionNumber",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "pattern",
+          "pointer": "/output/versionNumber"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/counter/versionNumber/1",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output/versionNumber",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/versionNumber"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/uuid/secretId",
+      "passed": true,
+      "expectedKeyword": "format",
+      "expectedPointer": "/output/secretId",
+      "actualDiagnostics": [
+        {
+          "keyword": "format",
+          "pointer": "/output/secretId"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/uuid/versionId",
+      "passed": true,
+      "expectedKeyword": "format",
+      "expectedPointer": "/output/versionId",
+      "actualDiagnostics": [
+        {
+          "keyword": "format",
+          "pointer": "/output/versionId"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/timestamp",
+      "passed": true,
+      "expectedKeyword": "format",
+      "expectedPointer": "/output/createdAt",
+      "actualDiagnostics": [
+        {
+          "keyword": "format",
+          "pointer": "/output/createdAt"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/missing/routeId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/routeId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/routeId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/null/routeId",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/routeId",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/routeId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/missing/operationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/operationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/operationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/null/operationId",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/operationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/operationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/missing/eventType",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/eventType",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/eventType"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/null/eventType",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/eventType",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/eventType"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/missing/logicalOperationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/logicalOperationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/logicalOperationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/null/logicalOperationId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/logicalOperationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/logicalOperationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/missing/correlationId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/correlationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/correlationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/null/correlationId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/correlationId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/correlationId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/missing/sequence",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/sequence",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/sequence"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/null/sequence",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/sequence",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/sequence"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/missing/payload",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/null/payload",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payload"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/missing/payloadDigest",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payloadDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payloadDigest"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/null/payloadDigest",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payloadDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payloadDigest"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/missing/immutableEventId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/immutableEventId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/immutableEventId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/null/immutableEventId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/immutableEventId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/immutableEventId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/missing/aggregateId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/aggregateId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/aggregateId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/null/aggregateId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/aggregateId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/aggregateId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/missing/occurredAt",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/occurredAt",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/occurredAt"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/null/occurredAt",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/occurredAt",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/occurredAt"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/extra",
+      "passed": true,
+      "expectedKeyword": "additionalProperties",
+      "expectedPointer": "/modelReceipt",
+      "actualDiagnostics": [
+        {
+          "keyword": "additionalProperties",
+          "pointer": "/modelReceipt"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-missing/secretId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload/secretId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload/secretId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-null/secretId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/secretId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payload/secretId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-missing/stableName",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload/stableName",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload/stableName"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-null/stableName",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/stableName",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payload/stableName"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-missing/type",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload/type",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload/type"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-null/type",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/type",
+      "actualDiagnostics": [
+        {
+          "keyword": "enum",
+          "pointer": "/payload/type"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/payload/type"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-missing/versionId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload/versionId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload/versionId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-null/versionId",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/versionId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payload/versionId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-missing/versionNumber",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload/versionNumber",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload/versionNumber"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-null/versionNumber",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/versionNumber",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payload/versionNumber"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-missing/versionState",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload/versionState",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload/versionState"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-null/versionState",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/payload/versionState",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/payload/versionState"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-missing/activeVersionId",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload/activeVersionId",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload/activeVersionId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-missing/stateVersion",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-null/stateVersion",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payload/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-missing/createdAt",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload/createdAt",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload/createdAt"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-null/createdAt",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/createdAt",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payload/createdAt"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-extra",
+      "passed": true,
+      "expectedKeyword": "additionalProperties",
+      "expectedPointer": "/payload/authorityId",
+      "actualDiagnostics": [
+        {
+          "keyword": "additionalProperties",
+          "pointer": "/payload/authorityId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/counter/stateVersion/01",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/payload/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "pattern",
+          "pointer": "/payload/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/counter/stateVersion/9223372036854775808",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/payload/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "pattern",
+          "pointer": "/payload/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/counter/stateVersion/1",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/stateVersion",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payload/stateVersion"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/counter/versionNumber/01",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/payload/versionNumber",
+      "actualDiagnostics": [
+        {
+          "keyword": "pattern",
+          "pointer": "/payload/versionNumber"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/counter/versionNumber/9223372036854775808",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/payload/versionNumber",
+      "actualDiagnostics": [
+        {
+          "keyword": "pattern",
+          "pointer": "/payload/versionNumber"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/counter/versionNumber/1",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/versionNumber",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payload/versionNumber"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/uuid/secretId",
+      "passed": true,
+      "expectedKeyword": "format",
+      "expectedPointer": "/payload/secretId",
+      "actualDiagnostics": [
+        {
+          "keyword": "format",
+          "pointer": "/payload/secretId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/uuid/versionId",
+      "passed": true,
+      "expectedKeyword": "format",
+      "expectedPointer": "/payload/versionId",
+      "actualDiagnostics": [
+        {
+          "keyword": "format",
+          "pointer": "/payload/versionId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/timestamp",
+      "passed": true,
+      "expectedKeyword": "format",
+      "expectedPointer": "/payload/createdAt",
+      "actualDiagnostics": [
+        {
+          "keyword": "format",
+          "pointer": "/payload/createdAt"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/success-null-output",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/success-nonterminal",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/terminal",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/accepted-positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/accepted-terminal",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/terminal",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-positive/CREATE_CANCELLED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/error-contradiction/CREATE_CANCELLED/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-contradiction/CREATE_CANCELLED/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-positive/CREATE_INPUT_INVALID",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/error-contradiction/CREATE_INPUT_INVALID/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-contradiction/CREATE_INPUT_INVALID/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-positive/CREATE_AUTHENTICATION_REQUIRED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/error-contradiction/CREATE_AUTHENTICATION_REQUIRED/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-contradiction/CREATE_AUTHENTICATION_REQUIRED/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-positive/CREATE_REFERENCE_INVALID",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/error-contradiction/CREATE_REFERENCE_INVALID/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-contradiction/CREATE_REFERENCE_INVALID/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-positive/CREATE_POLICY_UNRESOLVED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/error-contradiction/CREATE_POLICY_UNRESOLVED/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-contradiction/CREATE_POLICY_UNRESOLVED/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-positive/CREATE_RECOVERY_BARRIER",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/error-contradiction/CREATE_RECOVERY_BARRIER/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-contradiction/CREATE_RECOVERY_BARRIER/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-positive/CREATE_STABLE_NAME_CONFLICT",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/error-contradiction/CREATE_STABLE_NAME_CONFLICT/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-contradiction/CREATE_STABLE_NAME_CONFLICT/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-positive/IDEMPOTENCY_CONFLICT",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/error-contradiction/IDEMPOTENCY_CONFLICT/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-contradiction/IDEMPOTENCY_CONFLICT/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-positive/CREATE_PERSISTENCE_FAILED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/error-contradiction/CREATE_PERSISTENCE_FAILED/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-contradiction/CREATE_PERSISTENCE_FAILED/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/retryable-attempt-not-terminal",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/terminal",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-positive/SIDE_EFFECT_OUTCOME_UNKNOWN",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/error-contradiction/SIDE_EFFECT_OUTCOME_UNKNOWN/classification",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-contradiction/SIDE_EFFECT_OUTCOME_UNKNOWN/retryDirective",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/unknown-terminal",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/terminal",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-fields/positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/error-fields/missing/stableCode",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/stableCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/status"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-fields/null/stableCode",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error/stableCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "enum",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error/stableCode"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-fields/missing/classification",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-fields/null/classification",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error/classification",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error/classification"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-fields/missing/retryDirective",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/terminal"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-fields/null/retryDirective",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error/retryDirective",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error/retryDirective"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-fields/missing/message",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/message",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/error/message"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-fields/null/message",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error/message",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error/message"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-fields/missing/detailsDigest",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/error/detailsDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/error/detailsDigest"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-fields/extra",
+      "passed": true,
+      "expectedKeyword": "additionalProperties",
+      "expectedPointer": "/error/httpStatus",
+      "actualDiagnostics": [
+        {
+          "keyword": "additionalProperties",
+          "pointer": "/error/httpStatus"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-fields/unknown-code",
+      "passed": true,
+      "expectedKeyword": "enum",
+      "expectedPointer": "/error/stableCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/classification"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/retryDirective"
+        },
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "enum",
+          "pointer": "/error/stableCode"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/error-fields/noncanonical-digest",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/error/detailsDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/error/detailsDigest"
+        },
+        {
+          "keyword": "pattern",
+          "pointer": "/error/detailsDigest"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error/detailsDigest"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/failure-null-error",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/error",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/error"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/error"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/cancel-wrong-code",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/error/stableCode",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/error/stableCode"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/cancel-error-requires-cancel-status",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/status",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/status"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/digest-no-trailing-newline/resultDigest",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/resultDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "pattern",
+          "pointer": "/resultDigest"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/digest-no-trailing-newline/payloadDigest",
+      "passed": true,
+      "expectedKeyword": "pattern",
+      "expectedPointer": "/payloadDigest",
+      "actualDiagnostics": [
+        {
+          "keyword": "pattern",
+          "pointer": "/payloadDigest"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event-sequence-positive",
+      "passed": true,
+      "expectedKeyword": "not",
+      "expectedPointer": "/sequence",
+      "actualDiagnostics": [
+        {
+          "keyword": "not",
+          "pointer": "/sequence"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/first-version-not-active",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/output/versionState",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/output/versionState"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event-no-active-pointer",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/activeVersionId",
+      "actualDiagnostics": [
+        {
+          "keyword": "type",
+          "pointer": "/payload/activeVersionId"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/hydration-positive",
+      "passed": true,
+      "actual": {
+        "secretId": "00000000-0000-4000-8000-000000000002",
+        "versionId": "00000000-0000-4000-8000-000000000003"
+      },
+      "expected": {
+        "secretId": "00000000-0000-4000-8000-000000000002",
+        "versionId": "00000000-0000-4000-8000-000000000003"
+      }
+    },
+    {
+      "case": "secret.create/relations/uncommitted/False",
+      "passed": true,
+      "expectedCode": "COMMIT_NOT_VERIFIED",
+      "actualCode": "COMMIT_NOT_VERIFIED",
+      "expectedPointer": "/commit",
+      "actualPointer": "/commit"
+    },
+    {
+      "case": "secret.create/relations/uncommitted/None",
+      "passed": true,
+      "expectedCode": "COMMIT_NOT_VERIFIED",
+      "actualCode": "COMMIT_NOT_VERIFIED",
+      "expectedPointer": "/commit",
+      "actualPointer": "/commit"
+    },
+    {
+      "case": "secret.create/relations/bad-result-digest",
+      "passed": true,
+      "expectedCode": "RESULT_DIGEST_MISMATCH",
+      "actualCode": "RESULT_DIGEST_MISMATCH",
+      "expectedPointer": "/response/resultDigest",
+      "actualPointer": "/response/resultDigest"
+    },
+    {
+      "case": "secret.create/relations/state-version",
+      "passed": true,
+      "expectedCode": "RESPONSE_STATE_VERSION_MISMATCH",
+      "actualCode": "RESPONSE_STATE_VERSION_MISMATCH",
+      "expectedPointer": "/response/stateVersion",
+      "actualPointer": "/response/stateVersion"
+    },
+    {
+      "case": "secret.create/relations/activation",
+      "passed": true,
+      "expectedCode": "CREATE_ACTIVATION_FORBIDDEN",
+      "actualCode": "CREATE_ACTIVATION_FORBIDDEN",
+      "expectedPointer": "/response/activationEpoch",
+      "actualPointer": "/response/activationEpoch"
+    },
+    {
+      "case": "secret.create/relations/sequence",
+      "passed": true,
+      "expectedCode": "EVENT_SEQUENCE_MISMATCH",
+      "actualCode": "EVENT_SEQUENCE_MISMATCH",
+      "expectedPointer": "/event/sequence",
+      "actualPointer": "/event/sequence"
+    },
+    {
+      "case": "secret.create/relations/aggregate-id",
+      "passed": true,
+      "expectedCode": "EVENT_AGGREGATE_ID_MISMATCH",
+      "actualCode": "EVENT_AGGREGATE_ID_MISMATCH",
+      "expectedPointer": "/event/aggregateId",
+      "actualPointer": "/event/aggregateId"
+    },
+    {
+      "case": "secret.create/relations/logical-id",
+      "passed": true,
+      "expectedCode": "EVENT_OPERATION_CONTEXT_MISMATCH",
+      "actualCode": "EVENT_OPERATION_CONTEXT_MISMATCH",
+      "expectedPointer": "/event/logicalOperationId",
+      "actualPointer": "/event/logicalOperationId"
+    },
+    {
+      "case": "secret.create/relations/correlation-id",
+      "passed": true,
+      "expectedCode": "EVENT_OPERATION_CONTEXT_MISMATCH",
+      "actualCode": "EVENT_OPERATION_CONTEXT_MISMATCH",
+      "expectedPointer": "/event/correlationId",
+      "actualPointer": "/event/correlationId"
+    },
+    {
+      "case": "secret.create/relations/payload-digest",
+      "passed": true,
+      "expectedCode": "EVENT_PAYLOAD_DIGEST_MISMATCH",
+      "actualCode": "EVENT_PAYLOAD_DIGEST_MISMATCH",
+      "expectedPointer": "/event/payloadDigest",
+      "actualPointer": "/event/payloadDigest"
+    },
+    {
+      "case": "secret.create/relations/payload-receipt",
+      "passed": true,
+      "expectedCode": "EVENT_PAYLOAD_RECEIPT_MISMATCH",
+      "actualCode": "EVENT_PAYLOAD_RECEIPT_MISMATCH",
+      "expectedPointer": "/event/payload",
+      "actualPointer": "/event/payload"
+    },
+    {
+      "case": "secret.create/relations/persisted-missing/None",
+      "passed": true,
+      "expectedCode": "PERSISTED_COMPLETION_UNAVAILABLE",
+      "actualCode": "PERSISTED_COMPLETION_UNAVAILABLE",
+      "expectedPointer": "/persisted",
+      "actualPointer": "/persisted"
+    },
+    {
+      "case": "secret.create/relations/persisted-missing/0",
+      "passed": true,
+      "expectedCode": "PERSISTED_COMPLETION_UNAVAILABLE",
+      "actualCode": "PERSISTED_COMPLETION_UNAVAILABLE",
+      "expectedPointer": "/persisted",
+      "actualPointer": "/persisted"
+    },
+    {
+      "case": "secret.create/relations/persisted-missing/1",
+      "passed": true,
+      "expectedCode": "PERSISTED_COMPLETION_UNAVAILABLE",
+      "actualCode": "PERSISTED_COMPLETION_UNAVAILABLE",
+      "expectedPointer": "/persisted",
+      "actualPointer": "/persisted"
+    },
+    {
+      "case": "secret.create/relations/persisted-response",
+      "passed": true,
+      "expectedCode": "PERSISTED_RESPONSE_MISMATCH",
+      "actualCode": "PERSISTED_RESPONSE_MISMATCH",
+      "expectedPointer": "/persisted/response",
+      "actualPointer": "/persisted/response"
+    },
+    {
+      "case": "secret.create/relations/persisted-event",
+      "passed": true,
+      "expectedCode": "PERSISTED_EVENT_MISMATCH",
+      "actualCode": "PERSISTED_EVENT_MISMATCH",
+      "expectedPointer": "/persisted/event",
+      "actualPointer": "/persisted/event"
+    },
+    {
+      "case": "secret.create/relations/hydration-bytes/NoneType",
+      "passed": true,
+      "expectedCode": "HYDRATION_BYTES_UNAVAILABLE",
+      "actualCode": "HYDRATION_BYTES_UNAVAILABLE",
+      "expectedPointer": "/hydrated/bytes",
+      "actualPointer": "/hydrated/bytes"
+    },
+    {
+      "case": "secret.create/relations/hydration-bytes/dict",
+      "passed": true,
+      "expectedCode": "HYDRATION_BYTES_UNAVAILABLE",
+      "actualCode": "HYDRATION_BYTES_UNAVAILABLE",
+      "expectedPointer": "/hydrated/bytes",
+      "actualPointer": "/hydrated/bytes"
+    },
+    {
+      "case": "secret.create/relations/hydration-bytes/dict",
+      "passed": true,
+      "expectedCode": "HYDRATION_BYTES_UNAVAILABLE",
+      "actualCode": "HYDRATION_BYTES_UNAVAILABLE",
+      "expectedPointer": "/hydrated/bytes",
+      "actualPointer": "/hydrated/bytes"
+    },
+    {
+      "case": "secret.create/relations/hydration-digest-missing",
+      "passed": true,
+      "expectedCode": "HYDRATION_DIGEST_UNAVAILABLE",
+      "actualCode": "HYDRATION_DIGEST_UNAVAILABLE",
+      "expectedPointer": "/hydrated/contentDigest",
+      "actualPointer": "/hydrated/contentDigest"
+    },
+    {
+      "case": "secret.create/relations/hydration-digest-mismatch",
+      "passed": true,
+      "expectedCode": "HYDRATION_CONTENT_DIGEST_MISMATCH",
+      "actualCode": "HYDRATION_CONTENT_DIGEST_MISMATCH",
+      "expectedPointer": "/hydrated/contentDigest",
+      "actualPointer": "/hydrated/contentDigest"
+    },
+    {
+      "case": "secret.create/relations/hydration-valid-other-receipt",
+      "passed": true,
+      "expectedCode": "HYDRATION_RECEIPT_MISMATCH",
+      "actualCode": "HYDRATION_RECEIPT_MISMATCH",
+      "expectedPointer": "/hydrated/bytes",
+      "actualPointer": "/hydrated/bytes"
+    },
+    {
+      "case": "secret.create/relations/hydration-invalid-json",
+      "passed": true,
+      "expectedCode": "HYDRATION_INVALID_JSON",
+      "actualCode": "HYDRATION_INVALID_JSON",
+      "expectedPointer": "/hydrated/bytes",
+      "actualPointer": "/hydrated/bytes"
+    },
+    {
+      "case": "secret.create/relations/hydration-duplicate-json-key",
+      "passed": true,
+      "expectedCode": "HYDRATION_DUPLICATE_JSON_KEY",
+      "actualCode": "HYDRATION_DUPLICATE_JSON_KEY",
+      "expectedPointer": "/hydrated/bytes",
+      "actualPointer": "/hydrated/bytes"
+    },
+    {
+      "case": "secret.create/relations/hydration-invalid-utf8",
+      "passed": true,
+      "expectedCode": "HYDRATION_INVALID_UTF8",
+      "actualCode": "HYDRATION_INVALID_UTF8",
+      "expectedPointer": "/hydrated/bytes",
+      "actualPointer": "/hydrated/bytes"
+    },
+    {
+      "case": "secret.create/relations/replay-marker-preserves-frozen-selector",
+      "passed": true,
+      "actual": {
+        "secretId": "00000000-0000-4000-8000-000000000002",
+        "versionId": "00000000-0000-4000-8000-000000000003"
+      },
+      "expected": {
+        "secretId": "00000000-0000-4000-8000-000000000002",
+        "versionId": "00000000-0000-4000-8000-000000000003"
+      }
+    },
+    {
+      "case": "secret.create/relations/unknown-no-new-create",
+      "passed": true,
+      "actual": {
+        "action": "RECONCILE_ORIGINAL_OPERATION"
+      },
+      "expected": {
+        "action": "RECONCILE_ORIGINAL_OPERATION"
+      }
+    },
+    {
+      "case": "secret.create/relations/unknown-forbids-event",
+      "passed": true,
+      "expectedCode": "UNCOMMITTED_CREATE_EVENT",
+      "actualCode": "UNCOMMITTED_CREATE_EVENT",
+      "expectedPointer": "/event",
+      "actualPointer": "/event"
+    },
+    {
+      "case": "admission/file-positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "admission/missing-artifact-digest",
+      "passed": true,
+      "expectedCode": "ARTIFACT_DIGEST_UNAVAILABLE",
+      "actualCode": "ARTIFACT_DIGEST_UNAVAILABLE",
+      "expectedPointer": "$.sources[0]",
+      "actualPointer": "$.sources[0]"
+    },
+    {
+      "case": "admission/opaque-password-positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "admission/certificate-whitelist-not-validator",
+      "passed": true,
+      "expectedCode": "TYPE_SPECIFIC_POLICY_UNVERIFIED",
+      "actualCode": "TYPE_SPECIFIC_POLICY_UNVERIFIED",
+      "expectedPointer": "$.type",
+      "actualPointer": "$.type"
+    },
+    {
+      "case": "input-source-unchanged",
+      "passed": true,
+      "actual": "4aed522e79316417f76a55e145d00aa1a8d8a18907985f6857911e0896d044b6",
+      "expected": "4aed522e79316417f76a55e145d00aa1a8d8a18907985f6857911e0896d044b6"
+    },
+    {
+      "case": "input-support-unchanged",
+      "passed": true,
+      "actual": {
+        "scripts/create_completion_contracts.py": "a61dd69606d5299e22d5cc6c48a65c0f813205b1abea9fb328c07fb56a5cd8f0",
+        "scripts/create_operation_contracts.py": "f34ba13f0f13f4fb0045dfa6c09c4467e432ab865ce8e8b7c0ac55d9d28a3c67",
+        "scripts/follow_up_contracts.py": "5d9e111c32f65e74e7182fc8d104dc2931bd0fdae21d147daac196c8881c7f7d"
+      },
+      "expected": {
+        "scripts/create_completion_contracts.py": "a61dd69606d5299e22d5cc6c48a65c0f813205b1abea9fb328c07fb56a5cd8f0",
+        "scripts/create_operation_contracts.py": "f34ba13f0f13f4fb0045dfa6c09c4467e432ab865ce8e8b7c0ac55d9d28a3c67",
+        "scripts/follow_up_contracts.py": "5d9e111c32f65e74e7182fc8d104dc2931bd0fdae21d147daac196c8881c7f7d"
+      }
+    }
+  ],
+  "wholeOperationsClosed": [],
+  "implementationProductionAcceptance": "NOT_EVALUATED",
+  "remaining": [
+    "Complex Secret type policies",
+    "Parent/target lifecycle admission matrix",
+    "Physical SQL/encryption/runtime UI and consumer handoffs"
+  ]
+}

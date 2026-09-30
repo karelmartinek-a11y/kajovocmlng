@@ -1,0 +1,2741 @@
+{
+  "sourceDocumentSha256": "69baf2dfbe691cd04f50e1f5ba3968731b8c5373325d389b03c79867de70148a",
+  "supportSha256": {
+    "scripts/follow_up_contracts.py": "5d9e111c32f65e74e7182fc8d104dc2931bd0fdae21d147daac196c8881c7f7d",
+    "scripts/verify_follow_up_contracts.py": "65de91833a571f6ad2b13e47b01d9237a0709a1581d0d6ae8eff6e90daeeb4d4",
+    "scripts/create_operation_contracts.py": "f34ba13f0f13f4fb0045dfa6c09c4467e432ab865ce8e8b7c0ac55d9d28a3c67"
+  },
+  "scope": "Synthetic immutable FOLLOW_UP admission proof; no database/concurrency runtime claim.",
+  "proofKind": "DESIGN_REFERENCE_MODEL",
+  "implementationAcceptance": "NOT_EVALUATED",
+  "authority": "Owner approval of explicit frozen FOLLOW_UP admission; generation-job states contracts/execution/model-catalog.json model.generation-job / authoritySection 49.15",
+  "checked": 324,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "INITIAL_REQUEST/positive-basis-schema",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/ACTIVATING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/ANALYZING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/BLOCKED/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/CANCELLED/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/CML_CONFORMANCE/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/COMPLETED/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/DISCUSSING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/FAILED/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/IMPLEMENTING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/INTEGRATING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/VALIDATING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/schema/missing/basisKind",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/schema/missing/expectedDigest",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/schema/extra/values",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/schema/extra/canonicalJson",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/schema/extra/serverReceipt",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/schema/extra/authorityId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/schema/extra/snapshotId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/schema/extra/bytes",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/schema/null/basisKind",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/schema/null/expectedDigest",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/admission-never-mutates-source",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/frozen-after-parent-COMPLETED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/frozen-after-parent-FAILED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/frozen-after-parent-CANCELLED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/server-frozen-descriptor-schema",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/server-descriptor-missing/sourceJobId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/server-descriptor-missing/snapshotId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/server-descriptor-missing/basisKind",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/server-descriptor-missing/contentDigest",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/server-descriptor-missing/lineageDigest",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/server-descriptor-forbids-moving-state",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/server-lineage-digest-exact",
+      "passed": true,
+      "actual": "sha256:b6cdef116aee45c01a10ed99a5d3082bdbd7f5e12faa88a89f51185d295aef73",
+      "expected": "sha256:b6cdef116aee45c01a10ed99a5d3082bdbd7f5e12faa88a89f51185d295aef73"
+    },
+    {
+      "case": "INITIAL_REQUEST/fresh-admission-same-immutable-lineage-after-parent-cancel",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration-positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration-frozen-after-source-ACTIVATING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration-frozen-after-source-ANALYZING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration-frozen-after-source-BLOCKED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration-frozen-after-source-CANCELLED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration-frozen-after-source-CML_CONFORMANCE",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration-frozen-after-source-COMPLETED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration-frozen-after-source-DISCUSSING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration-frozen-after-source-FAILED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration-frozen-after-source-IMPLEMENTING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration-frozen-after-source-INTEGRATING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration-frozen-after-source-VALIDATING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration/extra-descriptor",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID",
+      "actualCode": "FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration/wrong-lineage-digest",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH",
+      "actualCode": "FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration/missing-snapshot",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration/duplicate-snapshot",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration/source-owner",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "actualCode": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration/source-id",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FROZEN_IDENTITY_MISMATCH",
+      "actualCode": "FOLLOW_UP_FROZEN_IDENTITY_MISMATCH",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration/mutable-snapshot",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "actualCode": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration/missing-bytes",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "INITIAL_REQUEST/hydration/changed-actual-bytes",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "actualCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "INITIAL_REQUEST/integrated-http-positive",
+      "passed": true,
+      "actual": {
+        "intent": "Create an independent follow-up from frozen synthetic basis.",
+        "kind": "FOLLOW_UP",
+        "parentJobId": "00000000-0000-4000-8000-000000000002",
+        "followUpBasis": {
+          "basisKind": "INITIAL_REQUEST",
+          "expectedDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87"
+        }
+      },
+      "expected": {
+        "intent": "Create an independent follow-up from frozen synthetic basis.",
+        "kind": "FOLLOW_UP",
+        "parentJobId": "00000000-0000-4000-8000-000000000002",
+        "followUpBasis": {
+          "basisKind": "INITIAL_REQUEST",
+          "expectedDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87"
+        }
+      }
+    },
+    {
+      "case": "INITIAL_REQUEST/integrated-native-admission",
+      "passed": true,
+      "actual": {
+        "sourceJobId": "00000000-0000-4000-8000-000000000002",
+        "snapshotId": "00000000-0000-4000-8000-000000000003",
+        "basisKind": "INITIAL_REQUEST",
+        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "lineageDigest": "sha256:b6cdef116aee45c01a10ed99a5d3082bdbd7f5e12faa88a89f51185d295aef73"
+      },
+      "expected": {
+        "sourceJobId": "00000000-0000-4000-8000-000000000002",
+        "snapshotId": "00000000-0000-4000-8000-000000000003",
+        "basisKind": "INITIAL_REQUEST",
+        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "lineageDigest": "sha256:b6cdef116aee45c01a10ed99a5d3082bdbd7f5e12faa88a89f51185d295aef73"
+      }
+    },
+    {
+      "case": "INITIAL_REQUEST/http-missing-basis",
+      "passed": true,
+      "expectedCode": "SCHEMA_REQUIRED",
+      "actualCode": "SCHEMA_REQUIRED",
+      "expectedPointer": "$",
+      "actualPointer": "$"
+    },
+    {
+      "case": "INITIAL_REQUEST/http-missing-parent",
+      "passed": true,
+      "expectedCode": "SCHEMA_REQUIRED",
+      "actualCode": "SCHEMA_REQUIRED",
+      "expectedPointer": "$",
+      "actualPointer": "$"
+    },
+    {
+      "case": "INITIAL_REQUEST/http-basis-on-create",
+      "passed": true,
+      "expectedCode": "SCHEMA_NOT",
+      "actualCode": "SCHEMA_NOT",
+      "expectedPointer": "$",
+      "actualPointer": "$"
+    },
+    {
+      "case": "INITIAL_REQUEST/http-unknown-query",
+      "passed": true,
+      "expectedCode": "UNKNOWN_QUERY_PARAMETER",
+      "actualCode": "UNKNOWN_QUERY_PARAMETER",
+      "expectedPointer": "/query",
+      "actualPointer": "/query"
+    },
+    {
+      "case": "INITIAL_REQUEST/http-duplicate-nested-basis-key",
+      "passed": true,
+      "expectedCode": "DUPLICATE_JSON_KEY",
+      "actualCode": "DUPLICATE_JSON_KEY",
+      "expectedPointer": "/followUpBasis/basisKind",
+      "actualPointer": "/followUpBasis/basisKind"
+    },
+    {
+      "case": "INITIAL_REQUEST/committed-replay-before-fresh-eligibility",
+      "passed": true,
+      "actual": {
+        "action": "REPLAY_RECEIPT",
+        "dispatchNew": false
+      },
+      "expected": {
+        "action": "REPLAY_RECEIPT",
+        "dispatchNew": false
+      }
+    },
+    {
+      "case": "INITIAL_REQUEST/original-frozen-result-is-detached",
+      "passed": true,
+      "actual": {
+        "sourceJobId": "00000000-0000-4000-8000-000000000002",
+        "snapshotId": "00000000-0000-4000-8000-000000000003",
+        "basisKind": "INITIAL_REQUEST",
+        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "lineageDigest": "sha256:b6cdef116aee45c01a10ed99a5d3082bdbd7f5e12faa88a89f51185d295aef73"
+      },
+      "expected": {
+        "sourceJobId": "00000000-0000-4000-8000-000000000002",
+        "snapshotId": "00000000-0000-4000-8000-000000000003",
+        "basisKind": "INITIAL_REQUEST",
+        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "lineageDigest": "sha256:b6cdef116aee45c01a10ed99a5d3082bdbd7f5e12faa88a89f51185d295aef73"
+      }
+    },
+    {
+      "case": "INITIAL_REQUEST/replay-digest-conflict",
+      "passed": true,
+      "expectedCode": "IDEMPOTENCY_CONFLICT",
+      "actualCode": "IDEMPOTENCY_CONFLICT",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "SPECIFICATION_REVISION/positive-basis-schema",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/ACTIVATING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/ANALYZING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/BLOCKED/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/CANCELLED/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/CML_CONFORMANCE/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/COMPLETED/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/DISCUSSING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/FAILED/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/IMPLEMENTING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/INTEGRATING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/VALIDATING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/schema/missing/basisKind",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/schema/missing/expectedDigest",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/schema/missing/revisionId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/schema/extra/values",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/schema/extra/canonicalJson",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/schema/extra/serverReceipt",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/schema/extra/authorityId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/schema/extra/snapshotId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/schema/extra/bytes",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/schema/null/basisKind",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/schema/null/expectedDigest",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/schema/null/revisionId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/admission-never-mutates-source",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/frozen-after-parent-COMPLETED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/frozen-after-parent-FAILED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/frozen-after-parent-CANCELLED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/server-frozen-descriptor-schema",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/server-descriptor-missing/sourceJobId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/server-descriptor-missing/snapshotId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/server-descriptor-missing/basisKind",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/server-descriptor-missing/contentDigest",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/server-descriptor-missing/revisionId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/server-descriptor-missing/lineageDigest",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/server-descriptor-forbids-moving-state",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/server-lineage-digest-exact",
+      "passed": true,
+      "actual": "sha256:41d6352def9df956cec8a79340bfca76d9808ed38b1f237870d66ecd7552c24a",
+      "expected": "sha256:41d6352def9df956cec8a79340bfca76d9808ed38b1f237870d66ecd7552c24a"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/fresh-admission-same-immutable-lineage-after-parent-cancel",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration-positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration-frozen-after-source-ACTIVATING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration-frozen-after-source-ANALYZING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration-frozen-after-source-BLOCKED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration-frozen-after-source-CANCELLED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration-frozen-after-source-CML_CONFORMANCE",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration-frozen-after-source-COMPLETED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration-frozen-after-source-DISCUSSING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration-frozen-after-source-FAILED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration-frozen-after-source-IMPLEMENTING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration-frozen-after-source-INTEGRATING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration-frozen-after-source-VALIDATING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration/extra-descriptor",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID",
+      "actualCode": "FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration/wrong-lineage-digest",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH",
+      "actualCode": "FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration/missing-snapshot",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration/duplicate-snapshot",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration/source-owner",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "actualCode": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration/source-id",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FROZEN_IDENTITY_MISMATCH",
+      "actualCode": "FOLLOW_UP_FROZEN_IDENTITY_MISMATCH",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration/mutable-snapshot",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "actualCode": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration/missing-bytes",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "SPECIFICATION_REVISION/hydration/changed-actual-bytes",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "actualCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "SPECIFICATION_REVISION/integrated-http-positive",
+      "passed": true,
+      "actual": {
+        "intent": "Create an independent follow-up from frozen synthetic basis.",
+        "kind": "FOLLOW_UP",
+        "parentJobId": "00000000-0000-4000-8000-000000000002",
+        "followUpBasis": {
+          "basisKind": "SPECIFICATION_REVISION",
+          "expectedDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+          "revisionId": "00000000-0000-4000-8000-000000000004"
+        }
+      },
+      "expected": {
+        "intent": "Create an independent follow-up from frozen synthetic basis.",
+        "kind": "FOLLOW_UP",
+        "parentJobId": "00000000-0000-4000-8000-000000000002",
+        "followUpBasis": {
+          "basisKind": "SPECIFICATION_REVISION",
+          "expectedDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+          "revisionId": "00000000-0000-4000-8000-000000000004"
+        }
+      }
+    },
+    {
+      "case": "SPECIFICATION_REVISION/integrated-native-admission",
+      "passed": true,
+      "actual": {
+        "sourceJobId": "00000000-0000-4000-8000-000000000002",
+        "snapshotId": "00000000-0000-4000-8000-000000000003",
+        "basisKind": "SPECIFICATION_REVISION",
+        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "revisionId": "00000000-0000-4000-8000-000000000004",
+        "lineageDigest": "sha256:41d6352def9df956cec8a79340bfca76d9808ed38b1f237870d66ecd7552c24a"
+      },
+      "expected": {
+        "sourceJobId": "00000000-0000-4000-8000-000000000002",
+        "snapshotId": "00000000-0000-4000-8000-000000000003",
+        "basisKind": "SPECIFICATION_REVISION",
+        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "revisionId": "00000000-0000-4000-8000-000000000004",
+        "lineageDigest": "sha256:41d6352def9df956cec8a79340bfca76d9808ed38b1f237870d66ecd7552c24a"
+      }
+    },
+    {
+      "case": "SPECIFICATION_REVISION/http-missing-basis",
+      "passed": true,
+      "expectedCode": "SCHEMA_REQUIRED",
+      "actualCode": "SCHEMA_REQUIRED",
+      "expectedPointer": "$",
+      "actualPointer": "$"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/http-missing-parent",
+      "passed": true,
+      "expectedCode": "SCHEMA_REQUIRED",
+      "actualCode": "SCHEMA_REQUIRED",
+      "expectedPointer": "$",
+      "actualPointer": "$"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/http-basis-on-create",
+      "passed": true,
+      "expectedCode": "SCHEMA_NOT",
+      "actualCode": "SCHEMA_NOT",
+      "expectedPointer": "$",
+      "actualPointer": "$"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/http-unknown-query",
+      "passed": true,
+      "expectedCode": "UNKNOWN_QUERY_PARAMETER",
+      "actualCode": "UNKNOWN_QUERY_PARAMETER",
+      "expectedPointer": "/query",
+      "actualPointer": "/query"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/http-duplicate-nested-basis-key",
+      "passed": true,
+      "expectedCode": "DUPLICATE_JSON_KEY",
+      "actualCode": "DUPLICATE_JSON_KEY",
+      "expectedPointer": "/followUpBasis/basisKind",
+      "actualPointer": "/followUpBasis/basisKind"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/committed-replay-before-fresh-eligibility",
+      "passed": true,
+      "actual": {
+        "action": "REPLAY_RECEIPT",
+        "dispatchNew": false
+      },
+      "expected": {
+        "action": "REPLAY_RECEIPT",
+        "dispatchNew": false
+      }
+    },
+    {
+      "case": "SPECIFICATION_REVISION/original-frozen-result-is-detached",
+      "passed": true,
+      "actual": {
+        "sourceJobId": "00000000-0000-4000-8000-000000000002",
+        "snapshotId": "00000000-0000-4000-8000-000000000003",
+        "basisKind": "SPECIFICATION_REVISION",
+        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "revisionId": "00000000-0000-4000-8000-000000000004",
+        "lineageDigest": "sha256:41d6352def9df956cec8a79340bfca76d9808ed38b1f237870d66ecd7552c24a"
+      },
+      "expected": {
+        "sourceJobId": "00000000-0000-4000-8000-000000000002",
+        "snapshotId": "00000000-0000-4000-8000-000000000003",
+        "basisKind": "SPECIFICATION_REVISION",
+        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "revisionId": "00000000-0000-4000-8000-000000000004",
+        "lineageDigest": "sha256:41d6352def9df956cec8a79340bfca76d9808ed38b1f237870d66ecd7552c24a"
+      }
+    },
+    {
+      "case": "SPECIFICATION_REVISION/replay-digest-conflict",
+      "passed": true,
+      "expectedCode": "IDEMPOTENCY_CONFLICT",
+      "actualCode": "IDEMPOTENCY_CONFLICT",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/positive-basis-schema",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/ACTIVATING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/ANALYZING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/BLOCKED/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/CANCELLED/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/CML_CONFORMANCE/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/COMPLETED/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/DISCUSSING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/FAILED/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/IMPLEMENTING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/INTEGRATING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/VALIDATING/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/schema/missing/basisKind",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/schema/missing/expectedDigest",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/schema/missing/artifactId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/schema/extra/values",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/schema/extra/canonicalJson",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/schema/extra/serverReceipt",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/schema/extra/authorityId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/schema/extra/snapshotId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/schema/extra/bytes",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/schema/null/basisKind",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/schema/null/expectedDigest",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/schema/null/artifactId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/admission-never-mutates-source",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/frozen-after-parent-COMPLETED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/frozen-after-parent-FAILED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/frozen-after-parent-CANCELLED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/server-frozen-descriptor-schema",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/server-descriptor-missing/sourceJobId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/server-descriptor-missing/snapshotId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/server-descriptor-missing/basisKind",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/server-descriptor-missing/contentDigest",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/server-descriptor-missing/artifactId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/server-descriptor-missing/publicationReceiptId",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/server-descriptor-missing/lineageDigest",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/server-descriptor-forbids-moving-state",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/server-lineage-digest-exact",
+      "passed": true,
+      "actual": "sha256:e993406ab8e4e5d9a786cb7953948d275d82aa99e8eef4aa19545f53e6ad87c5",
+      "expected": "sha256:e993406ab8e4e5d9a786cb7953948d275d82aa99e8eef4aa19545f53e6ad87c5"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/fresh-admission-same-immutable-lineage-after-parent-cancel",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration-positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration-frozen-after-source-ACTIVATING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration-frozen-after-source-ANALYZING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration-frozen-after-source-BLOCKED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration-frozen-after-source-CANCELLED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration-frozen-after-source-CML_CONFORMANCE",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration-frozen-after-source-COMPLETED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration-frozen-after-source-DISCUSSING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration-frozen-after-source-FAILED",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration-frozen-after-source-IMPLEMENTING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration-frozen-after-source-INTEGRATING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration-frozen-after-source-VALIDATING",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration/extra-descriptor",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID",
+      "actualCode": "FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration/wrong-lineage-digest",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH",
+      "actualCode": "FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration/missing-snapshot",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration/duplicate-snapshot",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration/source-owner",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "actualCode": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration/source-id",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FROZEN_IDENTITY_MISMATCH",
+      "actualCode": "FOLLOW_UP_FROZEN_IDENTITY_MISMATCH",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration/mutable-snapshot",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "actualCode": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration/missing-bytes",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration/changed-actual-bytes",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "actualCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration/receipt-missing",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration/receipt-unknown",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/hydration/receipt-identity",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/integrated-http-positive",
+      "passed": true,
+      "actual": {
+        "intent": "Create an independent follow-up from frozen synthetic basis.",
+        "kind": "FOLLOW_UP",
+        "parentJobId": "00000000-0000-4000-8000-000000000002",
+        "followUpBasis": {
+          "basisKind": "PUBLISHED_FINAL_OUTPUT",
+          "expectedDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+          "artifactId": "00000000-0000-4000-8000-000000000005"
+        }
+      },
+      "expected": {
+        "intent": "Create an independent follow-up from frozen synthetic basis.",
+        "kind": "FOLLOW_UP",
+        "parentJobId": "00000000-0000-4000-8000-000000000002",
+        "followUpBasis": {
+          "basisKind": "PUBLISHED_FINAL_OUTPUT",
+          "expectedDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+          "artifactId": "00000000-0000-4000-8000-000000000005"
+        }
+      }
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/integrated-native-admission",
+      "passed": true,
+      "actual": {
+        "sourceJobId": "00000000-0000-4000-8000-000000000002",
+        "snapshotId": "00000000-0000-4000-8000-000000000003",
+        "basisKind": "PUBLISHED_FINAL_OUTPUT",
+        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "artifactId": "00000000-0000-4000-8000-000000000005",
+        "publicationReceiptId": "00000000-0000-4000-8000-000000000006",
+        "lineageDigest": "sha256:e993406ab8e4e5d9a786cb7953948d275d82aa99e8eef4aa19545f53e6ad87c5"
+      },
+      "expected": {
+        "sourceJobId": "00000000-0000-4000-8000-000000000002",
+        "snapshotId": "00000000-0000-4000-8000-000000000003",
+        "basisKind": "PUBLISHED_FINAL_OUTPUT",
+        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "artifactId": "00000000-0000-4000-8000-000000000005",
+        "publicationReceiptId": "00000000-0000-4000-8000-000000000006",
+        "lineageDigest": "sha256:e993406ab8e4e5d9a786cb7953948d275d82aa99e8eef4aa19545f53e6ad87c5"
+      }
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/http-missing-basis",
+      "passed": true,
+      "expectedCode": "SCHEMA_REQUIRED",
+      "actualCode": "SCHEMA_REQUIRED",
+      "expectedPointer": "$",
+      "actualPointer": "$"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/http-missing-parent",
+      "passed": true,
+      "expectedCode": "SCHEMA_REQUIRED",
+      "actualCode": "SCHEMA_REQUIRED",
+      "expectedPointer": "$",
+      "actualPointer": "$"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/http-basis-on-create",
+      "passed": true,
+      "expectedCode": "SCHEMA_NOT",
+      "actualCode": "SCHEMA_NOT",
+      "expectedPointer": "$",
+      "actualPointer": "$"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/http-unknown-query",
+      "passed": true,
+      "expectedCode": "UNKNOWN_QUERY_PARAMETER",
+      "actualCode": "UNKNOWN_QUERY_PARAMETER",
+      "expectedPointer": "/query",
+      "actualPointer": "/query"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/http-duplicate-nested-basis-key",
+      "passed": true,
+      "expectedCode": "DUPLICATE_JSON_KEY",
+      "actualCode": "DUPLICATE_JSON_KEY",
+      "expectedPointer": "/followUpBasis/basisKind",
+      "actualPointer": "/followUpBasis/basisKind"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/committed-replay-before-fresh-eligibility",
+      "passed": true,
+      "actual": {
+        "action": "REPLAY_RECEIPT",
+        "dispatchNew": false
+      },
+      "expected": {
+        "action": "REPLAY_RECEIPT",
+        "dispatchNew": false
+      }
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/original-frozen-result-is-detached",
+      "passed": true,
+      "actual": {
+        "sourceJobId": "00000000-0000-4000-8000-000000000002",
+        "snapshotId": "00000000-0000-4000-8000-000000000003",
+        "basisKind": "PUBLISHED_FINAL_OUTPUT",
+        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "artifactId": "00000000-0000-4000-8000-000000000005",
+        "publicationReceiptId": "00000000-0000-4000-8000-000000000006",
+        "lineageDigest": "sha256:e993406ab8e4e5d9a786cb7953948d275d82aa99e8eef4aa19545f53e6ad87c5"
+      },
+      "expected": {
+        "sourceJobId": "00000000-0000-4000-8000-000000000002",
+        "snapshotId": "00000000-0000-4000-8000-000000000003",
+        "basisKind": "PUBLISHED_FINAL_OUTPUT",
+        "contentDigest": "sha256:d0bcbfce720c510aed631ba924a9a9207f0fa58410e86ba41a1e69267c8b1c87",
+        "artifactId": "00000000-0000-4000-8000-000000000005",
+        "publicationReceiptId": "00000000-0000-4000-8000-000000000006",
+        "lineageDigest": "sha256:e993406ab8e4e5d9a786cb7953948d275d82aa99e8eef4aa19545f53e6ad87c5"
+      }
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/replay-digest-conflict",
+      "passed": true,
+      "expectedCode": "IDEMPOTENCY_CONFLICT",
+      "actualCode": "IDEMPOTENCY_CONFLICT",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "wrong-kind",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_KIND_REQUIRED",
+      "actualCode": "FOLLOW_UP_KIND_REQUIRED",
+      "expectedPointer": "$.kind",
+      "actualPointer": "$.kind"
+    },
+    {
+      "case": "missing-parent",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_PARENT_REQUIRED",
+      "actualCode": "FOLLOW_UP_PARENT_REQUIRED",
+      "expectedPointer": "$.parentJobId",
+      "actualPointer": "$.parentJobId"
+    },
+    {
+      "case": "invalid-parent",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_PARENT_REQUIRED",
+      "actualCode": "FOLLOW_UP_PARENT_REQUIRED",
+      "expectedPointer": "$.parentJobId",
+      "actualPointer": "$.parentJobId"
+    },
+    {
+      "case": "auth",
+      "passed": true,
+      "expectedCode": "AUTHENTICATION_REQUIRED",
+      "actualCode": "AUTHENTICATION_REQUIRED",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "model-authority-not-owner",
+      "passed": true,
+      "expectedCode": "AUTHENTICATION_REQUIRED",
+      "actualCode": "AUTHENTICATION_REQUIRED",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "missing-owner",
+      "passed": true,
+      "expectedCode": "AUTHENTICATION_REQUIRED",
+      "actualCode": "AUTHENTICATION_REQUIRED",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "atomic-snapshot-unverified",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED",
+      "actualCode": "FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED",
+      "expectedPointer": "",
+      "actualPointer": ""
+    },
+    {
+      "case": "parent-missing",
+      "passed": true,
+      "expectedCode": "PARENT_JOB_UNRESOLVED",
+      "actualCode": "PARENT_JOB_UNRESOLVED",
+      "expectedPointer": "$.parentJobId",
+      "actualPointer": "$.parentJobId"
+    },
+    {
+      "case": "parent-identity",
+      "passed": true,
+      "expectedCode": "PARENT_JOB_IDENTITY_MISMATCH",
+      "actualCode": "PARENT_JOB_IDENTITY_MISMATCH",
+      "expectedPointer": "$.parentJobId",
+      "actualPointer": "$.parentJobId"
+    },
+    {
+      "case": "parent-owner",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "actualCode": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "expectedPointer": "$.parentJobId",
+      "actualPointer": "$.parentJobId"
+    },
+    {
+      "case": "unknown-parent-state",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_SOURCE_STATE_INVALID",
+      "actualCode": "FOLLOW_UP_SOURCE_STATE_INVALID",
+      "expectedPointer": "$.parentJobId",
+      "actualPointer": "$.parentJobId"
+    },
+    {
+      "case": "INITIAL_REQUEST/missing",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "INITIAL_REQUEST/available/FOLLOW_UP_BASIS_UNAVAILABLE",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "INITIAL_REQUEST/jobId/FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "actualCode": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "INITIAL_REQUEST/basisKind/FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "actualCode": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "INITIAL_REQUEST/owner/FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "actualCode": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "INITIAL_REQUEST/snapshotId/FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+      "actualCode": "FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "INITIAL_REQUEST/immutable/FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "actualCode": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "INITIAL_REQUEST/consistent/FOLLOW_UP_BASIS_INCONSISTENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "INITIAL_REQUEST/sufficient/FOLLOW_UP_BASIS_INSUFFICIENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "INITIAL_REQUEST/bytes/FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "INITIAL_REQUEST/bytes/FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "actualCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "INITIAL_REQUEST/contentDigest/FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "actualCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "INITIAL_REQUEST/wrong-client-digest",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_DIGEST_CONFLICT",
+      "actualCode": "FOLLOW_UP_BASIS_DIGEST_CONFLICT",
+      "expectedPointer": "$.followUpBasis.expectedDigest",
+      "actualPointer": "$.followUpBasis.expectedDigest"
+    },
+    {
+      "case": "INITIAL_REQUEST/extra-current",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INVALID",
+      "actualCode": "FOLLOW_UP_BASIS_INVALID",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "INITIAL_REQUEST/extra-clientReceipt",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INVALID",
+      "actualCode": "FOLLOW_UP_BASIS_INVALID",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "INITIAL_REQUEST/extra-authorityId",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INVALID",
+      "actualCode": "FOLLOW_UP_BASIS_INVALID",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/missing",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/available/FOLLOW_UP_BASIS_UNAVAILABLE",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/jobId/FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "actualCode": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/basisKind/FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "actualCode": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/owner/FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "actualCode": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/snapshotId/FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+      "actualCode": "FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/immutable/FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "actualCode": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/consistent/FOLLOW_UP_BASIS_INCONSISTENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/sufficient/FOLLOW_UP_BASIS_INSUFFICIENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/bytes/FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/bytes/FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "actualCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/contentDigest/FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "actualCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/wrong-client-digest",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_DIGEST_CONFLICT",
+      "actualCode": "FOLLOW_UP_BASIS_DIGEST_CONFLICT",
+      "expectedPointer": "$.followUpBasis.expectedDigest",
+      "actualPointer": "$.followUpBasis.expectedDigest"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/extra-current",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INVALID",
+      "actualCode": "FOLLOW_UP_BASIS_INVALID",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/extra-clientReceipt",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INVALID",
+      "actualCode": "FOLLOW_UP_BASIS_INVALID",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/extra-authorityId",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INVALID",
+      "actualCode": "FOLLOW_UP_BASIS_INVALID",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "SPECIFICATION_REVISION/wrong-record-selector",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "actualCode": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "expectedPointer": "$.followUpBasis.revisionId",
+      "actualPointer": "$.followUpBasis.revisionId"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/missing",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/available/FOLLOW_UP_BASIS_UNAVAILABLE",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/jobId/FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "actualCode": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/basisKind/FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "actualCode": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/owner/FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "actualCode": "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/snapshotId/FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+      "actualCode": "FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/immutable/FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "actualCode": "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/consistent/FOLLOW_UP_BASIS_INCONSISTENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/sufficient/FOLLOW_UP_BASIS_INSUFFICIENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/bytes/FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/bytes/FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "actualCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/contentDigest/FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "actualCode": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/wrong-client-digest",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_DIGEST_CONFLICT",
+      "actualCode": "FOLLOW_UP_BASIS_DIGEST_CONFLICT",
+      "expectedPointer": "$.followUpBasis.expectedDigest",
+      "actualPointer": "$.followUpBasis.expectedDigest"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/extra-current",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INVALID",
+      "actualCode": "FOLLOW_UP_BASIS_INVALID",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/extra-clientReceipt",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INVALID",
+      "actualCode": "FOLLOW_UP_BASIS_INVALID",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/extra-authorityId",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INVALID",
+      "actualCode": "FOLLOW_UP_BASIS_INVALID",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/wrong-record-selector",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "actualCode": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+      "expectedPointer": "$.followUpBasis.artifactId",
+      "actualPointer": "$.followUpBasis.artifactId"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/unpublished",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/no-server-receipt",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/uncommitted-receipt",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/receipt-receiptId",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/receipt-jobId",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/receipt-artifactId",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "PUBLISHED_FINAL_OUTPUT/receipt-contentDigest",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+      "actualCode": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/ACTIVATING/MISSING",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/ACTIVATING/INCONSISTENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/ACTIVATING/INSUFFICIENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/ACTIVATING/UNPUBLISHED",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/ANALYZING/MISSING",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/ANALYZING/INCONSISTENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/ANALYZING/INSUFFICIENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/ANALYZING/UNPUBLISHED",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/BLOCKED/MISSING",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/BLOCKED/INCONSISTENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/BLOCKED/INSUFFICIENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/BLOCKED/UNPUBLISHED",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/CANCELLED/MISSING",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/CANCELLED/INCONSISTENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/CANCELLED/INSUFFICIENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/CANCELLED/UNPUBLISHED",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/CML_CONFORMANCE/MISSING",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/CML_CONFORMANCE/INCONSISTENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/CML_CONFORMANCE/INSUFFICIENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/CML_CONFORMANCE/UNPUBLISHED",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/COMPLETED/MISSING",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/COMPLETED/INCONSISTENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/COMPLETED/INSUFFICIENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/COMPLETED/UNPUBLISHED",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/DISCUSSING/MISSING",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/DISCUSSING/INCONSISTENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/DISCUSSING/INSUFFICIENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/DISCUSSING/UNPUBLISHED",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/FAILED/MISSING",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/FAILED/INCONSISTENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/FAILED/INSUFFICIENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/FAILED/UNPUBLISHED",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/IMPLEMENTING/MISSING",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/IMPLEMENTING/INCONSISTENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/IMPLEMENTING/INSUFFICIENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/IMPLEMENTING/UNPUBLISHED",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/INTEGRATING/MISSING",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/INTEGRATING/INCONSISTENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/INTEGRATING/INSUFFICIENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/INTEGRATING/UNPUBLISHED",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/VALIDATING/MISSING",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "actualCode": "FOLLOW_UP_BASIS_UNAVAILABLE",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/VALIDATING/INCONSISTENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "actualCode": "FOLLOW_UP_BASIS_INCONSISTENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/VALIDATING/INSUFFICIENT",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "actualCode": "FOLLOW_UP_BASIS_INSUFFICIENT",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "matrix/VALIDATING/UNPUBLISHED",
+      "passed": true,
+      "expectedCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "actualCode": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+      "expectedPointer": "$.followUpBasis",
+      "actualPointer": "$.followUpBasis"
+    },
+    {
+      "case": "decision-matrix/exact-universe",
+      "passed": true,
+      "actual": 275,
+      "expected": 275
+    },
+    {
+      "case": "decision-matrix/followup-universe",
+      "passed": true,
+      "actual": 55,
+      "expected": 55
+    },
+    {
+      "case": "decision-matrix/other-kinds-remain-open",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "decision-matrix/no-terminal-only-shortcut",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    }
+  ],
+  "matrix": [
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "ACTIVATING",
+      "basisKind": "INITIAL_REQUEST",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "ANALYZING",
+      "basisKind": "INITIAL_REQUEST",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "BLOCKED",
+      "basisKind": "INITIAL_REQUEST",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "CANCELLED",
+      "basisKind": "INITIAL_REQUEST",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "CML_CONFORMANCE",
+      "basisKind": "INITIAL_REQUEST",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "COMPLETED",
+      "basisKind": "INITIAL_REQUEST",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "DISCUSSING",
+      "basisKind": "INITIAL_REQUEST",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "FAILED",
+      "basisKind": "INITIAL_REQUEST",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "IMPLEMENTING",
+      "basisKind": "INITIAL_REQUEST",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "INTEGRATING",
+      "basisKind": "INITIAL_REQUEST",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "VALIDATING",
+      "basisKind": "INITIAL_REQUEST",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "ACTIVATING",
+      "basisKind": "SPECIFICATION_REVISION",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "ANALYZING",
+      "basisKind": "SPECIFICATION_REVISION",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "BLOCKED",
+      "basisKind": "SPECIFICATION_REVISION",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "CANCELLED",
+      "basisKind": "SPECIFICATION_REVISION",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "CML_CONFORMANCE",
+      "basisKind": "SPECIFICATION_REVISION",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "COMPLETED",
+      "basisKind": "SPECIFICATION_REVISION",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "DISCUSSING",
+      "basisKind": "SPECIFICATION_REVISION",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "FAILED",
+      "basisKind": "SPECIFICATION_REVISION",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "IMPLEMENTING",
+      "basisKind": "SPECIFICATION_REVISION",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "INTEGRATING",
+      "basisKind": "SPECIFICATION_REVISION",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "VALIDATING",
+      "basisKind": "SPECIFICATION_REVISION",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "ACTIVATING",
+      "basisKind": "PUBLISHED_FINAL_OUTPUT",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "ANALYZING",
+      "basisKind": "PUBLISHED_FINAL_OUTPUT",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "BLOCKED",
+      "basisKind": "PUBLISHED_FINAL_OUTPUT",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "CANCELLED",
+      "basisKind": "PUBLISHED_FINAL_OUTPUT",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "CML_CONFORMANCE",
+      "basisKind": "PUBLISHED_FINAL_OUTPUT",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "COMPLETED",
+      "basisKind": "PUBLISHED_FINAL_OUTPUT",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "DISCUSSING",
+      "basisKind": "PUBLISHED_FINAL_OUTPUT",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "FAILED",
+      "basisKind": "PUBLISHED_FINAL_OUTPUT",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "IMPLEMENTING",
+      "basisKind": "PUBLISHED_FINAL_OUTPUT",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "INTEGRATING",
+      "basisKind": "PUBLISHED_FINAL_OUTPUT",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "FOLLOW_UP",
+      "sourceState": "VALIDATING",
+      "basisKind": "PUBLISHED_FINAL_OUTPUT",
+      "availability": "IMMUTABLE_AVAILABLE_CONSISTENT_SUFFICIENT_PUBLISHED_IF_FINAL",
+      "decision": "ALLOW",
+      "reason": "Approved frozen basis; parent terminality is not a global prerequisite."
+    },
+    {
+      "kind": "CREATE",
+      "sourceState": "NOT_REVIEWED_IN_THIS_PROOF",
+      "availability": "NOT_REVIEWED_IN_THIS_PROOF",
+      "decision": "OPEN",
+      "reason": "Requires its own kind-specific authority; FOLLOW_UP approval is not borrowed."
+    },
+    {
+      "kind": "UPDATE",
+      "sourceState": "NOT_REVIEWED_IN_THIS_PROOF",
+      "availability": "NOT_REVIEWED_IN_THIS_PROOF",
+      "decision": "OPEN",
+      "reason": "Requires its own kind-specific authority; FOLLOW_UP approval is not borrowed."
+    },
+    {
+      "kind": "RETRY",
+      "sourceState": "NOT_REVIEWED_IN_THIS_PROOF",
+      "availability": "NOT_REVIEWED_IN_THIS_PROOF",
+      "decision": "OPEN",
+      "reason": "Requires its own kind-specific authority; FOLLOW_UP approval is not borrowed."
+    },
+    {
+      "kind": "REPAIR",
+      "sourceState": "NOT_REVIEWED_IN_THIS_PROOF",
+      "availability": "NOT_REVIEWED_IN_THIS_PROOF",
+      "decision": "OPEN",
+      "reason": "Requires its own kind-specific authority; FOLLOW_UP approval is not borrowed."
+    }
+  ],
+  "matrixCoverage": {
+    "reviewedKind": "FOLLOW_UP",
+    "sourceStateCount": 11,
+    "basisKindCount": 3,
+    "positiveCells": 33,
+    "authoredMatrixCells": 275,
+    "specifiedFollowUpCells": 55,
+    "otherKinds": "OPEN; not semantically reviewed by this proof"
+  },
+  "remaining": [
+    "Actual-byte reference hydration is tested, but database atomic locking, SQL persistence, real artifact-store hydration, independent job identity and runtime shared-resource coordination are not evidenced by a pure reference function.",
+    "Concrete failure/unpublished availability matrix uses explicit rejection witnesses; no full-operation closure assertion."
+  ]
+}

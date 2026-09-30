@@ -1,7 +1,7 @@
 {
   "status": "PARTIAL",
   "baselineCommit": "cfcb7b2f6a41d152cb799779252d9c1615a02d5a",
-  "sourceDocumentSha256": "742681f74997529249644da148c870de9d531af91a995e34a17f285fcd8d42db",
+  "sourceDocumentSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
   "previousWork": "main includes generation boundary closure; remote work/ssot-completion-2026-09-25 at 7006785; historical checkpoints preserved",
   "repositoryInstructions": "No AGENTS.md found in checkout or parent workspace",
   "remoteVerification": {
@@ -32,7 +32,8 @@
     "Historical authoring and verifier compositions preserve precise create requests; all unrelated route records unchanged from aaab5a1.",
     "P00 final gate derived from effective 73.7: final R10/R16/UI/CLOSURE/R17 family; standalone historical R13 is provenance, not final gate.",
     "backup.restore.state exact 13-state deployment lifecycle: own DEPLOYMENT_RUN aggregate;25.14 entity explicitly binds state to49.24;22 complete response witnesses/mutations PASS. Other restore semantics remain required.",
-    "Resumable cache now hashes consumed Phase4 matrices and package visual evidence, rejects changed/missing logs and evidence changes during check. Discovered stale cached UI result was invalidated; current checks rerun."
+    "Resumable cache now hashes consumed Phase4 matrices and package visual evidence, rejects changed/missing logs and evidence changes during check. Discovered stale cached UI result was invalidated; current checks rerun.",
+    "Exact two create output/event receipts,32 scoped error tuples, frozen replay descriptor verification, approved nonterminal FOLLOW_UP matrix/admission/hydration reference contracts; full operations remain open."
   ],
   "remaining": [
     "Explicit domain families and event applicability",
@@ -40,12 +41,17 @@
     "UI/browser/OpenAI/agents/MCP/monitoring",
     "Full required design universe and P00–P12 exit criteria",
     "Four SQL helper definitions unavailable in direct SQL resource registry; PostgreSQL 18.6 execution not performed",
-    "242 unresolved references / 121 operations; 502 generic routes; 152 unspecified event applicability",
+    "242 unresolved references / 121 operations; 500 generic routes; 152 unspecified event applicability",
     "Open lifecycle fields and current UI action validation obligations / exposure blockers",
-    "258 error predicates and 149 provenance-layer detectors require semantic review"
+    "258 error predicates and 159 current provenance-layer detector hits require semantic review"
   ],
   "evidence": [
-    "audit/generated/repair-2026-09-30/baseline"
+    "audit/generated/repair-2026-09-30/baseline",
+    "audit/generated/repair-2026-09-30/design-current/verify_create_operation_requests/create-request-tests.json",
+    "audit/generated/repair-2026-09-30/design-current/verify_create_completion/completion-tests.json",
+    "audit/generated/repair-2026-09-30/design-current/verify_create_http_errors/create-http-errors.json",
+    "audit/generated/repair-2026-09-30/design-current/verify_follow_up_contracts/follow-up-tests.json",
+    "audit/SSOT_COMPLETION_REGISTER.json"
   ],
   "semanticCoverage": {
     "completeReview": "NOT_CLAIMED",
@@ -64,24 +70,23 @@
         "section": "25.14 deployment_run +49.24 + closure backup.restore; targeted21.3/72.9/29.5/49.15",
         "authorityEvidence": "audit/generated/repair-2026-09-30/lifecycle-review/field-review.json",
         "reviewScope": "One exact response state dictionary closed; six absent own dictionaries documented. State enum alone does not close restore persistence/recovery."
+      },
+      {
+        "section": "12.48/12.49; create own25.6/25.11,49.3-5,49.22.1,51,72.11/72.21; approved FOLLOW_UP conditions1-7",
+        "authorityEvidence": "audit/generated/create-review-authority/review.json; audit/generated/follow-up-contract/authority.json",
+        "reviewScope": "Precise server create receipts/error tuples/event masks and immutable FOLLOW_UP design. Actual source sufficiency, other-kind admission, nine Secret formats, SQL/full consumer/runtime remain open."
       }
     ],
     "byteAndStructuralInventory": "audit/phase1-operation-schema-matrix.json; byte loading and schema resolution are separate from semantic review"
   },
   "nextBlock": {
-    "name": "Complete two create output/error/event and remaining request policies",
-    "sourcePointers": {
-      "generation.job.create": "contracts/payload-contracts.json#/records/215",
-      "secret.create": "contracts/payload-contracts.json#/records/386"
-    },
+    "name": "Finish current create completion verification, then review concrete Secret formats and independent auxiliary audits",
     "steps": [
-      "Read own entity/version/lifecycle and operation descriptor; map precise frozen server output receipt and error predicates, not generic output bags",
-      "Resolve explicit emitted events or authoritative prohibition; define payload and outbox/sequence invariants per operation",
-      "Define structured Secret type policy from8.2/8.4/8.6 without assuming UTF8 bytes validate that type; missing policy stays BLOCKED",
-      "Close parent/target admission states and actual artifact parsing/hydration consumer postconditions; synthetic admission is not runtime proof",
-      "Return to six lifecycle fields using recorded own-authority gaps; do not borrow adjacent state enums",
-      "Review258 error predicates and149 provenance detectors semantically, then unresolved refs/domain families; count alone is not evidence",
-      "After bounded source change regenerate affected projections/current evidence, run declared universe, regenerate integrity receipt, commit and push"
+      "Current42-check universe finished33PASS/9BLOCKED; source-bound evidence and no exceptions/timeouts. Next prepare concrete Secret format review and current proof registry overlay, then revalidate independent auxiliary outputs.",
+      "Finalize completion register current proof join and checkpoint, regenerate manifests/receipt, verify integrity, commit and push same branch",
+      "Present nine Secret type concrete variants for owner review; no activation before review",
+      "Revalidate incoming SQL/state/UI historical auxiliary outputs against current HEAD; integrate bounded independent repairs",
+      "Continue other-kind parent/target admission and full producer/persistence/hydration contracts without borrowed lifecycles"
     ]
   },
   "gates": {
@@ -94,17 +99,17 @@
     "unresolvedOperationReferences": 242,
     "operationsWithUnresolvedReferences": 121,
     "conflictingOperationReferences": 0,
-    "genericRoutes": 502,
-    "genericBoundaryDefinitions": 1504,
+    "genericRoutes": 500,
+    "genericBoundaryDefinitions": 1500,
     "nestedReferenceFailures": 0,
-    "unreviewedConcreteBoundaryDefinitions": 113,
+    "unreviewedConcreteBoundaryDefinitions": 117,
     "conflictingSchemaIdentities": 0,
     "unspecifiedEventApplicability": 152,
     "unparsedResources": 0
   },
   "commandsEvidence": "audit/generated/repair-2026-09-30/design-current/commands.json",
-  "evidenceInvalidation": "Current design-current, lifecycle review, restore-state and regenerated field contracts bind eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c. Create-request-tests refreshed from source-bound current proof at design-current/verify_create_operation_requests/create-request-tests.json. All earlier source hashes are stale.",
-  "currentSourceDocumentSha256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
+  "evidenceInvalidation": "Current design-current runner completed42 checks under pinned audit environment at 2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa. Historical independent reports at earlier hashes remain historical. Forty-two runner entries reused only after exact source/support/environment/evidence-log matching; no full-operation/runtime closure inferred.",
+  "currentSourceDocumentSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
   "inventoryEnvironmentCorrection": {
     "systemPythonUnavailableFormatCheckers": "774 references / 595 operations is environment-blocked evidence, not a contract defect count",
     "pinnedAuditEnvironment": "242 references / 121 operations; nestedReferenceFailures=0"
@@ -118,9 +123,9 @@
     "createRequests": "4307830"
   },
   "currentResults": {
-    "requiredAvailableChecks": 39,
-    "zeroExits": 31,
-    "nonzeroBlockedOrFailed": 8,
+    "requiredAvailableChecks": 42,
+    "zeroExits": 33,
+    "nonzeroBlockedOrFailed": 9,
     "validatorExceptions": 0,
     "timeouts": 0,
     "generationDomainChecks": 110,
@@ -137,18 +142,26 @@
       "dashboard.stop",
       "gen.editSpec"
     ],
-    "createRequestChecks": 131,
+    "createRequestChecks": 141,
     "createRequestFailed": 0,
     "referenceRender": "BLOCKED: default browser missing; installed Chromium retry timed out because historical renderer waits for workspace data-ready while current pages use live.js. Old visual source-hash proof stale; not a new domain-contract failure.",
     "backupRestoreStateChecks": 22,
-    "backupRestoreStateFailed": 0
+    "backupRestoreStateFailed": 0,
+    "createCompletionChecks": 439,
+    "createCompletionFailed": 0,
+    "createHttpErrorChecks": 195,
+    "createHttpErrorFailed": 0,
+    "followUpChecks": 324,
+    "followUpFailed": 0,
+    "provenanceDetectorHits": 159,
+    "pendingLegacyErrorPredicates": 258
   },
   "draftPR": {
     "status": "NOT_CREATED",
     "reason": "Supported gh pr create --draft returns GitHub GraphQL Forbidden; push succeeds. No permission bypass.",
     "preparedBody": "audit/SSOT_REPAIR_DRAFT_PR.md",
     "branch": "ssot-repair-2026-09-30",
-    "title": "Repair SSOT validators and explicit create request contracts",
+    "title": "Repair SSOT create completion and immutable FOLLOW_UP admission",
     "compareURL": "https://github.com/karelmartinek-a11y/kajovocmlng/compare/main...ssot-repair-2026-09-30"
   },
   "semanticCoverageEvidence": "audit/generated/repair-2026-09-30/review-coverage.json",
@@ -169,39 +182,45 @@
   "noFurtherAuthorizationNeeded": "Continue authorized technical repairs on this branch; push/draft PR allowed. No main merge/freeze/release/deployment/paid API/production execution.",
   "continuationInput": {
     "branch": "ssot-repair-2026-09-30",
-    "localAndRemoteHead": "aaab5a11967f859d4757738d78a8eb9af44528e6",
-    "sourceSha256": "6e7312694cd1bf97419540bcc574f3bace4ccecabad73344831ee5e8487d8605",
-    "workingTree": "CLEAN",
-    "initialIntegrity": "INTEGRITY_MATCH"
+    "verifiedInputHead": "003cef7e1f6bcf87f3a23d9db3825e4fa0600560",
+    "verifiedInputSSOTSha256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
+    "sourceSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+    "resumeHeadRule": "Resolve local and remote branch HEAD with git; checkpoint never contains its own resulting commit SHA",
+    "initialIntegrity": "INTEGRITY_MATCH",
+    "workingTreeAtEntry": "CLEAN",
+    "currentBlock": "VERIFIED_BOUNDED_CREATE_DESIGN; FULL_SSOT_PARTIAL"
   },
   "createBlock": {
     "status": "PARTIAL_OPERATION_CLOSURE",
     "request": "EXPLICIT_DOMAIN_SHAPE_AND_DECODER",
-    "response": "OPEN_GENERIC",
-    "event": "OPEN_GENERIC_APPLICABILITY",
-    "errors": "SEMANTIC_REVIEW_REQUIRED",
+    "response": "EXPLICIT_SERVER_RECEIPTS_AND_STATUS_ERROR_UNION",
+    "event": "EXPLICIT_AGGREGATE_CREATE_RECEIPTS",
+    "errors": "32_EXACT_SCOPED_TUPLES_WITH_HTTP_PROJECTION",
     "remaining": [
-      "Structured/cryptographic Secret type policies",
-      "Parent/target state guards",
-      "Persistence and hydrated producer-consumer postconditions",
-      "Exact response/error/event and event applicability"
+      "Nine Secret concrete variant formats PENDING_OWNER_FORMAT_REVIEW",
+      "Other-kind parent/target policies and actual sufficiency validators",
+      "Executable persistence/locks/helper proof and full current-read consumers",
+      "UI/runtime hydration acceptance"
     ],
     "evidence": [
-      "audit/generated/repair-create-2026-09-30/field-contracts.json",
-      "audit/generated/repair-create-2026-09-30/create-request-tests.json"
+      "audit/generated/repair-2026-09-30/design-current/verify_create_operation_requests/create-request-tests.json",
+      "audit/generated/repair-2026-09-30/design-current/verify_create_completion/completion-tests.json",
+      "audit/generated/repair-2026-09-30/design-current/verify_create_http_errors/create-http-errors.json",
+      "audit/generated/repair-2026-09-30/design-current/verify_follow_up_contracts/follow-up-tests.json"
     ],
     "metricsBeforeAfter": {
       "genericBoundaries": [
-        1506,
-        1504
+        1504,
+        1500
       ],
       "genericRoutes": [
         502,
-        502
+        500
       ],
-      "requestBoundariesMadeExplicit": 2,
-      "responseBoundariesMadeExplicit": 0,
-      "eventBoundariesMadeExplicit": 0
+      "requestBoundariesMadeExplicitThisBlock": 0,
+      "responseBoundariesMadeExplicitThisBlock": 2,
+      "eventBoundariesMadeExplicitThisBlock": 2,
+      "wholeOperationsSemanticallyClosed": 0
     },
     "coverage": "21 top-level fields with nested variants, authoritative excerpts; byte extraction is not whole-document semantic review"
   },
@@ -213,11 +232,34 @@
     "reason": "No exact field lifecycle dictionary found for six remaining fields; UI/generation/browser/side-effect enums are not their authority."
   },
   "runnerResumeVerification": {
-    "sourceSha256": "eb4d7e5e5688e898ce4bb89487f86694050f0d3b673bb7333eeab8ef4aa3593c",
-    "cacheReuse": 39,
+    "sourceSha256": "2086c1594100e125cae4714a62371f608835c3346feff66a9f5dab99db6b22aa",
+    "cacheReuse": 42,
     "commandsExecuted": 0,
     "consumedEvidenceKeyed": true,
     "evidenceLogsHashVerified": true,
     "knownBlockedResultRetained": true
-  }
+  },
+  "historicalAuditInput": {
+    "baselineCommit": "cfcb7b2f6a41d152cb799779252d9c1615a02d5a",
+    "sourceDocumentSha256": "742681f74997529249644da148c870de9d531af91a995e34a17f285fcd8d42db",
+    "scope": "Initial historical audit, not continuation source"
+  },
+  "followUpApproval": {
+    "status": "APPROVED_PRODUCT_RULE_INTEGRATED",
+    "authority": "OWNER 2026-09-30 conditions1-7; canonical12.49",
+    "matrix": "contracts/follow-up-admission.json",
+    "specifiedFollowUpCells": 55,
+    "otherKindCellsOpen": 220,
+    "runtime": "NOT_EVALUATED"
+  },
+  "secretVariants": {
+    "status": "PENDING_OWNER_FORMAT_REVIEW",
+    "types": 9,
+    "variants": 10,
+    "proposal": "audit/generated/create-review-authority/secret-variant-proposals.json",
+    "effective": false,
+    "structuralProposalCases": 60,
+    "semanticProposalCases": "18 NOT_EXECUTED_PROPOSAL"
+  },
+  "completionRegister": "audit/SSOT_COMPLETION_REGISTER.json"
 }
