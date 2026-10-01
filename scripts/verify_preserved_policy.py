@@ -41,6 +41,18 @@ if __name__=='__main__':
         from close_producer_archive_handoffs import SECRET_NORM
         addition.append({'section':'8.14 Trusted profile publication and OWNER binding','status':'PASS'if current.count(SECRET_NORM)==1 else'FAIL','scope':'Exact technical addendum only; original policy remains byte compared'})
         if current.count(SECRET_NORM)==1:current=current.replace(SECRET_NORM,'',1)
+    from secret_root_status_authority import ROOT_STATUS_NORM,ENTITY_STATUS_NORM,decision_approved
+    for norm,scope in [(ROOT_STATUS_NORM,'8.3'),(ENTITY_STATUS_NORM,'25.6')]:
+        ok=decision_approved() and current.count(norm)==1
+        addition.append({'section':scope+'/OWNER-SECRET-ROOT-STATUS-2026-10-01','status':'PASS'if ok else'FAIL','scope':'Exact explicitly approved additive derived projection only; original policy stays compared'})
+        if ok:current=current.replace(norm,'',1)
+    from close_retry_authority_handoffs import SECRET_NORM as OWNER_VALUE_READ_NORM
+    from close_secret_effective_handoffs import NORM as DERIVED_STATUS_NORM
+    for norm,scope in [(OWNER_VALUE_READ_NORM,'8.15'),(DERIVED_STATUS_NORM,'8.16')]:
+        if scope.split('.')[1] and norm in current:
+            ok=current.count(norm)==1
+            addition.append({'section':scope,'status':'PASS'if ok else'FAIL','scope':'Exact reviewed additive technical handoff only; all original bytes compared'})
+            if ok:current=current.replace(norm,'',1)
     before=sections(original);after=sections(current)
     checks=[{'section':key,'originalSha256':value,'currentSha256':after.get(key),
              'status':'PASS' if after.get(key)==value else 'FAIL'} for key,value in before.items()]

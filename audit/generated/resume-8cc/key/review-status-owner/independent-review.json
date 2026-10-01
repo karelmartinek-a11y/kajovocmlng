@@ -1,0 +1,53 @@
+{
+  "status": "BOUNDED_INDEPENDENT_CANDIDATE_REVIEW_PASS",
+  "sourceDocumentSha256": "c754c27e744434588ee17e3074d1750003077149a6193efcccefbd05f88103a3",
+  "canonicalIntegrated": false,
+  "wholeOperationClosed": false,
+  "postgresqlVersion": "18.6",
+  "counts": {
+    "status/status-postgres-tests.json": 23,
+    "owner-value-read-tests.json": 25,
+    "broker-tests.json": 29,
+    "value-transport-tests.json": 34
+  },
+  "evidenceSha256": {
+    "status/status-postgres-tests.json": "8cee9672fd33c1b33eb48742a985ee85e16c4c858441f63047397eb48e79a9dc",
+    "owner-value-read-tests.json": "f72c5ee2e90a7ad5f4086753066e8113cbbbf220801450d8aa012474b30f6a2a",
+    "broker-tests.json": "5f7bde60404350ece61a869336d1ae3754c28d15a6476afbf77cca6d729d2466",
+    "value-transport-tests.json": "9d505648c5ab4e5f319191d7d444a08eaf59aa3858f9c89862172c93e289634f"
+  },
+  "candidateSha256": {
+    "status/secret-record-status.sql": "557d5c6555c89db4c473cab12988c3caf3d2fc7e61c611e17a5e43767c9d14a9",
+    "secret-owner-api-value-read.sql": "34e7c69b608f98cf75fd90fe12b0bab3ae8b51e7687f924db645a0e33dc47618",
+    "secret_owner_value_read.py": "6684ca4dd596dd7b3f2135ba8eb9420705bf6ae82347170bccb25eca9a26dd2f",
+    "secret_value_read_transport.py": "65a8f2742b2a25c06564740ad91113eb37e7cfa33a20dc28bc5aeaa1bc46c7e9",
+    "secret-value-read.schema.json": "aac78e65ed7bfb83744c3bd95acf96340d3b656dacf7f86fe407c7127f154bf3",
+    "secret_broker_open.py": "0a1155185fe2f5f27f9b9f67a6a97fecf9cbfd576221925769c8d8c65ef2d603",
+    "secret-broker-boundary.sql": "dc31476ce8553497bceb84cc008c186b2acbae3df2c0de7c0e5df18f16dddaba"
+  },
+  "exactPeerBytesMatched": {
+    "status/secret-record-status.sql": true,
+    "secret-owner-api-value-read.sql": true,
+    "secret_owner_value_read.py": true,
+    "secret_value_read_transport.py": true,
+    "secret-value-read.schema.json": true,
+    "secret_broker_open.py": true,
+    "secret-broker-boundary.sql": true
+  },
+  "independentAddedScope": [
+    "post-install default INACTIVE creation",
+    "actual INACTIVE root explicit RETIRED immutable-version reveal preserves bytes and does not reactivate",
+    "actual INACTIVE current selector no silent historical fallback",
+    "positive-derived foreign creator context/swapped nonce/wrong server owner/original bytes digest/ciphertext digest negatives"
+  ],
+  "negativeInvocationCorrection": "Initial missing-current-pointer test expected deleted-root reference diagnostic; inspected exactSQL: selected version absent is SECRET_OWNER_VERSION_UNAVAILABLE. Corrected expectation; initial failed run notPASS.",
+  "limitations": [
+    "Status test value bytes opaque, notcrypto proof",
+    "OWNER read canonical AES syntheticisolatedkey, notactualsystemdsource",
+    "Legacy privatefixture corruption probes disableonlyownDB enforcement withinrolledbacktransactions; output canonicalconstraintsunmodified",
+    "Activation/fullcommand-event-outbox-audit/globalnonce producer and actualservicecapability notclosed",
+    "Actual OWNERsession reservedcredential reveal nottested; APIrejection alone preserved",
+    "Canonical integration/newsource reproduction required separately"
+  ],
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

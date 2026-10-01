@@ -1,0 +1,52 @@
+{
+  "status": "BOUNDED_INDEPENDENT_CANDIDATE_PASS",
+  "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+  "checked": 45,
+  "postgresVersion": "18.6",
+  "sourceStableDuringRun": true,
+  "canonicalEligibilityIntegrated": false,
+  "evidenceSha256": "5b4bf9dd2a593140cea5d8d766e31d9dae0807a6e6f42c78db5b3b5782b4913b",
+  "independentNegatives": [
+    {
+      "id": "peer-positive-derived-selected-version-binding",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_API_CREDENTIAL_ROOT_BINDING_MISMATCH"
+    },
+    {
+      "id": "peer-positive-derived-selected-root-binding",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_API_CREDENTIAL_ROOT_UNAVAILABLE"
+    },
+    {
+      "id": "peer-positive-derived-owner-identity-binding",
+      "status": "PASS",
+      "actualDiagnostic": "SECRET_OWNER_IDENTITY_CHANGED"
+    }
+  ],
+  "evidence": "credential-eligibility-postgres-tests.json",
+  "candidateSha256": {
+    "secret-command-chain-eligible.sql": "51c00fbd3291317f0281d51b7b8f960a3f604d5c746b66f8733c6d1843db4152",
+    "secret_command_chain_eligible.py": "40e0eaba681cd7bb7184b318a3e1d27f410ab0603baddb740b1432534388e6d7",
+    "status/secret-record-status.sql": "557d5c6555c89db4c473cab12988c3caf3d2fc7e61c611e17a5e43767c9d14a9",
+    "secret-create-lock-plan.json": "3113c94435626e889dbc7530f4d41e7ecc387b199a62de85804377bcb2b921ae"
+  },
+  "confirmedScenarios": [
+    "actual committed DELETED credential source delays and denies both fresh and replay with no command leak",
+    "canonical OWNER binding rejects attempted INACTIVE current credential commit; waiting replay observes rollback then validACTIVE",
+    "both raw UUID fresh root orders",
+    "exact real OWNER/version/root binding",
+    "samekey concurrent firstcommit replay",
+    "semantic outcome tampering coupledbytes/digests rejectedatcommit"
+  ],
+  "exclusions": [
+    "Real publicAPI wiring/create adapter intentionallyfails SECRET_RETENTION_AUTHORITY_UNRESOLVED",
+    "Retention serverfixturedate notauthority",
+    "Opaque credential prerequisite does notprovecredentialprovisioning",
+    "Syntheticcrypto key notactualsystemdprovider",
+    "Current helpersealbeforenoncepublication fullproducer remainsopen",
+    "Broad SQL helpers/callsite ordinals integration prerequisite",
+    "No wholecreateoperation closure or generatedapp runtime"
+  ],
+  "wholeOperationClosed": false,
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

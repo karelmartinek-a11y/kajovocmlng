@@ -1,0 +1,21 @@
+{
+  "contractId": "KCML_CANONICAL_KEY_AUTHORITY_V1",
+  "status": "TECHNICAL_CANDIDATE_PROVIDER_FIXTURE_ENV_BLOCKED",
+  "authorities": ["SSOT §8.4", "SSOT §12.54", "SSOT §50.30", "SSOT §50.33"],
+  "trustedProducers": {
+    "installer": "Exact root platform installer creates encrypted source automatically through existing systemd-creds provider; never a manual owner step or plaintext-key environment variable.",
+    "managerObserver": "Local system bus root-owned socket/root peer; pin org.freedesktop.systemd1 unique owner, verify root UID and PID1, use that unique owner for every query; unit ID and active invocation MainPID/start-time are actual manager observations.",
+    "registryWriter": "Restricted installer/service writer binds immutable key ID/generation/fingerprint/profile/source receipt. Public/handler/model channels cannot publish key registry or invocation receipts. Real ACL installation remains mandatory fixture.",
+    "invocationConfirmation": "After restart exact service, actual manager invocation plus key bytes fingerprint confirms desired generation. Old connections retire only after readiness/dependent-smoke confirmation under §50.30. Main process alone reads credential; generated handler never receives directory."
+  },
+  "sourceToInvocation": ["immutable root-owned 0600 encrypted source version", "systemd LoadCredentialEncrypted exact platform unit", "read-only service invocation materialization", "verified manager InvocationID/MainPID/start timestamp", "actual key fingerprint/profile equals locked server key record", "immutable receipt references installed source generation"],
+  "retainedHistory": {
+    "rule": "Retain encrypted immutable source versions needed by existing immutable protected rows under their exact key IDs; current source replacement does not erase historical availability. Materialize retained versions exclusively via existing systemd credentials, in a server-authored exact-unit manifest. No plaintext archive or key-ID alias namespace.",
+    "use": "Historic decrypt selects retained exact keyId and purpose authorized by server receipt; cannot silently use current key. Retirement forbids new seal under old key while preserving authorized reads.",
+    "gate": "Physical manifest/source archive availability and rotation confirmation are required A/B fixtures, presently ENV_BLOCKED."
+  },
+  "globalNonceProducer": ["Authenticate request and lock canonical acceptance/context", "Resolve confirmed exact invocation/key generation, service purpose and immutable object identity", "Generate random nonce and seal exact plaintext with canonical actual typed AAD", "Insert global reservation and protected generation/Secret row in same database transaction", "Run deferred exact-AAD/row constraints before commit", "Commit command/root/event/outbox/audit/locator atomically", "Nonce collision rolls back candidate cipher and transaction; fresh nonce retains same immutable command semantics", "Idempotent retained object replay returns original ciphertext/reservation; never reseals"],
+  "blockedIds": ["SHARED.CRYPTO.SYSTEMD_SOURCE", "SHARED.CRYPTO.KEY_INVOCATION", "GENERATION_KEY_MANAGER_PRODUCER", "KEY_ROTATION_RETAINED_GENERATION_USE"],
+  "dependentIds": ["SHARED.CRYPTO.GLOBAL_NONCE", "GENERATION_PROTECTED_ROW_GLOBAL_RESERVATION", "SECRET_PROTECTED_ROW_GLOBAL_RESERVATION"],
+  "implementationAcceptance": "NOT_EVALUATED"
+}

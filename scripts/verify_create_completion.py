@@ -32,7 +32,7 @@ def witnesses(operation,row):
  if operation=='generation.job.create':
   output={'jobId':ROOT_ID,'kind':'CREATE','state':'DISCUSSING','stateVersion':'1','initialRequestDigest':canonical_digest({'intent':'Create fixture component'}),'createdAt':TIME,'frozenBasis':None}
  else:
-  output={'secretId':ROOT_ID,'stableName':'FIXTURE_SECRET','type':'PASSWORD','versionId':VERSION_ID,'versionNumber':'1','versionState':'CREATED','activeVersionId':None,'stateVersion':'1','createdAt':TIME}
+  output={'secretId':ROOT_ID,'stableName':'FIXTURE_SECRET','type':'PASSWORD','versionId':VERSION_ID,'versionNumber':'1','versionState':'CREATED','recordStatus':'INACTIVE','activeVersionId':None,'stateVersion':'1','createdAt':TIME}
  response={'routeId':row['routeId'],'operationId':operation,'logicalOperationId':UID,'correlationId':UID,'status':'SUCCEEDED','terminal':True,'output':output,'error':None,'resultDigest':'sha256:'+'0'*64,'stateVersion':'1','eventSequence':'1','activationEpoch':None,'idempotencyReplay':False}
  response['resultDigest']=canonical_digest({k:v for k,v in response.items() if k not in ['resultDigest','idempotencyReplay']})
  event={'routeId':row['routeId'],'operationId':operation,'eventType':OPERATIONS[operation][1],'logicalOperationId':UID,'correlationId':UID,'sequence':'1','payload':copy.deepcopy(output),'payloadDigest':canonical_digest(output),'immutableEventId':OTHER_ID,'aggregateId':ROOT_ID,'occurredAt':TIME}
@@ -72,6 +72,10 @@ def main():
      bad=copy.deepcopy(valid);bad[nested][key]=None
      expected_keyword='enum' if key=='kind' else 'const' if key in ['state','versionState'] else 'type'
      schema_reject(operation+'/'+role+'/receipt-null/'+key,v,bad,expected_keyword,'/'+nested+'/'+key)
+   if operation=='secret.create':
+    for forbidden in ['ACTIVE','DELETED','CREATED']:
+     bad=copy.deepcopy(valid);bad[nested]['recordStatus']=forbidden
+     schema_reject(operation+'/'+role+'/derived-create-status/'+forbidden,v,bad,'const','/'+nested+'/recordStatus')
    bad=copy.deepcopy(valid);bad[nested]['authorityId']=UID;schema_reject(operation+'/'+role+'/receipt-extra',v,bad,'additionalProperties','/'+nested+'/authorityId')
    for key in ['stateVersion','versionNumber']:
     if key not in valid[nested]:continue

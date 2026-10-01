@@ -1,0 +1,31 @@
+{
+  "status": "ENV_BLOCKED",
+  "sourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "uid": 1000,
+  "pid1": "tail",
+  "actualManagerObserverDiagnostic": "SYSTEMD_MANAGER_NOT_PID1",
+  "sockets": {
+    "/run/dbus/system_bus_socket": false,
+    "/run/systemd/private": false,
+    "/run/user/1000/bus": false
+  },
+  "dockerManagedLocalDaemon": "28.4.0",
+  "dockerImageCache": "EMPTY",
+  "registryNetworkPolicy": {
+    "dockerHubListed": false,
+    "policyType": "restricted"
+  },
+  "previousUnsupportedEncryptProof": "audit/generated/resume-905/key/systemd-source-proof.json",
+  "unchangedUnsupportedEncryptNotRepeated": true,
+  "noPrivilegedHostOrNetworkBypass": true,
+  "providerPositive": "NOT_EVALUATED",
+  "blockedIds": [
+    "SHARED.CRYPTO.SYSTEMD_SOURCE",
+    "SHARED.CRYPTO.KEY_INVOCATION",
+    "GENERATION_KEY_MANAGER_PRODUCER",
+    "KEY_ROTATION_RETAINED_GENERATION_USE"
+  ],
+  "transitivelyProviderBlocked": [
+    "SHARED.CRYPTO.GLOBAL_NONCE"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "status": "BOUNDED_CANDIDATE_REPAIR_REPRODUCED",
+  "sourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "checked": 17,
+  "failed": 0,
+  "actualPostgreSQLVersion": "18.6",
+  "authorInputsSha256": {
+    "secret-owner-api-value-read.sql": "8e514c0cf1c7c0eeb6f9320a99f50e9650ed80d97b776c0b24317b6919f47df3",
+    "secret_owner_value_read.py": "6684ca4dd596dd7b3f2135ba8eb9420705bf6ae82347170bccb25eca9a26dd2f",
+    "secret-broker-boundary.sql": "dc31476ce8553497bceb84cc008c186b2acbae3df2c0de7c0e5df18f16dddaba",
+    "secret_broker_open.py": "0a1155185fe2f5f27f9b9f67a6a97fecf9cbfd576221925769c8d8c65ef2d603"
+  },
+  "fixedDefect": "KEY_PROFILE_MISBINDING",
+  "counterexample": "profile-binding-counterexample/profile-binding-counterexample-before-fix.json",
+  "fixProof": "profile-binding-counterexample/profile-binding-fix-proof.json",
+  "systemdSource": "NOT_EVALUATED_SYNTHETIC_KEY",
+  "wholeOperationClosed": false,
+  "implementationAcceptance": "NOT_EVALUATED"
+}

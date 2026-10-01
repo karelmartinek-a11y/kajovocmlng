@@ -1,0 +1,132 @@
+{
+  "status": "PASS",
+  "checked": 23,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "peer-postinstall-create-default-INACTIVE",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "legacy-status-only-materialized-immutable-RAW-preserved",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "atomic-activation-derived-ACTIVE",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "retire-before-activation-rotation-derived-ACTIVE",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "readonly-status-edit",
+      "status": "PASS",
+      "actualDiagnostic": "ERROR:  SECRET_STATUS_NOT_EDITABLE"
+    },
+    {
+      "id": "null-status-edit",
+      "status": "PASS",
+      "actualDiagnostic": "ERROR:  SECRET_STATUS_NOT_EDITABLE"
+    },
+    {
+      "id": "foreign-pointer-integrity",
+      "status": "PASS",
+      "actualDiagnostic": "ERROR:  SECRET_STATUS_POINTER_IDENTITY_MISMATCH"
+    },
+    {
+      "id": "unavailable-pointer-integrity",
+      "status": "PASS",
+      "actualDiagnostic": "ERROR:  SECRET_STATUS_POINTER_UNAVAILABLE"
+    },
+    {
+      "id": "retired-pointer-integrity",
+      "status": "PASS",
+      "actualDiagnostic": "ERROR:  SECRET_STATUS_POINTER_NOT_ACTIVE"
+    },
+    {
+      "id": "active-without-pointer-integrity",
+      "status": "PASS",
+      "actualDiagnostic": "ERROR:  SECRET_STATUS_ACTIVE_WITHOUT_POINTER"
+    },
+    {
+      "id": "wrong-active-kind-integrity",
+      "status": "PASS",
+      "actualDiagnostic": "ERROR:  SECRET_STATUS_POINTER_IDENTITY_MISMATCH"
+    },
+    {
+      "id": "absent-record-integrity",
+      "status": "PASS",
+      "actualDiagnostic": "ERROR:  SECRET_STATUS_RECORD_UNAVAILABLE"
+    },
+    {
+      "id": "multiple-active-diagnostic-not-silent-status",
+      "status": "PASS",
+      "actualDiagnostic": "ERROR:  SECRET_STATUS_MULTIPLE_ACTIVE"
+    },
+    {
+      "id": "stale-projection-diagnostic-not-silent-repair",
+      "status": "PASS",
+      "actualDiagnostic": "ERROR:  SECRET_STATUS_PROJECTION_MISMATCH"
+    },
+    {
+      "id": "counterexamples-rollback-restores-valid-state",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "atomic-deactivation-derived-INACTIVE",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "historical-exact-RAW-reactivation-no-copy",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "read-replay-no-projection-state-epoch-mutation",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "concurrent-namespace-consumer-waits-for-projection-commit",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "concurrent-consumer-sees-one-committed-INACTIVE",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "deletion-derived-DELETED",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "deletion-does-not-mask-foreign-pointer",
+      "status": "PASS",
+      "actualDiagnostic": "ERROR:  SECRET_STATUS_POINTER_IDENTITY_MISMATCH"
+    },
+    {
+      "id": "no-automatic-activation-or-version-rewrite-on-deletion",
+      "status": "PASS",
+      "actualDiagnostic": null
+    }
+  ],
+  "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+  "sourceUnchangedDuringRun": true,
+  "canonicalSecretRootsSha256": "524b3c067ff22a5a39d5b9a89e6c48bdaf6caf76db719200d439eea023b739eb",
+  "candidateStatusSqlSha256": "557d5c6555c89db4c473cab12988c3caf3d2fc7e61c611e17a5e43767c9d14a9",
+  "postgresVersion": "18.6",
+  "approvedDecisionFile": "audit/OWNER_SECRET_ROOT_STATUS_DECISION.json",
+  "approvedDecisionFileSha256": "64299273983348c84d450a9cb6f0e0d575b6320b80ce0fe48f2f594dbf615f23",
+  "proofScope": "Actual persisted derived status/immutable versions/integrity/deferred-finalchecks and concurrency; not full activation command/outbox/rotation verifier nor real master-key evidence",
+  "wholeOperationClosed": false,
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

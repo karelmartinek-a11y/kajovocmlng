@@ -1,0 +1,28 @@
+{
+  "status": "BOUNDED_INDEPENDENT_REPRODUCTION_PASS",
+  "sourceDocumentSha256": "c754c27e744434588ee17e3074d1750003077149a6193efcccefbd05f88103a3",
+  "postgresqlVersion": "18.6",
+  "checks": 26,
+  "evidence": "audit/generated/resume-8cc/key/review-native/native-retry-chain-proof.json",
+  "evidenceSha256": "f3fc21de26b0e7bc330ed595665ca2929f55df24a06b41f8ee7989dbdc370f64",
+  "wholeOperationClosed": false,
+  "independentCases": [
+    "independent-native-missing-source-coverage",
+    "independent-missing-source-coverage-rollback-empty",
+    "independent-native-wrong-source-digest",
+    "independent-wrong-source-digest-rollback-empty",
+    "independent-historical-policy-byte-substitution"
+  ],
+  "reviewScope": "Actual PostgreSQL producer/CAS classified phase, named admission locked scan, canonical protected child commit, event/outbox/audit/locator and archived read/native consumer; frozen pre-order-repair candidate",
+  "exclusions": [
+    "AUTH.TRANSPORT trusted ceiling producer OPEN;4096 fixtureonly",
+    "Canonical encrypted systemd actual source independent;randomfixturekeys do not prove it",
+    "Original SQL.HELPERS.CONCRETE_CALL_SITES generic wrapper not replaced by direct adapter",
+    "KnownTechnicalFailureResult current bounded FENCING_TOKEN_STALE producer is exercised; other predicates/phase lifecycle remain outside this proof",
+    "Source OWNER approval/graph/binding/budget/observation-schema producers and activation remain independent OPEN; archive availability is not semantic authority",
+    "GENERATION.AUTH.API_ACCEPTANCE lock-order OPEN: actual legacy auth receipt/context INSERT and implicit OWNER FK lock occur before C; bounded passing fixtures do not certify 51.6 order",
+    "Nonce recorded after seal in primitive fixture; real global producer ordering independent",
+    "Browser/UI/public gateway runtime not evaluated"
+  ],
+  "invocationCorrection": "Initial negative assigned undeclared digest key rather than contentDigest. It failed intended assertion, was not PASS. Corrected test mutates actual authoritative contentDigest; exact diagnostics now reproduced. Incidental permissive extra-field observation sent author for separate review."
+}

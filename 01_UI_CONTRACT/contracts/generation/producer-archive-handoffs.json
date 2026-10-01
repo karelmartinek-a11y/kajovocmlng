@@ -1,5 +1,6 @@
 {
-  "version": "GENERATION_PRODUCER_ARCHIVE_HANDOFFS_V1",
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED",
+  "SSOT_CONTRACT_READY": "BLOCKED",
   "authority": [
     "SSOT12.55",
     "SSOT8.14",
@@ -7,6 +8,7 @@
     "SSOT51.12",
     "SSOT51.20"
   ],
+  "currentOnlyReadAdapter": "scripts/generation_read_hydration.py is prior bounded current-policy reference, not a substitute for required archived hydration",
   "generationInstallationOrder": [
     "database/generation-create-foundations.sql",
     "database/canonical-crypto-registry.sql",
@@ -18,18 +20,21 @@
     "database/generation-retry-producer-child.sql",
     "database/generation-locator-lock.sql",
     "database/generation-protected-registry-link.sql",
-    "database/generation-preroot-frozen-archive.sql"
+    "database/generation-preroot-frozen-archive.sql",
+    "database/canonical-key-invocation-receipts.sql"
   ],
+  "historicalRead": "scripts/generation_read_hydration_archive.py",
+  "ownerBindingPrerequisite": "Exact canonical owner_api_credential table and bootstrap/rotation producer; isolated root/credential fixture does not prove whole owner authority",
+  "scopedAuthorityNorm": "SSOT12.56",
   "secretInstallationOrder": [
     "database/secret-profile-roots.sql",
     "database/secret-profile-publication.sql",
-    "database/secret-owner-binding.sql"
+    "database/secret-owner-binding.sql",
+    "database/secret-command-chain.sql",
+    "database/secret-record-status.sql",
+    "database/secret-owner-api-value-read.sql"
   ],
-  "ownerBindingPrerequisite": "Exact canonical owner_api_credential table and bootstrap/rotation producer; isolated root/credential fixture does not prove whole owner authority",
-  "historicalRead": "scripts/generation_read_hydration_archive.py",
-  "currentOnlyReadAdapter": "scripts/generation_read_hydration.py is prior bounded current-policy reference, not a substitute for required archived hydration",
   "uiRead": "scripts/owner_ui_terminal_read.py requires actual command/context/target/artifact joins; display remains BLOCKED_PENDING_EFFECT_HYDRATION until semantic effect proof",
-  "wholeOperationsClosed": [],
-  "SSOT_CONTRACT_READY": "BLOCKED",
-  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+  "version": "GENERATION_PRODUCER_ARCHIVE_HANDOFFS_V1",
+  "wholeOperationsClosed": []
 }

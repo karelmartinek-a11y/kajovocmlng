@@ -19,6 +19,16 @@ def secret_scope_current(q):
  from close_producer_archive_handoffs import SECRET_NORM
  if after.count(SECRET_NORM)!=1:return False
  after=after.replace(SECRET_NORM,'')
+ # These exact additive reviewed paragraphs change root presentation/handoffs,
+ # not the prior isolated import parsers/schema/cookie fixture consumed scope.
+ from secret_root_status_authority import ROOT_STATUS_NORM,decision_approved
+ from close_retry_authority_handoffs import SECRET_NORM as OWNER_VALUE_READ_NORM
+ from close_secret_effective_handoffs import NORM as DERIVED_STATUS_NORM
+ if not decision_approved():return False
+ for norm in [ROOT_STATUS_NORM,OWNER_VALUE_READ_NORM,DERIVED_STATUS_NORM]:
+  if after.count(norm)!=1:return False
+  after=after.replace(norm,'',1)
+
  # Prior fixture authority: entire Secrets chapter plus browser continuity and UI.
  if any(section(before,n)!=section(after,n)for n in ['8','13.15','72.21']):return False
  rs=resource_index();previous=resource_index(resources(before))

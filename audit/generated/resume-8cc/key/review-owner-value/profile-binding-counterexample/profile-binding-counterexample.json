@@ -1,0 +1,14 @@
+{
+  "status": "DEFECT_REPRODUCED",
+  "sourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "postgresqlVersion": "18.6",
+  "case": "actual-key-registry-profile-misbinding-owner-read",
+  "actualRegistryProfileDigest": "ab8e573bdc6490f776c80500d7a38b6ad1257e89fb56c274a5a82300573cd75e",
+  "consumedCanonicalProfileDigest": "7311d53fcbfcf6d9dea1c40f487ef76f37e673226e59aeb9809d0baab5fe19fc",
+  "acceptedByteExactOwnerValue": true,
+  "diagnostic": null,
+  "meaning": "Fresh API token under held SQL locks authenticates and opens despite its retained key registry declaring a different crypto profile. SQL omitted actual crypto_profile_digest; helper synthesized current profile digest. No immutable trigger disabled. This does not attest source provenance or systemd.",
+  "candidateSqlSha256": "fa2fc92be76bcefc701b6d423f370e07a2519f48984884c3cec458c059c1e800",
+  "helperSha256": "a51a328209db99201f3179252c9546163fb7deba1456b634bec62bb1d5efa805",
+  "plaintextInReport": false
+}

@@ -1,0 +1,135 @@
+{
+  "status": "PASS",
+  "checked": 21,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "reference-receipt-positive-not-provider-attestation",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "wrong-source-owner",
+      "passed": true,
+      "expectedDiagnostic": "source_uid_check",
+      "actualDiagnostic": "ERROR:  new row for relation \"canonical_encrypted_key_source_version\" violates check constraint \"canonical_encrypted_key_source_version_source_uid_check\"\nDETAIL:  Failing row contains (synthetic-key, \\x523cab63fb164dfa338b0adde5a2caf1561f2e8e7828c65c0b1c229ff1adae..., 1, 2, 1000, 384, 2026-10-01 08:53:33.677507+00).\n"
+    },
+    {
+      "case": "wrong-source-mode",
+      "passed": true,
+      "expectedDiagnostic": "source_mode_check",
+      "actualDiagnostic": "ERROR:  new row for relation \"canonical_encrypted_key_source_version\" violates check constraint \"canonical_encrypted_key_source_version_source_mode_check\"\nDETAIL:  Failing row contains (synthetic-key, \\x523cab63fb164dfa338b0adde5a2caf1561f2e8e7828c65c0b1c229ff1adae..., 1, 2, 0, 420, 2026-10-01 08:53:33.677865+00).\n"
+    },
+    {
+      "case": "wrong-key-fingerprint",
+      "passed": true,
+      "expectedDiagnostic": "CRYPTO_KEY_FINGERPRINT_MISMATCH",
+      "actualDiagnostic": "ERROR:  CRYPTO_KEY_FINGERPRINT_MISMATCH\nCONTEXT:  PL/pgSQL function kcml_key_invocation_fingerprint_v1() line 4 at RAISE\n"
+    },
+    {
+      "case": "wrong-source-digest",
+      "passed": true,
+      "expectedDiagnostic": "key_receipt_encrypted_source_fkey",
+      "actualDiagnostic": "ERROR:  insert or update on table \"canonical_key_invocation_receipt\" violates foreign key constraint \"key_receipt_encrypted_source_fkey\"\nDETAIL:  Key (key_id, encrypted_source_digest)=(synthetic-key, \\x0000000000000000000000000000000000000000000000000000000000000000) is not present in table \"canonical_encrypted_key_source_version\".\n"
+    },
+    {
+      "case": "wrong-service",
+      "passed": true,
+      "expectedDiagnostic": "key_receipt_key_generation_fkey",
+      "actualDiagnostic": "ERROR:  insert or update on table \"canonical_key_invocation_receipt\" violates foreign key constraint \"key_receipt_key_generation_fkey\"\nDETAIL:  Key (key_id, key_generation, exact_service_unit)=(synthetic-key, 1, other.service) is not present in table \"canonical_master_key_generation\".\n"
+    },
+    {
+      "case": "wrong-generation",
+      "passed": true,
+      "expectedDiagnostic": "key_receipt_key_generation_fkey",
+      "actualDiagnostic": "ERROR:  insert or update on table \"canonical_key_invocation_receipt\" violates foreign key constraint \"key_receipt_key_generation_fkey\"\nDETAIL:  Key (key_id, key_generation, exact_service_unit)=(synthetic-key, 2, fixture-platform.service) is not present in table \"canonical_master_key_generation\".\n"
+    },
+    {
+      "case": "zero-invocation",
+      "passed": true,
+      "expectedDiagnostic": "invocation_id_check",
+      "actualDiagnostic": "ERROR:  new row for relation \"canonical_key_invocation_receipt\" violates check constraint \"canonical_key_invocation_receipt_invocation_id_check\"\nDETAIL:  Failing row contains (synthetic-key, 1, fixture-platform.service, \\x00000000000000000000000000000000, 123, 1234, :1.7, \\x523cab63fb164dfa338b0adde5a2caf1561f2e8e7828c65c0b1c229ff1adae..., \\xaa2e22f886bf5d8e7472d0933403f118c932964b2a3ea1ede93f86a153116f..., {GENERATION_INITIAL_REQUEST,SECRET_IMMUTABLE_VERSION}, 2026-10-01 08:53:33.680031+00).\n"
+    },
+    {
+      "case": "duplicate-purposes",
+      "passed": true,
+      "expectedDiagnostic": "key_receipt_purpose_unique",
+      "actualDiagnostic": "ERROR:  new row for relation \"canonical_key_invocation_receipt\" violates check constraint \"key_receipt_purpose_unique\"\nDETAIL:  Failing row contains (synthetic-key, 1, fixture-platform.service, \\x01010101010101010101010101010101, 123, 1234, :1.7, \\x523cab63fb164dfa338b0adde5a2caf1561f2e8e7828c65c0b1c229ff1adae..., \\xaa2e22f886bf5d8e7472d0933403f118c932964b2a3ea1ede93f86a153116f..., {GENERATION_INITIAL_REQUEST,GENERATION_INITIAL_REQUEST}, 2026-10-01 08:53:33.680402+00).\n"
+    },
+    {
+      "case": "array-offset-purpose-mask",
+      "passed": true,
+      "expectedDiagnostic": "key_receipt_purpose_mask",
+      "actualDiagnostic": "ERROR:  new row for relation \"canonical_key_invocation_receipt\" violates check constraint \"key_receipt_purpose_mask\"\nDETAIL:  Failing row contains (synthetic-key, 1, fixture-platform.service, \\x01010101010101010101010101010101, 123, 1234, :1.7, \\x523cab63fb164dfa338b0adde5a2caf1561f2e8e7828c65c0b1c229ff1adae..., \\xaa2e22f886bf5d8e7472d0933403f118c932964b2a3ea1ede93f86a153116f..., [0:1]={GENERATION_INITIAL_REQUEST,SECRET_IMMUTABLE_VERSION}, 2026-10-01 08:53:33.680725+00).\n"
+    },
+    {
+      "case": "unknown-purpose",
+      "passed": true,
+      "expectedDiagnostic": "key_receipt_purpose_mask",
+      "actualDiagnostic": "ERROR:  new row for relation \"canonical_key_invocation_receipt\" violates check constraint \"key_receipt_purpose_mask\"\nDETAIL:  Failing row contains (synthetic-key, 1, fixture-platform.service, \\x01010101010101010101010101010101, 123, 1234, :1.7, \\x523cab63fb164dfa338b0adde5a2caf1561f2e8e7828c65c0b1c229ff1adae..., \\xaa2e22f886bf5d8e7472d0933403f118c932964b2a3ea1ede93f86a153116f..., {GENERATION_INITIAL_REQUEST,MODEL_SUPPLIED_AUTHORITY}, 2026-10-01 08:53:33.681036+00).\n"
+    },
+    {
+      "case": "immutable-invocation",
+      "passed": true,
+      "expectedDiagnostic": "CANONICAL_CRYPTO_REGISTRY_IMMUTABLE",
+      "actualDiagnostic": "ERROR:  CANONICAL_CRYPTO_REGISTRY_IMMUTABLE\nCONTEXT:  PL/pgSQL function public.kcml_canonical_crypto_registry_immutable_v1() line 3 at RAISE\n"
+    },
+    {
+      "case": "immutable-source",
+      "passed": true,
+      "expectedDiagnostic": "CANONICAL_CRYPTO_REGISTRY_IMMUTABLE",
+      "actualDiagnostic": "ERROR:  CANONICAL_CRYPTO_REGISTRY_IMMUTABLE\nCONTEXT:  PL/pgSQL function public.kcml_canonical_crypto_registry_immutable_v1() line 3 at RAISE\n"
+    },
+    {
+      "case": "restricted-publisher-insert-positive-reference",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "publisher-cannot-change-source-or-identity",
+      "passed": true,
+      "expectedDiagnostic": "permission denied",
+      "actualDiagnostic": "ERROR:  permission denied for table canonical_master_key_generation\n"
+    },
+    {
+      "case": "publisher-cannot-update-retained-receipts",
+      "passed": true,
+      "expectedDiagnostic": "permission denied",
+      "actualDiagnostic": "ERROR:  permission denied for table canonical_key_invocation_receipt\n"
+    },
+    {
+      "case": "restricted-role-attributes-kcml_key_source_installer",
+      "passed": true
+    },
+    {
+      "case": "restricted-role-attributes-kcml_key_invocation_publisher",
+      "passed": true
+    },
+    {
+      "case": "reference-actual-publisher-code-to-db-idempotent-receipt",
+      "passed": true
+    },
+    {
+      "case": "reference-actual-publisher-replay-observer-metadata-conflict",
+      "passed": true,
+      "actualDiagnostic": "CRYPTO_INVOCATION_REPLAY_CONFLICT"
+    },
+    {
+      "case": "actual-publisher-requires-live-db-transaction",
+      "passed": true,
+      "actualDiagnostic": "CRYPTO_KEY_PUBLICATION_TRANSACTION_REQUIRED"
+    }
+  ],
+  "sourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "canonicalInputs": {
+    "database/generation-create-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "database/canonical-crypto-registry.sql": "773310806845b2754bdd2675ee1a27ed7cc96697f54bccdcac2648ba9cd1c7d4"
+  },
+  "candidateSqlSha256": "62e606be1d5e448503589a4c214e90e868e49eb4f9ed8520751ee55c605504a1",
+  "postgresqlVersion": "18.6",
+  "proofScope": "Actual PostgreSQL constraints/immutable reference receipts and actual publisher-code\u2192DB handoff, synthetic source metadata/manager identity and explicit temporary-key path adapter only. Not verified source or systemd provider, exact publisher ACL or rotation confirmation.",
+  "providerStatus": "ENV_BLOCKED",
+  "wholeOperationClosed": false
+}

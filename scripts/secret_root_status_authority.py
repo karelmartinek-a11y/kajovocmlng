@@ -1,0 +1,8 @@
+"""Exact OWNER-approved additions; preserve all unrelated original policy bytes."""
+import json
+from ssot_sources import ROOT
+ROOT_STATUS_NORM='Root `status` je výhradně odvozená projekce `INACTIVE | ACTIVE | DELETED`, podle rozhodnutí OWNER `OWNER-SECRET-ROOT-STATUS-2026-10-01`. `DELETED` má přednost, pokud je root soft-deleted. Jinak `ACTIVE` znamená právě jednu platnou aktivní vazbu na verzi stejného rootu v lifecycle `ACTIVE`; bez aktivní vazby je root `INACTIVE`. Chybějící nebo cizí verze, více aktivních verzí či rozpor pointeru s lifecycle jsou chyba integrity, nikoli důvod tiše vrátit `INACTIVE`. Create vrací `INACTIVE`; import ani vytvoření verze neaktivují root. Volající status nesmí nastavovat ani samostatně měnit. Pokud je projekce uložena, její shoda se vynucuje atomicky v téže transakci jako změna autoritativních vazeb. `CREATED | ACTIVE | RETIRED` zůstává slovníkem verzí. Root `ACTIVE` nenahrazuje autorizaci, expiraci, target, purpose ani broker kontroly. Soft delete zachovává historii a immutable verze, vypořádává vazby a konzumenty podle stávajících invalidation pravidel a historická aktivní verze nesmí znovu aktivovat smazaný root.\n\n'
+ENTITY_STATUS_NORM='Root `status` má přesně odvozený význam §8.3 (`INACTIVE | ACTIVE | DELETED`), nikoli samostatný lifecycle; uložená projekce musí odpovídat autoritativním vazbám ve stejném commitu. Create je `INACTIVE`. Rozpor active pointeru s parent ownership nebo lifecycle verze je chyba integrity.\n\n'
+def decision_approved():
+ q=json.loads((ROOT/"audit/OWNER_SECRET_ROOT_STATUS_DECISION.json").read_text())
+ return q.get("approved") is True and q.get("decisionId")=="OWNER-SECRET-ROOT-STATUS-2026-10-01" and q.get("values")==["INACTIVE","ACTIVE","DELETED"]

@@ -1,0 +1,117 @@
+{
+  "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "sourceUnchanged": true,
+  "checked": 17,
+  "failed": 0,
+  "cases": [
+    {
+      "id": "current-owner-API-verified-locked-target-canonical-open-native-profile-byteexact",
+      "status": "PASS"
+    },
+    {
+      "id": "wrong-bearer",
+      "status": "PASS",
+      "diagnostic": "OWNER_API_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "create-context-is-not-credential",
+      "status": "PASS",
+      "diagnostic": "OWNER_API_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "wrong-immutable-version",
+      "status": "PASS",
+      "diagnostic": "SECRET_OWNER_IMMUTABLE_IDENTITY_MISMATCH"
+    },
+    {
+      "id": "peer-foreign-creator-context",
+      "status": "PASS",
+      "diagnostic": "SECRET_OWNER_IMMUTABLE_IDENTITY_MISMATCH"
+    },
+    {
+      "id": "peer-swapped-nonce",
+      "status": "PASS",
+      "diagnostic": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "peer-wrong-server-owner",
+      "status": "PASS",
+      "diagnostic": "SECRET_OWNER_IMMUTABLE_IDENTITY_MISMATCH"
+    },
+    {
+      "id": "peer-different-original-byte-digest",
+      "status": "PASS",
+      "diagnostic": "SECRET_OWNER_STORED_METADATA_MISMATCH"
+    },
+    {
+      "id": "peer-ciphertext-digest-substitution",
+      "status": "PASS",
+      "diagnostic": "SECRET_PROTECTED_ROW_DIGEST_MISMATCH"
+    },
+    {
+      "id": "actual-read-audit-after-verifier-and-open-same-held-transaction",
+      "status": "PASS"
+    },
+    {
+      "id": "actual-credential-rotation-linearizes-after-read-open-audit-commit",
+      "status": "PASS"
+    },
+    {
+      "id": "old-credential-rejected-after-rotation-commit",
+      "status": "PASS",
+      "diagnostic": "OWNER_API_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "new-current-credential-read-after-rotation",
+      "status": "PASS"
+    },
+    {
+      "id": "reserved-credential-reveal-preserves-OWNER-session-authority",
+      "status": "PASS",
+      "diagnostic": "OWNER_CREDENTIAL_REVEAL_REQUIRES_OWNER_SESSION"
+    },
+    {
+      "id": "authentication-precedes-reserved-resource-diagnostic",
+      "status": "PASS",
+      "diagnostic": "OWNER_API_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "explicit-immutable-version-must-belong-to-selected-secret",
+      "status": "PASS",
+      "diagnostic": "SECRET_OWNER_VERSION_UNAVAILABLE"
+    },
+    {
+      "id": "untrusted-role-cannot-invoke-private-owner-read",
+      "status": "PASS"
+    }
+  ],
+  "postgresVersion": "18.6",
+  "candidateSqlSha256": "8e514c0cf1c7c0eeb6f9320a99f50e9650ed80d97b776c0b24317b6919f47df3",
+  "independentReviewScope": "Actual candidate SQL/auth/open/profile/rotation chain reproduced in separate DB; five new positive-derived identity/nonce/digest negatives; no whole Secret or actual systemd claim",
+  "supportSha256": {
+    "audit/generated/resume-8cc/key/review-owner-value/verify_owner_value_read.py": "2081c8a6961ce6123acc39ad92b5dc389260120e8180f36e2b58eaff27e069e6",
+    "audit/generated/resume-8cc/key/review-owner-value/verify_broker.py": "d0ee687ddc30900952b2453a3b3f9918eab2f221019ff8dd97d6885d37ce4bca",
+    "audit/generated/resume-8cc/key/review-owner-value/secret_owner_value_read.py": "6684ca4dd596dd7b3f2135ba8eb9420705bf6ae82347170bccb25eca9a26dd2f",
+    "audit/generated/resume-8cc/key/review-owner-value/secret_broker_open.py": "0a1155185fe2f5f27f9b9f67a6a97fecf9cbfd576221925769c8d8c65ef2d603",
+    "audit/generated/resume-8cc/key/review-owner-value/secret-owner-api-value-read.sql": "8e514c0cf1c7c0eeb6f9320a99f50e9650ed80d97b776c0b24317b6919f47df3",
+    "audit/generated/resume-8cc/key/review-owner-value/secret-broker-boundary.sql": "dc31476ce8553497bceb84cc008c186b2acbae3df2c0de7c0e5df18f16dddaba"
+  },
+  "canonicalAuthTableStatementHashes": {
+    "owner_identity": "119847823013c83fe730e99b7f468f4b80c5e37948882c6e577e827d79431b75",
+    "owner_api_credential": "82e8ea805d9801b2f7efc6c9af17c1668efb401b97fb8075ab2b916343ba023c",
+    "platform_incarnation": "32b9f07410cb98b6e0bea129cc53205a8afe1e7a7689dcd2250f70f1c9cd12c2",
+    "application_deployment_head": "1d03cc73fbea57566d7a8cea2ac888db2a9e738bc43807cb961ba4a0c4d6e98f"
+  },
+  "plaintextInReport": false,
+  "actualCanonicalAPIVerifier": true,
+  "actualCanonicalCrypto": true,
+  "systemdCredentialSource": "NOT_EVALUATED_SYNTHETIC_KEY",
+  "wholeOperationClosed": false,
+  "excluded": [
+    "Canonical root-producer create/rotation command/event/outbox/audit joins",
+    "Global audit chain integration",
+    "OWNER-session credential reveal verifier",
+    "Explicit historical version HTTP mask"
+  ],
+  "implementationAcceptance": "NOT_EVALUATED"
+}

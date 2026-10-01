@@ -1,0 +1,14 @@
+{
+  "status": "FIX_VERIFIED",
+  "sourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "postgresqlVersion": "18.6",
+  "case": "actual-key-registry-profile-misbinding-owner-read",
+  "actualRegistryProfileDigest": "ab8e573bdc6490f776c80500d7a38b6ad1257e89fb56c274a5a82300573cd75e",
+  "consumedCanonicalProfileDigest": "7311d53fcbfcf6d9dea1c40f487ef76f37e673226e59aeb9809d0baab5fe19fc",
+  "acceptedByteExactOwnerValue": false,
+  "diagnostic": "SECRET_KEY_CRYPTO_PROFILE_MISMATCH",
+  "meaning": "The preserved physical key-profile misbinding now rejects SECRET_KEY_CRYPTO_PROFILE_MISMATCH under actual valid token and held SQL locks. SQL returns actual registry digest/bytes and helper verifies them. No immutable trigger disabled; provider/systemd remains unproved.",
+  "candidateSqlSha256": "8e514c0cf1c7c0eeb6f9320a99f50e9650ed80d97b776c0b24317b6919f47df3",
+  "helperSha256": "6684ca4dd596dd7b3f2135ba8eb9420705bf6ae82347170bccb25eca9a26dd2f",
+  "plaintextInReport": false
+}

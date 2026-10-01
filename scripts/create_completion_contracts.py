@@ -62,7 +62,7 @@ def definitions():
  gen['allOf']=[{'if':{'properties':{'kind':{'const':'FOLLOW_UP'}}},'then':{'properties':{'frozenBasis':__import__('follow_up_contracts').frozen_basis_schema()}},'else':{'properties':{'frozenBasis':{'type':'null'}}}}]
  secret=obj({'secretId':UID,'stableName':{'type':'string','minLength':1,'maxLength':256},
              'type':{'type':'string','enum':TYPES},'versionId':UID,'versionNumber':COUNTER,
-             'versionState':{'const':'CREATED'},'activeVersionId':{'type':'null'},
+             'versionState':{'const':'CREATED'},'recordStatus':{'type':'string','const':'INACTIVE','readOnly':True},'activeVersionId':{'type':'null'},
              'stateVersion':COUNTER,'createdAt':TIME})
  # Number allocation is server-owned; there is no invented constant "first=1".
  secret['properties']['versionNumber']={**COUNTER,'not':{'const':'0'}}

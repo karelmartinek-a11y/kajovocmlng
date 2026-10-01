@@ -1,6 +1,6 @@
 {
   "format": "KCML-SSOT-COMPLETION-REGISTER/1",
-  "sourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "sourceDocumentSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
   "sourceSnapshot": "One canonical read; effective native resources and decoded capsules from this snapshot",
   "readiness": {
     "SSOT_CONTRACT_READY": "BLOCKED",
@@ -121360,24 +121360,102 @@
     "C": "Generated-app production acceptance NOT_EVALUATED",
     "gateMeaningChanged": false
   },
-  "currentFiniteChecklist": "audit/SSOT_CREATE_CLOSURE_CHECKLIST.json",
+  "currentFiniteChecklist": {
+    "path": "audit/SSOT_CREATE_CLOSURE_CHECKLIST.json",
+    "sha256": "e6a13d6bd8c49615e3b4a562bb22e5ee32cf9fa0abfedb85dd71a9901248e609",
+    "parentDenominator": 36,
+    "wholeOperationsClosed": 0,
+    "limitation": "Parent duties remain open; bounded subconditions overlap and are not a project completion percentage"
+  },
   "gates": {
     "SSOT_CONTRACT_READY": "BLOCKED",
     "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
   },
   "createOperationVerifiedSubconditions": [
     {
-      "parentId": "GEN.RETRY.CHILD.NATIVE_LINEAGE",
-      "condition": "Server-selected discussion stage preserves confirmed/final outcomes without granting dispatch; existing execution API remains strict",
+      "id": "SECRET.AUTH.CREDENTIAL_ROOT_ELIGIBILITY",
       "state": "VERIFIED",
-      "authority": "SSOT §12.51.2",
-      "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
-      "evidence": {
-        "path": "audit/generated/resume-8cc/key/review-stage/integrated-stage-proof.json",
-        "sha256": "60a1bc897166964507330e5aa4f8d9f5e322761ba0f24212e238c4da9c3cd12d"
-      },
-      "independentReview": "key_authority reproduced actual integrated scripts/generation_locked_retry.py",
-      "limitation": "No full authenticated producer/child/systemd closure"
+      "scope": "Actual current OWNER verifier B, canonical C0/C1 and sorted E10/E20 roots, current same-root API_KEY ACTIVE version/fingerprint; fresh/replay and deletion-wait races; no API-use/retention/systemd proof",
+      "authority": [
+        "SSOT8.3",
+        "SSOT8.16",
+        "SSOT25.6",
+        "SSOT51.6",
+        "SSOT51.20"
+      ],
+      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "evidence": "audit/generated/resume-8cc/key/review-eligibility-integrated/canonical-integration-review.json",
+      "evidenceSha256": "b7123eca64249fef6caf455ef500b04d618885dfca627e31a260288c1b9d6842",
+      "independentReview": "audit/generated/resume-8cc/key/review-eligibility-integrated/canonical-integration-review.json",
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "SECRET.ATOMIC.SEMANTIC_RESULT_BINDING",
+      "state": "VERIFIED",
+      "scope": "Frozen actual semantic-result bytes/digest equals exact finite receipt; coupled arbitrary digest and valid-SHA wrong bytes reject at COMMIT; no full retained-outcome producer proof",
+      "authority": [
+        "SSOT8.3",
+        "SSOT8.16",
+        "SSOT25.6",
+        "SSOT51.6",
+        "SSOT51.20"
+      ],
+      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "evidence": "audit/generated/resume-8cc/key/review-eligibility-integrated/canonical-integration-review.json",
+      "evidenceSha256": "b7123eca64249fef6caf455ef500b04d618885dfca627e31a260288c1b9d6842",
+      "independentReview": "audit/generated/resume-8cc/key/review-eligibility-integrated/canonical-integration-review.json",
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "SECRET.RECORD.STATUS.PERSISTED_PROJECTION",
+      "state": "VERIFIED",
+      "scope": "Approved INACTIVE/ACTIVE/DELETED projection; actual create/activation/rotation/deactivation/delete/replay/integrity/concurrent fixture; no full activation/invalidation command authority proof",
+      "authority": [
+        "SSOT8.3",
+        "SSOT8.16",
+        "SSOT25.6",
+        "SSOT51.6",
+        "SSOT51.20"
+      ],
+      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "evidence": "audit/generated/resume-8cc/key/review-eligibility-integrated/canonical-integration-review.json",
+      "evidenceSha256": "b7123eca64249fef6caf455ef500b04d618885dfca627e31a260288c1b9d6842",
+      "independentReview": "audit/generated/resume-8cc/key/review-eligibility-integrated/canonical-integration-review.json",
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "SECRET.READ.OWNER_API_IMMUTABLE",
+      "state": "VERIFIED",
+      "scope": "Actual current token, locked exact immutable row, typed authenticated original-byte open, private read evidence, explicit current/history selector; no reserved OWNER-session reveal/broker/full-browser proof",
+      "authority": [
+        "SSOT8.3",
+        "SSOT8.16",
+        "SSOT25.6",
+        "SSOT51.6",
+        "SSOT51.20"
+      ],
+      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "evidence": "audit/generated/resume-8cc/key/review-eligibility-integrated/canonical-integration-review.json",
+      "evidenceSha256": "b7123eca64249fef6caf455ef500b04d618885dfca627e31a260288c1b9d6842",
+      "independentReview": "audit/generated/resume-8cc/key/review-eligibility-integrated/canonical-integration-review.json",
+      "implementationAcceptance": "NOT_EVALUATED"
+    },
+    {
+      "id": "SECRET.UI.OWNER_TYPED_REVEAL_COPY",
+      "state": "VERIFIED",
+      "scope": "Exact GET decoder, closed typed approved variants and original-byte copy of same revealed version; no generated backend/visual/runtime acceptance proof",
+      "authority": [
+        "SSOT8.3",
+        "SSOT8.16",
+        "SSOT25.6",
+        "SSOT51.6",
+        "SSOT51.20"
+      ],
+      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "evidence": "audit/generated/resume-8cc/key/review-eligibility-integrated/canonical-integration-review.json",
+      "evidenceSha256": "b7123eca64249fef6caf455ef500b04d618885dfca627e31a260288c1b9d6842",
+      "independentReview": "audit/generated/resume-8cc/key/review-eligibility-integrated/canonical-integration-review.json",
+      "implementationAcceptance": "NOT_EVALUATED"
     }
   ]
 }

@@ -1,0 +1,56 @@
+{
+  "status": "INDEPENDENT_CANONICAL_BOUNDED_REPRODUCTION_PASS",
+  "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+  "canonicalIntegrated": true,
+  "postgresVersion": "18.6",
+  "evidence": {
+    "eligibility45": {
+      "path": "audit/generated/resume-8cc/key/review-eligibility-integrated/credential-eligibility-postgres-tests.json",
+      "sha256": "77cfc5263327fc9fee91dc3662835f648fbd53abf9a5d4ec93317aa895f36fe4",
+      "checked": 45
+    },
+    "status23": {
+      "path": "audit/generated/resume-8cc/key/review-status-owner/status/status-postgres-tests.json",
+      "sha256": "82f554f575ba8d20073a14c103ddf399e21ed11ab506ec97aa6e07deeacd0d51",
+      "checked": 23
+    },
+    "owner25": {
+      "path": "audit/generated/resume-8cc/key/review-status-owner/owner-value-read-tests.json",
+      "sha256": "7296dad7f19150ec6322edd34730ada8ed4fff1a85137541ac35f84a854d7833",
+      "checked": 25
+    },
+    "transport34": {
+      "path": "audit/generated/resume-8cc/key/review-status-owner/value-transport-tests.json",
+      "sha256": "cb92924f86e206abeded6b1954d75070006cbd1f462803272981f72930f9ac24",
+      "checked": 34
+    }
+  },
+  "canonicalRawResourceSha256": {
+    "database/secret-command-chain.sql": "51c00fbd3291317f0281d51b7b8f960a3f604d5c746b66f8733c6d1843db4152",
+    "database/secret-record-status.sql": "557d5c6555c89db4c473cab12988c3caf3d2fc7e61c611e17a5e43767c9d14a9",
+    "database/secret-owner-api-value-read.sql": "34e7c69b608f98cf75fd90fe12b0bab3ae8b51e7687f924db645a0e33dc47618",
+    "contracts/secrets/owner-value-read.schema.json": "fddef2ebf3bbceecdf446c8517211122e4c03bb98d5ab97a6af1c114a426899a"
+  },
+  "actualRootSupportSha256": {
+    "scripts/secret_command_chain.py": "7bd0c42342118bb9edab12baf964230984b58ba4c99d4559ab89aa54dd07e8ce",
+    "scripts/secret_owner_value_read.py": "6684ca4dd596dd7b3f2135ba8eb9420705bf6ae82347170bccb25eca9a26dd2f",
+    "scripts/secret_value_read_transport.py": "65a8f2742b2a25c06564740ad91113eb37e7cfa33a20dc28bc5aeaa1bc46c7e9",
+    "scripts/generation_auth_crypto.py": "5cfd85a6b0d7852509e8301b7a0b38f3e315ad292094544733a89f9b1939d259",
+    "scripts/secret_profile_reference.py": "be3dd0260405f6eb705cdfbcd0f95668ada277ef0ed231d61264aff3fe74f2a5"
+  },
+  "wholeOperationClosed": false,
+  "limits": [
+    "All SQL fixtures ownisolatedPG18.6; opaqueexistingcredential provisioning notproved",
+    "Syntheticfixturecrypto key notsystemdsource",
+    "Canonicalrealcreateadapter stillSECRET_RETENTION_AUTHORITY_UNRESOLVED; futuretransportinstallandretentionauthority OPEN",
+    "RestrictedOWNERvalue getter activationdoesnotactivatebroadbroker scope",
+    "ActualOWNERsession reservedcredential reveal distinct notruntimeevaluated",
+    "Whole Secret andgeneration createchains remainOPEN",
+    "Full browserserializer/bridge/bundle/CAS/accounts unaffected"
+  ],
+  "diagnosedInvocations": [
+    "Earliercandidate42 sourcechanged recordedSTALE; latest45stablefreshcanonical",
+    "Initialcanonicaltransport byteequality caughtformatonlyschema difference92708vs92700; JSONidentical, canonicalraw extractedfresh and34rerun"
+  ],
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

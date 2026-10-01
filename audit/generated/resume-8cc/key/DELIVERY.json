@@ -1,0 +1,67 @@
+{
+  "pinnedCommit": "8cc19fbc69fb839ea88597b736da03d8b3eaecd4",
+  "pinnedSsotSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "outputsSha256": {
+    "verify_manager_adapter.py": "8926d9885bf975eace304cae4a402e7fcb43fe64cabbdba36d41c6f27115ab02",
+    "systemd_fixture_worker.py": "7469f20567b31617b4e0e399f5836fd9fed30de692c41e48e13b81f0bf1cb216",
+    "environment-capabilities.json": "a3f5031df83cc0ca833fe6eaf379096f1cfffc0259c0e14a9813be0d7024127a",
+    "key-authority-contract.json": "8c6d1dfbb57b033e86479f6554c699fc70166b1636e2fee1f1653c11ac1a2cc2",
+    "key-invocation-receipts.sql": "62e606be1d5e448503589a4c214e90e868e49eb4f9ed8520751ee55c605504a1",
+    "verify_key_receipts_pg.py": "e041001b2df21a8921e33d9cb6100442deff3693338564d7bd3b0e1278fbfa23",
+    "systemd_key_authority.py": "8052550a13f38e2646a63d43f8ef10877a8528036f3b549b0cddfb0411a0b212",
+    "manager-adapter-reference-proof.json": "d2dcc417e7c85a4b3c163192b74f5e7dd346ba41d7248d45ee591c5f377bb1f4",
+    "run_systemd_isolated_fixture.sh": "380d92181d0dfcfb04b92983e399c4b9e6f92c65b0c7b35e4446e93bf700a045",
+    "INTEGRATION.md": "598bc691dd4f53d2abc1ab628288ab113aa897712742ef894608584385c27224",
+    "key-receipts-postgres-proof.json": "37ec975dc7b20c32f3ac8a51d30c3acca67804948c9413be125107b6837217ba",
+    "review-stage/named-stage-proof-before-integration.json": "de0634a230c1bfc955b81792dc32600d772f50b6b069ff10dba91dda95a1316b",
+    "review-stage/integrated-stage-proof.json": "60a1bc897166964507330e5aa4f8d9f5e322761ba0f24212e238c4da9c3cd12d",
+    "review-stage/generation_locked_retry_named.py": "33976428224eed291f074172b764206dd7657c8fa5d7e7fd3fd08f4a7a87ae91",
+    "review-stage/verify_named_stage.py": "460765f7b2782ce5b590e347a38948feeca255f419dd5bfe6371d0913cca480d",
+    "review-stage/named-stage-proof.json": "bfe5a9235905e2275e4618573dc4ed722327f32eaa4d8e50f733bb546facf677",
+    "review-owner-value/verify_broker.py": "d0ee687ddc30900952b2453a3b3f9918eab2f221019ff8dd97d6885d37ce4bca",
+    "review-owner-value/secret-owner-api-value-read.sql": "8e514c0cf1c7c0eeb6f9320a99f50e9650ed80d97b776c0b24317b6919f47df3",
+    "review-owner-value/secret_broker_open.py": "0a1155185fe2f5f27f9b9f67a6a97fecf9cbfd576221925769c8d8c65ef2d603",
+    "review-owner-value/secret_owner_value_read.py": "6684ca4dd596dd7b3f2135ba8eb9420705bf6ae82347170bccb25eca9a26dd2f",
+    "review-owner-value/secret-broker-boundary.sql": "dc31476ce8553497bceb84cc008c186b2acbae3df2c0de7c0e5df18f16dddaba",
+    "review-owner-value/broker-tests.json": "9b642027169ff1d5b26f57342309d0846e6fc960cae86e12b535dfeaa9907cfe",
+    "review-owner-value/owner-value-read-tests.json": "0ab04a52c3240c96309b9d6b07ab0e3667b9ece3298402fd353f09bc9b4fa0c5",
+    "review-owner-value/verify_owner_value_read.py": "2081c8a6961ce6123acc39ad92b5dc389260120e8180f36e2b58eaff27e069e6",
+    "review-owner-value/profile-binding-counterexample/verify_broker.py": "1d30d12861fde5f49ab6702c421b4083210cce107872cd1655bbd0b30a17b399",
+    "review-owner-value/profile-binding-counterexample/verify_profile_counterexample.py": "0eac08a026e2a7cb0e99de627f2a58a4d1e3d70a73910b5d15518dd1331b76ff",
+    "review-owner-value/profile-binding-counterexample/secret-owner-api-value-read.sql": "8e514c0cf1c7c0eeb6f9320a99f50e9650ed80d97b776c0b24317b6919f47df3",
+    "review-owner-value/profile-binding-counterexample/secret_broker_open.py": "0a1155185fe2f5f27f9b9f67a6a97fecf9cbfd576221925769c8d8c65ef2d603",
+    "review-owner-value/profile-binding-counterexample/secret_owner_value_read.py": "6684ca4dd596dd7b3f2135ba8eb9420705bf6ae82347170bccb25eca9a26dd2f",
+    "review-owner-value/profile-binding-counterexample/secret-broker-boundary.sql": "dc31476ce8553497bceb84cc008c186b2acbae3df2c0de7c0e5df18f16dddaba",
+    "review-owner-value/profile-binding-counterexample/profile-binding-counterexample.json": "1bc2fc95786022dab67fd177a3231708edfd8a7563407868b324e6eff5ca5e02"
+  },
+  "postgresqlCandidateChecks": 21,
+  "parserReferenceChecks": 28,
+  "actualIntegratedStageChecks": 12,
+  "realSystemdProvider": "ENV_BLOCKED",
+  "wholeOperationClosed": false,
+  "canonicalIntegration": "ROOT_COORDINATOR_PENDING",
+  "sharedDependencies": [
+    "SHARED.CRYPTO.SYSTEMD_SOURCE",
+    "SHARED.CRYPTO.KEY_INVOCATION",
+    "SHARED.CRYPTO.GLOBAL_NONCE"
+  ],
+  "remainingIds": [
+    "GENERATION_KEY_MANAGER_PRODUCER",
+    "KEY_ROTATION_RETAINED_GENERATION_USE"
+  ],
+  "proofs": [
+    "key-receipts-postgres-proof.json",
+    "manager-adapter-reference-proof.json",
+    "review-stage/integrated-stage-proof.json"
+  ],
+  "nativePeerReview": "WAITING_ON_FINAL_JOINED_CHAIN",
+  "ownerValueIndependentCandidateChecks": 17,
+  "ownerValueReview": "FIX_VERIFIED_CANDIDATE_EXACT_PROFILE_BINDING_CANONICAL_REPRODUCTION_PENDING",
+  "nativeIndependentReview": {
+    "status": "BOUNDED_INDEPENDENT_REPRODUCTION_PASS",
+    "checks": 26,
+    "sourceDocumentSha256": "c754c27e744434588ee17e3074d1750003077149a6193efcccefbd05f88103a3",
+    "evidence": "review-native/independent-review.json",
+    "wholeOperationClosed": false
+  }
+}

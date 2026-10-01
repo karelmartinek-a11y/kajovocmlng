@@ -18,7 +18,7 @@ Create command je dokončen po svém atomickém commitu; nově vytvořený job t
 není COMPLETED a jeho execution authority nevytváří klient ani model.
 `secret.create` vrací `secretId`, stable name/type, `versionId`, serverem
 přidělené kladné `versionNumber`, `versionState = CREATED`,
-`activeVersionId = null`, `stateVersion` a `createdAt` (§25.6/§49.22.1/§72.21).
+`recordStatus = INACTIVE`, `activeVersionId = null`, `stateVersion` a `createdAt` (§25.6/§49.22.1/§72.21).
 Vytvoření immutable candidate a jeho pozdější aktivace jsou různé operace.
 Nenastavuje se ACTIVE ani activation epoch jen kvůli create. Tato maska
 neomezuje OWNER reveal plné hodnoty podle §8.5/§8.6; receipt není reveal route.
@@ -86,7 +86,7 @@ idempotency key při transportním retry (§72.11/§72.21). Model proposal není
 serverový receipt. Schema a reference-model tests nedokazují executable SQL,
 skutečný backend, encryption service ani celou consumer pipeline.
 
-Otevřené policies jsou explicitní: technická aktivace deseti schválených omezených Secret profilů, úplný browser
+Otevřené policies jsou explicitní: úplný browser
 kontrakt a celá serverová policy/producer/consumer předávka. Vlastní generation
 selectors a native validators podle §12.51 již existují, úplná fyzická source
 projection a child-commit coupling zůstávají povinné.

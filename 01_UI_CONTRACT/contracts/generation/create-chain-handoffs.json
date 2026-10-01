@@ -1,6 +1,19 @@
 {
-  "version": "GENERATION_CREATE_CHAIN_HANDOFFS_V1",
-  "operationId": "generation.job.create",
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED",
+  "SSOT_CONTRACT_READY": "BLOCKED",
+  "authentication": {
+    "locksUntil": "complete accepted command/root/queue/event/outbox/audit COMMIT",
+    "materialVerifier": "scripts/generation_auth_acceptance.py",
+    "ownerApiExpiry": "NOT_APPLICABLE_BY_SSOT7.2",
+    "replay": "Authenticate current material before retained locator read; frozen receipt is not new request authority",
+    "requestBinding": [
+      "authenticated_request_digest",
+      "authenticated_descriptor_digest",
+      "api_credential_activation_epoch"
+    ],
+    "source": "database/generation-create-authentication.sql",
+    "status": "BOUNDED_REFERENCE_VERIFIED_FULL_CHAIN_OPEN"
+  },
   "authority": [
     "SSOT7.2",
     "SSOT8.4",
@@ -13,40 +26,7 @@
     "SSOT51.12",
     "SSOT51.20"
   ],
-  "sqlInstallationOrder": [
-    "database/generation-create-foundations.sql",
-    "database/canonical-crypto-registry.sql",
-    "database/generation-create-authentication.sql",
-    "database/generation-create-preroot.sql",
-    "database/generation-create-read.sql",
-    "database/generation-locked-retry.sql",
-    "database/generation-frozen-archive.sql",
-    "database/generation-retry-producer-child.sql",
-    "database/generation-locator-lock.sql",
-    "database/generation-protected-registry-link.sql",
-    "database/generation-preroot-frozen-archive.sql"
-  ],
-  "authentication": {
-    "source": "database/generation-create-authentication.sql",
-    "materialVerifier": "scripts/generation_auth_acceptance.py",
-    "requestBinding": [
-      "authenticated_request_digest",
-      "authenticated_descriptor_digest",
-      "api_credential_activation_epoch"
-    ],
-    "locksUntil": "complete accepted command/root/queue/event/outbox/audit COMMIT",
-    "replay": "Authenticate current material before retained locator read; frozen receipt is not new request authority",
-    "ownerApiExpiry": "NOT_APPLICABLE_BY_SSOT7.2",
-    "status": "BOUNDED_REFERENCE_VERIFIED_FULL_CHAIN_OPEN"
-  },
-  "protectedInput": {
-    "reference": "scripts/generation_auth_crypto.py",
-    "productionKeySource": "SSOT8.4/50.30 encrypted systemd credential source, read-only per invocation",
-    "status": "BLOCKED_ACTUAL_SYSTEMD_SOURCE_GLOBAL_KEY_NONCE_REGISTRY_AND_EFFECTIVE_TRANSPORT_POLICY"
-  },
   "beforeRoot": {
-    "source": "database/generation-create-preroot.sql",
-    "preAcceptance": "No durable command/root/event; logicalOperationId=null",
     "acceptedOutcomes": [
       "ACCEPTED",
       "FAILED_RETRY_SAME_OPERATION",
@@ -65,29 +45,51 @@
       "archive outbox when pinned policy requires"
     ],
     "createdEvent": "Forbidden without successful root",
+    "preAcceptance": "No durable command/root/event; logicalOperationId=null",
+    "source": "database/generation-create-preroot.sql",
     "status": "BOUNDED_SQL_REFERENCE_VERIFIED_RECOVERY_PRODUCER_AND_PENDING_TRANSFER_OPEN"
   },
+  "operationId": "generation.job.create",
+  "producerArchive": "contracts/generation/producer-archive-handoffs.json",
+  "protectedInput": {
+    "productionKeySource": "SSOT8.4/50.30 encrypted systemd credential source, read-only per invocation",
+    "reference": "scripts/generation_auth_crypto.py",
+    "status": "BLOCKED_ACTUAL_SYSTEMD_SOURCE_GLOBAL_KEY_NONCE_REGISTRY_AND_EFFECTIVE_TRANSPORT_POLICY"
+  },
   "read": {
-    "source": "database/generation-create-read.sql",
-    "internalRootMask": "contracts/generation/root-storage-read.schema.json",
-    "visibility": "SERVER_REPOSITORY_ONLY",
     "consumerProjections": "contracts/generation/create-consumer-projections.json",
+    "internalRootMask": "contracts/generation/root-storage-read.schema.json",
     "retainedSchemaResolution": "Exact retained bundle digest/schema identity/declared dependency closure; never substitute current mask",
-    "status": "BOUNDED_READ_VERIFIED_ARCHIVED_POLICY_PRODUCER_FULL_PUBLIC_UI_OPEN"
+    "source": "database/generation-create-read.sql",
+    "status": "BOUNDED_READ_VERIFIED_ARCHIVED_POLICY_PRODUCER_FULL_PUBLIC_UI_OPEN",
+    "visibility": "SERVER_REPOSITORY_ONLY"
   },
   "retry": {
-    "source": "database/generation-locked-retry.sql",
-    "scanner": "scripts/generation_locked_retry.py",
-    "writerGate": "Same selected phase FOR UPDATE for membership/current-state/evidence changes",
     "lockLifetime": "scan, actual bytes validation, frozen child persistence COMMIT",
+    "scanner": "scripts/generation_locked_retry.py",
+    "source": "database/generation-locked-retry.sql",
     "stages": [
       "ADMISSION_DISCUSSION",
       "EXECUTION_DISPATCH"
     ],
-    "status": "BOUNDED_PROJECTION_VERIFIED_FULL49_8_PRODUCER_CHILD_COMMIT_WIRING_OPEN"
+    "status": "BOUNDED_PROJECTION_VERIFIED_FULL49_8_PRODUCER_CHILD_COMMIT_WIRING_OPEN",
+    "writerGate": "Same selected phase FOR UPDATE for membership/current-state/evidence changes"
   },
-  "wholeOperationClosed": false,
-  "SSOT_CONTRACT_READY": "BLOCKED",
-  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED",
-  "producerArchive": "contracts/generation/producer-archive-handoffs.json"
+  "scopedAuthorityNorm": "SSOT12.56",
+  "sqlInstallationOrder": [
+    "database/generation-create-foundations.sql",
+    "database/canonical-crypto-registry.sql",
+    "database/generation-create-authentication.sql",
+    "database/generation-create-preroot.sql",
+    "database/generation-create-read.sql",
+    "database/generation-locked-retry.sql",
+    "database/generation-frozen-archive.sql",
+    "database/generation-retry-producer-child.sql",
+    "database/generation-locator-lock.sql",
+    "database/generation-protected-registry-link.sql",
+    "database/generation-preroot-frozen-archive.sql",
+    "database/canonical-key-invocation-receipts.sql"
+  ],
+  "version": "GENERATION_CREATE_CHAIN_HANDOFFS_V1",
+  "wholeOperationClosed": false
 }
