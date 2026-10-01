@@ -9,6 +9,7 @@ from create_operation_contracts import decode_http,admit,ContractFailure
 from secret_profile_import import *
 from secret_profile_reference import original_profile_slice,parse_profile,canonical_value_digest
 from generation_auth_crypto import seal,open_snapshot
+from evidence_scope_reuse import secret_scope_current
 sys.path.insert(0,str(ROOT/'audit/generated/resume-34d/secrets-browser'))
 from synthetic_profile_fixtures import fixtures,consumer
 UID='00000000-0000-4000-8000-000000000001'
@@ -71,7 +72,7 @@ def main():
   file=ROOT/path
   if not file.exists():check(label+'/evidence-available',False);continue
   q=json.loads(file.read_text())
-  check(label+'/current-source',q.get('sourceDocumentSha256',q.get('sourceSha256',q.get('inputSsotSha256')))==source)
+  check(label+'/current-consumed-scope-or-new-execution',secret_scope_current(q))
   check(label+'/actual-positive-derived-proof',q.get('checked',0)>=count and q.get('failed')==0)
   for name,d in q.get('rootImplementationDigests',{}).items():check(label+'/root-helper:'+name,hashlib.sha256((ROOT/'scripts'/name).read_bytes()).hexdigest()==d)
   for name,d in q.get('supportSha256',{}).items():
@@ -81,6 +82,6 @@ def main():
    check(label+'/actual-PG18_6',q.get('canonicalEmbeddedSqlExecuted')is True and q.get('actualPostgresExecuted')is True and q.get('serverVersion','').startswith('PostgreSQL 18.6 '))
    check(label+'/exact-SQL',q.get('ddlSha256')==rs['database/secret-profile-roots.sql']['sha256'])
   elif label=='actual-browser-cookie-member':check(label+'/exact-mask',q.get('canonicalResourceSha256')==rs['contracts/secrets/profile-handoffs.schema.json']['sha256'])
- report={'sourceDocumentSha256':source,'status':'PASS' if all(c['passed']for c in checks)else'BLOCKED','checked':len(checks),'failed':sum(not c['passed']for c in checks),'checks':checks,'scope':__doc__,'sensitiveValuesInReport':False,'wholeOperationClosed':False,'authenticationProof':'NOT_EVALUATED_SYNTHETIC_REFERENCE_CONTEXT','implementationAcceptance':'NOT_EVALUATED','sourceResourceSha256':{p:rs[p]['sha256']for p in ['contracts/secrets/import.schema.json','contracts/secrets/profile-handoffs.schema.json','database/secret-profile-roots.sql']}}
+ report={'sourceDocumentSha256':source,'status':'PASS' if all(c['passed']for c in checks)else'BLOCKED','checked':len(checks),'failed':sum(not c['passed']for c in checks),'checks':checks,'scope':__doc__,'sensitiveValuesInReport':False,'wholeOperationClosed':False,'evidenceReuse':{'executionSourcePreserved':True,'method':'Exact pinned execution document authority sections 8,13.15,72.21, every declared canonical resource/helper/support input; new publication/OWNER producers verified separately','validator':'scripts/evidence_scope_reuse.py'},'authenticationProof':'NOT_EVALUATED_SYNTHETIC_REFERENCE_CONTEXT','implementationAcceptance':'NOT_EVALUATED','sourceResourceSha256':{p:rs[p]['sha256']for p in ['contracts/secrets/import.schema.json','contracts/secrets/profile-handoffs.schema.json','database/secret-profile-roots.sql']}}
  out=ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/resume-34d/coordinator');out.mkdir(parents=True,exist_ok=True);(out/'secret-profile-native-tests.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:report[k]for k in ['status','checked','failed']}));return int(report['status']!='PASS')
 if __name__=='__main__':raise SystemExit(main())

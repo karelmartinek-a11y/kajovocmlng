@@ -37,6 +37,10 @@ if __name__=='__main__':
         secret_norm=authored_secret_norm()
         addition.append({'section':'8.12/8.13 Secret explicit profiles and exact browser cookie preservation','status':'PASS'if current.count(secret_norm)==1 else'FAIL','scope':'Exact technical addendum only; all original policy bytes remain compared'})
         if current.count(secret_norm)==1:current=current.replace(secret_norm,'',1)
+    if 'database/secret-profile-publication.sql'in resource_index():
+        from close_producer_archive_handoffs import SECRET_NORM
+        addition.append({'section':'8.14 Trusted profile publication and OWNER binding','status':'PASS'if current.count(SECRET_NORM)==1 else'FAIL','scope':'Exact technical addendum only; original policy remains byte compared'})
+        if current.count(SECRET_NORM)==1:current=current.replace(SECRET_NORM,'',1)
     before=sections(original);after=sections(current)
     checks=[{'section':key,'originalSha256':value,'currentSha256':after.get(key),
              'status':'PASS' if after.get(key)==value else 'FAIL'} for key,value in before.items()]

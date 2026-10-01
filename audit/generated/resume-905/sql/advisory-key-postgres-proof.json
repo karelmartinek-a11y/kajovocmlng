@@ -1,0 +1,134 @@
+{
+  "sourceDocumentSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
+  "entryCommit": "905555e47f3547516439a699e262df62cbbec229",
+  "candidateSqlSha256": "67f16cf3ef47bc18a446a0384870174745430a9020be70c23723d9ded2e0ed9c",
+  "canonicalEmbedded": false,
+  "postgresVersion": "PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+  "checks": [
+    {
+      "id": "signed-network-key/00000000",
+      "status": "PASS"
+    },
+    {
+      "id": "signed-network-key/00000001",
+      "status": "PASS"
+    },
+    {
+      "id": "signed-network-key/00000100",
+      "status": "PASS"
+    },
+    {
+      "id": "signed-network-key/00010000",
+      "status": "PASS"
+    },
+    {
+      "id": "signed-network-key/01000000",
+      "status": "PASS"
+    },
+    {
+      "id": "signed-network-key/7fffffff",
+      "status": "PASS"
+    },
+    {
+      "id": "signed-network-key/80000000",
+      "status": "PASS"
+    },
+    {
+      "id": "signed-network-key/80000001",
+      "status": "PASS"
+    },
+    {
+      "id": "signed-network-key/ffffffff",
+      "status": "PASS"
+    },
+    {
+      "id": "positive-derived-negative/null",
+      "status": "PASS",
+      "positiveWitness": "signed-network-key/00000000",
+      "specificDiagnostic": "ADVISORY_KEY_REQUIRES_SHA256_DIGEST"
+    },
+    {
+      "id": "positive-derived-negative/short",
+      "status": "PASS",
+      "positiveWitness": "signed-network-key/00000000",
+      "specificDiagnostic": "ADVISORY_KEY_REQUIRES_SHA256_DIGEST"
+    },
+    {
+      "id": "positive-derived-negative/long",
+      "status": "PASS",
+      "positiveWitness": "signed-network-key/00000000",
+      "specificDiagnostic": "ADVISORY_KEY_REQUIRES_SHA256_DIGEST"
+    },
+    {
+      "id": "node-pg-cross-language",
+      "status": "PASS"
+    },
+    {
+      "id": "xact-contention-and-commit-release/1020",
+      "status": "PASS",
+      "heldRowObserved": true,
+      "contendingConnectionRejected": true,
+      "releasedWhileHolderSessionAlive": true,
+      "nextTransactionAcquired": true
+    },
+    {
+      "id": "xact-contention-and-commit-release/1030",
+      "status": "PASS",
+      "heldRowObserved": true,
+      "contendingConnectionRejected": true,
+      "releasedWhileHolderSessionAlive": true,
+      "nextTransactionAcquired": true
+    }
+  ],
+  "vectors": [
+    {
+      "digestHex": "000000000405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "digestHex": "000000010405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "digestHex": "000001000405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": 256,
+      "actual": 256
+    },
+    {
+      "digestHex": "000100000405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": 65536,
+      "actual": 65536
+    },
+    {
+      "digestHex": "010000000405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": 16777216,
+      "actual": 16777216
+    },
+    {
+      "digestHex": "7fffffff0405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": 2147483647,
+      "actual": 2147483647
+    },
+    {
+      "digestHex": "800000000405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": -2147483648,
+      "actual": -2147483648
+    },
+    {
+      "digestHex": "800000010405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": -2147483647,
+      "actual": -2147483647
+    },
+    {
+      "digestHex": "ffffffff0405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+      "expected": -1,
+      "actual": -1
+    }
+  ],
+  "checked": 15,
+  "failed": 0,
+  "scope": "\u00a751.8 exact signed-key SQL candidate and real transaction lock release only. Four generic helpers, namespace canonical-key producer, stored full-digest uniqueness, operation authority and whole create transaction remain OPEN.",
+  "implementationProductionAcceptance": "NOT_EVALUATED"
+}

@@ -1,0 +1,54 @@
+{
+  "pinnedCommit": "905555e47f3547516439a699e262df62cbbec229",
+  "sourceDocumentSha256": "4f9d657357b3623ab5fa7b5f39b8b635476556733207cadc62d16d9a7a12736e",
+  "outputsSha256": {
+    "verify_systemd_source.py": "7aa394ed94304fd0e0e67d82d5d33fcacd8d19a4010b5cd1b184c4de011a8d0d",
+    "invocation_key_binding.py": "5eb70d846b49ec24d511eef9a78e3ac5e4dcdeb1b65eeb2db6a9983baba8e7da",
+    "systemd-source-proof.json": "4b68e9a479945d971f93e04f7f5c3a0664d3c49d28f21efe67856aaefd51e742",
+    "generation-protected-link-proof.json": "e92e56bee4b6e6dda4bb8794dcd6e82f2dff5ef65dc0739d952475599c56b80f",
+    "systemd_fixture_worker.py": "7469f20567b31617b4e0e399f5836fd9fed30de692c41e48e13b81f0bf1cb216",
+    "verify_invocation_binding.py": "077e7edf51c7b071d06acd27dcb34dcc27a20a4e2f1e84e2eb34ed8d76227277",
+    "generation-protected-registry-link.sql": "d3362763a573d1dbef8eaf53aa8ad4d91eb288047cebe987f2e38baf0b977fb1",
+    "verify_generation_protected_link.py": "acb70b1c489b48d74ea144564f2d7c997042d6e4eca6610c91d51d0e93f208e1",
+    "run_systemd_isolated_fixture.sh": "380d92181d0dfcfb04b92983e399c4b9e6f92c65b0c7b35e4446e93bf700a045",
+    "invocation-binding-proof.json": "d6e0fbddbc3f47c69f8c6ad8c703eb25c3c32f7064aa25badac1650f1aa393dd",
+    "INTEGRATION.md": "199529b84a703d9ee0b7ae9152be29482002eb35a23e620003348cbfeae22409"
+  },
+  "candidatePgStatus": "PASS",
+  "candidatePgChecks": 17,
+  "managerInterfaceReferenceStatus": "PASS",
+  "managerInterfaceChecks": 11,
+  "realSystemdProducer": "BLOCKED_ENVIRONMENT",
+  "wholeOperationClosed": false,
+  "remainingIds": [
+    "GENERATION_KEY_SYSTEMD_SOURCE_FIXTURE",
+    "GENERATION_KEY_MANAGER_PRODUCER",
+    "GENERATION_PROTECTED_ROW_GLOBAL_RESERVATION",
+    "SECRET_PROTECTED_ROW_GLOBAL_RESERVATION",
+    "KEY_ROTATION_RETAINED_GENERATION_USE"
+  ],
+  "candidateSqlSha256": "d3362763a573d1dbef8eaf53aa8ad4d91eb288047cebe987f2e38baf0b977fb1",
+  "independentCounterexample": "../archive/review-key/aad-byte-counterexample.json",
+  "candidateExactAadRepair": "REPRODUCED_REFERENCE_PASS_REQUIRES_CANONICAL_INTEGRATION_REVIEW",
+  "historicalEntryInputsSha256": {
+    "00_SSOT/KajovoCMLNG_SSOT.md": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
+    "scripts/generation_auth_crypto.py": "5cfd85a6b0d7852509e8301b7a0b38f3e315ad292094544733a89f9b1939d259",
+    "scripts/generation_auth_acceptance.py": "382ef3a708d1b1699282149068206ecda46950a7a293faf0f8fde28b5a853bdc",
+    "01_UI_CONTRACT/database/canonical-crypto-registry.sql": "773310806845b2754bdd2675ee1a27ed7cc96697f54bccdcac2648ba9cd1c7d4",
+    "01_UI_CONTRACT/database/generation-create-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "01_UI_CONTRACT/database/generation-create-preroot.sql": "0ed9d0e563b802da50c96ebb31f62390aeab16040bd19660612fb14dd83aa75e"
+  },
+  "consumedCanonicalInputsSha256": {
+    "database/generation-create-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "database/generation-create-authentication.sql": "9ec7558ed51a0a38558b123cdc7d6fb76d4de485440f2fd8607478b414e70285",
+    "database/generation-create-preroot.sql": "0ed9d0e563b802da50c96ebb31f62390aeab16040bd19660612fb14dd83aa75e",
+    "database/canonical-crypto-registry.sql": "773310806845b2754bdd2675ee1a27ed7cc96697f54bccdcac2648ba9cd1c7d4"
+  },
+  "consumedSupportSha256": {
+    "audit/generated/resume-905/key/verify_generation_protected_link.py": "acb70b1c489b48d74ea144564f2d7c997042d6e4eca6610c91d51d0e93f208e1",
+    "audit/generated/resume-34d/auth-crypto/verify_authenticated_full_chain.py": "021c801f3064c02621f700af2b6f70e2c0db551129e0c4fe50b0c0411df37b32",
+    "scripts/generation_auth_crypto.py": "5cfd85a6b0d7852509e8301b7a0b38f3e315ad292094544733a89f9b1939d259",
+    "scripts/generation_auth_acceptance.py": "382ef3a708d1b1699282149068206ecda46950a7a293faf0f8fde28b5a853bdc",
+    "scripts/create_operation_contracts.py": "75280dbfa44cd5064998ac600c64198e6b7a975ecc45770770ac78ab46015b11"
+  }
+}

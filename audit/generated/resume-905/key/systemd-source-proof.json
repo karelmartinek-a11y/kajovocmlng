@@ -1,0 +1,65 @@
+{
+  "status": "BLOCKED",
+  "blockerType": "ENVIRONMENT",
+  "remainingId": "GENERATION_KEY_SYSTEMD_SOURCE_FIXTURE",
+  "sourceDocumentSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
+  "uid": 1000,
+  "pid1": "tail",
+  "sockets": {
+    "/run/systemd/private": false,
+    "/run/dbus/system_bus_socket": false,
+    "/run/user/1000/bus": false
+  },
+  "containerTools": {
+    "docker": "/usr/local/bin/docker",
+    "podman": null,
+    "qemu-system-x86_64": null
+  },
+  "checks": [
+    {
+      "command": [
+        "systemd-creds",
+        "--version"
+      ],
+      "exitCode": 0,
+      "stdout": "systemd 257 (257.13-1~deb13u1)\n+PAM +AUDIT +SELINUX +APPARMOR +IMA +IPE +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF -XKBCOMMON -UTMP +SYSVINIT +LIBARCHIVE",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "systemctl",
+        "is-system-running"
+      ],
+      "exitCode": 1,
+      "stdout": "offline",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "systemctl",
+        "--user",
+        "is-system-running"
+      ],
+      "exitCode": 1,
+      "stdout": "offline",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "systemd-creds",
+        "encrypt",
+        "--user",
+        "--with-key=host",
+        "--name=kcml-master-key",
+        "/tmp/kcml-isolated-key-probe-snoort5c/synthetic",
+        "/tmp/kcml-isolated-key-probe-snoort5c/encrypted"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "Failed to connect to io.systemd.Credentials: No such file or directory"
+    }
+  ],
+  "rootOwnedEncryptedSourceVerified": false,
+  "readOnlyInvocationVerified": false,
+  "scope": "Actual user-host encrypt attempted only with random temporary isolated key, deleted automatically. No manager means root system source/per-invocation materialization cannot be established. User encryption is not canonical proof; no alternate/null backend used."
+}

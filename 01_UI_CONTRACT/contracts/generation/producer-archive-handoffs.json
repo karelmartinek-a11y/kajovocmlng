@@ -1,0 +1,34 @@
+{
+  "version": "GENERATION_PRODUCER_ARCHIVE_HANDOFFS_V1",
+  "authority": [
+    "SSOT12.55",
+    "SSOT8.14",
+    "SSOT49.8",
+    "SSOT51.12",
+    "SSOT51.20"
+  ],
+  "generationInstallationOrder": [
+    "database/generation-create-foundations.sql",
+    "database/canonical-crypto-registry.sql",
+    "database/generation-create-authentication.sql",
+    "database/generation-create-preroot.sql",
+    "database/generation-create-read.sql",
+    "database/generation-locked-retry.sql",
+    "database/generation-frozen-archive.sql",
+    "database/generation-retry-producer-child.sql",
+    "database/generation-locator-lock.sql",
+    "database/generation-protected-registry-link.sql"
+  ],
+  "secretInstallationOrder": [
+    "database/secret-profile-roots.sql",
+    "database/secret-profile-publication.sql",
+    "database/secret-owner-binding.sql"
+  ],
+  "ownerBindingPrerequisite": "Exact canonical owner_api_credential table and bootstrap/rotation producer; isolated root/credential fixture does not prove whole owner authority",
+  "historicalRead": "scripts/generation_read_hydration_archive.py",
+  "currentOnlyReadAdapter": "scripts/generation_read_hydration.py is prior bounded current-policy reference, not a substitute for required archived hydration",
+  "uiRead": "scripts/owner_ui_terminal_read.py requires actual command/context/target/artifact joins; display remains BLOCKED_PENDING_EFFECT_HYDRATION until semantic effect proof",
+  "wholeOperationsClosed": [],
+  "SSOT_CONTRACT_READY": "BLOCKED",
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

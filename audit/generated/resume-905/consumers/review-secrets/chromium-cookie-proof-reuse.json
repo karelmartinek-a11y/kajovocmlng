@@ -1,0 +1,60 @@
+{
+  "currentSourceSha256": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5",
+  "historicalExecutionSourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
+  "originalReport": "audit/generated/resume-34d/secrets-browser/partition-current/partition-cookie-tests.json",
+  "originalReportSha256": "a49bfa89e7f46aa0f75fc0968cdde61658cad7180a0fd7ea02257499781da52e",
+  "newExecution": false,
+  "scope": "REAL_CHROMIUM_PARTITION_COOKIE_MEMBER_CAPTURE_RESTORE",
+  "reusedChecks": 14,
+  "status": "VALID_REUSE_FOR_UNCHANGED_CONSUMED_INPUTS",
+  "inputChecks": [
+    {
+      "file": "/workspace/kajovocmlng/audit/generated/resume-34d/secrets-browser/partition-current/verify_partition_cookie.py",
+      "same": true,
+      "digest": "829db0e995d1b1695950498b656a13e7a89ba19d8056317e1133e3998ba2a200"
+    },
+    {
+      "file": "/workspace/kajovocmlng/audit/generated/resume-34d/secrets-browser/partition-current/partition_cookie_adapter.py",
+      "same": true,
+      "digest": "b70fd167313c3dd3ed93390b85d1d2c3d9e006dc70389e56c88129e4de7c810f"
+    },
+    {
+      "file": "/workspace/kajovocmlng/audit/generated/resume-34d/secrets-browser/partition-current/cookie-mask-patch.json",
+      "same": true,
+      "digest": "a99bc6fdcce1c458a8f59fd0407fc7f16c3f375082b040e57c3e53131618ce16"
+    },
+    {
+      "file": "/workspace/kajovocmlng/audit/generated/resume-34d/secrets-browser/partition-current/partition-cookie-member.schema.json",
+      "same": true,
+      "digest": "89cb9d1974c592e9f9e8c77b275fe17bc6e61bd1729fa312906f20867580bcf8"
+    },
+    {
+      "file": "/workspace/kajovocmlng/scripts/ssot_resources.py",
+      "same": true,
+      "digest": "cef2ee1c050fc5d5f22ab51f94080511ef66a64e9d95f68552897c9d92a17b0c"
+    },
+    {
+      "file": "/workspace/kajovocmlng/scripts/ssot_sources.py",
+      "same": true,
+      "digest": "6ce4622b95aba18f9afd26dbbe57ab57490c74b7c72d5b68289bd8268868b3f1"
+    },
+    {
+      "resource": "contracts/secrets/profile-handoffs.schema.json",
+      "same": true,
+      "digest": "bce6c974949e69314f725e9fcacd20d257b7cadfa7003b09122fc57fff0e69da"
+    },
+    {
+      "currentChromium": "Chromium 151.0.7922.173 built on Debian GNU/Linux 13 (trixie)",
+      "same": true
+    }
+  ],
+  "excluded": [
+    "Full required browser capture transaction/barrier/encryption/epoch-CAS",
+    "Real provider account/tenant marker",
+    "Client-certificate/OWNER Device Bridge",
+    "Whole profile activation"
+  ],
+  "fullProfileActivation": "NOT_ACTIVATED",
+  "implementationAcceptance": "NOT_EVALUATED",
+  "note": "Source document advanced; original report/source identity untouched. No Chromium fixture or visual rerender performed."
+}

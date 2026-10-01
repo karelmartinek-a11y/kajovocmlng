@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "checked": 11,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "actual-readonly-bytes-and-interface-positive",
+      "passed": true,
+      "actualDiagnostic": null,
+      "expectedDiagnostic": null
+    },
+    {
+      "case": "wrong-invocation",
+      "passed": true,
+      "actualDiagnostic": "CRYPTO_INVOCATION_IDENTITY_MISMATCH",
+      "expectedDiagnostic": "CRYPTO_INVOCATION_IDENTITY_MISMATCH"
+    },
+    {
+      "case": "wrong-process",
+      "passed": true,
+      "actualDiagnostic": "CRYPTO_INVOCATION_IDENTITY_MISMATCH",
+      "expectedDiagnostic": "CRYPTO_INVOCATION_IDENTITY_MISMATCH"
+    },
+    {
+      "case": "wrong-unit",
+      "passed": true,
+      "actualDiagnostic": "CRYPTO_INVOCATION_SERVICE_MISMATCH",
+      "expectedDiagnostic": "CRYPTO_INVOCATION_SERVICE_MISMATCH"
+    },
+    {
+      "case": "wrong-credential-name",
+      "passed": true,
+      "actualDiagnostic": "CRYPTO_INVOCATION_SERVICE_MISMATCH",
+      "expectedDiagnostic": "CRYPTO_INVOCATION_SERVICE_MISMATCH"
+    },
+    {
+      "case": "stale-generation",
+      "passed": true,
+      "actualDiagnostic": "CRYPTO_KEY_GENERATION_MISMATCH",
+      "expectedDiagnostic": "CRYPTO_KEY_GENERATION_MISMATCH"
+    },
+    {
+      "case": "wrong-fingerprint",
+      "passed": true,
+      "actualDiagnostic": "CRYPTO_KEY_FINGERPRINT_MISMATCH",
+      "expectedDiagnostic": "CRYPTO_KEY_FINGERPRINT_MISMATCH"
+    },
+    {
+      "case": "wrong-profile",
+      "passed": true,
+      "actualDiagnostic": "CRYPTO_KEY_PROFILE_MISMATCH",
+      "expectedDiagnostic": "CRYPTO_KEY_PROFILE_MISMATCH"
+    },
+    {
+      "case": "extra-client-authority",
+      "passed": true,
+      "actualDiagnostic": "CRYPTO_KEY_REGISTRY_MASK_INVALID",
+      "expectedDiagnostic": "CRYPTO_KEY_REGISTRY_MASK_INVALID"
+    },
+    {
+      "case": "writable-materialization-rejected",
+      "passed": true,
+      "actualDiagnostic": "SYSTEMD_CREDENTIAL_MATERIALIZATION_NOT_READ_ONLY",
+      "expectedDiagnostic": "SYSTEMD_CREDENTIAL_MATERIALIZATION_NOT_READ_ONLY"
+    },
+    {
+      "case": "wrong-material-size",
+      "passed": true,
+      "actualDiagnostic": "SYSTEMD_MASTER_KEY_SIZE_INVALID",
+      "expectedDiagnostic": "SYSTEMD_MASTER_KEY_SIZE_INVALID"
+    }
+  ],
+  "sourceDocumentSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
+  "scope": "Actual readonly isolated file and key fingerprint plus synthetic manager-interface negative reference tests. Not authentic systemd provenance, root-encrypted source or verified bus-reader proof.",
+  "systemdSourceProof": "BLOCKED",
+  "wholeOperationClosed": false
+}

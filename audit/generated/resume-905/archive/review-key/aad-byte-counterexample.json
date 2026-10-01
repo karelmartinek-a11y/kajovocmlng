@@ -1,0 +1,16 @@
+{
+  "status": "DEFECT_REPRODUCED",
+  "sourceDocumentSha256": "4f9d657357b3623ab5fa7b5f39b8b635476556733207cadc62d16d9a7a12736e",
+  "canonicalExtensionSha256": "31f6f687923261d0db328da2b8a43f482d624ec17a01558c2ae731f6f2b23bba",
+  "postgresqlVersion": "18.6",
+  "checks": [
+    {
+      "case": "independent-counterexample-whitespace-AAD-reservation",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    }
+  ],
+  "meaning": "Accepted SQL reservation and actual authenticated opening despite whitespace-bearing stored authenticated_metadata_bytes. \u00a712.54 mandates exact sorted compact actual AAD bytes; semantic jsonb equality loses this condition. Does not demonstrate caller authorization or systemd source.",
+  "supportSha256": "2761a0f53b2f4f203a40f1bf9c5bfccaec9ca687cf9670eb0cdb679ff83a1665"
+}

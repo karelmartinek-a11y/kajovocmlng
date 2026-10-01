@@ -1,0 +1,112 @@
+{
+  "status": "PASS",
+  "sourceDocumentSha256": "4f9d657357b3623ab5fa7b5f39b8b635476556733207cadc62d16d9a7a12736e",
+  "checked": 15,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "positive-real-auth-protected-row-global-registry-native-open",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "missing-reservation",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_PROTECTED_RESERVATION_REQUIRED",
+      "actualDiagnostic": "ERROR:  GENERATION_PROTECTED_RESERVATION_REQUIRED\nCONTEXT:  PL/pgSQL function kcml_generation_protected_registry_link_v1() line 13 at RAISE\n"
+    },
+    {
+      "case": "wrong-purpose",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_PROTECTED_RESERVATION_REQUIRED",
+      "actualDiagnostic": "ERROR:  GENERATION_PROTECTED_RESERVATION_REQUIRED\nCONTEXT:  PL/pgSQL function kcml_generation_protected_registry_link_v1() line 13 at RAISE\n"
+    },
+    {
+      "case": "open-context-swap",
+      "passed": true,
+      "expectedDiagnostic": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "actualDiagnostic": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "case": "open-envelope-swap",
+      "passed": true,
+      "expectedDiagnostic": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "actualDiagnostic": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "case": "wrong-context",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_PROTECTED_TYPED_AAD_INVALID",
+      "actualDiagnostic": "ERROR:  GENERATION_PROTECTED_TYPED_AAD_INVALID\nCONTEXT:  PL/pgSQL function kcml_generation_protected_registry_link_v1() line 44 at RAISE\n"
+    },
+    {
+      "case": "extra-aad-field",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_PROTECTED_TYPED_AAD_INVALID",
+      "actualDiagnostic": "ERROR:  GENERATION_PROTECTED_TYPED_AAD_INVALID\nCONTEXT:  PL/pgSQL function kcml_generation_protected_registry_link_v1() line 44 at RAISE\n"
+    },
+    {
+      "case": "wrong-job",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_PROTECTED_TYPED_AAD_INVALID",
+      "actualDiagnostic": "ERROR:  GENERATION_PROTECTED_TYPED_AAD_INVALID\nCONTEXT:  PL/pgSQL function kcml_generation_protected_registry_link_v1() line 44 at RAISE\n"
+    },
+    {
+      "case": "wrong-op",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_PROTECTED_RESERVATION_BINDING_INVALID",
+      "actualDiagnostic": "ERROR:  GENERATION_PROTECTED_RESERVATION_BINDING_INVALID\nCONTEXT:  PL/pgSQL function kcml_generation_protected_registry_link_v1() line 33 at RAISE\n"
+    },
+    {
+      "case": "wrong-object",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_PROTECTED_RESERVATION_REQUIRED",
+      "actualDiagnostic": "ERROR:  GENERATION_PROTECTED_RESERVATION_REQUIRED\nCONTEXT:  PL/pgSQL function kcml_generation_protected_registry_link_v1() line 13 at RAISE\n"
+    },
+    {
+      "case": "wrong-cipherdigest",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_PROTECTED_RESERVATION_BINDING_INVALID",
+      "actualDiagnostic": "ERROR:  GENERATION_PROTECTED_RESERVATION_BINDING_INVALID\nCONTEXT:  PL/pgSQL function kcml_generation_protected_registry_link_v1() line 33 at RAISE\n"
+    },
+    {
+      "case": "wrong-nonce",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_PROTECTED_RESERVATION_BINDING_INVALID",
+      "actualDiagnostic": "ERROR:  GENERATION_PROTECTED_RESERVATION_BINDING_INVALID\nCONTEXT:  PL/pgSQL function kcml_generation_protected_registry_link_v1() line 33 at RAISE\n"
+    },
+    {
+      "case": "rollback-leaves-no-root-reservation-command",
+      "passed": true
+    },
+    {
+      "case": "actual-commit-and-authenticated-consumer",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "committed-root-reservation-command-outbox-audit-visible",
+      "passed": true
+    }
+  ],
+  "postgresqlVersion": "18.6",
+  "candidateSqlSha256": "31f6f687923261d0db328da2b8a43f482d624ec17a01558c2ae731f6f2b23bba",
+  "canonicalInputs": {
+    "database/generation-create-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "database/generation-create-authentication.sql": "9ec7558ed51a0a38558b123cdc7d6fb76d4de485440f2fd8607478b414e70285",
+    "database/generation-create-preroot.sql": "0ed9d0e563b802da50c96ebb31f62390aeab16040bd19660612fb14dd83aa75e",
+    "database/canonical-crypto-registry.sql": "773310806845b2754bdd2675ee1a27ed7cc96697f54bccdcac2648ba9cd1c7d4"
+  },
+  "supportSha256": {
+    "audit/generated/resume-905/archive/review-key/verify_peer_key.py": "dbe320f9521a3766bd9abf1e69722ee1191befe2e5b005c537198474fc9c7eab",
+    "audit/generated/resume-34d/auth-crypto/verify_authenticated_full_chain.py": "021c801f3064c02621f700af2b6f70e2c0db551129e0c4fe50b0c0411df37b32",
+    "scripts/generation_auth_crypto.py": "5cfd85a6b0d7852509e8301b7a0b38f3e315ad292094544733a89f9b1939d259",
+    "scripts/generation_auth_acceptance.py": "382ef3a708d1b1699282149068206ecda46950a7a293faf0f8fde28b5a853bdc",
+    "scripts/create_operation_contracts.py": "75280dbfa44cd5064998ac600c64198e6b7a975ecc45770770ac78ab46015b11"
+  },
+  "systemdSourceProof": "BLOCKED",
+  "secretTypedJoinProof": "NOT_EVALUATED",
+  "wholeOperationClosed": false
+}

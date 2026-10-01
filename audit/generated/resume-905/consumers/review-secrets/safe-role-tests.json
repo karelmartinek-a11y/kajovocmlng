@@ -1,0 +1,55 @@
+{
+  "checks": 8,
+  "failed": 0,
+  "cases": [
+    {
+      "id": "reject-preexisting-LOGIN",
+      "status": "PASS",
+      "diagnostic": "SECRET_PROFILE_PUBLISHER_ROLE_UNSAFE",
+      "globalRoleMutationRolledBackByConnectionClose": true
+    },
+    {
+      "id": "reject-preexisting-SUPERUSER",
+      "status": "PASS",
+      "diagnostic": "SECRET_PROFILE_PUBLISHER_ROLE_UNSAFE",
+      "globalRoleMutationRolledBackByConnectionClose": true
+    },
+    {
+      "id": "reject-preexisting-CREATEDB",
+      "status": "PASS",
+      "diagnostic": "SECRET_PROFILE_PUBLISHER_ROLE_UNSAFE",
+      "globalRoleMutationRolledBackByConnectionClose": true
+    },
+    {
+      "id": "reject-preexisting-CREATEROLE",
+      "status": "PASS",
+      "diagnostic": "SECRET_PROFILE_PUBLISHER_ROLE_UNSAFE",
+      "globalRoleMutationRolledBackByConnectionClose": true
+    },
+    {
+      "id": "reject-preexisting-REPLICATION",
+      "status": "PASS",
+      "diagnostic": "SECRET_PROFILE_PUBLISHER_ROLE_UNSAFE",
+      "globalRoleMutationRolledBackByConnectionClose": true
+    },
+    {
+      "id": "reject-preexisting-BYPASSRLS",
+      "status": "PASS",
+      "diagnostic": "SECRET_PROFILE_PUBLISHER_ROLE_UNSAFE",
+      "globalRoleMutationRolledBackByConnectionClose": true
+    },
+    {
+      "id": "reject-preexisting-INHERIT",
+      "status": "PASS",
+      "diagnostic": "SECRET_PROFILE_PUBLISHER_ROLE_UNSAFE",
+      "globalRoleMutationRolledBackByConnectionClose": true
+    },
+    {
+      "id": "accept-existing-safe-role",
+      "status": "PASS"
+    }
+  ],
+  "correctedCandidateSha256": "9508cf2db85645a8ec2cec1487785c116e3072415660dbd933bf5910884953ec",
+  "installerOnlyProof": true,
+  "wholeOperationClosed": false
+}

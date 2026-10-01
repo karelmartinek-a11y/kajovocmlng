@@ -1,0 +1,22 @@
+{
+  "cases": [
+    {
+      "id": "preexisting-publisher-LOGIN",
+      "status": "REPRODUCED_DEFECT",
+      "unsafeReservedRoleAccepted": true,
+      "exactInstallerExecuted": true,
+      "mutationRolledBack": true
+    },
+    {
+      "id": "preexisting-publisher-BYPASSRLS",
+      "status": "REPRODUCED_DEFECT",
+      "unsafeReservedRoleAccepted": true,
+      "exactInstallerExecuted": true,
+      "mutationRolledBack": true
+    }
+  ],
+  "candidateSqlSha256": "4dd19540c1cd1c2be26c94eaed48ddaf50068343a4aa0d7bca666eafca6a147a",
+  "installerSha256": "f0e5576faaf16a917a978c770e0dcfd9d042389d7b5e61e9984f0b78f7bb190f",
+  "scope": "Only exact installer statement executed; unsafe global role modifications uncommitted and rolled back, no role credentials, login or production access",
+  "fix": "Abort installer unless existing reserved role has NOLOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS and expected inheritance policy; create fresh role explicitly with same safe options"
+}

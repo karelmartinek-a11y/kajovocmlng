@@ -35,6 +35,9 @@ def main():
   'read':{'source':'database/generation-create-read.sql','internalRootMask':'contracts/generation/root-storage-read.schema.json','visibility':'SERVER_REPOSITORY_ONLY','consumerProjections':'contracts/generation/create-consumer-projections.json','retainedSchemaResolution':'Exact retained bundle digest/schema identity/declared dependency closure; never substitute current mask','status':'BOUNDED_READ_VERIFIED_ARCHIVED_POLICY_PRODUCER_FULL_PUBLIC_UI_OPEN'},
   'retry':{'source':'database/generation-locked-retry.sql','scanner':'scripts/generation_locked_retry.py','writerGate':'Same selected phase FOR UPDATE for membership/current-state/evidence changes','lockLifetime':'scan, actual bytes validation, frozen child persistence COMMIT','stages':['ADMISSION_DISCUSSION','EXECUTION_DISPATCH'],'status':'BOUNDED_PROJECTION_VERIFIED_FULL49_8_PRODUCER_CHILD_COMMIT_WIRING_OPEN'},
   'wholeOperationClosed':False,'SSOT_CONTRACT_READY':'BLOCKED','IMPLEMENTATION_PRODUCTION_ACCEPTANCE':'NOT_EVALUATED'}
+ for path in ['database/generation-frozen-archive.sql','database/generation-retry-producer-child.sql','database/generation-locator-lock.sql','database/generation-protected-registry-link.sql']:
+  if path in rs and path not in doc['sqlInstallationOrder']:doc['sqlInstallationOrder'].append(path)
+ if 'contracts/generation/producer-archive-handoffs.json'in rs:doc['producerArchive']='contracts/generation/producer-archive-handoffs.json'
  updates['contracts/generation/create-chain-handoffs.json']=(json.dumps(doc,ensure_ascii=False,indent=2)+'\n').encode()
  manifest=json.loads(rs['manifest.json']['raw'])
  for path,raw in updates.items():manifest['resources'][path]={'kind':'SQL' if path.endswith('.sql') else 'JSON','sizeBytes':len(raw),'sha256':'sha256:'+hashlib.sha256(raw).hexdigest()}

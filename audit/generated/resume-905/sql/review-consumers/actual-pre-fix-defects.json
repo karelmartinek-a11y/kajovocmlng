@@ -1,0 +1,102 @@
+{
+  "sourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
+  "peerHelperSha256": "e0b5cfec5d34bdd9c39d8698a700de59d46284400d640426ae321f96bf80b05c",
+  "reviewer": "sql_helpers; not consumer designer",
+  "checks": [
+    {
+      "id": "dashboard.start/valid-domain-selected-reference-positive",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/actual-old-self-consistent-wrong-target-now-rejected",
+      "status": "PASS",
+      "oldAcceptance": "DISPLAY_CANONICAL_OUTCOME",
+      "currentDiagnostic": "OWNER_UI_WORKER_TARGET_MISMATCH",
+      "positiveWitness": "dashboard.start/valid-domain-selected-reference-positive"
+    },
+    {
+      "id": "dashboard.start/worker-arguments-runtimeInstanceId",
+      "status": "FAIL",
+      "actualDiagnostic": "ACCEPTED",
+      "positiveWitness": "dashboard.start/valid-domain-selected-reference-positive"
+    },
+    {
+      "id": "dashboard.start/worker-arguments-runtimeGeneration",
+      "status": "FAIL",
+      "actualDiagnostic": "ACCEPTED",
+      "positiveWitness": "dashboard.start/valid-domain-selected-reference-positive"
+    },
+    {
+      "id": "dashboard.stop/valid-domain-selected-reference-positive",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/actual-old-self-consistent-wrong-target-now-rejected",
+      "status": "PASS",
+      "oldAcceptance": "DISPLAY_CANONICAL_OUTCOME",
+      "currentDiagnostic": "OWNER_UI_WORKER_TARGET_MISMATCH",
+      "positiveWitness": "dashboard.stop/valid-domain-selected-reference-positive"
+    },
+    {
+      "id": "dashboard.stop/worker-arguments-runtimeInstanceId",
+      "status": "FAIL",
+      "actualDiagnostic": "ACCEPTED",
+      "positiveWitness": "dashboard.stop/valid-domain-selected-reference-positive"
+    },
+    {
+      "id": "dashboard.stop/worker-arguments-runtimeGeneration",
+      "status": "FAIL",
+      "actualDiagnostic": "ACCEPTED",
+      "positiveWitness": "dashboard.stop/valid-domain-selected-reference-positive"
+    },
+    {
+      "id": "gen.editSpec/valid-domain-selected-reference-positive",
+      "status": "PASS"
+    },
+    {
+      "id": "gen.editSpec/actual-old-self-consistent-wrong-target-now-rejected",
+      "status": "PASS",
+      "oldAcceptance": "DISPLAY_CANONICAL_OUTCOME",
+      "currentDiagnostic": "OWNER_UI_WORKER_TARGET_MISMATCH",
+      "positiveWitness": "gen.editSpec/valid-domain-selected-reference-positive"
+    },
+    {
+      "id": "gen.editSpec/new-draft-must-not-reuse-base",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_NEW_DRAFT_REUSES_BASE_REVISION"
+    },
+    {
+      "id": "gen.editSpec/same-canonical-explicit-historical-block",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_BASE_REVISION_PRODUCER_UNRESOLVED"
+    }
+  ],
+  "failed": 4,
+  "defects": [
+    {
+      "action": "dashboard.start",
+      "field": "runtimeInstanceId",
+      "actual": "ACCEPTED",
+      "required": "workerArguments selected runtime identity/generation equals accepted intent arguments; output to correct intent cannot excuse command sent to different target"
+    },
+    {
+      "action": "dashboard.start",
+      "field": "runtimeGeneration",
+      "actual": "ACCEPTED",
+      "required": "workerArguments selected runtime identity/generation equals accepted intent arguments; output to correct intent cannot excuse command sent to different target"
+    },
+    {
+      "action": "dashboard.stop",
+      "field": "runtimeInstanceId",
+      "actual": "ACCEPTED",
+      "required": "workerArguments selected runtime identity/generation equals accepted intent arguments; output to correct intent cannot excuse command sent to different target"
+    },
+    {
+      "action": "dashboard.stop",
+      "field": "runtimeGeneration",
+      "actual": "ACCEPTED",
+      "required": "workerArguments selected runtime identity/generation equals accepted intent arguments; output to correct intent cannot excuse command sent to different target"
+    }
+  ],
+  "scope": "Actual reference adapter execution with three independently adversarial selected-target successes, runtime command argument mutations and draft/same-canonical negatives; no producer/SQL/runtime proof."
+}

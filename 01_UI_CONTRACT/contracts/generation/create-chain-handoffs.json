@@ -19,7 +19,11 @@
     "database/generation-create-authentication.sql",
     "database/generation-create-preroot.sql",
     "database/generation-create-read.sql",
-    "database/generation-locked-retry.sql"
+    "database/generation-locked-retry.sql",
+    "database/generation-frozen-archive.sql",
+    "database/generation-retry-producer-child.sql",
+    "database/generation-locator-lock.sql",
+    "database/generation-protected-registry-link.sql"
   ],
   "authentication": {
     "source": "database/generation-create-authentication.sql",
@@ -83,5 +87,6 @@
   },
   "wholeOperationClosed": false,
   "SSOT_CONTRACT_READY": "BLOCKED",
-  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED",
+  "producerArchive": "contracts/generation/producer-archive-handoffs.json"
 }

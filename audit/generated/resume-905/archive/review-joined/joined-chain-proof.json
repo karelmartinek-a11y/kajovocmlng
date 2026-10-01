@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "checked": 8,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "missing-archive-full-auth-crypto-chain-rejected",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_ARCHIVE_REQUIRED",
+      "actualDiagnostic": "ERROR:  FROZEN_ARCHIVE_REQUIRED\nCONTEXT:  PL/pgSQL function kcml_archive_snapshot_required_v1() line 4 at RAISE\n"
+    },
+    {
+      "id": "missing-archive-rollback-removes-whole-connected-chain",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "one-auth-protected-archive-root-event-commit",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "independent-observer-sees-entire-committed-chain",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "actual-postcommit-protected-open-archive-hydration-domain-consumer",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "consumer-output-no-plaintext-credential-key-or-authority",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "protected-context-swap-rejected-after-valid-archive",
+      "passed": true,
+      "expectedDiagnostic": "PROTECTED_INPUT_AUTHENTICATION_FAILED",
+      "actualDiagnostic": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "available-historical-mask-cannot-replace-root-frozen-pin",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_POLICY_SNAPSHOT_BINDING_MISMATCH",
+      "actualDiagnostic": "FROZEN_POLICY_SNAPSHOT_BINDING_MISMATCH"
+    }
+  ],
+  "sourceDocumentSha256": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5",
+  "postgresqlVersion": "18.6",
+  "canonicalInputs": {
+    "database/generation-create-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "database/generation-create-authentication.sql": "9ec7558ed51a0a38558b123cdc7d6fb76d4de485440f2fd8607478b414e70285",
+    "database/generation-create-preroot.sql": "0ed9d0e563b802da50c96ebb31f62390aeab16040bd19660612fb14dd83aa75e",
+    "database/canonical-crypto-registry.sql": "773310806845b2754bdd2675ee1a27ed7cc96697f54bccdcac2648ba9cd1c7d4",
+    "database/generation-protected-registry-link.sql": "d3362763a573d1dbef8eaf53aa8ad4d91eb288047cebe987f2e38baf0b977fb1",
+    "database/generation-frozen-archive.sql": "2a6dce3b0a8a3f82b47576b371a6870ac2c0543ed85ac50e0b63d8ccced4f0ca",
+    "database/generation-create-read.sql": "9a91a4bd9c8f1f8b8376a63c0e90fa91b0b5ddeb3c69d3769bb1a98e6a93d7ed"
+  },
+  "supportSha256": {
+    "audit/generated/resume-905/archive/review-joined/verify_joined_chain.py": "76dda0759e6d87677ca4b36829cfa1837fb6739c4faf2ff461a0bcdd1ea9a327",
+    "scripts/generation_auth_crypto.py": "5cfd85a6b0d7852509e8301b7a0b38f3e315ad292094544733a89f9b1939d259",
+    "scripts/generation_auth_acceptance.py": "382ef3a708d1b1699282149068206ecda46950a7a293faf0f8fde28b5a853bdc",
+    "scripts/generation_frozen_archive.py": "f1b4284eaaa907b94d34be0eb6080cf4d73b18561ec31fc5b6176212796b0622",
+    "scripts/generation_request_policy_v1.py": "41fea2ac308aaf938d711765655f938a6c953f65f9440bdbf7212e5ee29f2492",
+    "scripts/generation_read_hydration_archive.py": "86190cac70763c0013623771fae1fa34712aa5c045b2dc3d43842ea564abffe0",
+    "scripts/generation_create_consumer_archive.py": "8649370d5eac08af201f7728a3ecd1e8ac23b95609f4786c1c597999c6bad81f"
+  },
+  "systemdSourceProof": "BLOCKED_ENVIRONMENT",
+  "scope": "Connected successful CREATE and missing-archive rollback chain with real token verification and real canonical crypto primitive; key issuance/provisioning isolated synthetic, not authentic systemd source",
+  "limitations": [
+    "Archived request-hydration policy only; full kind admission/execution policies independent",
+    "Pre-root retained failure/pending archive still separate",
+    "Public endpoint/read authentication and UI dispatch runtime acceptance NOT_EVALUATED"
+  ],
+  "wholeOperationClosed": false,
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

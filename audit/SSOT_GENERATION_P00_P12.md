@@ -6,7 +6,7 @@ P00 requires current complete SSOT_CONTRACT_READY and separate freeze authorizat
 
 No successor RUNNING before predecessor current PASSED with identical SSOT/Contract Pack/toolchain lineage (71.7).
 
-SSOT SHA-256: `22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee`.
+SSOT SHA-256: `a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5`.
 
 Deliverables a delta gates jsou převzaté z R13/R14/R15; finální P00 gate používá účinnou precedence §73.7 místo historického R13 whole-document gate. Plánované cesty jsou konkrétní umístění budoucích výstupů; aplikace nebyla generována.
 

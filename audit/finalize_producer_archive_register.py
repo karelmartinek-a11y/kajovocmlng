@@ -1,0 +1,28 @@
+"""Current connected fixture overlay; no aggregate operation is closed."""
+import hashlib,json,sys
+from pathlib import Path
+from collections import Counter
+ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'scripts'))
+from ssot_sources import resource_index,SSOT
+from evidence_scope_reuse import secret_scope_current
+from verify_producer_archive_handoffs import PROOFS
+
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def main():
+ source=sha(SSOT);p=ROOT/'audit/SSOT_COMPLETION_REGISTER.json';r=json.loads(p.read_text());assert r['sourceDocumentSha256']==source
+ rs=resource_index();runner=json.loads((ROOT/'audit/generated/repair-2026-09-30/design-current/commands.json').read_text());assert runner['allCommandsFinished']and runner['sourceSha256']==source
+ central=ROOT/'audit/generated/repair-2026-09-30/design-current/verify_producer_archive_handoffs/producer-archive-chain-tests.json';gate=json.loads(central.read_text());assert gate['failed']==0 and gate['sourceDocumentSha256']==source
+ entries=[('joined',PROOFS['joined'],'Connected actual token/protected row/archive/atomic CREATE commit/fresh SQL/crypto/pinned request-policy consumer; isolated key not systemd','database/generation-frozen-archive.sql'),('retry',PROOFS['retry'],'Locked persisted membership/exact byte scan/reservation→RETRY child root commit; full49.8 authenticated native producer excluded','database/generation-retry-producer-child.sql'),('archive',PROOFS['archive'],'Actual immutable frozen bytes/revision closure/historical request-policy hydrators; full kind policy and accepted pre-root excluded','database/generation-frozen-archive.sql'),('aad',PROOFS['aad'],'Exact byte AAD guard and typed generation row/global reservation; actual systemd key producer and Secret typed join excluded','database/generation-protected-registry-link.sql'),('secret',PROOFS['secret'],'Safe privileged immutable publication/archive→reader→native registry and OWNER composite Secret version identity; rotation/context/command/broker excluded','database/secret-profile-publication.sql'),('ui',PROOFS['ui'],'Exact root adapter rejects cross-target/worker argument identities; effect display remains blocked and runtime acceptance excluded','contracts/generation/create-chain-handoffs.json')]
+ entries.append(('locator','audit/generated/resume-905/sql/locator-lock-postgres-proof.json','Actual locked context→C0 stable locator→C1 retained scope replay; four generic helper families excluded','database/generation-locator-lock.sql'))
+ r['obligations']=[o for o in r['obligations']if not o['id'].startswith('producer-archive-bounded:')]
+ for label,proof,scope,resource in entries:
+  pp=ROOT/proof;q=json.loads(pp.read_text());assert q.get('sourceDocumentSha256',q.get('sourceSha256'))==source
+  r['obligations'].append({'id':'producer-archive-bounded:'+label,'area':'secrets'if label=='secret'else'UI'if label=='ui'else'generation','scope':scope,'state':'VERIFIED','verificationLevel':'ACTUAL_PREGEN_BOUNDED_FIXTURE','authoritativeSources':[{'pointer':resource,'ssotSha256':source,'resourceSha256':rs[resource]['sha256']}],'dependencies':['operation:secret.create:persistence-hydration'if label=='secret'else'operation:generation.job.create:persistence-hydration'],'blocker':None,'repair':'scripts/close_producer_archive_handoffs.py','evidence':[{'path':proof,'sha256':sha(pp),'sourceSha256':source},{'path':central.relative_to(ROOT).as_posix(),'sha256':sha(central)}],'sourceBinding':{'ssotSha256':source},'reviewer':'independent peer wave; authors never self-certify','implementationAcceptance':'NOT_EVALUATED'})
+ # Prior Secret/cookie proof execution is retained; exact consumed source is verified.
+ for label,name in [('native','review/secret-current/secret-native-review.json'),('storage','failure-sql/secret-profile-current/postgres-tests.json'),('cookie','secrets-browser/partition-current/partition-cookie-tests.json')]:
+  pp=ROOT/'audit/generated/resume-34d'/name;q=json.loads(pp.read_text());assert secret_scope_current(q)
+  r['obligations'].append({'id':'producer-archive-bounded:reused-secret-'+label,'area':'secrets','scope':'Historical bounded '+label+' evidence; exact unchanged resources/helpers and Secrets/browser/UI authorities, new producers excluded','state':'VERIFIED','verificationLevel':'ACTUAL_PREGEN_BOUNDED_FIXTURE','authoritativeSources':[{'pointer':'00_SSOT/KajovoCMLNG_SSOT.md#section.8.12','ssotSha256':source}],'dependencies':['operation:secret.create:persistence-hydration'],'blocker':None,'repair':'scripts/evidence_scope_reuse.py','evidence':[{'path':pp.relative_to(ROOT).as_posix(),'sha256':sha(pp),'executionSourceSha256':q.get('sourceDocumentSha256',q.get('sourceSha256',q.get('inputSsotSha256'))),'newExecution':False}],'sourceBinding':{'ssotSha256':source,'rule':'Every consumed resource/helper/support and exact normative chapters8/13.15/72.21 match pinned905 execution source; new producer outputs verified separately'},'implementationAcceptance':'NOT_EVALUATED'})
+ r['coverage'].update(states=dict(Counter(o['state']for o in r['obligations'])),levels=dict(Counter(o['verificationLevel']for o in r['obligations'])),totalRegisteredObligations=len(r['obligations']),wholeOperationsSemanticallyVerified=0)
+ r['currentFiniteChecklist']='audit/SSOT_CREATE_CLOSURE_CHECKLIST.json';r['gates']={'SSOT_CONTRACT_READY':'BLOCKED','IMPLEMENTATION_PRODUCTION_ACCEPTANCE':'NOT_EVALUATED'}
+ p.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n');print(json.dumps(r['coverage']))
+if __name__=='__main__':main()

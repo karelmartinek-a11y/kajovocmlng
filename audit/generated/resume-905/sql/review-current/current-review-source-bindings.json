@@ -1,0 +1,48 @@
+{
+  "sourceDocumentSha256": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5",
+  "proofs": {
+    "authenticated-chain-review.json": {
+      "sha256": "f51f7b4dd29de839881243fd05ce9b3a7a1387c39ebeef567dab19ac62e7d7b3",
+      "checked": 14,
+      "status": "PASS"
+    },
+    "crypto-registry-review.json": {
+      "sha256": "088cb8947083805534f925aefdac37751a2bd9d35646aa0996f488cfa4de2b99",
+      "checked": 13,
+      "status": "PASS"
+    },
+    "retry-review.json": {
+      "sha256": "4d5d47a456349bf13f4a2acc89b6c41d19d26e6dac3a4dffe91ffa50f6ab0732",
+      "checked": 5,
+      "status": "PASS"
+    },
+    "preroot-initial-review.json": {
+      "sha256": "c79618cfc200e19372d7a4c78273f3272a0e278e34d9484695ca21728c400a1d",
+      "checked": 4,
+      "status": "PASS"
+    }
+  },
+  "consumedResourceSha256": {
+    "database/generation-create-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "database/generation-create-authentication.sql": "9ec7558ed51a0a38558b123cdc7d6fb76d4de485440f2fd8607478b414e70285",
+    "database/generation-create-read.sql": "9a91a4bd9c8f1f8b8376a63c0e90fa91b0b5ddeb3c69d3769bb1a98e6a93d7ed",
+    "database/generation-create-preroot.sql": "0ed9d0e563b802da50c96ebb31f62390aeab16040bd19660612fb14dd83aa75e",
+    "database/generation-locked-retry.sql": "a18aba72b317ae6fac0a86c153eb914de6b4fda6916f02a0c612a235b2f07835",
+    "database/canonical-crypto-registry.sql": "773310806845b2754bdd2675ee1a27ed7cc96697f54bccdcac2648ba9cd1c7d4"
+  },
+  "rootHelpers": {
+    "generation_auth_crypto.py": "5cfd85a6b0d7852509e8301b7a0b38f3e315ad292094544733a89f9b1939d259",
+    "generation_auth_acceptance.py": "382ef3a708d1b1699282149068206ecda46950a7a293faf0f8fde28b5a853bdc",
+    "generation_read_hydration.py": "e0199c7f38fd04f0d139fa2cb14c906f7113b0d772765aaad61eee50a43dbf65",
+    "generation_create_consumer.py": "a342febae4a3eab1f8455ccd17fedeb70be586af177f2b33cce57a4a05ea53ce",
+    "generation_locked_retry.py": "1eb8af57f01ef564031e3689f75db6728c0ac887ca53a8215b4a32ba1590f593"
+  },
+  "limits": [
+    "14-check retained auth/read fixture executes real synthetic OWNER API verifier and actual canonical AES opening; key bytes isolated synthetic, not systemd encrypted credential source. It uses bounded current-schema reader, not complete frozen archive/kind policy pipeline.",
+    "13-check global nonce registry executes exact embedded SQL; uniqueness/immutable registry only, no complete physical protected-row producer identity/systemd authority.",
+    "5-check locked-scan reproduction uses root generation_locked_retry and exact embedded SQL; child persistence covered separately by33 producer-child tests, full49.8 remains OPEN.",
+    "4-check pre-root response negatives use synthetic server acceptance and opaque snapshot; exact finite native error rejection, not auth/crypto/complete pending-decision producer."
+  ],
+  "wholeOperationClosed": false,
+  "implementationProductionAcceptance": "NOT_EVALUATED"
+}

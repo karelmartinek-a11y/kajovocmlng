@@ -1,0 +1,701 @@
+{
+  "sourceDocumentSha256": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5",
+  "postgresVersion": "18.6",
+  "bindings": {
+    "database/generation-create-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "database/generation-create-read.sql": "9a91a4bd9c8f1f8b8376a63c0e90fa91b0b5ddeb3c69d3769bb1a98e6a93d7ed",
+    "database/generation-frozen-archive.sql": "2a6dce3b0a8a3f82b47576b371a6870ac2c0543ed85ac50e0b63d8ccced4f0ca",
+    "database/generation-locked-retry.sql": "a18aba72b317ae6fac0a86c153eb914de6b4fda6916f02a0c612a235b2f07835",
+    "database/generation-retry-producer-child.sql": "b7fecb14a941044594ee4488ec973a17c484c5d712ddbf44462a2d24124851fb"
+  },
+  "checks": [
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "application_deployment_head",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "audit_archive_outbox",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "audit_event",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "audit_head",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "domain_command",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "domain_event",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "domain_idempotency_record",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "generation_create_authentication_acceptance",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "generation_create_command_binding",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "generation_create_contract_pin",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "generation_create_trusted_context",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "generation_job",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "generation_job_create_completion",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "generation_job_follow_up_basis",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "generation_job_initial_request_snapshot",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "idempotency_locator",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "owner_api_credential",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "owner_identity",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "owner_session",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "platform_incarnation",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "transactional_outbox",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_audit_hash",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_audit_hash_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_authentication_singleton_guard_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_create_command_frozen_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_create_idempotency_frozen_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_create_locator_frozen_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_create_outbox_frozen_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_create_record_immutable_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_generation_command_context_consistency_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_generation_create_atomic_closure_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_generation_create_context_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_generation_job_write_guard_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_generation_snapshot_schema_pin_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_reject_generation_create_snapshot_update_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "role",
+      "name": "kcml_authentication_writer",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "role",
+      "name": "kcml_domain_writer",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "role",
+      "name": "kcml_generation_context_builder",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-frozen-archive.sql",
+      "kind": "table",
+      "name": "generation_frozen_bundle_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-frozen-archive.sql",
+      "kind": "table",
+      "name": "generation_frozen_policy_binding_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-frozen-archive.sql",
+      "kind": "function",
+      "name": "kcml_archive_immutable_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-frozen-archive.sql",
+      "kind": "function",
+      "name": "kcml_archive_publish_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-frozen-archive.sql",
+      "kind": "function",
+      "name": "kcml_archive_read_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-frozen-archive.sql",
+      "kind": "function",
+      "name": "kcml_archive_snapshot_binding_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-frozen-archive.sql",
+      "kind": "function",
+      "name": "kcml_archive_snapshot_required_v1",
+      "present": true
+    },
+    {
+      "database": "archive_independent_sql_905",
+      "path": "database/generation-create-read.sql",
+      "kind": "function",
+      "name": "kcml_generation_create_read_storage_v1",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "application_deployment_head",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "audit_archive_outbox",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "audit_event",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "audit_head",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "domain_command",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "domain_event",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "domain_idempotency_record",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "generation_create_authentication_acceptance",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "generation_create_command_binding",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "generation_create_contract_pin",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "generation_create_trusted_context",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "generation_job",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "generation_job_create_completion",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "generation_job_follow_up_basis",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "generation_job_initial_request_snapshot",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "idempotency_locator",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "owner_api_credential",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "owner_identity",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "owner_session",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "platform_incarnation",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "table",
+      "name": "transactional_outbox",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_audit_hash",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_audit_hash_v1",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_authentication_singleton_guard_v1",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_create_command_frozen_v1",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_create_idempotency_frozen_v1",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_create_locator_frozen_v1",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_create_outbox_frozen_v1",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_create_record_immutable_v1",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_generation_command_context_consistency_v1",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_generation_create_atomic_closure_v1",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_generation_create_context_v1",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_generation_job_write_guard_v1",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_generation_snapshot_schema_pin_v1",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "function",
+      "name": "kcml_reject_generation_create_snapshot_update_v1",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "role",
+      "name": "kcml_authentication_writer",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "role",
+      "name": "kcml_domain_writer",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-create-foundations.sql",
+      "kind": "role",
+      "name": "kcml_generation_context_builder",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-locked-retry.sql",
+      "kind": "table",
+      "name": "kcml_retry_v1.attempt",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-locked-retry.sql",
+      "kind": "table",
+      "name": "kcml_retry_v1.current_state",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-locked-retry.sql",
+      "kind": "table",
+      "name": "kcml_retry_v1.evidence",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-locked-retry.sql",
+      "kind": "table",
+      "name": "kcml_retry_v1.operation",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-locked-retry.sql",
+      "kind": "table",
+      "name": "kcml_retry_v1.phase",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-locked-retry.sql",
+      "kind": "function",
+      "name": "kcml_retry_v1.check_current_join",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-locked-retry.sql",
+      "kind": "function",
+      "name": "kcml_retry_v1.phase_write_gate",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-locked-retry.sql",
+      "kind": "function",
+      "name": "kcml_retry_v1.scan",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-retry-producer-child.sql",
+      "kind": "table",
+      "name": "kcml_retry_v1.child_scan",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-retry-producer-child.sql",
+      "kind": "table",
+      "name": "kcml_retry_v1.phase_membership",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-retry-producer-child.sql",
+      "kind": "function",
+      "name": "kcml_retry_v1.capture_member",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-retry-producer-child.sql",
+      "kind": "function",
+      "name": "kcml_retry_v1.child_commit_guard",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-retry-producer-child.sql",
+      "kind": "function",
+      "name": "kcml_retry_v1.child_insert_guard",
+      "present": true
+    },
+    {
+      "database": "retry_independent_sql_905",
+      "path": "database/generation-retry-producer-child.sql",
+      "kind": "function",
+      "name": "kcml_retry_v1.reserve_child",
+      "present": true
+    }
+  ],
+  "failed": 0,
+  "scope": "Actual pg_class/pg_proc/pg_roles object presence after exact canonical embedded SQL execution in independent own DBs. Installation-object proof only; no complete service-role security/context/dispatch or implementation acceptance."
+}

@@ -1,0 +1,30 @@
+{
+  "inputCommit": "905555e47f3547516439a699e262df62cbbec229",
+  "inputSourceSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
+  "status": "CANDIDATE_BOUNDED_PHYSICAL_RETRY_TRANSACTION_NOT_FULL_OPERATION",
+  "candidateResource": "database/generation-retry-producer-child.sql",
+  "ownedDirectory": "audit/generated/resume-905/retry",
+  "filesSha256": {
+    "executed-canonical-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "verify_producer_child.py": "73782d52642b775e3ed7ec55399a94fdcbcd7217532aca964308cc3888080622",
+    "producer-child.sql": "b7fecb14a941044594ee4488ec973a17c484c5d712ddbf44462a2d24124851fb",
+    "INTEGRATION.md": "ba3edd662aca8c89f03bff9cce17f6994f55fc0ef48e07af69379106660fb946"
+  },
+  "evidence": "producer-child-tests.json",
+  "authority": [
+    "12.51.1",
+    "12.54",
+    "25.11",
+    "25.16",
+    "49.8",
+    "49.9",
+    "49.11",
+    "51.8",
+    "51.12"
+  ],
+  "wholeOperationClosed": false,
+  "noGitOrSharedWrites": true,
+  "proofCount": 33,
+  "proofFailed": 0,
+  "frozenFiles": true
+}
