@@ -31,7 +31,21 @@ EVIDENCE_INPUTS['verify_secret_profile_handoffs.py'].append('00_SSOT/KajovoCMLNG
 
 def evidence_inputs_hash(name):
  h=hashlib.sha256()
- for relative in EVIDENCE_INPUTS.get(name,[]):
+ relative_inputs=list(EVIDENCE_INPUTS.get(name,[]))
+ if name in {'verify_producer_archive_handoffs.py','verify_secret_profile_handoffs.py'}:
+  # The checker reads actual independent fixture helpers, not only report JSON.
+  # Bind those dynamically declared paths too; edited proof tooling invalidates cache.
+  reports=PROOFS.items()if name=='verify_producer_archive_handoffs.py'else [('secret-bounded',x)for x in EVIDENCE_INPUTS[name]if x.endswith('.json')]
+  for label,relative in reports:
+   report_path=ROOT/relative
+   try:q=json.loads(report_path.read_text())
+   except (ValueError,OSError,UnicodeError):continue
+   if not isinstance(q,dict):continue
+   for path in q.get('supportSha256',{}):
+    consumed=ROOT/path
+    if label=='archive'and '/'not in path:consumed=ROOT/'scripts'/path if path!='verify_archive.py'else report_path.parent/path
+    relative_inputs.append(str(consumed))
+ for relative in sorted(set(relative_inputs)):
   path=ROOT/relative
   h.update(relative.encode()+b'\0'+(path.read_bytes() if path.exists() else b'MISSING')+b'\0')
  return h.hexdigest()

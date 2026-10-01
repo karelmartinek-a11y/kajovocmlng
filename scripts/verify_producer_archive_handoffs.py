@@ -9,6 +9,7 @@ PROOFS={
  'aad':BASE+'archive/review-key/peer-key-fixed-proof.json',
  'secret':BASE+'consumers/review-secrets/canonical-independent-review.json',
  'ui':BASE+'sql/review-consumers/independent-consumer-review.json',
+ 'preroot':BASE+'sql/review-preroot-archive/independent-transfer-proof.json',
 }
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
@@ -17,11 +18,25 @@ def main():
  for label,name in PROOFS.items():
   p=ROOT/name
   if not p.exists():check(label+'/missing-required-proof',False);continue
-  q=json.loads(p.read_text());evidence.append({'path':name,'sha256':sha(p),'executionSource':q.get('sourceDocumentSha256',q.get('sourceSha256'))})
+  try:q=json.loads(p.read_text())
+  except (ValueError,UnicodeError):check(label+'/malformed-required-proof',False);continue
+  if not isinstance(q,dict):check(label+'/required-proof-object',False);continue
+  evidence.append({'path':name,'sha256':sha(p),'executionSource':q.get('sourceDocumentSha256',q.get('sourceSha256'))})
   check(label+'/current-execution-source',q.get('sourceDocumentSha256',q.get('sourceSha256'))==source)
   if label=='secret':
    check(label+'/actual-PG18_6',q.get('postgresVersion')=='18.6')
-   for path,d in q.get('reportsSha256',{}).items():check(label+'/bound-report:'+path,(p.parent/path).exists()and sha(p.parent/path)==d)
+   required_reports={'publication-postgres-tests.json','owner-binding-postgres-tests.json','safe-role-postgres-tests.json','additional-tests.json'}
+   check(label+'/all-required-subproofs',required_reports<=set(q.get('reportsSha256',{})))
+   check(label+'/all-required-canonical-modules',{'database/secret-profile-roots.sql','database/secret-profile-publication.sql','database/secret-owner-binding.sql'}<=set(q.get('canonicalResources',{})))
+   for path,d in q.get('reportsSha256',{}).items():
+    sub=p.parent/path;bound=sub.exists()and sha(sub)==d;check(label+'/bound-report:'+path,bound)
+    if not bound:continue
+    try:subq=json.loads(sub.read_text())
+    except (ValueError,UnicodeError):check(label+'/malformed-subproof:'+path,False);continue
+    if not isinstance(subq,dict):check(label+'/malformed-subproof-object:'+path,False);continue
+    rows=subq.get('cases',[])
+    check(label+'/subproof-current:'+path,subq.get('sourceSha256')==source and subq.get('postgresVersion')=='18.6')
+    check(label+'/subproof-executed-results:'+path,bool(rows)and subq.get('failed')==0 and all(x.get('status')=='PASS'for x in rows)and len(rows)==subq.get('checked'))
    modules=q.get('canonicalResources',{})
   else:
    rows=q.get('checks',[])
@@ -34,6 +49,8 @@ def main():
    if label=='archive'and '/'not in path:consumed=ROOT/'scripts'/path if path!='verify_archive.py'else p.parent/path
    check(label+'/consumed-code:'+path,consumed.exists()and sha(consumed)==d)
   if label=='retry':check(label+'/exact-producer-child-SQL',q.get('canonicalExtensionSqlSha256')==rs['database/generation-retry-producer-child.sql']['sha256'])
+  if label=='preroot':
+   check(label+'/exact-canonical-preroot-archive-SQL',q.get('candidateSqlSha256')==rs['database/generation-preroot-frozen-archive.sql']['sha256']and q.get('canonicalExtensionExecuted')is True)
   if label=='archive':check(label+'/exact-durable-archive-SQL',q.get('canonicalArchiveSha256')==rs['database/generation-frozen-archive.sql']['sha256'])
   if label=='aad':check(label+'/exact-byte-guard-SQL',q.get('candidateSqlSha256')==rs['database/generation-protected-registry-link.sql']['sha256'])
   if label=='ui':check(label+'/actual-root-adapter',q.get('effectiveHelperSha256')==sha(ROOT/'scripts/owner_ui_terminal_read.py'))

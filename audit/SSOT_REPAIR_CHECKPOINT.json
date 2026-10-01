@@ -144,7 +144,7 @@
     "currentConnectedProof": "Actual source/resources/root implementation inputs bound by required verifier and runner cache; old defects retained separately",
     "secretCookieReuse": "Old execution source preserved; exact unchanged canonical resource, all helpers, normative Secrets/browser/UI sections and Chromium engine checked. New publication authority fixtures rerun independently."
   },
-  "currentSourceDocumentSha256": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5",
+  "currentSourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
   "inventoryEnvironmentCorrection": {
     "systemPythonUnavailableFormatCheckers": "774 references / 595 operations is environment-blocked evidence, not a contract defect count",
     "pinnedAuditEnvironment": "242 references / 121 operations; nestedReferenceFailures=0"
@@ -169,8 +169,8 @@
     "validatorExceptions": 0,
     "timeouts": 0,
     "blockedChecks": [
-      "scripts/verify_schema_references.py",
       "scripts/phase1_schema_closure.py",
+      "scripts/verify_schema_references.py",
       "scripts/verify_phase4_ui.py",
       "scripts/verify_operation_sql_literals.py",
       "scripts/verify_visual_contracts.py",
@@ -194,10 +194,12 @@
     "attempt": "gh pr create --draft using supported authenticated CLI",
     "reason": "Post https://api.github.com/graphql: Forbidden",
     "body": "audit/SSOT_REPAIR_DRAFT_PR.md",
-    "title": "Repair SSOT authenticated create chains and exact Secret import handoffs",
+    "title": "Repair connected SSOT generation and Secret pre-generation handoffs",
     "compareUrl": "https://github.com/karelmartinek-a11y/kajovocmlng/compare/main...ssot-repair-2026-09-30",
     "bypassAttempted": false,
-    "currentAttemptEvidence": "audit/generated/resume-34d/coordinator/draft-pr-attempt.json"
+    "currentAttemptEvidence": "audit/generated/resume-34d/coordinator/draft-pr-attempt.json",
+    "currentPreparedBody": "audit/SSOT_REPAIR_DRAFT_PR.md",
+    "lastAttemptHistorical": true
   },
   "semanticCoverageEvidence": "audit/generated/repair-2026-09-30/review-coverage.json",
   "remainingLifecycleFields": [],
@@ -212,7 +214,7 @@
     "branch": "ssot-repair-2026-09-30",
     "verifiedInputHead": "905555e47f3547516439a699e262df62cbbec229",
     "verifiedInputSSOTSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
-    "sourceSha256": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5",
+    "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
     "resumeHeadRule": "Resolve actual local and remote HEAD; checkpoint embeds only prior committed HEAD, not own resulting commit",
     "initialIntegrity": {
       "entryHead": "905555e47f3547516439a699e262df62cbbec229",
@@ -222,12 +224,12 @@
     },
     "workingTreeAtEntry": "CLEAN",
     "currentBlock": "PRODUCER_ARCHIVE_KEY_REGISTRY_AND_SECRET_PUBLICATION",
-    "lastVerifiedCommittedBlock": "905555e47f3547516439a699e262df62cbbec229",
-    "lastVerifiedCommittedBlockSSOTSha256": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691"
+    "lastVerifiedCommittedBlock": "32a63a9e3447bd4ed9a7dc4638cadc113071a8b7",
+    "lastVerifiedCommittedBlockSSOTSha256": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5"
   },
   "createBlock": {
     "status": "PARTIAL",
-    "sourceSha256": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5",
+    "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
     "operationDesignClosure": {
       "generation.job.create": "OPEN",
       "secret.create": "OPEN"
@@ -239,7 +241,7 @@
     ],
     "concreteIntegrated": [
       "Phase membership/locked scan reservation→actual RETRY child root/command/event/outbox/audit/locator COMMIT",
-      "Durable exact frozen schema/request policy/authority/implementation archive and historical hydration",
+      "Durable exact frozen schema/request policy/authority/implementation archive and historical hydration; immutable accepted pre-root archive and unchanged success transfer",
       "Protected generation rows↔global key/nonce/ciphertext/AAD deferred authority checks",
       "Trusted immutable profile publication→exact SQL descriptor reader→native registry",
       "OWNER credential composite Secret/version FK and deferred currentACTIVE fingerprint consistency",
@@ -255,7 +257,7 @@
     "mandatory": "Trusted worker evidence, real finalization/fence/SQL/receipt joins remain required"
   },
   "runnerResumeVerification": {
-    "sourceSha256": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5",
+    "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
     "universe": 49,
     "PASS": 42,
     "BLOCKED_OR_FAILED": 7,
@@ -316,9 +318,9 @@
   },
   "completionRegister": {
     "path": "audit/SSOT_COMPLETION_REGISTER.json",
-    "sourceSha256": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5",
-    "totalRegisteredObligations": 4050,
-    "verifiedBoundedObligations": 34,
+    "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+    "totalRegisteredObligations": 4051,
+    "verifiedBoundedObligations": 35,
     "wholeOperationsClosed": 0,
     "limitation": "Overlapping scopes; bounded verification and regenerated inventory are not whole operation closure."
   },
@@ -336,7 +338,7 @@
     "states": {
       "OPEN": 1764,
       "BLOCKED": 2252,
-      "VERIFIED": 34
+      "VERIFIED": 35
     },
     "levels": {
       "SEMANTIC": 3648,
@@ -346,7 +348,7 @@
       "AUTOMATED_VISUAL_REFERENCE": 1,
       "SEMANTIC_PREDICATE": 116,
       "ACTUAL_PREGEN_POSTGRESQL_BOUNDED_FIXTURE": 1,
-      "ACTUAL_PREGEN_BOUNDED_FIXTURE": 10
+      "ACTUAL_PREGEN_BOUNDED_FIXTURE": 11
     },
     "limitations": [
       "Inventory is not semantic review. No entire operation is marked VERIFIED by schema resolution.",
@@ -355,7 +357,7 @@
       "Historical/unbound report links remain labeled and cannot confer VERIFIED.",
       "Auxiliary SQL/state/UI reviews must be revalidated against this SSOT snapshot before integration."
     ],
-    "totalRegisteredObligations": 4050,
+    "totalRegisteredObligations": 4051,
     "verifiedBoundedCreateDesignObligations": 9,
     "verifiedAdditionalBoundedDesignObligations": 9,
     "verifiedGenerationBasisDesignObligations": 5,
@@ -370,8 +372,19 @@
     "sharedOwnership": "Only coordinator canonical/projections/register/checkpoint/manifest/Git",
     "independent": [
       "sql/review-consumers",
+      "sql/review-preroot-archive",
+      "sql/review-current",
       "consumers/review-secrets",
-      "archive/review-key"
+      "archive/review-key",
+      "archive/review-joined"
+    ],
+    "integrated": [
+      "retry producer/child commit",
+      "key typed-AAD/global reservation",
+      "frozen success/pre-root archive and historical reader",
+      "Secret publication/read/OWNER FK",
+      "UI worker binding adapter",
+      "physical locator helper"
     ]
   },
   "activeAgents": {
@@ -488,16 +501,16 @@
   "integratedChainProofs": {
     "joined": {
       "path": "audit/generated/resume-905/archive/review-joined/joined-chain-proof.json",
-      "sha256": "4234c0dbc0eea32f77970f6d187c854ddbee8d738b481fc17393d0e2ea5460d7",
-      "executionSource": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5",
+      "sha256": "9803ee6b01de326773be35b6f3b9f3aebcb66e1ccd3e2aebdb1a052255f89117",
+      "executionSource": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
       "checked": 8,
       "failed": 0,
       "scope": "Connected successful CREATE and missing-archive rollback chain with real token verification and real canonical crypto primitive; key issuance/provisioning isolated synthetic, not authentic systemd source"
     },
     "retry": {
       "path": "audit/generated/resume-905/sql/review-consumers/retry/producer-child-tests.json",
-      "sha256": "190a9c131dc0a80d38ed6828fea89dd6a8581f0d831fd7e67cd572d089df3def",
-      "executionSource": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5",
+      "sha256": "3a5bb9a104ec94cec1b68bc43b2d914efe6a16d865f38d51e40b8595b9fe0db4",
+      "executionSource": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
       "checked": 33,
       "failed": 0,
       "scope": [
@@ -508,8 +521,8 @@
     },
     "archive": {
       "path": "audit/generated/resume-905/sql/review-consumers/archive/archive-proof.json",
-      "sha256": "d487a367f3842908b1222369958e7ade0f891c6d2d5f3ebb3fac26bfbc2a1437",
-      "executionSource": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5",
+      "sha256": "4adbb213c53e6d7bec835af2026e6273502ea143a773a73b579b83a5b50e6438",
+      "executionSource": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
       "checked": 37,
       "failed": 0,
       "scope": [
@@ -521,27 +534,43 @@
     },
     "aad": {
       "path": "audit/generated/resume-905/archive/review-key/peer-key-fixed-proof.json",
-      "sha256": "0eaa4b1bfa8559c96f1efb838303e140912f6f5888d6b9e2f74224f8085b9b54",
-      "executionSource": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5",
+      "sha256": "9a524ea2f8dc48626085f2c3c0259a3b2054c4073aa85759d1556fd03e83b2da",
+      "executionSource": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
       "checked": 18,
       "failed": 0,
       "scope": "Bounded independent fixture"
     },
     "secret": {
       "path": "audit/generated/resume-905/consumers/review-secrets/canonical-independent-review.json",
-      "sha256": "576077a2b1d17093e5008337440f404a7c88996543c09a324c4dc07c1f4d8d25",
-      "executionSource": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5",
+      "sha256": "371da96e77a681047ac0830a8c512454b87207a9f87fd0e6677d3a3ca02874b9",
+      "executionSource": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
       "checked": 0,
       "failed": 0,
       "scope": "Independent exact integrated canonical Secret publication/OWNER binding SQL reproduction in PG18.6. Whole authenticated acceptance/broker/rotation explicitly not proved."
     },
     "ui": {
       "path": "audit/generated/resume-905/sql/review-consumers/independent-consumer-review.json",
-      "sha256": "e2ce180a94fae24dd3095ba96d538af1d6afa3d08b22b3592f06e1e96ab30b92",
-      "executionSource": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5",
+      "sha256": "41fc5b86d85131a47eda94de0409b3f5ce0d333050b66b3b6f57527a9b33a17c",
+      "executionSource": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
       "checked": 12,
       "failed": 0,
       "scope": "Actual reference adapter execution with three independently adversarial selected-target successes, runtime command argument mutations and draft/same-canonical negatives; no producer/SQL/runtime proof."
+    },
+    "preroot": {
+      "path": "audit/generated/resume-905/sql/review-preroot-archive/independent-transfer-proof.json",
+      "sha256": "6e8af4e0ee5c615753176f30256a8bacf7e60c367fd8d62b50f2d607710b0060",
+      "executionSource": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+      "checked": 13,
+      "failed": 0,
+      "scope": "Independent actual canonical foundation/preroot/success archive SQL plus exact new candidate extension. True atomic pending with archive, actual retained no-root state, same frozen snapshot+archive success commit, available alternate policy rejection and rollback. Synthetic server authentication and opaque ciphertext are explicit bounded SQL fixtures, not actual credential/canonical crypto source proof."
+    },
+    "prerootConnectedManifest": {
+      "path": "audit/generated/resume-905/sql/review-preroot-archive/final-current-source-bindings.json",
+      "sha256": "d0b3b86ff827f78e6f54eaa8ac1ecadb27f0114744bd358a83b5efbfc1e87304",
+      "actualTokenAEADTransferCases": 25,
+      "independentReverseOrderCases": 6,
+      "independentSQLCases": 13,
+      "scope": "Overlapping bounded proofs; not additive completion metric or actual systemd provider"
     }
   },
   "followUpCoverageDisposition": {
@@ -592,7 +621,7 @@
       "provenanceDetectorHits": 175,
       "wholeOperationsClosed": 0
     },
-    "interpretation": "One new connected proof gate; 6 integrated modules and 3 reproduced defects fixed. Broad boundary inventories unchanged. Registry reshaped bounded proof scopes; no project percentage."
+    "interpretation": "One new connected proof gate. Seven integrated SQL modules, exact frozen archive/transfer, four concrete defect families repaired (AAD encoding, reserved roles, UI worker bindings, cache helper invalidation). Broad boundary inventories unchanged; no project percentage."
   },
   "secretCurrentIntegration": {
     "normative": [
@@ -840,10 +869,12 @@
       },
       {
         "id": "GENERATION.ARCHIVE.PREROOT",
-        "authorityAndMissing": "- **GENERATION.ARCHIVE.PREROOT**: accepted pre-root snapshot must freeze the same archive before pending/failure retention, then transfer exact binding to successful snapshot. This candidate currently covers successful snapshot only; do not invent root for pre-root failure.",
-        "state": "OPEN",
-        "source": "audit/generated/resume-905/archive/INTEGRATION.md",
-        "scope": "Exact missing producer/test stated in source line"
+        "state": "IN_PROGRESS",
+        "source": "audit/generated/resume-905/archive/preroot-transfer/INTEGRATION.md",
+        "scope": "Exact missing producer/test stated in source line",
+        "historicalSourceStatement": "- **GENERATION.ARCHIVE.PREROOT**: accepted pre-root snapshot must freeze the same archive before pending/failure retention, then transfer exact binding to successful snapshot. This candidate currently covers successful snapshot only; do not invent root for pre-root failure.",
+        "authorityAndMissing": "§§12.54/12.55: physical pre-root archive and exact success transfer verified; actual trusted acceptance/decision producer and protected retained outcome consumer remain mandatory",
+        "evidence": "audit/generated/resume-905/sql/review-preroot-archive/independent-transfer-proof.json"
       },
       {
         "id": "GENERATION.ARCHIVE.KIND_POLICY",
@@ -1062,5 +1093,50 @@
         "scope": "Exact missing producer/test stated in source line"
       }
     ]
+  },
+  "connectedCacheVerification": {
+    "path": "audit/generated/resume-905/coordinator/connected-cache-proof.json",
+    "sha256": "cf14d9651e30b72ec1ed3cfd8748dd01d2915b38ac4d8ddd5505b912b8bb1a14",
+    "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+    "status": "PASS",
+    "checked": 6,
+    "failed": 0,
+    "stages": [
+      {
+        "label": "cache-clean",
+        "exitCode": 1,
+        "executed": [],
+        "reused": 49,
+        "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+        "commandsSha256": "960615888cb21bd3482a10ddd46386d714d094a44596859740aaa5edab1c8806"
+      },
+      {
+        "label": "cache-stale-proof",
+        "exitCode": 1,
+        "executed": [
+          "scripts/verify_producer_archive_handoffs.py"
+        ],
+        "reused": 48,
+        "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+        "commandsSha256": "229747b89daf6fb04f50d39d746876a7928f8d3df8336b4d5e13b19747bec105"
+      },
+      {
+        "label": "cache-restored-proof",
+        "exitCode": 1,
+        "executed": [
+          "scripts/verify_producer_archive_handoffs.py"
+        ],
+        "reused": 48,
+        "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+        "commandsSha256": "525f6b6320a3948717cd749567b165b7cfe7fc078a69f980751a880d5f9c388a"
+      }
+    ],
+    "executionScope": "Actual runner; stale source proof invalidates exactly connected consumer; original proof restored",
+    "consumedHelperMutation": {
+      "path": "audit/generated/resume-905/coordinator/cache-support-binding-proof.json",
+      "sha256": "cdc2e23c9effd712858c20f3bf8e8465e1e63ea2dc7bce51260960be122ef28d",
+      "historicalDefectReproduced": true,
+      "changedHelperInvalidatesCache": true
+    }
   }
 }

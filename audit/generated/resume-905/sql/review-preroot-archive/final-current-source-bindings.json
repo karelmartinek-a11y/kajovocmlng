@@ -1,0 +1,46 @@
+{
+  "sourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "canonicalSqlSha256": "40a2fce25eaa50d582228463df86bfbf0ffb30f9facb1f1e84a2907bef3705ef",
+  "proofs": {
+    "preroot-archive-transfer-proof.json": {
+      "sha256": "f831812524820ce86fd1c07a3e15a7d3af5c0aa9bb0dbba8e06a7e055597f469",
+      "checked": 25,
+      "status": "PASS"
+    },
+    "independent-reverse-transfer-proof.json": {
+      "sha256": "322a9acb017f8672d5ae10d8f3b0eae84229e50cd804437ccab6e440702fa3ef",
+      "checked": 6,
+      "status": "PASS"
+    },
+    "independent-transfer-proof.json": {
+      "sha256": "6e8af4e0ee5c615753176f30256a8bacf7e60c367fd8d62b50f2d607710b0060",
+      "checked": 13,
+      "status": "PASS"
+    }
+  },
+  "consumedCanonicalSources": {
+    "database/generation-create-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "database/generation-create-authentication.sql": "9ec7558ed51a0a38558b123cdc7d6fb76d4de485440f2fd8607478b414e70285",
+    "database/generation-create-preroot.sql": "0ed9d0e563b802da50c96ebb31f62390aeab16040bd19660612fb14dd83aa75e",
+    "database/generation-frozen-archive.sql": "2a6dce3b0a8a3f82b47576b371a6870ac2c0543ed85ac50e0b63d8ccced4f0ca",
+    "database/generation-preroot-frozen-archive.sql": "40a2fce25eaa50d582228463df86bfbf0ffb30f9facb1f1e84a2907bef3705ef",
+    "database/canonical-crypto-registry.sql": "773310806845b2754bdd2675ee1a27ed7cc96697f54bccdcac2648ba9cd1c7d4",
+    "database/generation-protected-registry-link.sql": "d3362763a573d1dbef8eaf53aa8ad4d91eb288047cebe987f2e38baf0b977fb1"
+  },
+  "rootHelpers": {
+    "generation_auth_crypto.py": "5cfd85a6b0d7852509e8301b7a0b38f3e315ad292094544733a89f9b1939d259",
+    "generation_auth_acceptance.py": "382ef3a708d1b1699282149068206ecda46950a7a293faf0f8fde28b5a853bdc",
+    "generation_frozen_archive.py": "f1b4284eaaa907b94d34be0eb6080cf4d73b18561ec31fc5b6176212796b0622",
+    "generation_read_hydration_archive.py": "86190cac70763c0013623771fae1fa34712aa5c045b2dc3d43842ea564abffe0",
+    "generation_create_consumer_archive.py": "8649370d5eac08af201f7728a3ecd1e8ac23b95609f4786c1c597999c6bad81f",
+    "generation_request_policy_v1.py": "41fea2ac308aaf938d711765655f938a6c953f65f9440bdbf7212e5ee29f2492"
+  },
+  "limits": [
+    "25 actual token/AEAD/global-reservation SQL fixture proves before-root archived input -> immutable pending retention -> exact successful transfer; isolated synthetic credential/key provisioning is not root-owned encrypted systemd source proof.",
+    "6 reverse SQL guard checks prove direct-success before late protected snapshot/archive exact binding, available changed policy rejection and no fabricated pending receipt; this is insertion-order/backfill guard verification, not a new business admission path.",
+    "13 independent SQL cases use synthetic server authentication and opaque ciphertext and remain explicitly bounded SQL guard/rollback evidence; they do not substitute for actual crypto25.",
+    "Existing full retained failure/cancel/unknown decision producers and full kind/execution archived dispatch authority remain OPEN."
+  ],
+  "wholeOperationClosed": false,
+  "implementationProductionAcceptance": "NOT_EVALUATED"
+}

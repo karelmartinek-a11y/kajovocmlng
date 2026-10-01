@@ -1,0 +1,24 @@
+{
+  "sourceDocumentSha256": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5",
+  "sourceUnchangedDuringRun": true,
+  "status": "CONTRACT_GAP_REPRODUCED",
+  "nativePositiveSchemaValidated": true,
+  "observedCounts": {
+    "command": 1,
+    "prerootSnapshot": 1,
+    "retainedOutcome": 1,
+    "job": 0,
+    "event": 0,
+    "outbox": 0,
+    "archiveBinding": 0,
+    "archiveBundle": 0
+  },
+  "resourceBindings": {
+    "database/generation-create-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "database/generation-create-preroot.sql": "0ed9d0e563b802da50c96ebb31f62390aeab16040bd19660612fb14dd83aa75e",
+    "database/generation-frozen-archive.sql": "2a6dce3b0a8a3f82b47576b371a6870ac2c0543ed85ac50e0b63d8ccced4f0ca"
+  },
+  "postgresqlVersion": "18.6",
+  "scope": "Current canonical SQL accepts legitimate retained pending outcome with no archived schema/policy bytes. This reproduces named OPEN pre-root archive gap; it is not a successful archive completeness proof. Authentication receipts synthetic and protected ciphertext opaque.",
+  "wholeOperationClosed": false
+}

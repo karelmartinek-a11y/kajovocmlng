@@ -1,6 +1,6 @@
 # Connected pre-generation chain proof
 
-Effective source SHA-256 `a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5`.
+Effective source SHA-256 `4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06`.
 
 `verify_joined_chain.py` / `joined-chain-proof.json`: **8 PASS**, actual PostgreSQL **18.6**, own disposable `archive_joined_905`. This is one connected proof, not the sum of the prior standalone auth, crypto, archive and SQL reports.
 
@@ -17,3 +17,5 @@ Specific valid-positive-derived failures:
 No actual systemd source is claimed: fixture key issuance and registry service provisioning are isolated synthetic. The genuine root-encrypted systemd/per-invocation credential proof remains **ENVIRONMENT BLOCKED**. Full kind admission/execution policy archives, accepted pre-root archive/retention decisions, native inherited producer/UI joins, and future endpoint/read authentication/runtime acceptance remain independent obligations. This proof closes a bounded **successful CREATE joined handoff** and its targeted rollback path, not the entire `generation.job.create` operation.
 
 No shared writes/Git operations. Canonical SQL and helper hashes are recorded in the proof; the verifier rejects source changes during its run.
+
+Final canonical reproduction installs the unchanged successful archive and new canonical pre-root archive extension too. Current reports are from real execution at this final source; earlier source reports are not relabeled PASS.

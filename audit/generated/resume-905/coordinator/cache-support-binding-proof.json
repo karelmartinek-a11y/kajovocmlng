@@ -1,0 +1,19 @@
+{
+  "sourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "historicalRunnerCommit": "32a63a9e3447bd4ed9a7dc4638cadc113071a8b7",
+  "consumedPath": "audit/generated/resume-905/sql/review-consumers/archive/verify_archive.py",
+  "oldFailure": {
+    "result": "DEFECT_REPRODUCED",
+    "before": "0ff5f7bdcbea0c227590b0f7c151315b26c1df4769c7545fe8be0cc60a4d14e1",
+    "after": "0ff5f7bdcbea0c227590b0f7c151315b26c1df4769c7545fe8be0cc60a4d14e1",
+    "hashIncorrectlyUnchanged": true
+  },
+  "repair": {
+    "before": "fd1f2fcd12d2abff9a97017d76c73e003bfcace6034030a56f18ad2548a2b9df",
+    "after": "d9526b852dc274031ead4c4792f192ea41ab7c3f9750ead5552a8c93547b4aca",
+    "changedConsumedCodeInvalidatesCache": true
+  },
+  "status": "PASS",
+  "wholeOperationClosed": false,
+  "inputRestoredExactly": true
+}

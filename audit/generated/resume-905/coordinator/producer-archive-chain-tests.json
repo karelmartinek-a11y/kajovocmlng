@@ -1,7 +1,7 @@
 {
-  "sourceDocumentSha256": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5",
+  "sourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
   "status": "PASS",
-  "checked": 61,
+  "checked": 78,
   "failed": 0,
   "checks": [
     {
@@ -38,6 +38,10 @@
     },
     {
       "case": "joined/canonical-resource:database/generation-frozen-archive.sql",
+      "passed": true
+    },
+    {
+      "case": "joined/canonical-resource:database/generation-preroot-frozen-archive.sql",
       "passed": true
     },
     {
@@ -177,6 +181,14 @@
       "passed": true
     },
     {
+      "case": "aad/canonical-resource:database/generation-frozen-archive.sql",
+      "passed": true
+    },
+    {
+      "case": "aad/canonical-resource:database/generation-preroot-frozen-archive.sql",
+      "passed": true
+    },
+    {
       "case": "aad/consumed-code:audit/generated/resume-905/archive/review-key/verify_peer_key_fixed.py",
       "passed": true
     },
@@ -209,7 +221,23 @@
       "passed": true
     },
     {
+      "case": "secret/all-required-subproofs",
+      "passed": true
+    },
+    {
+      "case": "secret/all-required-canonical-modules",
+      "passed": true
+    },
+    {
       "case": "secret/bound-report:publication-postgres-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/subproof-current:publication-postgres-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/subproof-executed-results:publication-postgres-tests.json",
       "passed": true
     },
     {
@@ -217,11 +245,35 @@
       "passed": true
     },
     {
+      "case": "secret/subproof-current:owner-binding-postgres-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/subproof-executed-results:owner-binding-postgres-tests.json",
+      "passed": true
+    },
+    {
       "case": "secret/bound-report:safe-role-postgres-tests.json",
       "passed": true
     },
     {
+      "case": "secret/subproof-current:safe-role-postgres-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/subproof-executed-results:safe-role-postgres-tests.json",
+      "passed": true
+    },
+    {
       "case": "secret/bound-report:additional-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/subproof-current:additional-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/subproof-executed-results:additional-tests.json",
       "passed": true
     },
     {
@@ -247,38 +299,59 @@
     {
       "case": "ui/actual-root-adapter",
       "passed": true
+    },
+    {
+      "case": "preroot/current-execution-source",
+      "passed": true
+    },
+    {
+      "case": "preroot/actual-positive-derived-results",
+      "passed": true
+    },
+    {
+      "case": "preroot/actual-PG18_6",
+      "passed": true
+    },
+    {
+      "case": "preroot/exact-canonical-preroot-archive-SQL",
+      "passed": true
     }
   ],
   "evidence": [
     {
       "path": "audit/generated/resume-905/archive/review-joined/joined-chain-proof.json",
-      "sha256": "4234c0dbc0eea32f77970f6d187c854ddbee8d738b481fc17393d0e2ea5460d7",
-      "executionSource": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5"
+      "sha256": "9803ee6b01de326773be35b6f3b9f3aebcb66e1ccd3e2aebdb1a052255f89117",
+      "executionSource": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06"
     },
     {
       "path": "audit/generated/resume-905/sql/review-consumers/retry/producer-child-tests.json",
-      "sha256": "190a9c131dc0a80d38ed6828fea89dd6a8581f0d831fd7e67cd572d089df3def",
-      "executionSource": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5"
+      "sha256": "3a5bb9a104ec94cec1b68bc43b2d914efe6a16d865f38d51e40b8595b9fe0db4",
+      "executionSource": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06"
     },
     {
       "path": "audit/generated/resume-905/sql/review-consumers/archive/archive-proof.json",
-      "sha256": "d487a367f3842908b1222369958e7ade0f891c6d2d5f3ebb3fac26bfbc2a1437",
-      "executionSource": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5"
+      "sha256": "4adbb213c53e6d7bec835af2026e6273502ea143a773a73b579b83a5b50e6438",
+      "executionSource": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06"
     },
     {
       "path": "audit/generated/resume-905/archive/review-key/peer-key-fixed-proof.json",
-      "sha256": "0eaa4b1bfa8559c96f1efb838303e140912f6f5888d6b9e2f74224f8085b9b54",
-      "executionSource": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5"
+      "sha256": "9a524ea2f8dc48626085f2c3c0259a3b2054c4073aa85759d1556fd03e83b2da",
+      "executionSource": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06"
     },
     {
       "path": "audit/generated/resume-905/consumers/review-secrets/canonical-independent-review.json",
-      "sha256": "576077a2b1d17093e5008337440f404a7c88996543c09a324c4dc07c1f4d8d25",
-      "executionSource": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5"
+      "sha256": "371da96e77a681047ac0830a8c512454b87207a9f87fd0e6677d3a3ca02874b9",
+      "executionSource": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06"
     },
     {
       "path": "audit/generated/resume-905/sql/review-consumers/independent-consumer-review.json",
-      "sha256": "e2ce180a94fae24dd3095ba96d538af1d6afa3d08b22b3592f06e1e96ab30b92",
-      "executionSource": "a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5"
+      "sha256": "41fc5b86d85131a47eda94de0409b3f5ce0d333050b66b3b6f57527a9b33a17c",
+      "executionSource": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06"
+    },
+    {
+      "path": "audit/generated/resume-905/sql/review-preroot-archive/independent-transfer-proof.json",
+      "sha256": "6e8af4e0ee5c615753176f30256a8bacf7e60c367fd8d62b50f2d607710b0060",
+      "executionSource": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06"
     }
   ],
   "scope": "Current connected pre-generation fixtures; whole operation and systemd remain open.",

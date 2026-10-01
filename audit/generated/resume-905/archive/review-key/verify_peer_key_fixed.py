@@ -15,7 +15,9 @@ ns={'__file__':str(original)};exec(compile(program,'reviewed-existing-auth-chain
 db=ns['db'];rs=resource_index()
 for name in ['database/generation-create-preroot.sql','database/canonical-crypto-registry.sql']:db.query(rs[name]['raw'].decode())
 candidate=rs['database/generation-protected-registry-link.sql']['raw'];db.query(candidate.decode())
+for name in ['database/generation-frozen-archive.sql','database/generation-preroot-frozen-archive.sql']:db.query(rs[name]['raw'].decode())
 checks=[]
+frozen_pin=ns['pin']();ns['pin']=lambda:frozen_pin
 def b(v):return "decode('"+v.hex()+"','hex')"
 def run(name,mut=None,code=None,commit=False):
  db.query('BEGIN')
@@ -45,6 +47,12 @@ def run(name,mut=None,code=None,commit=False):
   db.query('INSERT INTO canonical_master_key_generation VALUES('+lit(keyid)+','+b(sha(ns['key']))+",1,'kcml-master-key','isolated-fixture.service',"+b(ns['profile_digest']())+',clock_timestamp());')
   if mut!='missing-reservation':
    db.query('INSERT INTO canonical_protected_nonce_reservation VALUES('+','.join([lit(keyid),b(nonce),lit(purpose),lit(obj),lit(op),b(metadata),b(sha(metadata)),b(sha(cipher))])+');')
+  from generation_frozen_archive import policy_bytes,DOMAIN_IMPLEMENTATION,POLICY_ID
+  src=SSOT.read_bytes();authority=src[src.index(b'### 12.47'):src.index(b'### 12.48')]+src[src.index(b'### 12.54'):src.index(b'## 13.',src.index(b'### 12.54'))]
+  schema_raw=frozen_pin['domainSchemaBytes'];policy=policy_bytes(authority,DOMAIN_IMPLEMENTATION)
+  for kind,bid,raw in [('SCHEMA',md['requestSchemaId'],schema_raw),('DOMAIN_POLICY',POLICY_ID,policy),('AUTHORITY','SSOT#12.54',authority),('POLICY_IMPLEMENTATION','GENERATION_CREATE_REQUEST_SEMANTICS_V1',DOMAIN_IMPLEMENTATION)]:
+   db.query('SELECT kcml_archive_publish_v1('+','.join([lit(kind),lit(bid),b(sha(raw)),b(raw),lit('SSOT#12.54'),b(sha(authority))])+');')
+  db.query('INSERT INTO generation_frozen_policy_binding_v1(snapshot_id,logical_operation_id,schema_id,schema_digest,policy_id,policy_digest,dependency_closure)VALUES('+','.join([lit(meta['snapshotId']),lit(meta['logicalOperationId']),lit(meta['requestSchemaId']),b(sha(schema_raw)),lit(POLICY_ID),b(sha(policy)),"'[]'"])+');')
   db.query('SET CONSTRAINTS ALL IMMEDIATE')
   if code and mut not in ('open-context-swap','open-envelope-swap'):ok=False;actual='ACCEPTED_UNEXPECTEDLY'
   else:
@@ -67,5 +75,5 @@ checks.append({'case':'rollback-leaves-no-root-reservation-command','passed':cou
 run('actual-commit-and-authenticated-consumer',commit=True)
 observer=DB('archive_peer_key_fixed_905');counts=observer.query('SELECT (SELECT count(*) FROM generation_job),(SELECT count(*) FROM canonical_protected_nonce_reservation),(SELECT count(*) FROM domain_command),(SELECT count(*) FROM transactional_outbox),(SELECT count(*) FROM audit_event)')[0]
 checks.append({'case':'committed-root-reservation-command-outbox-audit-visible','passed':counts==['1']*5});observer.close()
-report={'status':'PASS'if all(c['passed'] for c in checks)else'BLOCKED','sourceDocumentSha256':sha(SSOT.read_bytes()).hex(),'checked':len(checks),'failed':sum(not c['passed']for c in checks),'checks':checks,'postgresqlVersion':db.query('SHOW server_version')[0][0],'candidateSqlSha256':sha(candidate).hex(),'canonicalInputs':{n:rs[n]['sha256']for n in ['database/generation-create-foundations.sql','database/generation-create-authentication.sql','database/generation-create-preroot.sql','database/canonical-crypto-registry.sql']},'supportSha256':{str(p.relative_to(ROOT)):sha(p.read_bytes()).hex()for p in [Path(__file__),original,ROOT/'scripts/generation_auth_crypto.py',ROOT/'scripts/generation_auth_acceptance.py',ROOT/'scripts/create_operation_contracts.py']},'systemdSourceProof':'BLOCKED','secretTypedJoinProof':'NOT_EVALUATED','wholeOperationClosed':False}
+report={'status':'PASS'if all(c['passed'] for c in checks)else'BLOCKED','sourceDocumentSha256':sha(SSOT.read_bytes()).hex(),'checked':len(checks),'failed':sum(not c['passed']for c in checks),'checks':checks,'postgresqlVersion':db.query('SHOW server_version')[0][0],'candidateSqlSha256':sha(candidate).hex(),'canonicalInputs':{n:rs[n]['sha256']for n in ['database/generation-create-foundations.sql','database/generation-create-authentication.sql','database/generation-create-preroot.sql','database/canonical-crypto-registry.sql','database/generation-frozen-archive.sql','database/generation-preroot-frozen-archive.sql']},'supportSha256':{str(p.relative_to(ROOT)):sha(p.read_bytes()).hex()for p in [Path(__file__),original,ROOT/'scripts/generation_auth_crypto.py',ROOT/'scripts/generation_auth_acceptance.py',ROOT/'scripts/create_operation_contracts.py']},'systemdSourceProof':'BLOCKED','secretTypedJoinProof':'NOT_EVALUATED','wholeOperationClosed':False}
 (HERE/'peer-key-fixed-proof.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:report[k]for k in ['status','checked','failed']}));db.close()

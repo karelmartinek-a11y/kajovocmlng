@@ -1,14 +1,14 @@
 # Current create-operation closure — continuation from 905555e
 
-Whole design-closed operations: **0 / 619**. Current SSOT: `a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5`.
+Whole design-closed operations: **0 / 619**. Current SSOT: `4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06`.
 
 The finite current checklist is `audit/SSOT_CREATE_CLOSURE_CHECKLIST.json`: 15 generation duties, nine Secret duties and 12 shared dependencies. It is a chain-level checklist, not proof of field-by-field review or a project completion percentage. Mandatory design and named pre-generation fixtures remain separate from future generated-application acceptance.
 
-Effective §§12.55 and 8.14 integrate six SQL resources and archived request-policy hydrators. Independently reproduced in actual PostgreSQL 18.6:
+Effective §§12.55 and 8.14 integrate seven SQL resources and archived request-policy hydrators. Independently reproduced in actual PostgreSQL 18.6:
 
 - Connected CREATE: real bearer verification under credential lock → canonical AEAD/protected-row reservation → exact frozen archive → root/command/event/outbox/audit/locator COMMIT → fresh SQL read → authenticated open → archived policy → consumer. Eight joined scenarios include missing-archive whole-chain rollback and specific substitutions. The isolated key is **not** a systemd credential source.
 - RETRY: membership capture, frozen scan reservation, actual byte classifier and child commit in one held-lock transaction; 33 scenarios including competing requests/source writers, stale fences, rollback and replay. Full §49.8 intent/dispatch/checkpoint/raw-evidence producer and authenticated native RETRY adapter remain OPEN.
-- Frozen archive: 37 independent cases using current root hydrators; durable exact schema/authority/policy/implementation bytes and two pinned request rules. Full kind-policy dispatch and accepted pre-root archive transfer remain OPEN.
+- Frozen archive: 37 independent cases using current root hydrators; durable exact schema/authority/policy/implementation bytes and two pinned request rules. Full kind-policy dispatch and trusted publication remain OPEN. A further canonical module now requires immutable accepted pre-root archive retention and exact later success transfer: 25 actual token/AEAD/SQL scenarios and independent six reverse-order scenarios pass, plus 13 separately constructed SQL cases. Rollback retains the original pending outcome/archive bytes; no job or created event is fabricated.
 - Crypto: independently reproduced JSON-equivalent/different-AAD-byte acceptance; exact compact sorted UTF-8 byte guard now rejects whitespace/order/1.0 variants. Eighteen peer cases pass. Actual manager/key/nonce producers and Secret protected-row authority remain OPEN.
 - Secret: privileged immutable reviewed profile publication → exact SQL descriptor reader → native registry; 36 cases. Reserved OWNER composite Secret/version binding, six cases plus seven independent violations; 16 unsafe-role installation cases. Actual trusted Secret context/command/atomic event and broker/use producers remain OPEN.
 - UI: root adapter rejects cross-target/worker-argument identities (12 independent cases), but holds display BLOCKED pending domain-effect hydration. Three exposures and original SAME_CANONICAL_REVISION producer remain OPEN. Existing cookie and render proofs are reused only by exact unchanged consumed inputs; they do not close §13.15 or manual visual acceptance.

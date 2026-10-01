@@ -3,7 +3,7 @@ from pathlib import Path
 import sys,hashlib,json
 ROOT=Path('/workspace/kajovocmlng');HERE=Path(__file__).parent;sys.path.insert(0,str(ROOT/'scripts'))
 from ssot_sources import resource_index,SSOT
-rs=resource_index();source=hashlib.sha256(SSOT.read_bytes()).hexdigest();assert source=='a2bdb08ec729881087e59d7a3fd31053c1e0989bb5b3c640a65cf698a75af4b5'
+rs=resource_index();source=hashlib.sha256(SSOT.read_bytes()).hexdigest();assert source=='4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06'
 proofs={}
 for name in ['authenticated-chain-review.json','crypto-registry-review.json','retry-review.json','preroot-initial-review.json']:
  r=json.loads((HERE/name).read_text());assert r['sourceDocumentSha256']==source

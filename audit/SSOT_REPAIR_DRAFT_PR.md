@@ -1,6 +1,6 @@
 Repair connected SSOT generation and Secret pre-generation handoffs
 
-The create operations had precise masks but lacked connected producer/persistence/read evidence. Integrate frozen schema/policy archives, locked RETRY membership and scan-through-child commit, exact AAD byte binding to the global protected-row registry, physical locator replay locks, trusted Secret profile publication and reserved OWNER Secret/version integrity.
+The create operations had precise masks but lacked connected producer/persistence/read evidence. Integrate frozen schema/policy archives, locked RETRY membership and scan-through-child commit, exact AAD byte binding to the global protected-row registry, accepted-before-root immutable archive with exact later success transfer, physical locator replay locks, trusted Secret profile publication and reserved OWNER Secret/version integrity.
 
 Independent review reproduced and repairs three concrete defect families: JSON-equivalent but differently encoded AAD accepted by SQL, unsafe existing publication/read role attributes, and wrong UI worker target arguments. The UI adapter still blocks display until actual domain-effect hydration.
 

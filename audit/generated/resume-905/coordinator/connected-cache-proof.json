@@ -1,0 +1,65 @@
+{
+  "sourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "status": "PASS",
+  "checks": [
+    {
+      "case": "unchanged-all49-proof-results-reused",
+      "passed": true
+    },
+    {
+      "case": "changed-required-proof-invalidates-only-connected-consumer",
+      "passed": true
+    },
+    {
+      "case": "stale-execution-source-specifically-blocked",
+      "passed": true
+    },
+    {
+      "case": "restored-proof-reruns-only-connected-consumer-and-passes",
+      "passed": true
+    },
+    {
+      "case": "proof-exactly-restored",
+      "passed": true
+    },
+    {
+      "case": "original-seven-blockers-unchanged",
+      "passed": true
+    }
+  ],
+  "checked": 6,
+  "failed": 0,
+  "stages": [
+    {
+      "label": "cache-clean",
+      "exitCode": 1,
+      "executed": [],
+      "reused": 49,
+      "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+      "commandsSha256": "960615888cb21bd3482a10ddd46386d714d094a44596859740aaa5edab1c8806"
+    },
+    {
+      "label": "cache-stale-proof",
+      "exitCode": 1,
+      "executed": [
+        "scripts/verify_producer_archive_handoffs.py"
+      ],
+      "reused": 48,
+      "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+      "commandsSha256": "229747b89daf6fb04f50d39d746876a7928f8d3df8336b4d5e13b19747bec105"
+    },
+    {
+      "label": "cache-restored-proof",
+      "exitCode": 1,
+      "executed": [
+        "scripts/verify_producer_archive_handoffs.py"
+      ],
+      "reused": 48,
+      "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+      "commandsSha256": "525f6b6320a3948717cd749567b165b7cfe7fc078a69f980751a880d5f9c388a"
+    }
+  ],
+  "proofRestoredSha256": "9803ee6b01de326773be35b6f3b9f3aebcb66e1ccd3e2aebdb1a052255f89117",
+  "scope": "Cache acceptance of a changed real consumed independent proof, not additional domain closure",
+  "wholeOperationClosed": false
+}

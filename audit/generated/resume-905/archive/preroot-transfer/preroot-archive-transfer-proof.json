@@ -1,0 +1,185 @@
+{
+  "status": "PASS",
+  "checked": 25,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "accepted-preroot-missing-archive-binding",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_PREROOT_ARCHIVE_REQUIRED",
+      "actualDiagnostic": "ERROR:  FROZEN_PREROOT_ARCHIVE_REQUIRED\nCONTEXT:  PL/pgSQL function kcml_preroot_archive_required_v1() line 4 at RAISE\n"
+    },
+    {
+      "id": "accepted-preroot-missing-archive-binding-whole-chain-rolled-back",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "accepted-preroot-missing-schema-bytes",
+      "passed": true,
+      "expectedDiagnostic": "preroot_archive_schema_fk",
+      "actualDiagnostic": "ERROR:  insert or update on table \"generation_preroot_frozen_policy_binding_v1\" violates foreign key constraint \"preroot_archive_schema_fk\"\nDETAIL:  Key (schema_kind, schema_id, schema_digest)=(SCHEMA, urn:kcml:r9:semantic:route.0215:body, \\x460d8ef92703bdbd660299904c36a7f4bc11f56218eacd3a32349fcad324fad3) is not present in table \"generation_frozen_bundle_v1\".\n"
+    },
+    {
+      "id": "accepted-preroot-missing-schema-bytes-whole-chain-rolled-back",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "accepted-preroot-available-wrong-schema-digest",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_PREROOT_ARCHIVE_SNAPSHOT_BINDING_MISMATCH",
+      "actualDiagnostic": "ERROR:  FROZEN_PREROOT_ARCHIVE_SNAPSHOT_BINDING_MISMATCH\nCONTEXT:  PL/pgSQL function kcml_preroot_archive_binding_v1() line 8 at RAISE\n"
+    },
+    {
+      "id": "accepted-preroot-available-wrong-schema-digest-whole-chain-rolled-back",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "accepted-preroot-missing-closure-bytes",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_ARCHIVE_DEPENDENCY_UNAVAILABLE",
+      "actualDiagnostic": "ERROR:  FROZEN_ARCHIVE_DEPENDENCY_UNAVAILABLE\nCONTEXT:  PL/pgSQL function kcml_preroot_archive_binding_v1() line 26 at RAISE\n"
+    },
+    {
+      "id": "accepted-preroot-missing-closure-bytes-whole-chain-rolled-back",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "accepted-preroot-actual-auth-crypto-archive-outcome-commit",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "accepted-preroot-no-fabricated-root-or-created-event",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "actual-preroot-archive-read-available-without-root",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "success-transfer-missing-success-archive",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_ARCHIVE_REQUIRED",
+      "actualDiagnostic": "ERROR:  FROZEN_ARCHIVE_REQUIRED\nCONTEXT:  PL/pgSQL function kcml_archive_snapshot_required_v1() line 4 at RAISE\n"
+    },
+    {
+      "id": "success-transfer-missing-success-archive-keeps-existing-accepted-history-only",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "success-transfer-same-schema-different-policy",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_PREROOT_ARCHIVE_TRANSFER_MISMATCH",
+      "actualDiagnostic": "ERROR:  FROZEN_PREROOT_ARCHIVE_TRANSFER_MISMATCH\nCONTEXT:  PL/pgSQL function kcml_archive_preroot_transfer_v1() line 9 at RAISE\n"
+    },
+    {
+      "id": "success-transfer-same-schema-different-policy-keeps-existing-accepted-history-only",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "success-transfer-available-different-closure",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_PREROOT_ARCHIVE_TRANSFER_MISMATCH",
+      "actualDiagnostic": "ERROR:  FROZEN_PREROOT_ARCHIVE_TRANSFER_MISMATCH\nCONTEXT:  PL/pgSQL function kcml_archive_preroot_transfer_v1() line 9 at RAISE\n"
+    },
+    {
+      "id": "success-transfer-available-different-closure-keeps-existing-accepted-history-only",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "success-transfer-protected-byte-reservation-mismatch",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_PROTECTED_RESERVATION_BINDING_INVALID",
+      "actualDiagnostic": "ERROR:  GENERATION_PROTECTED_RESERVATION_BINDING_INVALID\nCONTEXT:  PL/pgSQL function kcml_generation_protected_registry_link_v1() line 33 at RAISE\n"
+    },
+    {
+      "id": "success-transfer-protected-byte-reservation-mismatch-keeps-existing-accepted-history-only",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "accepted-to-success-exact-archive-and-protected-bytes-commit",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "successful-archive-identical-to-retained-preroot-archive",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "prior-pending-outcome-bytes-retained",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "one-root-command-event-outbox-with-earlier-history-two-audits",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "retained-preroot-binding-immutable",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_ARCHIVE_IMMUTABLE",
+      "actualDiagnostic": "ERROR:  FROZEN_ARCHIVE_IMMUTABLE\nCONTEXT:  PL/pgSQL function kcml_archive_immutable_v1() line 2 at RAISE\n"
+    },
+    {
+      "id": "same-transferred-real-ciphertext-opens-under-retained-policy",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    }
+  ],
+  "inputHead": "32a63a9e3447bd4ed9a7dc4638cadc113071a8b7",
+  "sourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "postgresqlVersion": "18.6",
+  "candidateExtensionSha256": "40a2fce25eaa50d582228463df86bfbf0ffb30f9facb1f1e84a2907bef3705ef",
+  "canonicalExtensionBytesExecuted": true,
+  "canonicalInputs": {
+    "database/generation-create-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "database/generation-create-authentication.sql": "9ec7558ed51a0a38558b123cdc7d6fb76d4de485440f2fd8607478b414e70285",
+    "database/generation-create-preroot.sql": "0ed9d0e563b802da50c96ebb31f62390aeab16040bd19660612fb14dd83aa75e",
+    "database/canonical-crypto-registry.sql": "773310806845b2754bdd2675ee1a27ed7cc96697f54bccdcac2648ba9cd1c7d4",
+    "database/generation-protected-registry-link.sql": "d3362763a573d1dbef8eaf53aa8ad4d91eb288047cebe987f2e38baf0b977fb1",
+    "database/generation-frozen-archive.sql": "2a6dce3b0a8a3f82b47576b371a6870ac2c0543ed85ac50e0b63d8ccced4f0ca"
+  },
+  "supportSha256": {
+    "audit/generated/resume-905/archive/preroot-transfer/verify_preroot_archive_transfer.py": "f42cfa79966dd03fb9e8e40e159777df2306ca6ddcf551ffd4e070abb59e5adf",
+    "audit/generated/resume-34d/failure-sql/verify_failure_before_root.py": "06abdf17cbb4edcdad524d0b629e812712c223e68ba2cef876320297fb794566",
+    "scripts/generation_auth_crypto.py": "5cfd85a6b0d7852509e8301b7a0b38f3e315ad292094544733a89f9b1939d259",
+    "scripts/generation_auth_acceptance.py": "382ef3a708d1b1699282149068206ecda46950a7a293faf0f8fde28b5a853bdc",
+    "scripts/generation_frozen_archive.py": "f1b4284eaaa907b94d34be0eb6080cf4d73b18561ec31fc5b6176212796b0622"
+  },
+  "systemdSourceProof": "BLOCKED_ENVIRONMENT",
+  "wholeOperationClosed": false,
+  "scope": "Exact archive retention before root and same binding/protected bytes pending-to-success; actual token and crypto primitives with isolated synthetic key/registry provisioning",
+  "limitations": [
+    "Candidate extension needs embedding/authoring plus independent reproduction",
+    "Full retained failure/cancel/unknown decision producers and full kind/execution archive policy remain separate",
+    "Not actual systemd key-source or generated application runtime acceptance"
+  ]
+}
