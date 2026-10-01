@@ -1,0 +1,25 @@
+{
+  "sourceDocumentSha256": "8fe5e74f10197a45e55053d50f8fc0b4340d84d8d59dba706af90d080168cb6c",
+  "proof": [
+    {
+      "operationId": "owner.session.list",
+      "classification": "REPRODUCED_DEFECT",
+      "scope": "existing request mask permits unknown query; actual runtime admission was not evaluated",
+      "positiveLegacyNativeWitnessValid": true,
+      "legacyAcceptedUnknownQuery": true,
+      "newActualHTTPDecoderDiagnostic": "HTTP_QUERY_UNKNOWN",
+      "schemaSourcePointer": "contracts/payload-contracts.json#/records/18/requestSchema",
+      "schemaSha256": "dea13e638ac268be49b91c5f2cbaf0a011f5228affced5d738887331bfec48e0"
+    },
+    {
+      "operationId": "owner.session.revoke",
+      "classification": "REPRODUCED_DEFECT",
+      "scope": "existing request mask permits unknown query; actual runtime admission was not evaluated",
+      "positiveLegacyNativeWitnessValid": true,
+      "legacyAcceptedUnknownQuery": true,
+      "newActualHTTPDecoderDiagnostic": "HTTP_QUERY_UNKNOWN",
+      "schemaSourcePointer": "contracts/payload-contracts.json#/records/19/requestSchema",
+      "schemaSha256": "0c7d87283260f38097b1188c5b1783ca6e757929084049e9a905ae403dc500a9"
+    }
+  ]
+}

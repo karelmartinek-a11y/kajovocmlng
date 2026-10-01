@@ -1,0 +1,84 @@
+{
+  "sourceDocumentSha256": "8fe5e74f10197a45e55053d50f8fc0b4340d84d8d59dba706af90d080168cb6c",
+  "sourceUnchanged": true,
+  "authorAssertionsReproduced": 9,
+  "checks": [
+    {
+      "id": "actual-author-cases-reproduced",
+      "passed": true,
+      "count": 9
+    },
+    {
+      "id": "nonmember-domain-role-has-no-helper-execute",
+      "passed": true,
+      "catalog": [
+        [
+          "kcml_apply_exact_domain_plan_v1",
+          "true",
+          "{search_path=pg_catalog}",
+          "false"
+        ],
+        [
+          "kcml_assert_operation_descriptor_v1",
+          "true",
+          "{search_path=pg_catalog}",
+          "false"
+        ],
+        [
+          "kcml_assert_recovery_and_incarnation_v1",
+          "true",
+          "{search_path=pg_catalog}",
+          "false"
+        ],
+        [
+          "kcml_lock_exact_root_plan_v1",
+          "true",
+          "{search_path=pg_catalog}",
+          "false"
+        ],
+        [
+          "kcml_owner_query_context_v1",
+          "true",
+          "{search_path=pg_catalog}",
+          "false"
+        ]
+      ]
+    },
+    {
+      "id": "scoped-SQL-does-not-pretend-audit-producer",
+      "passed": true,
+      "auditCountBefore": "0",
+      "auditCountAfter": "0",
+      "actualDisclosureDispatchComplete": false
+    },
+    {
+      "id": "READ_COMMITTED-is-not-RR",
+      "passed": true,
+      "diagnostic": "ERROR:  OWNER_QUERY_PROFILE_MISMATCH"
+    },
+    {
+      "id": "READ_WRITE-is-not-readonly",
+      "passed": true,
+      "diagnostic": "ERROR:  OWNER_QUERY_PROFILE_MISMATCH"
+    },
+    {
+      "id": "caller-owned-TEMP-not-trusted",
+      "passed": true,
+      "diagnostic": "ERROR:  OWNER_QUERY_TRUSTED_CONTEXT_REQUIRED"
+    }
+  ],
+  "passed": 6,
+  "failed": 0,
+  "inputs": {
+    "owner-query-helpers.sql": "ba3f9b1bc4612c83a1b83cdf6c448fd282fa549f9cd15490418edb0424a1e5e5",
+    "owner-query-original-wrappers.sql": "5bc5b7d2daf4bb29a16c6f8dd9587494006ffce5d1a03a9e5a67e778777032d5",
+    "owner-query-family.json": "bd1fdc99a1dee999145cbe40776e333db4365388b6cbabf0715456f83925cbfe",
+    "owner_query_context.py": "be739ed2fe90a9ed4edd2ef184a865738db39e58c035a61e7a0e0e14c9d9ad6b",
+    "verify_owner_query_family_pg.py": "34ab0f3f4272fa8d0214620b78075d2eb4259b7a3ba182ec06a806884b0fb82c"
+  },
+  "inputsUnchanged": true,
+  "postgresVersion": "18.6",
+  "scope": "Candidate exact two original wrappers/four helpers, issuer TEMP ownership and RR readonly only. No public dispatch, actual session issuer, audited plaintext read, canonical key hydration or260otherplans closure.",
+  "wholeOperationClosed": false,
+  "implementationAcceptance": "NOT_EVALUATED"
+}

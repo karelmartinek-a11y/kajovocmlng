@@ -1,0 +1,81 @@
+{
+  "status": "PARTIAL_BOUNDED_REQUEST_RESPONSE_INTEGRATABLE",
+  "sourceSha256": "8d731d98a3ccbb4c61364b2bae152f6f72348aa453462337b0c83b0e4f82f4a2",
+  "checks": 42,
+  "failed": 0,
+  "fieldMaps": 53,
+  "wholeOperationsClosed": 0,
+  "routes": 2,
+  "genericBoundariesBefore": 6,
+  "genericBoundariesAfterCandidate": 2,
+  "remainingIDs": [
+    {
+      "id": "AUDIT.CORE.AUTHENTICATED_READ",
+      "authority": "contracts/operation-contracts.json#/records/72-73/exposureClass",
+      "missing": "Fresh OWNER_QUERY authentication + canonical authorized read snapshot; current helper only consumes already-authorized rows",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    },
+    {
+      "id": "AUDIT.CORE.ORIGIN_PUBLISHER",
+      "authority": "ui/contracts/live-experience.json#/observability/historyQuerySchema",
+      "missing": "Publish immutable origin projection from actual server ingress/execution context; no source-name guessing",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    },
+    {
+      "id": "AUDIT.CORE.CURSOR_COVERAGE",
+      "authority": "ui/contracts/live-experience.json#/observability/ordering+pagination+completeness",
+      "missing": "Actual stable cursor publisher, continuous source coverage and source archive availability",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    },
+    {
+      "id": "AUDIT.CORE.ACCESS_AUDIT_TX",
+      "authority": "ui/contracts/live-experience.json#/observability/queryAudit; \u00a751.25; CONSISTENT_READ",
+      "missing": "Exact authenticated query audit append and transaction separation; no silent readonly transaction write",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    },
+    {
+      "id": "AUDIT.CORE.OPERATION_EVENTS",
+      "authority": "contracts/operation-contracts.json#/records/72-73/auditEventTypes",
+      "missing": "Exact required audit producer payload/retained-state mapping; existing event applicability remains unchanged",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    },
+    {
+      "id": "AUDIT.CORE.PUBLIC_ERROR_MAPPING",
+      "authority": "contracts/payload-contracts.json#/records/451-452/responseSchema/properties/error",
+      "missing": "Map candidate specific diagnostics and existing shared auth/lifecycle errors to exact public classification/retry predicates",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    }
+  ],
+  "files": {
+    "verify_core_inventory.py": "4ba857b984c3e3abc9e5679ea40b9a745ac7c37d61a8ca9611ae44a89ccb4856",
+    "CORE_AUDIT_NORMATIVE_SUPPLEMENT.md": "4016917cba117e2aff9cf80777e30d1846ec372bfbce18915e71f5459c3f1bca",
+    "core-audit-read.schema.json": "eabd0b76fa11bb2000eb1c55e4e6c95a041cd729e02b5e470b01e2883732c48b",
+    "field-source-map.json": "430fbee7467812dcb92d4e47e9265454d5aab1c4bd34501e6668d385596559bc",
+    "verify_core_audit.py": "38f2034f95f7fff54617dae6320723017a3a7d2ec2bd27883606573388ece6ae",
+    "build_core_contract.py": "7e42670fad01849063e8c2d6f4cc0dc723046d7812d0b9034c6e79b992c6ed06",
+    "core-audit-tests.json": "346dff66e2084c6ec8447cb54e7da58d74e92cac6df78e17e566253d29d4e4f1",
+    "authoring-update-pack.json": "89d4b8c3a09c1bc8f3c57b6f1f2d59b8bb18ea5b62329d6a265fc39f90e99d51",
+    "core_audit_reference.py": "6e3ecd1016e6bf04fd32012d762742cd78d5cb20421c2d9dbe933078ed094502",
+    "authorable-core-delta.json": "19cab94847a996ee9b8aedca90a83b70665581e4e52dcae4623777c1fc8f80ce",
+    "canonical-audit-hash.sql": "e06f803d3f9af7cb8644a25b755756c89e70325bd54e8475e9429c3e0eb4e612",
+    "author_core_audit.py": "9436bc6afbbd1a16506a898fa4471b43f474498bded65f048023770b5ea5a393",
+    "error-predicates.json": "0f42716b625fed89847f243c84a0fa9bad83868f6d214f4831cc256506b728ca",
+    "core-family-inventory-comparison.json": "f0282b01c2a033632551325cafe27af29c86481195801b96b2922cd84345dcfb",
+    "INTEGRATION.md": "2a3a0ac8fee6120f86f02dc7071e93bb32a1e2e3539deaaaebd425a116b361bd",
+    "remaining-obligations.json": "d035458a55cf141733c9e48e7a2f9aab490f19b32a413c49c72b377b31c735fd"
+  },
+  "independentReview": "REQUESTED_ROOT; not yet performed",
+  "futureRuntime": "NOT_EVALUATED"
+}

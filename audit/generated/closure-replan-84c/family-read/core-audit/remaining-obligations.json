@@ -1,0 +1,56 @@
+{
+  "scope": "2 global audit routes; list operation has other scoped routes excluded",
+  "wholeOperationsClosed": 0,
+  "obligations": [
+    {
+      "id": "AUDIT.CORE.AUTHENTICATED_READ",
+      "authority": "contracts/operation-contracts.json#/records/72-73/exposureClass",
+      "missing": "Fresh OWNER_QUERY authentication + canonical authorized read snapshot; current helper only consumes already-authorized rows",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    },
+    {
+      "id": "AUDIT.CORE.ORIGIN_PUBLISHER",
+      "authority": "ui/contracts/live-experience.json#/observability/historyQuerySchema",
+      "missing": "Publish immutable origin projection from actual server ingress/execution context; no source-name guessing",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    },
+    {
+      "id": "AUDIT.CORE.CURSOR_COVERAGE",
+      "authority": "ui/contracts/live-experience.json#/observability/ordering+pagination+completeness",
+      "missing": "Actual stable cursor publisher, continuous source coverage and source archive availability",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    },
+    {
+      "id": "AUDIT.CORE.ACCESS_AUDIT_TX",
+      "authority": "ui/contracts/live-experience.json#/observability/queryAudit; \u00a751.25; CONSISTENT_READ",
+      "missing": "Exact authenticated query audit append and transaction separation; no silent readonly transaction write",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    },
+    {
+      "id": "AUDIT.CORE.OPERATION_EVENTS",
+      "authority": "contracts/operation-contracts.json#/records/72-73/auditEventTypes",
+      "missing": "Exact required audit producer payload/retained-state mapping; existing event applicability remains unchanged",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    },
+    {
+      "id": "AUDIT.CORE.PUBLIC_ERROR_MAPPING",
+      "authority": "contracts/payload-contracts.json#/records/451-452/responseSchema/properties/error",
+      "missing": "Map candidate specific diagnostics and existing shared auth/lifecycle errors to exact public classification/retry predicates",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    }
+  ],
+  "futureImplementationAcceptance": "NOT_EVALUATED",
+  "ownerProductDecisionsRequired": []
+}

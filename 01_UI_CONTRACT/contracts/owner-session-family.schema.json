@@ -1,0 +1,2264 @@
+{
+  "$defs": {
+    "AdmissionFailure": {
+      "$id": "urn:kcml:owner-session-record-admin:1:admission-failure",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "else": {
+            "properties": {
+              "routeId": {
+                "const": "route.0019"
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "operationId": {
+                "const": "owner.session.list"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "error": {
+                "properties": {
+                  "stableCode": {
+                    "enum": [
+                      "INVALID_REQUEST",
+                      "UNAUTHENTICATED"
+                    ]
+                  }
+                }
+              },
+              "routeId": {
+                "const": "route.0018"
+              }
+            }
+          }
+        }
+      ],
+      "description": "§49.25 exact pre-command HTTP diagnostic: no allocated logical operation or retained business result. terminal describes this rejected HTTP attempt only.",
+      "properties": {
+        "admission": {
+          "const": "REJECTED_BEFORE_COMMAND"
+        },
+        "correlationId": {
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+          "type": "string"
+        },
+        "error": {
+          "oneOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "classification": {
+                  "const": "VALIDATION"
+                },
+                "detailsDigest": {
+                  "oneOf": [
+                    {
+                      "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "message": {
+                  "type": "string"
+                },
+                "retryDirective": {
+                  "const": "DO_NOT_RETRY"
+                },
+                "stableCode": {
+                  "const": "INVALID_REQUEST"
+                }
+              },
+              "required": [
+                "stableCode",
+                "classification",
+                "retryDirective",
+                "message",
+                "detailsDigest"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "classification": {
+                  "const": "AUTHENTICATION"
+                },
+                "detailsDigest": {
+                  "oneOf": [
+                    {
+                      "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "message": {
+                  "type": "string"
+                },
+                "retryDirective": {
+                  "const": "DO_NOT_RETRY"
+                },
+                "stableCode": {
+                  "const": "UNAUTHENTICATED"
+                }
+              },
+              "required": [
+                "stableCode",
+                "classification",
+                "retryDirective",
+                "message",
+                "detailsDigest"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "classification": {
+                  "const": "AUTHENTICATION"
+                },
+                "detailsDigest": {
+                  "oneOf": [
+                    {
+                      "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "message": {
+                  "type": "string"
+                },
+                "retryDirective": {
+                  "const": "DO_NOT_RETRY"
+                },
+                "stableCode": {
+                  "const": "CSRF_INVALID"
+                }
+              },
+              "required": [
+                "stableCode",
+                "classification",
+                "retryDirective",
+                "message",
+                "detailsDigest"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "classification": {
+                  "const": "AUTHENTICATION"
+                },
+                "detailsDigest": {
+                  "oneOf": [
+                    {
+                      "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "message": {
+                  "type": "string"
+                },
+                "retryDirective": {
+                  "const": "DO_NOT_RETRY"
+                },
+                "stableCode": {
+                  "const": "REAUTHENTICATION_REQUIRED"
+                }
+              },
+              "required": [
+                "stableCode",
+                "classification",
+                "retryDirective",
+                "message",
+                "detailsDigest"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "logicalOperationId": {
+          "type": "null"
+        },
+        "operationId": {
+          "enum": [
+            "owner.session.list",
+            "owner.session.revoke"
+          ]
+        },
+        "output": {
+          "type": "null"
+        },
+        "resultDigest": {
+          "type": "null"
+        },
+        "routeId": {
+          "enum": [
+            "route.0018",
+            "route.0019"
+          ]
+        },
+        "status": {
+          "const": "FAILED"
+        },
+        "terminal": {
+          "const": true
+        }
+      },
+      "required": [
+        "routeId",
+        "operationId",
+        "correlationId",
+        "logicalOperationId",
+        "admission",
+        "status",
+        "terminal",
+        "output",
+        "error",
+        "resultDigest"
+      ],
+      "type": "object"
+    },
+    "SessionPublic": {
+      "additionalProperties": false,
+      "properties": {
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "current": {
+          "type": "boolean"
+        },
+        "deviceMetadata": {
+          "additionalProperties": false,
+          "properties": {
+            "ipAddress": {
+              "oneOf": [
+                {
+                  "format": "ipv4",
+                  "type": "string"
+                },
+                {
+                  "format": "ipv6",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "userAgent": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "userAgent",
+            "ipAddress"
+          ],
+          "type": "object"
+        },
+        "expiresAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+          "type": "string"
+        },
+        "lastSeenAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "reauthenticatedAt": {
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "revokedAt": {
+          "oneOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sessionEpoch": {
+          "maxLength": 19,
+          "minLength": 1,
+          "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+          "type": "string"
+        },
+        "stateVersion": {
+          "maxLength": 19,
+          "minLength": 1,
+          "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "createdAt",
+        "lastSeenAt",
+        "expiresAt",
+        "revokedAt",
+        "reauthenticatedAt",
+        "sessionEpoch",
+        "stateVersion",
+        "deviceMetadata",
+        "current"
+      ],
+      "type": "object"
+    },
+    "owner.session.list:command": {
+      "$id": "urn:kcml:r9:operation:owner.session.list:command",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "type": "null"
+        },
+        "guards": {
+          "additionalProperties": false,
+          "properties": {
+            "clientRequestDigest": {
+              "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+              "type": "string"
+            },
+            "deadlineAt": {
+              "type": "null"
+            },
+            "expectedActivationEpoch": {
+              "type": "null"
+            },
+            "expectedBindingSetRevision": {
+              "type": "null"
+            },
+            "expectedReleaseId": {
+              "type": "null"
+            },
+            "expectedRevisionId": {
+              "type": "null"
+            },
+            "expectedStateVersion": {
+              "type": "null"
+            },
+            "idempotencyKey": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "idempotencyKey",
+            "expectedStateVersion",
+            "expectedRevisionId",
+            "expectedReleaseId",
+            "expectedBindingSetRevision",
+            "expectedActivationEpoch",
+            "deadlineAt",
+            "clientRequestDigest"
+          ],
+          "type": "object"
+        },
+        "operationId": {
+          "const": "owner.session.list"
+        },
+        "pathParameters": {
+          "additionalProperties": false,
+          "properties": {},
+          "required": [],
+          "type": "object"
+        },
+        "query": {
+          "additionalProperties": false,
+          "properties": {
+            "cursor": {
+              "oneOf": [
+                {
+                  "format": "uuid",
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "limit": {
+              "oneOf": [
+                {
+                  "maxLength": 19,
+                  "minLength": 1,
+                  "not": {
+                    "const": "0"
+                  },
+                  "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "cursor",
+            "limit"
+          ],
+          "type": "object"
+        },
+        "routeId": {
+          "const": "route.0018"
+        }
+      },
+      "required": [
+        "routeId",
+        "operationId",
+        "pathParameters",
+        "query",
+        "body",
+        "guards"
+      ],
+      "type": "object"
+    },
+    "owner.session.list:event": {
+      "$id": "urn:kcml:r9:operation:owner.session.list:event",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "not": {}
+    },
+    "owner.session.list:response": {
+      "$id": "urn:kcml:r9:operation:owner.session.list:response",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "SUCCEEDED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "error": {
+                "type": "null"
+              },
+              "output": {
+                "additionalProperties": false,
+                "properties": {
+                  "accessChannel": {
+                    "enum": [
+                      "OWNER_SESSION",
+                      "OWNER_API_KEY"
+                    ]
+                  },
+                  "nextCursor": {
+                    "oneOf": [
+                      {
+                        "format": "uuid",
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "observedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "ownerSessionEpoch": {
+                    "maxLength": 19,
+                    "minLength": 1,
+                    "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                    "type": "string"
+                  },
+                  "ownerStateVersion": {
+                    "maxLength": 19,
+                    "minLength": 1,
+                    "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                    "type": "string"
+                  },
+                  "sessions": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "createdAt": {
+                          "format": "date-time",
+                          "type": "string"
+                        },
+                        "current": {
+                          "type": "boolean"
+                        },
+                        "deviceMetadata": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "ipAddress": {
+                              "oneOf": [
+                                {
+                                  "format": "ipv4",
+                                  "type": "string"
+                                },
+                                {
+                                  "format": "ipv6",
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "userAgent": {
+                              "oneOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "userAgent",
+                            "ipAddress"
+                          ],
+                          "type": "object"
+                        },
+                        "expiresAt": {
+                          "format": "date-time",
+                          "type": "string"
+                        },
+                        "id": {
+                          "format": "uuid",
+                          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+                          "type": "string"
+                        },
+                        "lastSeenAt": {
+                          "format": "date-time",
+                          "type": "string"
+                        },
+                        "reauthenticatedAt": {
+                          "oneOf": [
+                            {
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "revokedAt": {
+                          "oneOf": [
+                            {
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "sessionEpoch": {
+                          "maxLength": 19,
+                          "minLength": 1,
+                          "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                          "type": "string"
+                        },
+                        "stateVersion": {
+                          "maxLength": 19,
+                          "minLength": 1,
+                          "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "createdAt",
+                        "lastSeenAt",
+                        "expiresAt",
+                        "revokedAt",
+                        "reauthenticatedAt",
+                        "sessionEpoch",
+                        "stateVersion",
+                        "deviceMetadata",
+                        "current"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "sessions",
+                  "observedAt",
+                  "accessChannel",
+                  "nextCursor",
+                  "ownerStateVersion",
+                  "ownerSessionEpoch"
+                ],
+                "type": "object"
+              },
+              "terminal": {
+                "const": true
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "FAILED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "error": {
+                "oneOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "classification": {
+                        "const": "DEPENDENCY"
+                      },
+                      "detailsDigest": {
+                        "oneOf": [
+                          {
+                            "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "message": {
+                        "type": "string"
+                      },
+                      "retryDirective": {
+                        "const": "RETRY_SAME_OPERATION"
+                      },
+                      "stableCode": {
+                        "const": "DEPENDENCY_UNAVAILABLE"
+                      }
+                    },
+                    "required": [
+                      "stableCode",
+                      "classification",
+                      "retryDirective",
+                      "message",
+                      "detailsDigest"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "detailsDigest": {
+                        "oneOf": [
+                          {
+                            "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "message": {
+                        "type": "string"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      },
+                      "stableCode": {
+                        "const": "CURSOR_INVALID"
+                      }
+                    },
+                    "required": [
+                      "stableCode",
+                      "classification",
+                      "retryDirective",
+                      "message",
+                      "detailsDigest"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "classification": {
+                        "const": "CONFLICT"
+                      },
+                      "detailsDigest": {
+                        "oneOf": [
+                          {
+                            "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "message": {
+                        "type": "string"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      },
+                      "stableCode": {
+                        "const": "CURSOR_QUERY_MISMATCH"
+                      }
+                    },
+                    "required": [
+                      "stableCode",
+                      "classification",
+                      "retryDirective",
+                      "message",
+                      "detailsDigest"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              },
+              "output": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "error": {
+                "properties": {
+                  "stableCode": {
+                    "const": "SIDE_EFFECT_OUTCOME_UNKNOWN"
+                  }
+                },
+                "type": "object"
+              },
+              "status": {
+                "const": "FAILED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "error": {
+                "properties": {
+                  "stableCode": {
+                    "const": "SIDE_EFFECT_OUTCOME_UNKNOWN"
+                  }
+                }
+              },
+              "output": {
+                "type": "null"
+              },
+              "terminal": {
+                "const": false
+              }
+            }
+          }
+        },
+        {
+          "else": {
+            "properties": {
+              "terminal": {
+                "const": true
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "error": {
+                "properties": {
+                  "retryDirective": {
+                    "enum": [
+                      "RETRY_SAME_OPERATION",
+                      "RECONCILE_THEN_RETRY"
+                    ]
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "terminal": {
+                "const": false
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "ACCEPTED",
+                  "CANCELLED"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "error": {
+                "properties": {
+                  "stableCode": {
+                    "const": "SIDE_EFFECT_OUTCOME_UNKNOWN"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "status": {
+                "const": "FAILED"
+              },
+              "terminal": {
+                "const": false
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "correlationId": {
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+          "type": "string"
+        },
+        "error": {
+          "oneOf": [
+            {
+              "oneOf": [
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "classification": {
+                      "const": "DEPENDENCY"
+                    },
+                    "detailsDigest": {
+                      "oneOf": [
+                        {
+                          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "retryDirective": {
+                      "const": "RETRY_SAME_OPERATION"
+                    },
+                    "stableCode": {
+                      "const": "DEPENDENCY_UNAVAILABLE"
+                    }
+                  },
+                  "required": [
+                    "stableCode",
+                    "classification",
+                    "retryDirective",
+                    "message",
+                    "detailsDigest"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "detailsDigest": {
+                      "oneOf": [
+                        {
+                          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    },
+                    "stableCode": {
+                      "const": "CURSOR_INVALID"
+                    }
+                  },
+                  "required": [
+                    "stableCode",
+                    "classification",
+                    "retryDirective",
+                    "message",
+                    "detailsDigest"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "classification": {
+                      "const": "CONFLICT"
+                    },
+                    "detailsDigest": {
+                      "oneOf": [
+                        {
+                          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    },
+                    "stableCode": {
+                      "const": "CURSOR_QUERY_MISMATCH"
+                    }
+                  },
+                  "required": [
+                    "stableCode",
+                    "classification",
+                    "retryDirective",
+                    "message",
+                    "detailsDigest"
+                  ],
+                  "type": "object"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "logicalOperationId": {
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+          "type": "string"
+        },
+        "operationId": {
+          "const": "owner.session.list"
+        },
+        "output": {
+          "oneOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "accessChannel": {
+                  "enum": [
+                    "OWNER_SESSION",
+                    "OWNER_API_KEY"
+                  ]
+                },
+                "nextCursor": {
+                  "oneOf": [
+                    {
+                      "format": "uuid",
+                      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "observedAt": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "ownerSessionEpoch": {
+                  "maxLength": 19,
+                  "minLength": 1,
+                  "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                  "type": "string"
+                },
+                "ownerStateVersion": {
+                  "maxLength": 19,
+                  "minLength": 1,
+                  "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                  "type": "string"
+                },
+                "sessions": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "createdAt": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "current": {
+                        "type": "boolean"
+                      },
+                      "deviceMetadata": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "ipAddress": {
+                            "oneOf": [
+                              {
+                                "format": "ipv4",
+                                "type": "string"
+                              },
+                              {
+                                "format": "ipv6",
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "userAgent": {
+                            "oneOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "userAgent",
+                          "ipAddress"
+                        ],
+                        "type": "object"
+                      },
+                      "expiresAt": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "id": {
+                        "format": "uuid",
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+                        "type": "string"
+                      },
+                      "lastSeenAt": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "reauthenticatedAt": {
+                        "oneOf": [
+                          {
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "revokedAt": {
+                        "oneOf": [
+                          {
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "sessionEpoch": {
+                        "maxLength": 19,
+                        "minLength": 1,
+                        "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                        "type": "string"
+                      },
+                      "stateVersion": {
+                        "maxLength": 19,
+                        "minLength": 1,
+                        "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "createdAt",
+                      "lastSeenAt",
+                      "expiresAt",
+                      "revokedAt",
+                      "reauthenticatedAt",
+                      "sessionEpoch",
+                      "stateVersion",
+                      "deviceMetadata",
+                      "current"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "sessions",
+                "observedAt",
+                "accessChannel",
+                "nextCursor",
+                "ownerStateVersion",
+                "ownerSessionEpoch"
+              ],
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "resultDigest": {
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+          "type": "string"
+        },
+        "routeId": {
+          "const": "route.0018"
+        },
+        "status": {
+          "enum": [
+            "SUCCEEDED",
+            "ACCEPTED",
+            "FAILED",
+            "CANCELLED"
+          ]
+        },
+        "terminal": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "routeId",
+        "operationId",
+        "logicalOperationId",
+        "correlationId",
+        "status",
+        "terminal",
+        "output",
+        "error",
+        "resultDigest"
+      ],
+      "type": "object"
+    },
+    "owner.session.revoke:command": {
+      "$id": "urn:kcml:r9:operation:owner.session.revoke:command",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "type": "null"
+        },
+        "guards": {
+          "additionalProperties": false,
+          "properties": {
+            "clientRequestDigest": {
+              "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+              "type": "string"
+            },
+            "deadlineAt": {
+              "type": "null"
+            },
+            "expectedActivationEpoch": {
+              "type": "null"
+            },
+            "expectedBindingSetRevision": {
+              "type": "null"
+            },
+            "expectedReleaseId": {
+              "type": "null"
+            },
+            "expectedRevisionId": {
+              "type": "null"
+            },
+            "expectedStateVersion": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": "string"
+            },
+            "idempotencyKey": {
+              "maxLength": 512,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "idempotencyKey",
+            "expectedStateVersion",
+            "expectedRevisionId",
+            "expectedReleaseId",
+            "expectedBindingSetRevision",
+            "expectedActivationEpoch",
+            "deadlineAt",
+            "clientRequestDigest"
+          ],
+          "type": "object"
+        },
+        "operationId": {
+          "const": "owner.session.revoke"
+        },
+        "pathParameters": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 36,
+              "minLength": 36,
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "type": "object"
+        },
+        "query": {
+          "maxItems": 0,
+          "type": "array"
+        },
+        "routeId": {
+          "const": "route.0019"
+        }
+      },
+      "required": [
+        "routeId",
+        "operationId",
+        "pathParameters",
+        "query",
+        "body",
+        "guards"
+      ],
+      "type": "object"
+    },
+    "owner.session.revoke:event": {
+      "$id": "urn:kcml:r9:operation:owner.session.revoke:event",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "aggregateId": {
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+          "type": "string"
+        },
+        "correlationId": {
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+          "type": "string"
+        },
+        "eventType": {
+          "const": "owner.session.revoked"
+        },
+        "immutableEventId": {
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+          "type": "string"
+        },
+        "logicalOperationId": {
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+          "type": "string"
+        },
+        "occurredAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "operationId": {
+          "const": "owner.session.revoke"
+        },
+        "payload": {
+          "additionalProperties": false,
+          "properties": {
+            "ownerStateVersion": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": "string"
+            },
+            "revokedAt": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "sessionId": {
+              "format": "uuid",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+              "type": "string"
+            },
+            "stateVersion": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": "string"
+            }
+          },
+          "required": [
+            "sessionId",
+            "revokedAt",
+            "stateVersion",
+            "ownerStateVersion"
+          ],
+          "type": "object"
+        },
+        "payloadDigest": {
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+          "type": "string"
+        },
+        "routeId": {
+          "const": "route.0019"
+        },
+        "sequence": {
+          "maxLength": 19,
+          "minLength": 1,
+          "not": {
+            "const": "0"
+          },
+          "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+          "type": "string"
+        }
+      },
+      "required": [
+        "routeId",
+        "operationId",
+        "eventType",
+        "logicalOperationId",
+        "correlationId",
+        "sequence",
+        "payload",
+        "payloadDigest",
+        "immutableEventId",
+        "aggregateId",
+        "occurredAt"
+      ],
+      "type": "object"
+    },
+    "owner.session.revoke:response": {
+      "$id": "urn:kcml:r9:operation:owner.session.revoke:response",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "SUCCEEDED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "error": {
+                "type": "null"
+              },
+              "output": {
+                "additionalProperties": false,
+                "properties": {
+                  "current": {
+                    "type": "boolean"
+                  },
+                  "ownerStateVersion": {
+                    "maxLength": 19,
+                    "minLength": 1,
+                    "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                    "type": "string"
+                  },
+                  "revokedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "sessionId": {
+                    "format": "uuid",
+                    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+                    "type": "string"
+                  },
+                  "stateVersion": {
+                    "maxLength": 19,
+                    "minLength": 1,
+                    "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "sessionId",
+                  "revokedAt",
+                  "stateVersion",
+                  "current",
+                  "ownerStateVersion"
+                ],
+                "type": "object"
+              },
+              "terminal": {
+                "const": true
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "FAILED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "error": {
+                "oneOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "detailsDigest": {
+                        "oneOf": [
+                          {
+                            "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "message": {
+                        "type": "string"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      },
+                      "stableCode": {
+                        "const": "SESSION_NOT_FOUND"
+                      }
+                    },
+                    "required": [
+                      "stableCode",
+                      "classification",
+                      "retryDirective",
+                      "message",
+                      "detailsDigest"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "classification": {
+                        "const": "CONFLICT"
+                      },
+                      "detailsDigest": {
+                        "oneOf": [
+                          {
+                            "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "message": {
+                        "type": "string"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      },
+                      "stableCode": {
+                        "const": "SESSION_ALREADY_REVOKED"
+                      }
+                    },
+                    "required": [
+                      "stableCode",
+                      "classification",
+                      "retryDirective",
+                      "message",
+                      "detailsDigest"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "classification": {
+                        "const": "CONFLICT"
+                      },
+                      "detailsDigest": {
+                        "oneOf": [
+                          {
+                            "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "message": {
+                        "type": "string"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      },
+                      "stableCode": {
+                        "const": "SESSION_EXPIRED"
+                      }
+                    },
+                    "required": [
+                      "stableCode",
+                      "classification",
+                      "retryDirective",
+                      "message",
+                      "detailsDigest"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "classification": {
+                        "const": "CONFLICT"
+                      },
+                      "detailsDigest": {
+                        "oneOf": [
+                          {
+                            "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "message": {
+                        "type": "string"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      },
+                      "stableCode": {
+                        "const": "SESSION_EPOCH_INVALIDATED"
+                      }
+                    },
+                    "required": [
+                      "stableCode",
+                      "classification",
+                      "retryDirective",
+                      "message",
+                      "detailsDigest"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "classification": {
+                        "const": "CONFLICT"
+                      },
+                      "detailsDigest": {
+                        "oneOf": [
+                          {
+                            "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "message": {
+                        "type": "string"
+                      },
+                      "retryDirective": {
+                        "const": "REFRESH_AND_RETRY_NEW_COMMAND"
+                      },
+                      "stableCode": {
+                        "const": "STATE_VERSION_CONFLICT"
+                      }
+                    },
+                    "required": [
+                      "stableCode",
+                      "classification",
+                      "retryDirective",
+                      "message",
+                      "detailsDigest"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "classification": {
+                        "const": "CONFLICT"
+                      },
+                      "detailsDigest": {
+                        "oneOf": [
+                          {
+                            "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "message": {
+                        "type": "string"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      },
+                      "stableCode": {
+                        "const": "IDEMPOTENCY_CONFLICT"
+                      }
+                    },
+                    "required": [
+                      "stableCode",
+                      "classification",
+                      "retryDirective",
+                      "message",
+                      "detailsDigest"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "classification": {
+                        "const": "DEPENDENCY"
+                      },
+                      "detailsDigest": {
+                        "oneOf": [
+                          {
+                            "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "message": {
+                        "type": "string"
+                      },
+                      "retryDirective": {
+                        "const": "RETRY_SAME_OPERATION"
+                      },
+                      "stableCode": {
+                        "const": "DEPENDENCY_UNAVAILABLE"
+                      }
+                    },
+                    "required": [
+                      "stableCode",
+                      "classification",
+                      "retryDirective",
+                      "message",
+                      "detailsDigest"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "classification": {
+                        "const": "UNKNOWN"
+                      },
+                      "detailsDigest": {
+                        "oneOf": [
+                          {
+                            "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "message": {
+                        "type": "string"
+                      },
+                      "retryDirective": {
+                        "const": "RECONCILE_THEN_RETRY"
+                      },
+                      "stableCode": {
+                        "const": "SIDE_EFFECT_OUTCOME_UNKNOWN"
+                      }
+                    },
+                    "required": [
+                      "stableCode",
+                      "classification",
+                      "retryDirective",
+                      "message",
+                      "detailsDigest"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              },
+              "output": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "error": {
+                "properties": {
+                  "stableCode": {
+                    "const": "SIDE_EFFECT_OUTCOME_UNKNOWN"
+                  }
+                },
+                "type": "object"
+              },
+              "status": {
+                "const": "FAILED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "error": {
+                "properties": {
+                  "stableCode": {
+                    "const": "SIDE_EFFECT_OUTCOME_UNKNOWN"
+                  }
+                }
+              },
+              "output": {
+                "type": "null"
+              },
+              "terminal": {
+                "const": false
+              }
+            }
+          }
+        },
+        {
+          "else": {
+            "properties": {
+              "terminal": {
+                "const": true
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "error": {
+                "properties": {
+                  "retryDirective": {
+                    "enum": [
+                      "RETRY_SAME_OPERATION",
+                      "RECONCILE_THEN_RETRY"
+                    ]
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "terminal": {
+                "const": false
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "ACCEPTED",
+                  "CANCELLED"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "error": {
+                "properties": {
+                  "stableCode": {
+                    "const": "SIDE_EFFECT_OUTCOME_UNKNOWN"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "status": {
+                "const": "FAILED"
+              },
+              "terminal": {
+                "const": false
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "correlationId": {
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+          "type": "string"
+        },
+        "error": {
+          "oneOf": [
+            {
+              "oneOf": [
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "detailsDigest": {
+                      "oneOf": [
+                        {
+                          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    },
+                    "stableCode": {
+                      "const": "SESSION_NOT_FOUND"
+                    }
+                  },
+                  "required": [
+                    "stableCode",
+                    "classification",
+                    "retryDirective",
+                    "message",
+                    "detailsDigest"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "classification": {
+                      "const": "CONFLICT"
+                    },
+                    "detailsDigest": {
+                      "oneOf": [
+                        {
+                          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    },
+                    "stableCode": {
+                      "const": "SESSION_ALREADY_REVOKED"
+                    }
+                  },
+                  "required": [
+                    "stableCode",
+                    "classification",
+                    "retryDirective",
+                    "message",
+                    "detailsDigest"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "classification": {
+                      "const": "CONFLICT"
+                    },
+                    "detailsDigest": {
+                      "oneOf": [
+                        {
+                          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    },
+                    "stableCode": {
+                      "const": "SESSION_EXPIRED"
+                    }
+                  },
+                  "required": [
+                    "stableCode",
+                    "classification",
+                    "retryDirective",
+                    "message",
+                    "detailsDigest"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "classification": {
+                      "const": "CONFLICT"
+                    },
+                    "detailsDigest": {
+                      "oneOf": [
+                        {
+                          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    },
+                    "stableCode": {
+                      "const": "SESSION_EPOCH_INVALIDATED"
+                    }
+                  },
+                  "required": [
+                    "stableCode",
+                    "classification",
+                    "retryDirective",
+                    "message",
+                    "detailsDigest"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "classification": {
+                      "const": "CONFLICT"
+                    },
+                    "detailsDigest": {
+                      "oneOf": [
+                        {
+                          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "retryDirective": {
+                      "const": "REFRESH_AND_RETRY_NEW_COMMAND"
+                    },
+                    "stableCode": {
+                      "const": "STATE_VERSION_CONFLICT"
+                    }
+                  },
+                  "required": [
+                    "stableCode",
+                    "classification",
+                    "retryDirective",
+                    "message",
+                    "detailsDigest"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "classification": {
+                      "const": "CONFLICT"
+                    },
+                    "detailsDigest": {
+                      "oneOf": [
+                        {
+                          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    },
+                    "stableCode": {
+                      "const": "IDEMPOTENCY_CONFLICT"
+                    }
+                  },
+                  "required": [
+                    "stableCode",
+                    "classification",
+                    "retryDirective",
+                    "message",
+                    "detailsDigest"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "classification": {
+                      "const": "DEPENDENCY"
+                    },
+                    "detailsDigest": {
+                      "oneOf": [
+                        {
+                          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "retryDirective": {
+                      "const": "RETRY_SAME_OPERATION"
+                    },
+                    "stableCode": {
+                      "const": "DEPENDENCY_UNAVAILABLE"
+                    }
+                  },
+                  "required": [
+                    "stableCode",
+                    "classification",
+                    "retryDirective",
+                    "message",
+                    "detailsDigest"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "classification": {
+                      "const": "UNKNOWN"
+                    },
+                    "detailsDigest": {
+                      "oneOf": [
+                        {
+                          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "retryDirective": {
+                      "const": "RECONCILE_THEN_RETRY"
+                    },
+                    "stableCode": {
+                      "const": "SIDE_EFFECT_OUTCOME_UNKNOWN"
+                    }
+                  },
+                  "required": [
+                    "stableCode",
+                    "classification",
+                    "retryDirective",
+                    "message",
+                    "detailsDigest"
+                  ],
+                  "type": "object"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "logicalOperationId": {
+          "format": "uuid",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+          "type": "string"
+        },
+        "operationId": {
+          "const": "owner.session.revoke"
+        },
+        "output": {
+          "oneOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "current": {
+                  "type": "boolean"
+                },
+                "ownerStateVersion": {
+                  "maxLength": 19,
+                  "minLength": 1,
+                  "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                  "type": "string"
+                },
+                "revokedAt": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "sessionId": {
+                  "format": "uuid",
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+                  "type": "string"
+                },
+                "stateVersion": {
+                  "maxLength": 19,
+                  "minLength": 1,
+                  "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "sessionId",
+                "revokedAt",
+                "stateVersion",
+                "current",
+                "ownerStateVersion"
+              ],
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "resultDigest": {
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])",
+          "type": "string"
+        },
+        "routeId": {
+          "const": "route.0019"
+        },
+        "status": {
+          "enum": [
+            "SUCCEEDED",
+            "ACCEPTED",
+            "FAILED",
+            "CANCELLED"
+          ]
+        },
+        "terminal": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "routeId",
+        "operationId",
+        "logicalOperationId",
+        "correlationId",
+        "status",
+        "terminal",
+        "output",
+        "error",
+        "resultDigest"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:kcml:owner-session-record-admin:1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

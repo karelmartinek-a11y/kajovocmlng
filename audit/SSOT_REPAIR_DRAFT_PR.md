@@ -1,13 +1,26 @@
-# Draft PR title
+# Repair explicit SSOT boundaries and finite completion dependencies
 
-Repair SSOT: ordered authenticated RETRY and immutable Secret authority/read contracts
+The SSOT still contains generic masks, unresolved references and incomplete
+producer–consumer handoffs. This branch preserves prior repairs, publishes exact
+create/import and lifecycle boundaries, and separates normative definitions,
+authority-backed pre-generation fixtures and future implementation acceptance.
 
-# Draft PR body
+The latest integration enforces the five final gate families required by §73.7,
+defines exact retained-result/tombstone errors, corrects dedicated OWNER key
+reveal API/session scope, and publishes OWNER session list/revoke and Audit
+list/read masks. Audit reading includes required pre-root retained outcomes.
+Four MCP native references are resolved without making optional native metadata
+mandatory. Four SQL helpers are defined for two scoped OWNER query wrappers;
+260 typed wrapper implementations remain unresolved and none is runtime-enabled.
 
-Integrates canonical ordered RETRY ledger/context/archive/lineage SQL, current credential-root guards and exact Secret root-status/create/OWNER read masks. Adds byte-bound PostgreSQL18.6 positive/negative/concurrency/replay fixtures and preserves failed historical evidence and explicit environment limits. Projection authors preserve these masks on rerun.
+Verification uses the audit requirements environment, positive-derived negative
+cases and actual canonical PostgreSQL 18.6 fixtures. Historical execution hashes
+remain unchanged; current reuse requires matching consumed sources. Current
+runner results and integrity are recorded in audit/SSOT_REPAIR_CHECKPOINT.json.
 
-All49 available design checks executed:42 PASS/7 BLOCKED, no validator exceptions/timeouts after scoped fixture compatibility corrections. Zero whole operations certified. SSOT_CONTRACT_READY=BLOCKED; IMPLEMENTATION_PRODUCTION_ACCEPTANCE=NOT_EVALUATED. Missing systemd invocation and explicit trusted/retained-outcome/browser/UI/helper obligations remain in the36-parent checklist.
-
-No application generation, main merge, freeze, release or deployment. GitHub draft creation previously Forbidden; callable connector support is unavailable in this environment. No permission bypass attempted.
+Both create operations remain open. SSOT_CONTRACT_READY remains BLOCKED and
+IMPLEMENTATION_PRODUCTION_ACCEPTANCE remains NOT_EVALUATED. Actual systemd
+credential fixture is blocked by unavailable manager/bus capabilities. No
+application generation, merge, release or deployment is performed.
 
 Compare: https://github.com/karelmartinek-a11y/kajovocmlng/compare/main...ssot-repair-2026-09-30

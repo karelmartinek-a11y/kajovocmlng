@@ -1,0 +1,221 @@
+{
+  "predicates": [
+    {
+      "code": "AUDIT_BYTE_ENCODING_INVALID",
+      "proofs": [
+        "invalid-base64"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_CANONICAL_DUPLICATE_KEY",
+      "proofs": [
+        "valid-chain-duplicate-canonical-key"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_CANONICAL_JSON_INVALID",
+      "proofs": [
+        "valid-chain-invalid-JSON-UTF8",
+        "valid-chain-invalid-JSON-syntax"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_CANONICAL_ROW_BINDING_MISMATCH",
+      "proofs": [
+        "valid-chain-wrong-inner-event-identity"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_CHAIN_HASH_MISMATCH",
+      "proofs": [
+        "chain-sequence-change",
+        "chain-prev-change",
+        "audit-byte-corruption"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_EVENT_PAYLOAD_DIGEST_MISMATCH",
+      "proofs": [
+        "payload-byte-corruption"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_HASH_INPUT_INVALID",
+      "proofs": [
+        "actual-PG-invalid-version",
+        "actual-PG-invalid-prev",
+        "actual-PG-invalid-sequence"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_QUERY_DUPLICATE_PARAMETER",
+      "proofs": [
+        "duplicate-limit"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_QUERY_DUPLICATE_RECORD_KIND",
+      "proofs": [
+        "duplicate-kind"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_QUERY_ENCODING_INVALID",
+      "proofs": [
+        "bad-percent",
+        "bad-UTF8"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_QUERY_INTERVAL_INVALID",
+      "proofs": [
+        "backward-interval"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_QUERY_INVALID",
+      "proofs": [
+        "limit201",
+        "limit0",
+        "wrong-kind",
+        "invalid-sort"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_QUERY_REQUIRED_PARAMETER",
+      "proofs": [
+        "missing-required-sort"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_QUERY_UNKNOWN_PARAMETER",
+      "proofs": [
+        "unknown-query",
+        "read-no-query"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_RECORD_IDENTITY_MISMATCH",
+      "proofs": [
+        "wrong-requested-identity"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_RECORD_MASK_INVALID",
+      "proofs": [
+        "null-audit-id",
+        "wrong-sequence-type",
+        "int64-overflow",
+        "no-caller-authority-slot",
+        "missing-required-event-hash",
+        "wrong-stream-discriminator",
+        "no-fake-created-domain-event",
+        "no-fake-created-aggregate-extra",
+        "wrong-retained-error-tuple"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_RESULT_DUPLICATE_AUDIT_ID",
+      "proofs": [
+        "duplicate-result-domain-item"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_RESULT_INTERVAL_BINDING_MISMATCH",
+      "proofs": [
+        "result-interval-wrong-query-binding"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_RESULT_MASK_INVALID",
+      "proofs": [
+        "complete-cannot-declare-missing-sources"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_RESULT_PAGE_LIMIT_MISMATCH",
+      "proofs": [
+        "result-exceeds-actual-request-page-limit"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_RETAINED_OUTCOME_DIGEST_MISMATCH",
+      "proofs": [
+        "command-outcome-byte-corruption"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_RETAINED_OUTCOME_IDENTITY_MISMATCH",
+      "proofs": [
+        "prospective-root-cannot-be-audit-object"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_RETAINED_OUTCOME_JSON_DUPLICATE_KEY",
+      "proofs": [
+        "actual-retained-JSON-duplicate-key-boundary"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_RETAINED_OUTCOME_JSON_INVALID",
+      "proofs": [
+        "actual-retained-JSON-UTF8-boundary"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_RETAINED_OUTCOME_PROJECTION_MISMATCH",
+      "proofs": [
+        "retained-projection-silent-state-rewrite"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_RETAINED_OUTCOME_STATE_MISMATCH",
+      "proofs": [
+        "unknown-cannot-be-terminal",
+        "cancel-code-cannot-be-failed",
+        "accepted-cannot-be-terminal"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_STORED_STREAM_UNRESOLVED",
+      "proofs": [
+        "unknown-null-event-stream-fails-not-omitted"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    },
+    {
+      "code": "AUDIT_TRANSPORT_INVALID",
+      "proofs": [
+        "GET-no-JSON-body"
+      ],
+      "publicMapping": "OPEN explicit obligation AUDIT.CORE.PUBLIC_ERROR_MAPPING"
+    }
+  ],
+  "reviewedScope": "Specific parser/inspector/stored-stream/hash/result predicates only"
+}

@@ -32,6 +32,25 @@ def main():
     if CREATE_DESIGN in rs:previous=specialize_creates(previous)
     from secret_read_contracts import specialize as specialize_reads
     if 'contracts/secrets/metadata-read.schema.json'in rs:previous=specialize_reads(previous,rs)
+    # Replay only the reviewed source-derived family deltas, never copy current
+    # rows into a historical expectation or skip preservation for these routes.
+    def reviewed_families(payload):
+        payload = copy.deepcopy(payload)
+        # Intermediate historical expectations have changed records but not
+        # their document receipt; normalize only this temporary record digest.
+        payload['canonicalDigest'] = 'sha256:' + hashlib.sha256(json.dumps(payload['records'], ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode('utf8')).hexdigest()
+        virtual = dict(rs)
+        virtual[PATH] = {**rs[PATH], 'raw': json.dumps(payload).encode('utf8')}
+        if 'contracts/owner-session-family.json' in rs:
+            from close_owner_session_family import updates as owner_updates
+            body = owner_updates(virtual)[PATH]
+            payload = json.loads(body)
+            virtual[PATH] = {**virtual[PATH], 'raw': body}
+        if 'contracts/audit/core-read.schema.json' in rs:
+            from close_audit_read_family import prepare as audit_updates
+            payload = json.loads(audit_updates(virtual)[PATH])
+        return payload
+    previous=reviewed_families(previous)
     expected=copy.deepcopy(previous)
     for row in expected['records']:
         if row['routeId'] in READS:row['responseSchema']['allOf'].append(READ_FAILURE_RULE)
@@ -137,7 +156,7 @@ def main():
             check(rid+'/'+status+'/refetch-recovery-handoff',handoff(response))
     report={'sourceSha256':hashlib.sha256(raw).hexdigest(),'baselineCommit':'5d72ccd','baseline':args.baseline,
         'scriptSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
-        'resourceVersions':{p:rs[p]['sha256'] for p in [GEN,PATH,'scripts/ssot/ssot_control.py',HTTP] if p in rs},
+        'resourceVersions':{p:rs[p]['sha256'] for p in [GEN,PATH,'scripts/ssot/ssot_control.py',HTTP,'contracts/owner-session-family.json','contracts/audit/core-read.schema.json'] if p in rs},
         'scope':__doc__,'checks':checks,'checked':len(checks),'failed':sum(not c['passed'] for c in checks),
         'wholeRoutesClosed':[]}
     out=ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/continuation-7006785/design');out.mkdir(parents=True,exist_ok=True)

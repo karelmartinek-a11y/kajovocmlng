@@ -35,6 +35,26 @@ def main():
     if 'contracts/secrets/metadata-read.schema.json'in rs:
         expected=specialize_reads(expected,rs)
         old_rows={r['routeId']:r for r in specialize_reads({'records':list(old_rows.values())},rs)['records']}
+    # Replay only the reviewed source-derived family deltas, never copy current
+    # rows into a historical expectation or skip preservation for these routes.
+    def reviewed_families(payload):
+        payload = copy.deepcopy(payload)
+        # Intermediate historical expectations have changed records but not
+        # their document receipt; normalize only this temporary record digest.
+        payload['canonicalDigest'] = 'sha256:' + hashlib.sha256(json.dumps(payload['records'], ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode('utf8')).hexdigest()
+        virtual = dict(rs)
+        virtual[PATH] = {**rs[PATH], 'raw': json.dumps(payload).encode('utf8')}
+        if 'contracts/owner-session-family.json' in rs:
+            from close_owner_session_family import updates as owner_updates
+            body = owner_updates(virtual)[PATH]
+            payload = json.loads(body)
+            virtual[PATH] = {**virtual[PATH], 'raw': body}
+        if 'contracts/audit/core-read.schema.json' in rs:
+            from close_audit_read_family import prepare as audit_updates
+            payload = json.loads(audit_updates(virtual)[PATH])
+        return payload
+    expected=reviewed_families(expected)
+    old_rows={r['routeId']:r for r in reviewed_families({'records':list(old_rows.values())})['records']}
     expected_rows={r['routeId']:r for r in expected['records']}
     registry=Registry().with_resource(bundle['$id'],Resource.from_contents(bundle))
     validator=lambda s:Draft202012Validator(s,registry=registry,format_checker=FormatChecker())
@@ -136,7 +156,7 @@ def main():
         check('event-to-read/refetch-exact-immutable-recovery',read('SUCCEEDED',spec))
     report={'sourceSha256':hashlib.sha256(raw).hexdigest(),'baseline':args.baseline,'baselineCommit':'2d2eea4',
         'scriptSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'scope':__doc__,
-        'resourceVersions':{p:rs[p]['sha256'] for p in [PATH,GEN,CONTROL]},'checks':checks,
+        'resourceVersions':{p:rs[p]['sha256'] for p in [PATH,GEN,CONTROL,'contracts/owner-session-family.json','contracts/audit/core-read.schema.json'] if p in rs},'checks':checks,
         'checked':len(checks),'failed':sum(not c['passed'] for c in checks),'wholeRoutesClosed':[],
         'remaining':['Real DB atomic approval/outbox/inbox integration and snapshot provenance',
             'SSE Last-Event-ID bounded replay/resync integration', 'Proposed/plan.created exact payload -> immutable read mapping',

@@ -1,0 +1,1649 @@
+{
+  "sourceSha256": "13105137f8a6bf4cd831262859cfa297795631a295b63d313b2b4c83d9012cf9",
+  "structuralFieldMasks": 82,
+  "fields": [
+    {
+      "field": "CoreQuery.channel",
+      "source": "ui/contracts/live-experience.json#/observability/historyQuerySchema/properties/channel",
+      "origin": "CALLER_FILTER; no authority",
+      "required": true,
+      "exactSchema": {
+        "enum": [
+          "SMS",
+          "EMAIL",
+          "WEBHOOK",
+          "API",
+          "BROWSER",
+          null
+        ],
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    {
+      "field": "CoreQuery.clientRef",
+      "source": "ui/contracts/live-experience.json#/observability/historyQuerySchema/properties/clientRef",
+      "origin": "CALLER_FILTER; no authority",
+      "required": true,
+      "exactSchema": {
+        "maxLength": 256,
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    {
+      "field": "CoreQuery.componentId",
+      "source": "ui/contracts/live-experience.json#/observability/historyQuerySchema/properties/componentId",
+      "origin": "CALLER_FILTER; no authority",
+      "required": true,
+      "exactSchema": {
+        "format": "uuid",
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    {
+      "field": "CoreQuery.correlationId",
+      "source": "ui/contracts/live-experience.json#/observability/historyQuerySchema/properties/correlationId",
+      "origin": "CALLER_FILTER; no authority",
+      "required": true,
+      "exactSchema": {
+        "format": "uuid",
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    {
+      "field": "CoreQuery.cursor",
+      "source": "ui/contracts/live-experience.json#/observability/historyQuerySchema/properties/cursor",
+      "origin": "CALLER_FILTER; no authority",
+      "required": true,
+      "exactSchema": {
+        "maxLength": 2048,
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    {
+      "field": "CoreQuery.direction",
+      "source": "ui/contracts/live-experience.json#/observability/historyQuerySchema/properties/direction",
+      "origin": "CALLER_FILTER; no authority",
+      "required": true,
+      "exactSchema": {
+        "enum": [
+          "ANY",
+          "INBOUND",
+          "OUTBOUND"
+        ],
+        "type": "string"
+      }
+    },
+    {
+      "field": "CoreQuery.from",
+      "source": "ui/contracts/live-experience.json#/observability/historyQuerySchema/properties/from",
+      "origin": "CALLER_FILTER; no authority",
+      "required": true,
+      "exactSchema": {
+        "format": "date-time",
+        "type": "string"
+      }
+    },
+    {
+      "field": "CoreQuery.limit",
+      "source": "ui/contracts/live-experience.json#/observability/historyQuerySchema/properties/limit",
+      "origin": "CALLER_FILTER; no authority",
+      "required": true,
+      "exactSchema": {
+        "maximum": 200,
+        "minimum": 1,
+        "type": "integer"
+      }
+    },
+    {
+      "field": "CoreQuery.recordKinds",
+      "source": "ui/contracts/live-experience.json#/observability/historyQuerySchema/properties/recordKinds",
+      "origin": "CALLER_FILTER; no authority",
+      "required": true,
+      "exactSchema": {
+        "items": {
+          "enum": [
+            "RUN",
+            "COMPONENT",
+            "MESSAGE",
+            "EVENT",
+            "ERROR",
+            "PAYLOAD",
+            "SPAN"
+          ],
+          "type": "string"
+        },
+        "minItems": 1,
+        "type": "array",
+        "uniqueItems": true
+      }
+    },
+    {
+      "field": "CoreQuery.result",
+      "source": "ui/contracts/live-experience.json#/observability/historyQuerySchema/properties/result",
+      "origin": "CALLER_FILTER; no authority",
+      "required": true,
+      "exactSchema": {
+        "enum": [
+          "ANY",
+          "SUCCEEDED",
+          "FAILED",
+          "CANCELLED",
+          "UNKNOWN"
+        ],
+        "type": "string"
+      }
+    },
+    {
+      "field": "CoreQuery.runId",
+      "source": "ui/contracts/live-experience.json#/observability/historyQuerySchema/properties/runId",
+      "origin": "CALLER_FILTER; no authority",
+      "required": true,
+      "exactSchema": {
+        "format": "uuid",
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    {
+      "field": "CoreQuery.sort",
+      "source": "ui/contracts/live-experience.json#/observability/historyQuerySchema/properties/sort",
+      "origin": "CALLER_FILTER; no authority",
+      "required": true,
+      "exactSchema": {
+        "enum": [
+          "TIME_ASC",
+          "TIME_DESC",
+          "DURATION_DESC"
+        ],
+        "type": "string"
+      }
+    },
+    {
+      "field": "CoreQuery.to",
+      "source": "ui/contracts/live-experience.json#/observability/historyQuerySchema/properties/to",
+      "origin": "CALLER_FILTER; no authority",
+      "required": true,
+      "exactSchema": {
+        "format": "date-time",
+        "type": "string"
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.recordKind",
+      "source": "TECHNICAL discriminator; actual audit_event.domain_event_id + domain_event FK",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "const": "DOMAIN_EVENT_AUDIT"
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.auditId",
+      "source": "database/generation-create-foundations.sql#audit_event.id",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.chainSequence",
+      "source": "database/generation-create-foundations.sql#audit_event.chain_sequence",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "maxLength": 19,
+        "minLength": 1,
+        "pattern": "^(?:[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+        "type": "string"
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.previousHash",
+      "source": "database/generation-create-foundations.sql#audit_event.previous_hash",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "pattern": "^sha256:[0-9a-f]{64}$"
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.eventHash",
+      "source": "database/generation-create-foundations.sql#audit_event.event_hash",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "pattern": "^sha256:[0-9a-f]{64}$"
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.chainFormatVersion",
+      "source": "database/generation-create-foundations.sql#audit_event.chain_format_version",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "const": 1
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.canonicalAuditBytesBase64",
+      "source": "database/generation-create-foundations.sql#audit_event.canonical_bytes",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "contentEncoding": "base64"
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.logicalOperationId",
+      "source": "database/generation-create-foundations.sql#audit_event.logical_operation_id",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.actorId",
+      "source": "database/generation-create-foundations.sql#domain_command.owner_id",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.domainEventId",
+      "source": "database/generation-create-foundations.sql#audit_event.domain_event_id",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.aggregateId",
+      "source": "database/generation-create-foundations.sql#domain_event.aggregate_id",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.aggregateKind",
+      "source": "database/generation-create-foundations.sql#domain_event.aggregate_kind",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.eventType",
+      "source": "database/generation-create-foundations.sql#domain_event.event_type",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.eventSchemaId",
+      "source": "database/generation-create-foundations.sql#domain_event.event_schema_id",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.eventSchemaDigest",
+      "source": "database/generation-create-foundations.sql#domain_event.event_schema_digest",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "pattern": "^sha256:[0-9a-f]{64}$"
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.eventPayloadBytesBase64",
+      "source": "database/generation-create-foundations.sql#domain_event.payload_bytes",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "contentEncoding": "base64"
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.eventPayloadDigest",
+      "source": "database/generation-create-foundations.sql#domain_event.payload_digest",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "pattern": "^sha256:[0-9a-f]{64}$"
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.correlationId",
+      "source": "database/generation-create-foundations.sql#domain_event.correlation_id",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.causationId",
+      "source": "database/generation-create-foundations.sql#domain_event.causation_id",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "anyOf": [
+          {
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.occurredAt",
+      "source": "database/generation-create-foundations.sql#domain_event.occurred_at",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    {
+      "field": "DomainEventAuditRecord.archiveRequired",
+      "source": "database/generation-create-foundations.sql#audit_event.archive_required",
+      "origin": "ACTUAL_IMMUTABLE_SERVER_ROW",
+      "required": true,
+      "exactSchema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "field": "PrerootAuditRecord.recordKind",
+      "source": "\u00a712.54 NULL-domain-event typed retained command outcome",
+      "origin": "ACTUAL_IMMUTABLE_RETAINED_COMMAND_OUTCOME",
+      "required": true,
+      "exactSchema": {
+        "const": "GENERATION_PREROOT_OUTCOME_AUDIT"
+      }
+    },
+    {
+      "field": "PrerootAuditRecord.auditId",
+      "source": "database/generation-create-foundations.sql#audit_event.id",
+      "origin": "ACTUAL_IMMUTABLE_RETAINED_COMMAND_OUTCOME",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    {
+      "field": "PrerootAuditRecord.chainSequence",
+      "source": "database/generation-create-foundations.sql#audit_event.chain_sequence",
+      "origin": "ACTUAL_IMMUTABLE_RETAINED_COMMAND_OUTCOME",
+      "required": true,
+      "exactSchema": {
+        "maxLength": 19,
+        "minLength": 1,
+        "pattern": "^(?:[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+        "type": "string"
+      }
+    },
+    {
+      "field": "PrerootAuditRecord.previousHash",
+      "source": "database/generation-create-foundations.sql#audit_event.previous_hash",
+      "origin": "ACTUAL_IMMUTABLE_RETAINED_COMMAND_OUTCOME",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "pattern": "^sha256:[0-9a-f]{64}$"
+      }
+    },
+    {
+      "field": "PrerootAuditRecord.eventHash",
+      "source": "database/generation-create-foundations.sql#audit_event.event_hash",
+      "origin": "ACTUAL_IMMUTABLE_RETAINED_COMMAND_OUTCOME",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "pattern": "^sha256:[0-9a-f]{64}$"
+      }
+    },
+    {
+      "field": "PrerootAuditRecord.chainFormatVersion",
+      "source": "database/generation-create-foundations.sql#audit_event.chain_format_version",
+      "origin": "ACTUAL_IMMUTABLE_RETAINED_COMMAND_OUTCOME",
+      "required": true,
+      "exactSchema": {
+        "const": 1
+      }
+    },
+    {
+      "field": "PrerootAuditRecord.canonicalAuditBytesBase64",
+      "source": "database/generation-create-foundations.sql#audit_event.canonical_bytes",
+      "origin": "ACTUAL_IMMUTABLE_RETAINED_COMMAND_OUTCOME",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "contentEncoding": "base64"
+      }
+    },
+    {
+      "field": "PrerootAuditRecord.logicalOperationId",
+      "source": "database/generation-create-foundations.sql#audit_event.logical_operation_id",
+      "origin": "ACTUAL_IMMUTABLE_RETAINED_COMMAND_OUTCOME",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    {
+      "field": "PrerootAuditRecord.actorId",
+      "source": "database/generation-create-foundations.sql#domain_command.owner_id",
+      "origin": "ACTUAL_IMMUTABLE_RETAINED_COMMAND_OUTCOME",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    {
+      "field": "PrerootAuditRecord.archiveRequired",
+      "source": "database/generation-create-foundations.sql#audit_event.archive_required",
+      "origin": "ACTUAL_IMMUTABLE_RETAINED_COMMAND_OUTCOME",
+      "required": true,
+      "exactSchema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "field": "PrerootAuditRecord.operationId",
+      "source": "database/generation-create-preroot.sql#domain_command.operation_id exact generation.job.create",
+      "origin": "ACTUAL_IMMUTABLE_RETAINED_COMMAND_OUTCOME",
+      "required": true,
+      "exactSchema": {
+        "const": "generation.job.create"
+      }
+    },
+    {
+      "field": "PrerootAuditRecord.domainEventId",
+      "source": "\u00a712.54 NULL-domain-event typed retained command outcome",
+      "origin": "ACTUAL_IMMUTABLE_RETAINED_COMMAND_OUTCOME",
+      "required": true,
+      "exactSchema": {
+        "type": "null"
+      }
+    },
+    {
+      "field": "PrerootAuditRecord.prospectiveJobId",
+      "source": "database/generation-create-preroot.sql#domain_command.target_aggregate_id; not a created-root assertion",
+      "origin": "ACTUAL_IMMUTABLE_RETAINED_COMMAND_OUTCOME",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    {
+      "field": "PrerootAuditRecord.retainedStateVersion",
+      "source": "database/generation-create-preroot.sql#generation_create_preroot_outcome.state_version immutable historical key",
+      "origin": "ACTUAL_IMMUTABLE_RETAINED_COMMAND_OUTCOME",
+      "required": true,
+      "exactSchema": {
+        "maxLength": 19,
+        "minLength": 1,
+        "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+        "type": "string"
+      }
+    },
+    {
+      "field": "PrerootAuditRecord.retainedOutcomeDigest",
+      "source": "database/generation-create-preroot.sql#generation_create_preroot_outcome.canonical_digest",
+      "origin": "ACTUAL_IMMUTABLE_RETAINED_COMMAND_OUTCOME",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "pattern": "^sha256:[0-9a-f]{64}$"
+      }
+    },
+    {
+      "field": "PrerootAuditRecord.retainedOutcomeBytesBase64",
+      "source": "database/generation-create-preroot.sql#generation_create_preroot_outcome.canonical_bytes",
+      "origin": "ACTUAL_IMMUTABLE_RETAINED_COMMAND_OUTCOME",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "contentEncoding": "base64"
+      }
+    },
+    {
+      "field": "PrerootAuditRecord.retainedOutcome",
+      "source": "database/generation-create-preroot.sql#same exact bytes UTF8 JSON under canonical 11-field SQL mask",
+      "origin": "ACTUAL_IMMUTABLE_RETAINED_COMMAND_OUTCOME",
+      "required": true,
+      "exactSchema": {
+        "$ref": "#/$defs/PrerootOutcome"
+      }
+    },
+    {
+      "field": "PrerootOutcome.routeId",
+      "source": "database/generation-create-preroot.sql#kcml_generation_preroot_closure_v1 + generation_create_retained_error_tuple / routeId",
+      "origin": "RETAINED_ORIGINAL_NATIVE_BYTES; no current-state substitution",
+      "required": true,
+      "exactSchema": {
+        "const": "route.0215"
+      }
+    },
+    {
+      "field": "PrerootOutcome.operationId",
+      "source": "database/generation-create-preroot.sql#kcml_generation_preroot_closure_v1 + generation_create_retained_error_tuple / operationId",
+      "origin": "RETAINED_ORIGINAL_NATIVE_BYTES; no current-state substitution",
+      "required": true,
+      "exactSchema": {
+        "const": "generation.job.create"
+      }
+    },
+    {
+      "field": "PrerootOutcome.logicalOperationId",
+      "source": "database/generation-create-preroot.sql#kcml_generation_preroot_closure_v1 + generation_create_retained_error_tuple / logicalOperationId",
+      "origin": "RETAINED_ORIGINAL_NATIVE_BYTES; no current-state substitution",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    {
+      "field": "PrerootOutcome.correlationId",
+      "source": "database/generation-create-preroot.sql#kcml_generation_preroot_closure_v1 + generation_create_retained_error_tuple / correlationId",
+      "origin": "RETAINED_ORIGINAL_NATIVE_BYTES; no current-state substitution",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    {
+      "field": "PrerootOutcome.status",
+      "source": "database/generation-create-preroot.sql#kcml_generation_preroot_closure_v1 + generation_create_retained_error_tuple / status",
+      "origin": "RETAINED_ORIGINAL_NATIVE_BYTES; no current-state substitution",
+      "required": true,
+      "exactSchema": {
+        "enum": [
+          "ACCEPTED",
+          "FAILED",
+          "CANCELLED"
+        ]
+      }
+    },
+    {
+      "field": "PrerootOutcome.terminal",
+      "source": "database/generation-create-preroot.sql#kcml_generation_preroot_closure_v1 + generation_create_retained_error_tuple / terminal",
+      "origin": "RETAINED_ORIGINAL_NATIVE_BYTES; no current-state substitution",
+      "required": true,
+      "exactSchema": {
+        "type": "boolean"
+      }
+    },
+    {
+      "field": "PrerootOutcome.output",
+      "source": "database/generation-create-preroot.sql#kcml_generation_preroot_closure_v1 + generation_create_retained_error_tuple / output",
+      "origin": "RETAINED_ORIGINAL_NATIVE_BYTES; no current-state substitution",
+      "required": true,
+      "exactSchema": {
+        "type": "null"
+      }
+    },
+    {
+      "field": "PrerootOutcome.error",
+      "source": "database/generation-create-preroot.sql#kcml_generation_preroot_closure_v1 + generation_create_retained_error_tuple / error",
+      "origin": "RETAINED_ORIGINAL_NATIVE_BYTES; no current-state substitution",
+      "required": true,
+      "exactSchema": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "stableCode": {
+                "enum": [
+                  "CREATE_CANCELLED",
+                  "CREATE_INPUT_INVALID",
+                  "CREATE_AUTHENTICATION_REQUIRED",
+                  "CREATE_REFERENCE_INVALID",
+                  "CREATE_POLICY_UNRESOLVED",
+                  "CREATE_RECOVERY_BARRIER",
+                  "IDEMPOTENCY_CONFLICT",
+                  "CREATE_PERSISTENCE_FAILED",
+                  "SIDE_EFFECT_OUTCOME_UNKNOWN",
+                  "FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED",
+                  "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+                  "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+                  "FOLLOW_UP_BASIS_DIGEST_CONFLICT",
+                  "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+                  "FOLLOW_UP_BASIS_INCONSISTENT",
+                  "FOLLOW_UP_BASIS_INSUFFICIENT",
+                  "FOLLOW_UP_BASIS_INVALID",
+                  "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+                  "FOLLOW_UP_BASIS_UNAVAILABLE",
+                  "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+                  "FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID",
+                  "FOLLOW_UP_FROZEN_IDENTITY_MISMATCH",
+                  "FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH",
+                  "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+                  "FOLLOW_UP_KIND_REQUIRED",
+                  "FOLLOW_UP_PARENT_REQUIRED",
+                  "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+                  "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+                  "FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+                  "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+                  "FOLLOW_UP_SOURCE_STATE_INVALID"
+                ]
+              },
+              "classification": {
+                "enum": [
+                  "AUTHENTICATION",
+                  "AUTHORIZATION",
+                  "CANCELLED",
+                  "CONFLICT",
+                  "DEPENDENCY",
+                  "INTERNAL",
+                  "UNKNOWN",
+                  "VALIDATION"
+                ]
+              },
+              "retryDirective": {
+                "enum": [
+                  "DO_NOT_RETRY",
+                  "RECONCILE_THEN_RETRY",
+                  "RETRY_SAME_OPERATION"
+                ]
+              },
+              "message": {
+                "type": "string"
+              },
+              "detailsDigest": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "stableCode",
+              "classification",
+              "retryDirective",
+              "message",
+              "detailsDigest"
+            ],
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "CREATE_CANCELLED"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "CANCELLED"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "CREATE_INPUT_INVALID"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "CREATE_AUTHENTICATION_REQUIRED"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "AUTHENTICATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "CREATE_REFERENCE_INVALID"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "CREATE_POLICY_UNRESOLVED"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "DEPENDENCY"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "CREATE_RECOVERY_BARRIER"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "CONFLICT"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "IDEMPOTENCY_CONFLICT"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "CONFLICT"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "CREATE_PERSISTENCE_FAILED"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "INTERNAL"
+                    },
+                    "retryDirective": {
+                      "const": "RETRY_SAME_OPERATION"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "SIDE_EFFECT_OUTCOME_UNKNOWN"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "UNKNOWN"
+                    },
+                    "retryDirective": {
+                      "const": "RECONCILE_THEN_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "DEPENDENCY"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "DEPENDENCY"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_BASIS_DIGEST_CONFLICT"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_BASIS_INCONSISTENT"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_BASIS_INSUFFICIENT"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_BASIS_INVALID"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_BASIS_NOT_IMMUTABLE"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_BASIS_UNAVAILABLE"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_FROZEN_IDENTITY_MISMATCH"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_KIND_REQUIRED"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_PARENT_REQUIRED"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "DEPENDENCY"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_SOURCE_OWNER_MISMATCH"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "AUTHORIZATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "stableCode": {
+                      "const": "FOLLOW_UP_SOURCE_STATE_INVALID"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "classification": {
+                      "const": "VALIDATION"
+                    },
+                    "retryDirective": {
+                      "const": "DO_NOT_RETRY"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    {
+      "field": "PrerootOutcome.stateVersion",
+      "source": "database/generation-create-preroot.sql#kcml_generation_preroot_closure_v1 + generation_create_retained_error_tuple / stateVersion",
+      "origin": "RETAINED_ORIGINAL_NATIVE_BYTES; no current-state substitution",
+      "required": true,
+      "exactSchema": {
+        "type": "null"
+      }
+    },
+    {
+      "field": "PrerootOutcome.eventSequence",
+      "source": "database/generation-create-preroot.sql#kcml_generation_preroot_closure_v1 + generation_create_retained_error_tuple / eventSequence",
+      "origin": "RETAINED_ORIGINAL_NATIVE_BYTES; no current-state substitution",
+      "required": true,
+      "exactSchema": {
+        "type": "null"
+      }
+    },
+    {
+      "field": "PrerootOutcome.activationEpoch",
+      "source": "database/generation-create-preroot.sql#kcml_generation_preroot_closure_v1 + generation_create_retained_error_tuple / activationEpoch",
+      "origin": "RETAINED_ORIGINAL_NATIVE_BYTES; no current-state substitution",
+      "required": true,
+      "exactSchema": {
+        "type": "null"
+      }
+    },
+    {
+      "field": "OriginProjection.auditId",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    {
+      "field": "OriginProjection.eventHash",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "pattern": "^sha256:[0-9a-f]{64}$"
+      }
+    },
+    {
+      "field": "OriginProjection.runId",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "anyOf": [
+          {
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    {
+      "field": "OriginProjection.componentId",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "anyOf": [
+          {
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    {
+      "field": "OriginProjection.clientRef",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    {
+      "field": "OriginProjection.channel",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "enum": [
+          "SMS",
+          "EMAIL",
+          "WEBHOOK",
+          "API",
+          "BROWSER",
+          null
+        ]
+      }
+    },
+    {
+      "field": "OriginProjection.direction",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "enum": [
+          "INBOUND",
+          "OUTBOUND",
+          "NOT_APPLICABLE"
+        ]
+      }
+    },
+    {
+      "field": "OriginProjection.result",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "enum": [
+          "SUCCEEDED",
+          "FAILED",
+          "CANCELLED",
+          "UNKNOWN",
+          null
+        ]
+      }
+    },
+    {
+      "field": "OriginProjection.durationMs",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "anyOf": [
+          {
+            "type": "integer",
+            "minimum": 0
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    {
+      "field": "OriginProjection.recordedAt",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    {
+      "field": "OriginProjection.sourceContextDigest",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "pattern": "^sha256:[0-9a-f]{64}$"
+      }
+    },
+    {
+      "field": "CoreResult.resolvedInterval",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "to": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "from",
+          "to"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "field": "CoreResult.items",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/AuditRecord"
+        },
+        "maxItems": 200
+      }
+    },
+    {
+      "field": "CoreResult.nextCursor",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    {
+      "field": "CoreResult.snapshotWatermark",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      }
+    },
+    {
+      "field": "CoreResult.coverageFrom",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "anyOf": [
+          {
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    {
+      "field": "CoreResult.coverageTo",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "anyOf": [
+          {
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    {
+      "field": "CoreResult.completeness",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "enum": [
+          "COMPLETE",
+          "PARTIAL",
+          "UNAVAILABLE"
+        ]
+      }
+    },
+    {
+      "field": "CoreResult.missingSources",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uniqueItems": true
+      }
+    },
+    {
+      "field": "CoreResult.provenanceRefs",
+      "source": "PROPOSED_TECHNICAL_CORE200 publisher/result interface; query/history completeness rules",
+      "origin": "ACTUAL_SERVER_PUBLISHER_REQUIRED_OPEN",
+      "required": true,
+      "exactSchema": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  ],
+  "storedStreamVariants": 2,
+  "semanticPublisherCoverage": "Actual physical-domain and retained-command stream projection and bytes verified; origin/cursor/coverage publishers remain OPEN"
+}

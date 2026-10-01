@@ -14,20 +14,30 @@ PROOFS={
 }
 # A fixed complete label universe; an explicitly selected current execution map
 # cannot remove obligations. Missing/malformed maps produce structured BLOCKED.
-PROOF_MAPPING='audit/generated/resume-8cc/coordinator/current-bounded-evidence.json'
+PROOF_MAPPING='audit/generated/closure-replan-84c/secret/compatibility/runs/final-116e/PRODUCER_EVIDENCE_MAPPING.json'
+REQUIRED_LABELS=frozenset(PROOFS)
 MAPPING_ERROR=None
-if (ROOT/PROOF_MAPPING).exists():
- try:
-  current=json.loads((ROOT/PROOF_MAPPING).read_text())
-  if set(current)!=set(PROOFS) or not all(isinstance(p,str) and p.startswith('audit/') and '..'not in p.split('/') for p in current.values()):raise ValueError('INVALID_COMPLETE_EVIDENCE_MAP')
-  PROOFS=current
- except (OSError,ValueError,TypeError) as exc:MAPPING_ERROR=type(exc).__name__+': '+str(exc)
+MAPPING_SNAPSHOT=None
+def read_mapping():
+ p=ROOT/PROOF_MAPPING
+ if not p.exists():raise FileNotFoundError('REQUIRED_EVIDENCE_MAP_MISSING')
+ raw=p.read_bytes();current=json.loads(raw)
+ if not isinstance(current,dict) or set(current)!=REQUIRED_LABELS or not all(isinstance(p,str) and p.startswith('audit/') and '..'not in p.split('/') for p in current.values()):raise ValueError('INVALID_COMPLETE_EVIDENCE_MAP')
+ return raw,current
+try:
+ MAPPING_SNAPSHOT,PROOFS=read_mapping()
+except (OSError,ValueError,TypeError) as exc:MAPPING_ERROR=type(exc).__name__+': '+str(exc)
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
  source=sha(SSOT);rs=resource_index();checks=[];evidence=[]
  def check(n,ok):checks.append({'case':n,'passed':bool(ok)})
- check('complete-selected-evidence-map',MAPPING_ERROR is None)
- if (ROOT/PROOF_MAPPING).exists():evidence.append({'path':PROOF_MAPPING,'sha256':sha(ROOT/PROOF_MAPPING),'diagnostic':MAPPING_ERROR})
+ mapping_error=MAPPING_ERROR;mapping_digest=None
+ try:
+  mapping_raw,current_mapping=read_mapping();mapping_digest=hashlib.sha256(mapping_raw).hexdigest()
+  if MAPPING_SNAPSHOT is None or mapping_raw!=MAPPING_SNAPSHOT:raise ValueError('EVIDENCE_MAP_CHANGED_SINCE_IMPORT')
+ except (OSError,ValueError,TypeError) as exc:mapping_error=type(exc).__name__+': '+str(exc)
+ check('complete-selected-evidence-map',mapping_error is None)
+ evidence.append({'path':PROOF_MAPPING,'sha256':mapping_digest,'diagnostic':mapping_error})
  for label,name in PROOFS.items():
   p=ROOT/name
   if not p.exists():check(label+'/missing-required-proof',False);continue

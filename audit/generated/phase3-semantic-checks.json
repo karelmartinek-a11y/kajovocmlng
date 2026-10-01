@@ -1,7 +1,7 @@
 {
   "scope": "Schema identity, counter and named status/outcome probes; state dictionaries and hydration remain open.",
   "status": "PASS",
-  "sourceDocumentSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "sourceDocumentSha256": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0",
   "eventInventory": [
     {
       "routeId": "route.0000",
@@ -95,13 +95,12 @@
     },
     {
       "routeId": "route.0018",
-      "envelope": "sequence",
-      "applicability": "ROUTE_EVENT_SCHEMA"
+      "envelope": "NOT_APPLICABLE"
     },
     {
       "routeId": "route.0019",
       "envelope": "sequence",
-      "applicability": "ROUTE_EVENT_SCHEMA"
+      "applicability": "AGGREGATE_STREAM"
     },
     {
       "routeId": "route.0020",

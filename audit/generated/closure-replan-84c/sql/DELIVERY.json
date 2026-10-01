@@ -1,0 +1,34 @@
+{
+  "status": "PARTIAL_REFERENCE_IMPLEMENTED_DISPATCH_BLOCKED",
+  "sourceDocumentSha256": "8fe5e74f10197a45e55053d50f8fc0b4340d84d8d59dba706af90d080168cb6c",
+  "postgresqlVersion": "18.6",
+  "serverEncoding": "UTF8",
+  "canonicalResourceProposal": {
+    "database/operation-helper-owner-query.sql": "owner-query-helpers.sql",
+    "database/operation-helper-owner-query-install-acl.sql": "owner-query-install-acl.sql"
+  },
+  "mandatoryWrapperUniverse": 262,
+  "mandatoryCallsiteUniverse": 1048,
+  "referenceImplementedWrappers": 2,
+  "unimplementedWrappers": 260,
+  "wholeOperationsClosed": [],
+  "actualPostgresqlTests": 10,
+  "files": {
+    "owner-query-install-acl.sql": "16804bb9c03b9eec8337250fd3e4a03c94dcc2ea8b5c23a65fc770e31dd163ea",
+    "owner-query-helpers.sql": "ba3f9b1bc4612c83a1b83cdf6c448fd282fa549f9cd15490418edb0424a1e5e5",
+    "owner-query-original-wrappers.sql": "5bc5b7d2daf4bb29a16c6f8dd9587494006ffce5d1a03a9e5a67e778777032d5",
+    "owner_query_context.py": "e112f7263b21d91c1d4285d78227acce51c06bacffd08c45524fcd0612513e5c",
+    "verify_owner_query_family_pg.py": "deda4934b8c64b05605ede764b517912486cd27f266cbcd6a2e5e423f6769788",
+    "owner-query-postgres-proof.json": "e913c48d9b71e9de8498b7851c9bddcc68cc75bf41ff2eae9456c5d531df71f9",
+    "operation-helper-callsite-registry.json": "8009bf8fd3ebf77086447025f6042cdb191fb3a02832a8bf51e29f4e351ed998",
+    "owner-query-internal-mask-proposal.json": "759a145888a5713e05f67f964f2da93cf84b5cce3b890c74146b8294ecb5d98a",
+    "INTEGRATION.md": "e5050330fa831d9d4a2ed25f117dade9199b30ba36d6ece5efdbb499bafe1609"
+  },
+  "remainingIds": [
+    "SQL.OWNER_QUERY.TRUSTED_ISSUER",
+    "SQL.OWNER_QUERY.RUNTIME_CAPABILITY",
+    "SQL.OWNER_QUERY.AUDIT_HYDRATION",
+    "SQL.TYPED_HANDLER.<260 operationIds as registry>"
+  ],
+  "evidenceClass": "Design/reference PostgreSQL fixture, not application runtime acceptance"
+}

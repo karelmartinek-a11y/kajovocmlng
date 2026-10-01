@@ -1,0 +1,64 @@
+{
+  "mcp.prompts.get": {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 7,
+      "method": "prompts/get",
+      "params": {
+        "_meta": {
+          "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+          "io.modelcontextprotocol/clientCapabilities": {}
+        },
+        "name": "fixture-prompt"
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 7,
+      "result": {
+        "resultType": "complete",
+        "_meta": {},
+        "messages": [
+          {
+            "role": "user",
+            "content": {
+              "type": "text",
+              "text": "synthetic: preserve whitespace  "
+            }
+          }
+        ]
+      }
+    }
+  },
+  "mcp.resources.read": {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 7,
+      "method": "resources/read",
+      "params": {
+        "_meta": {
+          "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+          "io.modelcontextprotocol/clientCapabilities": {}
+        },
+        "uri": "fixture://synthetic/resource"
+      }
+    },
+    "response": {
+      "jsonrpc": "2.0",
+      "id": 7,
+      "result": {
+        "resultType": "complete",
+        "_meta": {},
+        "contents": [
+          {
+            "uri": "fixture://synthetic/resource",
+            "mimeType": "text/plain",
+            "text": "  synthetic\n"
+          }
+        ],
+        "ttlMs": 0,
+        "cacheScope": "private"
+      }
+    }
+  }
+}

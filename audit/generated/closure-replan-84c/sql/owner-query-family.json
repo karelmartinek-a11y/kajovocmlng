@@ -1,0 +1,202 @@
+{
+  "sourceDocumentSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "family": [
+    {
+      "operationId": "ownerApiKey.read",
+      "functionName": "kcml_op_e2102887249da0cf3e17_v1",
+      "descriptorDigest": "sha256:294f62dc44b546f270df88f825c37f9402db88b7e56f7099a449b9f446cf5770",
+      "sourceSql": "-- ownerApiKey.read / sha256:294f62dc44b546f270df88f825c37f9402db88b7e56f7099a449b9f446cf5770\nCREATE OR REPLACE FUNCTION kcml_op_e2102887249da0cf3e17_v1(p_ctx kcml_operation_context_v1) RETURNS jsonb\nLANGUAGE plpgsql SECURITY DEFINER SET search_path = pg_catalog, public AS $$\nBEGIN\n  PERFORM kcml_assert_operation_descriptor_v1(p_ctx, 'ownerApiKey.read', 'sha256:294f62dc44b546f270df88f825c37f9402db88b7e56f7099a449b9f446cf5770');\n  PERFORM kcml_assert_recovery_and_incarnation_v1(p_ctx);\n  PERFORM kcml_lock_exact_root_plan_v1(p_ctx, 'owner_api_credential', '');\n  RETURN kcml_apply_exact_domain_plan_v1(p_ctx, '{\"operationId\":\"ownerApiKey.read\",\"profile\":\"CONSISTENT_READ\",\"subjectTable\":\"owner_api_credential\",\"rootOwnershipRef\":\"owner_api_credential\",\"mode\":\"READ\",\"physicalPhases\":[\"READ_ONLY_SNAPSHOT\"],\"rootLockPlan\":{\"root\":\"owner_api_credential\",\"lockClass\":\"E_PARENT_AGGREGATE\",\"ordinal\":null,\"auditHeadLast\":true},\"fieldUpdatePlan\":[{\"semanticField\":\"`singleton_key = OWNER_API`, primary/unique a check constraint\",\"storage\":\"EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB\",\"requiredBySource\":true},{\"semanticField\":\"`secret_id` a `secret_version_id` pro stable name `KCML_OWNER_API_KEY`\",\"storage\":\"EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB\",\"requiredBySource\":true},{\"semanticField\":\"`verifier_hash`, `fingerprint`, `credential_version`\",\"storage\":\"EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB\",\"requiredBySource\":true},{\"semanticField\":\"`state_version` a credential activation epoch\",\"storage\":\"EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB\",\"requiredBySource\":true},{\"semanticField\":\"posledn\u00ed rotate logical operation a outcome digest\",\"storage\":\"EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB\",\"requiredBySource\":true},{\"semanticField\":\"`created_at`, `rotated_at`, `last_used_at`\",\"storage\":\"EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB\",\"requiredBySource\":true},{\"semanticField\":\"`last_usage_metadata`, `audit_correlation_id`\",\"storage\":\"EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB\",\"requiredBySource\":true},{\"semanticField\":\"Existuje pr\u00e1v\u011b jeden \u0159\u00e1dek a jedna active Secret version. Tabulka neobsahuje account relation, principal, role, scope, label, expiry ani collection lifecycle. Rotace pod singleton row lockem a expected state version atomicky nahrad\u00ed active Secret version, verifier, credential version a epoch; p\u0159edchoz\u00ed kl\u00ed\u010d p\u0159estane platit v t\u00e9m\u017ee commitu. Retry stejn\u00e9 rotate logical operation vrac\u00ed stejn\u00fd canonical outcome.\",\"storage\":\"EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB\",\"requiredBySource\":true}],\"applicableDatabaseRuleIds\":[\"db.decl.SSOT-DECL-198.4\",\"db.sql.ssot-202\"],\"compositeForeignKeyPolicy\":\"APPLY_ALL_SOURCE_RULES_WHOSE_TABLE_SET_INTERSECTS_SUBJECT_OR_ROOT; NONE_IF_EMPTY\",\"deferredTriggerPolicy\":\"APPLY_SOURCE_DECLARED_DEFERRED_TRIGGER_RULES_BEFORE_TERMINAL_COMMIT\",\"stateVersionPolicy\":\"CAS_REQUIRED_FOR_MUTATION; READ_ONLY_FOR_CONSISTENT_READ\",\"externalIoInsideSql\":false,\"sourceRefs\":[{\"section\":\"51.2\",\"anchor\":\"section.51.2\",\"sourceDigest\":\"sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12\",\"relation\":\"AUTHORITY\"},{\"section\":\"51.5\",\"anchor\":\"section.51.5\",\"sourceDigest\":\"sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12\",\"relation\":\"AUTHORITY\"},{\"section\":\"51.6\",\"anchor\":\"section.51.6\",\"sourceDigest\":\"sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12\",\"relation\":\"AUTHORITY\"},{\"section\":\"51.30\",\"anchor\":\"section.51.30\",\"sourceDigest\":\"sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12\",\"relation\":\"AUTHORITY\"}]}'::jsonb);\nEND $$;",
+      "originalPlan": {
+        "operationId": "ownerApiKey.read",
+        "profile": "CONSISTENT_READ",
+        "subjectTable": "owner_api_credential",
+        "rootOwnershipRef": "owner_api_credential",
+        "mode": "READ",
+        "physicalPhases": [
+          "READ_ONLY_SNAPSHOT"
+        ],
+        "rootLockPlan": {
+          "root": "owner_api_credential",
+          "lockClass": "E_PARENT_AGGREGATE",
+          "ordinal": null,
+          "auditHeadLast": true
+        },
+        "fieldUpdatePlan": [
+          {
+            "semanticField": "`singleton_key = OWNER_API`, primary/unique a check constraint",
+            "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+            "requiredBySource": true
+          },
+          {
+            "semanticField": "`secret_id` a `secret_version_id` pro stable name `KCML_OWNER_API_KEY`",
+            "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+            "requiredBySource": true
+          },
+          {
+            "semanticField": "`verifier_hash`, `fingerprint`, `credential_version`",
+            "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+            "requiredBySource": true
+          },
+          {
+            "semanticField": "`state_version` a credential activation epoch",
+            "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+            "requiredBySource": true
+          },
+          {
+            "semanticField": "posledn\u00ed rotate logical operation a outcome digest",
+            "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+            "requiredBySource": true
+          },
+          {
+            "semanticField": "`created_at`, `rotated_at`, `last_used_at`",
+            "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+            "requiredBySource": true
+          },
+          {
+            "semanticField": "`last_usage_metadata`, `audit_correlation_id`",
+            "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+            "requiredBySource": true
+          },
+          {
+            "semanticField": "Existuje pr\u00e1v\u011b jeden \u0159\u00e1dek a jedna active Secret version. Tabulka neobsahuje account relation, principal, role, scope, label, expiry ani collection lifecycle. Rotace pod singleton row lockem a expected state version atomicky nahrad\u00ed active Secret version, verifier, credential version a epoch; p\u0159edchoz\u00ed kl\u00ed\u010d p\u0159estane platit v t\u00e9m\u017ee commitu. Retry stejn\u00e9 rotate logical operation vrac\u00ed stejn\u00fd canonical outcome.",
+            "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+            "requiredBySource": true
+          }
+        ],
+        "applicableDatabaseRuleIds": [
+          "db.decl.SSOT-DECL-198.4",
+          "db.sql.ssot-202"
+        ],
+        "compositeForeignKeyPolicy": "APPLY_ALL_SOURCE_RULES_WHOSE_TABLE_SET_INTERSECTS_SUBJECT_OR_ROOT; NONE_IF_EMPTY",
+        "deferredTriggerPolicy": "APPLY_SOURCE_DECLARED_DEFERRED_TRIGGER_RULES_BEFORE_TERMINAL_COMMIT",
+        "stateVersionPolicy": "CAS_REQUIRED_FOR_MUTATION; READ_ONLY_FOR_CONSISTENT_READ",
+        "externalIoInsideSql": false,
+        "sourceRefs": [
+          {
+            "section": "51.2",
+            "anchor": "section.51.2",
+            "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12",
+            "relation": "AUTHORITY"
+          },
+          {
+            "section": "51.5",
+            "anchor": "section.51.5",
+            "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12",
+            "relation": "AUTHORITY"
+          },
+          {
+            "section": "51.6",
+            "anchor": "section.51.6",
+            "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12",
+            "relation": "AUTHORITY"
+          },
+          {
+            "section": "51.30",
+            "anchor": "section.51.30",
+            "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12",
+            "relation": "AUTHORITY"
+          }
+        ]
+      }
+    },
+    {
+      "operationId": "ownerApiKey.reveal",
+      "functionName": "kcml_op_876669c0a0a51c444e5b_v1",
+      "descriptorDigest": "sha256:e2b589e43911d76901b71da890c6c85978d2fa2ae9158ae8a9b0b6dbe6da3275",
+      "sourceSql": "-- ownerApiKey.reveal / sha256:e2b589e43911d76901b71da890c6c85978d2fa2ae9158ae8a9b0b6dbe6da3275\nCREATE OR REPLACE FUNCTION kcml_op_876669c0a0a51c444e5b_v1(p_ctx kcml_operation_context_v1) RETURNS jsonb\nLANGUAGE plpgsql SECURITY DEFINER SET search_path = pg_catalog, public AS $$\nBEGIN\n  PERFORM kcml_assert_operation_descriptor_v1(p_ctx, 'ownerApiKey.reveal', 'sha256:e2b589e43911d76901b71da890c6c85978d2fa2ae9158ae8a9b0b6dbe6da3275');\n  PERFORM kcml_assert_recovery_and_incarnation_v1(p_ctx);\n  PERFORM kcml_lock_exact_root_plan_v1(p_ctx, 'owner_api_credential', '');\n  RETURN kcml_apply_exact_domain_plan_v1(p_ctx, '{\"operationId\":\"ownerApiKey.reveal\",\"profile\":\"CONSISTENT_READ\",\"subjectTable\":\"owner_api_credential\",\"rootOwnershipRef\":\"owner_api_credential\",\"mode\":\"READ\",\"physicalPhases\":[\"READ_ONLY_SNAPSHOT\"],\"rootLockPlan\":{\"root\":\"owner_api_credential\",\"lockClass\":\"E_PARENT_AGGREGATE\",\"ordinal\":null,\"auditHeadLast\":true},\"fieldUpdatePlan\":[{\"semanticField\":\"`singleton_key = OWNER_API`, primary/unique a check constraint\",\"storage\":\"EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB\",\"requiredBySource\":true},{\"semanticField\":\"`secret_id` a `secret_version_id` pro stable name `KCML_OWNER_API_KEY`\",\"storage\":\"EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB\",\"requiredBySource\":true},{\"semanticField\":\"`verifier_hash`, `fingerprint`, `credential_version`\",\"storage\":\"EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB\",\"requiredBySource\":true},{\"semanticField\":\"`state_version` a credential activation epoch\",\"storage\":\"EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB\",\"requiredBySource\":true},{\"semanticField\":\"posledn\u00ed rotate logical operation a outcome digest\",\"storage\":\"EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB\",\"requiredBySource\":true},{\"semanticField\":\"`created_at`, `rotated_at`, `last_used_at`\",\"storage\":\"EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB\",\"requiredBySource\":true},{\"semanticField\":\"`last_usage_metadata`, `audit_correlation_id`\",\"storage\":\"EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB\",\"requiredBySource\":true},{\"semanticField\":\"Existuje pr\u00e1v\u011b jeden \u0159\u00e1dek a jedna active Secret version. Tabulka neobsahuje account relation, principal, role, scope, label, expiry ani collection lifecycle. Rotace pod singleton row lockem a expected state version atomicky nahrad\u00ed active Secret version, verifier, credential version a epoch; p\u0159edchoz\u00ed kl\u00ed\u010d p\u0159estane platit v t\u00e9m\u017ee commitu. Retry stejn\u00e9 rotate logical operation vrac\u00ed stejn\u00fd canonical outcome.\",\"storage\":\"EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB\",\"requiredBySource\":true}],\"applicableDatabaseRuleIds\":[\"db.decl.SSOT-DECL-198.4\",\"db.sql.ssot-202\"],\"compositeForeignKeyPolicy\":\"APPLY_ALL_SOURCE_RULES_WHOSE_TABLE_SET_INTERSECTS_SUBJECT_OR_ROOT; NONE_IF_EMPTY\",\"deferredTriggerPolicy\":\"APPLY_SOURCE_DECLARED_DEFERRED_TRIGGER_RULES_BEFORE_TERMINAL_COMMIT\",\"stateVersionPolicy\":\"CAS_REQUIRED_FOR_MUTATION; READ_ONLY_FOR_CONSISTENT_READ\",\"externalIoInsideSql\":false,\"sourceRefs\":[{\"section\":\"51.2\",\"anchor\":\"section.51.2\",\"sourceDigest\":\"sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12\",\"relation\":\"AUTHORITY\"},{\"section\":\"51.5\",\"anchor\":\"section.51.5\",\"sourceDigest\":\"sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12\",\"relation\":\"AUTHORITY\"},{\"section\":\"51.6\",\"anchor\":\"section.51.6\",\"sourceDigest\":\"sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12\",\"relation\":\"AUTHORITY\"},{\"section\":\"51.30\",\"anchor\":\"section.51.30\",\"sourceDigest\":\"sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12\",\"relation\":\"AUTHORITY\"}]}'::jsonb);\nEND $$;",
+      "originalPlan": {
+        "operationId": "ownerApiKey.reveal",
+        "profile": "CONSISTENT_READ",
+        "subjectTable": "owner_api_credential",
+        "rootOwnershipRef": "owner_api_credential",
+        "mode": "READ",
+        "physicalPhases": [
+          "READ_ONLY_SNAPSHOT"
+        ],
+        "rootLockPlan": {
+          "root": "owner_api_credential",
+          "lockClass": "E_PARENT_AGGREGATE",
+          "ordinal": null,
+          "auditHeadLast": true
+        },
+        "fieldUpdatePlan": [
+          {
+            "semanticField": "`singleton_key = OWNER_API`, primary/unique a check constraint",
+            "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+            "requiredBySource": true
+          },
+          {
+            "semanticField": "`secret_id` a `secret_version_id` pro stable name `KCML_OWNER_API_KEY`",
+            "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+            "requiredBySource": true
+          },
+          {
+            "semanticField": "`verifier_hash`, `fingerprint`, `credential_version`",
+            "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+            "requiredBySource": true
+          },
+          {
+            "semanticField": "`state_version` a credential activation epoch",
+            "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+            "requiredBySource": true
+          },
+          {
+            "semanticField": "posledn\u00ed rotate logical operation a outcome digest",
+            "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+            "requiredBySource": true
+          },
+          {
+            "semanticField": "`created_at`, `rotated_at`, `last_used_at`",
+            "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+            "requiredBySource": true
+          },
+          {
+            "semanticField": "`last_usage_metadata`, `audit_correlation_id`",
+            "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+            "requiredBySource": true
+          },
+          {
+            "semanticField": "Existuje pr\u00e1v\u011b jeden \u0159\u00e1dek a jedna active Secret version. Tabulka neobsahuje account relation, principal, role, scope, label, expiry ani collection lifecycle. Rotace pod singleton row lockem a expected state version atomicky nahrad\u00ed active Secret version, verifier, credential version a epoch; p\u0159edchoz\u00ed kl\u00ed\u010d p\u0159estane platit v t\u00e9m\u017ee commitu. Retry stejn\u00e9 rotate logical operation vrac\u00ed stejn\u00fd canonical outcome.",
+            "storage": "EXPLICIT_COLUMN_WHERE_SOURCE_OR_CONSTRAINT_NAMES_COLUMN_ELSE_ENTITY_CONTRACT_PAYLOAD_JSONB",
+            "requiredBySource": true
+          }
+        ],
+        "applicableDatabaseRuleIds": [
+          "db.decl.SSOT-DECL-198.4",
+          "db.sql.ssot-202"
+        ],
+        "compositeForeignKeyPolicy": "APPLY_ALL_SOURCE_RULES_WHOSE_TABLE_SET_INTERSECTS_SUBJECT_OR_ROOT; NONE_IF_EMPTY",
+        "deferredTriggerPolicy": "APPLY_SOURCE_DECLARED_DEFERRED_TRIGGER_RULES_BEFORE_TERMINAL_COMMIT",
+        "stateVersionPolicy": "CAS_REQUIRED_FOR_MUTATION; READ_ONLY_FOR_CONSISTENT_READ",
+        "externalIoInsideSql": false,
+        "sourceRefs": [
+          {
+            "section": "51.2",
+            "anchor": "section.51.2",
+            "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12",
+            "relation": "AUTHORITY"
+          },
+          {
+            "section": "51.5",
+            "anchor": "section.51.5",
+            "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12",
+            "relation": "AUTHORITY"
+          },
+          {
+            "section": "51.6",
+            "anchor": "section.51.6",
+            "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12",
+            "relation": "AUTHORITY"
+          },
+          {
+            "section": "51.30",
+            "anchor": "section.51.30",
+            "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12",
+            "relation": "AUTHORITY"
+          }
+        ]
+      }
+    }
+  ],
+  "sourceResourceSha256": "55f69f9d58f6d45dc79329762a182792be0f5b422ed11f0af9fac8a7d9d200e8"
+}

@@ -1,0 +1,2283 @@
+{
+  "sourceSha256": "9d0c92e9797abecdf5c8ba18cb12515967f27b749322aab5b4dc0b6925ecb649",
+  "newResource": "contracts/audit/core-read.schema.json",
+  "resource": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:kcml:audit:core-read:v1",
+    "$defs": {
+      "CoreQuery": {
+        "$id": "urn:kcml:history-query:1",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "channel": {
+            "enum": [
+              "SMS",
+              "EMAIL",
+              "WEBHOOK",
+              "API",
+              "BROWSER",
+              null
+            ],
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "clientRef": {
+            "maxLength": 256,
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "componentId": {
+            "format": "uuid",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "correlationId": {
+            "format": "uuid",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "cursor": {
+            "maxLength": 2048,
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "direction": {
+            "enum": [
+              "ANY",
+              "INBOUND",
+              "OUTBOUND"
+            ],
+            "type": "string"
+          },
+          "from": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "limit": {
+            "maximum": 200,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "recordKinds": {
+            "items": {
+              "enum": [
+                "RUN",
+                "COMPONENT",
+                "MESSAGE",
+                "EVENT",
+                "ERROR",
+                "PAYLOAD",
+                "SPAN"
+              ],
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "result": {
+            "enum": [
+              "ANY",
+              "SUCCEEDED",
+              "FAILED",
+              "CANCELLED",
+              "UNKNOWN"
+            ],
+            "type": "string"
+          },
+          "runId": {
+            "format": "uuid",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sort": {
+            "enum": [
+              "TIME_ASC",
+              "TIME_DESC",
+              "DURATION_DESC"
+            ],
+            "type": "string"
+          },
+          "to": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "recordKinds",
+          "runId",
+          "componentId",
+          "correlationId",
+          "clientRef",
+          "from",
+          "to",
+          "channel",
+          "direction",
+          "result",
+          "sort",
+          "limit",
+          "cursor"
+        ],
+        "type": "object"
+      },
+      "AuditRecord": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/DomainEventAuditRecord"
+          },
+          {
+            "$ref": "#/$defs/PrerootAuditRecord"
+          }
+        ]
+      },
+      "CanonicalAuditBytes": {
+        "type": "object",
+        "properties": {
+          "logicalOperationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "eventId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "objectId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "actorId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "beforeDigest": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "afterDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "correlationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "causationId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "traceId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "occurredAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "chainSequence": {
+            "maxLength": 19,
+            "minLength": 1,
+            "pattern": "^(?:[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+            "type": "string"
+          },
+          "previousHash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "logicalOperationId",
+          "eventId",
+          "objectId",
+          "actorId",
+          "beforeDigest",
+          "afterDigest",
+          "correlationId",
+          "causationId",
+          "traceId",
+          "occurredAt",
+          "chainSequence",
+          "previousHash"
+        ],
+        "additionalProperties": false
+      },
+      "DomainEventAuditRecord": {
+        "type": "object",
+        "properties": {
+          "recordKind": {
+            "const": "DOMAIN_EVENT_AUDIT"
+          },
+          "auditId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "chainSequence": {
+            "maxLength": 19,
+            "minLength": 1,
+            "pattern": "^(?:[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+            "type": "string"
+          },
+          "previousHash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "eventHash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "chainFormatVersion": {
+            "const": 1
+          },
+          "canonicalAuditBytesBase64": {
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "logicalOperationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "actorId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "domainEventId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "aggregateId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "aggregateKind": {
+            "type": "string",
+            "minLength": 1
+          },
+          "eventType": {
+            "type": "string",
+            "minLength": 1
+          },
+          "eventSchemaId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "eventSchemaDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "eventPayloadBytesBase64": {
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "eventPayloadDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "correlationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "causationId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "occurredAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "archiveRequired": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "recordKind",
+          "auditId",
+          "chainSequence",
+          "previousHash",
+          "eventHash",
+          "chainFormatVersion",
+          "canonicalAuditBytesBase64",
+          "logicalOperationId",
+          "actorId",
+          "domainEventId",
+          "aggregateId",
+          "aggregateKind",
+          "eventType",
+          "eventSchemaId",
+          "eventSchemaDigest",
+          "eventPayloadBytesBase64",
+          "eventPayloadDigest",
+          "correlationId",
+          "causationId",
+          "occurredAt",
+          "archiveRequired"
+        ],
+        "additionalProperties": false
+      },
+      "PrerootAuditRecord": {
+        "type": "object",
+        "properties": {
+          "recordKind": {
+            "const": "GENERATION_PREROOT_OUTCOME_AUDIT"
+          },
+          "auditId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "chainSequence": {
+            "maxLength": 19,
+            "minLength": 1,
+            "pattern": "^(?:[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+            "type": "string"
+          },
+          "previousHash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "eventHash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "chainFormatVersion": {
+            "const": 1
+          },
+          "canonicalAuditBytesBase64": {
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "logicalOperationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "actorId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "archiveRequired": {
+            "type": "boolean"
+          },
+          "operationId": {
+            "const": "generation.job.create"
+          },
+          "domainEventId": {
+            "type": "null"
+          },
+          "prospectiveJobId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "retainedStateVersion": {
+            "maxLength": 19,
+            "minLength": 1,
+            "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+            "type": "string"
+          },
+          "retainedOutcomeDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "retainedOutcomeBytesBase64": {
+            "type": "string",
+            "contentEncoding": "base64"
+          },
+          "retainedOutcome": {
+            "$ref": "#/$defs/PrerootOutcome"
+          }
+        },
+        "required": [
+          "recordKind",
+          "auditId",
+          "chainSequence",
+          "previousHash",
+          "eventHash",
+          "chainFormatVersion",
+          "canonicalAuditBytesBase64",
+          "logicalOperationId",
+          "actorId",
+          "archiveRequired",
+          "operationId",
+          "domainEventId",
+          "prospectiveJobId",
+          "retainedStateVersion",
+          "retainedOutcomeDigest",
+          "retainedOutcomeBytesBase64",
+          "retainedOutcome"
+        ],
+        "additionalProperties": false
+      },
+      "PrerootOutcome": {
+        "type": "object",
+        "properties": {
+          "routeId": {
+            "const": "route.0215"
+          },
+          "operationId": {
+            "const": "generation.job.create"
+          },
+          "logicalOperationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "correlationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "enum": [
+              "ACCEPTED",
+              "FAILED",
+              "CANCELLED"
+            ]
+          },
+          "terminal": {
+            "type": "boolean"
+          },
+          "output": {
+            "type": "null"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "stableCode": {
+                    "enum": [
+                      "CREATE_CANCELLED",
+                      "CREATE_INPUT_INVALID",
+                      "CREATE_AUTHENTICATION_REQUIRED",
+                      "CREATE_REFERENCE_INVALID",
+                      "CREATE_POLICY_UNRESOLVED",
+                      "CREATE_RECOVERY_BARRIER",
+                      "IDEMPOTENCY_CONFLICT",
+                      "CREATE_PERSISTENCE_FAILED",
+                      "SIDE_EFFECT_OUTCOME_UNKNOWN",
+                      "FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED",
+                      "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+                      "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+                      "FOLLOW_UP_BASIS_DIGEST_CONFLICT",
+                      "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+                      "FOLLOW_UP_BASIS_INCONSISTENT",
+                      "FOLLOW_UP_BASIS_INSUFFICIENT",
+                      "FOLLOW_UP_BASIS_INVALID",
+                      "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+                      "FOLLOW_UP_BASIS_UNAVAILABLE",
+                      "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+                      "FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID",
+                      "FOLLOW_UP_FROZEN_IDENTITY_MISMATCH",
+                      "FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH",
+                      "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+                      "FOLLOW_UP_KIND_REQUIRED",
+                      "FOLLOW_UP_PARENT_REQUIRED",
+                      "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+                      "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+                      "FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+                      "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+                      "FOLLOW_UP_SOURCE_STATE_INVALID"
+                    ]
+                  },
+                  "classification": {
+                    "enum": [
+                      "AUTHENTICATION",
+                      "AUTHORIZATION",
+                      "CANCELLED",
+                      "CONFLICT",
+                      "DEPENDENCY",
+                      "INTERNAL",
+                      "UNKNOWN",
+                      "VALIDATION"
+                    ]
+                  },
+                  "retryDirective": {
+                    "enum": [
+                      "DO_NOT_RETRY",
+                      "RECONCILE_THEN_RETRY",
+                      "RETRY_SAME_OPERATION"
+                    ]
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "detailsDigest": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^sha256:[0-9a-f]{64}$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "stableCode",
+                  "classification",
+                  "retryDirective",
+                  "message",
+                  "detailsDigest"
+                ],
+                "additionalProperties": false,
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "CREATE_CANCELLED"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "CANCELLED"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "CREATE_INPUT_INVALID"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "CREATE_AUTHENTICATION_REQUIRED"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "AUTHENTICATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "CREATE_REFERENCE_INVALID"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "CREATE_POLICY_UNRESOLVED"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "DEPENDENCY"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "CREATE_RECOVERY_BARRIER"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "CONFLICT"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "IDEMPOTENCY_CONFLICT"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "CONFLICT"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "CREATE_PERSISTENCE_FAILED"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "INTERNAL"
+                        },
+                        "retryDirective": {
+                          "const": "RETRY_SAME_OPERATION"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "SIDE_EFFECT_OUTCOME_UNKNOWN"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "UNKNOWN"
+                        },
+                        "retryDirective": {
+                          "const": "RECONCILE_THEN_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "DEPENDENCY"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "DEPENDENCY"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_BASIS_DIGEST_CONFLICT"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_BASIS_INCONSISTENT"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_BASIS_INSUFFICIENT"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_BASIS_INVALID"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_BASIS_NOT_IMMUTABLE"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_BASIS_UNAVAILABLE"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_FROZEN_IDENTITY_MISMATCH"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_KIND_REQUIRED"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_PARENT_REQUIRED"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "DEPENDENCY"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_SOURCE_OWNER_MISMATCH"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "AUTHORIZATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "stableCode": {
+                          "const": "FOLLOW_UP_SOURCE_STATE_INVALID"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "classification": {
+                          "const": "VALIDATION"
+                        },
+                        "retryDirective": {
+                          "const": "DO_NOT_RETRY"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "stateVersion": {
+            "type": "null"
+          },
+          "eventSequence": {
+            "type": "null"
+          },
+          "activationEpoch": {
+            "type": "null"
+          }
+        },
+        "required": [
+          "routeId",
+          "operationId",
+          "logicalOperationId",
+          "correlationId",
+          "status",
+          "terminal",
+          "output",
+          "error",
+          "stateVersion",
+          "eventSequence",
+          "activationEpoch"
+        ],
+        "additionalProperties": false
+      },
+      "OriginProjection": {
+        "type": "object",
+        "properties": {
+          "auditId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "eventHash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "runId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "componentId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clientRef": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "channel": {
+            "enum": [
+              "SMS",
+              "EMAIL",
+              "WEBHOOK",
+              "API",
+              "BROWSER",
+              null
+            ]
+          },
+          "direction": {
+            "enum": [
+              "INBOUND",
+              "OUTBOUND",
+              "NOT_APPLICABLE"
+            ]
+          },
+          "result": {
+            "enum": [
+              "SUCCEEDED",
+              "FAILED",
+              "CANCELLED",
+              "UNKNOWN",
+              null
+            ]
+          },
+          "durationMs": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "recordedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sourceContextDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "auditId",
+          "eventHash",
+          "runId",
+          "componentId",
+          "clientRef",
+          "channel",
+          "direction",
+          "result",
+          "durationMs",
+          "recordedAt",
+          "sourceContextDigest"
+        ],
+        "additionalProperties": false
+      },
+      "CoreResult": {
+        "type": "object",
+        "properties": {
+          "resolvedInterval": {
+            "type": "object",
+            "properties": {
+              "from": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "to": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "from",
+              "to"
+            ],
+            "additionalProperties": false
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/AuditRecord"
+            },
+            "maxItems": 200
+          },
+          "nextCursor": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "snapshotWatermark": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "coverageFrom": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "coverageTo": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "completeness": {
+            "enum": [
+              "COMPLETE",
+              "PARTIAL",
+              "UNAVAILABLE"
+            ]
+          },
+          "missingSources": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "provenanceRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "resolvedInterval",
+          "items",
+          "nextCursor",
+          "snapshotWatermark",
+          "coverageFrom",
+          "coverageTo",
+          "completeness",
+          "missingSources",
+          "provenanceRefs"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "completeness": {
+                  "const": "COMPLETE"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "coverageFrom": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "coverageTo": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "missingSources": {
+                  "maxItems": 0
+                },
+                "provenanceRefs": {
+                  "minItems": 1
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "completeness": {
+                  "const": "PARTIAL"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "missingSources": {
+                  "minItems": 1
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "completeness": {
+                  "const": "UNAVAILABLE"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "items": {
+                  "maxItems": 0
+                },
+                "coverageFrom": {
+                  "type": "null"
+                },
+                "coverageTo": {
+                  "type": "null"
+                },
+                "nextCursor": {
+                  "type": "null"
+                },
+                "missingSources": {
+                  "minItems": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "x-coreMaximum": 200,
+    "x-consumerCapability": "AUDIT_IMMUTABLE_BYTES_INSPECTION_ONLY; no event application or Secret runtime use",
+    "x-sourceDerived": [
+      "\u00a751.25 exact immutable audit bytes and framed hash",
+      "database/generation-create-foundations.sql audit/domain_event FK+digests",
+      "scripts/secret_command_chain.py existing canonical audit JSON producer field names and DB clock",
+      "ui/contracts/live-experience.json#/observability/historyQuerySchema strict200"
+    ],
+    "x-technicalNorm": [
+      "Global audit.event.list uses CoreQuery200; experience500 is a UI query adapter only and cannot silently drop legacy filters or expand core pages",
+      "Immutable origin projection is copied from exact authenticated domain ingress/execution context under producer identity/digest; no client flag/source-label guess",
+      "recordKinds filter EVENT because this endpoint reads audit_event rows; non-EVENT-only queries return evidenced empty match, never other record kinds",
+      "TIME_ASC/TIME_DESC order canonical DB-recorded timestamp then auditId binary ascending; DURATION_DESC uses published duration non-null first then timestamp/id",
+      "AuditRecord exact typed metadata plus original native bytes is an inspection contract; bytes are not a replacement for business event contracts"
+    ]
+  },
+  "patches": [
+    {
+      "operationId": "audit.event.list",
+      "routeId": "route.0451",
+      "verifyIndex": 451,
+      "replace": {
+        "requestSchema": {
+          "$id": "urn:kcml:r9:route:route.0451:request",
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "body": {
+              "type": "null"
+            },
+            "guards": {
+              "additionalProperties": false,
+              "properties": {
+                "clientRequestDigest": {
+                  "pattern": "^sha256:[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                "deadlineAt": {
+                  "format": "date-time",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "expectedActivationEpoch": {
+                  "maxLength": 19,
+                  "minLength": 1,
+                  "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "expectedBindingSetRevision": {
+                  "maxLength": 19,
+                  "minLength": 1,
+                  "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "expectedReleaseId": {
+                  "maxLength": 256,
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "expectedRevisionId": {
+                  "maxLength": 256,
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "expectedStateVersion": {
+                  "maxLength": 19,
+                  "minLength": 1,
+                  "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "idempotencyKey": {
+                  "maxLength": 512,
+                  "minLength": 1,
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "idempotencyKey",
+                "expectedStateVersion",
+                "expectedRevisionId",
+                "expectedReleaseId",
+                "expectedBindingSetRevision",
+                "expectedActivationEpoch",
+                "deadlineAt",
+                "clientRequestDigest"
+              ],
+              "type": "object"
+            },
+            "operationId": {
+              "const": "audit.event.list"
+            },
+            "pathParameters": {
+              "additionalProperties": false,
+              "properties": {},
+              "required": [],
+              "type": "object"
+            },
+            "query": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "enum": [
+                      "channel",
+                      "clientRef",
+                      "componentId",
+                      "correlationId",
+                      "cursor",
+                      "direction",
+                      "from",
+                      "limit",
+                      "recordKinds",
+                      "result",
+                      "runId",
+                      "sort",
+                      "to"
+                    ]
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "value"
+                ],
+                "additionalProperties": false
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "properties": {
+                      "name": {
+                        "const": "channel"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "name": {
+                        "const": "clientRef"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "name": {
+                        "const": "componentId"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "name": {
+                        "const": "correlationId"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "name": {
+                        "const": "cursor"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "name": {
+                        "const": "direction"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "name": {
+                        "const": "from"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "name": {
+                        "const": "limit"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "name": {
+                        "const": "result"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "name": {
+                        "const": "runId"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "name": {
+                        "const": "sort"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "name": {
+                        "const": "to"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                }
+              ]
+            },
+            "routeId": {
+              "const": "route.0451"
+            }
+          },
+          "required": [
+            "routeId",
+            "operationId",
+            "pathParameters",
+            "query",
+            "body",
+            "guards"
+          ],
+          "type": "object"
+        },
+        "responseSchema": {
+          "$id": "urn:kcml:r9:route:route.0451:response",
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "SUCCEEDED",
+                      "ACCEPTED"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "error": {
+                    "type": "null"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "FAILED",
+                      "CANCELLED"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "output": {
+                    "type": "null"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "SUCCEEDED"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "output": {
+                    "$ref": "urn:kcml:audit:core-read:v1#/$defs/CoreResult"
+                  },
+                  "error": {
+                    "type": "null"
+                  }
+                }
+              }
+            }
+          ],
+          "properties": {
+            "correlationId": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "error": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "classification": {
+                      "enum": [
+                        "VALIDATION",
+                        "AUTHENTICATION",
+                        "CONFLICT",
+                        "CAPACITY",
+                        "DEPENDENCY",
+                        "TIMEOUT",
+                        "CANCELLED",
+                        "UNKNOWN",
+                        "INTERNAL"
+                      ],
+                      "type": "string"
+                    },
+                    "detailsDigest": {
+                      "pattern": "^sha256:[0-9a-f]{64}$",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "message": {
+                      "maxLength": 8192,
+                      "type": "string"
+                    },
+                    "retryDirective": {
+                      "enum": [
+                        "DO_NOT_RETRY",
+                        "RETRY_SAME_OPERATION",
+                        "REFRESH_AND_RETRY_NEW_COMMAND",
+                        "RECONCILE_THEN_RETRY",
+                        "MANUAL_REVIEW"
+                      ],
+                      "type": "string"
+                    },
+                    "stableCode": {
+                      "maxLength": 128,
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "stableCode",
+                    "classification",
+                    "retryDirective",
+                    "message",
+                    "detailsDigest"
+                  ],
+                  "type": "object"
+                }
+              ]
+            },
+            "logicalOperationId": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "operationId": {
+              "const": "audit.event.list"
+            },
+            "output": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "urn:kcml:audit:core-read:v1#/$defs/CoreResult"
+                }
+              ]
+            },
+            "resultDigest": {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "routeId": {
+              "const": "route.0451"
+            },
+            "status": {
+              "enum": [
+                "SUCCEEDED",
+                "ACCEPTED",
+                "FAILED",
+                "CANCELLED"
+              ],
+              "type": "string"
+            },
+            "terminal": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "routeId",
+            "operationId",
+            "logicalOperationId",
+            "correlationId",
+            "status",
+            "terminal",
+            "output",
+            "error",
+            "resultDigest"
+          ],
+          "type": "object"
+        }
+      },
+      "eventSchema": "UNCHANGED_PREEXISTING_OPERATION_EVENT_AUTHORITY"
+    },
+    {
+      "operationId": "audit.event.read",
+      "routeId": "route.0452",
+      "verifyIndex": 452,
+      "replace": {
+        "requestSchema": {
+          "$id": "urn:kcml:r9:route:route.0452:request",
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "body": {
+              "type": "null"
+            },
+            "guards": {
+              "additionalProperties": false,
+              "properties": {
+                "clientRequestDigest": {
+                  "pattern": "^sha256:[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                "deadlineAt": {
+                  "format": "date-time",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "expectedActivationEpoch": {
+                  "maxLength": 19,
+                  "minLength": 1,
+                  "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "expectedBindingSetRevision": {
+                  "maxLength": 19,
+                  "minLength": 1,
+                  "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "expectedReleaseId": {
+                  "maxLength": 256,
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "expectedRevisionId": {
+                  "maxLength": 256,
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "expectedStateVersion": {
+                  "maxLength": 19,
+                  "minLength": 1,
+                  "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "idempotencyKey": {
+                  "maxLength": 512,
+                  "minLength": 1,
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "idempotencyKey",
+                "expectedStateVersion",
+                "expectedRevisionId",
+                "expectedReleaseId",
+                "expectedBindingSetRevision",
+                "expectedActivationEpoch",
+                "deadlineAt",
+                "clientRequestDigest"
+              ],
+              "type": "object"
+            },
+            "operationId": {
+              "const": "audit.event.read"
+            },
+            "pathParameters": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "maxLength": 36,
+                  "minLength": 36,
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "type": "object"
+            },
+            "query": {
+              "type": "array",
+              "maxItems": 0
+            },
+            "routeId": {
+              "const": "route.0452"
+            }
+          },
+          "required": [
+            "routeId",
+            "operationId",
+            "pathParameters",
+            "query",
+            "body",
+            "guards"
+          ],
+          "type": "object"
+        },
+        "responseSchema": {
+          "$id": "urn:kcml:r9:route:route.0452:response",
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "SUCCEEDED",
+                      "ACCEPTED"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "error": {
+                    "type": "null"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "FAILED",
+                      "CANCELLED"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "output": {
+                    "type": "null"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "SUCCEEDED"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "output": {
+                    "$ref": "urn:kcml:audit:core-read:v1#/$defs/AuditRecord"
+                  },
+                  "error": {
+                    "type": "null"
+                  }
+                }
+              }
+            }
+          ],
+          "properties": {
+            "correlationId": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "error": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "classification": {
+                      "enum": [
+                        "VALIDATION",
+                        "AUTHENTICATION",
+                        "CONFLICT",
+                        "CAPACITY",
+                        "DEPENDENCY",
+                        "TIMEOUT",
+                        "CANCELLED",
+                        "UNKNOWN",
+                        "INTERNAL"
+                      ],
+                      "type": "string"
+                    },
+                    "detailsDigest": {
+                      "pattern": "^sha256:[0-9a-f]{64}$",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "message": {
+                      "maxLength": 8192,
+                      "type": "string"
+                    },
+                    "retryDirective": {
+                      "enum": [
+                        "DO_NOT_RETRY",
+                        "RETRY_SAME_OPERATION",
+                        "REFRESH_AND_RETRY_NEW_COMMAND",
+                        "RECONCILE_THEN_RETRY",
+                        "MANUAL_REVIEW"
+                      ],
+                      "type": "string"
+                    },
+                    "stableCode": {
+                      "maxLength": 128,
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "stableCode",
+                    "classification",
+                    "retryDirective",
+                    "message",
+                    "detailsDigest"
+                  ],
+                  "type": "object"
+                }
+              ]
+            },
+            "logicalOperationId": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "operationId": {
+              "const": "audit.event.read"
+            },
+            "output": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "urn:kcml:audit:core-read:v1#/$defs/AuditRecord"
+                }
+              ]
+            },
+            "resultDigest": {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "routeId": {
+              "const": "route.0452"
+            },
+            "status": {
+              "enum": [
+                "SUCCEEDED",
+                "ACCEPTED",
+                "FAILED",
+                "CANCELLED"
+              ],
+              "type": "string"
+            },
+            "terminal": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "routeId",
+            "operationId",
+            "logicalOperationId",
+            "correlationId",
+            "status",
+            "terminal",
+            "output",
+            "error",
+            "resultDigest"
+          ],
+          "type": "object"
+        }
+      },
+      "eventSchema": "UNCHANGED_PREEXISTING_OPERATION_EVENT_AUTHORITY"
+    }
+  ],
+  "scope": "Exact2global routes, not scoped component/job variants; shared core200 unchanged; narrow immutable byte inspector",
+  "sourceDerivedVsTechnicalSeparated": true,
+  "wholeOperationClosed": false,
+  "preGenerationDefinitionGap": "Actual trusted origin/cursor/coverage/access-audit publishers must implement declared interfaces; parser does not manufacture authority",
+  "newProductDecision": false
+}

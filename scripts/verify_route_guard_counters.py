@@ -38,6 +38,27 @@ def main():
         if CREATE_DESIGN in rs:expected=specialize_creates(expected)
         from secret_read_contracts import specialize as specialize_reads
         if 'contracts/secrets/metadata-read.schema.json'in rs:expected=specialize_reads(expected,rs)
+        if 'contracts/owner-session-family.json' in rs:
+            # Compose the reviewed family transform, not current arbitrary rows.
+            # The explicit Counter prerequisite was independently authored before
+            # this family and is native type authority, not a historical guess.
+            from owner_session_family_contracts import contracts as owner_contracts
+            family_input=copy.deepcopy(expected)
+            counter=json.loads(rs['contracts/generation/generation-contracts.schema.json']['raw'])['$defs']['Counter']
+            selected=next(r for r in family_input['records'] if r['operationId']=='owner.session.revoke')
+            selected['requestSchema']['properties']['guards']['properties']['expectedStateVersion']=copy.deepcopy(counter)
+            family_input.pop('canonicalDigest',None) # In-memory authored composition, not a canonical input claim.
+            bound={**old,PATH:{**old[PATH],'raw':json.dumps(family_input).encode()}}
+            from close_owner_session_family import updates as family_updates
+            expected=json.loads(family_updates(bound)[PATH])
+        if 'contracts/audit/core-read.schema.json' in rs:
+            from close_audit_read_family import prepare as audit_updates
+            # This is an explicit in-memory transformation of the historical
+            # witness. Recompute its authored metadata before composing Audit.
+            from phase1_repair_contracts import canonical_digest
+            expected['canonicalDigest']=canonical_digest({**expected,'canonicalDigest':None})
+            bound={**old,PATH:{**old[PATH],'raw':json.dumps(expected).encode()}}
+            expected=json.loads(audit_updates(bound)[PATH])
         old_routes={r['routeId']:r for r in expected['records']}
     checks=[]
     values=[('0',True),('9223372036854775807',True),('9223372036854775808',False),
@@ -76,7 +97,7 @@ def main():
     report={'sourceSha256':hashlib.sha256(raw).hexdigest(),'baseline':args.baseline,'scope':__doc__,
             'routes':len(routes),'guardDefinitions':len(checks),'checks':checks,
             'checked':sum(len(c['cases']) for c in checks),'failed':failures,
-            'preserved':'Non-guard content and nullability match 997e835 plus explicit domain, event and (when authored) HTTP specialization for routes 0234/0232/0237; unrelated routes are unchanged.'}
+            'preserved':'Non-guard content and nullability match 997e835 plus explicit domain, event and (when authored) HTTP specialization for routes 0234/0232/0237; explicit source-reviewed OWNER_SESSION_RECORD_ADMIN transform; unrelated routes are unchanged.'}
     out=ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/continuation-7006785/design');out.mkdir(parents=True,exist_ok=True)
     (out/('baseline.json' if args.baseline else 'current.json')).write_text(json.dumps(report,indent=2)+'\n',encoding='utf8')
     print(json.dumps({k:report[k] for k in ('sourceSha256','baseline','routes','guardDefinitions','checked','failed')}))

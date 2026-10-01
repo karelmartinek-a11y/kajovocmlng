@@ -1,0 +1,350 @@
+{
+  "status": "PROPOSED_TECHNICAL_ROUTING_NOT_ACTIVATED",
+  "bindingEvidence": {
+    "operationAllowListPointer": "ui/contracts/live-experience.json#/observability/operations",
+    "operations": [
+      "audit.event.list",
+      "audit.event.read",
+      "generation.job.events.read",
+      "agent.run.events.read"
+    ],
+    "consumerTextPointer": "ui/contracts/live-experience.json#/observability/schemaBinding",
+    "consumerText": "These schemas define the shared history-query projection used by Dashboard and chat over the listed canonical read operations. They do not authorize additional writes or replace each operation admission contract.",
+    "exactUriConsumerBindingInSource": false,
+    "trustedProfileDiscriminatorInSource": false
+  },
+  "profiles": [
+    {
+      "queryProfile": "EXPERIENCE_HISTORY_V1",
+      "schemaId": "urn:kcml:experience-history-query:1",
+      "schemaPointer": "ui/contracts/live-experience.json#/observability/querySchema",
+      "maximum": 500,
+      "consumerFieldsPointer": "ui/contracts/live-experience.json#/observability/queryFields"
+    },
+    {
+      "queryProfile": "HISTORY_QUERY_V1",
+      "schemaId": "urn:kcml:history-query:1",
+      "schemaPointer": "ui/contracts/live-experience.json#/observability/historyQuerySchema",
+      "maximum": 200,
+      "fields": [
+        "channel",
+        "clientRef",
+        "componentId",
+        "correlationId",
+        "cursor",
+        "direction",
+        "from",
+        "limit",
+        "recordKinds",
+        "result",
+        "runId",
+        "sort",
+        "to"
+      ]
+    }
+  ],
+  "nativeVariantMasks": {
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "queryProfile": {
+            "const": "EXPERIENCE_HISTORY_V1"
+          },
+          "filters": {
+            "$id": "urn:kcml:experience-history-query:1",
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "properties": {
+              "channel": {
+                "enum": [
+                  "ALL",
+                  "EMAIL",
+                  "SMS",
+                  "BROWSER",
+                  "MODEL",
+                  "COMPONENT",
+                  "AUDIT"
+                ]
+              },
+              "clientId": {
+                "anyOf": [
+                  {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "componentId": {
+                "anyOf": [
+                  {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "correlationId": {
+                "anyOf": [
+                  {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "cursor": {
+                "anyOf": [
+                  {
+                    "maxLength": 4096,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "fromInclusive": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "limit": {
+                "default": 100,
+                "maximum": 500,
+                "minimum": 1,
+                "type": "integer"
+              },
+              "operationId": {
+                "anyOf": [
+                  {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "runId": {
+                "anyOf": [
+                  {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "severity": {
+                "items": {
+                  "enum": [
+                    "DEBUG",
+                    "INFO",
+                    "WARNING",
+                    "ERROR",
+                    "CRITICAL"
+                  ]
+                },
+                "type": "array",
+                "uniqueItems": true
+              },
+              "timezone": {
+                "maxLength": 128,
+                "minLength": 1,
+                "type": "string"
+              },
+              "toExclusive": {
+                "format": "date-time",
+                "type": "string"
+              }
+            },
+            "required": [
+              "fromInclusive",
+              "toExclusive",
+              "timezone",
+              "runId",
+              "correlationId",
+              "componentId",
+              "operationId",
+              "clientId",
+              "channel",
+              "severity",
+              "cursor",
+              "limit"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "queryProfile",
+          "filters"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "queryProfile": {
+            "const": "HISTORY_QUERY_V1"
+          },
+          "filters": {
+            "$id": "urn:kcml:history-query:1",
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "properties": {
+              "channel": {
+                "enum": [
+                  "SMS",
+                  "EMAIL",
+                  "WEBHOOK",
+                  "API",
+                  "BROWSER",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "clientRef": {
+                "maxLength": 256,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "componentId": {
+                "format": "uuid",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "correlationId": {
+                "format": "uuid",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "cursor": {
+                "maxLength": 2048,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "direction": {
+                "enum": [
+                  "ANY",
+                  "INBOUND",
+                  "OUTBOUND"
+                ],
+                "type": "string"
+              },
+              "from": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "limit": {
+                "maximum": 200,
+                "minimum": 1,
+                "type": "integer"
+              },
+              "recordKinds": {
+                "items": {
+                  "enum": [
+                    "RUN",
+                    "COMPONENT",
+                    "MESSAGE",
+                    "EVENT",
+                    "ERROR",
+                    "PAYLOAD",
+                    "SPAN"
+                  ],
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "result": {
+                "enum": [
+                  "ANY",
+                  "SUCCEEDED",
+                  "FAILED",
+                  "CANCELLED",
+                  "UNKNOWN"
+                ],
+                "type": "string"
+              },
+              "runId": {
+                "format": "uuid",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "sort": {
+                "enum": [
+                  "TIME_ASC",
+                  "TIME_DESC",
+                  "DURATION_DESC"
+                ],
+                "type": "string"
+              },
+              "to": {
+                "format": "date-time",
+                "type": "string"
+              }
+            },
+            "required": [
+              "recordKinds",
+              "runId",
+              "componentId",
+              "correlationId",
+              "clientRef",
+              "from",
+              "to",
+              "channel",
+              "direction",
+              "result",
+              "sort",
+              "limit",
+              "cursor"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "queryProfile",
+          "filters"
+        ],
+        "additionalProperties": false
+      }
+    ]
+  },
+  "httpProposal": "Exactly one queryProfile query parameter selects the declared input mask, never shape guessing. This format selection grants no permission or expanded endpoint record capability. All existing admission/guards remain. API audit.event.read has only UUID identity/no history filter profile. Other history reads await exact accepted producer/consumer binding.",
+  "missingAuthorityIds": [
+    "HISTORY.ROUTE_CONSUMER_PROFILE_BINDING",
+    "HISTORY.LEGACY_RESULT_SORT_CLASSIFICATION_PRODUCER",
+    "HISTORY.GENERATION_JOB_MEMBERSHIP_PRODUCER",
+    "HISTORY.CHANNEL_CLASSIFICATION_PRODUCER"
+  ],
+  "productQuestionRequired": false,
+  "scopeImpact": "Preserve both source profiles and capabilities; proposed discriminator is technical version binding, not universal500 or arbitrary newendpoint ability"
+}

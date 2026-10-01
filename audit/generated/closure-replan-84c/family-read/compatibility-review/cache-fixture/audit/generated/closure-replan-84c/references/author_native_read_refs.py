@@ -1,0 +1,1 @@
+Independent fixture provider bytes

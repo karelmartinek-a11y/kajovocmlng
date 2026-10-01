@@ -1,0 +1,47 @@
+{
+  "entryHead": "84c41ba80af35d5d13f64cf8177ce551c2188e27",
+  "comparisonHead": "84c41ba80af35d5d13f64cf8177ce551c2188e27",
+  "currentSourceSha256": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0",
+  "changedResources": [
+    "contracts/operation-contracts.json",
+    "contracts/payload-contracts.json",
+    "manifest.json",
+    "contracts/create-operation-design.schema.json",
+    "contracts/create-completion.json",
+    "database/operation-helper-owner-query.sql",
+    "database/operation-helper-owner-query-install-acl.sql",
+    "contracts/sql-helper-call-sites.json",
+    "closure/contracts/owner-session-family-map.json",
+    "contracts/owner-session-family.json",
+    "contracts/owner-session-family.schema.json",
+    "contracts/audit/core-read.schema.json"
+  ],
+  "changedPayloadRecords": [
+    {
+      "routeId": "route.0018",
+      "operationId": "owner.session.list"
+    },
+    {
+      "routeId": "route.0019",
+      "operationId": "owner.session.revoke"
+    },
+    {
+      "routeId": "route.0215",
+      "operationId": "generation.job.create"
+    },
+    {
+      "routeId": "route.0386",
+      "operationId": "secret.create"
+    },
+    {
+      "routeId": "route.0451",
+      "operationId": "audit.event.list"
+    },
+    {
+      "routeId": "route.0452",
+      "operationId": "audit.event.read"
+    }
+  ],
+  "unchangedPayloadRecords": 503,
+  "outsideResourceBytesNotClaimedReviewed": true
+}

@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/jsonschema/validators.py", line 462, in _validate_reference
+    resolved = self._resolver.lookup(ref)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/referencing/_core.py", line 684, in lookup
+    raise exceptions.Unresolvable(ref=ref) from None
+referencing.exceptions.Unresolvable: urn:kcml:r9:operation:generation.workspace.patch:command
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/workspace/kajovocmlng/scripts/verify_generation_operation_masks.py", line 84, in main
+    record(kind + '/operation-input', valid(command, request))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/kajovocmlng/scripts/verify_generation_operation_masks.py", line 34, in valid
+    return validators[identity].is_valid(sample)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/jsonschema/validators.py", line 499, in is_valid
+    error = next(self.iter_errors(instance), None)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/jsonschema/validators.py", line 383, in iter_errors
+    for error in errors:
+                 ^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/jsonschema/_keywords.py", line 275, in ref
+    yield from validator._validate_reference(ref=ref, instance=instance)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/jsonschema/validators.py", line 464, in _validate_reference
+    raise exceptions._WrappedReferencingError(err) from err
+jsonschema.exceptions._WrappedReferencingError: Unresolvable: urn:kcml:r9:operation:generation.workspace.patch:command

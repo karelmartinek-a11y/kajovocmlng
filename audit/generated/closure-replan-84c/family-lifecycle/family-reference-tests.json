@@ -1,0 +1,804 @@
+{
+  "inputCommit": "84c41ba",
+  "sourceDocumentSha256": "0bcbcafa7d3cd2d017618a7564865907fdf4cc214430b92a6475aae77292ddef",
+  "sourceUnchangedDuringRun": true,
+  "canonicalSemanticResultHelperSha256": "a924f639b77a32387451d26b5ca6afa4e74a3b0c3d1fdd6946e51abfa2e10ec8",
+  "packageSha256": "1a53ac2aa8ddcf764f61729003f70d6a59f19cd120f0d95834d844b3f0766d46",
+  "helperSha256": "c765d3d004987b3470ab76c5394ce85d5d572352a64f0bb9bdbf026eb5133a35",
+  "proofScriptSha256": "75007257cda3a4ea62bea5b04cc5c68c7b9e67d979cd7d00cce7032901f2591f",
+  "checkCount": 109,
+  "failedCount": 0,
+  "checks": [
+    {
+      "id": "positive-list-persisted-row-to-server-bytes-to-consumer",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "read-events-NOT_APPLICABLE-derived-read-only",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "api-key-does-not-invent-current-web-session",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "positive-immutable-cursor-all-rows-once-deterministic-order",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "current-flag-only-from-verified-server-session",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "private-session-lookup-and-hash-never-in-read-bytes",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "unknown-query",
+      "status": "PASS",
+      "actualDiagnostic": "HTTP_QUERY_UNKNOWN"
+    },
+    {
+      "id": "duplicate-query",
+      "status": "PASS",
+      "actualDiagnostic": "HTTP_QUERY_DUPLICATE"
+    },
+    {
+      "id": "zero-query-limit",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "oneOf",
+        "path": [
+          "query",
+          "limit"
+        ]
+      }
+    },
+    {
+      "id": "bad-cursor-type",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "oneOf",
+        "path": [
+          "query",
+          "cursor"
+        ]
+      }
+    },
+    {
+      "id": "noncanonical-counter",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "oneOf",
+        "path": [
+          "query",
+          "limit"
+        ]
+      }
+    },
+    {
+      "id": "invalid-bytes-body-no-parser-input",
+      "status": "PASS",
+      "actualDiagnostic": "HTTP_BODY_NOT_ALLOWED"
+    },
+    {
+      "id": "cursor-bound-to-original-channel-context",
+      "status": "PASS",
+      "actualDiagnostic": "CURSOR_QUERY_MISMATCH"
+    },
+    {
+      "id": "cursor-limit-change",
+      "status": "PASS",
+      "actualDiagnostic": "CURSOR_QUERY_MISMATCH"
+    },
+    {
+      "id": "unissued-cursor",
+      "status": "PASS",
+      "actualDiagnostic": "CURSOR_INVALID"
+    },
+    {
+      "id": "missing-public-field/id",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "required",
+        "path": []
+      }
+    },
+    {
+      "id": "missing-public-field/createdAt",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "required",
+        "path": []
+      }
+    },
+    {
+      "id": "missing-public-field/lastSeenAt",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "required",
+        "path": []
+      }
+    },
+    {
+      "id": "missing-public-field/expiresAt",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "required",
+        "path": []
+      }
+    },
+    {
+      "id": "missing-public-field/revokedAt",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "required",
+        "path": []
+      }
+    },
+    {
+      "id": "missing-public-field/reauthenticatedAt",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "required",
+        "path": []
+      }
+    },
+    {
+      "id": "missing-public-field/sessionEpoch",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "required",
+        "path": []
+      }
+    },
+    {
+      "id": "missing-public-field/stateVersion",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "required",
+        "path": []
+      }
+    },
+    {
+      "id": "missing-public-field/deviceMetadata",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "required",
+        "path": []
+      }
+    },
+    {
+      "id": "missing-public-field/current",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "required",
+        "path": []
+      }
+    },
+    {
+      "id": "extra-server-or-credential-field/lookupDigest",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "additionalProperties",
+        "path": []
+      }
+    },
+    {
+      "id": "extra-server-or-credential-field/sessionHash",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "additionalProperties",
+        "path": []
+      }
+    },
+    {
+      "id": "extra-server-or-credential-field/permission",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "additionalProperties",
+        "path": []
+      }
+    },
+    {
+      "id": "changed-valid-digest-current-authority-receipt",
+      "status": "PASS",
+      "actualDiagnostic": "SERVER_RECEIPT_BYTES_MISMATCH"
+    },
+    {
+      "id": "forbidden-null/id",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "type",
+        "path": [
+          "id"
+        ]
+      }
+    },
+    {
+      "id": "forbidden-null/createdAt",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "type",
+        "path": [
+          "createdAt"
+        ]
+      }
+    },
+    {
+      "id": "forbidden-null/lastSeenAt",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "type",
+        "path": [
+          "lastSeenAt"
+        ]
+      }
+    },
+    {
+      "id": "forbidden-null/expiresAt",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "type",
+        "path": [
+          "expiresAt"
+        ]
+      }
+    },
+    {
+      "id": "forbidden-null/sessionEpoch",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "type",
+        "path": [
+          "sessionEpoch"
+        ]
+      }
+    },
+    {
+      "id": "forbidden-null/stateVersion",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "type",
+        "path": [
+          "stateVersion"
+        ]
+      }
+    },
+    {
+      "id": "forbidden-null/deviceMetadata",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "type",
+        "path": [
+          "deviceMetadata"
+        ]
+      }
+    },
+    {
+      "id": "forbidden-null/current",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "type",
+        "path": [
+          "current"
+        ]
+      }
+    },
+    {
+      "id": "positive-revoke-state-event-outbox-audit-read-hydration",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "precise-event-payload-identities-digest",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "exact-retained-idempotent-replay-no-new-effect",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "changed-native-replay-conflict",
+      "status": "PASS",
+      "actualDiagnostic": "IDEMPOTENCY_CONFLICT"
+    },
+    {
+      "id": "already-revoked-new-command",
+      "status": "PASS",
+      "actualDiagnostic": "SESSION_ALREADY_REVOKED"
+    },
+    {
+      "id": "missing-selected-target",
+      "status": "PASS",
+      "actualDiagnostic": "SESSION_NOT_FOUND"
+    },
+    {
+      "id": "expired-selected-target",
+      "status": "PASS",
+      "actualDiagnostic": "SESSION_EXPIRED"
+    },
+    {
+      "id": "epoch-invalidated-selected-target",
+      "status": "PASS",
+      "actualDiagnostic": "SESSION_EPOCH_INVALIDATED"
+    },
+    {
+      "id": "stale-state-version",
+      "status": "PASS",
+      "actualDiagnostic": "STATE_VERSION_CONFLICT"
+    },
+    {
+      "id": "client-selected-owner-forged-context",
+      "status": "PASS",
+      "actualDiagnostic": "UNAUTHENTICATED"
+    },
+    {
+      "id": "wrong-real-credential-bytes",
+      "status": "PASS",
+      "actualDiagnostic": "UNAUTHENTICATED"
+    },
+    {
+      "id": "missing-CSRF-web-mutation",
+      "status": "PASS",
+      "actualDiagnostic": "CSRF_INVALID"
+    },
+    {
+      "id": "expired-reference-policy-reauthentication",
+      "status": "PASS",
+      "actualDiagnostic": "REAUTHENTICATION_REQUIRED"
+    },
+    {
+      "id": "missing-IfMatch",
+      "status": "PASS",
+      "actualDiagnostic": "HTTP_IF_MATCH_REQUIRED"
+    },
+    {
+      "id": "unquoted-IfMatch",
+      "status": "PASS",
+      "actualDiagnostic": "HTTP_IF_MATCH_INVALID"
+    },
+    {
+      "id": "duplicate-IfMatch",
+      "status": "PASS",
+      "actualDiagnostic": "HTTP_HEADER_DUPLICATE"
+    },
+    {
+      "id": "revoke-unknown-query",
+      "status": "PASS",
+      "actualDiagnostic": "HTTP_QUERY_UNKNOWN"
+    },
+    {
+      "id": "rollback-after-outbox-cutpoint",
+      "status": "PASS",
+      "actualDiagnostic": "SYNTHETIC_ROLLBACK_CUTPOINT"
+    },
+    {
+      "id": "rollback-no-row-command-event-outbox-audit-receipt-fragments",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "reference-concurrent-distinct-revoke-commands-one-mutation",
+      "status": "PASS",
+      "actualDiagnostic": [
+        "SUCCESS",
+        "SESSION_ALREADY_REVOKED"
+      ]
+    },
+    {
+      "id": "positive-error-mask/SESSION_NOT_FOUND",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "wrong-error-predicate-classification/SESSION_NOT_FOUND",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "oneOf",
+        "path": [
+          "error"
+        ]
+      }
+    },
+    {
+      "id": "positive-error-mask/SESSION_ALREADY_REVOKED",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "wrong-error-predicate-classification/SESSION_ALREADY_REVOKED",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "oneOf",
+        "path": [
+          "error"
+        ]
+      }
+    },
+    {
+      "id": "positive-error-mask/SESSION_EXPIRED",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "wrong-error-predicate-classification/SESSION_EXPIRED",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "oneOf",
+        "path": [
+          "error"
+        ]
+      }
+    },
+    {
+      "id": "positive-error-mask/SESSION_EPOCH_INVALIDATED",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "wrong-error-predicate-classification/SESSION_EPOCH_INVALIDATED",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "oneOf",
+        "path": [
+          "error"
+        ]
+      }
+    },
+    {
+      "id": "positive-error-mask/STATE_VERSION_CONFLICT",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "wrong-error-predicate-classification/STATE_VERSION_CONFLICT",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "oneOf",
+        "path": [
+          "error"
+        ]
+      }
+    },
+    {
+      "id": "positive-error-mask/IDEMPOTENCY_CONFLICT",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "wrong-error-predicate-classification/IDEMPOTENCY_CONFLICT",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "oneOf",
+        "path": [
+          "error"
+        ]
+      }
+    },
+    {
+      "id": "positive-error-mask/DEPENDENCY_UNAVAILABLE",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "wrong-error-predicate-classification/DEPENDENCY_UNAVAILABLE",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "oneOf",
+        "path": [
+          "error"
+        ]
+      }
+    },
+    {
+      "id": "positive-error-mask/SIDE_EFFECT_OUTCOME_UNKNOWN",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "wrong-error-predicate-classification/SIDE_EFFECT_OUTCOME_UNKNOWN",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "oneOf",
+        "path": [
+          "error"
+        ]
+      }
+    },
+    {
+      "id": "positive-read-error-mask/DEPENDENCY_UNAVAILABLE",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "read-rejects-target-mutation-error/DEPENDENCY_UNAVAILABLE",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "oneOf",
+        "path": [
+          "error"
+        ]
+      }
+    },
+    {
+      "id": "positive-read-error-mask/CURSOR_INVALID",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "read-rejects-target-mutation-error/CURSOR_INVALID",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "oneOf",
+        "path": [
+          "error"
+        ]
+      }
+    },
+    {
+      "id": "positive-read-error-mask/CURSOR_QUERY_MISMATCH",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "read-rejects-target-mutation-error/CURSOR_QUERY_MISMATCH",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "oneOf",
+        "path": [
+          "error"
+        ]
+      }
+    },
+    {
+      "id": "positive-event-consumer-immutable-bytes-outbox",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "review-event-invalid/sequence",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "not",
+        "path": [
+          "sequence"
+        ]
+      }
+    },
+    {
+      "id": "review-event-invalid/payloadDigest",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "pattern",
+        "path": [
+          "payloadDigest"
+        ]
+      }
+    },
+    {
+      "id": "review-event-invalid/immutableEventId",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "format",
+        "path": [
+          "immutableEventId"
+        ]
+      }
+    },
+    {
+      "id": "review-public-event-missing/immutableEventId",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "required",
+        "path": []
+      }
+    },
+    {
+      "id": "review-public-event-missing/aggregateId",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "required",
+        "path": []
+      }
+    },
+    {
+      "id": "review-public-event-missing/occurredAt",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "required",
+        "path": []
+      }
+    },
+    {
+      "id": "review-event-substituted-owner",
+      "status": "PASS",
+      "actualDiagnostic": "EVENT_AGGREGATE_MISMATCH"
+    },
+    {
+      "id": "review-event-unpublished-id",
+      "status": "PASS",
+      "actualDiagnostic": "EVENT_BYTES_UNAVAILABLE"
+    },
+    {
+      "id": "review-event-changed-authoritative-counter",
+      "status": "PASS",
+      "actualDiagnostic": "EVENT_IMMUTABLE_BYTES_MISMATCH"
+    },
+    {
+      "id": "review-result-digest-trailing-newline",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "pattern",
+        "path": [
+          "resultDigest"
+        ]
+      }
+    },
+    {
+      "id": "review-cursor-owner-counters-same-frozen-snapshot",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "review-positive-transient-failure-nonterminal",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "review-transient-business-terminal-forbidden",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "const",
+        "path": [
+          "terminal"
+        ]
+      }
+    },
+    {
+      "id": "positive-before-command-diagnostic/INVALID_REQUEST",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "review-no-fabricated-operation-before-command/INVALID_REQUEST",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "type",
+        "path": [
+          "logicalOperationId"
+        ]
+      }
+    },
+    {
+      "id": "positive-before-command-diagnostic/UNAUTHENTICATED",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "review-no-fabricated-operation-before-command/UNAUTHENTICATED",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "type",
+        "path": [
+          "logicalOperationId"
+        ]
+      }
+    },
+    {
+      "id": "positive-before-command-diagnostic/CSRF_INVALID",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "review-no-fabricated-operation-before-command/CSRF_INVALID",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "type",
+        "path": [
+          "logicalOperationId"
+        ]
+      }
+    },
+    {
+      "id": "positive-before-command-diagnostic/REAUTHENTICATION_REQUIRED",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "review-no-fabricated-operation-before-command/REAUTHENTICATION_REQUIRED",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "type",
+        "path": [
+          "logicalOperationId"
+        ]
+      }
+    },
+    {
+      "id": "positive-admission-route-operation-pair/owner.session.list",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "review-admission-wrong-route-pair/owner.session.list",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "const",
+        "path": [
+          "routeId"
+        ]
+      }
+    },
+    {
+      "id": "review-read-cannot-report-mutation-CSRF",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "enum",
+        "path": [
+          "error",
+          "stableCode"
+        ]
+      }
+    },
+    {
+      "id": "review-read-no-invented-mutation-reauth",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "enum",
+        "path": [
+          "error",
+          "stableCode"
+        ]
+      }
+    },
+    {
+      "id": "positive-admission-route-operation-pair/owner.session.revoke",
+      "status": "PASS",
+      "actualDiagnostic": null
+    },
+    {
+      "id": "review-admission-wrong-route-pair/owner.session.revoke",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "const",
+        "path": [
+          "routeId"
+        ]
+      }
+    },
+    {
+      "id": "review-existing-idempotency-header-cap-preserved",
+      "status": "PASS",
+      "actualDiagnostic": {
+        "validator": "maxLength",
+        "path": [
+          "guards",
+          "idempotencyKey"
+        ]
+      }
+    },
+    {
+      "id": "current-auth-required-before-replay-after-credential-rotation",
+      "status": "PASS",
+      "actualDiagnostic": "UNAUTHENTICATED"
+    }
+  ],
+  "wholeOperationsClosed": 0,
+  "evidenceClass": "DESIGN_REFERENCE_SEMANTICS",
+  "limitations": [
+    "No actual canonical auth/session producer or runtime evidence",
+    "No PostgreSQL transaction/lock/outbox/audit implementation proof",
+    "Fixture policy page-size/reauth-age values are not normative approval",
+    "Proposed metadata/event technical allocation requires coordinator review"
+  ],
+  "noLiveAccountsOrApi": true
+}

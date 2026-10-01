@@ -1,0 +1,158 @@
+{
+  "sourceSha256": "9d0c92e9797abecdf5c8ba18cb12515967f27b749322aab5b4dc0b6925ecb649",
+  "consumedCanonicalDigests": {
+    "database/generation-create-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "database/generation-create-preroot.sql": "0ed9d0e563b802da50c96ebb31f62390aeab16040bd19660612fb14dd83aa75e",
+    "database/generation-preroot-frozen-archive.sql": "40a2fce25eaa50d582228463df86bfbf0ffb30f9facb1f1e84a2907bef3705ef"
+  },
+  "postgresVersion": "18.6",
+  "database": "archive_preroot_transfer_905",
+  "readOnlyTransaction": true,
+  "actualAuditRows": 2,
+  "projectedAuditRows": 2,
+  "checked": 23,
+  "failed": 0,
+  "cases": [
+    {
+      "id": "actual-PG18.6-global-projection-both-audits-no-inner-join-omission",
+      "status": "PASS"
+    },
+    {
+      "id": "actual-pre-root-row-no-fabricated-aggregate-event",
+      "status": "PASS"
+    },
+    {
+      "id": "historical-ACCEPTED-outcome-after-command-SUCCEEDED-not-overwritten",
+      "status": "PASS"
+    },
+    {
+      "id": "same-command-two-immutable-stream-rows",
+      "status": "PASS"
+    },
+    {
+      "id": "actual-original-retained-outcome-bytes-preserved",
+      "status": "PASS"
+    },
+    {
+      "id": "actual-original-domain-event-bytes-preserved",
+      "status": "PASS"
+    },
+    {
+      "id": "wrong-stream-discriminator",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_RECORD_MASK_INVALID",
+      "positiveDerived": true
+    },
+    {
+      "id": "no-fake-created-domain-event",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_RECORD_MASK_INVALID",
+      "positiveDerived": true
+    },
+    {
+      "id": "no-fake-created-aggregate-extra",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_RECORD_MASK_INVALID",
+      "positiveDerived": true
+    },
+    {
+      "id": "command-outcome-byte-corruption",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_RETAINED_OUTCOME_DIGEST_MISMATCH",
+      "positiveDerived": true
+    },
+    {
+      "id": "retained-projection-silent-state-rewrite",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_RETAINED_OUTCOME_PROJECTION_MISMATCH",
+      "positiveDerived": true
+    },
+    {
+      "id": "prospective-root-cannot-be-audit-object",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_RETAINED_OUTCOME_IDENTITY_MISMATCH",
+      "positiveDerived": true
+    },
+    {
+      "id": "unknown-null-event-stream-fails-not-omitted",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_STORED_STREAM_UNRESOLVED",
+      "positiveDerived": true
+    },
+    {
+      "id": "source-retained-mask-CREATE_INPUT_INVALID-positive-byte-bound",
+      "status": "PASS"
+    },
+    {
+      "id": "source-retained-mask-SIDE_EFFECT_OUTCOME_UNKNOWN-positive-byte-bound",
+      "status": "PASS"
+    },
+    {
+      "id": "source-retained-mask-CREATE_PERSISTENCE_FAILED-positive-byte-bound",
+      "status": "PASS"
+    },
+    {
+      "id": "source-retained-mask-CREATE_CANCELLED-positive-byte-bound",
+      "status": "PASS"
+    },
+    {
+      "id": "unknown-cannot-be-terminal",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_RETAINED_OUTCOME_STATE_MISMATCH",
+      "positiveDerived": true
+    },
+    {
+      "id": "cancel-code-cannot-be-failed",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_RETAINED_OUTCOME_STATE_MISMATCH",
+      "positiveDerived": true
+    },
+    {
+      "id": "wrong-retained-error-tuple",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_RECORD_MASK_INVALID",
+      "positiveDerived": true
+    },
+    {
+      "id": "accepted-cannot-be-terminal",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_RETAINED_OUTCOME_STATE_MISMATCH",
+      "positiveDerived": true
+    },
+    {
+      "id": "actual-retained-JSON-UTF8-boundary",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_RETAINED_OUTCOME_JSON_INVALID",
+      "positiveDerived": true
+    },
+    {
+      "id": "actual-retained-JSON-duplicate-key-boundary",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_RETAINED_OUTCOME_JSON_DUPLICATE_KEY",
+      "positiveDerived": true
+    }
+  ],
+  "actualCanonicalFixtureProducer": "audit/generated/resume-905/archive/preroot-transfer/verify_preroot_archive_transfer.py",
+  "originalUnsafeProjectionExcludedRows": 1,
+  "newProjectionExcludesRows": 0,
+  "actualRowsSummary": [
+    {
+      "auditId": "00000000-0000-4000-8000-000000000009",
+      "recordKind": "GENERATION_PREROOT_OUTCOME_AUDIT",
+      "logicalOperationId": "00000000-0000-4000-8000-000000000001",
+      "byteDigests": {
+        "audit": "af17965529c7a5c08cb0903b712790bca52273ebf733bc908d0600224866c38b"
+      }
+    },
+    {
+      "auditId": "00000000-0000-4000-8000-000000000012",
+      "recordKind": "DOMAIN_EVENT_AUDIT",
+      "logicalOperationId": "00000000-0000-4000-8000-000000000001",
+      "byteDigests": {
+        "audit": "c49822ddbbf91a3a2b5298decd2cd1ff956554a4d8b52c53d2342f16e8c190e4"
+      }
+    }
+  ],
+  "scope": "Actual retained ACCEPTED after success and actual domain event bytes; error/unknown/cancel mutations are source-derived reference masks, not separate PG commit producers. No whole read operation/runtime claim.",
+  "wholeOperationsClosed": 0
+}

@@ -1,0 +1,45 @@
+{
+  "sourceSha256": "9d0c92e9797abecdf5c8ba18cb12515967f27b749322aab5b4dc0b6925ecb649",
+  "checked": 6,
+  "failed": 0,
+  "cases": [
+    {
+      "id": "pending-authoritative-actor-substitution",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_PREROOT_COMMAND_BINDING_MISMATCH",
+      "positiveDerived": true
+    },
+    {
+      "id": "pending-exact-digest-substitution",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_RETAINED_OUTCOME_DIGEST_MISMATCH",
+      "positiveDerived": true
+    },
+    {
+      "id": "pending-stage-missing-bytes",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_RECORD_MASK_INVALID",
+      "positiveDerived": true
+    },
+    {
+      "id": "domain-stage-cannot-carry-command-outcome",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_RECORD_MASK_INVALID",
+      "positiveDerived": true
+    },
+    {
+      "id": "pending-chain-zero",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_RECORD_MASK_INVALID",
+      "positiveDerived": true
+    },
+    {
+      "id": "domain-audit-byte-swap-from-previous-stage",
+      "status": "PASS",
+      "specificDiagnostic": "AUDIT_CHAIN_HASH_MISMATCH",
+      "positiveDerived": true
+    }
+  ],
+  "mode": "fresh actual read-only PG witness, Python mutation only",
+  "wholeOperationsClosed": 0
+}

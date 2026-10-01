@@ -1,0 +1,24 @@
+{
+  "sourceSha256": "9d0c92e9797abecdf5c8ba18cb12515967f27b749322aab5b4dc0b6925ecb649",
+  "candidateHashes": {
+    "core-audit-read.schema.json": "781f72b96a09006c98fe6b277d6e8d196203b8f258b5e46def540ea13f40cc29",
+    "core_audit_reference.py": "41b327be4a4fc7b5cef8665489642c49c2cb3a1e39e2167158c1c5722ea0b368",
+    "verify_core_audit.py": "05cda7fe423d5dd6d783e2abfc2994ab8cb475a1c551213a19f0fbae17ae5bc6",
+    "verify_stored_streams.py": "70861049f98bdc22902fcb2512f2a1596a33ec4badc6045b60c007eb6afad64b",
+    "author_core_audit.py": "9436bc6afbbd1a16506a898fa4471b43f474498bded65f048023770b5ea5a393",
+    "authorable-core-delta.json": "122ba2a509acdf34592528ad71504224fb65e2dbd0c765b0846d1d603f76356f"
+  },
+  "checks": 66,
+  "failed": 0,
+  "baselineChecked": 43,
+  "storedStreamChecked": 23,
+  "actualAuditRows": 2,
+  "actualProjectedRows": 2,
+  "previousActualProjectedRows": 1,
+  "historicalStatus": "ACCEPTED despite current command SUCCEEDED",
+  "storedDatabaseMode": "REPEATABLE READ READ ONLY",
+  "baselineDatabase": "peer_core_audit_read_final_84c",
+  "wholeOperationsClosed": 0,
+  "sixSemanticProducerObligationsRemainOpen": true,
+  "implementationAcceptance": "NOT_EVALUATED"
+}

@@ -1,0 +1,89 @@
+{
+  "status": "PARTIAL_BOUNDED_REQUEST_RESPONSE_INTEGRATABLE_WITH_STORED_STREAM_REPAIR",
+  "sourceSha256": "9d0c92e9797abecdf5c8ba18cb12515967f27b749322aab5b4dc0b6925ecb649",
+  "baselineChecks": 43,
+  "storedStreamChecks": 23,
+  "failed": 0,
+  "fieldMaps": 82,
+  "wholeOperationsClosed": 0,
+  "storedStreamVariants": 2,
+  "actualStoredFixtureRows": "2/2; READ ONLY PG18.6",
+  "originalUnsafeOmission": "1 pending-before-root row; reviewer counterexample preserved",
+  "genericBoundariesBefore": 6,
+  "genericBoundariesAfterCandidate": 2,
+  "genericRoutesBefore": 2,
+  "genericRoutesAfter": 2,
+  "remainingIDs": [
+    {
+      "id": "AUDIT.CORE.AUTHENTICATED_READ",
+      "authority": "contracts/operation-contracts.json#/records/72-73/exposureClass",
+      "missing": "Fresh OWNER_QUERY authentication + canonical authorized read snapshot; current helper only consumes already-authorized rows",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    },
+    {
+      "id": "AUDIT.CORE.ORIGIN_PUBLISHER",
+      "authority": "ui/contracts/live-experience.json#/observability/historyQuerySchema",
+      "missing": "Publish immutable origin projection from actual server ingress/execution context; no source-name guessing",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    },
+    {
+      "id": "AUDIT.CORE.CURSOR_COVERAGE",
+      "authority": "ui/contracts/live-experience.json#/observability/ordering+pagination+completeness",
+      "missing": "Actual stable cursor publisher, continuous source coverage and source archive availability",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    },
+    {
+      "id": "AUDIT.CORE.ACCESS_AUDIT_TX",
+      "authority": "ui/contracts/live-experience.json#/observability/queryAudit; \u00a751.25; CONSISTENT_READ",
+      "missing": "Exact authenticated query audit append and transaction separation; no silent readonly transaction write",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    },
+    {
+      "id": "AUDIT.CORE.OPERATION_EVENTS",
+      "authority": "contracts/operation-contracts.json#/records/72-73/auditEventTypes",
+      "missing": "Exact required audit producer payload/retained-state mapping; existing event applicability remains unchanged",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    },
+    {
+      "id": "AUDIT.CORE.PUBLIC_ERROR_MAPPING",
+      "authority": "contracts/payload-contracts.json#/records/451-452/responseSchema/properties/error",
+      "missing": "Map candidate specific diagnostics and existing shared auth/lifecycle errors to exact public classification/retry predicates",
+      "status": "OPEN",
+      "blockerType": "TECHNICAL_PRODUCER_OR_DEFINITION",
+      "evidenceRequired": "Exact canonical integration plus positive-derived negative/transaction fixture and independent reproduction"
+    }
+  ],
+  "files": {
+    "verify_core_inventory.py": "4ba857b984c3e3abc9e5679ea40b9a745ac7c37d61a8ca9611ae44a89ccb4856",
+    "CORE_AUDIT_NORMATIVE_SUPPLEMENT.md": "53a44ca6770dbda7d4ee4eb280c811adbb0cc97037b4c07eec11444d2bc7e709",
+    "core-audit-read.schema.json": "781f72b96a09006c98fe6b277d6e8d196203b8f258b5e46def540ea13f40cc29",
+    "field-source-map.json": "1253bc25f9107d4eeb208e747f304333f27434be2bffacc5e54631a7345a7eff",
+    "verify_core_audit.py": "05cda7fe423d5dd6d783e2abfc2994ab8cb475a1c551213a19f0fbae17ae5bc6",
+    "verify_stored_streams.py": "70861049f98bdc22902fcb2512f2a1596a33ec4badc6045b60c007eb6afad64b",
+    "stored-stream-tests.json": "1931a13b45915ed7c1e9972da6fbc018c2a674c7b503bedbe45491843beea37c",
+    "HISTORICAL_PRE_STREAM_FIX_DELIVERY.json": "490875c595dd118c171f2b0d92cfd6f96c1dc40cfbe96abd6783c06c39a354e4",
+    "build_core_contract.py": "780426bd3af566a7e56aeff2821baf0ecbacdf33ca3665b9ce9a415bf799e36e",
+    "core-audit-tests.json": "b8078a1bbcb88d874be787ef42802328790bf79b59ffba9e8780d981971d135e",
+    "authoring-update-pack.json": "245d014c147706be5f7270e1cd5c996e1eec92292e9e28135f68558f7a53132c",
+    "core_audit_reference.py": "41b327be4a4fc7b5cef8665489642c49c2cb3a1e39e2167158c1c5722ea0b368",
+    "authorable-core-delta.json": "122ba2a509acdf34592528ad71504224fb65e2dbd0c765b0846d1d603f76356f",
+    "canonical-audit-hash.sql": "e06f803d3f9af7cb8644a25b755756c89e70325bd54e8475e9429c3e0eb4e612",
+    "author_core_audit.py": "9436bc6afbbd1a16506a898fa4471b43f474498bded65f048023770b5ea5a393",
+    "error-predicates.json": "c6ac9d5fd1fdeee85fbd4083370e07a6f79bf2cd4dcbd50c2d80e8e9ca65d337",
+    "core-family-inventory-comparison.json": "e9382834cfebafaff9a40a7c380248bfc540968cb69cd94f9c2b61db80b6e71f",
+    "INTEGRATION.md": "d8acc89bebfe8456fe0ae5b0654c80cd3372888c2cdd7ba95fb51879bca77e03",
+    "remaining-obligations.json": "d035458a55cf141733c9e48e7a2f9aab490f19b32a413c49c72b377b31c735fd"
+  },
+  "independentReview": "Requested frozen_archive; pending repaired reproduction",
+  "futureRuntime": "NOT_EVALUATED"
+}

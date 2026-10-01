@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "publication_idempotent",
+      "status": "PASS"
+    },
+    {
+      "id": "unrelated_definition_preserved",
+      "status": "PASS"
+    },
+    {
+      "id": "native_changed",
+      "status": "PASS"
+    },
+    {
+      "id": "selected_operation_changed",
+      "status": "PASS"
+    },
+    {
+      "id": "conflicting_alias",
+      "status": "PASS"
+    }
+  ],
+  "passed": 5,
+  "failed": 0,
+  "scope": "Publication idempotence, selected consumption guards, unrelated changes preservation"
+}

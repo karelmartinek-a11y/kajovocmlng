@@ -1,21 +1,21 @@
 {
   "status": "BLOCKED",
   "source": "00_SSOT/KajovoCMLNG_SSOT.md",
-  "sourceSha256": "sha256:2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
-  "sourceLineCount": 677268,
-  "embeddedResources": 375,
+  "sourceSha256": "sha256:116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0",
+  "sourceLineCount": 678618,
+  "embeddedResources": 382,
   "unparsedResources": [],
   "resourceDigestMismatches": [],
   "operationBoundarySummary": {
     "operations": 619,
     "routes": 542,
-    "unresolvedOperationReferences": 242,
-    "operationsWithUnresolvedReferences": 121,
+    "unresolvedOperationReferences": 238,
+    "operationsWithUnresolvedReferences": 119,
     "conflictingOperationReferences": 0,
-    "genericRoutes": 500,
-    "genericBoundaryDefinitions": 1496,
+    "genericRoutes": 498,
+    "genericBoundaryDefinitions": 1486,
     "nestedReferenceFailures": 0,
-    "unreviewedConcreteBoundaryDefinitions": 121,
+    "unreviewedConcreteBoundaryDefinitions": 140,
     "conflictingSchemaIdentities": 0,
     "unspecifiedEventApplicability": 152,
     "unparsedResources": 0
@@ -789,21 +789,21 @@
     "r11MissingKinds": 23,
     "generationNodeKinds": 19,
     "integrationSteps": 14,
-    "matrixRows": 3204,
-    "sourceCandidateOccurrences": 1013,
+    "matrixRows": 3210,
+    "sourceCandidateOccurrences": 1015,
     "eventApplicabilityBlockers": 152,
     "artifactKindsInModeledSlots": 81,
     "namedProducers": 667,
     "namedConsumers": 666,
     "statuses": {
-      "NOT_VERIFIED": 2783,
-      "BLOCKED_MISSING_CONTRACT": 421
+      "NOT_VERIFIED": 2793,
+      "BLOCKED_MISSING_CONTRACT": 417
     },
     "schemaIdentityConflicts": 0,
     "completeRelevantHandoffCoverageProven": false
   },
   "handoffDigestRelations": {
-    "BOTH_DIGESTS_MISSING": 3165,
+    "BOTH_DIGESTS_MISSING": 3171,
     "MATCHING_DIGEST": 19,
     "ONE_DIGEST_MISSING": 20
   },
@@ -24391,6 +24391,84 @@
       "reason": "Domain and inner payload compatibility not proved; see Phase 1 unresolved boundaries."
     },
     {
+      "id": "boundary:contracts/owner-session-family.json#/operations/0/requestSchema",
+      "source": "contracts/owner-session-family.json#/operations/0/requestSchema",
+      "producer": "EXTERNAL_CALLER",
+      "consumer": "owner.session.list",
+      "sourceSchema": null,
+      "targetSchema": "contracts/owner-session-family.json#/operations/0/requestSchema",
+      "sourceSchemaDigest": null,
+      "targetSchemaDigest": null,
+      "digestRelation": "BOTH_DIGESTS_MISSING",
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Domain and inner payload compatibility not proved; see Phase 1 unresolved boundaries."
+    },
+    {
+      "id": "boundary:contracts/owner-session-family.json#/operations/0/responseSchema",
+      "source": "contracts/owner-session-family.json#/operations/0/responseSchema",
+      "producer": "owner.session.list",
+      "consumer": "CALLER",
+      "sourceSchema": "contracts/owner-session-family.json#/operations/0/responseSchema",
+      "targetSchema": null,
+      "sourceSchemaDigest": null,
+      "targetSchemaDigest": null,
+      "digestRelation": "BOTH_DIGESTS_MISSING",
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Domain and inner payload compatibility not proved; see Phase 1 unresolved boundaries."
+    },
+    {
+      "id": "boundary:contracts/owner-session-family.json#/operations/0/eventSchema",
+      "source": "contracts/owner-session-family.json#/operations/0/eventSchema",
+      "producer": "owner.session.list",
+      "consumer": null,
+      "sourceSchema": "contracts/owner-session-family.json#/operations/0/eventSchema",
+      "targetSchema": null,
+      "sourceSchemaDigest": null,
+      "targetSchemaDigest": null,
+      "digestRelation": "BOTH_DIGESTS_MISSING",
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Domain and inner payload compatibility not proved; see Phase 1 unresolved boundaries."
+    },
+    {
+      "id": "boundary:contracts/owner-session-family.json#/operations/1/requestSchema",
+      "source": "contracts/owner-session-family.json#/operations/1/requestSchema",
+      "producer": "EXTERNAL_CALLER",
+      "consumer": "owner.session.revoke",
+      "sourceSchema": null,
+      "targetSchema": "contracts/owner-session-family.json#/operations/1/requestSchema",
+      "sourceSchemaDigest": null,
+      "targetSchemaDigest": null,
+      "digestRelation": "BOTH_DIGESTS_MISSING",
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Domain and inner payload compatibility not proved; see Phase 1 unresolved boundaries."
+    },
+    {
+      "id": "boundary:contracts/owner-session-family.json#/operations/1/responseSchema",
+      "source": "contracts/owner-session-family.json#/operations/1/responseSchema",
+      "producer": "owner.session.revoke",
+      "consumer": "CALLER",
+      "sourceSchema": "contracts/owner-session-family.json#/operations/1/responseSchema",
+      "targetSchema": null,
+      "sourceSchemaDigest": null,
+      "targetSchemaDigest": null,
+      "digestRelation": "BOTH_DIGESTS_MISSING",
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Domain and inner payload compatibility not proved; see Phase 1 unresolved boundaries."
+    },
+    {
+      "id": "boundary:contracts/owner-session-family.json#/operations/1/eventSchema",
+      "source": "contracts/owner-session-family.json#/operations/1/eventSchema",
+      "producer": "owner.session.revoke",
+      "consumer": null,
+      "sourceSchema": "contracts/owner-session-family.json#/operations/1/eventSchema",
+      "targetSchema": null,
+      "sourceSchemaDigest": null,
+      "targetSchemaDigest": null,
+      "digestRelation": "BOTH_DIGESTS_MISSING",
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Domain and inner payload compatibility not proved; see Phase 1 unresolved boundaries."
+    },
+    {
       "id": "operation:acceptance.run.cancel:request",
       "source": "closure/contracts/operation-overlay.json#/operations/13/requestSchemaRef",
       "producer": "OPERATION_CALLER",
@@ -37257,8 +37335,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "operation:mcp.prompts.get:response",
@@ -37270,8 +37348,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "event-applicability:mcp.prompts.get",
@@ -37634,8 +37712,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "operation:mcp.resources.read:response",
@@ -37647,8 +37725,8 @@
       "sourceSchemaDigest": null,
       "targetSchemaDigest": null,
       "digestRelation": "BOTH_DIGESTS_MISSING",
-      "handoffStatus": "BLOCKED_MISSING_CONTRACT",
-      "reason": "Missing/unresolved operation schema reference."
+      "handoffStatus": "NOT_VERIFIED",
+      "reason": "Binding exists; full payload compatibility remains unverified."
     },
     {
       "id": "event-applicability:mcp.resources.read",

@@ -1,0 +1,31 @@
+{
+  "sourceSha256": "b1443905c61b2de8e77464d3adb1595e3d602958bcf226ba44f96d21edd66458",
+  "candidateDigestsAtExecution": {
+    "verify_core_inventory.py": "4ba857b984c3e3abc9e5679ea40b9a745ac7c37d61a8ca9611ae44a89ccb4856",
+    "CORE_AUDIT_NORMATIVE_SUPPLEMENT.md": "4016917cba117e2aff9cf80777e30d1846ec372bfbce18915e71f5459c3f1bca",
+    "core-audit-read.schema.json": "eabd0b76fa11bb2000eb1c55e4e6c95a041cd729e02b5e470b01e2883732c48b",
+    "DELIVERY.json": "490875c595dd118c171f2b0d92cfd6f96c1dc40cfbe96abd6783c06c39a354e4",
+    "field-source-map.json": "430fbee7467812dcb92d4e47e9265454d5aab1c4bd34501e6668d385596559bc",
+    "verify_core_audit.py": "38f2034f95f7fff54617dae6320723017a3a7d2ec2bd27883606573388ece6ae",
+    "build_core_contract.py": "7e42670fad01849063e8c2d6f4cc0dc723046d7812d0b9034c6e79b992c6ed06",
+    "core-audit-tests.json": "346dff66e2084c6ec8447cb54e7da58d74e92cac6df78e17e566253d29d4e4f1",
+    "authoring-update-pack.json": "89d4b8c3a09c1bc8f3c57b6f1f2d59b8bb18ea5b62329d6a265fc39f90e99d51",
+    "core_audit_reference.py": "6e3ecd1016e6bf04fd32012d762742cd78d5cb20421c2d9dbe933078ed094502",
+    "authorable-core-delta.json": "19cab94847a996ee9b8aedca90a83b70665581e4e52dcae4623777c1fc8f80ce",
+    "author_core_audit.py": "9436bc6afbbd1a16506a898fa4471b43f474498bded65f048023770b5ea5a393",
+    "error-predicates.json": "0f42716b625fed89847f243c84a0fa9bad83868f6d214f4831cc256506b728ca",
+    "core-family-inventory-comparison.json": "f0282b01c2a033632551325cafe27af29c86481195801b96b2922cd84345dcfb",
+    "INTEGRATION.md": "2a3a0ac8fee6120f86f02dc7071e93bb32a1e2e3539deaaaebd425a116b361bd",
+    "remaining-obligations.json": "d035458a55cf141733c9e48e7a2f9aab490f19b32a413c49c72b377b31c735fd"
+  },
+  "authorChecks": 42,
+  "failed": 0,
+  "ownCounterexample": {
+    "case": "legitimate-before-root-command-outcome-audit",
+    "maskResult": "AUDIT_RECORD_MASK_INVALID",
+    "classification": "REPRODUCED_CONTRACT_SCOPE_DEFECT",
+    "authority": "SSOT \u00a712.54 / database/generation-create-preroot.sql",
+    "limitation": "Definition counterexample; separate read-only actual physical row inspection recorded independently."
+  },
+  "wholeOperationsClosed": 0
+}

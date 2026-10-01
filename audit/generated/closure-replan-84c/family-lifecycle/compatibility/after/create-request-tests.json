@@ -1,0 +1,1126 @@
+{
+  "sourceDocumentSha256": "2227d9d2458609fd0cfc78fff22f6ab1ab34c7709c77e4d3b2fc4c296981ef6a",
+  "scope": "Actual domain witnesses and exact decoder/admission rejections; synthetic design proof.",
+  "witnesses": {
+    "generation.job.create": {
+      "intent": "Create a component that records an incoming message.",
+      "kind": "CREATE",
+      "targetKind": "PLATFORM_COMPONENT",
+      "requestedModel": "model-fixture",
+      "sources": [
+        {
+          "kind": "TEXT",
+          "text": "Acknowledge the incoming message."
+        },
+        {
+          "kind": "FILE",
+          "artifactId": "00000000-0000-4000-8000-000000000002"
+        },
+        {
+          "kind": "URL",
+          "url": "https://example.test/docs"
+        }
+      ]
+    },
+    "secret.create": {
+      "stableName": "FIXTURE_SECRET",
+      "displayName": "Fixture credential",
+      "type": "PASSWORD",
+      "value": {
+        "encoding": "UTF8",
+        "text": "  Synthetic value\nbeze změny  "
+      },
+      "tags": [
+        "fixture"
+      ],
+      "description": "Synthetic value only",
+      "expiration": "2026-12-31T00:00:00Z"
+    }
+  },
+  "checked": 157,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "generation.job.create/positive-domain-decoder",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/positive-route-native-body",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/missing/intent",
+      "passed": true,
+      "expectedCode": "SCHEMA_REQUIRED",
+      "actualCode": "SCHEMA_REQUIRED",
+      "pointer": "$"
+    },
+    {
+      "case": "generation.job.create/null/intent",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.intent"
+    },
+    {
+      "case": "generation.job.create/optional-null/kind",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.kind"
+    },
+    {
+      "case": "generation.job.create/optional-null/targetKind",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.targetKind"
+    },
+    {
+      "case": "generation.job.create/optional-null/targetObjectId",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.targetObjectId"
+    },
+    {
+      "case": "generation.job.create/optional-null/parentJobId",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.parentJobId"
+    },
+    {
+      "case": "generation.job.create/optional-null/requestedModel",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.requestedModel"
+    },
+    {
+      "case": "generation.job.create/optional-null/credential",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.credential"
+    },
+    {
+      "case": "generation.job.create/optional-null/sources",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.sources"
+    },
+    {
+      "case": "generation.job.create/extra-server-or-legacy/schemaId",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "generation.job.create/extra-server-or-legacy/values",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "generation.job.create/extra-server-or-legacy/canonicalJson",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "generation.job.create/extra-server-or-legacy/authorityId",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "generation.job.create/extra-server-or-legacy/ownerId",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "generation.job.create/extra-server-or-legacy/jobId",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "generation.job.create/extra-server-or-legacy/secretId",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "generation.job.create/extra-server-or-legacy/state",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "generation.job.create/extra-server-or-legacy/stateVersion",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "generation.job.create/extra-server-or-legacy/contentDigest",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "generation.job.create/extra-server-or-legacy/fingerprint",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "generation.job.create/extra-server-or-legacy/encryptedValue",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "generation.job.create/extra-server-or-legacy/receipt",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "generation.job.create/unknown-query",
+      "passed": true,
+      "expectedCode": "UNKNOWN_QUERY_PARAMETER",
+      "actualCode": "UNKNOWN_QUERY_PARAMETER",
+      "pointer": "/query"
+    },
+    {
+      "case": "generation.job.create/duplicate-http-header",
+      "passed": true,
+      "expectedCode": "DUPLICATE_HEADER",
+      "actualCode": "DUPLICATE_HEADER",
+      "pointer": "/headers/idempotency-key"
+    },
+    {
+      "case": "generation.job.create/missing-key",
+      "passed": true,
+      "expectedCode": "IDEMPOTENCY_KEY_REQUIRED",
+      "actualCode": "IDEMPOTENCY_KEY_REQUIRED",
+      "pointer": "/headers/idempotency-key"
+    },
+    {
+      "case": "generation.job.create/model-authority-header",
+      "passed": true,
+      "expectedCode": "UNDECLARED_CREATE_GUARD_OR_AUTHORITY",
+      "actualCode": "UNDECLARED_CREATE_GUARD_OR_AUTHORITY",
+      "pointer": "/headers"
+    },
+    {
+      "case": "generation.job.create/bad-client-digest",
+      "passed": true,
+      "expectedCode": "CLIENT_DIGEST_MISMATCH",
+      "actualCode": "CLIENT_DIGEST_MISMATCH",
+      "pointer": "/headers/x-kcml-request-digest"
+    },
+    {
+      "case": "generation.job.create/malformed-json",
+      "passed": true,
+      "expectedCode": "INVALID_JSON",
+      "actualCode": "INVALID_JSON",
+      "pointer": ""
+    },
+    {
+      "case": "generation.job.create/invalid-utf8",
+      "passed": true,
+      "expectedCode": "INVALID_UTF8",
+      "actualCode": "INVALID_UTF8",
+      "pointer": ""
+    },
+    {
+      "case": "generation.job.create/duplicate-root-key",
+      "passed": true,
+      "expectedCode": "DUPLICATE_JSON_KEY",
+      "actualCode": "DUPLICATE_JSON_KEY",
+      "pointer": "/intent"
+    },
+    {
+      "case": "generation.job.create/duplicate-nested-key",
+      "passed": true,
+      "expectedCode": "DUPLICATE_JSON_KEY",
+      "actualCode": "DUPLICATE_JSON_KEY",
+      "pointer": "/sources/0/kind"
+    },
+    {
+      "case": "generation.job.create/nonfinite",
+      "passed": true,
+      "expectedCode": "NONFINITE_JSON_NUMBER",
+      "actualCode": "NONFINITE_JSON_NUMBER",
+      "pointer": "/intent"
+    },
+    {
+      "case": "generation.job.create/wrong-root-type",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$"
+    },
+    {
+      "case": "generation.job.create/auth",
+      "passed": true,
+      "expectedCode": "AUTHENTICATION_REQUIRED",
+      "actualCode": "AUTHENTICATION_REQUIRED",
+      "pointer": ""
+    },
+    {
+      "case": "generation.job.create/recovery",
+      "passed": true,
+      "expectedCode": "RECOVERY_BARRIER",
+      "actualCode": "RECOVERY_BARRIER",
+      "pointer": ""
+    },
+    {
+      "case": "generation.job.create/same-key-replay",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/unknown-never-new-dispatch",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/failure-replayed",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/replay-conflict",
+      "passed": true,
+      "expectedCode": "IDEMPOTENCY_CONFLICT",
+      "actualCode": "IDEMPOTENCY_CONFLICT",
+      "pointer": ""
+    },
+    {
+      "case": "generation.job.create/replay-wrong-owner",
+      "passed": true,
+      "expectedCode": "REPLAY_SCOPE_MISMATCH",
+      "actualCode": "REPLAY_SCOPE_MISMATCH",
+      "pointer": ""
+    },
+    {
+      "case": "generation.job.create/invalid-outcome",
+      "passed": true,
+      "expectedCode": "INVALID_REPLAY_OUTCOME",
+      "actualCode": "INVALID_REPLAY_OUTCOME",
+      "pointer": ""
+    },
+    {
+      "case": "generation.job.create/current-revision-does-not-change-frozen-replay",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation.job.create/missing-frozen-replay/locator",
+      "passed": true,
+      "expectedCode": "REPLAY_LOCATOR_UNVERIFIED",
+      "actualCode": "REPLAY_LOCATOR_UNVERIFIED",
+      "pointer": "/replay/locator"
+    },
+    {
+      "case": "generation.job.create/missing-frozen-replay/executionDescriptor",
+      "passed": true,
+      "expectedCode": "REPLAY_DESCRIPTOR_UNVERIFIED",
+      "actualCode": "REPLAY_DESCRIPTOR_UNVERIFIED",
+      "pointer": "/replay/executionDescriptor"
+    },
+    {
+      "case": "generation.job.create/missing-frozen-replay/executionDescriptorDigest",
+      "passed": true,
+      "expectedCode": "REPLAY_DESCRIPTOR_DIGEST_MISMATCH",
+      "actualCode": "REPLAY_DESCRIPTOR_DIGEST_MISMATCH",
+      "pointer": "/replay/executionDescriptorDigest"
+    },
+    {
+      "case": "generation.job.create/wrong-frozen-target",
+      "passed": true,
+      "expectedCode": "REPLAY_FROZEN_SCOPE_MISMATCH",
+      "actualCode": "REPLAY_FROZEN_SCOPE_MISMATCH",
+      "pointer": "/replay/executionDescriptor"
+    },
+    {
+      "case": "secret.create/positive-domain-decoder",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/positive-admission",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/positive-route-native-body",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/missing/stableName",
+      "passed": true,
+      "expectedCode": "SCHEMA_REQUIRED",
+      "actualCode": "SCHEMA_REQUIRED",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/null/stableName",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.stableName"
+    },
+    {
+      "case": "secret.create/missing/displayName",
+      "passed": true,
+      "expectedCode": "SCHEMA_REQUIRED",
+      "actualCode": "SCHEMA_REQUIRED",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/null/displayName",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.displayName"
+    },
+    {
+      "case": "secret.create/missing/type",
+      "passed": true,
+      "expectedCode": "SCHEMA_REQUIRED",
+      "actualCode": "SCHEMA_REQUIRED",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/null/type",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.type"
+    },
+    {
+      "case": "secret.create/missing/value",
+      "passed": true,
+      "expectedCode": "SCHEMA_REQUIRED",
+      "actualCode": "SCHEMA_REQUIRED",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/null/value",
+      "passed": true,
+      "expectedCode": "SCHEMA_ONEOF",
+      "actualCode": "SCHEMA_ONEOF",
+      "pointer": "$.value"
+    },
+    {
+      "case": "secret.create/optional-null/description",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.description"
+    },
+    {
+      "case": "secret.create/optional-null/expiration",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.expiration"
+    },
+    {
+      "case": "secret.create/optional-null/group",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.group"
+    },
+    {
+      "case": "secret.create/optional-null/notes",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.notes"
+    },
+    {
+      "case": "secret.create/optional-null/purposeKind",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.purposeKind"
+    },
+    {
+      "case": "secret.create/optional-null/tags",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.tags"
+    },
+    {
+      "case": "secret.create/optional-null/targetObjectId",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.targetObjectId"
+    },
+    {
+      "case": "secret.create/optional-null/url",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.url"
+    },
+    {
+      "case": "secret.create/optional-null/username",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$.username"
+    },
+    {
+      "case": "secret.create/extra-server-or-legacy/schemaId",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/extra-server-or-legacy/values",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/extra-server-or-legacy/canonicalJson",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/extra-server-or-legacy/authorityId",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/extra-server-or-legacy/ownerId",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/extra-server-or-legacy/jobId",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/extra-server-or-legacy/secretId",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/extra-server-or-legacy/state",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/extra-server-or-legacy/stateVersion",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/extra-server-or-legacy/contentDigest",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/extra-server-or-legacy/fingerprint",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/extra-server-or-legacy/encryptedValue",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/extra-server-or-legacy/receipt",
+      "passed": true,
+      "expectedCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "actualCode": "SCHEMA_ADDITIONALPROPERTIES",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/unknown-query",
+      "passed": true,
+      "expectedCode": "UNKNOWN_QUERY_PARAMETER",
+      "actualCode": "UNKNOWN_QUERY_PARAMETER",
+      "pointer": "/query"
+    },
+    {
+      "case": "secret.create/duplicate-http-header",
+      "passed": true,
+      "expectedCode": "DUPLICATE_HEADER",
+      "actualCode": "DUPLICATE_HEADER",
+      "pointer": "/headers/idempotency-key"
+    },
+    {
+      "case": "secret.create/missing-key",
+      "passed": true,
+      "expectedCode": "IDEMPOTENCY_KEY_REQUIRED",
+      "actualCode": "IDEMPOTENCY_KEY_REQUIRED",
+      "pointer": "/headers/idempotency-key"
+    },
+    {
+      "case": "secret.create/model-authority-header",
+      "passed": true,
+      "expectedCode": "UNDECLARED_CREATE_GUARD_OR_AUTHORITY",
+      "actualCode": "UNDECLARED_CREATE_GUARD_OR_AUTHORITY",
+      "pointer": "/headers"
+    },
+    {
+      "case": "secret.create/bad-client-digest",
+      "passed": true,
+      "expectedCode": "CLIENT_DIGEST_MISMATCH",
+      "actualCode": "CLIENT_DIGEST_MISMATCH",
+      "pointer": "/headers/x-kcml-request-digest"
+    },
+    {
+      "case": "secret.create/malformed-json",
+      "passed": true,
+      "expectedCode": "INVALID_JSON",
+      "actualCode": "INVALID_JSON",
+      "pointer": ""
+    },
+    {
+      "case": "secret.create/invalid-utf8",
+      "passed": true,
+      "expectedCode": "INVALID_UTF8",
+      "actualCode": "INVALID_UTF8",
+      "pointer": ""
+    },
+    {
+      "case": "secret.create/duplicate-root-key",
+      "passed": true,
+      "expectedCode": "DUPLICATE_JSON_KEY",
+      "actualCode": "DUPLICATE_JSON_KEY",
+      "pointer": "/stableName"
+    },
+    {
+      "case": "secret.create/duplicate-nested-key",
+      "passed": true,
+      "expectedCode": "DUPLICATE_JSON_KEY",
+      "actualCode": "DUPLICATE_JSON_KEY",
+      "pointer": "/value/encoding"
+    },
+    {
+      "case": "secret.create/nonfinite",
+      "passed": true,
+      "expectedCode": "NONFINITE_JSON_NUMBER",
+      "actualCode": "NONFINITE_JSON_NUMBER",
+      "pointer": "/stableName"
+    },
+    {
+      "case": "secret.create/wrong-root-type",
+      "passed": true,
+      "expectedCode": "SCHEMA_TYPE",
+      "actualCode": "SCHEMA_TYPE",
+      "pointer": "$"
+    },
+    {
+      "case": "secret.create/auth",
+      "passed": true,
+      "expectedCode": "AUTHENTICATION_REQUIRED",
+      "actualCode": "AUTHENTICATION_REQUIRED",
+      "pointer": ""
+    },
+    {
+      "case": "secret.create/recovery",
+      "passed": true,
+      "expectedCode": "RECOVERY_BARRIER",
+      "actualCode": "RECOVERY_BARRIER",
+      "pointer": ""
+    },
+    {
+      "case": "secret.create/same-key-replay",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/unknown-never-new-dispatch",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/failure-replayed",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/replay-conflict",
+      "passed": true,
+      "expectedCode": "IDEMPOTENCY_CONFLICT",
+      "actualCode": "IDEMPOTENCY_CONFLICT",
+      "pointer": ""
+    },
+    {
+      "case": "secret.create/replay-wrong-owner",
+      "passed": true,
+      "expectedCode": "REPLAY_SCOPE_MISMATCH",
+      "actualCode": "REPLAY_SCOPE_MISMATCH",
+      "pointer": ""
+    },
+    {
+      "case": "secret.create/invalid-outcome",
+      "passed": true,
+      "expectedCode": "INVALID_REPLAY_OUTCOME",
+      "actualCode": "INVALID_REPLAY_OUTCOME",
+      "pointer": ""
+    },
+    {
+      "case": "secret.create/current-revision-does-not-change-frozen-replay",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret.create/missing-frozen-replay/locator",
+      "passed": true,
+      "expectedCode": "REPLAY_LOCATOR_UNVERIFIED",
+      "actualCode": "REPLAY_LOCATOR_UNVERIFIED",
+      "pointer": "/replay/locator"
+    },
+    {
+      "case": "secret.create/missing-frozen-replay/executionDescriptor",
+      "passed": true,
+      "expectedCode": "REPLAY_DESCRIPTOR_UNVERIFIED",
+      "actualCode": "REPLAY_DESCRIPTOR_UNVERIFIED",
+      "pointer": "/replay/executionDescriptor"
+    },
+    {
+      "case": "secret.create/missing-frozen-replay/executionDescriptorDigest",
+      "passed": true,
+      "expectedCode": "REPLAY_DESCRIPTOR_DIGEST_MISMATCH",
+      "actualCode": "REPLAY_DESCRIPTOR_DIGEST_MISMATCH",
+      "pointer": "/replay/executionDescriptorDigest"
+    },
+    {
+      "case": "secret.create/wrong-frozen-target",
+      "passed": true,
+      "expectedCode": "REPLAY_FROZEN_SCOPE_MISMATCH",
+      "actualCode": "REPLAY_FROZEN_SCOPE_MISMATCH",
+      "pointer": "/replay/executionDescriptor"
+    },
+    {
+      "case": "generation/blank-intent",
+      "passed": true,
+      "expectedCode": "EMPTY_INTENT",
+      "actualCode": "EMPTY_INTENT",
+      "pointer": "$.intent"
+    },
+    {
+      "case": "generation/unknown-kind",
+      "passed": true,
+      "expectedCode": "SCHEMA_ENUM",
+      "actualCode": "SCHEMA_ENUM",
+      "pointer": "$.kind"
+    },
+    {
+      "case": "generation/unknown-target-kind",
+      "passed": true,
+      "expectedCode": "SCHEMA_ENUM",
+      "actualCode": "SCHEMA_ENUM",
+      "pointer": "$.targetKind"
+    },
+    {
+      "case": "generation/duplicate-source",
+      "passed": true,
+      "expectedCode": "SCHEMA_UNIQUEITEMS",
+      "actualCode": "SCHEMA_UNIQUEITEMS",
+      "pointer": "$.sources"
+    },
+    {
+      "case": "generation/duplicate-artifact-different-kind",
+      "passed": true,
+      "expectedCode": "DUPLICATE_ARTIFACT_REFERENCE",
+      "actualCode": "DUPLICATE_ARTIFACT_REFERENCE",
+      "pointer": "$.sources"
+    },
+    {
+      "case": "generation/client-artifact-digest",
+      "passed": true,
+      "expectedCode": "SCHEMA_ONEOF",
+      "actualCode": "SCHEMA_ONEOF",
+      "pointer": "$.sources[0]"
+    },
+    {
+      "case": "generation/unknown-source-kind",
+      "passed": true,
+      "expectedCode": "SCHEMA_ONEOF",
+      "actualCode": "SCHEMA_ONEOF",
+      "pointer": "$.sources[0]"
+    },
+    {
+      "case": "generation/update-positive-request-shape",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation/update-missing-own-admission",
+      "passed": true,
+      "expectedCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "actualCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "pointer": "$.kind"
+    },
+    {
+      "case": "generation/target-kind-mismatch",
+      "passed": true,
+      "expectedCode": "TARGET_KIND_MISMATCH",
+      "actualCode": "TARGET_KIND_MISMATCH",
+      "pointer": "$.targetKind"
+    },
+    {
+      "case": "generation/unknown-target",
+      "passed": true,
+      "expectedCode": "TARGET_UNRESOLVED",
+      "actualCode": "TARGET_UNRESOLVED",
+      "pointer": "$.targetObjectId"
+    },
+    {
+      "case": "generation/missing-artifact",
+      "passed": true,
+      "expectedCode": "ARTIFACT_UNRESOLVED",
+      "actualCode": "ARTIFACT_UNRESOLVED",
+      "pointer": "$.sources[1].artifactId"
+    },
+    {
+      "case": "generation/image-actual-bytes-positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation/artifact-bytes-digest",
+      "passed": true,
+      "expectedCode": "ARTIFACT_BYTES_DIGEST_MISMATCH",
+      "actualCode": "ARTIFACT_BYTES_DIGEST_MISMATCH",
+      "pointer": "$.sources[1]"
+    },
+    {
+      "case": "generation/artifact-identity",
+      "passed": true,
+      "expectedCode": "ARTIFACT_IDENTITY_MISMATCH",
+      "actualCode": "ARTIFACT_IDENTITY_MISMATCH",
+      "pointer": "$.sources[1].artifactId"
+    },
+    {
+      "case": "generation/artifact-media-type",
+      "passed": true,
+      "expectedCode": "ARTIFACT_MEDIA_TYPE_MISMATCH",
+      "actualCode": "ARTIFACT_MEDIA_TYPE_MISMATCH",
+      "pointer": "$.sources[1]"
+    },
+    {
+      "case": "generation/direct-credential-positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation/direct-credential-no-policy",
+      "passed": true,
+      "expectedCode": "EPHEMERAL_CREDENTIAL_POLICY_UNVERIFIED",
+      "actualCode": "EPHEMERAL_CREDENTIAL_POLICY_UNVERIFIED",
+      "pointer": "$.credential"
+    },
+    {
+      "case": "generation/invalid-unicode-scalar",
+      "passed": true,
+      "expectedCode": "INVALID_UNICODE",
+      "actualCode": "INVALID_UNICODE",
+      "pointer": ""
+    },
+    {
+      "case": "generation/object-reference-positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation/object-reference-missing",
+      "passed": true,
+      "expectedCode": "OBJECT_REFERENCE_UNRESOLVED",
+      "actualCode": "OBJECT_REFERENCE_UNRESOLVED",
+      "pointer": "$.sources[0].objectId"
+    },
+    {
+      "case": "generation/credential-reference-positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation/credential-reference-no-context",
+      "passed": true,
+      "expectedCode": "SECRET_USE_CONTEXT_UNVERIFIED",
+      "actualCode": "SECRET_USE_CONTEXT_UNVERIFIED",
+      "pointer": "$.sources[0]"
+    },
+    {
+      "case": "generation/UPDATE/valid-request-shape",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation/UPDATE/missing-own-policy",
+      "passed": true,
+      "expectedCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "actualCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "pointer": "$.kind"
+    },
+    {
+      "case": "generation/UPDATE/boolean-cannot-authorize",
+      "passed": true,
+      "expectedCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "actualCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "pointer": "$.kind"
+    },
+    {
+      "case": "generation/RETRY/valid-request-shape",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation/RETRY/missing-own-policy",
+      "passed": true,
+      "expectedCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "actualCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "pointer": "$.kind"
+    },
+    {
+      "case": "generation/RETRY/boolean-cannot-authorize",
+      "passed": true,
+      "expectedCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "actualCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "pointer": "$.kind"
+    },
+    {
+      "case": "generation/REPAIR/valid-request-shape",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "generation/REPAIR/missing-own-policy",
+      "passed": true,
+      "expectedCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "actualCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "pointer": "$.kind"
+    },
+    {
+      "case": "generation/REPAIR/boolean-cannot-authorize",
+      "passed": true,
+      "expectedCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "actualCode": "PARENT_TARGET_ADMISSION_POLICY_UNVERIFIED",
+      "pointer": "$.kind"
+    },
+    {
+      "case": "secret/byte-preservation",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret/binary-positive",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "secret/bad-type",
+      "passed": true,
+      "expectedCode": "SCHEMA_ENUM",
+      "actualCode": "SCHEMA_ENUM",
+      "pointer": "$.type"
+    },
+    {
+      "case": "secret/type-encoding-mismatch",
+      "passed": true,
+      "expectedCode": "SCHEMA_CONST",
+      "actualCode": "SCHEMA_CONST",
+      "pointer": "$.value.encoding"
+    },
+    {
+      "case": "secret/bad-base64",
+      "passed": true,
+      "expectedCode": "SCHEMA_ONEOF",
+      "actualCode": "SCHEMA_ONEOF",
+      "pointer": "$.value"
+    },
+    {
+      "case": "secret/base64-nonzero-padding-bits",
+      "passed": true,
+      "expectedCode": "NONCANONICAL_BASE64",
+      "actualCode": "NONCANONICAL_BASE64",
+      "pointer": "$.value.base64"
+    },
+    {
+      "case": "secret/duplicate-tag",
+      "passed": true,
+      "expectedCode": "SCHEMA_UNIQUEITEMS",
+      "actualCode": "SCHEMA_UNIQUEITEMS",
+      "pointer": "$.tags"
+    },
+    {
+      "case": "secret/name-collision",
+      "passed": true,
+      "expectedCode": "STABLE_NAME_UNAVAILABLE",
+      "actualCode": "STABLE_NAME_UNAVAILABLE",
+      "pointer": "$.stableName"
+    },
+    {
+      "case": "secret/undefined-type-policy-blocks",
+      "passed": true,
+      "expectedCode": "SECRET_PROFILE_REQUIRED",
+      "actualCode": "SECRET_PROFILE_REQUIRED",
+      "pointer": "/value"
+    },
+    {
+      "case": "secret/reserved/KCML_OWNER_API_KEY",
+      "passed": true,
+      "expectedCode": "RESERVED_CREDENTIAL_REQUIRES_SPECIAL_CONTRACT",
+      "actualCode": "RESERVED_CREDENTIAL_REQUIRES_SPECIAL_CONTRACT",
+      "pointer": "$.stableName"
+    },
+    {
+      "case": "secret/reserved/PASS",
+      "passed": true,
+      "expectedCode": "RESERVED_CREDENTIAL_REQUIRES_SPECIAL_CONTRACT",
+      "actualCode": "RESERVED_CREDENTIAL_REQUIRES_SPECIAL_CONTRACT",
+      "pointer": "$.stableName"
+    },
+    {
+      "case": "authoring/idempotent",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "authoring/unrelated-routes-byte-shape-preserved",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "authoring/all-non-create-records-unchanged-by-create-author",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "authoring/read-event-change-cannot-bypass-preservation",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "authoring/unrelated-change-cannot-bypass-preservation",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "authoring/reviewed-family-mutation-still-rejected/owner.session.list/requestSchema",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "authoring/reviewed-family-mutation-still-rejected/owner.session.revoke/eventSchema",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "authoring/reviewed-family-mutation-still-rejected/audit.event.read/responseSchema",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    }
+  ],
+  "boundaries": {
+    "generation.job.create": {
+      "request": "EXPLICIT_DOMAIN_SHAPE_AND_DECODER",
+      "response": "EXPLICIT_CREATE_OUTPUT_ERROR_UNION",
+      "event": "EXPLICIT_AGGREGATE_CREATE_RECEIPT_EVENT",
+      "runtime": "NOT_EVALUATED"
+    },
+    "secret.create": {
+      "request": "EXPLICIT_DOMAIN_SHAPE_AND_DECODER",
+      "response": "EXPLICIT_CREATE_OUTPUT_ERROR_UNION",
+      "event": "EXPLICIT_AGGREGATE_CREATE_RECEIPT_EVENT",
+      "runtime": "NOT_EVALUATED"
+    }
+  },
+  "remaining": "Exact type-specific policies for structured/cryptographic secrets, parent/target state guards, full persistence/artifact parsing/consumer pipeline, full HTTP error adapter, exact request policies and complete consumer pipeline remain mandatory; no whole-operation closure claim."
+}

@@ -1,0 +1,128 @@
+{
+  "admissionFailurePointer": "contracts/owner-session-family.schema.json#/$defs/AdmissionFailure",
+  "authoring": "scripts/close_owner_session_family.py --check",
+  "boundaries": [
+    {
+      "boundary": "requestSchema",
+      "operationId": "owner.session.list",
+      "payloadPointer": "contracts/payload-contracts.json#/records/18/requestSchema",
+      "projectionPath": "01_UI_CONTRACT/contracts/payload-contracts.json",
+      "registryPointer": "contracts/operation-contracts.json#/$defs/owner.session.list:command",
+      "schemaId": "urn:kcml:r9:operation:owner.session.list:command"
+    },
+    {
+      "boundary": "responseSchema",
+      "operationId": "owner.session.list",
+      "payloadPointer": "contracts/payload-contracts.json#/records/18/responseSchema",
+      "projectionPath": "01_UI_CONTRACT/contracts/payload-contracts.json",
+      "registryPointer": "contracts/operation-contracts.json#/$defs/owner.session.list:response",
+      "schemaId": "urn:kcml:r9:operation:owner.session.list:response"
+    },
+    {
+      "boundary": "eventSchema",
+      "operationId": "owner.session.list",
+      "payloadPointer": "contracts/payload-contracts.json#/records/18/eventSchema",
+      "projectionPath": "01_UI_CONTRACT/contracts/payload-contracts.json",
+      "registryPointer": "contracts/operation-contracts.json#/$defs/owner.session.list:event",
+      "schemaId": "urn:kcml:r9:operation:owner.session.list:event"
+    },
+    {
+      "boundary": "requestSchema",
+      "operationId": "owner.session.revoke",
+      "payloadPointer": "contracts/payload-contracts.json#/records/19/requestSchema",
+      "projectionPath": "01_UI_CONTRACT/contracts/payload-contracts.json",
+      "registryPointer": "contracts/operation-contracts.json#/$defs/owner.session.revoke:command",
+      "schemaId": "urn:kcml:r9:operation:owner.session.revoke:command"
+    },
+    {
+      "boundary": "responseSchema",
+      "operationId": "owner.session.revoke",
+      "payloadPointer": "contracts/payload-contracts.json#/records/19/responseSchema",
+      "projectionPath": "01_UI_CONTRACT/contracts/payload-contracts.json",
+      "registryPointer": "contracts/operation-contracts.json#/$defs/owner.session.revoke:response",
+      "schemaId": "urn:kcml:r9:operation:owner.session.revoke:response"
+    },
+    {
+      "boundary": "eventSchema",
+      "operationId": "owner.session.revoke",
+      "payloadPointer": "contracts/payload-contracts.json#/records/19/eventSchema",
+      "projectionPath": "01_UI_CONTRACT/contracts/payload-contracts.json",
+      "registryPointer": "contracts/operation-contracts.json#/$defs/owner.session.revoke:event",
+      "schemaId": "urn:kcml:r9:operation:owner.session.revoke:event"
+    }
+  ],
+  "familyId": "OWNER_SESSION_RECORD_ADMIN",
+  "format": "KCML-OWNER-SESSION-FAMILY-MAP/1",
+  "implementationAcceptance": "NOT_EVALUATED",
+  "sharedDependencies": [
+    {
+      "authority": [
+        "§7.1",
+        "§7.2",
+        "§21.3",
+        "§30.2"
+      ],
+      "id": "OWNER_SESSION.AUTH_TRUSTED_CONTEXT",
+      "missing": "Effective session producer and verifier caller/channel binding; API parity must preserve existing OWNER API authority.",
+      "stage": "PRE_GENERATION_DESIGN",
+      "status": "OPEN"
+    },
+    {
+      "authority": [
+        "§30.2",
+        "§20.4",
+        "§41.10"
+      ],
+      "id": "OWNER_SESSION.REAUTH_CSRF_POLICY",
+      "missing": "Frozen reauthentication strength/age and CSRF policy identity and evaluation; fixture ages are not authority.",
+      "stage": "PRE_GENERATION_DESIGN",
+      "status": "OPEN"
+    },
+    {
+      "authority": [
+        "§26.1",
+        "§41.10"
+      ],
+      "id": "OWNER_SESSION.READ_SNAPSHOT_CURSOR_PUBLISH_RETENTION",
+      "missing": "Trusted cursor/snapshot producer, immutable rows and snapshot owner counters, expiry/retention policy and historical hydration.",
+      "stage": "PRE_GENERATION_DESIGN",
+      "status": "OPEN"
+    },
+    {
+      "authority": [
+        "§51.6",
+        "§51.9",
+        "§51.11",
+        "§51.12",
+        "§51.31"
+      ],
+      "id": "OWNER_SESSION.ATOMIC_COMMAND_EVENT_OUTBOX_AUDIT_LOCATOR",
+      "missing": "Exact physical roots/FKs, producer definition and codecs with owner/session CAS, ordered locks and atomic event/outbox/audit/locator publication; mandatory isolated fixture is separate from deployed installation.",
+      "stage": "PRE_GENERATION_DESIGN",
+      "status": "OPEN"
+    },
+    {
+      "authority": [
+        "§49.4",
+        "§49.11",
+        "§49.25"
+      ],
+      "id": "OWNER_SESSION.UNKNOWN_COMMIT_READ_REPLAY",
+      "missing": "Actual decision/retention producer for transient dependency and unknown commit; neither is a terminal business outcome or automatic retry.",
+      "stage": "PRE_GENERATION_DESIGN",
+      "status": "OPEN"
+    },
+    {
+      "authority": [
+        "§26.1",
+        "§49.5",
+        "§51.12"
+      ],
+      "id": "OWNER_SESSION.CANONICAL_DIGEST_HYDRATOR",
+      "missing": "Authentic published read/result/event bytes to concrete consumers; reference binds canonical semantic_result utility but is not runtime producer.",
+      "stage": "PRE_GENERATION_DESIGN",
+      "status": "OPEN"
+    }
+  ],
+  "wholeOperationsClosed": 0
+}

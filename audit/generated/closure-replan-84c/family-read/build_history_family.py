@@ -1,0 +1,31 @@
+import sys,json,copy,hashlib
+from pathlib import Path
+ROOT=Path('/workspace/kajovocmlng');O=Path(__file__).parent;sys.path.insert(0,str(ROOT/'scripts'))
+from ssot_sources import resource_index,SSOT
+r=resource_index();obs=json.loads(r['ui/contracts/live-experience.json']['raw'])['observability'];routes=json.loads(r['contracts/payload-contracts.json']['raw'])['records'];ops=json.loads(r['contracts/operation-contracts.json']['raw'])['records']
+selected=[(i,x)for i,x in enumerate(routes)if x['operationId']in ['audit.event.list','audit.event.read','generation.job.events.read','agent.run.events.read']]
+query=copy.deepcopy(obs['querySchema']);result=copy.deepcopy(obs['responseSchema']);item=copy.deepcopy(result['properties']['items']['items']);defs={'Query':query,'Result':result,'Item':item,'HistoryQuery':copy.deepcopy(obs['historyQuerySchema'])}
+# Shared schema identities preserved by $ref; no duplicate redefinition of IDs.
+doc={'$schema':query['$schema'],'$id':'urn:kcml:history-read-family:1','$defs':defs,'requestSchemas':{},'transportSchemas':{},'responseSchemas':{},'x-authority':['ui/contracts/live-experience.json#/observability/querySchema','ui/contracts/live-experience.json#/observability/responseSchema','ui/contracts/live-experience.json#/observability/schemaBinding','ui/contracts/live-experience.json#/observability/ordering','ui/contracts/live-experience.json#/observability/validation']}
+patches=[];coverage=[]
+def obj(props):return {'type':'object','properties':props,'required':list(props),'additionalProperties':False}
+for i,row in selected:
+ route=row['routeId'];single=row['operationId']=='audit.event.read';old=copy.deepcopy(row['requestSchema']);scope=obj({'routeId':{'const':route},'pathParameters':old['properties']['pathParameters']})
+ native=obj({'operationId':{'const':row['operationId']},'scope':scope,**({}if single else {'filters':{'$ref':'#/$defs/Query'}})})
+ doc['requestSchemas'][route]=native;doc['responseSchemas'][route]=item if single else {'$ref':'#/$defs/Result'}
+ old['properties']['body']={'type':'null'}
+ if single:old['properties']['query']={'type':'array','maxItems':0}
+ else:
+  names=list(query['properties']);old['properties']['query']={'type':'array','uniqueItems':True,'items':obj({'name':{'enum':names},'value':{'type':'string'}}),'allOf':[{'contains':{'properties':{'name':{'const':n}},'required':['name']},'minContains':0,'maxContains':1}for n in names if n!='severity']}
+ doc['transportSchemas'][route]=old
+ newresponse=copy.deepcopy(row['responseSchema']);newresponse['properties']['output']=copy.deepcopy(row['responseSchema']['properties']['output'])
+ # Replace exact successful output while preserving existing status/error/guard envelope.
+ newresponse['properties']['output']={'oneOf':[{'type':'null'},{'$ref':doc['$id']+'#/responseSchemas/'+route}]}
+ patches.append({'catalog':'contracts/payload-contracts.json','operationId':row['operationId'],'routeId':route,'verifyIndex':i,'replace':{'requestSchema':old,'responseSchema':newresponse},'eventSchema':'UNCHANGED_PENDING_OWN_AUTHORITY','eventApplicability':'UNCHANGED_NOT_ASSUMED_NOT_APPLICABLE'})
+ op=next(x for x in ops if x['operationId']==row['operationId']);coverage.append({'operationId':row['operationId'],'routeId':route,'payloadPointer':'contracts/payload-contracts.json#/records/'+str(i),'nativeRequestPointer':doc['$id']+'#/requestSchemas/'+route,'nativeResponsePointer':doc['$id']+'#/responseSchemas/'+route,'ownerExposure':op['exposureClass'],'readOnlySource':{'possibleEffectTrigger':op['possibleEffectTrigger'],'fencingPolicy':op['fencingPolicy']},'mandatoryExistingAuditEvents':op['auditEventTypes'],'wholeOperationClosed':False,'openIds':['HISTORY.AUTHENTICATED_SCOPE_PRODUCER','HISTORY.SNAPSHOT_CURSOR_PRODUCER','HISTORY.CONTINUOUS_COVERAGE_PRODUCER','HISTORY.ACCESS_AUDIT_APPEND','HISTORY.PAYLOAD_PROVENANCE_HYDRATION','HISTORY.OPERATION_EVENT_APPLICABILITY']})
+(O/'history-read-family.schema.json').write_text(json.dumps(doc,indent=2)+'\n')
+fields=[]
+for group,schema,prefix in [('query',query,'querySchema'),('history-query',obs['historyQuerySchema'],'historyQuerySchema'),('result',result,'responseSchema'),('item',item,'responseSchema/properties/items/items')]:
+ for name,mask in schema['properties'].items():fields.append({'boundary':group,'field':name,'authoritativePointer':'ui/contracts/live-experience.json#/observability/'+prefix+'/properties/'+name,'mask':mask,'required':name in schema['required'],'origin':'OWNER/query consumer input with explicit server default before wire'if group in ['query','history-query'] else'authenticated persisted history reader; never caller completeness/provenance authority','meaning':{'fromInclusive':'inclusive event occurredAt lower bound','toExclusive':'exclusive event occurredAt upper bound','timezone':'IANA zone used to resolve human periods once','snapshotWatermark':'frozen immutable read snapshot, no live head substitution','completeness':'evidenced interval coverage, not implementation readiness','payloadReference':'reference only; not hydrated actual payload bytes','provenanceRefs':'authentic source references; syntactic strings alone not evidence'}.get(name,'Exact field semantics and variants preserved from named authoritative schema')})
+(O/'authorable-delta.json').write_text(json.dumps({'inputCommit':'84c41ba','sourceSha256':hashlib.sha256(SSOT.read_bytes()).hexdigest(),'newResource':'contracts/history/read-family.schema.json','resource':doc,'patches':patches,'fieldAuthorities':fields,'coverage':coverage,'technicalNormAddition':'GET history reads use separate query parameters (severity repeated distinct enum values); no body. Scalar duplicates/unknown query rejected; omitted optional identity filters null, channel ALL, severity [], cursor null and limit100. Existing OWNER admission/guards remain. Single audit.event.read uses exact existing UUID path, no query/body; returns one exact matching summary, not guessed payload. HISTORY_RECORD_NOT_FOUND technical stable code proposed for absent exact ID, requires normative publication.','newProductRequirements':False},indent=2)+'\n')
+print(len(selected),'routes',len({x['operationId']for _,x in selected}),'operations',len(fields),'exact field authorities')

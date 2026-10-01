@@ -1,0 +1,38 @@
+{
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "allOf": [
+      {
+        "$ref": "urn:kcml:r9:operation:mcp.prompts.get:response"
+      },
+      {
+        "properties": {
+          "result": {
+            "properties": {
+              "resultType": {
+                "const": "complete"
+              },
+              "_meta": {
+                "required": [
+                  "io.modelcontextprotocol/serverInfo"
+                ]
+              }
+            },
+            "required": [
+              "_meta",
+              "resultType"
+            ]
+          }
+        },
+        "required": [
+          "result"
+        ]
+      }
+    ]
+  },
+  "authority": "SSOT10.14",
+  "status": "UNBOUND_PRODUCER_SPECIALIZATION_FOR_COORDINATOR_REVIEW",
+  "nativeExternalCompatibility": "UNCHANGED_OPTIONAL_SERVERINFO",
+  "changesNativeAliases": false,
+  "supersededBy": "platform-complete.specializations.proposed.schema.json"
+}

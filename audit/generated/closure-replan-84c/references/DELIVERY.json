@@ -1,0 +1,65 @@
+{
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "ownedDirectory": "audit/generated/closure-replan-84c/references",
+  "operationIds": [
+    "mcp.prompts.get",
+    "mcp.resources.read"
+  ],
+  "closedOperationCount": 0,
+  "fixedReferenceCount": 4,
+  "referenceTests": 78,
+  "authoringChecks": 6,
+  "structuralInventory": {
+    "beforeUnresolved": 242,
+    "afterUnresolved": 238,
+    "remainingOperations": 119,
+    "basis": "Selected 242-reference inventory; post-publication reproduction removes only four known aliases before comparison"
+  },
+  "files": {
+    "native-read-schema-definitions.json": "5593802a7a3e12c31ca733c634ece978772f519da6d1fe6d9502505cc56a8ac2",
+    "unresolved-family-packages.json": "3dbc4a1273e3c876dd77138188debd361b53f70a76c2433fd5a3366aaf549329",
+    "authoring-proof.json": "62357c7e8a0aefa68d3ce323cd4572386b6a1d052033228b1a2f71aa6f274d9d",
+    "prompt-platform-complete.proposed.schema.json": "7e4d857ae7645bbb25f5ad290a890d2f1312a7e07582743b2c3d94432a0152fb",
+    "positive-witnesses.json": "729528c8a923851f041b74c9d4ab12499669bca377b4b3eb7a33040de9ee0b98",
+    "build_provenance.py": "7f23097618dca910d01a855a910cb2cd15d9021a864b95a6baa9aca7cc0805fe",
+    "verify_authoring.py": "3372b2465495bcad8defa9280afb8ea546cbde13a5f2325063d464a25673cc24",
+    "source-provenance.json": "d8031b8436de913cc460ad89ddafd47125096479de32a28672332d00ba081ab3",
+    "native_byte_format.py": "a5df929d84830a6822fa093aa3ae568bf9faab99985714aad0f9bb03873784d2",
+    "build_package.py": "c6c36f9f05ff4cca9c8877dc325149e9b1a5070d86d6b301707e97f6b6400826",
+    "author_native_read_refs.py": "905f07c20b718f2d62d8f3cc8724d3d7d125cf61bc5c48f4aab183dfa9dba640",
+    "verify_native_read_refs.py": "38f8026dcd6669c0d07f7473a60c219045629a7b7f947d2dd5b69b4ecf42967c",
+    "platform-complete.specializations.proposed.schema.json": "5619efda30b37c10fd90b3f41d86868e9fef0f2a1e200cc087d6021827bae8cb",
+    "native-read-reference-tests.json": "b5fc865ffb3838dd07ddc53316b0a74eab5a1bb970ced402604892fde45ba142",
+    "INTEGRATION.md": "af6cd730a916ff2260c2d7a529d0d119a56eb4a688004c112c1281b110e611e7",
+    "verify_inventory_delta.py": "b384a18f5e2aa8ad9ca6d317868c4b4aeff4f35cc69de2e6a631e6bccd56b921",
+    "inventory-delta.json": "5bb6558fd98970b6908d22eb034a713193bd3d04056998742617fc02545a6773",
+    "native-read-reference-patch.json": "386dd659f47d32f399c64c8e9b980a6f17182975a38b9865fbe13b34e42bb3f2"
+  },
+  "sourceMutationByAgent": false,
+  "gitOperationsByAgent": false,
+  "failedAttemptDisposition": [
+    {
+      "attempt": "Initial inventory missing byte checker",
+      "cause": "Unavailable native format checker",
+      "fix": "Added explicit strict base64 format checker; native assertion preserved"
+    },
+    {
+      "attempt": "Prompt wire serverInfo required negative",
+      "cause": "Conflated raw native optional metadata and platform-rendered producer requirement",
+      "fix": "Preserved raw native aliases; separate UNBOUND platform producer specialization"
+    },
+    {
+      "attempt": "Initial4aliases called raw native but requiring response metadata",
+      "cause": "Wire/domain producer conflation reproduced by independent reviewer",
+      "fix": "Remove response metadata requirement in both complete/MRTR native branches; retain present-metadata type assertion; separate unbound platform complete specializations"
+    }
+  ],
+  "boundaryKind": "RAW_NATIVE_PROTOCOL_2026_07_28",
+  "responseMetadataPolicy": "OPTIONAL_VALIDATED_IF_PRESENT; SEPARATE_UNBOUND_PLATFORM_COMPLETE_SPECIALIZATION",
+  "optionalMetadataCorrection": {
+    "classification": "REPRODUCED_WIRE_DOMAIN_CONFLATION",
+    "affectedResponseSchemas": 2,
+    "unresolvedReferenceDelta": 0,
+    "integration": "COORDINATOR_REQUIRED"
+  }
+}

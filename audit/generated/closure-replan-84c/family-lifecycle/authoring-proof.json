@@ -1,0 +1,84 @@
+{
+  "genericBaselineHead": "84c41ba80af35d5d13f64cf8177ce551c2188e27",
+  "genericBaselineResourceSha256": "ddcbe434ae3d49cab8f38bb63034db001a8f444e4e889a7f3fdbd6265339e3c1",
+  "sourceDocumentSha256": "9d0c92e9797abecdf5c8ba18cb12515967f27b749322aab5b4dc0b6925ecb649",
+  "consumedSourceHashes": {
+    "contracts/payload-contracts.json": "8a318776a194a5d4277ba0ab95f370ee17539ee9129246fd862a5f117c4b8dcc",
+    "contracts/operation-contracts.json": "58ba4d0db6b479936b3112833da7b65204e185c4f9600749a1ed8c61c00bc344"
+  },
+  "authoringScriptSha256": "93e5db9478104f11149c889be01e51f028297930560d37eda4f15f7f73038647",
+  "contractsScriptSha256": "d7216aa5ccbb88f7d565ffa69ec25a22dcf4dc71d2f857d5cd41f007df125f0d",
+  "candidateResourceSha256": {
+    "contracts/payload-contracts.json": "8a318776a194a5d4277ba0ab95f370ee17539ee9129246fd862a5f117c4b8dcc",
+    "contracts/operation-contracts.json": "58ba4d0db6b479936b3112833da7b65204e185c4f9600749a1ed8c61c00bc344",
+    "contracts/owner-session-family.json": "7c94bf5b3e8250f2711e19efaccbb77c82e2a3c359033eb5ec386bd401bf5374",
+    "contracts/owner-session-family.schema.json": "2cb4bdd0253a3fffac82b9bb8003e2f654f1ae182ecbbe314f8784d8dcda2cdd",
+    "closure/contracts/owner-session-family-map.json": "71619373c70f8baa06b4dd5eca5d305a3d3cca246246ce93e2f153d13a80b5cf"
+  },
+  "checks": [
+    {
+      "id": "authoring-exact-resource-bytes-idempotent",
+      "status": "PASS"
+    },
+    {
+      "id": "published-schema-valid/AdmissionFailure",
+      "status": "PASS"
+    },
+    {
+      "id": "published-schema-valid/SessionPublic",
+      "status": "PASS"
+    },
+    {
+      "id": "published-schema-valid/owner.session.list:command",
+      "status": "PASS"
+    },
+    {
+      "id": "published-schema-valid/owner.session.list:event",
+      "status": "PASS"
+    },
+    {
+      "id": "published-schema-valid/owner.session.list:response",
+      "status": "PASS"
+    },
+    {
+      "id": "published-schema-valid/owner.session.revoke:command",
+      "status": "PASS"
+    },
+    {
+      "id": "published-schema-valid/owner.session.revoke:event",
+      "status": "PASS"
+    },
+    {
+      "id": "published-schema-valid/owner.session.revoke:response",
+      "status": "PASS"
+    },
+    {
+      "id": "generic-regeneration-respecialized/owner.session.list/requestSchema",
+      "status": "PASS"
+    },
+    {
+      "id": "generic-regeneration-respecialized/owner.session.list/responseSchema",
+      "status": "PASS"
+    },
+    {
+      "id": "generic-regeneration-respecialized/owner.session.list/eventSchema",
+      "status": "PASS"
+    },
+    {
+      "id": "generic-regeneration-respecialized/owner.session.revoke/requestSchema",
+      "status": "PASS"
+    },
+    {
+      "id": "generic-regeneration-respecialized/owner.session.revoke/responseSchema",
+      "status": "PASS"
+    },
+    {
+      "id": "generic-regeneration-respecialized/owner.session.revoke/eventSchema",
+      "status": "PASS"
+    }
+  ],
+  "checkCount": 15,
+  "failedCount": 0,
+  "wholeOperationsClosed": 0,
+  "canonicalWritten": false
+}

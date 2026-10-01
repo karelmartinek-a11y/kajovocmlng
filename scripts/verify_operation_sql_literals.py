@@ -57,8 +57,26 @@ def main():
     definitions=set()
     for path,item in rs.items():
         if path.endswith('.sql'):
-            definitions.update(re.findall(r'(?i)CREATE\s+(?:OR\s+REPLACE\s+)?FUNCTION\s+(\w+)',item['raw'].decode()))
+            definitions.update(re.findall(r'(?i)CREATE\s+(?:OR\s+REPLACE\s+)?FUNCTION\s+(?:[a-zA-Z_][\w]*\.)?(\w+)',item['raw'].decode()))
     missing=sorted(CALLS-definitions)
+    callsite_path='contracts/sql-helper-call-sites.json'
+    coverage={'status':'BLOCKED','diagnostic':'CALLSITE_REGISTRY_MISSING'}
+    if callsite_path in rs:
+        registry=json.loads(rs[callsite_path]['raw'])
+        rows=registry.get('wrappers',[])
+        expected_operations={values[0] for name,values in r.get('calls',[]) if name=='kcml_assert_operation_descriptor_v1'}
+        covered_operations={v.get('operationId') for v in rows}
+        exact=(registry.get('sourceResourceSha256')==hashlib.sha256(raw).hexdigest()
+               and len(rows)==len(expected_operations)==r.get('functions')
+               and covered_operations==expected_operations
+               and sum(len(v.get('calls',[])) for v in rows)==len(expressions(raw)))
+        unresolved=[v['operationId'] for v in rows if v.get('definitionApplicability')=='UNIMPLEMENTED']
+        coverage={'status':'PASS' if exact and not unresolved else 'BLOCKED',
+                  'registryExact':exact,'wrapperCount':len(rows),'unresolvedTypedHandlers':unresolved,
+                  'referenceImplemented':registry.get('referenceImplementedWrappers'),
+                  'dispatchVerified':registry.get('dispatchVerifiedWrappers'),
+                  'runtimeAcceptance':'NOT_EVALUATED',
+                  'scope':'Required exact typed callsites; helper names alone are insufficient'}
     r.pop('calls',None)
     r.update(sourceDocumentSha256=hashlib.sha256(SSOT.read_bytes()).hexdigest(),resourceSha256=hashlib.sha256(raw).hexdigest(),
         parserVersion=pglast.__version__,parserScope='PostgreSQL 17 syntax AST; PostgreSQL 18.6 execution NOT_RUN',
@@ -67,7 +85,8 @@ def main():
         executableDatabaseClosure='BLOCKED: helpers, physical relations, transaction/lock/idempotency/outbox/recovery execution unverified')
     if not preservation or not all(negatives):r['status']='BLOCKED'
     r['literalStatus']=r['status']
-    if missing:r['status']='BLOCKED'
+    r['mandatoryCallsiteCoverage']=coverage
+    if missing or coverage['status']!='PASS':r['status']='BLOCKED'
     out=ROOT/'audit/generated/repair-2026-09-30/sql';out.mkdir(parents=True,exist_ok=True)
     (out/'literal-verification.json').write_text(json.dumps(r,indent=2)+'\n')
     print(json.dumps({k:v for k,v in r.items() if k not in ['failures','positiveWitness']}))

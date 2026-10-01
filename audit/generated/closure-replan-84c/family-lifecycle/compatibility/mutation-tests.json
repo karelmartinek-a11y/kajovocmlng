@@ -1,0 +1,47 @@
+{
+  "sourceDocumentSha256": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0",
+  "sourceUnchanged": true,
+  "cases": [
+    {
+      "id": "owner-mask-mutation",
+      "passed": true,
+      "expectedDiagnostic": "Unexpected change beyond guard domains: route.0018",
+      "returncode": 1,
+      "actualDiagnostic": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/workspace/kajovocmlng/scripts/verify_route_guard_counters.py\", line 95, in main\n    raise ValueError('Unexpected change beyond guard domains: '+route['routeId'])\nValueError: Unexpected change beyond guard domains: route.0018\n",
+      "fixtureSha256": "5ef4125a0236af68285aa085dcba970d78b73ea82bb4f1933823d3324fe20f8b"
+    },
+    {
+      "id": "audit-mask-mutation",
+      "passed": true,
+      "expectedDiagnostic": "Unexpected change beyond guard domains: route.0452",
+      "returncode": 1,
+      "actualDiagnostic": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/workspace/kajovocmlng/scripts/verify_route_guard_counters.py\", line 95, in main\n    raise ValueError('Unexpected change beyond guard domains: '+route['routeId'])\nValueError: Unexpected change beyond guard domains: route.0452\n",
+      "fixtureSha256": "e260690cd7ad688413c1cfe0dc94fd8ec21cecb93e007188e76faa72c8293062"
+    },
+    {
+      "id": "own-manifest-entry-mutation",
+      "passed": true,
+      "expectedDiagnostic": "manifest.json#/resources/closure/contracts/operation-state-receipts.json",
+      "returncode": 1,
+      "actualDiagnostic": "{\"status\": \"BLOCKED\", \"pending\": [\"manifest.json#/resources/closure/contracts/operation-state-receipts.json\"], \"normativePresent\": true, \"scope\": \"Six authored fields, their normative contract/projections and own manifest entry; global integrity is independently gated\", \"globalManifestResourceCountMatches\": true}\n",
+      "fixtureSha256": "5f9d39f3790177cd48f97603496d383c9068f9614a07a5c45cd15e00b36c8f2b"
+    },
+    {
+      "id": "own-state-required-mutation",
+      "passed": true,
+      "expectedDiagnostic": "REQUIRED_STATE_FIELD_REMOVED",
+      "returncode": 1,
+      "actualDiagnostic": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/workspace/kajovocmlng/scripts/close_operation_state_receipts.py\", line 16, in main\n    assert field in row['responseSchema']['required'], 'REQUIRED_STATE_FIELD_REMOVED'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: REQUIRED_STATE_FIELD_REMOVED\n",
+      "fixtureSha256": "41e68e012889f32978e9f534cf3192b4b72b5d86e89144dfbb532965a5b48b42"
+    }
+  ],
+  "checked": 4,
+  "failed": 0,
+  "class": "ACTUAL_VERIFIER_LOCAL_SOURCE_MUTATIONS_NOT_RUNTIME",
+  "scriptsSha256": {
+    "verify_route_guard_counters.py": "e4af6c5304fe4b8ace14833b452ab7bd7253066efc6445c9e7e753bde95aee99",
+    "verify_create_operation_requests.py": "9b31f1808f3108e3173c224e71cf06f4fc06f15edba882fde462d0650688b91c",
+    "verify_operation_state_receipts.py": "b8d9c1bc366c8d5e1e6e98cd04e6273c56cd225d40da4d385f3fe4a883a4dc4c",
+    "close_operation_state_receipts.py": "739d6c1d17ac8b7992fbae6f6cbc5abed9099bfda41ee93fa21c26e2ae61677d"
+  }
+}

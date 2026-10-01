@@ -1,0 +1,99 @@
+{
+  "sourceSha256": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0",
+  "sourceUnchanged": true,
+  "checked": 8,
+  "failed": 1,
+  "cases": [
+    {
+      "id": "policy-current",
+      "passed": true,
+      "exit": 0,
+      "failedSections": [],
+      "mutantSourceSha256": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0",
+      "scriptOriginalSha256": "4deba8665af826da3c2ebc8ed421ca183d6c0cad1166ca2d4ed3b395736615f6",
+      "instrumentation": "ONE REPORT DESTINATION RELOCATION ONLY; actual source/policy logic unchanged"
+    },
+    {
+      "id": "policy-original-unrelated-content-change",
+      "passed": true,
+      "exit": 1,
+      "failedSections": [
+        "8. Password Manager a Secret Manager"
+      ],
+      "mutantSourceSha256": "fddb46d90e366ee741ab7dd07db3be7ac760573b02c7993dbb9a44a9bdc61972",
+      "scriptOriginalSha256": "4deba8665af826da3c2ebc8ed421ca183d6c0cad1166ca2d4ed3b395736615f6",
+      "instrumentation": "ONE REPORT DESTINATION RELOCATION ONLY; actual source/policy logic unchanged"
+    },
+    {
+      "id": "policy-supplement-byte-change",
+      "passed": true,
+      "exit": 1,
+      "failedSections": [
+        "8. Password Manager a Secret Manager",
+        "8.17"
+      ],
+      "mutantSourceSha256": "159ef18485c7b055ef50fb4db2aac27800c242a902410f6113244a3e3021608f",
+      "scriptOriginalSha256": "4deba8665af826da3c2ebc8ed421ca183d6c0cad1166ca2d4ed3b395736615f6",
+      "instrumentation": "ONE REPORT DESTINATION RELOCATION ONLY; actual source/policy logic unchanged"
+    },
+    {
+      "id": "policy-supplement-duplicate",
+      "passed": true,
+      "exit": 1,
+      "failedSections": [
+        "8. Password Manager a Secret Manager",
+        "8.17"
+      ],
+      "mutantSourceSha256": "d1f4e64d60929e46eed387e0bc6f7ebf3443cda4cbea9afc2f76fc2fba318146",
+      "scriptOriginalSha256": "4deba8665af826da3c2ebc8ed421ca183d6c0cad1166ca2d4ed3b395736615f6",
+      "instrumentation": "ONE REPORT DESTINATION RELOCATION ONLY; actual source/policy logic unchanged"
+    },
+    {
+      "id": "native-masks-current",
+      "passed": true,
+      "exit": 0,
+      "failedCases": [],
+      "diagnostic": "{\"sourceSha256\": \"116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0\", \"checked\": 671, \"failed\": 0}\n",
+      "mutantSourceSha256": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0"
+    },
+    {
+      "id": "native-unrelated-definition-still-rejected",
+      "passed": true,
+      "exit": 1,
+      "failedCases": [
+        "exact-source-derived-variant-set"
+      ],
+      "diagnostic": "{\"sourceSha256\": \"4b8918fec8b4fa9e7ee23cd00d26b342111f8896e614233195c4569c81d18b8d\", \"checked\": 671, \"failed\": 1}\n{\"case\": \"exact-source-derived-variant-set\", \"expected\": true, \"actual\": false, \"passed\": false}\n",
+      "mutantSourceSha256": "4b8918fec8b4fa9e7ee23cd00d26b342111f8896e614233195c4569c81d18b8d"
+    },
+    {
+      "id": "native-owner-definition-not-blanket-allowed",
+      "passed": false,
+      "exit": 1,
+      "failedCases": [],
+      "diagnostic": "      ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/kajovocmlng/scripts/verify_generation_operation_masks.py\", line 34, in valid\n    return validators[identity].is_valid(sample)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/jsonschema/validators.py\", line 499, in is_valid\n    error = next(self.iter_errors(instance), None)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/jsonschema/validators.py\", line 383, in iter_errors\n    for error in errors:\n                 ^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/jsonschema/_keywords.py\", line 275, in ref\n    yield from validator._validate_reference(ref=ref, instance=instance)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/jsonschema/validators.py\", line 464, in _validate_reference\n    raise exceptions._WrappedReferencingError(err) from err\njsonschema.exceptions._WrappedReferencingError: Unresolvable: urn:kcml:r9:operation:generation.workspace.patch:command\n",
+      "mutantSourceSha256": "a59867a0255eb810b602f28679c88c0b4d444984a50fea34ad8b0024e10c2a5f"
+    },
+    {
+      "id": "native-read-alias-method-substitution",
+      "passed": true,
+      "exit": 1,
+      "failedCases": [],
+      "diagnostic": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/workspace/kajovocmlng/scripts/verify_generation_operation_masks.py\", line 58, in main\n    author.updates(SSOT.read_text(), package)\n  File \"/workspace/kajovocmlng/audit/generated/closure-replan-84c/references/author_native_read_refs.py\", line 27, in updates\n    if key in d['$defs'] and d['$defs'][key]!=p['value'] and d['$defs'][key]!=package.get('previousPublishedDefinitions',{}).get(key):raise ValueError('ALIAS_IDENTITY_CONFLICT:'+key)\n                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: ALIAS_IDENTITY_CONFLICT:mcp.resources.read:command\n",
+      "mutantSourceSha256": "d11329ed77869a552c14d3060b13d5c37d9df841903072b97a9c515091fd8095"
+    }
+  ],
+  "consumedResources": {
+    "contracts/operation-contracts.json": "58ba4d0db6b479936b3112833da7b65204e185c4f9600749a1ed8c61c00bc344",
+    "contracts/owner-session-family.json": "7c94bf5b3e8250f2711e19efaccbb77c82e2a3c359033eb5ec386bd401bf5374",
+    "contracts/mcp/native-2026-07-28.schema.json": "ef70b61f99b6d2e5e3b46863822eab08dff6a45bedc7a08914e0e5b133f40203",
+    "contracts/mcp-native-schema-artifact.json": "068b37c9d873ffeea1299fec37aee5b28644da29aa64d15fabc8ceb77c9769f7"
+  },
+  "scriptsSha256": {
+    "verify_preserved_policy.py": "4deba8665af826da3c2ebc8ed421ca183d6c0cad1166ca2d4ed3b395736615f6",
+    "verify_generation_operation_masks.py": "3b4ba325e892c9124d7089badcf616dfa164fba8807c86868560f106990d49d8"
+  },
+  "externalAliasPackageSha256": "386dd659f47d32f399c64c8e9b980a6f17182975a38b9865fbe13b34e42bb3f2",
+  "wholeOperationsClosed": 0,
+  "runtimeAcceptance": "NOT_EVALUATED"
+}

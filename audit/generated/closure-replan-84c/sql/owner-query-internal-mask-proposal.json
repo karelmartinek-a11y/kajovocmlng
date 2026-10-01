@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "status": "PROPOSED_SCOPED_INTERNAL_ONLY",
+  "authority": [
+    "\u00a77.2",
+    "\u00a725.3",
+    "\u00a751.2",
+    "\u00a751.20",
+    "database/secret-roots.sql"
+  ],
+  "definitions": {
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "secretId",
+        "secretVersionId",
+        "fingerprint",
+        "credentialVersion",
+        "credentialActivationEpoch",
+        "createdAt",
+        "rotatedAt",
+        "lastUsedAt"
+      ],
+      "properties": {
+        "secretId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "secretVersionId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "fingerprint": {
+          "type": "string"
+        },
+        "credentialVersion": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$"
+        },
+        "credentialActivationEpoch": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$"
+        },
+        "createdAt": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{6}Z$"
+        },
+        "rotatedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{6}Z$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "lastUsedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{6}Z$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "revealInternalEncryptedHydration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "secretId",
+        "secretVersionId",
+        "representation",
+        "plaintextByteLength",
+        "ciphertextHex",
+        "nonceHex",
+        "algorithm",
+        "keyId",
+        "creatorContextId",
+        "fingerprint",
+        "originalImportBytesDigest",
+        "canonicalValueDigest"
+      ],
+      "properties": {
+        "secretId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "secretVersionId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "representation": {
+          "type": "string"
+        },
+        "plaintextByteLength": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ciphertextHex": {
+          "type": "string",
+          "pattern": "^(?:[0-9a-f]{2})+$"
+        },
+        "nonceHex": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{24}$"
+        },
+        "algorithm": {
+          "type": "string",
+          "const": "AES_256_GCM"
+        },
+        "keyId": {
+          "type": "string"
+        },
+        "creatorContextId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "fingerprint": {
+          "type": "string"
+        },
+        "originalImportBytesDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "canonicalValueDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      }
+    }
+  },
+  "limitations": [
+    "No public response/import mask replacement",
+    "Fingerprint/keyId/representation refinements require their actual canonical domains, not this unrestricted string projection",
+    "Byte length JSON number compatibility requires canonical transport integer policy before public export",
+    "HTTP empty path/query/body authorization transport and audited public reveal result not activated"
+  ]
+}

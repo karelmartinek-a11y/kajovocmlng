@@ -16,26 +16,33 @@ CHECKS=[
  'verify_provider_outcome_mask.py','verify_read_boundary_completion.py','verify_retry_profile.py',
  'verify_route_guard_counters.py','verify_saga_handoffs.py','verify_transitive_mask_detection.py',
  'verify_secret_profile_handoffs.py','verify_producer_archive_handoffs.py','verify_generation_chain_handoffs.py','verify_generation_physical_handoff.py','verify_generation_admission_basis.py','verify_operation_state_receipts.py','verify_create_storage_invariants.py','verify_visual_contracts.py','run_baseline_gates.py','verify_package.py']
+EXTERNAL_SUPPORT_PATHS=[
+  'audit/generated/closure-replan-84c/family-read/core-audit/author_core_audit.py',
+  'audit/generated/closure-replan-84c/family-read/core-audit/authorable-core-delta.json',
+  'audit/generated/closure-replan-84c/family-read/core-audit/CORE_AUDIT_NORMATIVE_SUPPLEMENT.md',
+  'audit/generated/closure-replan-84c/references/author_native_read_refs.py',
+  'audit/generated/closure-replan-84c/references/native-read-reference-patch.json',
+ ]
+
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 
-EVIDENCE_INPUTS={'verify_secret_profile_handoffs.py':['audit/generated/resume-34d/secrets-browser/synthetic_profile_fixtures.py','audit/generated/resume-34d/review/secret-current/secret-native-review.json','audit/generated/resume-34d/failure-sql/secret-profile-current/postgres-tests.json','audit/generated/resume-34d/secrets-browser/partition-current/partition-cookie-tests.json'],'verify_generation_chain_handoffs.py':['audit/generated/resume-8cc/archive/current-authchain/final-2577da/tree/audit/generated/resume-905/sql/review-current/authenticated-chain-review.json','audit/generated/resume-8cc/archive/current-authchain/final-2577da/execution-manifest.json'],
+EVIDENCE_INPUTS={'verify_secret_profile_handoffs.py':['audit/generated/resume-34d/secrets-browser/synthetic_profile_fixtures.py','audit/generated/closure-replan-84c/secret/compatibility/runs/final-116e/native/tree/audit/generated/resume-34d/review/secret-current/secret-native-review.json','audit/generated/closure-replan-84c/secret/compatibility/runs/final-116e/secretpg/tree/tmp/ssot-secret-pg-current/postgres-tests.json','audit/generated/closure-replan-84c/secret/compatibility/runs/final-116e/cookie/tree/audit/generated/resume-34d/secrets-browser/partition-current/partition-cookie-tests.json'],'verify_generation_chain_handoffs.py':['audit/generated/closure-replan-84c/secret/compatibility/runs/final-116e/authchain/tree/audit/generated/resume-905/sql/review-current/authenticated-chain-review.json','audit/generated/closure-replan-84c/secret/compatibility/runs/final-116e/authchain/execution-manifest.json'],
  'verify_generation_physical_handoff.py':['audit/generated/resume-d362/review/verify_scoped_generation_links.py','audit/generated/resume-d362/events/verify_combined_generation.py','audit/generated/resume-d362/persistence/generation_descriptor_registry.py','audit/generated/resume-d362/persistence/context_fixture_exports.py','/tmp/kcml-pg18/bin/psql','/tmp/kcml-pg18/bin/postgres'],
  'verify_generation_admission_basis.py':['audit/generated/resume-d362/admission/generation_admission_fixtures.py','audit/generated/resume-d362/admission/verify_generation_admission_reference.py','audit/generated/resume-d362/admission/generation_retry_inventory_fixtures.py','audit/generated/resume-d362/admission/verify_generation_retry_inventory.py'],
  'verify_phase4_ui.py':['audit/phase4-ui-action-matrix.json','audit/phase4-current-handoff-matrix.json','audit/phase4-unresolved.json'],
  'verify_package.py':['audit/visual-validation.json'],
 }
 from verify_producer_archive_handoffs import PROOFS,PROOF_MAPPING
-EVIDENCE_INPUTS['verify_producer_archive_handoffs.py']=[PROOF_MAPPING]+list(PROOFS.values())+[
- 'audit/generated/resume-905/consumers/review-secrets/'+name for name in ['publication-postgres-tests.json','owner-binding-postgres-tests.json','safe-role-postgres-tests.json','additional-tests.json']]
+EVIDENCE_INPUTS['verify_producer_archive_handoffs.py']=[PROOF_MAPPING]+list(PROOFS.values())
 EVIDENCE_INPUTS['verify_secret_profile_handoffs.py'].append('00_SSOT/KajovoCMLNG_SSOT.md')
 
 def evidence_inputs_hash(name):
  h=hashlib.sha256()
  relative_inputs=list(EVIDENCE_INPUTS.get(name,[]))
- if name in {'verify_producer_archive_handoffs.py','verify_secret_profile_handoffs.py'}:
+ if name in {'verify_producer_archive_handoffs.py','verify_secret_profile_handoffs.py','verify_generation_chain_handoffs.py'}:
   # The checker reads actual independent fixture helpers, not only report JSON.
   # Bind those dynamically declared paths too; edited proof tooling invalidates cache.
-  reports=PROOFS.items()if name=='verify_producer_archive_handoffs.py'else [('secret-bounded',x)for x in EVIDENCE_INPUTS[name]if x.endswith('.json')]
+  reports=PROOFS.items()if name=='verify_producer_archive_handoffs.py'else [('declared-bounded',x)for x in EVIDENCE_INPUTS[name]if x.endswith('.json')]
   for label,relative in reports:
    report_path=ROOT/relative
    try:q=json.loads(report_path.read_text())
@@ -66,6 +73,11 @@ def main():
   for path in sorted((ROOT/base).rglob('*')):
    if path.is_file() and '__pycache__' not in path.parts:
     support.update(path.relative_to(ROOT).as_posix().encode()+b'\0'+path.read_bytes()+b'\0')
+ # Authored family transforms consume reviewed providers outside scripts/.
+ # Their bytes participate in cache freshness exactly like packaged helpers.
+ for relative in EXTERNAL_SUPPORT_PATHS:
+  path=ROOT/relative
+  support.update(relative.encode()+b'\0'+(path.read_bytes() if path.is_file() else b'MISSING')+b'\0')
  support_hash=support.hexdigest()
  packages={line.split('==')[0]:importlib.metadata.version(line.split('==')[0])
   for line in (ROOT/'requirements-audit.txt').read_text().splitlines() if '==' in line}
@@ -75,7 +87,7 @@ def main():
   for r in json.loads(target.read_text()).get('commands',[]):
    if 'producedEvidenceHashes' in r and r['producedEvidenceHashes']==produced_json_hashes(Path(r['script']).name) and r.get('evidenceInputsSha256')==evidence_inputs_hash(Path(r['script']).name) and (ROOT/r['evidence']).is_file() and r.get('evidenceLogSha256')==sha(ROOT/r['evidence']) and r.get('sourceSha256')==source and r.get('supportInputsSha256')==support_hash and r.get('environmentSha256')==environment_hash and r.get('requirementsSha256')==deps and r.get('scriptSha256')==sha(ROOT/r['script']):records[r['script']]=r
  def save():
-  report={'sourceSha256':source,'requirementsSha256':deps,'supportInputsSha256':support_hash,'environmentSha256':environment_hash,'installedAuditPackages':packages,'python':sys.version,'requiredChecks':CHECKS,
+  report={'authoredTransformInputs':{relative:sha(ROOT/relative) if (ROOT/relative).is_file() else 'MISSING' for relative in EXTERNAL_SUPPORT_PATHS},'sourceSha256':source,'requirementsSha256':deps,'supportInputsSha256':support_hash,'environmentSha256':environment_hash,'installedAuditPackages':packages,'python':sys.version,'requiredChecks':CHECKS,
    'commands':list(records.values()),'allCommandsFinished':len(records)==len(CHECKS),
    'scope':'Explicit available design regression tools and five final gate families under73.7; normative per-operation semantic, SQL helper/runtime and full pipeline obligations remain separately required.',
    'SSOT_CONTRACT_READY':'BLOCKED','IMPLEMENTATION_PRODUCTION_ACCEPTANCE':'NOT_EVALUATED',

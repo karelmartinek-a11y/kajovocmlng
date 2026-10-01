@@ -11,6 +11,8 @@ import sys
 from urllib.parse import unquote
 
 from jsonschema import FormatChecker
+from native_byte_format import install_native_byte_checker
+install_native_byte_checker()
 from jsonschema.validators import validator_for
 from referencing import Registry, Resource
 from referencing.jsonschema import DRAFT202012

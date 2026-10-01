@@ -1,0 +1,200 @@
+{
+  "status": "PASS_NORMATIVE_TEMPORAL_REVIEW_WITH_REQUIRED_CORRECTION",
+  "sourceSha256": "13105137f8a6bf4cd831262859cfa297795631a295b63d313b2b4c83d9012cf9",
+  "sourceStable": true,
+  "candidateSha256": "1a53ac2aa8ddcf764f61729003f70d6a59f19cd120f0d95834d844b3f0766d46",
+  "authority": [
+    {
+      "section": "51.36",
+      "line": 50330,
+      "quote": "Každá nová nebo generovaná mutující operation před activation doloží:",
+      "sourceSha256": "13105137f8a6bf4cd831262859cfa297795631a295b63d313b2b4c83d9012cf9"
+    },
+    {
+      "section": "51.36",
+      "line": 50344,
+      "quote": "- paralelní, crash a nemesis testy z 51.34.",
+      "sourceSha256": "13105137f8a6bf4cd831262859cfa297795631a295b63d313b2b4c83d9012cf9"
+    },
+    {
+      "section": "73.4",
+      "line": 674794,
+      "quote": "P00 musí freezeovat exact Debian package versions a repository evidence; P02 následně prokáže skutečný server, constraints, concurrency, restore/recovery a každé `CREATE EXTENSION`, které compiled schema skutečně požaduje.",
+      "sourceSha256": "13105137f8a6bf4cd831262859cfa297795631a295b63d313b2b4c83d9012cf9"
+    },
+    {
+      "section": "73.1",
+      "line": 674778,
+      "quote": "Pro otázky runtime/package/OS realization má tato kapitola precedence nad staršími technickými baseline, které zůstávají zachované jako provenance.",
+      "sourceSha256": "13105137f8a6bf4cd831262859cfa297795631a295b63d313b2b4c83d9012cf9"
+    },
+    {
+      "section": "73.1",
+      "line": 674780,
+      "quote": "Static compatibility PASS není tvrzení, že produkční server již byl instalován.",
+      "sourceSha256": "13105137f8a6bf4cd831262859cfa297795631a295b63d313b2b4c83d9012cf9"
+    },
+    {
+      "section": "73.7",
+      "line": 674808,
+      "quote": "P00 smí začít pouze tehdy, když `verify_package.py` úspěšně vykoná všech pět finálních gate families, hash manifest sedí a R17 má nula unresolved/blocking findings.",
+      "sourceSha256": "13105137f8a6bf4cd831262859cfa297795631a295b63d313b2b4c83d9012cf9"
+    },
+    {
+      "section": "55.21",
+      "line": 54059,
+      "quote": "| `ARCH_POSTGRES_CONTRACT_COMPLETE` | každý mutující operation má complete physical PostgreSQL record a constraints |",
+      "sourceSha256": "13105137f8a6bf4cd831262859cfa297795631a295b63d313b2b4c83d9012cf9"
+    },
+    {
+      "section": "51.20",
+      "line": 49585,
+      "quote": "Reveal klíče pod OWNER session je read operation nad current locked snapshotem a audit eventem.",
+      "sourceSha256": "13105137f8a6bf4cd831262859cfa297795631a295b63d313b2b4c83d9012cf9"
+    },
+    {
+      "section": "12.56",
+      "line": 4787,
+      "quote": "actual rotation, desired/effective confirmation and historical materialization fixtures remain required before generation.",
+      "sourceSha256": "13105137f8a6bf4cd831262859cfa297795631a295b63d313b2b4c83d9012cf9"
+    }
+  ],
+  "physicalDeclaration": {
+    "declarationId": "SSOT-DECL-212",
+    "clauses": [
+      "UNIQUE (secret_id, version_number)",
+      "UNIQUE (secret_id, id)",
+      "CHECK (octet_length(canonical_value_digest) = 32)",
+      "partial UNIQUE (secret_id) WHERE lifecycle = 'ACTIVE'"
+    ],
+    "recordDefinition": "RegistryPostgres",
+    "materializationRequiredBefore": "ARCHITECTURE_READINESS",
+    "definitionClosureRequired": true,
+    "noDeployedOwnerHandlerExistenceInDeclaration": true
+  },
+  "sixSharedDefinitions": [
+    {
+      "id": "OWNER_SESSION.AUTH_TRUSTED_CONTEXT",
+      "classification": "A_EXISTING_REQUIRED_DESIGN_CONTRACT",
+      "state": "OPEN",
+      "authority": [
+        "§7.1",
+        "§7.2",
+        "§21.3",
+        "§30.2"
+      ],
+      "definitionMustInclude": "Exact producer identity, policy, physical fields/FKs/constraints/ordered locks and transaction/read/error/retention consumers for this declared scope.",
+      "notProof": "Reference state/supplied flag is not server authority; no claim canonical deployed handler exists.",
+      "implementationFixtureTiming": "Use own explicit named authority when present; broad PostgreSQL concurrency implementation acceptance is P02 and before operation activation per73.4/51.36, not a new blanket pre-generation handler-exists gate."
+    },
+    {
+      "id": "OWNER_SESSION.REAUTH_CSRF_POLICY",
+      "classification": "A_EXISTING_REQUIRED_DESIGN_CONTRACT",
+      "state": "OPEN",
+      "authority": [
+        "§30.2",
+        "§20.4",
+        "§41.10"
+      ],
+      "definitionMustInclude": "Exact producer identity, policy, physical fields/FKs/constraints/ordered locks and transaction/read/error/retention consumers for this declared scope.",
+      "notProof": "Reference state/supplied flag is not server authority; no claim canonical deployed handler exists.",
+      "implementationFixtureTiming": "Use own explicit named authority when present; broad PostgreSQL concurrency implementation acceptance is P02 and before operation activation per73.4/51.36, not a new blanket pre-generation handler-exists gate."
+    },
+    {
+      "id": "OWNER_SESSION.READ_SNAPSHOT_CURSOR_PUBLISH_RETENTION",
+      "classification": "A_EXISTING_REQUIRED_DESIGN_CONTRACT",
+      "state": "OPEN",
+      "authority": [
+        "§26.1",
+        "§41.10"
+      ],
+      "definitionMustInclude": "Exact producer identity, policy, physical fields/FKs/constraints/ordered locks and transaction/read/error/retention consumers for this declared scope.",
+      "notProof": "Reference state/supplied flag is not server authority; no claim canonical deployed handler exists.",
+      "implementationFixtureTiming": "Use own explicit named authority when present; broad PostgreSQL concurrency implementation acceptance is P02 and before operation activation per73.4/51.36, not a new blanket pre-generation handler-exists gate."
+    },
+    {
+      "id": "OWNER_SESSION.ATOMIC_COMMAND_EVENT_OUTBOX_AUDIT_LOCATOR",
+      "classification": "A_EXISTING_REQUIRED_DESIGN_CONTRACT",
+      "state": "OPEN",
+      "authority": [
+        "§51.6",
+        "§51.9",
+        "§51.11",
+        "§51.12",
+        "§51.31"
+      ],
+      "definitionMustInclude": "Exact producer identity, policy, physical fields/FKs/constraints/ordered locks and transaction/read/error/retention consumers for this declared scope.",
+      "notProof": "Reference state/supplied flag is not server authority; no claim canonical deployed handler exists.",
+      "implementationFixtureTiming": "Use own explicit named authority when present; broad PostgreSQL concurrency implementation acceptance is P02 and before operation activation per73.4/51.36, not a new blanket pre-generation handler-exists gate."
+    },
+    {
+      "id": "OWNER_SESSION.UNKNOWN_COMMIT_READ_REPLAY",
+      "classification": "A_EXISTING_REQUIRED_DESIGN_CONTRACT",
+      "state": "OPEN",
+      "authority": [
+        "§49.4",
+        "§49.11",
+        "§49.25"
+      ],
+      "definitionMustInclude": "Exact producer identity, policy, physical fields/FKs/constraints/ordered locks and transaction/read/error/retention consumers for this declared scope.",
+      "notProof": "Reference state/supplied flag is not server authority; no claim canonical deployed handler exists.",
+      "implementationFixtureTiming": "Use own explicit named authority when present; broad PostgreSQL concurrency implementation acceptance is P02 and before operation activation per73.4/51.36, not a new blanket pre-generation handler-exists gate."
+    },
+    {
+      "id": "OWNER_SESSION.CANONICAL_DIGEST_HYDRATOR",
+      "classification": "A_EXISTING_REQUIRED_DESIGN_CONTRACT",
+      "state": "OPEN",
+      "authority": [
+        "§26.1",
+        "§49.5",
+        "§51.12"
+      ],
+      "definitionMustInclude": "Exact producer identity, policy, physical fields/FKs/constraints/ordered locks and transaction/read/error/retention consumers for this declared scope.",
+      "notProof": "Reference state/supplied flag is not server authority; no claim canonical deployed handler exists.",
+      "implementationFixtureTiming": "Use own explicit named authority when present; broad PostgreSQL concurrency implementation acceptance is P02 and before operation activation per73.4/51.36, not a new blanket pre-generation handler-exists gate."
+    }
+  ],
+  "newFixtureIDDisposition": {
+    "id": "OWNER_SESSION.FIXTURE.CANONICAL_SQL_ROLES_CONCURRENCY",
+    "oldLabel": "PRE_GENERATION_ISOLATED_FIXTURE",
+    "reviewFinding": "51.6/51.9/51.12 impose concrete physical definitions/constraints and ordering;73.7 finalgate set is not an exact temporal citation for this newly authored actual OWNER_SESSION SQL/roles/concurrency producer fixture. Explicit73.4 assigns actual server/constraints/concurrency proof toP02;51.36 requires it before activation.",
+    "classification": "EXISTING_DATABASE_ACTIVATION_DUTY_WITH_NEW_DERIVED_FAMILY_LABEL_NOT_NEW_PREGEN_GATE",
+    "requiredBeforeGenerationAsCurrentlyCited": false,
+    "requiredBeforeOperationActivation": true,
+    "phase": "P02",
+    "authority": [
+      "§51.34",
+      "§51.36",
+      "§73.4"
+    ],
+    "retainFixtureRequirementAndID": true,
+    "doNotEraseAnyExplicitPreGenerationFixture": true,
+    "canRunEarlyAsOptionalIndependentTechnicalValidation": true
+  },
+  "proposedCandidateCorrection": {
+    "moveFrom": "requiredPreGenerationFixtureObligations",
+    "moveTo": "requiredDatabaseActivationFixtureObligations",
+    "preservePriorClassificationInHistory": true,
+    "sameId": "OWNER_SESSION.FIXTURE.CANONICAL_SQL_ROLES_CONCURRENCY",
+    "stage": "P02_BEFORE_OPERATION_ACTIVATION",
+    "status": "OPEN",
+    "missing": "Install exact canonical SQL and defined roles and reproduce ordered locks, rollback, scoped replay, relevant races and read hydration before activation. Physical mappings and exact producer/consumer contract definitions remain required A before architecture readiness. Any separate explicitly sourced pre-generation fixture keeps its own original timing.",
+    "authority": [
+      "§51.34",
+      "§51.36",
+      "§73.4"
+    ],
+    "reason": "Correct this newly introduced timing label; no waiver of earlier authoritative test or existing final gate."
+  },
+  "unchangedMandatoryGates": [
+    "73.7 all5finalfamilies, manifestmatch,R17zero blocking findings",
+    "12.56 actual systemd source/rotation/materialization pre-generation fixtures",
+    "Concrete51.20 physical Secret constraints before ARCHITECTURE_READINESS",
+    "All six A definitions and exact masks remain OPEN until actually closed"
+  ],
+  "implementationAcceptance": "NOT_EVALUATED",
+  "wholeOperationsClosed": 0,
+  "newOwnerProductDecisionRequired": false,
+  "noSharedOrCanonicalWrites": true,
+  "noFixtureOrPostgreSQLRepeated": true
+}

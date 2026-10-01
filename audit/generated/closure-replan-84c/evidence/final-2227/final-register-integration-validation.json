@@ -1,0 +1,47 @@
+{
+  "status": "PASS_FINAL_FINITE_REGISTRY_INTEGRATION",
+  "sourceSha256": "2227d9d2458609fd0cfc78fff22f6ab1ab34c7709c77e4d3b2fc4c296981ef6a",
+  "sourceStable": true,
+  "before": {
+    "checklist": "c8317ccff875d9efd2ab4d7dae53e2d2aa30015ff5166627fd80ca26ae08843f",
+    "register": "07da5183104d51ac34b909fd3e75433a9b65edf771bcbfdd66438853ab887533"
+  },
+  "after": {
+    "checklist": "d35f33c726b7908e861e22d117ceff831d86c24f22071c98b66c82b005bfd348",
+    "register": "d22348686df14128b3ec6077ca8550843f12bf5c42869a02bd3711bb5d5a8515"
+  },
+  "changedInventoryIds": [
+    "operation:audit.event.list:request",
+    "operation:audit.event.list:response",
+    "operation:audit.event.read:request",
+    "operation:audit.event.read:response",
+    "operation:owner.session.list:request",
+    "operation:owner.session.list:response",
+    "operation:owner.session.list:event",
+    "operation:owner.session.revoke:request",
+    "operation:owner.session.revoke:response",
+    "operation:owner.session.revoke:event",
+    "reference:mcp.prompts.get:b03f7c1e4682f249b04a",
+    "reference:mcp.prompts.get:d09c74614db8f7429ca8",
+    "reference:mcp.resources.read:d87680ae62d0828074fb",
+    "reference:mcp.resources.read:f70d7dc6e042fd1a32e7"
+  ],
+  "unmodifiedInventoryCount": 3883,
+  "inventoryCount": 3897,
+  "parentCount": 36,
+  "parentStatesAndExistingFixtureRequirementsPreserved": true,
+  "workPackageCount": 5,
+  "oldEvidenceBytesAndExecutionSourceHashesPreserved": true,
+  "structuralVerificationNotSemanticClosure": true,
+  "wholeOperationsClosed": 0,
+  "readiness": {
+    "SSOT_CONTRACT_READY": "BLOCKED",
+    "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+  },
+  "onlySharedWrites": [
+    "audit/SSOT_CREATE_CLOSURE_CHECKLIST.json",
+    "audit/SSOT_COMPLETION_REGISTER.json"
+  ],
+  "aggregateStructuralInventoryExplicitlyHistoricalPendingFinalRunner": true,
+  "remainingUnresolvedInventoryReferenceRows": 238
+}

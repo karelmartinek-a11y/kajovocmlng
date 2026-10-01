@@ -1,0 +1,101 @@
+{
+  "status": "PASS_ACTUAL_CANONICAL_MCP_RAW_NATIVE_PUBLICATION",
+  "sourceSha256": "9d0c92e9797abecdf5c8ba18cb12515967f27b749322aab5b4dc0b6925ecb649",
+  "sourceStable": true,
+  "actualOperationResourceSha256": "58ba4d0db6b479936b3112833da7b65204e185c4f9600749a1ed8c61c00bc344",
+  "selectedNativeDefinitionSha256": "a2b9556a27f0543b7d5bfc15edd513f360d3491ed57d6f59229604f3a07e51f2",
+  "selectedOperations": [
+    {
+      "operationId": "mcp.prompts.get",
+      "expected": "2b6df951ad574e173df296d79b3f18a0d3f56f239b43e20cb2cde9d3fec3cd5e",
+      "actual": "2b6df951ad574e173df296d79b3f18a0d3f56f239b43e20cb2cde9d3fec3cd5e",
+      "matches": true
+    },
+    {
+      "operationId": "mcp.resources.read",
+      "expected": "64269c1f8dcc9481823eaeb48b203c164dcbb8edd5e5e442b4fe6a817a09cb0a",
+      "actual": "64269c1f8dcc9481823eaeb48b203c164dcbb8edd5e5e442b4fe6a817a09cb0a",
+      "matches": true
+    }
+  ],
+  "fourAliases": [
+    {
+      "id": "mcp.prompts.get:command",
+      "matchesCandidate": true,
+      "canonicalAliasSortedEncodingSha256": "66dc053400e2693045efe0b37ceb6a87a1a9e3f9cb7309e64e4e255fb69bf5c1"
+    },
+    {
+      "id": "mcp.prompts.get:response",
+      "matchesCandidate": true,
+      "canonicalAliasSortedEncodingSha256": "f6930675eb0be00fd275e1a2891bb9838cb22940bb0642ab341d5db730402d16"
+    },
+    {
+      "id": "mcp.resources.read:command",
+      "matchesCandidate": true,
+      "canonicalAliasSortedEncodingSha256": "c75c0cf3001ccbd85d9ba9bb14b6aabb82b2a7f63f92e0af895650cd5c7e2fb4"
+    },
+    {
+      "id": "mcp.resources.read:response",
+      "matchesCandidate": true,
+      "canonicalAliasSortedEncodingSha256": "8fbb8fcc64e370fd68f4880a306042b465a72ae9e826724b489758e526a39465"
+    }
+  ],
+  "rawMetadataBoundaryChecks": [
+    {
+      "operationId": "mcp.prompts.get",
+      "branch": "complete",
+      "absentMetaAccepted": true
+    },
+    {
+      "operationId": "mcp.prompts.get",
+      "branch": "complete",
+      "presentInvalidMetaRejected": true
+    },
+    {
+      "operationId": "mcp.prompts.get",
+      "branch": "input_required",
+      "absentMetaAccepted": true
+    },
+    {
+      "operationId": "mcp.prompts.get",
+      "branch": "input_required",
+      "presentInvalidMetaRejected": true
+    },
+    {
+      "operationId": "mcp.resources.read",
+      "branch": "complete",
+      "absentMetaAccepted": true
+    },
+    {
+      "operationId": "mcp.resources.read",
+      "branch": "complete",
+      "presentInvalidMetaRejected": true
+    },
+    {
+      "operationId": "mcp.resources.read",
+      "branch": "input_required",
+      "absentMetaAccepted": true
+    },
+    {
+      "operationId": "mcp.resources.read",
+      "branch": "input_required",
+      "presentInvalidMetaRejected": true
+    }
+  ],
+  "authorSuite78ReproducedFromActualExtractedAliases": true,
+  "pureAuthorCheck": "PASS publicationDifferences empty",
+  "byteChecker": {
+    "rootPath": "scripts/native_byte_format.py",
+    "rootSha256": "a5df929d84830a6822fa093aa3ae568bf9faab99985714aad0f9bb03873784d2",
+    "ownedCandidateSha256": "a5df929d84830a6822fa093aa3ae568bf9faab99985714aad0f9bb03873784d2",
+    "matches": true,
+    "installedAndUsedByCurrentValidators": true
+  },
+  "wholeOperationsClosed": 0,
+  "platformSpecializationStatus": "UNBOUND_SEPARATE_DESIGN_CANDIDATE_NOT_NATIVE_REQUIREMENT",
+  "noOldExecutionReportsRetagged": true,
+  "limitations": [
+    "Exact aliases/selected source metadata and decoder/reference guards only; no producer/access/cache/MRTR/runtime closure.",
+    "Independent synthetic catalog guards remain reference review, not canonical publisher proof."
+  ]
+}

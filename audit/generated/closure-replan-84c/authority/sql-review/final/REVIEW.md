@@ -1,0 +1,13 @@
+# Independent two-call-site helper review
+
+Executed actual PostgreSQL18.6 UTF8 against source `8fe5e74f10197a45e55053d50f8fc0b4340d84d8d59dba706af90d080168cb6c`:10 author assertions and9 independent checks PASS, zero failures. Exact original two wrapper bytes remain5bc5b7d2…; helper ba3f9b1b…; context e112f726… and installation ACL16804bb9… are bound in owner-query-independent-proof.json. Inputs/source unchanged during execution. This is candidate execution, not a claim candidate bytes are already canonical.
+
+Independent proofs cover private TEMP table issuer ownership, nonmember helper/wrapper execute denial, actual RR READ ONLY versus wrong READ COMMITTED/READ WRITE, exact descriptor/plan, and unsupported sibling rejection. Exact new ACL bytes close original wrapper PUBLIC defaults in a privileged installation transaction. Earlier fixture-only wrapper ACL gap is repaired by a separately specified resource; coordinator must include that resource after exact wrappers before any runtime grants. Original function bodies were preserved.
+
+The original dedicated API-reveal restriction was a genuine source error:7.2 grants OWNER_FULL after session OR key verification and every catalogue operation;51.20 supports session reveal/lost-response recovery but says no API prohibition. Dedicated route0023 /owner/api-key/value now accepts actual API or session. Generic /secrets reserved-value routing is distinct and was not changed by this candidate. No new owner decision needed.
+
+Approve bounded canonical definition integration only with exact installation dependencies/ACL, restricted issuer ownership and explicit2/262 call-site scope. All other260 remain SQL_OPERATION_TYPED_HANDLER_UNRESOLVED. Four scoped helper function definitions do not close all generic helper semantics or whole operations.
+
+Audited read is NOT complete: actual projection leaves audit count unchanged, as reported. The internal reveal returns typed ciphertext/version metadata, not authenticated plaintext. Session issuance/login/MFA, deployed capability grants, canonical key/open/use, read-attribution/audit and external HTTP result masks remain OPEN. Public dispatch remains BLOCKED. CONSISTENT_READ is actually RR READ ONLY; no impossible same-TX audit write was asserted. Coordinator must define the separate audited disclosure handoff before activation.
+
+Reproduce `PYTHONDONTWRITEBYTECODE=1 /tmp/ssot-audit-venv/bin/python audit/generated/closure-replan-84c/authority/sql-review/final/verify_owner_query_peer.py`. Historical pre-fix proof directories remain unchanged. No whole design operation closed; implementation acceptance NOT_EVALUATED.

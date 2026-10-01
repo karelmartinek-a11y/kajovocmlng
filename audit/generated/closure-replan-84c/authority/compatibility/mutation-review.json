@@ -1,0 +1,33 @@
+{
+  "sourceSha256": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0",
+  "positiveSource": "canonical current exact package",
+  "checks": [
+    {
+      "case": "route.0001/approved-family-or-unrelated-change-still-rejected",
+      "passed": true
+    },
+    {
+      "case": "route.0018/approved-family-or-unrelated-change-still-rejected",
+      "passed": true
+    },
+    {
+      "case": "route.0451/approved-family-or-unrelated-change-still-rejected",
+      "passed": true
+    },
+    {
+      "case": "8.17/changed-or-duplicate-exact-addendum-not-exempted",
+      "passed": true
+    },
+    {
+      "case": "8.18/changed-or-duplicate-exact-addendum-not-exempted",
+      "passed": true
+    },
+    {
+      "case": "51.39/changed-or-duplicate-exact-addendum-not-exempted",
+      "passed": true
+    }
+  ],
+  "checked": 6,
+  "failed": 0,
+  "scope": "Actual verifier route-preservation prefix with positive-derived mutated source; precise additive exception eligibility, no whole-runtime claim"
+}

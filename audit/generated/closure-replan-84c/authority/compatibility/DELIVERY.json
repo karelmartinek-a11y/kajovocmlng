@@ -1,0 +1,57 @@
+{
+  "sourceSha256": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0",
+  "ownedScriptDigests": {
+    "verify_generation_event_boundaries.py": "d8d5b8532dd6c8a86df9e377b264369c2c2dfabcfca41a6c3a9c187428446d9e",
+    "verify_generation_operation_masks.py": "3b4ba325e892c9124d7089badcf616dfa164fba8807c86868560f106990d49d8",
+    "verify_generation_read_errors.py": "f167a2bad3de0f272b01b8b04f4bb4ff76727eea1348f1435eb053c385bfd1d7",
+    "verify_preserved_policy.py": "4deba8665af826da3c2ebc8ed421ca183d6c0cad1166ca2d4ed3b395736615f6"
+  },
+  "consumedAuthoringFileDigests": {
+    "scripts/close_owner_session_family.py": "93e5db9478104f11149c889be01e51f028297930560d37eda4f15f7f73038647",
+    "scripts/owner_session_family_contracts.py": "d7216aa5ccbb88f7d565ffa69ec25a22dcf4dc71d2f857d5cd41f007df125f0d",
+    "scripts/close_audit_read_family.py": "d2eabfcfde65e2b9980ca667c701c7ba5111c64738af55990b8d0101d11f0ca8",
+    "audit/generated/closure-replan-84c/family-read/core-audit/author_core_audit.py": "9436bc6afbbd1a16506a898fa4471b43f474498bded65f048023770b5ea5a393",
+    "audit/generated/closure-replan-84c/family-read/core-audit/authorable-core-delta.json": "122ba2a509acdf34592528ad71504224fb65e2dbd0c765b0846d1d603f76356f",
+    "audit/generated/closure-replan-84c/references/author_native_read_refs.py": "905f07c20b718f2d62d8f3cc8724d3d7d125cf61bc5c48f4aab183dfa9dba640",
+    "audit/generated/closure-replan-84c/references/native-read-reference-patch.json": "386dd659f47d32f399c64c8e9b980a6f17182975a38b9865fbe13b34e42bb3f2",
+    "scripts/close_secret_retention_contract.py": "e76aeded21007bdef8302adad0ef8c4743c63abf266740dc061269f3e65918e9",
+    "scripts/close_owner_key_reveal_scope.py": "9ad3b88b23d56bf7743985b93efc9527cca7b966a040fab1ea0abd9422814dd8",
+    "scripts/close_scoped_sql_helpers.py": "3ec948f1997aef02b64f7288871591015714a4e470e57b9806435db8d34e2b16"
+  },
+  "canonicalConsumedSupplementResources": {
+    "contracts/owner-session-family.json": "7c94bf5b3e8250f2711e19efaccbb77c82e2a3c359033eb5ec386bd401bf5374",
+    "contracts/audit/core-read.schema.json": "3ad42e105401169ba12ee5e6deef4f62954e3389dc2abb20b5c73952beb4edfd",
+    "contracts/operation-contracts.json": "58ba4d0db6b479936b3112833da7b65204e185c4f9600749a1ed8c61c00bc344",
+    "contracts/mcp/native-2026-07-28.schema.json": "ef70b61f99b6d2e5e3b46863822eab08dff6a45bedc7a08914e0e5b133f40203",
+    "database/operation-helper-owner-query.sql": "ba3f9b1bc4612c83a1b83cdf6c448fd282fa549f9cd15490418edb0424a1e5e5"
+  },
+  "beforeSource": "2227d9d2458609fd0cfc78fff22f6ab1ab34c7709c77e4d3b2fc4c296981ef6a",
+  "beforeFailureCounts": [
+    4,
+    1,
+    5,
+    1
+  ],
+  "afterFailureCounts": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "afterCheckCounts": [
+    599,
+    671,
+    618,
+    50
+  ],
+  "preservedOriginalChecks": 47,
+  "newAdditivePolicyChecks": 3,
+  "negativeProofs": [
+    "mutation-review.json",
+    "policy-mutation-review.json",
+    "policy-mutation-result.json"
+  ],
+  "reproduction": "/tmp/ssot-audit-venv/bin/python audit/generated/closure-replan-84c/authority/compatibility/run_scoped.py final-116e verify_generation_event_boundaries.py verify_generation_operation_masks.py verify_generation_read_errors.py verify_preserved_policy.py",
+  "wholeOperationsClosed": 0,
+  "implementationAcceptance": "NOT_EVALUATED"
+}

@@ -4,6 +4,7 @@ import json
 import re
 import subprocess
 import sys
+from pathlib import Path
 from ssot_sources import ROOT, SSOT
 
 BASE='0ea5bf6b90ae4246956d1d76387ab540dc842f79'
@@ -53,11 +54,23 @@ if __name__=='__main__':
             ok=current.count(norm)==1
             addition.append({'section':scope,'status':'PASS'if ok else'FAIL','scope':'Exact reviewed additive technical handoff only; all original bytes compared'})
             if ok:current=current.replace(norm,'',1)
+    from close_secret_retention_contract import TEXT as RETENTION_NORM
+    from close_owner_key_reveal_scope import TEXT as REVEAL_SCOPE_NORM
+    from close_scoped_sql_helpers import TEXT as SCOPED_HELPER_NORM
+    for norm, scope, resource in [
+        (RETENTION_NORM, '8.17', 'contracts/create-completion.json'),
+        (REVEAL_SCOPE_NORM, '8.18', 'database/operation-helper-owner-query.sql'),
+        (SCOPED_HELPER_NORM, '51.39', 'database/operation-helper-owner-query.sql'),
+    ]:
+        ok = resource in resource_index() and current.count(norm) == 1
+        addition.append({'section': scope, 'status': 'PASS' if ok else 'FAIL',
+            'scope': 'Exact reviewed additive supplement only; missing/duplicate/changed bytes fail and original policy stays byte-compared.'})
+        if ok: current = current.replace(norm, '', 1)
     before=sections(original);after=sections(current)
     checks=[{'section':key,'originalSha256':value,'currentSha256':after.get(key),
              'status':'PASS' if after.get(key)==value else 'FAIL'} for key,value in before.items()]
     checks.extend(addition)
-    report={'baseCommit':BASE,'scope':'Secret/credential/password headings and their full subordinate content, compared without publishing content. LF normalization and surrounding whitespace excluded.', 'checks':checks}
+    report={'baseCommit':BASE,'sourceSha256':hashlib.sha256(SSOT.read_bytes()).hexdigest(),'scriptSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'scope':'Secret/credential/password headings and their full subordinate content, compared without publishing content. LF normalization and surrounding whitespace excluded.', 'checks':checks}
     (ROOT/'audit/generated/preserved-policy.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({'sections':len(checks),'failures':sum(c['status']=='FAIL' for c in checks)}))
     sys.exit(any(c['status']=='FAIL' for c in checks))

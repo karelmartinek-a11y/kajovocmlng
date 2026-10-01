@@ -1,0 +1,322 @@
+{
+  "currentSourceSha256": "13105137f8a6bf4cd831262859cfa297795631a295b63d313b2b4c83d9012cf9",
+  "virtualCandidateOnly": true,
+  "canonicalUnchanged": true,
+  "familyDenominator": {
+    "operations": 2,
+    "routes": 2,
+    "routeBoundaries": 6
+  },
+  "before": {
+    "routes": [
+      {
+        "routeId": "route.0451",
+        "operationId": "audit.event.list",
+        "boundaries": [
+          {
+            "role": "request",
+            "reference": "contracts/payload-contracts.json#/records/451/requestSchema",
+            "mechanism": "inline",
+            "resolution": "RESOLVED",
+            "target": "contracts/payload-contracts.json#/records/451/requestSchema",
+            "targetIdentity": "urn:kcml:r9:route:route.0451:request",
+            "targetVersion": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21",
+            "targetSha256": "dea092ccd934c6aee27c529cbe609ceea59f4b999dd8afc49a051939d865c745",
+            "source": {
+              "family": "KCML-R9-RESOURCE",
+              "line": 440033,
+              "resourceSha256": "8a318776a194a5d4277ba0ab95f370ee17539ee9129246fd862a5f117c4b8dcc"
+            },
+            "concreteness": "GENERIC_ENVELOPE",
+            "reason": "Unbound values/canonicalJson domain slots, including resolved references",
+            "genericLocations": [
+              "/properties/body/oneOf/1",
+              "/properties/body/oneOf/1/properties/values/items",
+              "@resolved-schema/$ref=urn:kcml:r9:route:route.0451:request/schema-child/1/schema-child/1",
+              "@resolved-schema/$ref=urn:kcml:r9:route:route.0451:request/schema-child/1/schema-child/1/schema-child/2/schema-child/0"
+            ],
+            "nestedReferenceFailures": []
+          },
+          {
+            "role": "response",
+            "reference": "contracts/payload-contracts.json#/records/451/responseSchema",
+            "mechanism": "inline",
+            "resolution": "RESOLVED",
+            "target": "contracts/payload-contracts.json#/records/451/responseSchema",
+            "targetIdentity": "urn:kcml:r9:route:route.0451:response",
+            "targetVersion": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21",
+            "targetSha256": "39a31c265b862d337e4587f185b133e59dc087dd9aaa90c5f38761a106214f81",
+            "source": {
+              "family": "KCML-R9-RESOURCE",
+              "line": 440033,
+              "resourceSha256": "8a318776a194a5d4277ba0ab95f370ee17539ee9129246fd862a5f117c4b8dcc"
+            },
+            "concreteness": "GENERIC_ENVELOPE",
+            "reason": "Unbound values/canonicalJson domain slots, including resolved references",
+            "genericLocations": [
+              "/properties/output/oneOf/1",
+              "/properties/output/oneOf/1/properties/values/items",
+              "@resolved-schema/$ref=urn:kcml:r9:route:route.0451:response/schema-child/7/schema-child/1",
+              "@resolved-schema/$ref=urn:kcml:r9:route:route.0451:response/schema-child/7/schema-child/1/schema-child/2/schema-child/0"
+            ],
+            "nestedReferenceFailures": []
+          },
+          {
+            "role": "event",
+            "reference": "contracts/payload-contracts.json#/records/451/eventSchema",
+            "mechanism": "inline",
+            "resolution": "RESOLVED",
+            "target": "contracts/payload-contracts.json#/records/451/eventSchema",
+            "targetIdentity": "urn:kcml:r9:route:route.0451:event",
+            "targetVersion": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21",
+            "targetSha256": "6cc3797f8792cc40e5dec718210565b1c145cab3cc7c9b04948742759683a905",
+            "source": {
+              "family": "KCML-R9-RESOURCE",
+              "line": 440033,
+              "resourceSha256": "8a318776a194a5d4277ba0ab95f370ee17539ee9129246fd862a5f117c4b8dcc"
+            },
+            "concreteness": "GENERIC_ENVELOPE",
+            "reason": "Unbound values/canonicalJson domain slots, including resolved references",
+            "genericLocations": [
+              "/properties/payload",
+              "/properties/payload/properties/values/items",
+              "@resolved-schema/$ref=urn:kcml:r9:route:route.0451:event/schema-child/5",
+              "@resolved-schema/$ref=urn:kcml:r9:route:route.0451:event/schema-child/5/schema-child/2/schema-child/0"
+            ],
+            "nestedReferenceFailures": []
+          }
+        ]
+      },
+      {
+        "routeId": "route.0452",
+        "operationId": "audit.event.read",
+        "boundaries": [
+          {
+            "role": "request",
+            "reference": "contracts/payload-contracts.json#/records/452/requestSchema",
+            "mechanism": "inline",
+            "resolution": "RESOLVED",
+            "target": "contracts/payload-contracts.json#/records/452/requestSchema",
+            "targetIdentity": "urn:kcml:r9:route:route.0452:request",
+            "targetVersion": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21",
+            "targetSha256": "e566de5988f764eb1100ded9815416b7d7045a5760857fdfede84e890b2e9796",
+            "source": {
+              "family": "KCML-R9-RESOURCE",
+              "line": 440033,
+              "resourceSha256": "8a318776a194a5d4277ba0ab95f370ee17539ee9129246fd862a5f117c4b8dcc"
+            },
+            "concreteness": "GENERIC_ENVELOPE",
+            "reason": "Unbound values/canonicalJson domain slots, including resolved references",
+            "genericLocations": [
+              "/properties/body/oneOf/1",
+              "/properties/body/oneOf/1/properties/values/items",
+              "@resolved-schema/$ref=urn:kcml:r9:route:route.0452:request/schema-child/1/schema-child/1",
+              "@resolved-schema/$ref=urn:kcml:r9:route:route.0452:request/schema-child/1/schema-child/1/schema-child/2/schema-child/0"
+            ],
+            "nestedReferenceFailures": []
+          },
+          {
+            "role": "response",
+            "reference": "contracts/payload-contracts.json#/records/452/responseSchema",
+            "mechanism": "inline",
+            "resolution": "RESOLVED",
+            "target": "contracts/payload-contracts.json#/records/452/responseSchema",
+            "targetIdentity": "urn:kcml:r9:route:route.0452:response",
+            "targetVersion": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21",
+            "targetSha256": "e0015de30b27d1a0e2479ccac508d11c30066c4fd97cca017d358152ab10783a",
+            "source": {
+              "family": "KCML-R9-RESOURCE",
+              "line": 440033,
+              "resourceSha256": "8a318776a194a5d4277ba0ab95f370ee17539ee9129246fd862a5f117c4b8dcc"
+            },
+            "concreteness": "GENERIC_ENVELOPE",
+            "reason": "Unbound values/canonicalJson domain slots, including resolved references",
+            "genericLocations": [
+              "/properties/output/oneOf/1",
+              "/properties/output/oneOf/1/properties/values/items",
+              "@resolved-schema/$ref=urn:kcml:r9:route:route.0452:response/schema-child/7/schema-child/1",
+              "@resolved-schema/$ref=urn:kcml:r9:route:route.0452:response/schema-child/7/schema-child/1/schema-child/2/schema-child/0"
+            ],
+            "nestedReferenceFailures": []
+          },
+          {
+            "role": "event",
+            "reference": "contracts/payload-contracts.json#/records/452/eventSchema",
+            "mechanism": "inline",
+            "resolution": "RESOLVED",
+            "target": "contracts/payload-contracts.json#/records/452/eventSchema",
+            "targetIdentity": "urn:kcml:r9:route:route.0452:event",
+            "targetVersion": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21",
+            "targetSha256": "b655007ca114f31ced7bdbbf4dcf6ee0393d85537dce2fa1443f094c68a5c120",
+            "source": {
+              "family": "KCML-R9-RESOURCE",
+              "line": 440033,
+              "resourceSha256": "8a318776a194a5d4277ba0ab95f370ee17539ee9129246fd862a5f117c4b8dcc"
+            },
+            "concreteness": "GENERIC_ENVELOPE",
+            "reason": "Unbound values/canonicalJson domain slots, including resolved references",
+            "genericLocations": [
+              "/properties/payload",
+              "/properties/payload/properties/values/items",
+              "@resolved-schema/$ref=urn:kcml:r9:route:route.0452:event/schema-child/5",
+              "@resolved-schema/$ref=urn:kcml:r9:route:route.0452:event/schema-child/5/schema-child/2/schema-child/0"
+            ],
+            "nestedReferenceFailures": []
+          }
+        ]
+      }
+    ],
+    "operationNativeRefs": [],
+    "genericBoundaries": 6,
+    "genericRoutes": 2,
+    "unresolvedRouteBoundaries": 0,
+    "unresolvedOperationRefs": 0
+  },
+  "candidate": {
+    "routes": [
+      {
+        "routeId": "route.0451",
+        "operationId": "audit.event.list",
+        "boundaries": [
+          {
+            "role": "request",
+            "reference": "contracts/payload-contracts.json#/records/451/requestSchema",
+            "mechanism": "inline",
+            "resolution": "RESOLVED",
+            "target": "contracts/payload-contracts.json#/records/451/requestSchema",
+            "targetIdentity": "urn:kcml:r9:route:route.0451:request",
+            "targetVersion": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21",
+            "targetSha256": "a886b55d1540a53699c158f639c93add8f93aba7face1a4c184dc9e9355573ed",
+            "source": {
+              "family": "KCML-R9-RESOURCE",
+              "line": 440033,
+              "resourceSha256": "d0ad268696122b74eb87db6b79943041d8b492a14351bcf6ac3c7e0e78379157"
+            },
+            "concreteness": "SEMANTIC_REVIEW_REQUIRED",
+            "reason": "Reference resolution alone does not prove domain completeness",
+            "genericLocations": [],
+            "nestedReferenceFailures": []
+          },
+          {
+            "role": "response",
+            "reference": "contracts/payload-contracts.json#/records/451/responseSchema",
+            "mechanism": "inline",
+            "resolution": "RESOLVED",
+            "target": "contracts/payload-contracts.json#/records/451/responseSchema",
+            "targetIdentity": "urn:kcml:r9:route:route.0451:response",
+            "targetVersion": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21",
+            "targetSha256": "b9722a7da36402fe789deee99150a3bff0b7c19af5cea20a3d827b900bc038b2",
+            "source": {
+              "family": "KCML-R9-RESOURCE",
+              "line": 440033,
+              "resourceSha256": "d0ad268696122b74eb87db6b79943041d8b492a14351bcf6ac3c7e0e78379157"
+            },
+            "concreteness": "SEMANTIC_REVIEW_REQUIRED",
+            "reason": "Reference resolution alone does not prove domain completeness",
+            "genericLocations": [],
+            "nestedReferenceFailures": []
+          },
+          {
+            "role": "event",
+            "reference": "contracts/payload-contracts.json#/records/451/eventSchema",
+            "mechanism": "inline",
+            "resolution": "RESOLVED",
+            "target": "contracts/payload-contracts.json#/records/451/eventSchema",
+            "targetIdentity": "urn:kcml:r9:route:route.0451:event",
+            "targetVersion": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21",
+            "targetSha256": "6cc3797f8792cc40e5dec718210565b1c145cab3cc7c9b04948742759683a905",
+            "source": {
+              "family": "KCML-R9-RESOURCE",
+              "line": 440033,
+              "resourceSha256": "d0ad268696122b74eb87db6b79943041d8b492a14351bcf6ac3c7e0e78379157"
+            },
+            "concreteness": "GENERIC_ENVELOPE",
+            "reason": "Unbound values/canonicalJson domain slots, including resolved references",
+            "genericLocations": [
+              "/properties/payload",
+              "/properties/payload/properties/values/items",
+              "@resolved-schema/$ref=urn:kcml:r9:route:route.0451:event/schema-child/5",
+              "@resolved-schema/$ref=urn:kcml:r9:route:route.0451:event/schema-child/5/schema-child/2/schema-child/0"
+            ],
+            "nestedReferenceFailures": []
+          }
+        ]
+      },
+      {
+        "routeId": "route.0452",
+        "operationId": "audit.event.read",
+        "boundaries": [
+          {
+            "role": "request",
+            "reference": "contracts/payload-contracts.json#/records/452/requestSchema",
+            "mechanism": "inline",
+            "resolution": "RESOLVED",
+            "target": "contracts/payload-contracts.json#/records/452/requestSchema",
+            "targetIdentity": "urn:kcml:r9:route:route.0452:request",
+            "targetVersion": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21",
+            "targetSha256": "36b2257df4987e898c2afc44d7919892a6e028d1fc5beb352e0916b0509b7732",
+            "source": {
+              "family": "KCML-R9-RESOURCE",
+              "line": 440033,
+              "resourceSha256": "d0ad268696122b74eb87db6b79943041d8b492a14351bcf6ac3c7e0e78379157"
+            },
+            "concreteness": "SEMANTIC_REVIEW_REQUIRED",
+            "reason": "Reference resolution alone does not prove domain completeness",
+            "genericLocations": [],
+            "nestedReferenceFailures": []
+          },
+          {
+            "role": "response",
+            "reference": "contracts/payload-contracts.json#/records/452/responseSchema",
+            "mechanism": "inline",
+            "resolution": "RESOLVED",
+            "target": "contracts/payload-contracts.json#/records/452/responseSchema",
+            "targetIdentity": "urn:kcml:r9:route:route.0452:response",
+            "targetVersion": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21",
+            "targetSha256": "7f0bdaa0d20b1d8ab2ec66b4be4f0686886062928949135661fd03f045851109",
+            "source": {
+              "family": "KCML-R9-RESOURCE",
+              "line": 440033,
+              "resourceSha256": "d0ad268696122b74eb87db6b79943041d8b492a14351bcf6ac3c7e0e78379157"
+            },
+            "concreteness": "SEMANTIC_REVIEW_REQUIRED",
+            "reason": "Reference resolution alone does not prove domain completeness",
+            "genericLocations": [],
+            "nestedReferenceFailures": []
+          },
+          {
+            "role": "event",
+            "reference": "contracts/payload-contracts.json#/records/452/eventSchema",
+            "mechanism": "inline",
+            "resolution": "RESOLVED",
+            "target": "contracts/payload-contracts.json#/records/452/eventSchema",
+            "targetIdentity": "urn:kcml:r9:route:route.0452:event",
+            "targetVersion": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21",
+            "targetSha256": "b655007ca114f31ced7bdbbf4dcf6ee0393d85537dce2fa1443f094c68a5c120",
+            "source": {
+              "family": "KCML-R9-RESOURCE",
+              "line": 440033,
+              "resourceSha256": "d0ad268696122b74eb87db6b79943041d8b492a14351bcf6ac3c7e0e78379157"
+            },
+            "concreteness": "GENERIC_ENVELOPE",
+            "reason": "Unbound values/canonicalJson domain slots, including resolved references",
+            "genericLocations": [
+              "/properties/payload",
+              "/properties/payload/properties/values/items",
+              "@resolved-schema/$ref=urn:kcml:r9:route:route.0452:event/schema-child/5",
+              "@resolved-schema/$ref=urn:kcml:r9:route:route.0452:event/schema-child/5/schema-child/2/schema-child/0"
+            ],
+            "nestedReferenceFailures": []
+          }
+        ]
+      }
+    ],
+    "operationNativeRefs": [],
+    "genericBoundaries": 2,
+    "genericRoutes": 2,
+    "unresolvedRouteBoundaries": 0,
+    "unresolvedOperationRefs": 0
+  },
+  "semanticClosureClaim": false,
+  "eventAuthoritiesNotChanged": true
+}

@@ -36,11 +36,60 @@ def main():
     expected_masks = expected(inv.rs)
     if NATIVE in inv.rs:
         expected_masks.update(mcp_list_definitions(json.loads(inv.rs[NATIVE]['raw'])))
+    # Six native OWNER definitions are derived from their published source
+    # contract, not accepted by reading the actual operation registry back.
+    if 'contracts/owner-session-family.json' in inv.rs:
+        from owner_session_family_contracts import contracts as owner_contracts
+        for operation in owner_contracts(inv.rs)['operations']:
+            oid = operation['operationId']
+            for role, field in [('command', 'requestSchema'), ('response', 'responseSchema'), ('event', 'eventSchema')]:
+                mask = copy.deepcopy(operation[field])
+                mask['$id'] = 'urn:kcml:r9:operation:' + oid + ':' + role
+                expected_masks[oid + ':' + role] = mask
+    # Four reviewed native MCP read aliases have an exact pinned package; its
+    # authoring validation still checks native and operation identities.
+    package_path = ROOT / 'audit/generated/closure-replan-84c/references/native-read-reference-patch.json'
+    if package_path.exists():
+        import importlib.util
+        author_path = package_path.with_name('author_native_read_refs.py')
+        spec = importlib.util.spec_from_file_location('reviewed_mcp_read_alias_author', author_path)
+        author = importlib.util.module_from_spec(spec); spec.loader.exec_module(author)
+        package = json.loads(package_path.read_text())
+        author.updates(SSOT.read_text(), package)
+        identities = {operation + ':' + role for operation in ('mcp.prompts.get', 'mcp.resources.read') for role in ('command', 'response')}
+        aliases = {item['path'].split('/', 2)[2]: item['value'] for item in package['jsonPatch']}
+        assert aliases.keys() == identities, 'EXACT_FOUR_REVIEWED_MCP_ALIASES_REQUIRED'
+        expected_masks.update(aliases)
     record('exact-source-derived-variant-set', inv.docs[PATH].get('$defs') == expected_masks)
     extra=copy.deepcopy(inv.docs[PATH]['$defs']);extra['unexpected.variant']={'type':'object'}
     record('unexpected-definition-still-rejected',extra==expected_masks,False)
     missing=copy.deepcopy(inv.docs[PATH]['$defs']);missing.pop(next(iter(expected_masks)))
     record('missing-definition-still-rejected',missing==expected_masks,False)
+    if inv.docs[PATH].get('$defs') != expected_masks:
+        actual_masks = inv.docs[PATH].get('$defs', {})
+        actual_keys = set(actual_masks) if isinstance(actual_masks, dict) else set()
+        diagnostics = {'code': 'OPERATION_SCHEMA_REGISTRY_MISMATCH',
+                       'missingDefinitions': sorted(set(expected_masks) - actual_keys),
+                       'unexpectedDefinitions': sorted(actual_keys - set(expected_masks)),
+                       'mismatchedDefinitions': sorted(key for key in actual_keys & set(expected_masks)
+                                                       if actual_masks[key] != expected_masks[key])}
+        # Fail on the specific registry boundary before fixture dispatch can
+        # raise an unrelated unresolved-reference exception. No later fixture
+        # is reported executed on this invalid source.
+        report = {'sourceSha256': hashlib.sha256(SSOT.read_bytes()).hexdigest(),
+                  'status': 'BLOCKED', 'diagnostics': [diagnostics],
+                  'checks': checks, 'checked': len(checks),
+                  'failed': sum(not c['passed'] for c in checks),
+                  'scope': __doc__, 'fixturesExecuted': False,
+                  'remaining': ['Restore the exact source-derived schema registry before running native fixture dispatch.'],
+                  'wholeOperationsClosed': 0, 'implementationAcceptance': 'NOT_EVALUATED'}
+        directory = ROOT / os.environ.get('KCML_AUDIT_OUTPUT', 'audit/generated')
+        directory.mkdir(parents=True, exist_ok=True)
+        (directory / 'generation-operation-mask-tests.json').write_text(
+            json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
+        print(json.dumps({'status': 'BLOCKED', 'checked': report['checked'],
+                          'failed': report['failed'], 'diagnostics': [diagnostics]}))
+        return 1
     for row in inv.docs[CATALOG]:
         operation, kind = row['canonicalOperationId'], row['kind']
         if operation not in OPERATIONS:
@@ -128,7 +177,8 @@ def main():
     # Absence of an identity must fail independently of instance validity.
     record('missing-schema', inv.boundary('request', 'urn:kcml:missing', 'test')['resolution'], 'UNRESOLVED')
     report = {'sourceSha256': hashlib.sha256(SSOT.read_bytes()).hexdigest(),
-              'resourceSha256': {p: inv.rs[p]['sha256'] for p in (PATH, GEN, CATALOG, SAGA)},
+              'resourceSha256': {p: inv.rs[p]['sha256'] for p in (PATH, GEN, CATALOG, SAGA, 'contracts/owner-session-family.json', NATIVE) if p in inv.rs},
+              'reviewedAliasPackageSha256': hashlib.sha256(package_path.read_bytes()).hexdigest() if package_path.exists() else None,
               'scope': __doc__, 'checks': checks, 'fixtures': fixtures,
               'checked': len(checks), 'failed': sum(not c['passed'] for c in checks),
               'sagaBoundaries': saga_rows,

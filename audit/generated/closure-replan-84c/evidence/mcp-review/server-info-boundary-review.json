@@ -1,0 +1,79 @@
+{
+  "status": "PASS_BOUNDARY_REVIEW_DO_NOT_STRENGTHEN_EXTERNAL_NATIVE_CODEC",
+  "sourceSha256": "8d731d98a3ccbb4c61364b2bae152f6f72348aa453462337b0c83b0e4f82f4a2",
+  "sourceStable": true,
+  "consumedNativeResourceSha256": "ef70b61f99b6d2e5e3b46863822eab08dff6a45bedc7a08914e0e5b133f40203",
+  "currentCandidateDefinitionSha256": "eca402c050e691377a77a578e79dfa17c56a47b727e14770dbff8b7c90590ef6",
+  "candidateCurrentlyRequiresServerInfo": false,
+  "checks": [
+    {
+      "id": "native.positive.named_diagnostic",
+      "status": "PASS"
+    },
+    {
+      "id": "native.missing_serverInfo_is_compliant",
+      "status": "PASS"
+    },
+    {
+      "id": "native.missing_meta_is_compliant",
+      "status": "PASS"
+    },
+    {
+      "id": "native.provided_serverInfo_wrong_type_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "platform.own_complete_producer_metadata_present",
+      "status": "PASS"
+    },
+    {
+      "id": "platform.own_producer_missing_metadata_not_closed",
+      "status": "PASS"
+    }
+  ],
+  "passed": 6,
+  "decisions": [
+    {
+      "boundary": "external native response decoder",
+      "decision": "serverInfo optional; supplied value must obey native Implementation. Do not reject otherwise compliant response solely for absent diagnostic metadata. Existing native resultType/exactID/MRTR rules unchanged."
+    },
+    {
+      "boundary": "platform-owned prompts/get complete producer",
+      "decision": "§10.14 requires producer diagnostic server identity metadata. Separate output obligation/schema; never access, binding, trust or collision authority."
+    },
+    {
+      "boundary": "adapter for external result to platform renderer",
+      "decision": "Native parse and exact raw retention precede rendering. If platform needs serverInfo, use actual observed discovery/server metadata scoped to the exact registered source/revision and preserved diagnostic provenance; no fabricated defaults or caller assertion. Missing actual adapter/discovery provenance remains a named producer obligation, not an external protocol rejection."
+    },
+    {
+      "boundary": "current candidate aliases",
+      "decision": "Approve optional native ResultMetaObject projection; reject universal required-serverInfo strengthening. Alias currently requires _meta: must not be advertised as unrestricted external-native decoder; separate decoder from platform projection explicitly."
+    }
+  ],
+  "requiredProducerConsumerCompletion": [
+    "Declare whether operation alias is platform output projection or native decoder; preserve exact original external bytes for audit/replay.",
+    "Bind actual server discovery diagnostic provenance to same exact source/access registration revision and observed time; retain untrusted diagnostic classification.",
+    "Verify generated own producer and adapter/renderer do not use name/version as trusted source identity, access or routing."
+  ],
+  "authority": [
+    {
+      "section": "10.4",
+      "quote": "`clientInfo` a `serverInfo` jsou self-reported diagnostická metadata a nesmí být security, routing, collision, idempotency ani compatibility autoritou.",
+      "sourceSha256": "8d731d98a3ccbb4c61364b2bae152f6f72348aa453462337b0c83b0e4f82f4a2"
+    },
+    {
+      "section": "10.14",
+      "quote": "`prompts/list` je deterministic a cacheable; `prompts/get` vrací `resultType = complete` a server identity metadata.",
+      "sourceSha256": "8d731d98a3ccbb4c61364b2bae152f6f72348aa453462337b0c83b0e4f82f4a2"
+    },
+    {
+      "section": "10.10",
+      "quote": "MUST obsahovat exact request ID se stejným JSON type/value",
+      "sourceSha256": "8d731d98a3ccbb4c61364b2bae152f6f72348aa453462337b0c83b0e4f82f4a2"
+    }
+  ],
+  "wholeOperationClosureCount": 0,
+  "newProductDecision": false,
+  "technicalClarificationOnly": true,
+  "noCanonicalOrSharedWrites": true
+}

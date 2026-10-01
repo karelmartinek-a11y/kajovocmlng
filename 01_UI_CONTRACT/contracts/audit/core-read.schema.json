@@ -1,0 +1,1469 @@
+{
+  "$defs": {
+    "AuditRecord": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/DomainEventAuditRecord"
+        },
+        {
+          "$ref": "#/$defs/PrerootAuditRecord"
+        }
+      ]
+    },
+    "CanonicalAuditBytes": {
+      "additionalProperties": false,
+      "properties": {
+        "actorId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "afterDigest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "beforeDigest": {
+          "anyOf": [
+            {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "causationId": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "chainSequence": {
+          "maxLength": 19,
+          "minLength": 1,
+          "pattern": "^(?:[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+          "type": "string"
+        },
+        "correlationId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "eventId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "logicalOperationId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "objectId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "occurredAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "previousHash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "traceId": {
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "logicalOperationId",
+        "eventId",
+        "objectId",
+        "actorId",
+        "beforeDigest",
+        "afterDigest",
+        "correlationId",
+        "causationId",
+        "traceId",
+        "occurredAt",
+        "chainSequence",
+        "previousHash"
+      ],
+      "type": "object"
+    },
+    "CoreQuery": {
+      "$id": "urn:kcml:history-query:1",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "channel": {
+          "enum": [
+            "SMS",
+            "EMAIL",
+            "WEBHOOK",
+            "API",
+            "BROWSER",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "clientRef": {
+          "maxLength": 256,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "componentId": {
+          "format": "uuid",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "correlationId": {
+          "format": "uuid",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cursor": {
+          "maxLength": 2048,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "direction": {
+          "enum": [
+            "ANY",
+            "INBOUND",
+            "OUTBOUND"
+          ],
+          "type": "string"
+        },
+        "from": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "limit": {
+          "maximum": 200,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "recordKinds": {
+          "items": {
+            "enum": [
+              "RUN",
+              "COMPONENT",
+              "MESSAGE",
+              "EVENT",
+              "ERROR",
+              "PAYLOAD",
+              "SPAN"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "result": {
+          "enum": [
+            "ANY",
+            "SUCCEEDED",
+            "FAILED",
+            "CANCELLED",
+            "UNKNOWN"
+          ],
+          "type": "string"
+        },
+        "runId": {
+          "format": "uuid",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sort": {
+          "enum": [
+            "TIME_ASC",
+            "TIME_DESC",
+            "DURATION_DESC"
+          ],
+          "type": "string"
+        },
+        "to": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "recordKinds",
+        "runId",
+        "componentId",
+        "correlationId",
+        "clientRef",
+        "from",
+        "to",
+        "channel",
+        "direction",
+        "result",
+        "sort",
+        "limit",
+        "cursor"
+      ],
+      "type": "object"
+    },
+    "CoreResult": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "completeness": {
+                "const": "COMPLETE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "coverageFrom": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "coverageTo": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "missingSources": {
+                "maxItems": 0
+              },
+              "provenanceRefs": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "completeness": {
+                "const": "PARTIAL"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "missingSources": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "completeness": {
+                "const": "UNAVAILABLE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "coverageFrom": {
+                "type": "null"
+              },
+              "coverageTo": {
+                "type": "null"
+              },
+              "items": {
+                "maxItems": 0
+              },
+              "missingSources": {
+                "minItems": 1
+              },
+              "nextCursor": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "completeness": {
+          "enum": [
+            "COMPLETE",
+            "PARTIAL",
+            "UNAVAILABLE"
+          ]
+        },
+        "coverageFrom": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "coverageTo": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/AuditRecord"
+          },
+          "maxItems": 200,
+          "type": "array"
+        },
+        "missingSources": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "nextCursor": {
+          "anyOf": [
+            {
+              "maxLength": 2048,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "provenanceRefs": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "resolvedInterval": {
+          "additionalProperties": false,
+          "properties": {
+            "from": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "to": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "from",
+            "to"
+          ],
+          "type": "object"
+        },
+        "snapshotWatermark": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "resolvedInterval",
+        "items",
+        "nextCursor",
+        "snapshotWatermark",
+        "coverageFrom",
+        "coverageTo",
+        "completeness",
+        "missingSources",
+        "provenanceRefs"
+      ],
+      "type": "object"
+    },
+    "DomainEventAuditRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "actorId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "aggregateId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "aggregateKind": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "archiveRequired": {
+          "type": "boolean"
+        },
+        "auditId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "canonicalAuditBytesBase64": {
+          "contentEncoding": "base64",
+          "type": "string"
+        },
+        "causationId": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "chainFormatVersion": {
+          "const": 1
+        },
+        "chainSequence": {
+          "maxLength": 19,
+          "minLength": 1,
+          "pattern": "^(?:[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+          "type": "string"
+        },
+        "correlationId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "domainEventId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "eventHash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "eventPayloadBytesBase64": {
+          "contentEncoding": "base64",
+          "type": "string"
+        },
+        "eventPayloadDigest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "eventSchemaDigest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "eventSchemaId": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "eventType": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "logicalOperationId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "occurredAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "previousHash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "recordKind": {
+          "const": "DOMAIN_EVENT_AUDIT"
+        }
+      },
+      "required": [
+        "recordKind",
+        "auditId",
+        "chainSequence",
+        "previousHash",
+        "eventHash",
+        "chainFormatVersion",
+        "canonicalAuditBytesBase64",
+        "logicalOperationId",
+        "actorId",
+        "domainEventId",
+        "aggregateId",
+        "aggregateKind",
+        "eventType",
+        "eventSchemaId",
+        "eventSchemaDigest",
+        "eventPayloadBytesBase64",
+        "eventPayloadDigest",
+        "correlationId",
+        "causationId",
+        "occurredAt",
+        "archiveRequired"
+      ],
+      "type": "object"
+    },
+    "OriginProjection": {
+      "additionalProperties": false,
+      "properties": {
+        "auditId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "channel": {
+          "enum": [
+            "SMS",
+            "EMAIL",
+            "WEBHOOK",
+            "API",
+            "BROWSER",
+            null
+          ]
+        },
+        "clientRef": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "componentId": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "direction": {
+          "enum": [
+            "INBOUND",
+            "OUTBOUND",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "durationMs": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "eventHash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "recordedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "result": {
+          "enum": [
+            "SUCCEEDED",
+            "FAILED",
+            "CANCELLED",
+            "UNKNOWN",
+            null
+          ]
+        },
+        "runId": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sourceContextDigest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "auditId",
+        "eventHash",
+        "runId",
+        "componentId",
+        "clientRef",
+        "channel",
+        "direction",
+        "result",
+        "durationMs",
+        "recordedAt",
+        "sourceContextDigest"
+      ],
+      "type": "object"
+    },
+    "PrerootAuditRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "actorId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "archiveRequired": {
+          "type": "boolean"
+        },
+        "auditId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "canonicalAuditBytesBase64": {
+          "contentEncoding": "base64",
+          "type": "string"
+        },
+        "chainFormatVersion": {
+          "const": 1
+        },
+        "chainSequence": {
+          "maxLength": 19,
+          "minLength": 1,
+          "pattern": "^(?:[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+          "type": "string"
+        },
+        "domainEventId": {
+          "type": "null"
+        },
+        "eventHash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "logicalOperationId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "operationId": {
+          "const": "generation.job.create"
+        },
+        "previousHash": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "prospectiveJobId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "recordKind": {
+          "const": "GENERATION_PREROOT_OUTCOME_AUDIT"
+        },
+        "retainedOutcome": {
+          "$ref": "#/$defs/PrerootOutcome"
+        },
+        "retainedOutcomeBytesBase64": {
+          "contentEncoding": "base64",
+          "type": "string"
+        },
+        "retainedOutcomeDigest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "retainedStateVersion": {
+          "maxLength": 19,
+          "minLength": 1,
+          "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+          "type": "string"
+        }
+      },
+      "required": [
+        "recordKind",
+        "auditId",
+        "chainSequence",
+        "previousHash",
+        "eventHash",
+        "chainFormatVersion",
+        "canonicalAuditBytesBase64",
+        "logicalOperationId",
+        "actorId",
+        "archiveRequired",
+        "operationId",
+        "domainEventId",
+        "prospectiveJobId",
+        "retainedStateVersion",
+        "retainedOutcomeDigest",
+        "retainedOutcomeBytesBase64",
+        "retainedOutcome"
+      ],
+      "type": "object"
+    },
+    "PrerootOutcome": {
+      "additionalProperties": false,
+      "properties": {
+        "activationEpoch": {
+          "type": "null"
+        },
+        "correlationId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "additionalProperties": false,
+              "allOf": [
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "CREATE_CANCELLED"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "CANCELLED"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "CREATE_INPUT_INVALID"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "CREATE_AUTHENTICATION_REQUIRED"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "AUTHENTICATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "CREATE_REFERENCE_INVALID"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "CREATE_POLICY_UNRESOLVED"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "DEPENDENCY"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "CREATE_RECOVERY_BARRIER"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "CONFLICT"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "IDEMPOTENCY_CONFLICT"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "CONFLICT"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "CREATE_PERSISTENCE_FAILED"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "INTERNAL"
+                      },
+                      "retryDirective": {
+                        "const": "RETRY_SAME_OPERATION"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "SIDE_EFFECT_OUTCOME_UNKNOWN"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "UNKNOWN"
+                      },
+                      "retryDirective": {
+                        "const": "RECONCILE_THEN_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "DEPENDENCY"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "DEPENDENCY"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_BASIS_DIGEST_CONFLICT"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_BASIS_IDENTITY_MISMATCH"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_BASIS_INCONSISTENT"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_BASIS_INSUFFICIENT"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_BASIS_INVALID"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_BASIS_NOT_IMMUTABLE"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_BASIS_UNAVAILABLE"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_FROZEN_IDENTITY_MISMATCH"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_KIND_REQUIRED"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_PARENT_REQUIRED"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "DEPENDENCY"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_SOURCE_OWNER_MISMATCH"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "AUTHORIZATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "stableCode": {
+                        "const": "FOLLOW_UP_SOURCE_STATE_INVALID"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "classification": {
+                        "const": "VALIDATION"
+                      },
+                      "retryDirective": {
+                        "const": "DO_NOT_RETRY"
+                      }
+                    }
+                  }
+                }
+              ],
+              "properties": {
+                "classification": {
+                  "enum": [
+                    "AUTHENTICATION",
+                    "AUTHORIZATION",
+                    "CANCELLED",
+                    "CONFLICT",
+                    "DEPENDENCY",
+                    "INTERNAL",
+                    "UNKNOWN",
+                    "VALIDATION"
+                  ]
+                },
+                "detailsDigest": {
+                  "anyOf": [
+                    {
+                      "pattern": "^sha256:[0-9a-f]{64}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "message": {
+                  "type": "string"
+                },
+                "retryDirective": {
+                  "enum": [
+                    "DO_NOT_RETRY",
+                    "RECONCILE_THEN_RETRY",
+                    "RETRY_SAME_OPERATION"
+                  ]
+                },
+                "stableCode": {
+                  "enum": [
+                    "CREATE_CANCELLED",
+                    "CREATE_INPUT_INVALID",
+                    "CREATE_AUTHENTICATION_REQUIRED",
+                    "CREATE_REFERENCE_INVALID",
+                    "CREATE_POLICY_UNRESOLVED",
+                    "CREATE_RECOVERY_BARRIER",
+                    "IDEMPOTENCY_CONFLICT",
+                    "CREATE_PERSISTENCE_FAILED",
+                    "SIDE_EFFECT_OUTCOME_UNKNOWN",
+                    "FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED",
+                    "FOLLOW_UP_BASIS_BYTES_DIGEST_MISMATCH",
+                    "FOLLOW_UP_BASIS_BYTES_UNAVAILABLE",
+                    "FOLLOW_UP_BASIS_DIGEST_CONFLICT",
+                    "FOLLOW_UP_BASIS_IDENTITY_MISMATCH",
+                    "FOLLOW_UP_BASIS_INCONSISTENT",
+                    "FOLLOW_UP_BASIS_INSUFFICIENT",
+                    "FOLLOW_UP_BASIS_INVALID",
+                    "FOLLOW_UP_BASIS_NOT_IMMUTABLE",
+                    "FOLLOW_UP_BASIS_UNAVAILABLE",
+                    "FOLLOW_UP_FINAL_OUTPUT_UNPUBLISHED",
+                    "FOLLOW_UP_FROZEN_DESCRIPTOR_INVALID",
+                    "FOLLOW_UP_FROZEN_IDENTITY_MISMATCH",
+                    "FOLLOW_UP_FROZEN_LINEAGE_DIGEST_MISMATCH",
+                    "FOLLOW_UP_FROZEN_SNAPSHOT_UNAVAILABLE",
+                    "FOLLOW_UP_KIND_REQUIRED",
+                    "FOLLOW_UP_PARENT_REQUIRED",
+                    "FOLLOW_UP_PUBLICATION_RECEIPT_MISMATCH",
+                    "FOLLOW_UP_PUBLICATION_RECEIPT_UNVERIFIED",
+                    "FOLLOW_UP_SNAPSHOT_IDENTITY_INVALID",
+                    "FOLLOW_UP_SOURCE_OWNER_MISMATCH",
+                    "FOLLOW_UP_SOURCE_STATE_INVALID"
+                  ]
+                }
+              },
+              "required": [
+                "stableCode",
+                "classification",
+                "retryDirective",
+                "message",
+                "detailsDigest"
+              ],
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "eventSequence": {
+          "type": "null"
+        },
+        "logicalOperationId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "operationId": {
+          "const": "generation.job.create"
+        },
+        "output": {
+          "type": "null"
+        },
+        "routeId": {
+          "const": "route.0215"
+        },
+        "stateVersion": {
+          "type": "null"
+        },
+        "status": {
+          "enum": [
+            "ACCEPTED",
+            "FAILED",
+            "CANCELLED"
+          ]
+        },
+        "terminal": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "routeId",
+        "operationId",
+        "logicalOperationId",
+        "correlationId",
+        "status",
+        "terminal",
+        "output",
+        "error",
+        "stateVersion",
+        "eventSequence",
+        "activationEpoch"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:kcml:audit:core-read:v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-consumerCapability": "AUDIT_IMMUTABLE_BYTES_INSPECTION_ONLY; no event application or Secret runtime use",
+  "x-coreMaximum": 200,
+  "x-sourceDerived": [
+    "§51.25 exact immutable audit bytes and framed hash",
+    "database/generation-create-foundations.sql audit/domain_event FK+digests",
+    "scripts/secret_command_chain.py existing canonical audit JSON producer field names and DB clock",
+    "ui/contracts/live-experience.json#/observability/historyQuerySchema strict200"
+  ],
+  "x-technicalNorm": [
+    "Global audit.event.list uses CoreQuery200; experience500 is a UI query adapter only and cannot silently drop legacy filters or expand core pages",
+    "Immutable origin projection is copied from exact authenticated domain ingress/execution context under producer identity/digest; no client flag/source-label guess",
+    "recordKinds filter EVENT because this endpoint reads audit_event rows; non-EVENT-only queries return evidenced empty match, never other record kinds",
+    "TIME_ASC/TIME_DESC order canonical DB-recorded timestamp then auditId binary ascending; DURATION_DESC uses published duration non-null first then timestamp/id",
+    "AuditRecord exact typed metadata plus original native bytes is an inspection contract; bytes are not a replacement for business event contracts"
+  ]
+}

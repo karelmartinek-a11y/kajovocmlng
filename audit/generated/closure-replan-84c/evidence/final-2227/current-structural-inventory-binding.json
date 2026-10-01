@@ -1,0 +1,73 @@
+{
+  "status": "CURRENT_BLOCKED_STRUCTURAL_INVENTORY_BOUND_TO_SOURCE",
+  "sourceSha256": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0",
+  "sourceStable": true,
+  "inventoryEvidence": {
+    "matrix": {
+      "path": "audit/phase1-operation-schema-matrix.json",
+      "sha256": "4a536b4648b56c3c4caca8deef8fdcf7548ad692827fe14510667c8070bf67d7"
+    },
+    "unresolved": {
+      "path": "audit/phase1-unresolved.json",
+      "sha256": "22e35615d9880d71028455e6f0349c5d68d342a6e4ffa17ce840ef755c3a9c4f"
+    }
+  },
+  "summary": {
+    "operations": 619,
+    "routes": 542,
+    "unresolvedOperationReferences": 238,
+    "operationsWithUnresolvedReferences": 119,
+    "conflictingOperationReferences": 0,
+    "genericRoutes": 498,
+    "genericBoundaryDefinitions": 1486,
+    "nestedReferenceFailures": 0,
+    "unreviewedConcreteBoundaryDefinitions": 140,
+    "conflictingSchemaIdentities": 0,
+    "unspecifiedEventApplicability": 152,
+    "unparsedResources": 0
+  },
+  "genericBoundaryCountsByRole": {
+    "request": 494,
+    "response": 494,
+    "event": 498
+  },
+  "actualBoundaryCountsByRole": {
+    "request": 534,
+    "response": 534,
+    "event": 520
+  },
+  "denominatorLimitation": "Role denominators are actual present matrix boundaries, not every542route assumed to define all3 roles. Generic counters are overlapping structural inventories, not semanticclosure.",
+  "comparedConsumedResourceSha256": {
+    "closure/contracts/operation-payloads.json": "acff7e1564ccc19cbe40ec397ec2f71a71da00bb564dfee2665f39597f0be233",
+    "contracts/payload-contracts.json": "ca6cf9996090ec4b9bcbdd06229449cb4ffc946ed33688bcd81a03dc6cd4787b",
+    "r11/contracts/r10-route-payloads.json": "ff2ee3bdcf87ecf83e10c483cfbe39ccb9837bc75ee64d53801cbe44af714002"
+  },
+  "freshCreateCompletion": {
+    "path": "audit/generated/closure-replan-84c/evidence/final-2227/create-completion/completion-tests.json",
+    "sha256": "7af5c3cb2c96cc778e7cc011d2f923911fb46c11a2be9e1075eaf161af5d4db5",
+    "executionSourceSha256": "2227d9d2458609fd0cfc78fff22f6ab1ab34c7709c77e4d3b2fc4c296981ef6a",
+    "checked": 449,
+    "failed": 0,
+    "scope": "Current completion/reference witnesses only, no wholeoperation/persistence/runtime proof"
+  },
+  "freshIndependentRetainedMasks": {
+    "path": "audit/generated/closure-replan-84c/evidence/final-2227/retained-masks/integrated-retained-mask-tests.json",
+    "sha256": "f10c3782e340ea6f1e4fc1ebb6c2414ca93d934be18b436e022c057cd8e6a341",
+    "executionSourceSha256": "2227d9d2458609fd0cfc78fff22f6ab1ab34c7709c77e4d3b2fc4c296981ef6a",
+    "checked": 51,
+    "failed": 0
+  },
+  "metadataScopeRevalidation": {
+    "executionSourceSha256": "2227d9d2458609fd0cfc78fff22f6ab1ab34c7709c77e4d3b2fc4c296981ef6a",
+    "currentSourceSha256": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0",
+    "reason": "Root globalembedded manifest resourceCount76→83 only; actual selected schema/SQL/helper/profile/sourcequote checks repeated",
+    "unchangedAuthorityQuotes": 312,
+    "unchangedSupportScopes": 16,
+    "selectedSchemaHashesMatch": true,
+    "currentManifestResourceCount": 83,
+    "noExecutionEvidenceRetag": true
+  },
+  "historicalEvidenceUntouched": true,
+  "SSOT_CONTRACT_READY": "BLOCKED",
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

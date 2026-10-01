@@ -1,0 +1,3384 @@
+{
+  "status": "STRUCTURAL_INVENTORY",
+  "referenceCount": 242,
+  "operationCount": 121,
+  "families": {
+    "AGENT": {
+      "operations": {
+        "agent.approval.request": {
+          "source": "contracts/operation-contracts.json#/records/3",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.14",
+              "relation": "AUTHORITY",
+              "section": "49.14",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.21",
+              "relation": "AUTHORITY",
+              "section": "51.21",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:agent.approval.request:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:agent.approval.request:response"
+            }
+          ]
+        },
+        "agent.checkpoint.created": {
+          "source": "contracts/operation-contracts.json#/records/4",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.9",
+              "relation": "AUTHORITY",
+              "section": "49.9",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.14",
+              "relation": "AUTHORITY",
+              "section": "49.14",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:agent.checkpoint.created:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:agent.checkpoint.created:response"
+            }
+          ]
+        },
+        "agent.delegate.request": {
+          "source": "contracts/operation-contracts.json#/records/9",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.14",
+              "relation": "AUTHORITY",
+              "section": "49.14",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.53",
+              "relation": "AUTHORITY",
+              "section": "53",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:agent.delegate.request:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:agent.delegate.request:response"
+            }
+          ]
+        },
+        "agent.delegate.result": {
+          "source": "contracts/operation-contracts.json#/records/10",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.14",
+              "relation": "AUTHORITY",
+              "section": "49.14",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.53",
+              "relation": "AUTHORITY",
+              "section": "53",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:agent.delegate.result:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:agent.delegate.result:response"
+            }
+          ]
+        },
+        "agent.eval.result": {
+          "source": "contracts/operation-contracts.json#/records/11",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.11",
+              "relation": "AUTHORITY",
+              "section": "11",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.14",
+              "relation": "AUTHORITY",
+              "section": "49.14",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:agent.eval.result:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:agent.eval.result:response"
+            }
+          ]
+        },
+        "agent.model.completed": {
+          "source": "contracts/operation-contracts.json#/records/22",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.14",
+              "relation": "AUTHORITY",
+              "section": "49.14",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.52.7",
+              "relation": "AUTHORITY",
+              "section": "52.7",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:agent.model.completed:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:agent.model.completed:response"
+            }
+          ]
+        },
+        "agent.model.started": {
+          "source": "contracts/operation-contracts.json#/records/23",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.14",
+              "relation": "AUTHORITY",
+              "section": "49.14",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.52.7",
+              "relation": "AUTHORITY",
+              "section": "52.7",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:agent.model.started:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:agent.model.started:response"
+            }
+          ]
+        },
+        "agent.run.complete": {
+          "source": "contracts/operation-contracts.json#/records/40",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.14",
+              "relation": "AUTHORITY",
+              "section": "49.14",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.34",
+              "relation": "AUTHORITY",
+              "section": "49.34",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:agent.run.complete:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:agent.run.complete:response"
+            }
+          ]
+        },
+        "agent.run.fail": {
+          "source": "contracts/operation-contracts.json#/records/42",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.14",
+              "relation": "AUTHORITY",
+              "section": "49.14",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.34",
+              "relation": "AUTHORITY",
+              "section": "49.34",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:agent.run.fail:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:agent.run.fail:response"
+            }
+          ]
+        },
+        "agent.run.manualReview": {
+          "source": "contracts/operation-contracts.json#/records/45",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.14",
+              "relation": "AUTHORITY",
+              "section": "49.14",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.32.5",
+              "relation": "AUTHORITY",
+              "section": "32.5",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:agent.run.manualReview:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:agent.run.manualReview:response"
+            }
+          ]
+        },
+        "agent.state.report": {
+          "source": "contracts/operation-contracts.json#/records/56",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.14",
+              "relation": "AUTHORITY",
+              "section": "49.14",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:agent.state.report:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:agent.state.report:response"
+            }
+          ]
+        },
+        "agent.tool.failed": {
+          "source": "contracts/operation-contracts.json#/records/57",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.14",
+              "relation": "AUTHORITY",
+              "section": "49.14",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.52",
+              "relation": "AUTHORITY",
+              "section": "52",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:agent.tool.failed:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:agent.tool.failed:response"
+            }
+          ]
+        },
+        "agent.tool.request": {
+          "source": "contracts/operation-contracts.json#/records/58",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.14",
+              "relation": "AUTHORITY",
+              "section": "49.14",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.52",
+              "relation": "AUTHORITY",
+              "section": "52",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.53",
+              "relation": "AUTHORITY",
+              "section": "53",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:agent.tool.request:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:agent.tool.request:response"
+            }
+          ]
+        },
+        "agent.tool.result": {
+          "source": "contracts/operation-contracts.json#/records/59",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.14",
+              "relation": "AUTHORITY",
+              "section": "49.14",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.52",
+              "relation": "AUTHORITY",
+              "section": "52",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:agent.tool.result:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:agent.tool.result:response"
+            }
+          ]
+        }
+      },
+      "references": 28,
+      "status": "BLOCKED",
+      "blocker": "EXACT_OPERATION_BOUNDARY_MASK_ABSENT; native artifact or similar entity schema is not interchangeable without producer/consumer mapping"
+    },
+    "AGENTIC": {
+      "operations": {
+        "agentic.security.event.record": {
+          "source": "contracts/operation-contracts.json#/records/66",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.53",
+              "relation": "AUTHORITY",
+              "section": "53",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.37",
+              "relation": "AUTHORITY",
+              "section": "51.37",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:agentic.security.event.record:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:agentic.security.event.record:response"
+            }
+          ]
+        }
+      },
+      "references": 2,
+      "status": "BLOCKED",
+      "blocker": "EXACT_OPERATION_BOUNDARY_MASK_ABSENT; native artifact or similar entity schema is not interchangeable without producer/consumer mapping"
+    },
+    "AUDIT": {
+      "operations": {
+        "audit.archive.complete": {
+          "source": "contracts/operation-contracts.json#/records/68",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.19",
+              "relation": "AUTHORITY",
+              "section": "19",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.25",
+              "relation": "AUTHORITY",
+              "section": "51.25",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:audit.archive.complete:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:audit.archive.complete:response"
+            }
+          ]
+        },
+        "audit.archive.enqueue": {
+          "source": "contracts/operation-contracts.json#/records/69",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.19",
+              "relation": "AUTHORITY",
+              "section": "19",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.25",
+              "relation": "AUTHORITY",
+              "section": "51.25",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:audit.archive.enqueue:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:audit.archive.enqueue:response"
+            }
+          ]
+        },
+        "audit.event.append": {
+          "source": "contracts/operation-contracts.json#/records/71",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.19",
+              "relation": "AUTHORITY",
+              "section": "19",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.5",
+              "relation": "AUTHORITY",
+              "section": "49.5",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.25",
+              "relation": "AUTHORITY",
+              "section": "51.25",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:audit.event.append:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:audit.event.append:response"
+            }
+          ]
+        },
+        "audit.stream.ack": {
+          "source": "contracts/operation-contracts.json#/records/76",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.19",
+              "relation": "AUTHORITY",
+              "section": "19",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.25",
+              "relation": "AUTHORITY",
+              "section": "51.25",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:audit.stream.ack:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:audit.stream.ack:response"
+            }
+          ]
+        },
+        "audit.stream.replay.request": {
+          "source": "contracts/operation-contracts.json#/records/77",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.19",
+              "relation": "AUTHORITY",
+              "section": "19",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.25",
+              "relation": "AUTHORITY",
+              "section": "51.25",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:audit.stream.replay.request:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:audit.stream.replay.request:response"
+            }
+          ]
+        },
+        "audit.stream.replay.result": {
+          "source": "contracts/operation-contracts.json#/records/78",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.19",
+              "relation": "AUTHORITY",
+              "section": "19",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.25",
+              "relation": "AUTHORITY",
+              "section": "51.25",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:audit.stream.replay.result:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:audit.stream.replay.result:response"
+            }
+          ]
+        }
+      },
+      "references": 12,
+      "status": "BLOCKED",
+      "blocker": "EXACT_OPERATION_BOUNDARY_MASK_ABSENT; native artifact or similar entity schema is not interchangeable without producer/consumer mapping"
+    },
+    "AUTHORITY": {
+      "operations": {
+        "authority.actionPlan.compile": {
+          "source": "contracts/operation-contracts.json#/records/79",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.53",
+              "relation": "AUTHORITY",
+              "section": "53",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.37",
+              "relation": "AUTHORITY",
+              "section": "51.37",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:authority.actionPlan.compile:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:authority.actionPlan.compile:response"
+            }
+          ]
+        },
+        "authority.actionPlan.validate": {
+          "source": "contracts/operation-contracts.json#/records/81",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.53",
+              "relation": "AUTHORITY",
+              "section": "53",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:authority.actionPlan.validate:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:authority.actionPlan.validate:response"
+            }
+          ]
+        },
+        "authority.context.create": {
+          "source": "contracts/operation-contracts.json#/records/82",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.53",
+              "relation": "AUTHORITY",
+              "section": "53",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.37",
+              "relation": "AUTHORITY",
+              "section": "51.37",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:authority.context.create:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:authority.context.create:response"
+            }
+          ]
+        },
+        "authority.context.validate": {
+          "source": "contracts/operation-contracts.json#/records/84",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.53",
+              "relation": "AUTHORITY",
+              "section": "53",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.37",
+              "relation": "AUTHORITY",
+              "section": "51.37",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:authority.context.validate:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:authority.context.validate:response"
+            }
+          ]
+        },
+        "authority.intent.compile": {
+          "source": "contracts/operation-contracts.json#/records/85",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.53",
+              "relation": "AUTHORITY",
+              "section": "53",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.37",
+              "relation": "AUTHORITY",
+              "section": "51.37",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:authority.intent.compile:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:authority.intent.compile:response"
+            }
+          ]
+        },
+        "authority.intent.validate": {
+          "source": "contracts/operation-contracts.json#/records/87",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.53",
+              "relation": "AUTHORITY",
+              "section": "53",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:authority.intent.validate:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:authority.intent.validate:response"
+            }
+          ]
+        },
+        "authority.lineage.append": {
+          "source": "contracts/operation-contracts.json#/records/88",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.53",
+              "relation": "AUTHORITY",
+              "section": "53",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.37",
+              "relation": "AUTHORITY",
+              "section": "51.37",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:authority.lineage.append:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:authority.lineage.append:response"
+            }
+          ]
+        }
+      },
+      "references": 14,
+      "status": "BLOCKED",
+      "blocker": "EXACT_OPERATION_BOUNDARY_MASK_ABSENT; native artifact or similar entity schema is not interchangeable without producer/consumer mapping"
+    },
+    "BROWSER": {
+      "operations": {
+        "browser.account.authEpoch.increment": {
+          "source": "contracts/operation-contracts.json#/records/101",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.6",
+              "relation": "AUTHORITY",
+              "section": "51.24.6",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.account.authEpoch.increment:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.account.authEpoch.increment:response"
+            }
+          ]
+        },
+        "browser.action.complete": {
+          "source": "contracts/operation-contracts.json#/records/111",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.19",
+              "relation": "AUTHORITY",
+              "section": "49.19",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.5",
+              "relation": "AUTHORITY",
+              "section": "51.24.5",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.action.complete:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.action.complete:response"
+            }
+          ]
+        },
+        "browser.action.dispatchPhase": {
+          "source": "contracts/operation-contracts.json#/records/112",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.19",
+              "relation": "AUTHORITY",
+              "section": "49.19",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.4",
+              "relation": "AUTHORITY",
+              "section": "51.24.4",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.action.dispatchPhase:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.action.dispatchPhase:response"
+            }
+          ]
+        },
+        "browser.action.fail": {
+          "source": "contracts/operation-contracts.json#/records/113",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.19",
+              "relation": "AUTHORITY",
+              "section": "49.19",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.5",
+              "relation": "AUTHORITY",
+              "section": "51.24.5",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.action.fail:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.action.fail:response"
+            }
+          ]
+        },
+        "browser.artifact.created": {
+          "source": "contracts/operation-contracts.json#/records/118",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13.18",
+              "relation": "AUTHORITY",
+              "section": "13.18",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.8",
+              "relation": "AUTHORITY",
+              "section": "51.24.8",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.artifact.created:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.artifact.created:response"
+            }
+          ]
+        },
+        "browser.bridge.assign": {
+          "source": "contracts/operation-contracts.json#/records/149",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.50.28",
+              "relation": "AUTHORITY",
+              "section": "50.28",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.7",
+              "relation": "AUTHORITY",
+              "section": "51.24.7",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.bridge.assign:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.bridge.assign:response"
+            }
+          ]
+        },
+        "browser.bridge.connect": {
+          "source": "contracts/operation-contracts.json#/records/150",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.50.28",
+              "relation": "AUTHORITY",
+              "section": "50.28",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.bridge.connect:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.bridge.connect:response"
+            }
+          ]
+        },
+        "browser.bridge.release": {
+          "source": "contracts/operation-contracts.json#/records/157",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.50.28",
+              "relation": "AUTHORITY",
+              "section": "50.28",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.7",
+              "relation": "AUTHORITY",
+              "section": "51.24.7",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.bridge.release:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.bridge.release:response"
+            }
+          ]
+        },
+        "browser.challenge.required": {
+          "source": "contracts/operation-contracts.json#/records/161",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.20",
+              "relation": "AUTHORITY",
+              "section": "49.20",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.challenge.required:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.challenge.required:response"
+            }
+          ]
+        },
+        "browser.cleanup.resume": {
+          "source": "contracts/operation-contracts.json#/records/163",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.20",
+              "relation": "AUTHORITY",
+              "section": "49.20",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.26",
+              "relation": "AUTHORITY",
+              "section": "51.26",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.cleanup.resume:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.cleanup.resume:response"
+            }
+          ]
+        },
+        "browser.control.changed": {
+          "source": "contracts/operation-contracts.json#/records/166",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.19",
+              "relation": "AUTHORITY",
+              "section": "49.19",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.2",
+              "relation": "AUTHORITY",
+              "section": "51.24.2",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.control.changed:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.control.changed:response"
+            }
+          ]
+        },
+        "browser.dialog.opened": {
+          "source": "contracts/operation-contracts.json#/records/171",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.20",
+              "relation": "AUTHORITY",
+              "section": "49.20",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.dialog.opened:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.dialog.opened:response"
+            }
+          ]
+        },
+        "browser.document.changed": {
+          "source": "contracts/operation-contracts.json#/records/173",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.1",
+              "relation": "AUTHORITY",
+              "section": "51.24.1",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.document.changed:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.document.changed:response"
+            }
+          ]
+        },
+        "browser.download.persist": {
+          "source": "contracts/operation-contracts.json#/records/176",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13.18",
+              "relation": "AUTHORITY",
+              "section": "13.18",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.8",
+              "relation": "AUTHORITY",
+              "section": "51.24.8",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.download.persist:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.download.persist:response"
+            }
+          ]
+        },
+        "browser.download.started": {
+          "source": "contracts/operation-contracts.json#/records/177",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13.18",
+              "relation": "AUTHORITY",
+              "section": "13.18",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.8",
+              "relation": "AUTHORITY",
+              "section": "51.24.8",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.download.started:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.download.started:response"
+            }
+          ]
+        },
+        "browser.download.verify": {
+          "source": "contracts/operation-contracts.json#/records/178",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13.18",
+              "relation": "AUTHORITY",
+              "section": "13.18",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.8",
+              "relation": "AUTHORITY",
+              "section": "51.24.8",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.download.verify:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.download.verify:response"
+            }
+          ]
+        },
+        "browser.frame.observed": {
+          "source": "contracts/operation-contracts.json#/records/180",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.1",
+              "relation": "AUTHORITY",
+              "section": "51.24.1",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.frame.observed:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.frame.observed:response"
+            }
+          ]
+        },
+        "browser.host.drain": {
+          "source": "contracts/operation-contracts.json#/records/181",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.50.26",
+              "relation": "AUTHORITY",
+              "section": "50.26",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.host.drain:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.host.drain:response"
+            }
+          ]
+        },
+        "browser.host.ready": {
+          "source": "contracts/operation-contracts.json#/records/182",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.50.26",
+              "relation": "AUTHORITY",
+              "section": "50.26",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.host.ready:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.host.ready:response"
+            }
+          ]
+        },
+        "browser.host.recover": {
+          "source": "contracts/operation-contracts.json#/records/183",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.50.26",
+              "relation": "AUTHORITY",
+              "section": "50.26",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.host.recover:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.host.recover:response"
+            }
+          ]
+        },
+        "browser.navigation.observed": {
+          "source": "contracts/operation-contracts.json#/records/185",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.1",
+              "relation": "AUTHORITY",
+              "section": "51.24.1",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.navigation.observed:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.navigation.observed:response"
+            }
+          ]
+        },
+        "browser.page.observed": {
+          "source": "contracts/operation-contracts.json#/records/191",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.1",
+              "relation": "AUTHORITY",
+              "section": "51.24.1",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.page.observed:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.page.observed:response"
+            }
+          ]
+        },
+        "browser.permission.request": {
+          "source": "contracts/operation-contracts.json#/records/194",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.20",
+              "relation": "AUTHORITY",
+              "section": "49.20",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.permission.request:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.permission.request:response"
+            }
+          ]
+        },
+        "browser.preview.resync": {
+          "source": "contracts/operation-contracts.json#/records/198",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.50.27",
+              "relation": "AUTHORITY",
+              "section": "50.27",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.preview.resync:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.preview.resync:response"
+            }
+          ]
+        },
+        "browser.preview.viewer.connected": {
+          "source": "contracts/operation-contracts.json#/records/200",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.50.27",
+              "relation": "AUTHORITY",
+              "section": "50.27",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.preview.viewer.connected:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.preview.viewer.connected:response"
+            }
+          ]
+        },
+        "browser.preview.viewer.disconnected": {
+          "source": "contracts/operation-contracts.json#/records/201",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.50.27",
+              "relation": "AUTHORITY",
+              "section": "50.27",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.preview.viewer.disconnected:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.preview.viewer.disconnected:response"
+            }
+          ]
+        },
+        "browser.profile.acquire": {
+          "source": "contracts/operation-contracts.json#/records/202",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.50.28",
+              "relation": "AUTHORITY",
+              "section": "50.28",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.7",
+              "relation": "AUTHORITY",
+              "section": "51.24.7",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.profile.acquire:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.profile.acquire:response"
+            }
+          ]
+        },
+        "browser.profile.release": {
+          "source": "contracts/operation-contracts.json#/records/203",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.50.28",
+              "relation": "AUTHORITY",
+              "section": "50.28",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.7",
+              "relation": "AUTHORITY",
+              "section": "51.24.7",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.profile.release:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.profile.release:response"
+            }
+          ]
+        },
+        "browser.runtimeBuild.register": {
+          "source": "contracts/operation-contracts.json#/records/205",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.50.26",
+              "relation": "AUTHORITY",
+              "section": "50.26",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.runtimeBuild.register:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.runtimeBuild.register:response"
+            }
+          ]
+        },
+        "browser.runtimeBuild.verify": {
+          "source": "contracts/operation-contracts.json#/records/206",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.50.26",
+              "relation": "AUTHORITY",
+              "section": "50.26",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.runtimeBuild.verify:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.runtimeBuild.verify:response"
+            }
+          ]
+        },
+        "browser.schedule.evaluate": {
+          "source": "contracts/operation-contracts.json#/records/207",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.14",
+              "relation": "AUTHORITY",
+              "section": "14",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.21",
+              "relation": "AUTHORITY",
+              "section": "49.21",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.schedule.evaluate:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.schedule.evaluate:response"
+            }
+          ]
+        },
+        "browser.session.observe": {
+          "source": "contracts/operation-contracts.json#/records/215",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.19",
+              "relation": "AUTHORITY",
+              "section": "49.19",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.1",
+              "relation": "AUTHORITY",
+              "section": "51.24.1",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.session.observe:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.session.observe:response"
+            }
+          ]
+        },
+        "browser.upload.consume": {
+          "source": "contracts/operation-contracts.json#/records/235",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.13.18",
+              "relation": "AUTHORITY",
+              "section": "13.18",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.8",
+              "relation": "AUTHORITY",
+              "section": "51.24.8",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:browser.upload.consume:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:browser.upload.consume:response"
+            }
+          ]
+        }
+      },
+      "references": 66,
+      "status": "BLOCKED",
+      "blocker": "EXACT_OPERATION_BOUNDARY_MASK_ABSENT; native artifact or similar entity schema is not interchangeable without producer/consumer mapping"
+    },
+    "CHAT": {
+      "operations": {
+        "chat.browser.control.acquire": {
+          "source": "contracts/operation-contracts.json#/records/238",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.2.11",
+              "relation": "AUTHORITY",
+              "section": "2.11",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.24.2",
+              "relation": "AUTHORITY",
+              "section": "51.24.2",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:chat.browser.control.acquire:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:chat.browser.control.acquire:response"
+            }
+          ]
+        },
+        "chat.browser.target.attach": {
+          "source": "contracts/operation-contracts.json#/records/243",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.2.11",
+              "relation": "AUTHORITY",
+              "section": "2.11",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.13",
+              "relation": "AUTHORITY",
+              "section": "13",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:chat.browser.target.attach:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:chat.browser.target.attach:response"
+            }
+          ]
+        },
+        "chat.command.execute": {
+          "source": "contracts/operation-contracts.json#/records/244",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.2.11",
+              "relation": "AUTHORITY",
+              "section": "2.11",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.26",
+              "relation": "AUTHORITY",
+              "section": "26",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.53",
+              "relation": "AUTHORITY",
+              "section": "53",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:chat.command.execute:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:chat.command.execute:response"
+            }
+          ]
+        }
+      },
+      "references": 6,
+      "status": "BLOCKED",
+      "blocker": "EXACT_OPERATION_BOUNDARY_MASK_ABSENT; native artifact or similar entity schema is not interchangeable without producer/consumer mapping"
+    },
+    "COMPONENT": {
+      "operations": {
+        "component.state.report": {
+          "source": "contracts/operation-contracts.json#/records/277",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.44",
+              "relation": "AUTHORITY",
+              "section": "44",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.12",
+              "relation": "AUTHORITY",
+              "section": "49.12",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:component.state.report:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:component.state.report:response"
+            }
+          ]
+        }
+      },
+      "references": 2,
+      "status": "BLOCKED",
+      "blocker": "EXACT_OPERATION_BOUNDARY_MASK_ABSENT; native artifact or similar entity schema is not interchangeable without producer/consumer mapping"
+    },
+    "GENERATION": {
+      "operations": {
+        "generation.activation.prepare": {
+          "source": "contracts/operation-contracts.json#/records/313",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.12",
+              "relation": "AUTHORITY",
+              "section": "12",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.17",
+              "relation": "AUTHORITY",
+              "section": "49.17",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.18",
+              "relation": "AUTHORITY",
+              "section": "51.18",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:generation.activation.prepare:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:generation.activation.prepare:response"
+            }
+          ]
+        },
+        "generation.activation.rollback": {
+          "source": "contracts/operation-contracts.json#/records/314",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.12",
+              "relation": "AUTHORITY",
+              "section": "12",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.17",
+              "relation": "AUTHORITY",
+              "section": "49.17",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.18",
+              "relation": "AUTHORITY",
+              "section": "51.18",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:generation.activation.rollback:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:generation.activation.rollback:response"
+            }
+          ]
+        },
+        "generation.blocker.open": {
+          "source": "contracts/operation-contracts.json#/records/321",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.12",
+              "relation": "AUTHORITY",
+              "section": "12",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.15",
+              "relation": "AUTHORITY",
+              "section": "49.15",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:generation.blocker.open:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:generation.blocker.open:response"
+            }
+          ]
+        },
+        "generation.job.complete": {
+          "source": "contracts/operation-contracts.json#/records/331",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.12",
+              "relation": "AUTHORITY",
+              "section": "12",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.15",
+              "relation": "AUTHORITY",
+              "section": "49.15",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.34",
+              "relation": "AUTHORITY",
+              "section": "49.34",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:generation.job.complete:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:generation.job.complete:response"
+            }
+          ]
+        },
+        "generation.model.execute": {
+          "source": "contracts/operation-contracts.json#/records/342",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.12",
+              "relation": "AUTHORITY",
+              "section": "12",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.15",
+              "relation": "AUTHORITY",
+              "section": "49.15",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.52",
+              "relation": "AUTHORITY",
+              "section": "52",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:generation.model.execute:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:generation.model.execute:response"
+            }
+          ]
+        },
+        "generation.phase.start": {
+          "source": "contracts/operation-contracts.json#/records/346",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.12",
+              "relation": "AUTHORITY",
+              "section": "12",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.15",
+              "relation": "AUTHORITY",
+              "section": "49.15",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:generation.phase.start:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:generation.phase.start:response"
+            }
+          ]
+        },
+        "generation.plan.create": {
+          "source": "contracts/operation-contracts.json#/records/347",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.12",
+              "relation": "AUTHORITY",
+              "section": "12",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.16",
+              "relation": "AUTHORITY",
+              "section": "49.16",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:generation.plan.create:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:generation.plan.create:response"
+            }
+          ]
+        },
+        "generation.spec.propose": {
+          "source": "contracts/operation-contracts.json#/records/357",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.12",
+              "relation": "AUTHORITY",
+              "section": "12",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.15",
+              "relation": "AUTHORITY",
+              "section": "49.15",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:generation.spec.propose:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:generation.spec.propose:response"
+            }
+          ]
+        },
+        "generation.turn.interrupt": {
+          "source": "contracts/operation-contracts.json#/records/361",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.12",
+              "relation": "AUTHORITY",
+              "section": "12",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.15",
+              "relation": "AUTHORITY",
+              "section": "49.15",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:generation.turn.interrupt:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:generation.turn.interrupt:response"
+            }
+          ]
+        }
+      },
+      "references": 18,
+      "status": "BLOCKED",
+      "blocker": "EXACT_OPERATION_BOUNDARY_MASK_ABSENT; native artifact or similar entity schema is not interchangeable without producer/consumer mapping"
+    },
+    "MCP": {
+      "operations": {
+        "mcp.cache.invalidate": {
+          "source": "contracts/operation-contracts.json#/records/381",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.10",
+              "relation": "AUTHORITY",
+              "section": "10",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.cache.invalidate:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.cache.invalidate:response"
+            }
+          ]
+        },
+        "mcp.contract.validate": {
+          "source": "contracts/operation-contracts.json#/records/399",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.10",
+              "relation": "AUTHORITY",
+              "section": "10",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.33",
+              "relation": "AUTHORITY",
+              "section": "33",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.contract.validate:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.contract.validate:response"
+            }
+          ]
+        },
+        "mcp.discovery.invalidate": {
+          "source": "contracts/operation-contracts.json#/records/400",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.10",
+              "relation": "AUTHORITY",
+              "section": "10",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.discovery.invalidate:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.discovery.invalidate:response"
+            }
+          ]
+        },
+        "mcp.era.invalidate": {
+          "source": "contracts/operation-contracts.json#/records/405",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.10.19",
+              "relation": "AUTHORITY",
+              "section": "10.19",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.era.invalidate:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.era.invalidate:response"
+            }
+          ]
+        },
+        "mcp.input.required": {
+          "source": "contracts/operation-contracts.json#/records/407",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.13.3",
+              "relation": "AUTHORITY",
+              "section": "49.13.3",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.22.3",
+              "relation": "AUTHORITY",
+              "section": "51.22.3",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.input.required:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.input.required:response"
+            }
+          ]
+        },
+        "mcp.legacy.adapt": {
+          "source": "contracts/operation-contracts.json#/records/411",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.10.19",
+              "relation": "AUTHORITY",
+              "section": "10.19",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.legacy.adapt:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.legacy.adapt:response"
+            }
+          ]
+        },
+        "mcp.legacy.probe": {
+          "source": "contracts/operation-contracts.json#/records/412",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.10.19",
+              "relation": "AUTHORITY",
+              "section": "10.19",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.legacy.probe:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.legacy.probe:response"
+            }
+          ]
+        },
+        "mcp.prompts.get": {
+          "source": "contracts/operation-contracts.json#/records/413",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.10",
+              "relation": "AUTHORITY",
+              "section": "10",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.prompts.get:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.prompts.get:response"
+            }
+          ]
+        },
+        "mcp.request.finalize": {
+          "source": "contracts/operation-contracts.json#/records/416",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.13.1",
+              "relation": "AUTHORITY",
+              "section": "49.13.1",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.22.1",
+              "relation": "AUTHORITY",
+              "section": "51.22.1",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.request.finalize:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.request.finalize:response"
+            }
+          ]
+        },
+        "mcp.request.reserveId": {
+          "source": "contracts/operation-contracts.json#/records/417",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.13.1",
+              "relation": "AUTHORITY",
+              "section": "49.13.1",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.22.1",
+              "relation": "AUTHORITY",
+              "section": "51.22.1",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.request.reserveId:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.request.reserveId:response"
+            }
+          ]
+        },
+        "mcp.request.validateJsonRpc": {
+          "source": "contracts/operation-contracts.json#/records/418",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.10.3",
+              "relation": "AUTHORITY",
+              "section": "10.3",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.13.1",
+              "relation": "AUTHORITY",
+              "section": "49.13.1",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.22.1",
+              "relation": "AUTHORITY",
+              "section": "51.22.1",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.request.validateJsonRpc:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.request.validateJsonRpc:response"
+            }
+          ]
+        },
+        "mcp.request.validateTransport": {
+          "source": "contracts/operation-contracts.json#/records/419",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.10.3",
+              "relation": "AUTHORITY",
+              "section": "10.3",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.13.1",
+              "relation": "AUTHORITY",
+              "section": "49.13.1",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.22.1",
+              "relation": "AUTHORITY",
+              "section": "51.22.1",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.request.validateTransport:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.request.validateTransport:response"
+            }
+          ]
+        },
+        "mcp.resources.read": {
+          "source": "contracts/operation-contracts.json#/records/424",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.10",
+              "relation": "AUTHORITY",
+              "section": "10",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.13.1",
+              "relation": "AUTHORITY",
+              "section": "49.13.1",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.resources.read:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.resources.read:response"
+            }
+          ]
+        },
+        "mcp.stateHandle.create": {
+          "source": "contracts/operation-contracts.json#/records/428",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.13.4",
+              "relation": "AUTHORITY",
+              "section": "49.13.4",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.22.6",
+              "relation": "AUTHORITY",
+              "section": "51.22.6",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.stateHandle.create:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.stateHandle.create:response"
+            }
+          ]
+        },
+        "mcp.stateHandle.resolve": {
+          "source": "contracts/operation-contracts.json#/records/431",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.13.4",
+              "relation": "AUTHORITY",
+              "section": "49.13.4",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.22.6",
+              "relation": "AUTHORITY",
+              "section": "51.22.6",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.stateHandle.resolve:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.stateHandle.resolve:response"
+            }
+          ]
+        },
+        "mcp.subscription.acknowledge": {
+          "source": "contracts/operation-contracts.json#/records/432",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.13.5",
+              "relation": "AUTHORITY",
+              "section": "49.13.5",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.22.4",
+              "relation": "AUTHORITY",
+              "section": "51.22.4",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.subscription.acknowledge:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.subscription.acknowledge:response"
+            }
+          ]
+        },
+        "mcp.subscription.complete": {
+          "source": "contracts/operation-contracts.json#/records/434",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.13.5",
+              "relation": "AUTHORITY",
+              "section": "49.13.5",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.22.4",
+              "relation": "AUTHORITY",
+              "section": "51.22.4",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.subscription.complete:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.subscription.complete:response"
+            }
+          ]
+        },
+        "mcp.subscription.listen": {
+          "source": "contracts/operation-contracts.json#/records/436",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.13.5",
+              "relation": "AUTHORITY",
+              "section": "49.13.5",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.22.4",
+              "relation": "AUTHORITY",
+              "section": "51.22.4",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.subscription.listen:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.subscription.listen:response"
+            }
+          ]
+        },
+        "mcp.subscription.notify": {
+          "source": "contracts/operation-contracts.json#/records/438",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.13.5",
+              "relation": "AUTHORITY",
+              "section": "49.13.5",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.22.4",
+              "relation": "AUTHORITY",
+              "section": "51.22.4",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.subscription.notify:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.subscription.notify:response"
+            }
+          ]
+        },
+        "mcp.task.create": {
+          "source": "contracts/operation-contracts.json#/records/441",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.13.6",
+              "relation": "AUTHORITY",
+              "section": "49.13.6",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.22.5",
+              "relation": "AUTHORITY",
+              "section": "51.22.5",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.task.create:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.task.create:response"
+            }
+          ]
+        },
+        "mcp.task.expire": {
+          "source": "contracts/operation-contracts.json#/records/443",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.13.6",
+              "relation": "AUTHORITY",
+              "section": "49.13.6",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.22.5",
+              "relation": "AUTHORITY",
+              "section": "51.22.5",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.task.expire:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.task.expire:response"
+            }
+          ]
+        },
+        "mcp.task.notify": {
+          "source": "contracts/operation-contracts.json#/records/446",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.49.13.6",
+              "relation": "AUTHORITY",
+              "section": "49.13.6",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.22.5",
+              "relation": "AUTHORITY",
+              "section": "51.22.5",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.task.notify:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.task.notify:response"
+            }
+          ]
+        },
+        "mcp.tools.call": {
+          "source": "contracts/operation-contracts.json#/records/448",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.10",
+              "relation": "AUTHORITY",
+              "section": "10",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.13.2",
+              "relation": "AUTHORITY",
+              "section": "49.13.2",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.22.2",
+              "relation": "AUTHORITY",
+              "section": "51.22.2",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.tools.call:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.tools.call:response"
+            }
+          ]
+        },
+        "mcp.tools.progress": {
+          "source": "contracts/operation-contracts.json#/records/451",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.10",
+              "relation": "AUTHORITY",
+              "section": "10",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.13.2",
+              "relation": "AUTHORITY",
+              "section": "49.13.2",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:mcp.tools.progress:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:mcp.tools.progress:response"
+            }
+          ]
+        }
+      },
+      "references": 48,
+      "status": "BLOCKED",
+      "blocker": "EXACT_OPERATION_BOUNDARY_MASK_ABSENT; native artifact or similar entity schema is not interchangeable without producer/consumer mapping"
+    },
+    "MONITOR": {
+      "operations": {
+        "monitor.alert.open": {
+          "source": "contracts/operation-contracts.json#/records/458",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.18",
+              "relation": "AUTHORITY",
+              "section": "18",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.23",
+              "relation": "AUTHORITY",
+              "section": "49.23",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:monitor.alert.open:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:monitor.alert.open:response"
+            }
+          ]
+        },
+        "monitor.alert.update": {
+          "source": "contracts/operation-contracts.json#/records/461",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.18",
+              "relation": "AUTHORITY",
+              "section": "18",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.23",
+              "relation": "AUTHORITY",
+              "section": "49.23",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:monitor.alert.update:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:monitor.alert.update:response"
+            }
+          ]
+        },
+        "monitor.heartbeat.observe": {
+          "source": "contracts/operation-contracts.json#/records/463",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.18",
+              "relation": "AUTHORITY",
+              "section": "18",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.23",
+              "relation": "AUTHORITY",
+              "section": "49.23",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:monitor.heartbeat.observe:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:monitor.heartbeat.observe:response"
+            }
+          ]
+        },
+        "monitor.probe.result": {
+          "source": "contracts/operation-contracts.json#/records/467",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.18",
+              "relation": "AUTHORITY",
+              "section": "18",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.23",
+              "relation": "AUTHORITY",
+              "section": "49.23",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.27",
+              "relation": "AUTHORITY",
+              "section": "51.27",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:monitor.probe.result:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:monitor.probe.result:response"
+            }
+          ]
+        },
+        "monitor.repair.enqueue": {
+          "source": "contracts/operation-contracts.json#/records/470",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.18",
+              "relation": "AUTHORITY",
+              "section": "18",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.15",
+              "relation": "AUTHORITY",
+              "section": "49.15",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.23",
+              "relation": "AUTHORITY",
+              "section": "49.23",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:monitor.repair.enqueue:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:monitor.repair.enqueue:response"
+            }
+          ]
+        },
+        "monitor.state.transition": {
+          "source": "contracts/operation-contracts.json#/records/471",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.18",
+              "relation": "AUTHORITY",
+              "section": "18",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.49.23",
+              "relation": "AUTHORITY",
+              "section": "49.23",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:monitor.state.transition:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:monitor.state.transition:response"
+            }
+          ]
+        }
+      },
+      "references": 12,
+      "status": "BLOCKED",
+      "blocker": "EXACT_OPERATION_BOUNDARY_MASK_ABSENT; native artifact or similar entity schema is not interchangeable without producer/consumer mapping"
+    },
+    "PROVENANCE": {
+      "operations": {
+        "provenance.content.register": {
+          "source": "contracts/operation-contracts.json#/records/510",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.53",
+              "relation": "AUTHORITY",
+              "section": "53",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.37",
+              "relation": "AUTHORITY",
+              "section": "51.37",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:provenance.content.register:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:provenance.content.register:response"
+            }
+          ]
+        },
+        "provenance.segment.compile": {
+          "source": "contracts/operation-contracts.json#/records/511",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.53",
+              "relation": "AUTHORITY",
+              "section": "53",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.37",
+              "relation": "AUTHORITY",
+              "section": "51.37",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:provenance.segment.compile:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:provenance.segment.compile:response"
+            }
+          ]
+        },
+        "provenance.valueDerivation.create": {
+          "source": "contracts/operation-contracts.json#/records/512",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.53",
+              "relation": "AUTHORITY",
+              "section": "53",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.37",
+              "relation": "AUTHORITY",
+              "section": "51.37",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:provenance.valueDerivation.create:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:provenance.valueDerivation.create:response"
+            }
+          ]
+        }
+      },
+      "references": 6,
+      "status": "BLOCKED",
+      "blocker": "EXACT_OPERATION_BOUNDARY_MASK_ABSENT; native artifact or similar entity schema is not interchangeable without producer/consumer mapping"
+    },
+    "RUNTIME": {
+      "operations": {
+        "runtime.cancel": {
+          "source": "contracts/operation-contracts.json#/records/520",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.50.25",
+              "relation": "AUTHORITY",
+              "section": "50.25",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:runtime.cancel:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:runtime.cancel:response"
+            }
+          ]
+        },
+        "runtime.cleanup.resume": {
+          "source": "contracts/operation-contracts.json#/records/522",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.50.31",
+              "relation": "AUTHORITY",
+              "section": "50.31",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:runtime.cleanup.resume:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:runtime.cleanup.resume:response"
+            }
+          ]
+        },
+        "runtime.connection.inspect": {
+          "source": "contracts/operation-contracts.json#/records/523",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.50.19",
+              "relation": "AUTHORITY",
+              "section": "50.19",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:runtime.connection.inspect:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:runtime.connection.inspect:response"
+            }
+          ]
+        },
+        "runtime.heartbeat": {
+          "source": "contracts/operation-contracts.json#/records/528",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.50.10",
+              "relation": "AUTHORITY",
+              "section": "50.10",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:runtime.heartbeat:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:runtime.heartbeat:response"
+            }
+          ]
+        },
+        "runtime.instance.start": {
+          "source": "contracts/operation-contracts.json#/records/533",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.50.10",
+              "relation": "AUTHORITY",
+              "section": "50.10",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.50.11",
+              "relation": "AUTHORITY",
+              "section": "50.11",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:runtime.instance.start:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:runtime.instance.start:response"
+            }
+          ]
+        },
+        "runtime.invoke": {
+          "source": "contracts/operation-contracts.json#/records/534",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.50.19",
+              "relation": "AUTHORITY",
+              "section": "50.19",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.50.20",
+              "relation": "AUTHORITY",
+              "section": "50.20",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.50.21",
+              "relation": "AUTHORITY",
+              "section": "50.21",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:runtime.invoke:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:runtime.invoke:response"
+            }
+          ]
+        },
+        "runtime.prepare": {
+          "source": "contracts/operation-contracts.json#/records/535",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.50.10",
+              "relation": "AUTHORITY",
+              "section": "50.10",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.50.11",
+              "relation": "AUTHORITY",
+              "section": "50.11",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:runtime.prepare:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:runtime.prepare:response"
+            }
+          ]
+        },
+        "runtime.ready.report": {
+          "source": "contracts/operation-contracts.json#/records/537",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.50.11",
+              "relation": "AUTHORITY",
+              "section": "50.11",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:runtime.ready.report:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:runtime.ready.report:response"
+            }
+          ]
+        },
+        "runtime.state.report": {
+          "source": "contracts/operation-contracts.json#/records/539",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.50.10",
+              "relation": "AUTHORITY",
+              "section": "50.10",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.50.29",
+              "relation": "AUTHORITY",
+              "section": "50.29",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:runtime.state.report:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:runtime.state.report:response"
+            }
+          ]
+        },
+        "runtime.stop": {
+          "source": "contracts/operation-contracts.json#/records/540",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.50.25",
+              "relation": "AUTHORITY",
+              "section": "50.25",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.50.31",
+              "relation": "AUTHORITY",
+              "section": "50.31",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:runtime.stop:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:runtime.stop:response"
+            }
+          ]
+        }
+      },
+      "references": 20,
+      "status": "BLOCKED",
+      "blocker": "EXACT_OPERATION_BOUNDARY_MASK_ABSENT; native artifact or similar entity schema is not interchangeable without producer/consumer mapping"
+    },
+    "SECRET": {
+      "operations": {
+        "secret.resolve": {
+          "source": "contracts/operation-contracts.json#/records/554",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.8",
+              "relation": "AUTHORITY",
+              "section": "8",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.50.23",
+              "relation": "AUTHORITY",
+              "section": "50.23",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.53",
+              "relation": "AUTHORITY",
+              "section": "53",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:secret.resolve:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:secret.resolve:response"
+            }
+          ]
+        },
+        "secret.usage.report": {
+          "source": "contracts/operation-contracts.json#/records/559",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.8",
+              "relation": "AUTHORITY",
+              "section": "8",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.50.23",
+              "relation": "AUTHORITY",
+              "section": "50.23",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:secret.usage.report:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:secret.usage.report:response"
+            }
+          ]
+        },
+        "secret.useContext.create": {
+          "source": "contracts/operation-contracts.json#/records/560",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.53",
+              "relation": "AUTHORITY",
+              "section": "53",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.51.37",
+              "relation": "AUTHORITY",
+              "section": "51.37",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:secret.useContext.create:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:secret.useContext.create:response"
+            }
+          ]
+        }
+      },
+      "references": 6,
+      "status": "BLOCKED",
+      "blocker": "EXACT_OPERATION_BOUNDARY_MASK_ABSENT; native artifact or similar entity schema is not interchangeable without producer/consumer mapping"
+    },
+    "SELFTEST": {
+      "operations": {
+        "selfTest.registeredElement.run": {
+          "source": "contracts/operation-contracts.json#/records/570",
+          "authoritySourceRefs": [
+            {
+              "anchor": "section.33",
+              "relation": "AUTHORITY",
+              "section": "33",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            },
+            {
+              "anchor": "section.54",
+              "relation": "AUTHORITY",
+              "section": "54",
+              "sourceDigest": "sha256:0ae1f03f89fe347e8b88c8181728d1b6dfe4b86214481f36ea0da9db01bfab12"
+            }
+          ],
+          "references": [
+            {
+              "role": "request",
+              "ref": "urn:kcml:r9:operation:selfTest.registeredElement.run:command"
+            },
+            {
+              "role": "response",
+              "ref": "urn:kcml:r9:operation:selfTest.registeredElement.run:response"
+            }
+          ]
+        }
+      },
+      "references": 2,
+      "status": "BLOCKED",
+      "blocker": "EXACT_OPERATION_BOUNDARY_MASK_ABSENT; native artifact or similar entity schema is not interchangeable without producer/consumer mapping"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "sourceSha256": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0",
+  "scriptSha256": "d33404116f64dd8f046bdbd5d433e570b905505efdcef3eed50f095550b0f572",
+  "checked": 4,
+  "failed": 0,
+  "cases": [
+    {
+      "case": "positive123",
+      "passed": true,
+      "actualExit": 0,
+      "actualStatus": "PASS",
+      "specificMappingDiagnostic": null
+    },
+    {
+      "case": "missing-map-after-import",
+      "passed": true,
+      "actualExit": 1,
+      "actualStatus": "BLOCKED",
+      "specificMappingDiagnostic": "FileNotFoundError: REQUIRED_EVIDENCE_MAP_MISSING"
+    },
+    {
+      "case": "malformed-map-after-import",
+      "passed": true,
+      "actualExit": 1,
+      "actualStatus": "BLOCKED",
+      "specificMappingDiagnostic": "ValueError: INVALID_COMPLETE_EVIDENCE_MAP"
+    },
+    {
+      "case": "changed-complete-map-after-import",
+      "passed": true,
+      "actualExit": 1,
+      "actualStatus": "BLOCKED",
+      "specificMappingDiagnostic": "ValueError: EVIDENCE_MAP_CHANGED_SINCE_IMPORT"
+    }
+  ],
+  "sharedMappingUnchanged": true,
+  "fixtureReruns": 0,
+  "wholeOperationsClosed": 0,
+  "runtimeAcceptance": "NOT_EVALUATED"
+}

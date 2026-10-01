@@ -1,0 +1,2798 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kcml:history-read-family:1",
+  "$defs": {
+    "Query": {
+      "$id": "urn:kcml:experience-history-query:1",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "channel": {
+          "enum": [
+            "ALL",
+            "EMAIL",
+            "SMS",
+            "BROWSER",
+            "MODEL",
+            "COMPONENT",
+            "AUDIT"
+          ]
+        },
+        "clientId": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "componentId": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "correlationId": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cursor": {
+          "anyOf": [
+            {
+              "maxLength": 4096,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "fromInclusive": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "limit": {
+          "default": 100,
+          "maximum": 500,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "operationId": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "runId": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "severity": {
+          "items": {
+            "enum": [
+              "DEBUG",
+              "INFO",
+              "WARNING",
+              "ERROR",
+              "CRITICAL"
+            ]
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "timezone": {
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "toExclusive": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "fromInclusive",
+        "toExclusive",
+        "timezone",
+        "runId",
+        "correlationId",
+        "componentId",
+        "operationId",
+        "clientId",
+        "channel",
+        "severity",
+        "cursor",
+        "limit"
+      ],
+      "type": "object"
+    },
+    "Result": {
+      "$id": "urn:kcml:history-result:1",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "completeness": {
+                "const": "UNAVAILABLE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "coverageFrom": {
+                "type": "null"
+              },
+              "coverageTo": {
+                "type": "null"
+              },
+              "items": {
+                "maxItems": 0
+              },
+              "missingSources": {
+                "minItems": 1
+              },
+              "nextCursor": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "completeness": {
+                "const": "COMPLETE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "coverageFrom": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "coverageTo": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "missingSources": {
+                "maxItems": 0
+              },
+              "provenanceRefs": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "completeness": {
+                "const": "PARTIAL"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "missingSources": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "completeness": {
+          "enum": [
+            "COMPLETE",
+            "PARTIAL",
+            "UNAVAILABLE"
+          ]
+        },
+        "coverageFrom": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "coverageTo": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "items": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "clientId": {
+                "anyOf": [
+                  {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "componentId": {
+                "anyOf": [
+                  {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "correlationId": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "direction": {
+                "enum": [
+                  "INBOUND",
+                  "OUTBOUND",
+                  "INTERNAL",
+                  "NOT_APPLICABLE"
+                ]
+              },
+              "durationMs": {
+                "anyOf": [
+                  {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "eventId": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "eventType": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "occurredAt": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "operationId": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "payloadReference": {
+                "anyOf": [
+                  {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "provenanceRefs": {
+                "items": {
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "recordedAt": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "runId": {
+                "anyOf": [
+                  {
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "severity": {
+                "enum": [
+                  "DEBUG",
+                  "INFO",
+                  "WARNING",
+                  "ERROR",
+                  "CRITICAL"
+                ]
+              },
+              "source": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "eventId",
+              "occurredAt",
+              "recordedAt",
+              "runId",
+              "correlationId",
+              "componentId",
+              "clientId",
+              "operationId",
+              "eventType",
+              "severity",
+              "source",
+              "payloadReference",
+              "provenanceRefs",
+              "durationMs",
+              "direction"
+            ],
+            "type": "object"
+          },
+          "maxItems": 500,
+          "type": "array"
+        },
+        "missingSources": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "nextCursor": {
+          "anyOf": [
+            {
+              "maxLength": 4096,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "provenanceRefs": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "resolvedInterval": {
+          "additionalProperties": false,
+          "properties": {
+            "fromInclusive": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "timezone": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            "toExclusive": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "fromInclusive",
+            "toExclusive",
+            "timezone"
+          ],
+          "type": "object"
+        },
+        "snapshotWatermark": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "items",
+        "nextCursor",
+        "snapshotWatermark",
+        "resolvedInterval",
+        "coverageFrom",
+        "coverageTo",
+        "completeness",
+        "missingSources",
+        "provenanceRefs"
+      ],
+      "type": "object"
+    },
+    "Item": {
+      "additionalProperties": false,
+      "properties": {
+        "clientId": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "componentId": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "correlationId": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "direction": {
+          "enum": [
+            "INBOUND",
+            "OUTBOUND",
+            "INTERNAL",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "durationMs": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "eventId": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "eventType": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "occurredAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "operationId": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "payloadReference": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "provenanceRefs": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "recordedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "runId": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "severity": {
+          "enum": [
+            "DEBUG",
+            "INFO",
+            "WARNING",
+            "ERROR",
+            "CRITICAL"
+          ]
+        },
+        "source": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventId",
+        "occurredAt",
+        "recordedAt",
+        "runId",
+        "correlationId",
+        "componentId",
+        "clientId",
+        "operationId",
+        "eventType",
+        "severity",
+        "source",
+        "payloadReference",
+        "provenanceRefs",
+        "durationMs",
+        "direction"
+      ],
+      "type": "object"
+    },
+    "HistoryQuery": {
+      "$id": "urn:kcml:history-query:1",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "channel": {
+          "enum": [
+            "SMS",
+            "EMAIL",
+            "WEBHOOK",
+            "API",
+            "BROWSER",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "clientRef": {
+          "maxLength": 256,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "componentId": {
+          "format": "uuid",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "correlationId": {
+          "format": "uuid",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cursor": {
+          "maxLength": 2048,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "direction": {
+          "enum": [
+            "ANY",
+            "INBOUND",
+            "OUTBOUND"
+          ],
+          "type": "string"
+        },
+        "from": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "limit": {
+          "maximum": 200,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "recordKinds": {
+          "items": {
+            "enum": [
+              "RUN",
+              "COMPONENT",
+              "MESSAGE",
+              "EVENT",
+              "ERROR",
+              "PAYLOAD",
+              "SPAN"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "result": {
+          "enum": [
+            "ANY",
+            "SUCCEEDED",
+            "FAILED",
+            "CANCELLED",
+            "UNKNOWN"
+          ],
+          "type": "string"
+        },
+        "runId": {
+          "format": "uuid",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sort": {
+          "enum": [
+            "TIME_ASC",
+            "TIME_DESC",
+            "DURATION_DESC"
+          ],
+          "type": "string"
+        },
+        "to": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "recordKinds",
+        "runId",
+        "componentId",
+        "correlationId",
+        "clientRef",
+        "from",
+        "to",
+        "channel",
+        "direction",
+        "result",
+        "sort",
+        "limit",
+        "cursor"
+      ],
+      "type": "object"
+    }
+  },
+  "requestSchemas": {
+    "route.0063": {
+      "type": "object",
+      "properties": {
+        "operationId": {
+          "const": "audit.event.list"
+        },
+        "scope": {
+          "type": "object",
+          "properties": {
+            "routeId": {
+              "const": "route.0063"
+            },
+            "pathParameters": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "maxLength": 36,
+                  "minLength": 36,
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "routeId",
+            "pathParameters"
+          ],
+          "additionalProperties": false
+        },
+        "filters": {
+          "$ref": "#/$defs/Query"
+        }
+      },
+      "required": [
+        "operationId",
+        "scope",
+        "filters"
+      ],
+      "additionalProperties": false
+    },
+    "route.0159": {
+      "type": "object",
+      "properties": {
+        "operationId": {
+          "const": "agent.run.events.read"
+        },
+        "scope": {
+          "type": "object",
+          "properties": {
+            "routeId": {
+              "const": "route.0159"
+            },
+            "pathParameters": {
+              "additionalProperties": false,
+              "properties": {
+                "runId": {
+                  "maxLength": 36,
+                  "minLength": 36,
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "runId"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "routeId",
+            "pathParameters"
+          ],
+          "additionalProperties": false
+        },
+        "filters": {
+          "$ref": "#/$defs/Query"
+        }
+      },
+      "required": [
+        "operationId",
+        "scope",
+        "filters"
+      ],
+      "additionalProperties": false
+    },
+    "route.0222": {
+      "type": "object",
+      "properties": {
+        "operationId": {
+          "const": "generation.job.events.read"
+        },
+        "scope": {
+          "type": "object",
+          "properties": {
+            "routeId": {
+              "const": "route.0222"
+            },
+            "pathParameters": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "maxLength": 36,
+                  "minLength": 36,
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "routeId",
+            "pathParameters"
+          ],
+          "additionalProperties": false
+        },
+        "filters": {
+          "$ref": "#/$defs/Query"
+        }
+      },
+      "required": [
+        "operationId",
+        "scope",
+        "filters"
+      ],
+      "additionalProperties": false
+    },
+    "route.0263": {
+      "type": "object",
+      "properties": {
+        "operationId": {
+          "const": "audit.event.list"
+        },
+        "scope": {
+          "type": "object",
+          "properties": {
+            "routeId": {
+              "const": "route.0263"
+            },
+            "pathParameters": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "maxLength": 36,
+                  "minLength": 36,
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "routeId",
+            "pathParameters"
+          ],
+          "additionalProperties": false
+        },
+        "filters": {
+          "$ref": "#/$defs/Query"
+        }
+      },
+      "required": [
+        "operationId",
+        "scope",
+        "filters"
+      ],
+      "additionalProperties": false
+    },
+    "route.0451": {
+      "type": "object",
+      "properties": {
+        "operationId": {
+          "const": "audit.event.list"
+        },
+        "scope": {
+          "type": "object",
+          "properties": {
+            "routeId": {
+              "const": "route.0451"
+            },
+            "pathParameters": {
+              "additionalProperties": false,
+              "properties": {},
+              "required": [],
+              "type": "object"
+            }
+          },
+          "required": [
+            "routeId",
+            "pathParameters"
+          ],
+          "additionalProperties": false
+        },
+        "filters": {
+          "$ref": "#/$defs/Query"
+        }
+      },
+      "required": [
+        "operationId",
+        "scope",
+        "filters"
+      ],
+      "additionalProperties": false
+    },
+    "route.0452": {
+      "type": "object",
+      "properties": {
+        "operationId": {
+          "const": "audit.event.read"
+        },
+        "scope": {
+          "type": "object",
+          "properties": {
+            "routeId": {
+              "const": "route.0452"
+            },
+            "pathParameters": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "maxLength": 36,
+                  "minLength": 36,
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "routeId",
+            "pathParameters"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "operationId",
+        "scope"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "transportSchemas": {
+    "route.0063": {
+      "$id": "urn:kcml:r9:route:route.0063:request",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "type": "null"
+        },
+        "guards": {
+          "additionalProperties": false,
+          "properties": {
+            "clientRequestDigest": {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "deadlineAt": {
+              "format": "date-time",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedActivationEpoch": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedBindingSetRevision": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedReleaseId": {
+              "maxLength": 256,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedRevisionId": {
+              "maxLength": 256,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedStateVersion": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "idempotencyKey": {
+              "maxLength": 512,
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "idempotencyKey",
+            "expectedStateVersion",
+            "expectedRevisionId",
+            "expectedReleaseId",
+            "expectedBindingSetRevision",
+            "expectedActivationEpoch",
+            "deadlineAt",
+            "clientRequestDigest"
+          ],
+          "type": "object"
+        },
+        "operationId": {
+          "const": "audit.event.list"
+        },
+        "pathParameters": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 36,
+              "minLength": 36,
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "type": "object"
+        },
+        "query": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "enum": [
+                  "channel",
+                  "clientId",
+                  "componentId",
+                  "correlationId",
+                  "cursor",
+                  "fromInclusive",
+                  "limit",
+                  "operationId",
+                  "runId",
+                  "severity",
+                  "timezone",
+                  "toExclusive"
+                ]
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "channel"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "clientId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "componentId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "correlationId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "cursor"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "fromInclusive"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "limit"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "operationId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "runId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "timezone"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "toExclusive"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            }
+          ]
+        },
+        "routeId": {
+          "const": "route.0063"
+        }
+      },
+      "required": [
+        "routeId",
+        "operationId",
+        "pathParameters",
+        "query",
+        "body",
+        "guards"
+      ],
+      "type": "object"
+    },
+    "route.0159": {
+      "$id": "urn:kcml:r9:route:route.0159:request",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "type": "null"
+        },
+        "guards": {
+          "additionalProperties": false,
+          "properties": {
+            "clientRequestDigest": {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "deadlineAt": {
+              "format": "date-time",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedActivationEpoch": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedBindingSetRevision": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedReleaseId": {
+              "maxLength": 256,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedRevisionId": {
+              "maxLength": 256,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedStateVersion": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "idempotencyKey": {
+              "maxLength": 512,
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "idempotencyKey",
+            "expectedStateVersion",
+            "expectedRevisionId",
+            "expectedReleaseId",
+            "expectedBindingSetRevision",
+            "expectedActivationEpoch",
+            "deadlineAt",
+            "clientRequestDigest"
+          ],
+          "type": "object"
+        },
+        "operationId": {
+          "const": "agent.run.events.read"
+        },
+        "pathParameters": {
+          "additionalProperties": false,
+          "properties": {
+            "runId": {
+              "maxLength": 36,
+              "minLength": 36,
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+              "type": "string"
+            }
+          },
+          "required": [
+            "runId"
+          ],
+          "type": "object"
+        },
+        "query": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "enum": [
+                  "channel",
+                  "clientId",
+                  "componentId",
+                  "correlationId",
+                  "cursor",
+                  "fromInclusive",
+                  "limit",
+                  "operationId",
+                  "runId",
+                  "severity",
+                  "timezone",
+                  "toExclusive"
+                ]
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "channel"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "clientId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "componentId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "correlationId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "cursor"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "fromInclusive"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "limit"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "operationId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "runId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "timezone"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "toExclusive"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            }
+          ]
+        },
+        "routeId": {
+          "const": "route.0159"
+        }
+      },
+      "required": [
+        "routeId",
+        "operationId",
+        "pathParameters",
+        "query",
+        "body",
+        "guards"
+      ],
+      "type": "object"
+    },
+    "route.0222": {
+      "$id": "urn:kcml:r9:route:route.0222:request",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "type": "null"
+        },
+        "guards": {
+          "additionalProperties": false,
+          "properties": {
+            "clientRequestDigest": {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "deadlineAt": {
+              "format": "date-time",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedActivationEpoch": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedBindingSetRevision": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedReleaseId": {
+              "maxLength": 256,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedRevisionId": {
+              "maxLength": 256,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedStateVersion": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "idempotencyKey": {
+              "maxLength": 512,
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "idempotencyKey",
+            "expectedStateVersion",
+            "expectedRevisionId",
+            "expectedReleaseId",
+            "expectedBindingSetRevision",
+            "expectedActivationEpoch",
+            "deadlineAt",
+            "clientRequestDigest"
+          ],
+          "type": "object"
+        },
+        "operationId": {
+          "const": "generation.job.events.read"
+        },
+        "pathParameters": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 36,
+              "minLength": 36,
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "type": "object"
+        },
+        "query": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "enum": [
+                  "channel",
+                  "clientId",
+                  "componentId",
+                  "correlationId",
+                  "cursor",
+                  "fromInclusive",
+                  "limit",
+                  "operationId",
+                  "runId",
+                  "severity",
+                  "timezone",
+                  "toExclusive"
+                ]
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "channel"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "clientId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "componentId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "correlationId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "cursor"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "fromInclusive"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "limit"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "operationId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "runId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "timezone"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "toExclusive"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            }
+          ]
+        },
+        "routeId": {
+          "const": "route.0222"
+        }
+      },
+      "required": [
+        "routeId",
+        "operationId",
+        "pathParameters",
+        "query",
+        "body",
+        "guards"
+      ],
+      "type": "object"
+    },
+    "route.0263": {
+      "$id": "urn:kcml:r9:route:route.0263:request",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "type": "null"
+        },
+        "guards": {
+          "additionalProperties": false,
+          "properties": {
+            "clientRequestDigest": {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "deadlineAt": {
+              "format": "date-time",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedActivationEpoch": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedBindingSetRevision": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedReleaseId": {
+              "maxLength": 256,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedRevisionId": {
+              "maxLength": 256,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedStateVersion": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "idempotencyKey": {
+              "maxLength": 512,
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "idempotencyKey",
+            "expectedStateVersion",
+            "expectedRevisionId",
+            "expectedReleaseId",
+            "expectedBindingSetRevision",
+            "expectedActivationEpoch",
+            "deadlineAt",
+            "clientRequestDigest"
+          ],
+          "type": "object"
+        },
+        "operationId": {
+          "const": "audit.event.list"
+        },
+        "pathParameters": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 36,
+              "minLength": 36,
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "type": "object"
+        },
+        "query": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "enum": [
+                  "channel",
+                  "clientId",
+                  "componentId",
+                  "correlationId",
+                  "cursor",
+                  "fromInclusive",
+                  "limit",
+                  "operationId",
+                  "runId",
+                  "severity",
+                  "timezone",
+                  "toExclusive"
+                ]
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "channel"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "clientId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "componentId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "correlationId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "cursor"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "fromInclusive"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "limit"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "operationId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "runId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "timezone"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "toExclusive"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            }
+          ]
+        },
+        "routeId": {
+          "const": "route.0263"
+        }
+      },
+      "required": [
+        "routeId",
+        "operationId",
+        "pathParameters",
+        "query",
+        "body",
+        "guards"
+      ],
+      "type": "object"
+    },
+    "route.0451": {
+      "$id": "urn:kcml:r9:route:route.0451:request",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "type": "null"
+        },
+        "guards": {
+          "additionalProperties": false,
+          "properties": {
+            "clientRequestDigest": {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "deadlineAt": {
+              "format": "date-time",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedActivationEpoch": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedBindingSetRevision": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedReleaseId": {
+              "maxLength": 256,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedRevisionId": {
+              "maxLength": 256,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedStateVersion": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "idempotencyKey": {
+              "maxLength": 512,
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "idempotencyKey",
+            "expectedStateVersion",
+            "expectedRevisionId",
+            "expectedReleaseId",
+            "expectedBindingSetRevision",
+            "expectedActivationEpoch",
+            "deadlineAt",
+            "clientRequestDigest"
+          ],
+          "type": "object"
+        },
+        "operationId": {
+          "const": "audit.event.list"
+        },
+        "pathParameters": {
+          "additionalProperties": false,
+          "properties": {},
+          "required": [],
+          "type": "object"
+        },
+        "query": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "enum": [
+                  "channel",
+                  "clientId",
+                  "componentId",
+                  "correlationId",
+                  "cursor",
+                  "fromInclusive",
+                  "limit",
+                  "operationId",
+                  "runId",
+                  "severity",
+                  "timezone",
+                  "toExclusive"
+                ]
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "channel"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "clientId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "componentId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "correlationId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "cursor"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "fromInclusive"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "limit"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "operationId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "runId"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "timezone"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "name": {
+                    "const": "toExclusive"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            }
+          ]
+        },
+        "routeId": {
+          "const": "route.0451"
+        }
+      },
+      "required": [
+        "routeId",
+        "operationId",
+        "pathParameters",
+        "query",
+        "body",
+        "guards"
+      ],
+      "type": "object"
+    },
+    "route.0452": {
+      "$id": "urn:kcml:r9:route:route.0452:request",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "type": "null"
+        },
+        "guards": {
+          "additionalProperties": false,
+          "properties": {
+            "clientRequestDigest": {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "deadlineAt": {
+              "format": "date-time",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedActivationEpoch": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedBindingSetRevision": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedReleaseId": {
+              "maxLength": 256,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedRevisionId": {
+              "maxLength": 256,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "expectedStateVersion": {
+              "maxLength": 19,
+              "minLength": 1,
+              "pattern": "^(?:0|[1-9][0-9]{0,17}|[1-8][0-9]{18}|9[0-1][0-9]{17}|92[0-1][0-9]{16}|922[0-2][0-9]{15}|9223[0-2][0-9]{14}|92233[0-6][0-9]{13}|922337[0-1][0-9]{12}|92233720[0-2][0-9]{10}|922337203[0-5][0-9]{9}|9223372036[0-7][0-9]{8}|92233720368[0-4][0-9]{7}|922337203685[0-3][0-9]{6}|9223372036854[0-6][0-9]{5}|92233720368547[0-6][0-9]{4}|922337203685477[0-4][0-9]{3}|9223372036854775[0-7][0-9]{2}|922337203685477580[0-6]|9223372036854775807)$(?![\\s\\S])",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "idempotencyKey": {
+              "maxLength": 512,
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "idempotencyKey",
+            "expectedStateVersion",
+            "expectedRevisionId",
+            "expectedReleaseId",
+            "expectedBindingSetRevision",
+            "expectedActivationEpoch",
+            "deadlineAt",
+            "clientRequestDigest"
+          ],
+          "type": "object"
+        },
+        "operationId": {
+          "const": "audit.event.read"
+        },
+        "pathParameters": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "maxLength": 36,
+              "minLength": 36,
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\\s\\S])",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "type": "object"
+        },
+        "query": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "routeId": {
+          "const": "route.0452"
+        }
+      },
+      "required": [
+        "routeId",
+        "operationId",
+        "pathParameters",
+        "query",
+        "body",
+        "guards"
+      ],
+      "type": "object"
+    }
+  },
+  "responseSchemas": {
+    "route.0063": {
+      "$ref": "#/$defs/Result"
+    },
+    "route.0159": {
+      "$ref": "#/$defs/Result"
+    },
+    "route.0222": {
+      "$ref": "#/$defs/Result"
+    },
+    "route.0263": {
+      "$ref": "#/$defs/Result"
+    },
+    "route.0451": {
+      "$ref": "#/$defs/Result"
+    },
+    "route.0452": {
+      "additionalProperties": false,
+      "properties": {
+        "clientId": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "componentId": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "correlationId": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "direction": {
+          "enum": [
+            "INBOUND",
+            "OUTBOUND",
+            "INTERNAL",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "durationMs": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "eventId": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "eventType": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "occurredAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "operationId": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "payloadReference": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "provenanceRefs": {
+          "items": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "recordedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "runId": {
+          "anyOf": [
+            {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "severity": {
+          "enum": [
+            "DEBUG",
+            "INFO",
+            "WARNING",
+            "ERROR",
+            "CRITICAL"
+          ]
+        },
+        "source": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventId",
+        "occurredAt",
+        "recordedAt",
+        "runId",
+        "correlationId",
+        "componentId",
+        "clientId",
+        "operationId",
+        "eventType",
+        "severity",
+        "source",
+        "payloadReference",
+        "provenanceRefs",
+        "durationMs",
+        "direction"
+      ],
+      "type": "object"
+    }
+  },
+  "x-authority": [
+    "ui/contracts/live-experience.json#/observability/querySchema",
+    "ui/contracts/live-experience.json#/observability/responseSchema",
+    "ui/contracts/live-experience.json#/observability/schemaBinding",
+    "ui/contracts/live-experience.json#/observability/ordering",
+    "ui/contracts/live-experience.json#/observability/validation"
+  ]
+}

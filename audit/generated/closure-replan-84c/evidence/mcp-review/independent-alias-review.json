@@ -1,0 +1,161 @@
+{
+  "status": "PASS_BOUNDED_ALIAS_REVIEW",
+  "sourceSha256": "0bcbcafa7d3cd2d017618a7564865907fdf4cc214430b92a6475aae77292ddef",
+  "sourceStable": true,
+  "author61Reproduced": true,
+  "checks": [
+    {
+      "id": "mcp.prompts.get.baseline.actual_native_request",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.baseline.actual_native_response",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.single_wire.no_platform_wrapper",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.single_wire.no_double_rpc_wrapper",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.task_not_negotiated_non_tool_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.baseline.actual_native_request",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.baseline.actual_native_response",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.single_wire.no_platform_wrapper",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.single_wire.no_double_rpc_wrapper",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.task_not_negotiated_non_tool_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "resource.bad_uri_encoding.native_format_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "resource.unknown_registered_uri.shape_only_accepts",
+      "status": "PASS"
+    },
+    {
+      "id": "prompt.unknown_name.shape_only_accepts",
+      "status": "PASS"
+    },
+    {
+      "id": "review.prompt.valid_domain_witness",
+      "status": "PASS"
+    },
+    {
+      "id": "review.resource.valid_domain_witness",
+      "status": "PASS"
+    },
+    {
+      "id": "review.unknown_prompt.exact_rejection",
+      "status": "PASS"
+    },
+    {
+      "id": "review.wrong_uri.exact_rejection",
+      "status": "PASS"
+    },
+    {
+      "id": "review.prompt.arguments.missing",
+      "status": "PASS"
+    },
+    {
+      "id": "review.prompt.arguments.unknown",
+      "status": "PASS"
+    },
+    {
+      "id": "review.prompt.arguments.wrong_type",
+      "status": "PASS"
+    },
+    {
+      "id": "review.prompt.arguments.null",
+      "status": "PASS"
+    },
+    {
+      "id": "review.digest.actual_bytes_mutation",
+      "status": "PASS"
+    },
+    {
+      "id": "review.resource.wrong_uri",
+      "status": "PASS"
+    },
+    {
+      "id": "review.resource.wrong_mime",
+      "status": "PASS"
+    },
+    {
+      "id": "review.message_identity.different_type",
+      "status": "PASS"
+    },
+    {
+      "id": "review.message_identity.different_value",
+      "status": "PASS"
+    },
+    {
+      "id": "review.message_identity.bool",
+      "status": "PASS"
+    },
+    {
+      "id": "resource.cache_invalid.ttlMs.-1",
+      "status": "PASS"
+    },
+    {
+      "id": "resource.cache_invalid.ttlMs.True",
+      "status": "PASS"
+    },
+    {
+      "id": "resource.cache_invalid.cacheScope.shared",
+      "status": "PASS"
+    },
+    {
+      "id": "resource.exact_text_preserved",
+      "status": "PASS"
+    }
+  ],
+  "passed": 31,
+  "consumedResources": {
+    "contracts/operation-contracts.json": {
+      "candidateRecordedSha256": "9bfc957372b2eb28a8a78808eef8dc20a07c18134cd139cc97f536518b0414a5",
+      "actualSha256": "9bfc957372b2eb28a8a78808eef8dc20a07c18134cd139cc97f536518b0414a5",
+      "matches": true
+    },
+    "contracts/mcp/native-2026-07-28.schema.json": {
+      "candidateRecordedSha256": "ef70b61f99b6d2e5e3b46863822eab08dff6a45bedc7a08914e0e5b133f40203",
+      "actualSha256": "ef70b61f99b6d2e5e3b46863822eab08dff6a45bedc7a08914e0e5b133f40203",
+      "matches": true
+    },
+    "contracts/mcp-native-schema-artifact.json": {
+      "candidateRecordedSha256": "068b37c9d873ffeea1299fec37aee5b28644da29aa64d15fabc8ceb77c9769f7",
+      "actualSha256": "068b37c9d873ffeea1299fec37aee5b28644da29aa64d15fabc8ceb77c9769f7",
+      "matches": true
+    }
+  },
+  "nativeAliasDecision": "APPROVE_FOUR_IDENTITY_AND_WIRE_SHAPE_ALIASES_ONLY",
+  "nativeDefinitionsDirectlyReferenced": true,
+  "wholeOperationsClosed": 0,
+  "technicalMappingClassification": "EXISTING_PREVIOUSLY_UNCAPTURED_NATIVE_MAPPING_NOT_NEW_PRODUCT_SCOPE",
+  "remaining": [
+    "Dynamic trusted catalog/access publisher and exact registered prompt/resource identities; unknown names/registered URIs are intentionally outside shape aliases",
+    "Prompt renderer must emit required server identity metadata under platform §10.14; external native parser diagnostic metadata optionality is not authority",
+    "Actual MRTR state producer/capability negotiation and cache/access-context consumer persistence remain open",
+    "Review catalog guards are isolated synthetic domain witnesses, not canonical publisher/runtime proof"
+  ],
+  "oldFixtureRetagged": false
+}

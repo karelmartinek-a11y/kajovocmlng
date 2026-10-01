@@ -1,0 +1,143 @@
+{
+  "status": "PASS",
+  "sourceSha256": "b1443905c61b2de8e77464d3adb1595e3d602958bcf226ba44f96d21edd66458",
+  "baselineMode": "RECONSTRUCTED_PRE_PUBLICATION_REMOVES_ONLY_FOUR_KNOWN_ALIASES",
+  "referenceUniverse": 242,
+  "beforeUnresolved": 242,
+  "afterUnresolved": 238,
+  "changes": [
+    {
+      "operationId": "mcp.prompts.get",
+      "role": "request",
+      "reference": "urn:kcml:r9:operation:mcp.prompts.get:command",
+      "before": {
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.prompts.get:command"
+      },
+      "after": {
+        "resolution": "RESOLVED",
+        "pointer": "contracts/operation-contracts.json#/$defs/mcp.prompts.get:command"
+      }
+    },
+    {
+      "operationId": "mcp.prompts.get",
+      "role": "response",
+      "reference": "urn:kcml:r9:operation:mcp.prompts.get:response",
+      "before": {
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.prompts.get:response"
+      },
+      "after": {
+        "resolution": "RESOLVED",
+        "pointer": "contracts/operation-contracts.json#/$defs/mcp.prompts.get:response"
+      }
+    },
+    {
+      "operationId": "mcp.resources.read",
+      "role": "request",
+      "reference": "urn:kcml:r9:operation:mcp.resources.read:command",
+      "before": {
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.resources.read:command"
+      },
+      "after": {
+        "resolution": "RESOLVED",
+        "pointer": "contracts/operation-contracts.json#/$defs/mcp.resources.read:command"
+      }
+    },
+    {
+      "operationId": "mcp.resources.read",
+      "role": "response",
+      "reference": "urn:kcml:r9:operation:mcp.resources.read:response",
+      "before": {
+        "resolution": "UNRESOLVED",
+        "reason": "MISSING_DEFINITION:urn:kcml:r9:operation:mcp.resources.read:response"
+      },
+      "after": {
+        "resolution": "RESOLVED",
+        "pointer": "contracts/operation-contracts.json#/$defs/mcp.resources.read:response"
+      }
+    }
+  ],
+  "resolvedBoundaries": [
+    {
+      "role": "request",
+      "reference": "urn:kcml:r9:operation:mcp.prompts.get:command",
+      "mechanism": "native alias",
+      "resolution": "RESOLVED",
+      "target": "contracts/operation-contracts.json#/$defs/mcp.prompts.get:command",
+      "targetIdentity": "urn:kcml:r9:operation:mcp.prompts.get:command",
+      "targetVersion": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21",
+      "targetSha256": "66dc053400e2693045efe0b37ceb6a87a1a9e3f9cb7309e64e4e255fb69bf5c1",
+      "source": {
+        "family": "KCML-R9-RESOURCE",
+        "line": 407057,
+        "resourceSha256": "b8d6e842dc656aabc941b9af9a8e5310f7344edbb635df7f12a3b678abd8fc7e"
+      },
+      "concreteness": "SEMANTIC_REVIEW_REQUIRED",
+      "reason": "Reference resolution alone does not prove domain completeness",
+      "genericLocations": [],
+      "nestedReferenceFailures": []
+    },
+    {
+      "role": "response",
+      "reference": "urn:kcml:r9:operation:mcp.prompts.get:response",
+      "mechanism": "native alias",
+      "resolution": "RESOLVED",
+      "target": "contracts/operation-contracts.json#/$defs/mcp.prompts.get:response",
+      "targetIdentity": "urn:kcml:r9:operation:mcp.prompts.get:response",
+      "targetVersion": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21",
+      "targetSha256": "f6930675eb0be00fd275e1a2891bb9838cb22940bb0642ab341d5db730402d16",
+      "source": {
+        "family": "KCML-R9-RESOURCE",
+        "line": 407057,
+        "resourceSha256": "b8d6e842dc656aabc941b9af9a8e5310f7344edbb635df7f12a3b678abd8fc7e"
+      },
+      "concreteness": "SEMANTIC_REVIEW_REQUIRED",
+      "reason": "Reference resolution alone does not prove domain completeness",
+      "genericLocations": [],
+      "nestedReferenceFailures": []
+    },
+    {
+      "role": "request",
+      "reference": "urn:kcml:r9:operation:mcp.resources.read:command",
+      "mechanism": "native alias",
+      "resolution": "RESOLVED",
+      "target": "contracts/operation-contracts.json#/$defs/mcp.resources.read:command",
+      "targetIdentity": "urn:kcml:r9:operation:mcp.resources.read:command",
+      "targetVersion": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21",
+      "targetSha256": "c75c0cf3001ccbd85d9ba9bb14b6aabb82b2a7f63f92e0af895650cd5c7e2fb4",
+      "source": {
+        "family": "KCML-R9-RESOURCE",
+        "line": 407057,
+        "resourceSha256": "b8d6e842dc656aabc941b9af9a8e5310f7344edbb635df7f12a3b678abd8fc7e"
+      },
+      "concreteness": "SEMANTIC_REVIEW_REQUIRED",
+      "reason": "Reference resolution alone does not prove domain completeness",
+      "genericLocations": [],
+      "nestedReferenceFailures": []
+    },
+    {
+      "role": "response",
+      "reference": "urn:kcml:r9:operation:mcp.resources.read:response",
+      "mechanism": "native alias",
+      "resolution": "RESOLVED",
+      "target": "contracts/operation-contracts.json#/$defs/mcp.resources.read:response",
+      "targetIdentity": "urn:kcml:r9:operation:mcp.resources.read:response",
+      "targetVersion": "REGISTRY-R9-CONTRACT-CLOSURE-2026-09-21",
+      "targetSha256": "8fbb8fcc64e370fd68f4880a306042b465a72ae9e826724b489758e526a39465",
+      "source": {
+        "family": "KCML-R9-RESOURCE",
+        "line": 407057,
+        "resourceSha256": "b8d6e842dc656aabc941b9af9a8e5310f7344edbb635df7f12a3b678abd8fc7e"
+      },
+      "concreteness": "SEMANTIC_REVIEW_REQUIRED",
+      "reason": "Reference resolution alone does not prove domain completeness",
+      "genericLocations": [],
+      "nestedReferenceFailures": []
+    }
+  ],
+  "unchangedReferenceCount": 238,
+  "semanticClosureCount": 0,
+  "limitations": "Resolve/integrity/structure only, no semantic certification; excludes concurrent coordinator family edits by exact target resource precondition"
+}

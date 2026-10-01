@@ -1,0 +1,34 @@
+{
+  "sourceDocumentSha256": "2227d9d2458609fd0cfc78fff22f6ab1ab34c7709c77e4d3b2fc4c296981ef6a",
+  "sharedSourceUnchanged": true,
+  "fixes": [
+    {
+      "control": "route_guard_counters",
+      "before": "ValueErrorUnexpectedchange route0018",
+      "after": "19781/19781 PASS",
+      "mechanism": "Explicit historical expected payload + reviewed exact OWNER and Audit transforms; all other non-guard fields remain protected."
+    },
+    {
+      "control": "create_operation_requests",
+      "before": "154 checks /1 preservation failure",
+      "after": "157 checks /0fail",
+      "mechanism": "Compose historical read/OWNER/Audit transforms, then compare entire routeId-keyed records; retain all preexisting negative cases and3 scope mutation negatives."
+    },
+    {
+      "control": "operation_state_receipts",
+      "before": "63checks/1 authoring checkfailure",
+      "after": "63checks/0fail",
+      "mechanism": "Authoring current validates6 ownfields/norm/projections +ownmanifestentry; preserves additional manifest metadata; global resourceCount76vs83 remains explicitly reported pending independent integrity regeneration."
+    }
+  ],
+  "mutationProof": "mutation-tests.json",
+  "scriptHashes": {
+    "verify_route_guard_counters.py": "e4af6c5304fe4b8ace14833b452ab7bd7253066efc6445c9e7e753bde95aee99",
+    "verify_create_operation_requests.py": "9b31f1808f3108e3173c224e71cf06f4fc06f15edba882fde462d0650688b91c",
+    "verify_operation_state_receipts.py": "b8d9c1bc366c8d5e1e6e98cd04e6273c56cd225d40da4d385f3fe4a883a4dc4c",
+    "close_operation_state_receipts.py": "739d6c1d17ac8b7992fbae6f6cbc5abed9099bfda41ee93fa21c26e2ae61677d"
+  },
+  "designOnly": true,
+  "wholeOperationsClosed": 0,
+  "canonicalMasksModified": false
+}

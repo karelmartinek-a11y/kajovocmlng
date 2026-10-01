@@ -1,0 +1,521 @@
+{
+  "status": "FAIL_BOUNDED_INDEPENDENT_SCOPE",
+  "sourceSha256": "2227d9d2458609fd0cfc78fff22f6ab1ab34c7709c77e4d3b2fc4c296981ef6a",
+  "sourceStable": false,
+  "checks": [
+    {
+      "id": "current-source-pin",
+      "status": "FAIL",
+      "details": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0"
+    },
+    {
+      "id": "actual-byte-checker.''",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "actual-byte-checker.'AAE='",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "actual-byte-checker.'YWJj'",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "actual-byte-checker.'%%%'",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "actual-byte-checker.'a'",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "actual-byte-checker.'AA E='",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "actual-byte-checker.'\u00e9'",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "canonical-exact-four-native-aliases",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.prompts.get.positive.request",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.prompts.get.positive.complete-no-meta",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.prompts.get.positive.mrtr-no-meta",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.prompts.get.negative.missing-target",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.prompts.get.negative.missing-request-meta",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.prompts.get.negative.unknown-param",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.prompts.get.negative.invalid-present-complete-meta",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.prompts.get.negative.invalid-present-mrtr-meta",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.prompts.get.negative.task-forbidden",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.prompts.get.negative.mrtr-no-state",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.resources.read.positive.request",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.resources.read.positive.complete-no-meta",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.resources.read.positive.mrtr-no-meta",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.resources.read.negative.missing-target",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.resources.read.negative.missing-request-meta",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.resources.read.negative.unknown-param",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.resources.read.negative.invalid-present-complete-meta",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.resources.read.negative.invalid-present-mrtr-meta",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.resources.read.negative.task-forbidden",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "mcp.resources.read.negative.mrtr-no-state",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "resource.actual-blob-reject.'%%%'",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "resource.actual-blob-reject.'AA E='",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "resource.actual-blob-reject.'a'",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "owner-exact-reviewed-profile",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "owner.canonical.owner.session.list.requestSchema",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "owner.canonical.owner.session.list.responseSchema",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "owner.canonical.owner.session.list.eventSchema",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "owner.canonical.owner.session.revoke.requestSchema",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "owner.canonical.owner.session.revoke.responseSchema",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "owner.canonical.owner.session.revoke.eventSchema",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "audit-exact-owned-native-schema",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "audit.canonical.audit.event.list.requestSchema",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "audit.canonical.audit.event.list.responseSchema",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "audit.canonical.audit.event.read.requestSchema",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "audit.canonical.audit.event.read.responseSchema",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "actual-PG-proof10",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "independent-PG-proof9",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "SQL-ACL-canonical-exact.database/operation-helper-owner-query.sql",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "SQL-ACL-reviewed-digest.owner-query-helpers.sql",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "SQL-ACL-canonical-exact.database/operation-helper-owner-query-install-acl.sql",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "SQL-ACL-reviewed-digest.owner-query-install-acl.sql",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "PG-consumed-unchanged.owner-query-helpers.sql",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "PG-consumed-unchanged.owner-query-original-wrappers.sql",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "PG-consumed-unchanged.owner-query-family.json",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "PG-consumed-unchanged.owner_query_context.py",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "PG-consumed-unchanged.verify_owner_query_family_pg.py",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "PG-consumed-unchanged.owner-query-install-acl.sql",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "original-entire-wrapper-resource-unchanged-vs-84-source",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "actual-original-wrapper-substring.ownerApiKey.read",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "actual-original-wrapper-substring.ownerApiKey.reveal",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "actual-tested-helperSQL-byte-binding",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "actual-tested-original-wrapper-byte-binding",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "publisher.readonly.scripts/close_owner_session_family.py",
+      "status": "PASS",
+      "details": [
+        {
+          "returncode": 0,
+          "stdout": "{\"status\": \"PASS\", \"pending\": [], \"normativePresent\": true, \"boundaries\": 6, \"wholeOperationsClosed\": 0}\n",
+          "stderr": ""
+        },
+        {
+          "returncode": 0,
+          "stdout": "{\"status\": \"PASS\", \"pending\": [], \"normativePresent\": true, \"boundaries\": 6, \"wholeOperationsClosed\": 0}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "publisher.idempotent-check.scripts/close_owner_session_family.py",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "publisher.readonly.scripts/close_audit_read_family.py",
+      "status": "PASS",
+      "details": [
+        {
+          "returncode": 0,
+          "stdout": "{\"status\": \"PASS\", \"pending\": [], \"normativeExact\": true}\n",
+          "stderr": ""
+        },
+        {
+          "returncode": 0,
+          "stdout": "{\"status\": \"PASS\", \"pending\": [], \"normativeExact\": true}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "publisher.idempotent-check.scripts/close_audit_read_family.py",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "publisher.readonly.scripts/close_scoped_sql_helpers.py",
+      "status": "PASS",
+      "details": [
+        {
+          "returncode": 0,
+          "stdout": "{\"status\": \"PASS\", \"pending\": []}\n",
+          "stderr": ""
+        },
+        {
+          "returncode": 0,
+          "stdout": "{\"status\": \"PASS\", \"pending\": []}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "publisher.idempotent-check.scripts/close_scoped_sql_helpers.py",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "publisher.readonly.audit/generated/closure-replan-84c/references/author_native_read_refs.py",
+      "status": "PASS",
+      "details": [
+        {
+          "returncode": 0,
+          "stdout": "{\"status\": \"PASS\", \"publicationDifferences\": []}\n",
+          "stderr": ""
+        },
+        {
+          "returncode": 0,
+          "stdout": "{\"status\": \"PASS\", \"publicationDifferences\": []}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "publisher.idempotent-check.audit/generated/closure-replan-84c/references/author_native_read_refs.py",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "read-only-source-projections-unchanged",
+      "status": "PASS",
+      "details": null
+    },
+    {
+      "id": "source-still-pin",
+      "status": "FAIL",
+      "details": null
+    }
+  ],
+  "passed": 69,
+  "failed": 2,
+  "actualConsumedCanonicalResourceHashes": {
+    "00_SSOT/KajovoCMLNG_SSOT.md": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0",
+    "contracts/operation-contracts.json": "58ba4d0db6b479936b3112833da7b65204e185c4f9600749a1ed8c61c00bc344",
+    "contracts/payload-contracts.json": "ca6cf9996090ec4b9bcbdd06229449cb4ffc946ed33688bcd81a03dc6cd4787b",
+    "contracts/owner-session-family.json": "7c94bf5b3e8250f2711e19efaccbb77c82e2a3c359033eb5ec386bd401bf5374",
+    "contracts/audit/core-read.schema.json": "3ad42e105401169ba12ee5e6deef4f62954e3389dc2abb20b5c73952beb4edfd",
+    "database/operation-helper-owner-query.sql": "ba3f9b1bc4612c83a1b83cdf6c448fd282fa549f9cd15490418edb0424a1e5e5",
+    "database/operation-helper-owner-query-install-acl.sql": "16804bb9c03b9eec8337250fd3e4a03c94dcc2ea8b5c23a65fc770e31dd163ea",
+    "database/operation-functions.sql": "55f69f9d58f6d45dc79329762a182792be0f5b422ed11f0af9fac8a7d9d200e8"
+  },
+  "consumedFileHashes": {
+    "scripts/native_byte_format.py": "a5df929d84830a6822fa093aa3ae568bf9faab99985714aad0f9bb03873784d2",
+    "audit/generated/closure-replan-84c/secret/session-review/final-integrated/DELIVERY.json": "336120975befbc0a4a6c2ed34327901e288ca6602a7b808d9396b07bd5606e82",
+    "audit/generated/closure-replan-84c/family-read/core-audit/authorable-core-delta.json": "122ba2a509acdf34592528ad71504224fb65e2dbd0c765b0846d1d603f76356f",
+    "audit/generated/closure-replan-84c/family-read/core-audit/core-audit-read.schema.json": "781f72b96a09006c98fe6b277d6e8d196203b8f258b5e46def540ea13f40cc29",
+    "audit/generated/closure-replan-84c/sql/DELIVERY.json": "d014c91ea40c1779d03c893b7ca186d0eee6ea6874145cef1e8442c7711a569f",
+    "audit/generated/closure-replan-84c/sql/owner-query-postgres-proof.json": "e913c48d9b71e9de8498b7851c9bddcc68cc75bf41ff2eae9456c5d531df71f9",
+    "audit/generated/closure-replan-84c/authority/sql-review/final/owner-query-independent-proof.json": "32f447d03efc45cdfec12e5a367abd0c6f2a2fcd6d8bd6b6f646c2013562f559",
+    "audit/generated/closure-replan-84c/sql/owner-query-family.json": "bd1fdc99a1dee999145cbe40776e333db4365388b6cbabf0715456f83925cbfe",
+    "audit/generated/closure-replan-84c/sql/operation-helper-callsite-registry.json": "8009bf8fd3ebf77086447025f6042cdb191fb3a02832a8bf51e29f4e351ed998",
+    "audit/generated/closure-replan-84c/sql/owner-query-helpers.sql": "ba3f9b1bc4612c83a1b83cdf6c448fd282fa549f9cd15490418edb0424a1e5e5",
+    "audit/generated/closure-replan-84c/sql/owner-query-install-acl.sql": "16804bb9c03b9eec8337250fd3e4a03c94dcc2ea8b5c23a65fc770e31dd163ea",
+    "audit/generated/closure-replan-84c/sql/owner-query-original-wrappers.sql": "5bc5b7d2daf4bb29a16c6f8dd9587494006ffce5d1a03a9e5a67e778777032d5",
+    "audit/generated/closure-replan-84c/sql/owner_query_context.py": "e112f7263b21d91c1d4285d78227acce51c06bacffd08c45524fcd0612513e5c",
+    "audit/generated/closure-replan-84c/sql/verify_owner_query_family_pg.py": "deda4934b8c64b05605ede764b517912486cd27f266cbcd6a2e5e423f6769788",
+    "scripts/close_owner_session_family.py": "93e5db9478104f11149c889be01e51f028297930560d37eda4f15f7f73038647",
+    "scripts/close_audit_read_family.py": "d2eabfcfde65e2b9980ca667c701c7ba5111c64738af55990b8d0101d11f0ca8",
+    "scripts/close_scoped_sql_helpers.py": "3ec948f1997aef02b64f7288871591015714a4e470e57b9806435db8d34e2b16",
+    "audit/generated/closure-replan-84c/references/author_native_read_refs.py": "905f07c20b718f2d62d8f3cc8724d3d7d125cf61bc5c48f4aab183dfa9dba640"
+  },
+  "publisherRuns": [
+    {
+      "command": [
+        "scripts/close_owner_session_family.py",
+        "--check"
+      ],
+      "attempts": [
+        {
+          "returncode": 0,
+          "stdout": "{\"status\": \"PASS\", \"pending\": [], \"normativePresent\": true, \"boundaries\": 6, \"wholeOperationsClosed\": 0}\n",
+          "stderr": ""
+        },
+        {
+          "returncode": 0,
+          "stdout": "{\"status\": \"PASS\", \"pending\": [], \"normativePresent\": true, \"boundaries\": 6, \"wholeOperationsClosed\": 0}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "command": [
+        "scripts/close_audit_read_family.py",
+        "--check"
+      ],
+      "attempts": [
+        {
+          "returncode": 0,
+          "stdout": "{\"status\": \"PASS\", \"pending\": [], \"normativeExact\": true}\n",
+          "stderr": ""
+        },
+        {
+          "returncode": 0,
+          "stdout": "{\"status\": \"PASS\", \"pending\": [], \"normativeExact\": true}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "command": [
+        "scripts/close_scoped_sql_helpers.py",
+        "--check"
+      ],
+      "attempts": [
+        {
+          "returncode": 0,
+          "stdout": "{\"status\": \"PASS\", \"pending\": []}\n",
+          "stderr": ""
+        },
+        {
+          "returncode": 0,
+          "stdout": "{\"status\": \"PASS\", \"pending\": []}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "command": [
+        "audit/generated/closure-replan-84c/references/author_native_read_refs.py",
+        "--check"
+      ],
+      "attempts": [
+        {
+          "returncode": 0,
+          "stdout": "{\"status\": \"PASS\", \"publicationDifferences\": []}\n",
+          "stderr": ""
+        },
+        {
+          "returncode": 0,
+          "stdout": "{\"status\": \"PASS\", \"publicationDifferences\": []}\n",
+          "stderr": ""
+        }
+      ]
+    }
+  ],
+  "wholeOperationsClosed": 0,
+  "evidenceClass": "FRESH_CANONICAL_SCHEMA_REPRODUCTION_AND_PRIOR_ACTUAL_PG_BYTE_SCOPE_REVALIDATION",
+  "limitations": [
+    "No new PostgreSQL execution; historical10+9 proofs retain their original execution hashes",
+    "No trusted access registry publisher, atomic root/event pipeline, backend application or systemd invocation proof",
+    "Source equality supports reuse only in exact selected scopes; it is not semantic closure or readiness",
+    "Native raw wire metadata stays optional; platform completion producer remains a separate requirement"
+  ],
+  "implementationAcceptance": "NOT_EVALUATED"
+}

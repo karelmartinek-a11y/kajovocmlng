@@ -336,3 +336,48 @@ Current Secret continuation: P02 consumes `contracts/secrets/import.schema.json`
 ## Účinné vrstvy dokončení po nezávislém přezkumu
 
 Registr a create checklist oddělují A (přesné definice), B (konkrétní fixtures), C (akceptaci aplikace) a D (prostředí). §51.36 vyžaduje doklady před aktivací; sám nestanoví existenci vygenerovaného backendu před generováním. SECRET.UI.REVEAL má normativní UI zdroj §72.21 a backend akceptaci P09/P12. Tato klasifikace neodkládá výslovné fixtures §12.56–12.57. Finální gate families jsou přesně R10, R16, UI, CLOSURE, R17 podle §73.7; R9 není šestá finální family. Historické odstavce výše jsou průběžná provenance, aktuální universe a důkazy určuje checkpoint, nikoli jejich starší počty.
+
+### Current finite integration from input 84c41ba
+
+This execution separates the original 36 create-chain parent duties into 144
+**overlapping A/B/C/D conditions in the existing checklist/register**. These are
+not new independent requirements or a project completion denominator. A is the
+normative definition; B requires its own explicit pre-generation authority;
+C is future generated-app acceptance; D identifies the unavailable environment.
+In particular SECRET.UI.REVEAL generated backend runtime belongs to P09/P12,
+§51.36 fixture activation and §73.4 P02 database checks must retain their stages,
+and §12.56 actual systemd credential rotation/materialization remains an explicit
+pre-generation fixture. No implementation acceptance or summary gate is waived.
+
+Integrated boundary packages: OWNER session list/revoke six masks; Audit
+list/read four masks including pre-root retained outcomes; four native MCP read
+references; four SQL helper definitions limited to two OWNER query wrappers.
+The Audit PostgreSQL witness reproduces the old omission of one of two retained
+streams and verifies both rows after repair. SQL covers eight of 1,048 call sites
+by reference only: 260 of 262 typed wrapper implementations and **all runtime
+dispatch acceptance** remain open. No full operation is closed by these packages.
+
+Current source and structural metrics are in the checkpoint and the register's
+`structuralInventoryBinding`. Relative to input 84c41ba: unresolved references
+242→238 (operations121→119), generic boundaries1496→1486
+(request498→494,response498→494,event500→498), generic routes500→498.
+Reference resolution and syntactic concretization alone do not establish
+semantic closure. Global258 error predicates,176 provenance detector hits,
+152 unspecified event applicability and three UI exposure blockers remain
+unclosed; the six former state dictionaries remain structurally closed.
+
+The finite next work packages are the register's existing `workPackages`:
+OWNER_SESSION shared trusted context/reauth/snapshot/atomic/read-replay/digest;
+Audit authenticated snapshot, cursor and retained-stream producers;
+SQL trusted query issuer/capability/audit/protected hydration and typed handlers;
+MCP native revision/access and platform producer bindings. For create, follow
+`layeredConditions/parents` for trusted publisher/context, ledger→authenticated
+native child and archived kind policy definitions before claiming the joined
+chain. Run a real systemd fixture only in an environment with the documented
+manager/bus/invocation credential capabilities. Do not repeat the same unavailable
+fixture or replace it with a key-provider PASS.
+
+Final command results and packaging integrity are recorded by the checkpoint;
+historical input hashes, execution reports and superseded integration failures
+retain their original identities. The final manifest/receipt is produced after
+all current evidence, without embedding the resulting commit hash into itself.

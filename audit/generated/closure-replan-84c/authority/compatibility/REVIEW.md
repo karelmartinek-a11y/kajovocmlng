@@ -1,0 +1,9 @@
+# Bounded validator compatibility repair
+
+The four original failures were stale full-registry/full-route preservation expectations rather than reverted contracts: two reviewed OWNER rows and two Audit rows, six OWNER definitions plus four separately pinned MCP read aliases, and the three exact additive normative supplements. Old executables and actual 2227 failure evidence remain under before/.
+
+Updated validators replay the exact reviewed OWNER/Audit authoring rules on temporary historical expected records. They compare whole records; no route is skipped. Temporary record digests are recomputed solely to let reusable authoring validate the composed expectation, not to change the source or excuse contract mismatches. Exact six OWNER registry definitions are derived from the family contract. Exact four MCP aliases require the reviewed package/native/operation authoring checks and their identity universe, not acceptance of arbitrary extra definitions. Existing extra/missing and unrelated native/error/mask negatives remain.
+
+Preservation removes only single-copy exact §8.17, §8.18 and §51.39 supplements under their available canonical dependency; altered, duplicated or missing additions fail. Every original tracked Secret/credential/password section remains byte-compared against the original start, including full subordinate content. Original 47 checks are retained; three precise additive checks make 50. No original policy preservation test is removed.
+
+At final source116e: 599/671/618 checks and all50 preserved-policy checks pass. Independent positive-derived actual route-preservation prefix rejects approved OWNER/Audit row mutations and an unrelated route mutation. Actual preserved-policy checker rejects all three changed supplements and an original §8.3 change (five failed rows because the parent §8 also changes). No whole operation or implementation is accepted by this compatibility package.

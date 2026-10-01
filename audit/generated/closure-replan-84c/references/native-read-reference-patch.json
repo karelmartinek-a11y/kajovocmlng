@@ -1,0 +1,869 @@
+{
+  "format": "KCML-MCP-READ-NATIVE-REFERENCE-PATCH/1",
+  "pinnedHead": "5ac0a33f3058d9159cf01d7a2168919dea732fea",
+  "sourceSha256": "13105137f8a6bf4cd831262859cfa297795631a295b63d313b2b4c83d9012cf9",
+  "consumedResources": {
+    "contracts/mcp/native-2026-07-28.schema.json": "ef70b61f99b6d2e5e3b46863822eab08dff6a45bedc7a08914e0e5b133f40203",
+    "contracts/mcp-native-schema-artifact.json": "068b37c9d873ffeea1299fec37aee5b28644da29aa64d15fabc8ceb77c9769f7"
+  },
+  "selectedNativeDefinitionSha256": "a2b9556a27f0543b7d5bfc15edd513f360d3491ed57d6f59229604f3a07e51f2",
+  "selectedOperationSha256": {
+    "mcp.prompts.get": "2b6df951ad574e173df296d79b3f18a0d3f56f239b43e20cb2cde9d3fec3cd5e",
+    "mcp.resources.read": "64269c1f8dcc9481823eaeb48b203c164dcbb8edd5e5e442b4fe6a817a09cb0a"
+  },
+  "targetResource": "contracts/operation-contracts.json",
+  "jsonPatch": [
+    {
+      "op": "add",
+      "path": "/$defs/mcp.prompts.get:command",
+      "value": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "urn:kcml:r9:operation:mcp.prompts.get:command",
+        "allOf": [
+          {
+            "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/GetPromptRequest"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "jsonrpc": {
+                "const": "2.0"
+              },
+              "id": {
+                "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestId"
+              },
+              "method": {
+                "const": "prompts/get"
+              },
+              "params": {
+                "allOf": [
+                  {
+                    "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/GetPromptRequestParams"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "_meta": {},
+                      "name": {},
+                      "inputResponses": {},
+                      "requestState": {},
+                      "arguments": {}
+                    },
+                    "required": [
+                      "_meta",
+                      "name"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            },
+            "required": [
+              "jsonrpc",
+              "id",
+              "method",
+              "params"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/$defs/mcp.prompts.get:response",
+      "value": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "urn:kcml:r9:operation:mcp.prompts.get:response",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "jsonrpc": {
+                "const": "2.0"
+              },
+              "id": {
+                "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestId"
+              },
+              "result": {
+                "allOf": [
+                  {
+                    "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/GetPromptResult"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "_meta": {
+                        "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ResultMetaObject"
+                      },
+                      "resultType": {
+                        "const": "complete"
+                      },
+                      "description": {},
+                      "messages": {}
+                    },
+                    "required": [
+                      "resultType",
+                      "messages"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            },
+            "required": [
+              "jsonrpc",
+              "id",
+              "result"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "jsonrpc": {
+                "const": "2.0"
+              },
+              "id": {
+                "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestId"
+              },
+              "result": {
+                "allOf": [
+                  {
+                    "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/InputRequiredResult"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "_meta": {
+                        "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ResultMetaObject"
+                      },
+                      "resultType": {
+                        "const": "input_required"
+                      },
+                      "inputRequests": {},
+                      "requestState": {}
+                    },
+                    "required": [
+                      "resultType"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "anyOf": [
+                      {
+                        "required": [
+                          "inputRequests"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "requestState"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "required": [
+              "jsonrpc",
+              "id",
+              "result"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/JSONRPCErrorResponse"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "jsonrpc": {
+                    "const": "2.0"
+                  },
+                  "id": {
+                    "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestId"
+                  },
+                  "error": {
+                    "properties": {
+                      "code": {
+                        "not": {
+                          "type": "integer",
+                          "minimum": -32099,
+                          "maximum": -32023
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "jsonrpc",
+                  "error"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/$defs/mcp.resources.read:command",
+      "value": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "urn:kcml:r9:operation:mcp.resources.read:command",
+        "allOf": [
+          {
+            "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ReadResourceRequest"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "jsonrpc": {
+                "const": "2.0"
+              },
+              "id": {
+                "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestId"
+              },
+              "method": {
+                "const": "resources/read"
+              },
+              "params": {
+                "allOf": [
+                  {
+                    "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ReadResourceRequestParams"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "_meta": {},
+                      "uri": {},
+                      "inputResponses": {},
+                      "requestState": {}
+                    },
+                    "required": [
+                      "_meta",
+                      "uri"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            },
+            "required": [
+              "jsonrpc",
+              "id",
+              "method",
+              "params"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/$defs/mcp.resources.read:response",
+      "value": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "urn:kcml:r9:operation:mcp.resources.read:response",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "jsonrpc": {
+                "const": "2.0"
+              },
+              "id": {
+                "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestId"
+              },
+              "result": {
+                "allOf": [
+                  {
+                    "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ReadResourceResult"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "_meta": {
+                        "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ResultMetaObject"
+                      },
+                      "resultType": {
+                        "const": "complete"
+                      },
+                      "contents": {},
+                      "ttlMs": {},
+                      "cacheScope": {}
+                    },
+                    "required": [
+                      "resultType",
+                      "contents",
+                      "ttlMs",
+                      "cacheScope"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            },
+            "required": [
+              "jsonrpc",
+              "id",
+              "result"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "jsonrpc": {
+                "const": "2.0"
+              },
+              "id": {
+                "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestId"
+              },
+              "result": {
+                "allOf": [
+                  {
+                    "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/InputRequiredResult"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "_meta": {
+                        "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ResultMetaObject"
+                      },
+                      "resultType": {
+                        "const": "input_required"
+                      },
+                      "inputRequests": {},
+                      "requestState": {}
+                    },
+                    "required": [
+                      "resultType"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "anyOf": [
+                      {
+                        "required": [
+                          "inputRequests"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "requestState"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "required": [
+              "jsonrpc",
+              "id",
+              "result"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/JSONRPCErrorResponse"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "jsonrpc": {
+                    "const": "2.0"
+                  },
+                  "id": {
+                    "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestId"
+                  },
+                  "error": {
+                    "properties": {
+                      "code": {
+                        "not": {
+                          "type": "integer",
+                          "minimum": -32099,
+                          "maximum": -32023
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "jsonrpc",
+                  "error"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "previousPublishedDefinitions": {
+    "mcp.prompts.get:command": {
+      "$id": "urn:kcml:r9:operation:mcp.prompts.get:command",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "allOf": [
+        {
+          "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/GetPromptRequest"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestId"
+            },
+            "jsonrpc": {
+              "const": "2.0"
+            },
+            "method": {
+              "const": "prompts/get"
+            },
+            "params": {
+              "allOf": [
+                {
+                  "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/GetPromptRequestParams"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "_meta": {},
+                    "arguments": {},
+                    "inputResponses": {},
+                    "name": {},
+                    "requestState": {}
+                  },
+                  "required": [
+                    "_meta",
+                    "name"
+                  ],
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "required": [
+            "jsonrpc",
+            "id",
+            "method",
+            "params"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "mcp.prompts.get:response": {
+      "$id": "urn:kcml:r9:operation:mcp.prompts.get:response",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestId"
+            },
+            "jsonrpc": {
+              "const": "2.0"
+            },
+            "result": {
+              "allOf": [
+                {
+                  "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/GetPromptResult"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "_meta": {
+                      "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ResultMetaObject"
+                    },
+                    "description": {},
+                    "messages": {},
+                    "resultType": {
+                      "const": "complete"
+                    }
+                  },
+                  "required": [
+                    "resultType",
+                    "messages"
+                  ],
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "required": [
+            "jsonrpc",
+            "id",
+            "result"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestId"
+            },
+            "jsonrpc": {
+              "const": "2.0"
+            },
+            "result": {
+              "allOf": [
+                {
+                  "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/InputRequiredResult"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "_meta": {
+                      "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ResultMetaObject"
+                    },
+                    "inputRequests": {},
+                    "requestState": {},
+                    "resultType": {
+                      "const": "input_required"
+                    }
+                  },
+                  "required": [
+                    "resultType"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "inputRequests"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "requestState"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "jsonrpc",
+            "id",
+            "result"
+          ],
+          "type": "object"
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/JSONRPCErrorResponse"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "error": {
+                  "properties": {
+                    "code": {
+                      "not": {
+                        "maximum": -32023,
+                        "minimum": -32099,
+                        "type": "integer"
+                      }
+                    }
+                  }
+                },
+                "id": {
+                  "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestId"
+                },
+                "jsonrpc": {
+                  "const": "2.0"
+                }
+              },
+              "required": [
+                "jsonrpc",
+                "error"
+              ],
+              "type": "object"
+            }
+          ]
+        }
+      ]
+    },
+    "mcp.resources.read:command": {
+      "$id": "urn:kcml:r9:operation:mcp.resources.read:command",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "allOf": [
+        {
+          "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ReadResourceRequest"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestId"
+            },
+            "jsonrpc": {
+              "const": "2.0"
+            },
+            "method": {
+              "const": "resources/read"
+            },
+            "params": {
+              "allOf": [
+                {
+                  "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ReadResourceRequestParams"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "_meta": {},
+                    "inputResponses": {},
+                    "requestState": {},
+                    "uri": {}
+                  },
+                  "required": [
+                    "_meta",
+                    "uri"
+                  ],
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "required": [
+            "jsonrpc",
+            "id",
+            "method",
+            "params"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "mcp.resources.read:response": {
+      "$id": "urn:kcml:r9:operation:mcp.resources.read:response",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestId"
+            },
+            "jsonrpc": {
+              "const": "2.0"
+            },
+            "result": {
+              "allOf": [
+                {
+                  "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ReadResourceResult"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "_meta": {
+                      "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ResultMetaObject"
+                    },
+                    "cacheScope": {},
+                    "contents": {},
+                    "resultType": {
+                      "const": "complete"
+                    },
+                    "ttlMs": {}
+                  },
+                  "required": [
+                    "resultType",
+                    "contents",
+                    "ttlMs",
+                    "cacheScope"
+                  ],
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "required": [
+            "jsonrpc",
+            "id",
+            "result"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestId"
+            },
+            "jsonrpc": {
+              "const": "2.0"
+            },
+            "result": {
+              "allOf": [
+                {
+                  "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/InputRequiredResult"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "_meta": {
+                      "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/ResultMetaObject"
+                    },
+                    "inputRequests": {},
+                    "requestState": {},
+                    "resultType": {
+                      "const": "input_required"
+                    }
+                  },
+                  "required": [
+                    "resultType"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "inputRequests"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "requestState"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "jsonrpc",
+            "id",
+            "result"
+          ],
+          "type": "object"
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/JSONRPCErrorResponse"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "error": {
+                  "properties": {
+                    "code": {
+                      "not": {
+                        "maximum": -32023,
+                        "minimum": -32099,
+                        "type": "integer"
+                      }
+                    }
+                  }
+                },
+                "id": {
+                  "$ref": "urn:kcml:mcp-native:2026-07-28#/$defs/RequestId"
+                },
+                "jsonrpc": {
+                  "const": "2.0"
+                }
+              },
+              "required": [
+                "jsonrpc",
+                "error"
+              ],
+              "type": "object"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "previousPublishedDefinitionSha256": {
+    "mcp.prompts.get:command": "66dc053400e2693045efe0b37ceb6a87a1a9e3f9cb7309e64e4e255fb69bf5c1",
+    "mcp.prompts.get:response": "f6930675eb0be00fd275e1a2891bb9838cb22940bb0642ab341d5db730402d16",
+    "mcp.resources.read:command": "c75c0cf3001ccbd85d9ba9bb14b6aabb82b2a7f63f92e0af895650cd5c7e2fb4",
+    "mcp.resources.read:response": "8fbb8fcc64e370fd68f4880a306042b465a72ae9e826724b489758e526a39465"
+  },
+  "operations": [
+    {
+      "operationId": "mcp.prompts.get",
+      "operationSourcePointer": "contracts/operation-contracts.json#/records/413",
+      "requestReference": "urn:kcml:r9:operation:mcp.prompts.get:command",
+      "responseReference": "urn:kcml:r9:operation:mcp.prompts.get:response",
+      "nativeRequestPointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/GetPromptRequest",
+      "nativeCompletePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/GetPromptResult",
+      "boundaryKind": "RAW_NATIVE_PROTOCOL_2026_07_28_WITH_KNOWN_CORE_RESULT_DISCRIMINATORS",
+      "responseMetadataPolicy": "OPTIONAL_NATIVE_METADATA_VALIDATED_IF_PRESENT; separate platform producer specialization",
+      "eventApplicability": "UNCHANGED_OPERATION_ADMITTED_STATE_CHANGED_TERMINAL",
+      "sourceSections": [
+        "10.3",
+        "10.4",
+        "10.10",
+        "10.11",
+        "10.14"
+      ],
+      "semanticClosure": "NOT_CLOSED",
+      "remaining": [
+        "Trusted authenticated source/access producer and lifecycle/persistence",
+        "Dynamic revision-specific prompt arguments/resource access/MIME binding",
+        "MRTR persistent state/context/consume producer and capability negotiation",
+        "Event/outbox/audit and consumer fixtures"
+      ]
+    },
+    {
+      "operationId": "mcp.resources.read",
+      "operationSourcePointer": "contracts/operation-contracts.json#/records/424",
+      "requestReference": "urn:kcml:r9:operation:mcp.resources.read:command",
+      "responseReference": "urn:kcml:r9:operation:mcp.resources.read:response",
+      "nativeRequestPointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ReadResourceRequest",
+      "nativeCompletePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ReadResourceResult",
+      "boundaryKind": "RAW_NATIVE_PROTOCOL_2026_07_28_WITH_KNOWN_CORE_RESULT_DISCRIMINATORS",
+      "responseMetadataPolicy": "OPTIONAL_NATIVE_METADATA_VALIDATED_IF_PRESENT; separate platform producer specialization",
+      "eventApplicability": "UNCHANGED_OPERATION_ADMITTED_STATE_CHANGED_TERMINAL",
+      "sourceSections": [
+        "10.3",
+        "10.4",
+        "10.10",
+        "10.11",
+        "10.14"
+      ],
+      "semanticClosure": "NOT_CLOSED",
+      "remaining": [
+        "Trusted authenticated source/access producer and lifecycle/persistence",
+        "Dynamic revision-specific prompt arguments/resource access/MIME binding",
+        "MRTR persistent state/context/consume producer and capability negotiation",
+        "Event/outbox/audit and consumer fixtures"
+      ]
+    }
+  ],
+  "entryUnresolvedReferenceUniverse": 242,
+  "originalReferenceCorrection": {
+    "before": 242,
+    "after": 238,
+    "structuralOnly": true
+  },
+  "currentSelectedFamilyMissingAliases": 0,
+  "currentAfterSelectedFamilyMissingAliases": 0,
+  "optionalMetadataCorrection": {
+    "affectedResponseSchemas": 2,
+    "unresolvedReferenceDelta": 0
+  },
+  "operationClosureCount": 0,
+  "classification": "EXISTING_PREVIOUSLY_UNCAPTURED_NATIVE_MAPPING",
+  "newProductDecision": false,
+  "limits": "Four identity/shape references resolved, no whole operation semantic/runtime closure; no Tasks capability invented, native input_required retained."
+}

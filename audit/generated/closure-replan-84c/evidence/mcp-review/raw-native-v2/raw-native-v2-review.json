@@ -1,0 +1,36 @@
+{
+  "status": "PASS_RAW_NATIVE_V2_COMPATIBILITY_BOUNDARY",
+  "sourceSha256": "b1443905c61b2de8e77464d3adb1595e3d602958bcf226ba44f96d21edd66458",
+  "candidateSha256": "5593802a7a3e12c31ca733c634ece978772f519da6d1fe6d9502505cc56a8ac2",
+  "checks": [
+    {
+      "operationId": "mcp.prompts.get",
+      "branch": "complete",
+      "optionalAbsentMeta": true,
+      "presentMetaExactNativeRef": true
+    },
+    {
+      "operationId": "mcp.prompts.get",
+      "branch": "input_required",
+      "optionalAbsentMeta": true,
+      "presentMetaExactNativeRef": true
+    },
+    {
+      "operationId": "mcp.resources.read",
+      "branch": "complete",
+      "optionalAbsentMeta": true,
+      "presentMetaExactNativeRef": true
+    },
+    {
+      "operationId": "mcp.resources.read",
+      "branch": "input_required",
+      "optionalAbsentMeta": true,
+      "presentMetaExactNativeRef": true
+    }
+  ],
+  "authorSuiteActualCount": 78,
+  "authoringGuardCount": 5,
+  "separatePlatformSchemaNotActivated": true,
+  "decision": "APPROVE_FOUR_NATIVE_ALIASES_V2; platform metadata producer specializations remain unbound candidates, not external decoder requirements",
+  "wholeOperationClosureCount": 0
+}

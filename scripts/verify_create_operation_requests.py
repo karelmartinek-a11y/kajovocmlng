@@ -144,17 +144,25 @@ def run():
  baseline=subprocess.check_output(['git','show','aaab5a1:00_SSOT/KajovoCMLNG_SSOT.md'],cwd=ROOT).decode()
  from ssot_sources import resources
  old=json.loads(resource_index(resources(baseline))[PAYLOAD]['raw'])
- # The two separately authored OWNER read boundaries are now effective; keep
- # every other route and every untouched field of those records protected.
+ # Compose source-backed read and session family transforms on the immutable
+ # historical baseline. Compare complete records; no whole-operation exception.
+ baseline_rs=resource_index(resources(baseline))
+ from secret_read_contracts import specialize as specialize_reads
+ expected=specialize_reads(old,rs) if 'contracts/secrets/metadata-read.schema.json' in rs else old
+ if 'contracts/owner-session-family.json' in rs:
+  from close_owner_session_family import updates as family_updates
+  bound={**baseline_rs,PAYLOAD:{**baseline_rs[PAYLOAD],'raw':json.dumps(expected).encode()}}
+  expected=json.loads(family_updates(bound)[PAYLOAD])
+ if 'contracts/audit/core-read.schema.json' in rs:
+  from close_audit_read_family import prepare as audit_updates
+  bound={**baseline_rs,PAYLOAD:{**baseline_rs[PAYLOAD],'raw':json.dumps(expected).encode()}}
+  expected=json.loads(audit_updates(bound)[PAYLOAD])
  reads={'secret.metadata.read','secret.value.read'}
+ expected_rows={r['routeId']:r for r in expected['records']}
  def preserved(candidate):
-  if len(candidate['records'])!=len(old['records']):return False
-  for r,o in zip(candidate['records'],old['records']):
-   if r['operationId']in OPERATIONS:continue
-   if r['operationId']not in reads:
-    if r!=o:return False
-   elif {k:v for k,v in r.items()if k not in ('requestSchema','responseSchema','semanticRules')}!={k:v for k,v in o.items()if k not in ('requestSchema','responseSchema','semanticRules')}:return False
-  return True
+  if len(candidate['records'])!=len(expected['records']):return False
+  if {r['routeId']for r in candidate['records']}!=set(expected_rows):return False
+  return all(r==expected_rows[r['routeId']]for r in candidate['records']if r['operationId']not in OPERATIONS)
  assert_case('authoring/unrelated-routes-byte-shape-preserved',lambda:preserved(payload))
  authored=specialize(payload)
  assert_case('authoring/all-non-create-records-unchanged-by-create-author',lambda:all(a==b for a,b in zip(authored['records'],payload['records'])if a['operationId']not in OPERATIONS))
@@ -162,6 +170,9 @@ def run():
  assert_case('authoring/read-event-change-cannot-bypass-preservation',lambda:not preserved(mutated))
  mutated=copy.deepcopy(payload);next(r for r in mutated['records']if r['operationId']not in set(OPERATIONS)|reads)['routeId']='UNAUTHORIZED_CHANGE'
  assert_case('authoring/unrelated-change-cannot-bypass-preservation',lambda:not preserved(mutated))
+ for oid,field,mutate in [('owner.session.list','requestSchema',lambda mask:mask['properties']['query'].update(additionalProperties=True)),('owner.session.revoke','eventSchema',lambda mask:mask['properties']['sequence'].pop('not',None)),('audit.event.read','responseSchema',lambda mask:mask.pop('allOf',None))]:
+  if any(r['operationId']==oid for r in payload['records']):
+   mutated=copy.deepcopy(payload);selected=next(r for r in mutated['records']if r['operationId']==oid);mutate(selected[field]);assert_case('authoring/reviewed-family-mutation-still-rejected/'+oid+'/'+field,lambda m=mutated:not preserved(m))
  report={'sourceDocumentSha256':hashlib.sha256(SSOT.read_bytes()).hexdigest(),'scope':__doc__,'witnesses':witnesses,
   'checked':len(checks),'failed':sum(not r['passed'] for r in checks),'checks':checks,
   'boundaries':{o:{'request':'EXPLICIT_DOMAIN_SHAPE_AND_DECODER','response':'EXPLICIT_CREATE_OUTPUT_ERROR_UNION','event':'EXPLICIT_AGGREGATE_CREATE_RECEIPT_EVENT','runtime':'NOT_EVALUATED'} for o in OPERATIONS},

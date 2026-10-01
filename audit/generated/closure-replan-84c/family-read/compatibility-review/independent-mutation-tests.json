@@ -1,0 +1,87 @@
+{
+  "sourceDocumentSha256": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0",
+  "sourceUnchanged": true,
+  "checked": 9,
+  "failed": 0,
+  "cases": [
+    {
+      "id": "unrelated-route-auth-mutant",
+      "script": "verify_route_guard_counters.py",
+      "passed": true,
+      "exit": 1,
+      "diagnostic": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/workspace/kajovocmlng/scripts/verify_route_guard_counters.py\", line 95, in main\n    raise ValueError('Unexpected change beyond guard domains: '+route['routeId'])\nValueError: Unexpected change beyond guard domains: route.0000\n",
+      "mutantSourceSha256": "386cab27d2e36f090d0613b8bd4ec0f2548071059f96ce5416682855914553a9"
+    },
+    {
+      "id": "audit-event-extra-field-mutant",
+      "script": "verify_route_guard_counters.py",
+      "passed": true,
+      "exit": 1,
+      "diagnostic": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/workspace/kajovocmlng/scripts/verify_route_guard_counters.py\", line 95, in main\n    raise ValueError('Unexpected change beyond guard domains: '+route['routeId'])\nValueError: Unexpected change beyond guard domains: route.0452\n",
+      "mutantSourceSha256": "9378657c379410a6b32c7baf14788f2d28228cd7e6e023caf3b14077525796ff"
+    },
+    {
+      "id": "owner-counter-pattern-removal",
+      "script": "verify_route_guard_counters.py",
+      "passed": true,
+      "exit": 1,
+      "diagnostic": "{\"sourceSha256\": \"1a4111b39550df2f9120f66f5ee1dae44efe358566351868e9796ff34703cdae\", \"baseline\": false, \"routes\": 509, \"guardDefinitions\": 1523, \"checked\": 19781, \"failed\": 6}\n",
+      "mutantSourceSha256": "1a4111b39550df2f9120f66f5ee1dae44efe358566351868e9796ff34703cdae"
+    },
+    {
+      "id": "source-reviewed-owner-family-not-blanket-allowed",
+      "script": "verify_create_operation_requests.py",
+      "passed": true,
+      "exit": 1,
+      "diagnostic": "{\"sourceDocumentSha256\": \"99536194eb6c6f39357e80711b40209c9eac6cc31c9a830a884e0a8d1b409fb7\", \"checked\": 157, \"failed\": 2}\n{\"case\": \"authoring/idempotent\", \"passed\": false, \"actual\": false, \"expected\": true}\n{\"case\": \"authoring/unrelated-routes-byte-shape-preserved\", \"passed\": false, \"actual\": false, \"expected\": true}\n",
+      "mutantSourceSha256": "99536194eb6c6f39357e80711b40209c9eac6cc31c9a830a884e0a8d1b409fb7"
+    },
+    {
+      "id": "source-reviewed-audit-family-not-blanket-allowed",
+      "script": "verify_create_operation_requests.py",
+      "passed": true,
+      "exit": 1,
+      "diagnostic": "{\"sourceDocumentSha256\": \"152ec6c0ca90731a8b661799ae8cb87cf3c95a3c1f4a75e50e82f000fe4ecf0f\", \"checked\": 157, \"failed\": 2}\n{\"case\": \"authoring/idempotent\", \"passed\": false, \"actual\": false, \"expected\": true}\n{\"case\": \"authoring/unrelated-routes-byte-shape-preserved\", \"passed\": false, \"actual\": false, \"expected\": true}\n",
+      "mutantSourceSha256": "152ec6c0ca90731a8b661799ae8cb87cf3c95a3c1f4a75e50e82f000fe4ecf0f"
+    },
+    {
+      "id": "cancel-tuple-guard-removal",
+      "script": "verify_operation_state_receipts.py",
+      "passed": true,
+      "exit": 1,
+      "diagnostic": "{\"sourceDocumentSha256\": \"f0ff2bc78b0db412b994a791075c406a3929409b10869e21215a29c43134e839\", \"checked\": 63, \"failed\": 5}\n",
+      "mutantSourceSha256": "f0ff2bc78b0db412b994a791075c406a3929409b10869e21215a29c43134e839"
+    },
+    {
+      "id": "state-enum-silent-extension",
+      "script": "verify_operation_state_receipts.py",
+      "passed": true,
+      "exit": 1,
+      "diagnostic": "{\"sourceDocumentSha256\": \"8c627b65cc04a488d492f7f526090b7dd41ae4084eaf92d6b528a39c3ecfbe5f\", \"checked\": 63, \"failed\": 2}\n",
+      "mutantSourceSha256": "8c627b65cc04a488d492f7f526090b7dd41ae4084eaf92d6b528a39c3ecfbe5f"
+    },
+    {
+      "id": "own-manifest-size-still-blocked",
+      "script": "close_operation_state_receipts.py",
+      "passed": true,
+      "exit": 1,
+      "diagnostic": "{\"status\": \"BLOCKED\", \"pending\": [\"manifest.json#/resources/closure/contracts/operation-state-receipts.json\"], \"normativePresent\": true, \"scope\": \"Six authored fields, their normative contract/projections and own manifest entry; global integrity is independently gated\", \"globalManifestResourceCountMatches\": true}\n",
+      "mutantSourceSha256": "3d0f1e9dc483f19394516c4d98afb16e27316c7a5ec563e9e68dd99dd3c6db49"
+    },
+    {
+      "id": "global-count-scoped-pass-disclosed",
+      "script": "close_operation_state_receipts.py",
+      "passed": true,
+      "exit": 0,
+      "diagnostic": "{\"status\": \"PASS\", \"pending\": [], \"normativePresent\": true, \"scope\": \"Six authored fields, their normative contract/projections and own manifest entry; global integrity is independently gated\", \"globalManifestResourceCountMatches\": false}\n",
+      "mutantSourceSha256": "3d29bad1679905d0f747d9831163f083ac62552ec3d1da4becef77921dd8bdf6"
+    }
+  ],
+  "scriptsSha256": {
+    "verify_route_guard_counters.py": "e4af6c5304fe4b8ace14833b452ab7bd7253066efc6445c9e7e753bde95aee99",
+    "verify_create_operation_requests.py": "9b31f1808f3108e3173c224e71cf06f4fc06f15edba882fde462d0650688b91c",
+    "verify_operation_state_receipts.py": "b8d9c1bc366c8d5e1e6e98cd04e6273c56cd225d40da4d385f3fe4a883a4dc4c",
+    "close_operation_state_receipts.py": "739d6c1d17ac8b7992fbae6f6cbc5abed9099bfda41ee93fa21c26e2ae61677d"
+  },
+  "classification": "ACTUAL_LOCAL_SOURCE_MUTATIONS; no current canonical or Git mutations"
+}

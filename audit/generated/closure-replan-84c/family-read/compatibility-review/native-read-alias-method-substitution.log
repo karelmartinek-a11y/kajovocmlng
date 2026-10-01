@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/workspace/kajovocmlng/scripts/verify_generation_operation_masks.py", line 58, in main
+    author.updates(SSOT.read_text(), package)
+  File "/workspace/kajovocmlng/audit/generated/closure-replan-84c/references/author_native_read_refs.py", line 27, in updates
+    if key in d['$defs'] and d['$defs'][key]!=p['value'] and d['$defs'][key]!=package.get('previousPublishedDefinitions',{}).get(key):raise ValueError('ALIAS_IDENTITY_CONFLICT:'+key)
+                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: ALIAS_IDENTITY_CONFLICT:mcp.resources.read:command

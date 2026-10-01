@@ -1,0 +1,575 @@
+{
+  "sections": {
+    "10.3": {
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.10.3",
+      "startLine": 1316,
+      "endLine": 1393,
+      "sha256": "2e2900d4fe32e9434004af82e10fc0cc9813acd9fa717becedf8624ffd1c30ec",
+      "text": "### 10.3 Streamable HTTP transport a HTTP/JSON-RPC hranice\n\nVe\u0159ejn\u00e1 kanonick\u00e1 hranice modern\u00edho serveru je:\n\n```json\n{\n  \"inputDefinition\": \"PositiveCounter\",\n  \"implementation\": \"scripts/ssot/boundary_codecs.py:component_endpoint\",\n  \"sourceOfNumber\": \"CANONICAL_COMPONENT_REGISTRY\",\n  \"transport\": \"HTTPS\",\n  \"method\": \"POST\",\n  \"fixedDomain\": \"kaja.hcasc.cz\"\n}\n```\n\nKa\u017ed\u00e1 JSON-RPC request nebo transportem p\u0159\u00edpustn\u00e1 notification pou\u017e\u00edv\u00e1 vlastn\u00ed HTTP `POST`. Body obsahuje pr\u00e1v\u011b jednu JSON-RPC zpr\u00e1vu. Batch array, v\u00edce konkatenovan\u00fdch objekt\u016f, JSON-RPC response od klienta, request s `id = null` a objekt obsahuj\u00edc\u00ed sou\u010dasn\u011b `result`/`error` s `method` jsou neplatn\u00e9.\n\nKlient pro request pos\u00edl\u00e1 nejm\u00e9n\u011b:\n\n```json\n{\n  \"Content-Type\": \"application/json\",\n  \"Accept\": \"application/json, text/event-stream\",\n  \"MCP-Protocol-Version\": \"2026-07-28\",\n  \"Mcp-Method\": {\n    \"sourcePointer\": \"/method\"\n  },\n  \"Mcp-Name\": {\n    \"sourceSelection\": \"EXACT_METHOD_ROUTING_SCHEMA\",\n    \"encoder\": \"scripts/ssot/boundary_codecs.py:encode_header\"\n  },\n  \"Authorization\": {\n    \"implementation\": \"scripts/ssot/boundary_codecs.py:authorization\"\n  }\n}\n```\n\n`Mcp-Name` je povinn\u00fd pro:\n\n- `tools/call` a odpov\u00edd\u00e1 `params.name`,\n- `resources/read` a odpov\u00edd\u00e1 `params.uri`,\n- `prompts/get` a odpov\u00edd\u00e1 `params.name`,\n- `tasks/get`, `tasks/update` a `tasks/cancel`, pokud je Tasks extension aktivn\u00ed, a odpov\u00edd\u00e1 `params.taskId`.\n\n`MCP-Protocol-Version`, `Mcp-Method`, `Mcp-Name` a ka\u017ed\u00fd schema-recognized `Mcp-Param-*` jsou singleton routing fields. Dv\u011b instance s rozd\u00edln\u00fdmi hodnotami, comma-joined v\u00edce hodnot, neplatn\u00e9 znaky, neplatn\u00fd Base64 sentinel nebo chyb\u011bj\u00edc\u00ed required field jsou `HeaderMismatch`. Header names se porovn\u00e1vaj\u00ed case-insensitively; method, name, URI a decoded values case-sensitively, s v\u00fdjimkou numerick\u00e9ho porovn\u00e1n\u00ed integer argumentu.\n\nServer odpov\u00ed na JSON-RPC request pr\u00e1v\u011b jedn\u00edm z profil\u016f:\n\n- `Content-Type: application/json` s jedn\u00edm JSON-RPC result nebo error objektem,\n- `Content-Type: text/event-stream` s request-scoped JSON-RPC notifications a jednou fin\u00e1ln\u00ed JSON-RPC response.\n\nKlient MUST podporovat oba profily. Server nesm\u00ed podle `Accept` vybrat jin\u00fd business v\u00fdznam nebo side-effect semantics. `406 Not Acceptable` se vrac\u00ed, pokud `Accept` neumo\u017e\u0148uje oba povinn\u00e9 typy. `415 Unsupported Media Type` se vrac\u00ed pro nepodporovan\u00fd request content type. `413 Content Too Large` se vrac\u00ed p\u0159ed JSON parse, pokud request p\u0159ekro\u010d\u00ed bounded limit.\n\nKanonick\u00e1 HTTP/JSON-RPC mapa je:\n\n| Stav | HTTP | JSON-RPC body | Handler |\n|---|---:|---|---|\n| success nebo b\u011b\u017en\u00fd RPC error validn\u00edho requestu | `200` | result nebo error se stejn\u00fdm exact ID | podle pipeline |\n| p\u0159ijat\u00e1 JSON-RPC notification | `202` | \u017e\u00e1dn\u00e9 body | notification contract |\n| odm\u00edtnut\u00e1 notification | relevantn\u00ed `4xx/5xx` | MAY error bez `id` | ne |\n| neplatn\u00fd `Origin` | `403` | voliteln\u00fd error bez `id` | ne |\n| chyb\u011bj\u00edc\u00ed/neplatn\u00fd credential | `401` nebo `403` | HTTP auth error; nesm\u00ed p\u0159edst\u00edrat peer MCP outcome | ne |\n| malformed JSON | `400` | `-32700 Parse error`, `id` se vynech\u00e1 | ne |\n| neplatn\u00fd JSON-RPC shape, batch, response, `id=null` | `400` | `-32600 Invalid Request`; \u010diteln\u00e9 validn\u00ed ID se echo, jinak se vynech\u00e1 | ne |\n| missing/malformed/mismatched routing header | `400` | `-32020 HeaderMismatch` | ne |\n| unsupported protocol version | `400` | `-32022 UnsupportedProtocolVersion` | ne |\n| missing required current-request capability | `400` | `-32021 MissingRequiredClientCapability` | ne |\n| neimplementovan\u00e1 RPC method | `404` | `-32601 Method not found` se stejn\u00fdm ID | ne |\n| validn\u00ed method, neplatn\u00e9 params/cursor/taskId/unknown tool | `200` | `-32602 Invalid params` nebo method-specific protocol error | ne |\n| runtime JSON-RPC internal failure po p\u0159ijet\u00ed requestu | `200` | `-32603 Internal error` | mo\u017en\u00e1; podle evidence |\n| route mimo MCP endpoint | `404` | b\u011b\u017en\u00e1 HTTP chyba, nikoli MCP era d\u016fkaz | ne |\n| HTTP method jin\u00e1 ne\u017e POST | `405` | \u017e\u00e1dn\u00fd MCP success | ne |\n| rate/capacity p\u0159ed p\u0159ijet\u00edm RPC | `429` nebo `503` | transport error s retry metadata | ne |\n\nMCP-aware klient MUST vyhodnotit HTTP status i p\u0159\u00edpadn\u00e9 JSON-RPC body. HTTP status popisuje transportn\u00ed p\u0159ijet\u00ed; JSON-RPC error popisuje protocol outcome. Klient nesm\u00ed z HTTP `400`, `404` nebo `405` bez anal\u00fdzy body automaticky usoudit na legacy era ani bezpe\u010dn\u011b opakovat mutuj\u00edc\u00ed operaci.\n\nModern\u00ed core revision nedefinuje \u017e\u00e1dnou client-to-server core notification pro Streamable HTTP. `notifications/cancelled` se na HTTP nepos\u00edl\u00e1; zav\u0159en\u00ed p\u0159\u00edslu\u0161n\u00e9ho SSE response streamu je cancellation signal. Pokud budouc\u00ed extension v\u00fdslovn\u011b povol\u00ed notification POST, p\u0159ijat\u00e1 notification MUST vr\u00e1tit `202 Accepted` bez body a receiver nesm\u00ed poslat JSON-RPC response.\n\n"
+    },
+    "10.4": {
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.10.4",
+      "startLine": 1424,
+      "endLine": 1482,
+      "sha256": "7f63d18094ae8e17d635e24b033cb0a4271579961932cca3dd7144b730b78f2d",
+      "text": "### 10.4 JSON-RPC IDs, per-request metadata, identity a capabilities\n\nKa\u017ed\u00fd modern\u00ed request obsahuje v `params._meta` povinn\u00e9 `io.modelcontextprotocol/protocolVersion` a `io.modelcontextprotocol/clientCapabilities`. `io.modelcontextprotocol/clientInfo` je podle MCP voliteln\u00e9 diagnostick\u00e9 metadata; vlastn\u00ed K\u00e1jovoCML klient je standardn\u011b pos\u00edl\u00e1, ale jeho absence u extern\u00edho klienta nen\u00ed chyba protokolu. N\u00e1sleduj\u00edc\u00ed uk\u00e1zka zahrnuje i tato voliteln\u00e1 metadata:\n\n```json\n{\n  \"contractId\": \"mcp.native.RequestMetaObject\",\n  \"protocolVersion\": \"2026-07-28\",\n  \"sourcePath\": \"schema/2026-07-28/schema.json\",\n  \"nativeDefinition\": \"RequestMetaObject\",\n  \"sdkLockBinding\": \"nativeSchemaArtifact.contentDigest\",\n  \"compiler\": \"scripts/ssot/ssot_control.py:compile_native_schema\",\n  \"envelope\": \"NATIVE_DEFINITION\",\n  \"platformMeta\": false,\n  \"noUndeclaredExtension\": true\n}\n```\n\nPodle operation contractu m\u016f\u017ee obsahovat:\n\n- `progressToken`,\n- negotiated extension capabilities,\n- `traceparent`, `tracestate` a `baggage`,\n- K\u00e1jovoCML vendor metadata pouze pod prefixem `cz.hcasc.kajovocml/`.\n\n`io.modelcontextprotocol/*` a jin\u00e9 MCP-reserved prefixes nesm\u00ed K\u00e1jovoCML pou\u017e\u00edt pro vendor hodnotu. Unknown vendor `_meta` se zachov\u00e1 pouze jako bounded untrusted metadata, nesm\u00ed zm\u011bnit identity, access, binding, idempotency, side-effect, retry, deadline nebo schema.\n\nProtocol version a capabilities se vyhodnocuj\u00ed pro ka\u017ed\u00fd request samostatn\u011b. `clientInfo` a `serverInfo` jsou self-reported diagnostick\u00e1 metadata a nesm\u00ed b\u00fdt security, routing, collision, idempotency ani compatibility autoritou. Ve\u0159ejn\u00fd request z\u00edsk\u00e1 access context z ov\u011b\u0159en\u00e9ho OWNER API kl\u00ed\u010de nebo endpoint-local credentialu; intern\u00ed request v\u00fdhradn\u011b z trusted runtime gateway.\n\nJSON-RPC request ID:\n\n- MUST b\u00fdt string nebo integer a MUST NOT b\u00fdt `null`, boolean, float, object nebo array,\n- MUST b\u00fdt unik\u00e1tn\u00ed mezi v\u0161emi requests, kter\u00e9 stejn\u00fd sender v dan\u00e9m exact source/access contextu vydal a dosud pro n\u011b neobdr\u017eel response,\n- string `\"1\"` a integer `1` jsou rozd\u00edln\u00e1 ID; server MUST echo exact JSON type a value,\n- `subscriptions/listen` ID z\u016fst\u00e1v\u00e1 in-flight po celou dobu subscription streamu,\n- reuse ID po fin\u00e1ln\u00ed response je povoleno, ale vznik\u00e1 nov\u00fd transport request; nesm\u00ed replayovat star\u00fd business outcome pouze podle ID,\n- duplicate in-flight ID se odm\u00edtne `-32600` s `error.data.stableCode = MCP_DUPLICATE_IN_FLIGHT_REQUEST_ID`; druh\u00fd request se nespust\u00ed,\n- nen\u00ed idempotency key, logical operation ID, task ID, state handle ani correlation ID.\n\nKa\u017ed\u00fd modern\u00ed result obsahuje zn\u00e1m\u00fd `resultType`. Core hodnoty jsou `complete` a `input_required`; negotiated extension m\u016f\u017ee p\u0159idat dal\u0161\u00ed hodnotu, nap\u0159\u00edklad `task`. Nezn\u00e1m\u00fd nebo nevyjednan\u00fd `resultType` je invalid response. Pouze compatibility adapter p\u0159i \u010dten\u00ed explicitn\u011b legacy response m\u016f\u017ee chyb\u011bj\u00edc\u00ed `resultType` normalizovat na `complete`; generated modern\u00ed server jej MUST v\u017edy emitovat.\n\nServer v result `_meta` uv\u00e1d\u00ed nejm\u00e9n\u011b:\n\n```json\n{\n  \"contractId\": \"mcp.native.ResultMetaObject\",\n  \"protocolVersion\": \"2026-07-28\",\n  \"sourcePath\": \"schema/2026-07-28/schema.json\",\n  \"nativeDefinition\": \"ResultMetaObject\",\n  \"sdkLockBinding\": \"nativeSchemaArtifact.contentDigest\",\n  \"compiler\": \"scripts/ssot/ssot_control.py:compile_native_schema\",\n  \"envelope\": \"NATIVE_DEFINITION\",\n  \"platformMeta\": false,\n  \"noUndeclaredExtension\": true\n}\n```\n\nNepodporovan\u00e1 version vrac\u00ed `-32022` a `error.data` obsahuje `requested` a deterministicky se\u0159azen\u00e9 `supported`. Chyb\u011bj\u00edc\u00ed capability vrac\u00ed `-32021` a exact `requiredCapabilities`. Header/body mismatch vrac\u00ed `-32020`. V\u0161echny tyto chyby vznikaj\u00ed p\u0159ed dom\u00e9nov\u00fdm side effectem.\n\n"
+    },
+    "10.10": {
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.10.10",
+      "startLine": 1673,
+      "endLine": 1718,
+      "sha256": "44c4ea5498f4b9c3bd276092df2d6566282e2d1bd5adea0d71241a6949a89b69",
+      "text": "### 10.10 Result, protocol error, tool execution error a platform failure\n\nB\u011b\u017en\u00fd tool result pou\u017e\u00edv\u00e1:\n\n```json\n{\n  \"contractId\": \"mcp.native.CallToolResult\",\n  \"protocolVersion\": \"2026-07-28\",\n  \"sourcePath\": \"schema/2026-07-28/schema.json\",\n  \"nativeDefinition\": \"CallToolResult\",\n  \"sdkLockBinding\": \"nativeSchemaArtifact.contentDigest\",\n  \"compiler\": \"scripts/ssot/ssot_control.py:compile_native_schema\",\n  \"envelope\": \"JSONRPC_RESPONSE\",\n  \"platformMeta\": true,\n  \"noUndeclaredExtension\": true\n}\n```\n\n`structuredContent` m\u016f\u017ee b\u00fdt libovoln\u00e1 JSON hodnota a p\u0159i deklarovan\u00e9m output schema mu MUST odpov\u00eddat. K\u00e1jovoCML generated tool output schema deklaruje v\u017edy. `content` je deterministic human/model render stejn\u00e9ho v\u00fdsledku nebo dopl\u0148uj\u00edc\u00ed text/image/audio/resource content. Pokud contract neur\u010duje jin\u00fd bezpe\u010dn\u00fd render, structured value se poskytne tak\u00e9 jako canonical serialized text content.\n\nJSON-RPC response:\n\n- MUST obsahovat exact request ID se stejn\u00fdm JSON type/value,\n- MUST obsahovat pr\u00e1v\u011b `result` nebo `error`, nikdy oboj\u00ed,\n- result MUST obsahovat zn\u00e1m\u00fd `resultType`,\n- error code MUST b\u00fdt integer a message string,\n- p\u0159i parse/invalid request, jeho\u017e ID nelze spolehliv\u011b p\u0159e\u010d\u00edst, se `id` vynech\u00e1; modern\u00ed K\u00e1jovoCML nepou\u017e\u00edv\u00e1 `id:null` jako n\u00e1hradu.\n\nChyby se rozli\u0161uj\u00ed:\n\n1. **Protocol error** \u2014 request nelze bezpe\u010dn\u011b p\u0159edat tool handleru: malformed JSON-RPC, header mismatch, unsupported version, missing capability, unknown method, unknown tool, invalid CallToolRequest params, invalid cursor/task ID nebo binding-visible protocol shape. Vrac\u00ed JSON-RPC error a handler se nespust\u00ed.\n2. **Tool execution error** \u2014 request a tool dispatch jsou validn\u00ed, ale operation-specific input, dependency nebo business podm\u00ednka m\u016f\u017ee b\u00fdt opravena callerem/modellem. Vrac\u00ed `resultType=complete`, `isError=true`, actionable `content` a stable tool error v result `_meta`; nejde o JSON-RPC protocol failure.\n3. **Platform failure** \u2014 ne\u010dekan\u00e1 chyba gateway/runtime/persistence. P\u0159ed dispatch vrac\u00ed `-32603` bez effectu. Po mo\u017en\u00e9m side effectu se nejprve persistuje raw attempt a reconciliation; response nesm\u00ed tvrdit safe retry, dokud outcome nen\u00ed zn\u00e1m\u00fd.\n\nUnknown tool a malformed `tools/call` params pou\u017e\u00edvaj\u00ed `-32602`, nikoli tool `isError`. Resource/task/cursor not found v modern\u00edm profilu rovn\u011b\u017e pou\u017e\u00edv\u00e1 `-32602`; legacy `-32002` se p\u0159ij\u00edm\u00e1 pouze od explicitn\u011b legacy serveru a adapter jej normalizuje.\n\nMCP specification-reserved rozsah `-32020` a\u017e `-32099` sm\u00ed K\u00e1jovoCML pou\u017e\u00edt pouze pro codes definovan\u00e9 danou MCP revision. Pro `2026-07-28` jsou to pr\u00e1v\u011b `-32020`, `-32021` a `-32022`. K\u00e1jovoCML-specific v\u00fdznam se p\u0159en\u00e1\u0161\u00ed v `error.data.stableCode`, `classification`, `retryDirective`, `correlationId` a safe details; nesm\u00ed se vyd\u00e1vat pod nedefinovan\u00fdm `-320xx` code.\n\nSchema-neplatn\u00fd handler output se nikdy neode\u0161le jako success. Runtime ulo\u017e\u00ed raw output, ozna\u010d\u00ed `MCP_RESULT_SCHEMA_INVALID` a:\n\n- bez side effectu nebo p\u0159i `CONFIRMED_NOT_APPLIED` vr\u00e1t\u00ed `-32603` a terminal known failure,\n- p\u0159i `CONFIRMED_APPLIED` vr\u00e1t\u00ed non-retryable platform/tool failure s `effectOutcome=CONFIRMED_APPLIED`, aby caller nevytvo\u0159il duplicate effect,\n- p\u0159i `UNKNOWN` vr\u00e1t\u00ed `MCP_OUTCOME_UNKNOWN`, p\u0159ejde do `MANUAL_REVIEW` a zablokuje nov\u00fd dispatch.\n\nStructured error content je vynechan\u00fd nebo odpov\u00edd\u00e1 explicitn\u00ed error variant\u011b output schema. Text `message` nen\u00ed machine contract a nesm\u00ed ur\u010dovat retry. Pln\u00fd intern\u00ed exception context je dostupn\u00fd OWNERovi v logu/auditu; external binding dostane pouze safe details.\n\n"
+    },
+    "10.11": {
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.10.11",
+      "startLine": 1719,
+      "endLine": 1773,
+      "sha256": "0958d24936d5a94b0071895c6329c5a7a0dd4642924502f4714d7ea0cc591f96",
+      "text": "### 10.11 Multi Round-Trip Requests \u2014 MRTR\n\n`InputRequiredResult` lze vr\u00e1tit pouze z:\n\n- `tools/call`,\n- `resources/read`,\n- `prompts/get`.\n\nJin\u00e1 method nesm\u00ed vr\u00e1tit `resultType=input_required`. Result obsahuje alespo\u0148 jedno z `inputRequests` nebo `requestState`:\n\n```json\n{\n  \"contractId\": \"mcp.native.InputRequiredResult\",\n  \"protocolVersion\": \"2026-07-28\",\n  \"sourcePath\": \"schema/2026-07-28/schema.json\",\n  \"nativeDefinition\": \"InputRequiredResult\",\n  \"sdkLockBinding\": \"nativeSchemaArtifact.contentDigest\",\n  \"compiler\": \"scripts/ssot/ssot_control.py:compile_native_schema\",\n  \"envelope\": \"NATIVE_DEFINITION\",\n  \"platformMeta\": false,\n  \"noUndeclaredExtension\": true\n}\n```\n\n`inputRequests` je mapa unique string keys v r\u00e1mci jednoho MRTR resultu. Value je pouze request shape povolen\u00fd current protocol revision, zejm\u00e9na `elicitation/create`, `sampling/createMessage` nebo `roots/list`. Server nesm\u00ed vlo\u017eit request, pro kter\u00fd klient v aktu\u00e1ln\u00edm requestu nedeklaroval capability. Generated K\u00e1jovoCML server pro nov\u00fd business tok pou\u017e\u00edv\u00e1 standardn\u011b `elicitation/create`; Sampling nebo Roots pou\u017eije pouze explicitn\u00ed revision contract a negotiated capability, nikdy jako skrytou platformn\u00ed z\u00e1vislost.\n\nClient retry:\n\n- pou\u017e\u00edv\u00e1 nov\u00e9 JSON-RPC ID,\n- znovu pos\u00edl\u00e1 p\u016fvodn\u00ed method a nezm\u011bn\u011bn\u00e9 salient business arguments,\n- pos\u00edl\u00e1 `inputResponses` ke zn\u00e1m\u00fdm keys,\n- echo p\u0159esn\u011b stejn\u00fd `requestState`, pokud byl vyd\u00e1n,\n- nesm\u00ed poslat `requestState`, pokud p\u016fvodn\u00ed result \u017e\u00e1dn\u00fd neobsahoval,\n- z\u016fst\u00e1v\u00e1 sou\u010d\u00e1st\u00ed stejn\u00e9 intern\u00ed logical operation a business idempotency scope; zm\u011bna p\u016fvodn\u00edch arguments vytv\u00e1\u0159\u00ed conflict, nikoli jinou v\u011btev stejn\u00e9ho MRTR.\n\n`requestState` je opaque string. Klient jej nesm\u00ed inspect, parse, normalize ani modifikovat. K\u00e1jovoCML jej chr\u00e1n\u00ed AEAD/HMAC nebo ukl\u00e1d\u00e1 server-side pod cryptographically random handlem a ov\u011b\u0159uje exact source/access context, server/tool revision, method, target, original salient-argument digest, binding-set revision, activation epoch, logical operation, expiration a consumption state.\n\nMRTR pre-side-effect invariant:\n\n- server MUST vr\u00e1tit `input_required` p\u0159ed prvn\u00edm external/non-idempotent side effectem dan\u00e9ho continuation,\n- nelze-li tento invariant splnit, operation pou\u017eije negotiated durable Task nebo samostatn\u00fd explicitn\u00ed command workflow,\n- `requestState` nikdy nedokazuje, \u017ee side effect nebyl proveden.\n\nP\u0159i retry server:\n\n1. validuje requestState a original request digest,\n2. ignoruje a auditn\u011b eviduje unknown response keys, already-satisfied keys a keys, kter\u00e9 nejsou v current outstanding setu,\n3. p\u0159ijme partial known responses; pokud nezbytn\u00fd input chyb\u00ed, vr\u00e1t\u00ed nov\u00fd `InputRequiredResult`,\n4. canonicalizuje accepted responses a atomicky je consume s enqueue resume,\n5. exact replay ji\u017e consumed state se stejn\u00fdm response digestem vr\u00e1t\u00ed current/terminal canonical outcome,\n6. reuse consumed state s jin\u00fdm recognized response digestem vr\u00e1t\u00ed `MCP_REQUEST_STATE_CONSUMED`,\n7. invalid signature/context/method/digest vr\u00e1t\u00ed `MCP_REQUEST_STATE_INVALID`; expiry vr\u00e1t\u00ed `MCP_REQUEST_STATE_EXPIRED`.\n\nK\u00e1jovoCML mapuje MRTR na persistentn\u00ed `mcp_input_exchange`. OWNER approval, credential dopln\u011bn\u00ed nebo challenge vytv\u00e1\u0159\u00ed exact input request s immutable digestem. Agent run p\u0159ejde do `WAITING_FOR_MCP_INPUT` nebo `WAITING_FOR_OWNER`, ulo\u017e\u00ed checkpoint a po atomic consume pokra\u010duje pr\u00e1v\u011b jednou. MRTR result a ka\u017ed\u00fd retry s `inputResponses`/`requestState` se nesm\u00ed cacheovat.\n\n"
+    },
+    "10.14": {
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.10.14",
+      "startLine": 1820,
+      "endLine": 1850,
+      "sha256": "1744fa863510e8a750c52a246533bd5a109f5424b1799458e3ddcbbbdff209d8",
+      "text": "### 10.14 Resources a prompts\n\nMCP resource contract deklaruje:\n\n- stabiln\u00ed resource ID,\n- URI nebo URI template,\n- MIME type a optional size,\n- read/output contract,\n- `resources/list`, `resources/templates/list` a `resources/read` capability,\n- operation scope a access binding,\n- pagination a cursor policy,\n- `ttlMs` a `cacheScope` policy,\n- resource update capability,\n- owner revision a digest.\n\nResource read vrac\u00ed `resultType = complete`, content, `ttlMs` a `cacheScope`. Text a binary content odpov\u00edd\u00e1 URI a MIME kontraktu. URI template pou\u017e\u00edv\u00e1 validovan\u00fd RFC 6570 profil a bounded parameter expansion.\n\nMCP prompt contract deklaruje:\n\n- stabiln\u00ed prompt ID a case-sensitive jm\u00e9no,\n- title a popis \u00fa\u010delu,\n- typed argument contract,\n- immutable template revision,\n- role/content strukturu,\n- povolen\u00e9 resource references,\n- model hints bez vynucen\u00ed provideru,\n- output rendering testy,\n- owner revision a digest.\n\nPrompt renderer odm\u00edtne chyb\u011bj\u00edc\u00ed nebo nezn\u00e1m\u00e9 argumenty podle contractu a nevkl\u00e1d\u00e1 Secret hodnotu bez explicitn\u00edho bindingu. `prompts/list` je deterministic a cacheable; `prompts/get` vrac\u00ed `resultType = complete` a server identity metadata.\n\n"
+    },
+    "10.16.1": {
+      "sourcePointer": "00_SSOT/KajovoCMLNG_SSOT.md#section.10.16.1",
+      "startLine": 1897,
+      "endLine": 1918,
+      "sha256": "33719b31064d2ad1568d82e825bee84fa70118f7308260f8948e944ed5748cd6",
+      "text": "#### 10.16.1 Tasks capability a vytvo\u0159en\u00ed tasku\n\nDlouhotrvaj\u00edc\u00ed `tools/call` MAY pou\u017e\u00edt extension `io.modelcontextprotocol/tasks` pouze tehdy, kdy\u017e:\n\n- server ji deklaruje v `server/discover`,\n- client ji deklaruje v capabilities konkr\u00e9tn\u00edho `tools/call`,\n- tool revision task augmentation povoluje,\n- durable task je commitnut\u00fd p\u0159ed vyd\u00e1n\u00edm task ID.\n\nV revision `2026-07-28` task augmentation podporuje pouze `tools/call`. Client task nevy\u017eaduje ani nevynucuje; server rozhoduje per request a client mus\u00ed um\u011bt p\u0159ijmout b\u011b\u017en\u00fd `complete|input_required` result i `resultType=task`. Server nesm\u00ed vr\u00e1tit task bez current-request capability. Nem\u016f\u017ee-li bez tasku operation obslou\u017eit, vr\u00e1t\u00ed `-32021` s required extension.\n\nCreateTaskResult m\u00e1 `resultType=task` a obsahuje:\n\n- `taskId`,\n- lowercase status `working|input_required|completed|failed|cancelled`,\n- `createdAt`, `lastUpdatedAt`,\n- `ttlMs` jako integer duration od creation nebo `null`,\n- voliteln\u00fd integer `pollIntervalMs`,\n- voliteln\u00fd `statusMessage`.\n\nTask je p\u0159ed response durable a okam\u017eit\u011b resolvable p\u0159es `tasks/get`. Pot\u0159ebuje-li server client input je\u0161t\u011b p\u0159ed rozhodnut\u00edm o vytvo\u0159en\u00ed tasku, dokon\u010d\u00ed tento MRTR synchronn\u011b na p\u016fvodn\u00ed method\u011b p\u0159ed CreateTaskResult; po vyd\u00e1n\u00ed tasku se dal\u0161\u00ed input p\u0159en\u00e1\u0161\u00ed pouze p\u0159es task `inputRequests` v `tasks/get` a `inputResponses` v `tasks/update`, nikoli MRTR retry p\u016fvodn\u00edho callu. Je sv\u00e1z\u00e1n s exact source/access contextem, original tool/revision/request digestem, binding-set revision, activation epoch, logical operation ID a idempotency key. P\u0159e\u017eije HTTP disconnect, worker restart a process replacement. Task ID nen\u00ed credential ani business idempotency key.\n\n"
+    }
+  },
+  "fields": [
+    {
+      "definition": "GetPromptRequest",
+      "field": "id",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/GetPromptRequest/properties/id",
+      "required": true,
+      "schema": {
+        "$ref": "#/$defs/RequestId"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.4"
+    },
+    {
+      "definition": "GetPromptRequest",
+      "field": "jsonrpc",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/GetPromptRequest/properties/jsonrpc",
+      "required": true,
+      "schema": {
+        "const": "2.0",
+        "type": "string"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "GetPromptRequest",
+      "field": "method",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/GetPromptRequest/properties/method",
+      "required": true,
+      "schema": {
+        "const": "prompts/get",
+        "type": "string"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "GetPromptRequest",
+      "field": "params",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/GetPromptRequest/properties/params",
+      "required": true,
+      "schema": {
+        "$ref": "#/$defs/GetPromptRequestParams"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "GetPromptRequestParams",
+      "field": "_meta",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/GetPromptRequestParams/properties/_meta",
+      "required": true,
+      "schema": {
+        "$ref": "#/$defs/RequestMetaObject"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.4"
+    },
+    {
+      "definition": "GetPromptRequestParams",
+      "field": "arguments",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/GetPromptRequestParams/properties/arguments",
+      "required": false,
+      "schema": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Arguments to use for templating the prompt.",
+        "type": "object"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "GetPromptRequestParams",
+      "field": "inputResponses",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/GetPromptRequestParams/properties/inputResponses",
+      "required": false,
+      "schema": {
+        "$ref": "#/$defs/InputResponses"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.11"
+    },
+    {
+      "definition": "GetPromptRequestParams",
+      "field": "name",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/GetPromptRequestParams/properties/name",
+      "required": true,
+      "schema": {
+        "description": "The name of the prompt or prompt template.",
+        "type": "string"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "GetPromptRequestParams",
+      "field": "requestState",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/GetPromptRequestParams/properties/requestState",
+      "required": false,
+      "schema": {
+        "type": "string"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.11"
+    },
+    {
+      "definition": "GetPromptResult",
+      "field": "_meta",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/GetPromptResult/properties/_meta",
+      "required": false,
+      "schema": {
+        "$ref": "#/$defs/ResultMetaObject"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.4"
+    },
+    {
+      "definition": "GetPromptResult",
+      "field": "description",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/GetPromptResult/properties/description",
+      "required": false,
+      "schema": {
+        "description": "An optional description for the prompt.",
+        "type": "string"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "GetPromptResult",
+      "field": "messages",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/GetPromptResult/properties/messages",
+      "required": true,
+      "schema": {
+        "items": {
+          "$ref": "#/$defs/PromptMessage"
+        },
+        "type": "array"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "GetPromptResult",
+      "field": "resultType",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/GetPromptResult/properties/resultType",
+      "required": true,
+      "schema": {
+        "description": "Indicates the type of the result, which allows the client to determine\nhow to parse the result object.\n\nServers implementing this protocol version MUST include this field.\nFor backward compatibility, when a client receives a result from a\nserver implementing an earlier protocol version (which does not include\n`resultType`), the client MUST treat the absent field as `\"complete\"`.",
+        "type": "string"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "ReadResourceRequest",
+      "field": "id",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ReadResourceRequest/properties/id",
+      "required": true,
+      "schema": {
+        "$ref": "#/$defs/RequestId"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.4"
+    },
+    {
+      "definition": "ReadResourceRequest",
+      "field": "jsonrpc",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ReadResourceRequest/properties/jsonrpc",
+      "required": true,
+      "schema": {
+        "const": "2.0",
+        "type": "string"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "ReadResourceRequest",
+      "field": "method",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ReadResourceRequest/properties/method",
+      "required": true,
+      "schema": {
+        "const": "resources/read",
+        "type": "string"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "ReadResourceRequest",
+      "field": "params",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ReadResourceRequest/properties/params",
+      "required": true,
+      "schema": {
+        "$ref": "#/$defs/ReadResourceRequestParams"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "ReadResourceRequestParams",
+      "field": "_meta",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ReadResourceRequestParams/properties/_meta",
+      "required": true,
+      "schema": {
+        "$ref": "#/$defs/RequestMetaObject"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.4"
+    },
+    {
+      "definition": "ReadResourceRequestParams",
+      "field": "inputResponses",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ReadResourceRequestParams/properties/inputResponses",
+      "required": false,
+      "schema": {
+        "$ref": "#/$defs/InputResponses"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.11"
+    },
+    {
+      "definition": "ReadResourceRequestParams",
+      "field": "requestState",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ReadResourceRequestParams/properties/requestState",
+      "required": false,
+      "schema": {
+        "type": "string"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.11"
+    },
+    {
+      "definition": "ReadResourceRequestParams",
+      "field": "uri",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ReadResourceRequestParams/properties/uri",
+      "required": true,
+      "schema": {
+        "description": "The URI of the resource. The URI can use any protocol; it is up to the server how to interpret it.",
+        "format": "uri",
+        "type": "string"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "ReadResourceResult",
+      "field": "_meta",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ReadResourceResult/properties/_meta",
+      "required": false,
+      "schema": {
+        "$ref": "#/$defs/ResultMetaObject"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.4"
+    },
+    {
+      "definition": "ReadResourceResult",
+      "field": "cacheScope",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ReadResourceResult/properties/cacheScope",
+      "required": true,
+      "schema": {
+        "description": "Indicates the intended scope of the cached response, analogous to HTTP\n`Cache-Control: public` vs `Cache-Control: private`.\n\n- `\"public\"`: The response does not contain user-specific data. Any\n  client or intermediary (e.g., shared gateway, caching proxy) MAY cache\n  the response and serve it across authorization contexts.\n- `\"private\"`: The response MAY be cached and reused only within the\n  same authorization context. Caches MUST NOT be shared across\n  authorization contexts (e.g., a different access token requires a\n  different cache).",
+        "enum": [
+          "private",
+          "public"
+        ],
+        "type": "string"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "ReadResourceResult",
+      "field": "contents",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ReadResourceResult/properties/contents",
+      "required": true,
+      "schema": {
+        "items": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextResourceContents"
+            },
+            {
+              "$ref": "#/$defs/BlobResourceContents"
+            }
+          ]
+        },
+        "type": "array"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "ReadResourceResult",
+      "field": "resultType",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ReadResourceResult/properties/resultType",
+      "required": true,
+      "schema": {
+        "description": "Indicates the type of the result, which allows the client to determine\nhow to parse the result object.\n\nServers implementing this protocol version MUST include this field.\nFor backward compatibility, when a client receives a result from a\nserver implementing an earlier protocol version (which does not include\n`resultType`), the client MUST treat the absent field as `\"complete\"`.",
+        "type": "string"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "ReadResourceResult",
+      "field": "ttlMs",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ReadResourceResult/properties/ttlMs",
+      "required": true,
+      "schema": {
+        "description": "A hint from the server indicating how long (in milliseconds) the\nclient MAY cache this response before re-fetching. Semantics are\nanalogous to HTTP Cache-Control max-age.\n\n- If 0, The response SHOULD be considered immediately stale,\n  The client MAY re-fetch every time the result is needed.\n- If positive, the client SHOULD consider the result fresh for this many\n  milliseconds after receiving the response.",
+        "minimum": 0,
+        "type": "integer"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "InputRequiredResult",
+      "field": "_meta",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/InputRequiredResult/properties/_meta",
+      "required": false,
+      "schema": {
+        "$ref": "#/$defs/ResultMetaObject"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.4"
+    },
+    {
+      "definition": "InputRequiredResult",
+      "field": "inputRequests",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/InputRequiredResult/properties/inputRequests",
+      "required": false,
+      "schema": {
+        "$ref": "#/$defs/InputRequests"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.11"
+    },
+    {
+      "definition": "InputRequiredResult",
+      "field": "requestState",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/InputRequiredResult/properties/requestState",
+      "required": false,
+      "schema": {
+        "type": "string"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.11"
+    },
+    {
+      "definition": "InputRequiredResult",
+      "field": "resultType",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/InputRequiredResult/properties/resultType",
+      "required": true,
+      "schema": {
+        "description": "Indicates the type of the result, which allows the client to determine\nhow to parse the result object.\n\nServers implementing this protocol version MUST include this field.\nFor backward compatibility, when a client receives a result from a\nserver implementing an earlier protocol version (which does not include\n`resultType`), the client MUST treat the absent field as `\"complete\"`.",
+        "type": "string"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "RequestMetaObject",
+      "field": "io.modelcontextprotocol/clientCapabilities",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/RequestMetaObject/properties/io.modelcontextprotocol/clientCapabilities",
+      "required": true,
+      "schema": {
+        "$ref": "#/$defs/ClientCapabilities",
+        "description": "The client's capabilities for this specific request. Required.\n\nCapabilities are declared per-request rather than once at initialization;\nan empty object means the client supports no optional capabilities.\nServers MUST NOT infer capabilities from prior requests."
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "RequestMetaObject",
+      "field": "io.modelcontextprotocol/clientInfo",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/RequestMetaObject/properties/io.modelcontextprotocol/clientInfo",
+      "required": false,
+      "schema": {
+        "$ref": "#/$defs/Implementation",
+        "description": "Identifies the client software making the request. Clients SHOULD\ninclude this field on every request unless specifically configured not\nto do so.\n\nThe {@link Implementation} schema requires `name` and `version`; other\nfields are optional.\n\nThe value is self-reported by the client and is not verified by the\nprotocol. It is intended for display, logging, and debugging. Servers\nSHOULD NOT use it to change their behavior, and SHOULD NOT rely on it for\nsecurity decisions."
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "RequestMetaObject",
+      "field": "io.modelcontextprotocol/logLevel",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/RequestMetaObject/properties/io.modelcontextprotocol/logLevel",
+      "required": false,
+      "schema": {
+        "$ref": "#/$defs/LoggingLevel",
+        "description": "The desired log level for this request. Optional.\n\nIf absent, the server MUST NOT send any {@link LoggingMessageNotificationnotifications/message}\nnotifications for this request. The client opts in to log messages by\nexplicitly setting a level. Replaces the former `logging/setLevel` RPC."
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "RequestMetaObject",
+      "field": "io.modelcontextprotocol/protocolVersion",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/RequestMetaObject/properties/io.modelcontextprotocol/protocolVersion",
+      "required": true,
+      "schema": {
+        "description": "The MCP Protocol Version being used for this request. Required.\n\nFor the HTTP transport, this value MUST match the `MCP-Protocol-Version`\nheader; otherwise the server MUST return a `400 Bad Request`. If the\nserver does not support the requested version, it MUST return an\n{@link UnsupportedProtocolVersionError}.",
+        "type": "string"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "RequestMetaObject",
+      "field": "progressToken",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/RequestMetaObject/properties/progressToken",
+      "required": false,
+      "schema": {
+        "$ref": "#/$defs/ProgressToken",
+        "description": "If specified, the caller is requesting out-of-band progress notifications for this request (as represented by {@link ProgressNotificationnotifications/progress}). The value of this parameter is an opaque token that will be attached to any subsequent notifications. The receiver is not obligated to provide these notifications."
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "ResultMetaObject",
+      "field": "io.modelcontextprotocol/serverInfo",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/ResultMetaObject/properties/io.modelcontextprotocol/serverInfo",
+      "required": false,
+      "schema": {
+        "$ref": "#/$defs/Implementation",
+        "description": "Identifies the server software producing the response. Servers SHOULD\ninclude this field on every response unless specifically configured not\nto do so.\n\nThe {@link Implementation} schema requires `name` and `version`; other\nfields are optional.\n\nThe value is self-reported by the server and is not verified by the\nprotocol. It is intended for display, logging, and debugging. Clients\nSHOULD NOT use it to change their behavior, and SHOULD NOT rely on it for\nsecurity decisions."
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "JSONRPCErrorResponse",
+      "field": "error",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/JSONRPCErrorResponse/properties/error",
+      "required": true,
+      "schema": {
+        "$ref": "#/$defs/Error"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    },
+    {
+      "definition": "JSONRPCErrorResponse",
+      "field": "id",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/JSONRPCErrorResponse/properties/id",
+      "required": false,
+      "schema": {
+        "$ref": "#/$defs/RequestId"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.4"
+    },
+    {
+      "definition": "JSONRPCErrorResponse",
+      "field": "jsonrpc",
+      "sourcePointer": "contracts/mcp/native-2026-07-28.schema.json#/$defs/JSONRPCErrorResponse/properties/jsonrpc",
+      "required": true,
+      "schema": {
+        "const": "2.0",
+        "type": "string"
+      },
+      "origin": "NATIVE_PINNED_2026_07_28",
+      "semanticAuthority": "10.14"
+    }
+  ],
+  "schemaCount": 10,
+  "fieldCount": 39,
+  "technicalOverlayRules": [
+    {
+      "rule": "Envelope and params permit exactly named native fields; vendor extensions remain _meta",
+      "authority": [
+        "10.3",
+        "10.4"
+      ],
+      "classification": "TECHNICAL_EXPLICIT_MASK_DERIVATION"
+    },
+    {
+      "rule": "Result complete/input_required distinct discriminator, MRTR retains its continuation fields",
+      "authority": [
+        "10.11",
+        "10.14"
+      ],
+      "classification": "EXISTING_PREVIOUSLY_UNCAPTURED"
+    },
+    {
+      "rule": "No task result for resources/read or prompts/get",
+      "authority": [
+        "10.16.1"
+      ],
+      "classification": "EXISTING_PREVIOUSLY_UNCAPTURED"
+    },
+    {
+      "rule": "Exact request ID JSON type/value and safe no-id parse errors remain distinct",
+      "authority": [
+        "10.4",
+        "10.10"
+      ],
+      "classification": "EXISTING_PREVIOUSLY_UNCAPTURED"
+    },
+    {
+      "rule": "Platform-rendered prompt completion serverInfo requirement is a separate unbound producer specialization; optional raw native external serverInfo stays compatible",
+      "authority": [
+        "10.4",
+        "10.14"
+      ],
+      "classification": "EXISTING_PREVIOUSLY_UNCAPTURED_PRODUCER_BOUNDARY",
+      "activated": false
+    },
+    {
+      "rule": "Raw native complete/input_required result metadata is optional for both methods; present metadata retains exact native validation. Platform-rendered complete response metadata is a separate producer specialization.",
+      "authority": [
+        "contracts/mcp/native-2026-07-28.schema.json#/$defs/GetPromptResult",
+        "contracts/mcp/native-2026-07-28.schema.json#/$defs/ReadResourceResult",
+        "contracts/mcp/native-2026-07-28.schema.json#/$defs/InputRequiredResult",
+        "10.4",
+        "10.14"
+      ],
+      "classification": "REPRODUCED_WIRE_DOMAIN_CONFLATION_CORRECTION",
+      "activatesPlatformSpecialization": false
+    }
+  ]
+}

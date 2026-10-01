@@ -1,0 +1,39 @@
+{
+  "sourceSha256": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0",
+  "cases": [
+    {
+      "case": "generation-original14-plus7-bindings-positive",
+      "passed": true
+    },
+    {
+      "case": "corrupt-support",
+      "passed": true,
+      "requiredDiagnostic": "consumed-support:audit/generated/resume-34d/auth-crypto/verify_authenticated_full_chain.py"
+    },
+    {
+      "case": "missing-support-map",
+      "passed": true,
+      "requiredDiagnostic": "all-named-consumed-support"
+    },
+    {
+      "case": "producer-complete8-current-positive",
+      "passed": true
+    },
+    {
+      "case": "all8-proof-labels-same-116e",
+      "passed": true
+    },
+    {
+      "case": "missing-selected-map-after-import",
+      "passed": false,
+      "actualStatus": "PASS",
+      "actualExit": 0,
+      "finding": "A selected evidence mapping must remain available at execution, not only import time."
+    }
+  ],
+  "checked": 6,
+  "failed": 1,
+  "proofMappingSha256": "e64770ae8dc427d97d6089afcf473b5fbd66d082fef43ead97512c5fa66500cf",
+  "wholeOperationClosed": false,
+  "implementationAcceptance": "NOT_EVALUATED"
+}

@@ -1,0 +1,331 @@
+{
+  "status": "PASS",
+  "scope": "REFERENCE_SCHEMA_AND_CROSS_MESSAGE_GUARDS_ONLY",
+  "checks": [
+    {
+      "id": "mcp.prompts.get.positive.request",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.positive.complete",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.positive.MRTR",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.positive.raw_complete_without_meta",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.positive.raw_MRTR_without_meta",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.raw_MRTR_invalid_present_meta",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.positive.error",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.missing_target",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.null_target",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.numeric_target",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.unknown_param",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.unknown_envelope",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.missing_metadata",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.missing_capabilities",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.boolean_ID",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.wrong_method",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.missing_resultType",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.unknown_resultType",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.task_for_non_tool",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.unknown_output",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.both_result_error",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.invalid_present_result_meta",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.MRTR_missing_state_and_requests",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.reserved_undefined_error",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.positive.request",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.positive.complete",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.positive.MRTR",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.positive.raw_complete_without_meta",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.positive.raw_MRTR_without_meta",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.raw_MRTR_invalid_present_meta",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.positive.error",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.missing_target",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.null_target",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.numeric_target",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.unknown_param",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.unknown_envelope",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.missing_metadata",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.missing_capabilities",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.boolean_ID",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.wrong_method",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.missing_resultType",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.unknown_resultType",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.task_for_non_tool",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.unknown_output",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.both_result_error",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.invalid_present_result_meta",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.MRTR_missing_state_and_requests",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.reserved_undefined_error",
+      "status": "PASS"
+    },
+    {
+      "id": "prompt.platform_producer.positive_serverInfo",
+      "status": "PASS"
+    },
+    {
+      "id": "prompt.native_wire.positive_omitted_optional_serverInfo",
+      "status": "PASS"
+    },
+    {
+      "id": "prompt.platform_producer.negative_missing_serverInfo",
+      "status": "PASS"
+    },
+    {
+      "id": "prompt.platform_producer.negative_missing_meta",
+      "status": "PASS"
+    },
+    {
+      "id": "resource.platform_producer.positive_metadata",
+      "status": "PASS"
+    },
+    {
+      "id": "resource.platform_producer.negative_missing_metadata",
+      "status": "PASS"
+    },
+    {
+      "id": "resource.positive.base64_blob",
+      "status": "PASS"
+    },
+    {
+      "id": "resource.negative.base64_malformed",
+      "status": "PASS"
+    },
+    {
+      "id": "resource.negative.base64_bad_padding",
+      "status": "PASS"
+    },
+    {
+      "id": "resource.negative.base64_whitespace",
+      "status": "PASS"
+    },
+    {
+      "id": "resource.negative.base64_nonascii",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.positive.exact_ID",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.mismatch_schema_still_valid.string_ID",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.string_ID",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.mismatch_schema_still_valid.different_ID",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.prompts.get.negative.different_ID",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.positive.exact_ID",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.mismatch_schema_still_valid.string_ID",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.string_ID",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.mismatch_schema_still_valid.different_ID",
+      "status": "PASS"
+    },
+    {
+      "id": "mcp.resources.read.negative.different_ID",
+      "status": "PASS"
+    },
+    {
+      "id": "prompt.positive.loaded_immutable_schema",
+      "status": "PASS"
+    },
+    {
+      "id": "prompt.negative.missing",
+      "status": "PASS"
+    },
+    {
+      "id": "prompt.negative.unknown",
+      "status": "PASS"
+    },
+    {
+      "id": "prompt.negative.null",
+      "status": "PASS"
+    },
+    {
+      "id": "prompt.negative.changed_bytes",
+      "status": "PASS"
+    },
+    {
+      "id": "decoder.positive",
+      "status": "PASS"
+    },
+    {
+      "id": "decoder.negative.duplicate_ID",
+      "status": "PASS"
+    },
+    {
+      "id": "decoder.negative.duplicate_argument",
+      "status": "PASS"
+    },
+    {
+      "id": "decoder.negative.malformed_JSON",
+      "status": "PASS"
+    }
+  ],
+  "passed": 78,
+  "failed": 0,
+  "consumedResources": {
+    "contracts/mcp/native-2026-07-28.schema.json": "ef70b61f99b6d2e5e3b46863822eab08dff6a45bedc7a08914e0e5b133f40203",
+    "contracts/mcp-native-schema-artifact.json": "068b37c9d873ffeea1299fec37aee5b28644da29aa64d15fabc8ceb77c9769f7"
+  },
+  "schemaDefinitionSha256": "ad70d42304f219c86894f54d40a1104fcc446e14f6b2a04d62becf93e0d99ce5",
+  "operationClosureCount": 0,
+  "limitations": [
+    "Synthetic prompt registry is not runtime registry publisher evidence",
+    "No transport HTTP, access-authority, persistence, MRTR cryptography or external runtime proof",
+    "Four reference definitions only; event and whole-operation obligations unchanged"
+  ]
+}

@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/workspace/kajovocmlng/scripts/verify_route_guard_counters.py", line 86, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+                                             ^^^^^^
+  File "/workspace/kajovocmlng/scripts/verify_route_guard_counters.py", line 74, in main
+    raise ValueError('Unexpected change beyond guard domains: '+route['routeId'])
+ValueError: Unexpected change beyond guard domains: route.0018

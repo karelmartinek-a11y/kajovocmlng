@@ -1,14 +1,14 @@
 {
-  "sourceDocumentSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "sourceDocumentSha256": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0",
   "scriptSha256": "26a776e152017f777a54b432fde53cf376419efa2d7120757b9c0811a8e42594",
   "supportSha256": {
     "scripts/create_operation_contracts.py": "75280dbfa44cd5064998ac600c64198e6b7a975ecc45770770ac78ab46015b11",
-    "scripts/create_completion_contracts.py": "0cd08f02b4da6bae326024bd4f4da3a625edf4824da7cfa5bb3fe03bdc6ba9d0",
+    "scripts/create_completion_contracts.py": "a924f639b77a32387451d26b5ca6afa4e74a3b0c3d1fdd6946e51abfa2e10ec8",
     "scripts/verify_create_completion.py": "39e310dd38edc994cb74fc960198383be876c443a86aa3b12aef347c9cf3e284"
   },
   "resourceSha256": {
-    "contracts/create-operation-design.schema.json": "170bc1fd9a8396765d91b23ceb55a757ae9f1ceb665a827674c3b72929cf8fa7",
-    "contracts/create-completion.json": "9566c687f878d02405a7999dd2a0c4e71f9fe5f8a09b9b395b067104575b77dd"
+    "contracts/create-operation-design.schema.json": "b026d33df1e918371f246c00b70e82b8b997759dd1e3403845a394548ec8372b",
+    "contracts/create-completion.json": "2c04f7fe04af7717eee127d9c58b0d0bab99defced12665f65abf58193a0afb1"
   },
   "scope": "Synthetic native decoder/admission diagnostics → exact HTTP error projection; no running HTTP server.",
   "authority": [
@@ -2382,20 +2382,20 @@
     {
       "case": "input-source-unchanged",
       "passed": true,
-      "actual": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
-      "expected": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536"
+      "actual": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0",
+      "expected": "116e2e50b80b29b957be97a7d89b0b6df959a13fc68e87d6260198e612768bb0"
     },
     {
       "case": "input-support-unchanged",
       "passed": true,
       "actual": {
         "scripts/create_operation_contracts.py": "75280dbfa44cd5064998ac600c64198e6b7a975ecc45770770ac78ab46015b11",
-        "scripts/create_completion_contracts.py": "0cd08f02b4da6bae326024bd4f4da3a625edf4824da7cfa5bb3fe03bdc6ba9d0",
+        "scripts/create_completion_contracts.py": "a924f639b77a32387451d26b5ca6afa4e74a3b0c3d1fdd6946e51abfa2e10ec8",
         "scripts/verify_create_completion.py": "39e310dd38edc994cb74fc960198383be876c443a86aa3b12aef347c9cf3e284"
       },
       "expected": {
         "scripts/create_operation_contracts.py": "75280dbfa44cd5064998ac600c64198e6b7a975ecc45770770ac78ab46015b11",
-        "scripts/create_completion_contracts.py": "0cd08f02b4da6bae326024bd4f4da3a625edf4824da7cfa5bb3fe03bdc6ba9d0",
+        "scripts/create_completion_contracts.py": "a924f639b77a32387451d26b5ca6afa4e74a3b0c3d1fdd6946e51abfa2e10ec8",
         "scripts/verify_create_completion.py": "39e310dd38edc994cb74fc960198383be876c443a86aa3b12aef347c9cf3e284"
       }
     }

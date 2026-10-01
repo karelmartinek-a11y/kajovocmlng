@@ -1,0 +1,91 @@
+{
+  "scope": "This selected family only, not all258 existing error predicates",
+  "predicates": [
+    {
+      "stableCode": "HISTORY_QUERY_INVALID",
+      "classification": "VALIDATION",
+      "retryDirective": "DO_NOT_RETRY",
+      "exactPredicate": "Malformed/unknown/duplicate query, no required field, type/range/enum/date/timezone or interval failure",
+      "authority": "ui/contracts/live-experience.json#/observability/validation",
+      "status": "NORMATIVE"
+    },
+    {
+      "stableCode": "HISTORY_CURSOR_INVALID",
+      "classification": "CONFLICT",
+      "retryDirective": "REFRESH_AND_RETRY_NEW_COMMAND",
+      "exactPredicate": "Unknown/expired opaque cursor, or changed filter/order/authorization/watermark binding; UI explicit restart-query action",
+      "authority": "ui/contracts/live-experience.json#/observability/validation",
+      "status": "NORMATIVE"
+    },
+    {
+      "stableCode": "HISTORY_RECORD_NOT_FOUND",
+      "classification": "DEPENDENCY",
+      "retryDirective": "DO_NOT_RETRY",
+      "exactPredicate": "Exact audit UUID absent only after authoritative covered snapshot read; unknown/unavailable source must not be recast as absence",
+      "authority": "observability.operations audit.event.read + existing exact path id",
+      "status": "PROPOSED_TECHNICAL"
+    },
+    {
+      "stableCode": "HISTORY_RESULT_INVALID",
+      "classification": "INTERNAL",
+      "retryDirective": "MANUAL_REVIEW",
+      "exactPredicate": "Trusted producer summary/result violates its declared current schema; never blame request filters for a malformed server response",
+      "authority": "ui/contracts/live-experience.json#/observability/responseSchema",
+      "status": "PROPOSED_TECHNICAL"
+    },
+    {
+      "stableCode": "HISTORY_RECORD_INVALID",
+      "classification": "INTERNAL",
+      "retryDirective": "MANUAL_REVIEW",
+      "exactPredicate": "Native producer item bytes violate exact Item mask",
+      "authority": "ui/contracts/live-experience.json#/observability/responseSchema/properties/items/items",
+      "status": "PROPOSED_TECHNICAL"
+    },
+    {
+      "stableCode": "HISTORY_EVENT_ID_CONFLICT",
+      "classification": "INTERNAL",
+      "retryDirective": "MANUAL_REVIEW",
+      "exactPredicate": "Same immutable event identity occurs with conflicting canonical summary bytes",
+      "authority": "ui/contracts/live-experience.json#/observability/ordering",
+      "status": "PROPOSED_TECHNICAL"
+    },
+    {
+      "stableCode": "HISTORY_INTERVAL_BINDING_MISMATCH",
+      "classification": "INTERNAL",
+      "retryDirective": "MANUAL_REVIEW",
+      "exactPredicate": "Resolved interval differs from requested once-resolved from/to/timezone",
+      "authority": "ui/contracts/live-experience.json#/observability/validation",
+      "status": "PROPOSED_TECHNICAL"
+    },
+    {
+      "stableCode": "HISTORY_COMPLETE_COVERAGE_MISMATCH",
+      "classification": "INTERNAL",
+      "retryDirective": "MANUAL_REVIEW",
+      "exactPredicate": "Claimed COMPLETE coverage bounds do not cover requested interval; continuous source proof also required",
+      "authority": "ui/contracts/live-experience.json#/observability/completenessRule",
+      "status": "PROPOSED_TECHNICAL"
+    },
+    {
+      "stableCode": "HISTORY_RECORD_DUPLICATE_JSON_KEY",
+      "classification": "INTERNAL",
+      "retryDirective": "MANUAL_REVIEW",
+      "exactPredicate": "Duplicate key in actual native JSON summary bytes, not rejected obsolete GET body",
+      "authority": "native summary schema and unambiguous structured domain bytes",
+      "status": "PROPOSED_TECHNICAL"
+    },
+    {
+      "stableCode": "HISTORY_RECORD_JSON_INVALID",
+      "classification": "INTERNAL",
+      "retryDirective": "MANUAL_REVIEW",
+      "exactPredicate": "Actual summary bytes malformed UTF8/JSON/nonfinite number",
+      "authority": "native summary schema and unambiguous structured domain bytes",
+      "status": "PROPOSED_TECHNICAL"
+    }
+  ],
+  "mandatoryGapDiagnostics": [
+    "HISTORY_GENERATION_JOB_MEMBERSHIP_PRODUCER_REQUIRED",
+    "HISTORY_CHANNEL_CLASSIFICATION_PRODUCER_REQUIRED"
+  ],
+  "gapDiagnosticsAreNotPolicyCompletion": true,
+  "provenanceReview": "Nonempty refs/JSON validity do not prove authentic bytes. No global159-detector count claim. Actual scope/cursor/coverage/source publishers and payload hydration remain OPEN."
+}
