@@ -4,12 +4,13 @@ from ssot_sources import ROOT,SSOT,resource_index
 BASE='audit/generated/resume-905/'
 PROOFS={
  'joined':BASE+'archive/review-joined/joined-chain-proof.json',
- 'retry':BASE+'sql/review-consumers/retry/producer-child-tests.json',
+ 'retry':'audit/generated/resume-8cc/coordinator/preserved-retry/producer-child-tests.json',
  'archive':BASE+'sql/review-consumers/archive/archive-proof.json',
  'aad':BASE+'archive/review-key/peer-key-fixed-proof.json',
  'secret':BASE+'consumers/review-secrets/canonical-independent-review.json',
  'ui':BASE+'sql/review-consumers/independent-consumer-review.json',
  'preroot':BASE+'sql/review-preroot-archive/independent-transfer-proof.json',
+ 'retry-stage':'audit/generated/resume-8cc/key/review-stage/integrated-stage-proof.json',
 }
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
@@ -41,14 +42,22 @@ def main():
   else:
    rows=q.get('checks',[])
    check(label+'/actual-positive-derived-results',bool(rows)and all(x.get('passed',x.get('status')=='PASS')for x in rows)and q.get('failed',q.get('failedCount',0))==0)
-   if label!='ui':check(label+'/actual-PG18_6',q.get('postgresqlVersion')=='18.6')
+   if label not in ('ui','retry-stage'):check(label+'/actual-PG18_6',q.get('postgresqlVersion')=='18.6')
    modules=q.get('canonicalInputs',{})
   for path,d in modules.items():check(label+'/canonical-resource:'+path,path in rs and rs[path]['sha256']==d)
   for path,d in q.get('supportSha256',{}).items():
    consumed=ROOT/path
    if label=='archive'and '/'not in path:consumed=ROOT/'scripts'/path if path!='verify_archive.py'else p.parent/path
    check(label+'/consumed-code:'+path,consumed.exists()and sha(consumed)==d)
-  if label=='retry':check(label+'/exact-producer-child-SQL',q.get('canonicalExtensionSqlSha256')==rs['database/generation-retry-producer-child.sql']['sha256'])
+  if label=='retry':
+   check(label+'/exact-producer-child-SQL',q.get('canonicalExtensionSqlSha256')==rs['database/generation-retry-producer-child.sql']['sha256'])
+   for path in ['scripts/generation_locked_retry.py','scripts/generation_retry_inventory.py','scripts/generation_admission_contracts.py']:
+    check(label+'/required-code-binding:'+path,q.get('supportSha256',{}).get(path)==sha(ROOT/path))
+  if label=='retry-stage':
+   check(label+'/integrated-helper-bound',q.get('supportSha256',{}).get('scripts/generation_locked_retry.py')==sha(ROOT/'scripts/generation_locked_retry.py'))
+   actual={x.get('case')for x in q.get('checks',[])if x.get('passed')}
+   for name in ['integrated-discussion-CONFIRMED_APPLIED','integrated-discussion-FAILED_FINAL','integrated-execution-CONFIRMED_APPLIED','integrated-execution-FAILED_FINAL','actual-scan-byte-mutation','classifier-digest-mutation']:
+    check(label+'/required:'+name,name in actual)
   if label=='preroot':
    check(label+'/exact-canonical-preroot-archive-SQL',q.get('candidateSqlSha256')==rs['database/generation-preroot-frozen-archive.sql']['sha256']and q.get('canonicalExtensionExecuted')is True)
   if label=='archive':check(label+'/exact-durable-archive-SQL',q.get('canonicalArchiveSha256')==rs['database/generation-frozen-archive.sql']['sha256'])

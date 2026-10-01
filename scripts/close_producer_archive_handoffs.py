@@ -30,6 +30,14 @@ SECRET_NORM='''### 8.14 Trusted profile publication and reserved OWNER binding
 def main():
  text=SSOT.read_text();items=list(resources(text));rs=resource_index(items);updates={p:(BASE/q).read_bytes()for p,q in SQL.items()}
  doc={'version':'GENERATION_PRODUCER_ARCHIVE_HANDOFFS_V1','authority':['SSOT12.55','SSOT8.14','SSOT49.8','SSOT51.12','SSOT51.20'],'generationInstallationOrder':['database/generation-create-foundations.sql','database/canonical-crypto-registry.sql','database/generation-create-authentication.sql','database/generation-create-preroot.sql','database/generation-create-read.sql','database/generation-locked-retry.sql',*[p for p in SQL if 'secret-'not in p]],'secretInstallationOrder':['database/secret-profile-roots.sql','database/secret-profile-publication.sql','database/secret-owner-binding.sql'],'ownerBindingPrerequisite':'Exact canonical owner_api_credential table and bootstrap/rotation producer; isolated root/credential fixture does not prove whole owner authority','historicalRead':'scripts/generation_read_hydration_archive.py','currentOnlyReadAdapter':'scripts/generation_read_hydration.py is prior bounded current-policy reference, not a substitute for required archived hydration','uiRead':'scripts/owner_ui_terminal_read.py requires actual command/context/target/artifact joins; display remains BLOCKED_PENDING_EFFECT_HYDRATION until semantic effect proof','wholeOperationsClosed':[],'SSOT_CONTRACT_READY':'BLOCKED','IMPLEMENTATION_PRODUCTION_ACCEPTANCE':'NOT_EVALUATED'}
+ # A later reviewed block may append installation dependencies or metadata.
+ # Rerunning this older author must preserve them rather than reverting the
+ # effective installer to this historical seven-module scope.
+ prior=json.loads(rs['contracts/generation/producer-archive-handoffs.json']['raw']) if 'contracts/generation/producer-archive-handoffs.json' in rs else {}
+ for field in ('generationInstallationOrder','secretInstallationOrder'):
+  for name in prior.get(field,[]):
+   if name not in doc[field]:doc[field].append(name)
+ doc={**prior,**doc}
  updates['contracts/generation/producer-archive-handoffs.json']=(json.dumps(doc,ensure_ascii=False,indent=2)+'\n').encode()
  # Preserve the common installer when an older author is subsequently rerun.
  chain=json.loads(rs['contracts/generation/create-chain-handoffs.json']['raw'])

@@ -1,0 +1,30 @@
+{
+  "scope": "Actual current positive checkpoint mutated to reproduced stale top-level source identities; not contract semantic evidence",
+  "checks": [
+    {
+      "case": "historical-sourceDocumentSha256",
+      "passed": true,
+      "diagnostics": [
+        {
+          "code": "CONTINUATION_IDENTITY_MISMATCH",
+          "pointer": "checkpoint#/sourceDocumentSha256",
+          "actual": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
+          "expected": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06"
+        }
+      ]
+    },
+    {
+      "case": "historical-currentSourceDocumentSha256",
+      "passed": true,
+      "diagnostics": [
+        {
+          "code": "CONTINUATION_IDENTITY_MISMATCH",
+          "pointer": "checkpoint#/currentSourceDocumentSha256",
+          "actual": "df3de1b9d3411c9c410f2d7e4274d9d15ff41ec912ee901833bbc124a79ed691",
+          "expected": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06"
+        }
+      ]
+    }
+  ],
+  "failed": 0
+}

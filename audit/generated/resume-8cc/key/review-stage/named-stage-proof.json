@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "checked": 12,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "original-default-CONFIRMED_APPLIED",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_RETRY_CONFIRMED_EFFECT_REPEAT_FORBIDDEN",
+      "actualDiagnostic": "GENERATION_RETRY_CONFIRMED_EFFECT_REPEAT_FORBIDDEN"
+    },
+    {
+      "case": "candidate-explicit-discussion-CONFIRMED_APPLIED",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "additive-named-discussion-CONFIRMED_APPLIED",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "preserved-execution-CONFIRMED_APPLIED",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_RETRY_CONFIRMED_EFFECT_REPEAT_FORBIDDEN",
+      "actualDiagnostic": "GENERATION_RETRY_CONFIRMED_EFFECT_REPEAT_FORBIDDEN"
+    },
+    {
+      "case": "original-default-FAILED_FINAL",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_RETRY_FINAL_EFFECT_POLICY_UNRESOLVED",
+      "actualDiagnostic": "GENERATION_RETRY_FINAL_EFFECT_POLICY_UNRESOLVED"
+    },
+    {
+      "case": "candidate-explicit-discussion-FAILED_FINAL",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "additive-named-discussion-FAILED_FINAL",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "preserved-execution-FAILED_FINAL",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_RETRY_FINAL_EFFECT_POLICY_UNRESOLVED",
+      "actualDiagnostic": "GENERATION_RETRY_FINAL_EFFECT_POLICY_UNRESOLVED"
+    },
+    {
+      "case": "not-applied-discussion",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "not-applied-execution-still-no-dispatch-authority",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "classifier-digest-mutation",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_RETRY_OUTCOME_CLASSIFIER_DIGEST_MISMATCH",
+      "actualDiagnostic": "GENERATION_RETRY_OUTCOME_CLASSIFIER_DIGEST_MISMATCH"
+    },
+    {
+      "case": "actual-scan-byte-mutation",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_RETRY_SCAN_MEMBER_BYTES_MISMATCH",
+      "actualDiagnostic": "GENERATION_RETRY_SCAN_MEMBER_BYTES_MISMATCH"
+    }
+  ],
+  "sourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "authority": "SSOT \u00a712.51.2 paragraph hydrate_locked_scan server-selected ADMISSION_DISCUSSION; \u00a712.51 creates DISCUSSING, \u00a749.8 execution requirements retained",
+  "recommendation": "Integrated named admission entry point preserves original hydrate_locked_scan execution API; caller HTTP/model never selects stage. Mandatory keyword-stage author candidate retains the same discussion/execution semantics.",
+  "integrationStatus": "ACTUAL_ROOT_MODULE_REPRODUCED",
+  "classificationScope": "Actual declared synthetic readback/final-reject observations and classifier source bytes. No systemd, PostgreSQL phase lock/completeness or every production classifier proof.",
+  "wholeOperationClosed": false,
+  "classifierSha256": "sha256:eba29c19ae2d5ccd42635784229b32e835f431cb043df357e1d480bc340962ee",
+  "supportSha256": {
+    "audit/generated/resume-8cc/key/review-stage/verify_named_stage.py": "662fa287ccea5f60859d4490f5ec4c0a4600419920d2b47b0723d66a2d632bdf",
+    "audit/generated/resume-8cc/key/review-stage/generation_locked_retry_named.py": "33976428224eed291f074172b764206dd7657c8fa5d7e7fd3fd08f4a7a87ae91",
+    "scripts/generation_locked_retry.py": "33976428224eed291f074172b764206dd7657c8fa5d7e7fd3fd08f4a7a87ae91",
+    "scripts/generation_retry_inventory.py": "7ed6a1542a499ee71277c2e319a3ac87fed6c041247e158367813fbe32190237",
+    "audit/generated/resume-8cc/native/generation_locked_retry_admission.py": "8b337930afb9764031b04d5831c2a1a716ccbc606422d63dca861ec4004f2749"
+  }
+}

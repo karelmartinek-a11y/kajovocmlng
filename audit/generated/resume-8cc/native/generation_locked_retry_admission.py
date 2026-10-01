@@ -8,7 +8,7 @@ import copy
 from generation_admission_contracts import canonical,digest,source_json,fail,validate,LOCAL_DEFINITIONS
 from generation_retry_inventory import INVENTORY_SCHEMA_ID,verify_retry_inventory
 
-def _hydrate_locked_scan(repo,scan,inventory_id,captured_at,inventory_bundle_digest,plan,classifiers,*,stage):
+def hydrate_locked_scan(repo,scan,inventory_id,captured_at,inventory_bundle_digest,plan,classifiers,*,stage):
  scan=copy.deepcopy(scan)
  if set(scan)!={'phaseBytes','phaseDigest','rows'}:fail('GENERATION_RETRY_SCAN_DECODER_INVALID')
  raw=bytes.fromhex(scan['phaseBytes']);rd='sha256:'+scan['phaseDigest']
@@ -30,11 +30,3 @@ def _hydrate_locked_scan(repo,scan,inventory_id,captured_at,inventory_bundle_dig
  repo.records[inventory_id]={'recordId':inventory_id,'jobId':phase['jobId'],'owner':repo.owner,'bytes':raw,'contentDigest':dg,'schema':{'schemaId':INVENTORY_SCHEMA_ID,'bundleDigest':inventory_bundle_digest,'definition':'PhaseSideEffectInventory'}}
  result=verify_retry_inventory(repo,phase,rd,plan,inventory_id,dg,physical,classifiers,stage=stage)
  return {'inventoryId':inventory_id,'inventoryDigest':dg,'inventoryBytes':raw,'contentDecision':result,'frozenConsumedRecords':copy.deepcopy(repo.consulted)}
-
-def hydrate_locked_scan(repo,scan,inventory_id,captured_at,inventory_bundle_digest,plan,classifiers):
- """Preserved execution-validation API. Does not authorize external dispatch."""
- return _hydrate_locked_scan(repo,scan,inventory_id,captured_at,inventory_bundle_digest,plan,classifiers,stage='EXECUTION_DISPATCH')
-
-def hydrate_locked_scan_for_admission(repo,scan,inventory_id,captured_at,inventory_bundle_digest,plan,classifiers):
- """Server-selected discussion admission; no caller stage or dispatch authority."""
- return _hydrate_locked_scan(repo,scan,inventory_id,captured_at,inventory_bundle_digest,plan,classifiers,stage='ADMISSION_DISCUSSION')

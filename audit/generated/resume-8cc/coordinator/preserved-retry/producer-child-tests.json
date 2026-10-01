@@ -1,0 +1,263 @@
+{
+  "inputCommit": "8cc19fbc69fb839ea88597b736da03d8b3eaecd4",
+  "sourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "checkCount": 33,
+  "failedCount": 0,
+  "checks": [
+    {
+      "case": "actual-scanned-native-bytes-to-classifier",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "exact-canonical-foundations-installed",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "phase-parent-is-real-generation-root",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "wrong-source-lineage",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_SOURCE_PHASE_IDENTITY",
+        "stderr": "ERROR:  RETRY_SOURCE_PHASE_IDENTITY\nCONTEXT:  PL/pgSQL function kcml_retry_v1.scan(uuid,uuid,bytea) line 7 at RAISE\n"
+      }
+    },
+    {
+      "case": "source-digest-drift",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_SOURCE_PHASE_DIGEST",
+        "stderr": "ERROR:  RETRY_SOURCE_PHASE_DIGEST\nCONTEXT:  PL/pgSQL function kcml_retry_v1.scan(uuid,uuid,bytea) line 8 at RAISE\n"
+      }
+    },
+    {
+      "case": "append-only-evidence",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_APPEND_ONLY_SOURCE",
+        "stderr": "ERROR:  RETRY_APPEND_ONLY_SOURCE\nCONTEXT:  PL/pgSQL function kcml_retry_v1.phase_write_gate() line 11 at RAISE\n"
+      }
+    },
+    {
+      "case": "append-only-attempt",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_APPEND_ONLY_SOURCE",
+        "stderr": "ERROR:  RETRY_APPEND_ONLY_SOURCE\nCONTEXT:  PL/pgSQL function kcml_retry_v1.phase_write_gate() line 11 at RAISE\n"
+      }
+    },
+    {
+      "case": "state-stale-version",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_CURRENT_STATE_VERSION",
+        "stderr": "ERROR:  RETRY_CURRENT_STATE_VERSION\nCONTEXT:  PL/pgSQL function kcml_retry_v1.phase_write_gate() line 19 at RAISE\n"
+      }
+    },
+    {
+      "case": "state-delete",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_APPEND_ONLY_SOURCE",
+        "stderr": "ERROR:  RETRY_APPEND_ONLY_SOURCE\nCONTEXT:  PL/pgSQL function kcml_retry_v1.phase_write_gate() line 11 at RAISE\n"
+      }
+    },
+    {
+      "case": "operation-older-current-pointer",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_CURRENT_LEDGER_JOIN_DRIFT",
+        "stderr": "ERROR:  RETRY_CURRENT_LEDGER_JOIN_DRIFT\nCONTEXT:  PL/pgSQL function kcml_retry_v1.scan(uuid,uuid,bytea) line 15 at RAISE\n"
+      }
+    },
+    {
+      "case": "deferred-current-version-commit-drift",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_DEFERRED_CURRENT_JOIN_DRIFT",
+        "stderr": "ERROR:  RETRY_DEFERRED_CURRENT_JOIN_DRIFT\nCONTEXT:  PL/pgSQL function kcml_retry_v1.check_current_join() line 9 at RAISE\n"
+      }
+    },
+    {
+      "case": "operation-cannot-rebind-target-key",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_IMMUTABLE_OPERATION_REQUEST",
+        "stderr": "ERROR:  RETRY_IMMUTABLE_OPERATION_REQUEST\nCONTEXT:  PL/pgSQL function kcml_retry_v1.phase_write_gate() line 16 at RAISE\n"
+      }
+    },
+    {
+      "case": "concurrent/operation-update",
+      "passed": true,
+      "actual": "ERROR:  canceling statement due to lock timeout\nCONTEXT:  while locking tuple (0,1) in relation \"phase\"\nSQL statement \"SELECT 1 FROM kcml_retry_v1.phase WHERE phase_run_id=p FOR UPDATE\"\nPL/pgSQL function kcml_retry_v1.phase_write_gate() line 8 at PERFORM\n"
+    },
+    {
+      "case": "concurrent/state-update",
+      "passed": true,
+      "actual": "ERROR:  canceling statement due to lock timeout\nCONTEXT:  while locking tuple (0,1) in relation \"phase\"\nSQL statement \"SELECT 1 FROM kcml_retry_v1.phase WHERE phase_run_id=p FOR UPDATE\"\nPL/pgSQL function kcml_retry_v1.phase_write_gate() line 8 at PERFORM\n"
+    },
+    {
+      "case": "concurrent/phase-delete",
+      "passed": true,
+      "actual": "ERROR:  canceling statement due to lock timeout\nCONTEXT:  while deleting tuple (0,1) in relation \"phase\"\n"
+    },
+    {
+      "case": "concurrent/phase-update",
+      "passed": true,
+      "actual": "ERROR:  canceling statement due to lock timeout\nCONTEXT:  while updating tuple (0,1) in relation \"phase\"\n"
+    },
+    {
+      "case": "concurrent/no-membership-phantom",
+      "passed": true,
+      "actual": "ERROR:  canceling statement due to lock timeout\nCONTEXT:  while locking tuple (0,1) in relation \"phase\"\nSQL statement \"SELECT 1 FROM kcml_retry_v1.phase WHERE phase_run_id=p FOR UPDATE\"\nPL/pgSQL function kcml_retry_v1.phase_write_gate() line 8 at PERFORM\n"
+    },
+    {
+      "case": "actual-row-cipher-independent-content-digest",
+      "passed": true,
+      "actual": "GENERATION_RETRY_SCAN_MEMBER_BYTES_MISMATCH"
+    },
+    {
+      "case": "reservation-without-child-cannot-commit",
+      "passed": true,
+      "actual": {
+        "expected": "child_scan_child_job_id_fkey",
+        "stderr": "ERROR:  insert or update on table \"child_scan\" violates foreign key constraint \"child_scan_child_job_id_fkey\"\nDETAIL:  Key (child_job_id)=(00000000-0000-4000-8000-000000000600) is not present in table \"generation_job\".\n"
+      }
+    },
+    {
+      "case": "stale-source-fence",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_SOURCE_FENCE_STALE",
+        "stderr": "ERROR:  RETRY_SOURCE_FENCE_STALE\nCONTEXT:  PL/pgSQL function kcml_retry_v1.reserve_child(uuid,uuid,uuid,bytea,bigint) line 14 at RAISE\n"
+      }
+    },
+    {
+      "case": "incomplete-membership",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_PHASE_MEMBERSHIP_INCOMPLETE",
+        "stderr": "ERROR:  RETRY_PHASE_MEMBERSHIP_INCOMPLETE\nCONTEXT:  PL/pgSQL function kcml_retry_v1.reserve_child(uuid,uuid,uuid,bytea,bigint) line 19 at RAISE\n"
+      }
+    },
+    {
+      "case": "expired-source-lease",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_SOURCE_FENCE_STALE",
+        "stderr": "ERROR:  RETRY_SOURCE_FENCE_STALE\nCONTEXT:  PL/pgSQL function kcml_retry_v1.reserve_child(uuid,uuid,uuid,bytea,bigint) line 14 at RAISE\n"
+      }
+    },
+    {
+      "case": "unfinished-source-producer-does-not-reserve-child",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_SOURCE_PRODUCER_INCOMPLETE",
+        "stderr": "ERROR:  RETRY_SOURCE_PRODUCER_INCOMPLETE\nCONTEXT:  PL/pgSQL function kcml_retry_v1.reserve_child(uuid,uuid,uuid,bytea,bigint) line 22 at RAISE\n"
+      }
+    },
+    {
+      "case": "child-without-scan-cannot-insert",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_CHILD_SCAN_TRANSACTION_REQUIRED",
+        "stderr": "ERROR:  RETRY_CHILD_SCAN_TRANSACTION_REQUIRED\nCONTEXT:  PL/pgSQL function kcml_retry_v1.child_insert_guard() line 6 at RAISE\n"
+      }
+    },
+    {
+      "case": "child-without-event-rolls-back",
+      "passed": true,
+      "actual": {
+        "expected": "transactional_outbox_event_id_fkey",
+        "stderr": "ERROR:  insert or update on table \"transactional_outbox\" violates foreign key constraint \"transactional_outbox_event_id_fkey\"\nDETAIL:  Key (event_id)=(00000000-0000-4000-8000-000000000602) is not present in table \"domain_event\".\n"
+      }
+    },
+    {
+      "case": "concurrent-child-transaction/second-retry",
+      "passed": true,
+      "actual": "ERROR:  canceling statement due to lock timeout\nCONTEXT:  while locking tuple (0,10) in relation \"generation_job\"\nSQL statement \"SELECT *        FROM public.generation_job WHERE id=p_source FOR UPDATE\"\nPL/pgSQL function kcml_retry_v1.reserve_child(uuid,uuid,uuid,bytea,bigint) line 4 at SQL statement\n"
+    },
+    {
+      "case": "rollback-no-child-or-reservation/second-retry",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "concurrent-child-transaction/source-fence-change",
+      "passed": true,
+      "actual": "ERROR:  canceling statement due to lock timeout\nCONTEXT:  while locking tuple (0,10) in relation \"generation_job\"\n"
+    },
+    {
+      "case": "rollback-no-child-or-reservation/source-fence-change",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "actual-domain-classifier-under-lock-through-child-commit",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "actual-retry-child-command-root-event-outbox-audit-locator-commit",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "idempotent-frozen-child-replay",
+      "passed": true,
+      "actual": ""
+    },
+    {
+      "case": "replay-conflict",
+      "passed": true,
+      "actual": {
+        "expected": "RETRY_CHILD_REPLAY_CONFLICT",
+        "stderr": "ERROR:  RETRY_CHILD_REPLAY_CONFLICT\nCONTEXT:  PL/pgSQL function kcml_retry_v1.reserve_child(uuid,uuid,uuid,bytea,bigint) line 8 at RAISE\n"
+      }
+    }
+  ],
+  "postgresqlVersion": "18.6",
+  "canonicalExtensionSqlSha256": "b7fecb14a941044594ee4488ec973a17c484c5d712ddbf44462a2d24124851fb",
+  "canonicalSqlSha256": {
+    "database/generation-create-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "database/generation-locked-retry.sql": "a18aba72b317ae6fac0a86c153eb914de6b4fda6916f02a0c612a235b2f07835"
+  },
+  "wholeOperationClosed": false,
+  "limits": [
+    "Actual canonical SQL physical RETRY child closure; source admission and protected snapshot remain synthetic/opaque",
+    "Complete 49.8 dispatch/checkpoint/evidence producers not replaced by membership capture",
+    "Exact embedded retry producer extension executed with independent candidate byte-equality assertion"
+  ],
+  "supportSha256": {
+    "audit/generated/resume-8cc/coordinator/preserved-retry/verify_producer_child.py": "fb507240133a9a13b5cd3f62628753275bd3c73f8287a41184772eea87dd43f5",
+    "audit/generated/resume-d362/admission/generation_admission_fixtures.py": "f9910310bbd443dfd33b581f1555159b6d2d3c6f527100a11d017b3191c98101",
+    "audit/generated/resume-d362/admission/generation_admission_reference.py": "618c53ef50f01896faf9e0374af274195d1c84792f29d457da801ed748c678e7",
+    "audit/generated/resume-d362/admission/generation_retry_inventory_fixtures.py": "b3e0daf65acfee532106dea575eb628d165edbc731fee9b214d8be8a90a86039",
+    "audit/generated/resume-d362/events/verify_combined_generation.py": "a38bc59879e56c02b361afe22a791af1477b57308f22f3a7483e10fd950f58dd",
+    "audit/generated/resume-d362/persistence/context_fixture_exports.py": "ae90984993a96c5abca746cad6d618cade6fc3d322fbd99ec16373952fa27888",
+    "audit/generated/resume-d362/persistence/generation_descriptor_registry.py": "9cb7f68a4f1e5d890ce074fbcd277498412c51b90a9068d98d02940d7fadf78a",
+    "audit/generated/resume-d362/review/verify_scoped_generation_links.py": "37da9f21cc2f5ce00476df4ecb2b3433d92f73d239834a63046d97501327f18d",
+    "scripts/author_resource_updates.py": "1379da3f49801cce2a3f6d27256e8436ff47b84f155b19d5b38bfcc48e3287ec",
+    "scripts/close_create_error_presentation.py": "89e5e0a6a9785afb06811006bb835d0fae42830af9fc6b5d1874b207457c2938",
+    "scripts/create_completion_contracts.py": "8f854db2a883884b641104c2822ee4745c505ce2122a844207671eebce9eea88",
+    "scripts/create_operation_contracts.py": "75280dbfa44cd5064998ac600c64198e6b7a975ecc45770770ac78ab46015b11",
+    "scripts/create_replay_contract.py": "7152804af51a4bd762ae46c4e1c1c2ea8a187d7b5b2b2e43f9bda6a423d5f53e",
+    "scripts/follow_up_contracts.py": "21e08515ed3acacc7678d84d7915923aff825704414486a212f610a96a720ffa",
+    "scripts/generation_admission_contracts.py": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+    "scripts/generation_basis_selectors.py": "8488f4bcbc1316b987a90fb5d8a4269a83a9ce561efe0ed9065e09f3b1f261ae",
+    "scripts/generation_locked_retry.py": "33976428224eed291f074172b764206dd7657c8fa5d7e7fd3fd08f4a7a87ae91",
+    "scripts/generation_retry_inventory.py": "7ed6a1542a499ee71277c2e319a3ac87fed6c041247e158367813fbe32190237",
+    "scripts/phase2_repair_handoffs.py": "9834c4a6946a9efaeb072bc89120b17540eb1f82c822fe2415e8c85770825782",
+    "scripts/secret_profile_import.py": "3110ce4c516dc605d3ab4e72370798dec8fd0ca52ca2106a403fd7205990d430",
+    "scripts/secret_profile_parsers.py": "774a5faa512a63d61f59e683985e5663c7879db47a9297825bba07757d880ea1",
+    "scripts/secret_profile_reference.py": "be3dd0260405f6eb705cdfbcd0f95668ada277ef0ed231d61264aff3fe74f2a5",
+    "scripts/ssot_sources.py": "6ce4622b95aba18f9afd26dbbe57ab57490c74b7c72d5b68289bd8268868b3f1",
+    "scripts/verify_create_completion.py": "53a03171652a0bd84a0de1ab6a2c5b8fe06f577519b0e2d0c15d42538d63b7aa",
+    "scripts/verify_phase2_handoffs.py": "60e3476d9ab9d67aec3f1a784135598686c6d501075041d9dc4ef2d2dd17215e"
+  }
+}

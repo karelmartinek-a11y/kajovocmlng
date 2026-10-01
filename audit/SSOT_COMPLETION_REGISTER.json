@@ -120971,6 +120971,23 @@
       "repair": "scripts/close_producer_archive_handoffs.py",
       "evidence": [
         {
+          "path": "audit/generated/resume-8cc/coordinator/preserved-retry/producer-child-tests.json",
+          "sha256": "f6cf8200069b9daeb50ecc189aa3133831ffbfd70e8a3f5ab24fce18985c5eaa",
+          "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06"
+        },
+        {
+          "path": "audit/generated/resume-8cc/coordinator/producer-archive-chain-tests.json",
+          "sha256": "0a6bdae197c668bb1d8aabe61244c8824d39a4c595a26a2c01bc5df952f2c3ab",
+          "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06"
+        }
+      ],
+      "sourceBinding": {
+        "ssotSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06"
+      },
+      "reviewer": "independent peer wave; authors never self-certify",
+      "implementationAcceptance": "NOT_EVALUATED",
+      "historicalEvidence": [
+        {
           "path": "audit/generated/resume-905/sql/review-consumers/retry/producer-child-tests.json",
           "sha256": "3a5bb9a104ec94cec1b68bc43b2d914efe6a16d865f38d51e40b8595b9fe0db4",
           "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06"
@@ -120979,12 +120996,7 @@
           "path": "audit/generated/repair-2026-09-30/design-current/verify_producer_archive_handoffs/producer-archive-chain-tests.json",
           "sha256": "7024c6db59fbe68626245bd3c61acb6e86691d4886e81fea70545dbf3e4ab20c"
         }
-      ],
-      "sourceBinding": {
-        "ssotSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06"
-      },
-      "reviewer": "independent peer wave; authors never self-certify",
-      "implementationAcceptance": "NOT_EVALUATED"
+      ]
     },
     {
       "id": "producer-archive-bounded:archive",
@@ -121352,5 +121364,20 @@
   "gates": {
     "SSOT_CONTRACT_READY": "BLOCKED",
     "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
-  }
+  },
+  "createOperationVerifiedSubconditions": [
+    {
+      "parentId": "GEN.RETRY.CHILD.NATIVE_LINEAGE",
+      "condition": "Server-selected discussion stage preserves confirmed/final outcomes without granting dispatch; existing execution API remains strict",
+      "state": "VERIFIED",
+      "authority": "SSOT §12.51.2",
+      "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+      "evidence": {
+        "path": "audit/generated/resume-8cc/key/review-stage/integrated-stage-proof.json",
+        "sha256": "60a1bc897166964507330e5aa4f8d9f5e322761ba0f24212e238c4da9c3cd12d"
+      },
+      "independentReview": "key_authority reproduced actual integrated scripts/generation_locked_retry.py",
+      "limitation": "No full authenticated producer/child/systemd closure"
+    }
+  ]
 }
