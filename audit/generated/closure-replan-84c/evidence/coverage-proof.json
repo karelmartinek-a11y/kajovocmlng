@@ -1,0 +1,40 @@
+{
+  "status": "PASS_BOUNDED_METADATA_AND_DEPENDENCY_REVIEW",
+  "pinnedInputHead": "84c41ba80af35d5d13f64cf8177ce551c2188e27",
+  "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "coverage": {
+    "denominator": 36,
+    "reviewed": 36,
+    "unit": "existing create-operation parent obligations, layer/dependency metadata only",
+    "wholeParentVerified": 0,
+    "registeredBoundedConditionsHashChecked": 7,
+    "projectCompletionPercentage": null
+  },
+  "checks": {
+    "uniqueExistingIds": true,
+    "allFourLayersPresent": true,
+    "allMandatoryFixturesPreserved": true,
+    "allWholeParentStatesUnverified": true,
+    "sevenEvidenceHashesMatch": true,
+    "comparedConsumedResourcesAndHelpersMatch": true,
+    "pureMergePreservesCurrentProgressAndGates": true,
+    "sharedFilesWritten": false,
+    "managerOrPostgreSQLTestsRepeated": false
+  },
+  "limits": [
+    "No full field-level semantic review of all 36 duties is claimed.",
+    "Existing exact fixture scopes remain bounded; no new runtime or provider PASS.",
+    "Checkpoint progress may change; its byte drift is only a merge precondition, not a contract defect.",
+    "Scoped current resource/helper comparisons do not establish an exhaustive transitive manifest for selected-proof reuse."
+  ],
+  "reviewArtifacts": {
+    "36-duty-layer-review.json": "b86b5f651d2e5203a8b64c9a238643ee92e988bf1e60dd640ec709e0a96e7af5",
+    "evidence-binding-review.json": "b189363e9178278aba1a38dabb0593f505cbac1895962f76c9ab1cc063ab9fbb",
+    "integration-patch-proposals.json": "7083556148a6cc99190b83c64beb26744cd7eaeaaf31161c491c602ab86cb42a",
+    "finite-dependency-plan.json": "73a0b2fd6742020f8c380eac8b4620dd75dbf2262b66614cd4c28e5489e32813",
+    "apply_audit_proposals.py": "448c4d8912c1b819c2baff9aede3fad23f78617fd443971fe7c2263a943c1533",
+    "merge-validation.json": "7d7525867c201620105a3f6144455bcf27bbda8b530bbdff253a1ddf94a1f803"
+  },
+  "SSOT_CONTRACT_READY": "BLOCKED",
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

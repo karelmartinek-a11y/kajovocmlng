@@ -1,0 +1,117 @@
+{
+  "format": "ROOT_REVIEW_JSON_PATCH_PROPOSALS",
+  "notApplied": true,
+  "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "patches": [
+    {
+      "target": "audit/SSOT_CREATE_CLOSURE_CHECKLIST.json",
+      "requiresInputSha256": "b602c8982a816f945ca98503d8020afdfa0bb5533c9a9dc00337a09801c731b9",
+      "operations": [
+        {
+          "op": "test",
+          "path": "/obligations/23/id",
+          "value": "SECRET.UI.REVEAL"
+        },
+        {
+          "op": "replace",
+          "path": "/obligations/23/missing",
+          "value": "Bounded typed readonly root-status metadata and same-version reveal/COPY are verified within declared scope; exact reserved OWNER-session reveal/auth, remaining read/audit/history and required operation-specific worker/result handoffs remain. Generated backend runtime acceptance is separate C, not a pre-generation application-existence gate."
+        },
+        {
+          "op": "replace",
+          "path": "/obligations/23/authority",
+          "value": [
+            "00_SSOT/KajovoCMLNG_SSOT.md#section.8.5",
+            "00_SSOT/KajovoCMLNG_SSOT.md#section.8.6.1",
+            "00_SSOT/KajovoCMLNG_SSOT.md#section.8.8",
+            "00_SSOT/KajovoCMLNG_SSOT.md#section.8.16",
+            "00_SSOT/KajovoCMLNG_SSOT.md#section.51.20",
+            "00_SSOT/KajovoCMLNG_SSOT.md#section.72.21"
+          ]
+        },
+        {
+          "op": "add",
+          "path": "/futureImplementationAcceptance/operationScopes",
+          "value": [
+            {
+              "id": "SECRET.UI.REVEAL.GENERATED_BACKEND_RUNTIME",
+              "state": "NOT_EVALUATED",
+              "scope": "Future generated backend/UI effect execution/reveal/COPY. This does notmoveany mandatoryAdefinition ornamedBfixture."
+            }
+          ]
+        },
+        {
+          "op": "replace",
+          "path": "/verifiedSubconditions/0/sourceSha256",
+          "value": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536"
+        },
+        {
+          "op": "replace",
+          "path": "/verifiedSubconditions/0/evidence",
+          "value": {
+            "path": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/retry-stage/tree/audit/generated/resume-8cc/key/review-stage/integrated-stage-proof.json",
+            "sha256": "1ce262f7d0ebee562c1e9e8bab2bd071204fd82fbfc4e868b2882a2af81336ad"
+          }
+        },
+        {
+          "op": "add",
+          "path": "/verifiedSubconditions/0/historicalEvidencePreserved",
+          "value": {
+            "path": "audit/generated/resume-8cc/key/review-stage/integrated-stage-proof.json",
+            "sha256": "60a1bc897166964507330e5aa4f8d9f5e322761ba0f24212e238c4da9c3cd12d"
+          }
+        },
+        {
+          "op": "add",
+          "path": "/layeredDependencyReview",
+          "value": {
+            "path": "audit/generated/closure-replan-84c/evidence/36-duty-layer-review.json",
+            "parentDenominator": 36,
+            "limitation": "Layer/dependency review only; no parentupgrade ornormativefixture removal"
+          }
+        }
+      ],
+      "reason": "Correct UI source andruntime category; use actualfresh stageproof instead of stale4ac pointer. Originalhistorical proofbytes preserved; no parentVERIFIED."
+    },
+    {
+      "target": "audit/SSOT_REPAIR_CHECKPOINT.json",
+      "operations": [
+        {
+          "op": "test",
+          "path": "/sourceDocumentSha256",
+          "value": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536"
+        },
+        {
+          "op": "add",
+          "path": "/environmentBlockers/byId:SHARED.CRYPTO.SYSTEMD_SOURCE/layerScope",
+          "value": {
+            "category": "D_ENVIRONMENT_SUPPORTING_REQUIRED_B_FIXTURE",
+            "normativeActualMechanismBeforeGeneration": "SSOT§12.56",
+            "doesNotBlockAReview": true,
+            "APIAuthScope": "Onlycredentialprovisioning/protectedkeyuse dependency; scopedhashverifier/currentE20guard remainsproved",
+            "doNotRemoveMandatoryProviderFixture": true
+          }
+        },
+        {
+          "op": "add",
+          "path": "/closureDependencyReview",
+          "value": {
+            "path": "audit/generated/closure-replan-84c/evidence/36-duty-layer-review.json",
+            "parentDenominator": 36,
+            "wholeOperationsClosed": 0
+          }
+        }
+      ],
+      "reason": "Mutablecheckpoint progress is legitimate; pinned84 review is historicalinput. Root keyedmerge changes only newlayerannotations andreviewlink, never overwritesprogress.",
+      "originalPinnedInputSha256": "8e75a7e64511a9e0431aee2cf947f5e2ef1ec89b86bac531a8bc3699d4d44ad2",
+      "applicationMode": "KEYED_MERGE_CURRENT_ROOT_CHECKPOINT_PRESERVE_PROGRESS"
+    }
+  ],
+  "followUpRootActions": [
+    "Add36 layerrows into registerasaggregate review metadata, notduplicateprojectobligationcount",
+    "Recomputechecklist hash references incheckpoint/register afterrootapply",
+    "PreserveSSOTreadyBLOCKED; no authoritativefixturesremoved",
+    "Reuse old23/45 onlynarrowdeclaredconditions withreportedinputs; enrichfulltransitivebindings or rerunifrequired dependencychanges"
+  ],
+  "patchPreconditionDisposition": "Stale checkpoint bytehash is a patch precondition, not contractdefect orenvironmentblocker; use apply_audit_proposals.py keyedmerge."
+}

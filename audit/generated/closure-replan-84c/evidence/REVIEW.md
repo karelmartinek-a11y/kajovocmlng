@@ -1,0 +1,15 @@
+# Bounded dependency and evidence review
+
+Pinned input: `84c41ba80af35d5d13f64cf8177ce551c2188e27`; canonical SSOT SHA-256 `2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536`.
+
+Reviewed all 36 existing create-operation parent duties for definition (A), mandatory pre-generation fixture (B), future generated-application acceptance (C), and environment (D) dependencies. This is metadata/dependency coverage, not full semantic closure of their fields or 36 verified duties. Zero whole parent obligations are promoted. All seven registered bounded evidence hashes and the compared consumed resources/helpers match. Completed manager/PostgreSQL runs were not repeated.
+
+§12.56 expressly retains actual systemd credential materialization, invocation/fingerprint, rotation, desired/effective confirmation, and historical materialization fixtures before generation. Missing manager/source therefore blocks these real-provider B fixtures and their precise protected-row producer dependencies. It does not stop independent A definitions or invalidate bounded SHA256 token/current Secret E20 guard proofs. Fixture keys and mock providers do not satisfy this gate.
+
+SECRET.UI.REVEAL contains an overbroad generated-backend-runtime prerequisite. The proposed patch separates future generated backend execution into C while preserving every exact auth/read/reveal/COPY/reserved OWNER session contract and named B fixture. Its Secrets UI authority is §72.21, plus §8.5, §8.6.1, §8.8, §8.16 and §51.20; §72.11 concerns Dashboard. Complete worker/backend/UI contract design remains mandatory. §12.51.2 explicitly separates pre-generation fixtures from generated application's production behavior.
+
+The checklist's stage-proof pointer still cites the older 4ac source. A fresh 2577 proof already exists, with 12 scoped stage cases and matching current helper hashes. The patch repoints it and retains the historical evidence separately. The selected-proof reuse wrapper preserves old execution hashes correctly; credit remains limited to matching scoped resources/helpers, because wrapper checks are not an exhaustive transitive manifest.
+
+`integration-patch-proposals.json` provides exact checklist patches and a keyed checkpoint merge. `apply_audit_proposals.py` previews both only in this owned directory. The checkpoint can legitimately advance during review: merge by current blocker ID/source gate, preserve every current progress field and historical record, and treat byte drift as a patch precondition rather than a contract defect. `merge-validation.json` records the successful pure transform; shared files were not written.
+
+Integrate the finite dependency plan without creating new terminal-source guards, format approvals, manual key steps, or speculative producer obligations. Resolve concrete sourced A/B gaps; retain explicitly authoritative before-generation mechanism fixtures. Source references and layer-by-layer exact remainders are in `36-duty-layer-review.json`. Readiness stays BLOCKED; production acceptance stays NOT_EVALUATED.

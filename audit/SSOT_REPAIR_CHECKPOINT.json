@@ -1,7 +1,7 @@
 {
   "status": "PARTIAL",
   "baselineCommit": "cfcb7b2f6a41d152cb799779252d9c1615a02d5a",
-  "sourceDocumentSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "sourceDocumentSha256": "ad98ebff9e2056c2596b04a0ea31870b3c89520c6f9ab2bd6e26e13ce0a54706",
   "previousWork": "main includes generation boundary closure; remote work/ssot-completion-2026-09-25 at 7006785; historical checkpoints preserved",
   "repositoryInstructions": "No AGENTS.md found in checkout or parent workspace",
   "remoteVerification": {
@@ -518,7 +518,7 @@
     "currentConnectedProof": "Actual source/resources/root implementation inputs bound by required verifier and runner cache; old defects retained separately",
     "secretCookieReuse": "Old execution source preserved; exact unchanged canonical resource, all helpers, normative Secrets/browser/UI sections and Chromium engine checked. New publication authority fixtures rerun independently."
   },
-  "currentSourceDocumentSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "currentSourceDocumentSha256": "ad98ebff9e2056c2596b04a0ea31870b3c89520c6f9ab2bd6e26e13ce0a54706",
   "inventoryEnvironmentCorrection": {
     "systemPythonUnavailableFormatCheckers": "774 references / 595 operations is environment-blocked evidence, not a contract defect count",
     "pinnedAuditEnvironment": "242 references / 121 operations; nestedReferenceFailures=0"
@@ -567,14 +567,14 @@
   "noFurtherAuthorizationNeeded": "Technical edits, commits, push and purposeful subagents authorized; ten limited Secret profile names and approved FOLLOW_UP need no reconfirmation. No full browser capability may be dropped.",
   "continuationInput": {
     "branch": "ssot-repair-2026-09-30",
-    "verifiedInputHead": "8cc19fbc69fb839ea88597b736da03d8b3eaecd4",
-    "verifiedInputSSOTSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
-    "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+    "verifiedInputHead": "84c41ba80af35d5d13f64cf8177ce551c2188e27",
+    "verifiedInputSSOTSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+    "sourceSha256": "ad98ebff9e2056c2596b04a0ea31870b3c89520c6f9ab2bd6e26e13ce0a54706",
     "resumeHeadRule": "Resolve actual local and remote HEAD; checkpoint embeds only prior committed HEAD, not own resulting commit",
-    "initialIntegrity": "audit/generated/resume-8cc/coordinator/entry-state.json",
+    "initialIntegrity": "audit/generated/closure-replan-84c/coordinator/ENTRY_STATE.json",
     "workingTreeAtEntry": "CLEAN",
-    "currentBlock": "RETRY_FULL_PHYSICAL_H_AUTHORITY_AND_RETAINED_OUTCOME_PRODUCERS",
-    "lastVerifiedCommittedBlock": "2e61f9218cba8e285cd067ad893b45ad7f68c0c4",
+    "currentBlock": "FINITE_AUTHORITY_DEPENDENCY_AND_DOMAIN_FAMILY_INTEGRATION",
+    "lastVerifiedCommittedBlock": "b7257a2d0728d4b67e58033ce47dcc45ccaf2d7b",
     "lastVerifiedCommittedBlockSSOTSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536"
   },
   "createBlock": {
@@ -1092,14 +1092,8 @@
     "currentExceptionsOrTimeouts": []
   },
   "finalPackaging": {
-    "manifestGenerationAfterEvidence": true,
-    "receipt": "audit/generated/integrity-receipt.json",
-    "verificationCommand": "python scripts/package_integrity.py --generate --receipt; python scripts/package_integrity.py",
-    "packageStatus": "BLOCKED",
-    "readiness": "BLOCKED",
-    "noSelfManifestOrCommitHashInCheckpoint": true,
-    "packageProof": "audit/generated/resume-8cc/coordinator/package-after-evidence.json",
-    "packageAfterEvidence": "BLOCKED; no integrity mismatch; unchanged historical syntax/UI/R9 and semantic blockers"
+    "status": "PENDING_FINAL_INTEGRATION",
+    "reason": "Canonical definition changes and family integration invalidate package inventory until all evidence writes are complete"
   },
   "historicalCreateBlocks": [
     {
@@ -1303,7 +1297,7 @@
     "status": "IN_PROGRESS",
     "approach": "User-directed finite A/B/C/D dependency replan plus create and bulk-family contract integration",
     "entryEvidence": "audit/generated/closure-replan-84c/coordinator/ENTRY_STATE.json",
-    "pendingEvidence": "Second independent dependency/evidence review and integration into existing register; then whole Secret/session/audit/SQL definition workpackages",
+    "pendingEvidence": "Independent current tombstone review and correction/integration of complete OWNER_SESSION_RECORD_ADMIN family; scoped SQL helper/Audit read families in parallel",
     "SSOT_CONTRACT_READY": "BLOCKED",
     "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED",
     "completedPackages": [
@@ -1319,6 +1313,37 @@
         ],
         "evidence": "audit/generated/closure-replan-84c/authority/gate-review/independent-final-gate-tests.json",
         "review": "Independent32PASS; root18PASS"
+      },
+      {
+        "id": "CREATE.RETENTION.MACHINE_REASON",
+        "state": "VERIFIED",
+        "authority": [
+          "49.4",
+          "8.17"
+        ],
+        "scope": "Exact optional tombstone reason and server-only unscheduled retention representation; new command event not activated",
+        "changedResources": [
+          "contracts/payload-contracts.json",
+          "contracts/create-operation-design.schema.json",
+          "contracts/create-completion.json"
+        ],
+        "evidence": "audit/generated/create-review-negatives/completion-tests.json",
+        "checks": 449,
+        "failed": 0,
+        "review": "Independent51PASS + reproduced449completionPASS; boundeddefinitiononly",
+        "notDischarged": [
+          "Secret retained outcome producer",
+          "Historical codec publisher",
+          "Required actual retention/replay fixtures"
+        ],
+        "independentEvidence": "audit/generated/closure-replan-84c/authority/secret-review/integrated/integrated-retained-mask-tests.json"
+      },
+      {
+        "id": "CREATE.FINITE_LAYER_PLAN",
+        "state": "VERIFIED",
+        "scope": "36parents/144overlapping A/B/C/D records; 3897 historicalinventoryobligations preserved, exacttemporalauthority reviewed",
+        "evidence": "audit/generated/closure-replan-84c/evidence/current-shared-rebind-validation.json",
+        "limitations": "Classification and dependency planning are not completion of alldefinitions orfixtures"
       }
     ],
     "authorityClassificationProposal": "audit/generated/closure-replan-84c/authority/classification-proposal.json"
@@ -2187,6 +2212,34 @@
           "audit/generated/resume-8cc/archive/review-secret-rotation/fixed/rotation-peer-proof.json"
         ],
         "systemd": "ENVIRONMENT_BLOCKED; genuine manager/socket/invocation required, no fixture-key PASS"
+      }
+    },
+    {
+      "type": "continuationInputBeforeFiniteReplan",
+      "value": {
+        "branch": "ssot-repair-2026-09-30",
+        "verifiedInputHead": "8cc19fbc69fb839ea88597b736da03d8b3eaecd4",
+        "verifiedInputSSOTSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+        "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+        "resumeHeadRule": "Resolve actual local and remote HEAD; checkpoint embeds only prior committed HEAD, not own resulting commit",
+        "initialIntegrity": "audit/generated/resume-8cc/coordinator/entry-state.json",
+        "workingTreeAtEntry": "CLEAN",
+        "currentBlock": "RETRY_FULL_PHYSICAL_H_AUTHORITY_AND_RETAINED_OUTCOME_PRODUCERS",
+        "lastVerifiedCommittedBlock": "2e61f9218cba8e285cd067ad893b45ad7f68c0c4",
+        "lastVerifiedCommittedBlockSSOTSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536"
+      }
+    },
+    {
+      "type": "packagingBeforeReplan",
+      "value": {
+        "manifestGenerationAfterEvidence": true,
+        "receipt": "audit/generated/integrity-receipt.json",
+        "verificationCommand": "python scripts/package_integrity.py --generate --receipt; python scripts/package_integrity.py",
+        "packageStatus": "BLOCKED",
+        "readiness": "BLOCKED",
+        "noSelfManifestOrCommitHashInCheckpoint": true,
+        "packageProof": "audit/generated/resume-8cc/coordinator/package-after-evidence.json",
+        "packageAfterEvidence": "BLOCKED; no integrity mismatch; unchanged historical syntax/UI/R9 and semantic blockers"
       }
     }
   ],

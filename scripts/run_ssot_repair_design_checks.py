@@ -77,7 +77,7 @@ def main():
  def save():
   report={'sourceSha256':source,'requirementsSha256':deps,'supportInputsSha256':support_hash,'environmentSha256':environment_hash,'installedAuditPackages':packages,'python':sys.version,'requiredChecks':CHECKS,
    'commands':list(records.values()),'allCommandsFinished':len(records)==len(CHECKS),
-   'scope':'Explicit available design regression tools and six legacy resource validators; normative per-operation semantic, SQL helper/runtime and full pipeline obligations remain separately required.',
+   'scope':'Explicit available design regression tools and five final gate families under73.7; normative per-operation semantic, SQL helper/runtime and full pipeline obligations remain separately required.',
    'SSOT_CONTRACT_READY':'BLOCKED','IMPLEMENTATION_PRODUCTION_ACCEPTANCE':'NOT_EVALUATED',
    'excluded':'No freeze flag, application generation, paid API, production, release or deployment execution. Inventory/receipt verified after evidence writes.'}
   temporary=ROOT/'.cache/repair-commands.json'

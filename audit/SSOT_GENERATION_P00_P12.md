@@ -8,7 +8,7 @@ No successor RUNNING before predecessor current PASSED with identical SSOT/Contr
 
 SSOT SHA-256: `2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536`.
 
-Aktuální integrační checkpoint je PARTIAL: generation.job.create i secret.create zůstávají OPEN. Bounded RETRY/Secret fixtures nepředstavují kompletní P00 gate; skutečný systemd invocation, zbývající trusted producenti, read/UI/browser a celý závazný návrhový universe zůstávají předgeneračními povinnostmi.
+Aktuální integrační checkpoint je PARTIAL: generation.job.create i secret.create zůstávají OPEN. Bounded RETRY/Secret fixtures nepředstavují kompletní P00 gate; přesné definice trusted producer/read/UI/browser předávek zůstávají povinné. Skutečné systemd fixtures jsou předgenerační podle §12.56; runtime vygenerovaných backendů se ověřuje v příslušných P00–P12 etapách, nikoli jako podmínka napsání definic.
 
 Deliverables a delta gates jsou převzaté z R13/R14/R15; finální P00 gate používá účinnou precedence §73.7 místo historického R13 whole-document gate. Plánované cesty jsou konkrétní umístění budoucích výstupů; aplikace nebyla generována.
 
@@ -332,3 +332,7 @@ P04–P06 must consume retained protected bytes under exact archived schema/poli
 P07–P12 preserve existing business outputs/exit criteria. Exact public/native UI projections, three exposure producer-result joins, Secret broker profiles/legacy RAW, complete §13.15 browser members, MCP/agent/OpenAI/monitoring handoffs and production fixture gates remain required. Runtime application acceptance is separate and NOT_EVALUATED. No application was generated.
 
 Current Secret continuation: P02 consumes `contracts/secrets/import.schema.json` and `profile-handoffs.schema.json`; P03 must join the bounded `database/secret-profile-roots.sql` roots to actual trusted context/domain command/event/outbox/audit. P04 must authenticate immutable version metadata and hydrate exact bytes for the declared consumer; PROFILE schema/type/digests and legacy RAW null bindings are required. P05/§13.15 retains full browser bundle/bridge/CAS/account fixtures even after14 actual Chromium cookie-member checks. P00 exit continues effective §73.7;48-check universe alone is insufficient. No application runtime acceptance is inferred.
+
+## Účinné vrstvy dokončení po nezávislém přezkumu
+
+Registr a create checklist oddělují A (přesné definice), B (konkrétní fixtures), C (akceptaci aplikace) a D (prostředí). §51.36 vyžaduje doklady před aktivací; sám nestanoví existenci vygenerovaného backendu před generováním. SECRET.UI.REVEAL má normativní UI zdroj §72.21 a backend akceptaci P09/P12. Tato klasifikace neodkládá výslovné fixtures §12.56–12.57. Finální gate families jsou přesně R10, R16, UI, CLOSURE, R17 podle §73.7; R9 není šestá finální family. Historické odstavce výše jsou průběžná provenance, aktuální universe a důkazy určuje checkpoint, nikoli jejich starší počty.

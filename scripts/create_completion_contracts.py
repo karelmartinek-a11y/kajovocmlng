@@ -12,6 +12,13 @@ OPERATIONS={'generation.job.create':('GenerationCreated','generation.job.created
 
 def obj(properties):return {'type':'object','additionalProperties':False,'properties':properties,'required':list(properties)}
 def nullable(schema):return {'oneOf':[copy.deepcopy(schema),{'type':'null'}]}
+
+
+def retained_error(schema):
+ """Exact 49.4 tombstone reason; neither expiry nor a new error code."""
+ schema['properties']['machineReason']={'type':'string','const':'RESULT_RETAINED_AS_TOMBSTONE'}
+ schema.setdefault('allOf',[]).append({'if':{'required':['machineReason']},'then':{'properties':{'stableCode':{'const':'IDEMPOTENCY_CONFLICT'},'classification':{'const':'CONFLICT'},'retryDirective':{'const':'DO_NOT_RETRY'}}}})
+ return schema
 def canonical_digest(value):return 'sha256:'+hashlib.sha256(json.dumps(value,ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
 
 # These are technical stable codes with explicit predicates, not exception names
@@ -24,7 +31,7 @@ ERRORS=[
  {'stableCode':'CREATE_POLICY_UNRESOLVED','classification':'DEPENDENCY','retryDirective':'DO_NOT_RETRY','httpStatus':503,'predicate':'Mandatory exact Secret type, ephemeral credential or parent/target admission policy is not resolved; dispatch remains blocked','sources':['8.11','12.47','55.2']},
  {'stableCode':'CREATE_RECOVERY_BARRIER','classification':'CONFLICT','retryDirective':'DO_NOT_RETRY','httpStatus':423,'predicate':'Platform recovery is not READY; no fresh create admission','sources':['49.33','51.12']},
  {'stableCode':'CREATE_STABLE_NAME_CONFLICT','classification':'CONFLICT','retryDirective':'DO_NOT_RETRY','httpStatus':409,'predicate':'secret stableName already exists, including soft-deleted records','sources':['25.6']},
- {'stableCode':'IDEMPOTENCY_CONFLICT','classification':'CONFLICT','retryDirective':'DO_NOT_RETRY','httpStatus':409,'predicate':'Same stable business locator, different caller request digest','sources':['49.4']},
+ {'stableCode':'IDEMPOTENCY_CONFLICT','classification':'CONFLICT','retryDirective':'DO_NOT_RETRY','httpStatus':409,'predicate':'Same stable business locator with different caller request digest, or original retained details unavailable with RESULT_RETAINED_AS_TOMBSTONE; never re-execute','sources':['49.4']},
  {'stableCode':'CREATE_PERSISTENCE_FAILED','classification':'INTERNAL','retryDirective':'RETRY_SAME_OPERATION','httpStatus':500,'predicate':'Positive evidence proves the entire create transaction rolled back; no committed root/event/outbox/outcome','sources':['49.25','51.12']},
  {'stableCode':'SIDE_EFFECT_OUTCOME_UNKNOWN','classification':'UNKNOWN','retryDirective':'RECONCILE_THEN_RETRY','httpStatus':503,'predicate':'Create commit/outcome cannot yet be established from persisted canonical evidence; never classify as rolled back','sources':['49.25','32.6']},
  {'stableCode': 'FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED', 'classification': 'DEPENDENCY', 'retryDirective': 'DO_NOT_RETRY', 'httpStatus': 503, 'predicate': 'Exact FOLLOW_UP admission diagnostic FOLLOW_UP_ATOMIC_ADMISSION_UNVERIFIED; evaluated against atomically captured server-owned immutable basis, never caller authority', 'sources': ['12.49', '49.4', '49.5'], 'operationIds': ['generation.job.create']},
@@ -68,6 +75,7 @@ def definitions():
  secret['properties']['versionNumber']={**COUNTER,'not':{'const':'0'}}
  admission_error=obj({'stableCode':{'type':'string'},'classification':{'type':'string'},
                       'retryDirective':{'type':'string'},'message':{'type':'string','maxLength':8192},'detailsDigest':nullable(DIGEST)})
+ admission_error=retained_error(admission_error)
  http=obj({'operationId':{'enum':list(OPERATIONS)},'requestId':UID,'correlationId':UID,
            'logicalOperationId':nullable(UID),'statusCode':{'type':'integer'},'error':admission_error})
  http['oneOf']=[{'properties':{'statusCode':{'const':e['httpStatus']},'error':{'properties':{k:{'const':e[k]} for k in ['stableCode','classification','retryDirective']}}}} for e in ERRORS]
@@ -92,6 +100,7 @@ def specialize(payload):
              'classification':{'type':'string'},'retryDirective':{'type':'string'},
              'message':{'type':'string','maxLength':8192},'detailsDigest':nullable(DIGEST)})
   error['oneOf']=[{'properties':{k:{'const':e[k]} for k in ['stableCode','classification','retryDirective']}} for e in applicable]
+  error=retained_error(error)
   p['error']=nullable(error)
   response['allOf']=[
    {'if':{'properties':{'status':{'const':'SUCCEEDED'}}},'then':{'properties':{'terminal':{'const':True},'output':receipt,'error':{'type':'null'},'stateVersion':COUNTER,'eventSequence':COUNTER}}},
@@ -128,7 +137,7 @@ def contract():
   'httpFailureDefinition':'urn:kcml:create-operation-design:1#/$defs/HttpCreateFailure',
   'transactions':['Authenticate/freeze OWNER context and lock current platform/deployment heads','Stable locator lookup before fresh admission; matching request digest pins old frozen execution descriptor','Reserve one canonical root identity; verify referenced target/parent policy under its current locks','Persist immutable caller request and references; Secret encrypted version CREATED under master-key policy, generation job DISCUSSING','Allocate aggregate-local contiguous sequence; persist typed event, audit and outbox with root and canonical outcome in one commit','Publish only after commit; immutable receipt replay never mutates root or emits another event'],
   'postconditions':['Receipt identity belongs to exact committed aggregate','Result digest recomputed from frozen semantic response excluding transport replay marker','Event receipt equals frozen response output; payload digest covers exact canonical receipt','Read/hydration selects persisted root/version by server ID and verifies immutable initial/version linkage; current state may evolve without rewriting frozen receipt','Unknown commit outcome reconciles the same locator; no new root or side effect'],
-  'open':['Nine structured/cryptographic Secret type value grammars','Exact parent/target lifecycle admission matrix','SQL physical/helper executable proof','Full UI and consumer runtime implementation']}
+  'open':['Full browser profile and trusted import/target/OWNER_SESSION producer definitions','Remaining all-kind source/admission and retained command outcome bindings','Mandatory exact PostgreSQL/systemd fixtures where expressly required','Generated UI/backend acceptance belongs to IMPLEMENTATION_PRODUCTION_ACCEPTANCE, not missing definition evidence']}
 
 def semantic_result(response):
  """Replay transport marker never changes the frozen operation result."""

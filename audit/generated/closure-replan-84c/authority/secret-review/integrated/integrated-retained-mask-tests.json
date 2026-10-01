@@ -1,0 +1,409 @@
+{
+  "sourceSha256": "ad98ebff9e2056c2596b04a0ea31870b3c89520c6f9ab2bd6e26e13ce0a54706",
+  "status": "PASS",
+  "checked": 51,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "generation.job.create/response/retained-positive",
+      "passed": true
+    },
+    {
+      "id": "generation.job.create/response/wrong-reason",
+      "passed": true,
+      "validator": "const",
+      "path": [
+        "error",
+        "machineReason"
+      ]
+    },
+    {
+      "id": "generation.job.create/response/wrong-classification",
+      "passed": true,
+      "validator": "const",
+      "path": [
+        "error",
+        "classification"
+      ]
+    },
+    {
+      "id": "generation.job.create/response/wrong-retry",
+      "passed": true,
+      "validator": "const",
+      "path": [
+        "error",
+        "retryDirective"
+      ]
+    },
+    {
+      "id": "generation.job.create/response/wrong-code",
+      "passed": true,
+      "validator": "const",
+      "path": [
+        "error",
+        "stableCode"
+      ]
+    },
+    {
+      "id": "generation.job.create/response/nonterminal",
+      "passed": true,
+      "validator": "const",
+      "path": [
+        "terminal"
+      ]
+    },
+    {
+      "id": "generation.job.create/response/extra-error",
+      "passed": true,
+      "validator": "additionalProperties",
+      "path": [
+        "error"
+      ]
+    },
+    {
+      "id": "generation.job.create/response/sensitive-output",
+      "passed": true,
+      "validator": "type",
+      "path": [
+        "output"
+      ]
+    },
+    {
+      "id": "generation.job.create/response/sensitive-error-field",
+      "passed": true,
+      "validator": "additionalProperties",
+      "path": [
+        "error"
+      ]
+    },
+    {
+      "id": "generation.job.create/response/reason-remains-optional",
+      "passed": true
+    },
+    {
+      "id": "generation.job.create/response/missing-required-stableCode",
+      "passed": true,
+      "validator": "oneOf",
+      "path": [
+        "error"
+      ]
+    },
+    {
+      "id": "generation.job.create/response/missing-required-classification",
+      "passed": true,
+      "validator": "required",
+      "path": [
+        "error"
+      ]
+    },
+    {
+      "id": "generation.job.create/response/missing-required-retryDirective",
+      "passed": true,
+      "validator": "required",
+      "path": [
+        "error"
+      ]
+    },
+    {
+      "id": "generation.job.create/response/missing-required-message",
+      "passed": true,
+      "validator": "required",
+      "path": [
+        "error"
+      ]
+    },
+    {
+      "id": "generation.job.create/response/missing-required-detailsDigest",
+      "passed": true,
+      "validator": "required",
+      "path": [
+        "error"
+      ]
+    },
+    {
+      "id": "generation.job.create/HTTP/retained-positive",
+      "passed": true
+    },
+    {
+      "id": "generation.job.create/HTTP/wrong-reason",
+      "passed": true,
+      "validator": "const",
+      "path": [
+        "error",
+        "machineReason"
+      ]
+    },
+    {
+      "id": "generation.job.create/HTTP/wrong-classification",
+      "passed": true,
+      "validator": "const",
+      "path": [
+        "error",
+        "classification"
+      ]
+    },
+    {
+      "id": "generation.job.create/HTTP/wrong-retry",
+      "passed": true,
+      "validator": "const",
+      "path": [
+        "error",
+        "retryDirective"
+      ]
+    },
+    {
+      "id": "generation.job.create/HTTP/wrong-status",
+      "passed": true,
+      "validator": "oneOf",
+      "path": []
+    },
+    {
+      "id": "generation.job.create/HTTP/extra-terminal",
+      "passed": true,
+      "validator": "additionalProperties",
+      "path": []
+    },
+    {
+      "id": "generation.job.create/HTTP/sensitive-response-field",
+      "passed": true,
+      "validator": "additionalProperties",
+      "path": []
+    },
+    {
+      "id": "generation.job.create/HTTP/reason-remains-optional",
+      "passed": true
+    },
+    {
+      "id": "secret.create/response/retained-positive",
+      "passed": true
+    },
+    {
+      "id": "secret.create/response/wrong-reason",
+      "passed": true,
+      "validator": "const",
+      "path": [
+        "error",
+        "machineReason"
+      ]
+    },
+    {
+      "id": "secret.create/response/wrong-classification",
+      "passed": true,
+      "validator": "const",
+      "path": [
+        "error",
+        "classification"
+      ]
+    },
+    {
+      "id": "secret.create/response/wrong-retry",
+      "passed": true,
+      "validator": "const",
+      "path": [
+        "error",
+        "retryDirective"
+      ]
+    },
+    {
+      "id": "secret.create/response/wrong-code",
+      "passed": true,
+      "validator": "const",
+      "path": [
+        "error",
+        "stableCode"
+      ]
+    },
+    {
+      "id": "secret.create/response/nonterminal",
+      "passed": true,
+      "validator": "const",
+      "path": [
+        "terminal"
+      ]
+    },
+    {
+      "id": "secret.create/response/extra-error",
+      "passed": true,
+      "validator": "additionalProperties",
+      "path": [
+        "error"
+      ]
+    },
+    {
+      "id": "secret.create/response/sensitive-output",
+      "passed": true,
+      "validator": "type",
+      "path": [
+        "output"
+      ]
+    },
+    {
+      "id": "secret.create/response/sensitive-error-field",
+      "passed": true,
+      "validator": "additionalProperties",
+      "path": [
+        "error"
+      ]
+    },
+    {
+      "id": "secret.create/response/reason-remains-optional",
+      "passed": true
+    },
+    {
+      "id": "secret.create/response/missing-required-stableCode",
+      "passed": true,
+      "validator": "oneOf",
+      "path": [
+        "error"
+      ]
+    },
+    {
+      "id": "secret.create/response/missing-required-classification",
+      "passed": true,
+      "validator": "required",
+      "path": [
+        "error"
+      ]
+    },
+    {
+      "id": "secret.create/response/missing-required-retryDirective",
+      "passed": true,
+      "validator": "required",
+      "path": [
+        "error"
+      ]
+    },
+    {
+      "id": "secret.create/response/missing-required-message",
+      "passed": true,
+      "validator": "required",
+      "path": [
+        "error"
+      ]
+    },
+    {
+      "id": "secret.create/response/missing-required-detailsDigest",
+      "passed": true,
+      "validator": "required",
+      "path": [
+        "error"
+      ]
+    },
+    {
+      "id": "secret.create/HTTP/retained-positive",
+      "passed": true
+    },
+    {
+      "id": "secret.create/HTTP/wrong-reason",
+      "passed": true,
+      "validator": "const",
+      "path": [
+        "error",
+        "machineReason"
+      ]
+    },
+    {
+      "id": "secret.create/HTTP/wrong-classification",
+      "passed": true,
+      "validator": "const",
+      "path": [
+        "error",
+        "classification"
+      ]
+    },
+    {
+      "id": "secret.create/HTTP/wrong-retry",
+      "passed": true,
+      "validator": "const",
+      "path": [
+        "error",
+        "retryDirective"
+      ]
+    },
+    {
+      "id": "secret.create/HTTP/wrong-status",
+      "passed": true,
+      "validator": "oneOf",
+      "path": []
+    },
+    {
+      "id": "secret.create/HTTP/extra-terminal",
+      "passed": true,
+      "validator": "additionalProperties",
+      "path": []
+    },
+    {
+      "id": "secret.create/HTTP/sensitive-response-field",
+      "passed": true,
+      "validator": "additionalProperties",
+      "path": []
+    },
+    {
+      "id": "secret.create/HTTP/reason-remains-optional",
+      "passed": true
+    },
+    {
+      "id": "authoring/close_create_completion.py",
+      "passed": true
+    },
+    {
+      "id": "authoring/close_create_operation_requests.py",
+      "passed": true
+    },
+    {
+      "id": "authoring/close_secret_retention_contract.py",
+      "passed": true
+    },
+    {
+      "id": "new-command-stream-not-in-canonical-contract",
+      "passed": true
+    },
+    {
+      "id": "source-unchanged",
+      "passed": true
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "close_create_completion.py",
+        "--check"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"status\": \"PASS\", \"pending\": [], \"normativeTextExact\": true}",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "close_create_operation_requests.py",
+        "--check"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"status\": \"PASS\", \"pending\": []}",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "close_secret_retention_contract.py",
+        "--check"
+      ],
+      "exitCode": 0,
+      "stdout": "PASS",
+      "stderr": ""
+    }
+  ],
+  "resources": {
+    "contracts/create-completion.json": "2c04f7fe04af7717eee127d9c58b0d0bab99defced12665f65abf58193a0afb1",
+    "contracts/create-operation-design.schema.json": "b026d33df1e918371f246c00b70e82b8b997759dd1e3403845a394548ec8372b",
+    "contracts/payload-contracts.json": "8c907ed356027496baabc1760fef2b667d36cacf4715d7e10d86e2ccc460dae1"
+  },
+  "supportHashes": {
+    "create_completion_contracts.py": "a924f639b77a32387451d26b5ca6afa4e74a3b0c3d1fdd6946e51abfa2e10ec8",
+    "close_create_completion.py": "b6ccd21fe35c5fed4cf72e2c194d421179478aaf7ee0958c5ed0546b70d07f78",
+    "close_create_operation_requests.py": "586ae9e0cf8575a8e34a48a5782c6562dce641b789bfb6e17160a74745c4a27e",
+    "close_secret_retention_contract.py": "e76aeded21007bdef8302adad0ef8c4743c63abf266740dc061269f3e65918e9"
+  },
+  "scope": "Actual canonical definition masks/authoring only. Field-based sensitive echo is rejected; message confidentiality remains the safe producer contract, not a claim arbitrary strings can be forbidden by JSON Schema. No new command stream/retention PG/runtime producer activation.",
+  "wholeOperationClosed": false,
+  "implementationAcceptance": "NOT_EVALUATED"
+}

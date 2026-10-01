@@ -1,0 +1,185 @@
+{
+  "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "sourceUnchanged": true,
+  "originalDefinitionCases": [
+    {
+      "id": "exact-effective-success-mask-domain-witness",
+      "status": "PASS"
+    },
+    {
+      "id": "active-on-create",
+      "status": "PASS",
+      "validator": "const",
+      "path": [
+        "output",
+        "recordStatus"
+      ]
+    },
+    {
+      "id": "secret-value-echo",
+      "status": "PASS",
+      "validator": "additionalProperties",
+      "path": [
+        "output"
+      ]
+    },
+    {
+      "id": "root-lifecycle-borrowing",
+      "status": "PASS",
+      "validator": "const",
+      "path": [
+        "output",
+        "recordStatus"
+      ]
+    },
+    {
+      "id": "client-authority-receipt",
+      "status": "PASS",
+      "validator": "additionalProperties",
+      "path": [
+        "output"
+      ]
+    },
+    {
+      "id": "success-error",
+      "status": "PASS",
+      "validator": "type",
+      "path": [
+        "error"
+      ]
+    },
+    {
+      "id": "exact-effective-committed-success-event",
+      "status": "PASS"
+    },
+    {
+      "id": "rootless-failure-not-a-success-aggregate-event",
+      "status": "PASS",
+      "validator": "type",
+      "path": [
+        "payload"
+      ]
+    },
+    {
+      "id": "event-no-value-echo",
+      "status": "PASS",
+      "validator": "additionalProperties",
+      "path": [
+        "payload"
+      ]
+    },
+    {
+      "id": "effective-unknown-is-nonterminal-no-output",
+      "status": "PASS"
+    },
+    {
+      "id": "unknown-cannot-terminalize",
+      "status": "PASS",
+      "validator": "const",
+      "path": [
+        "terminal"
+      ]
+    },
+    {
+      "id": "proposed-sourced-tombstone-machine-reason",
+      "status": "PASS"
+    },
+    {
+      "id": "tombstone-reason-not-validation-error",
+      "status": "PASS",
+      "validator": "const",
+      "path": [
+        "error",
+        "stableCode"
+      ]
+    },
+    {
+      "id": "unknown-machine-reason-rejected",
+      "status": "PASS",
+      "validator": "const",
+      "path": [
+        "error",
+        "machineReason"
+      ]
+    }
+  ],
+  "retainedDefinitionCases": [
+    {
+      "id": "exact-rootless-final-failure-positive",
+      "passed": true
+    },
+    {
+      "id": "invented-root",
+      "passed": true,
+      "validator": "type",
+      "path": [
+        "secretId"
+      ]
+    },
+    {
+      "id": "success-output-on-failure",
+      "passed": true,
+      "validator": "type",
+      "path": [
+        "output"
+      ]
+    },
+    {
+      "id": "zero-stream-sequence",
+      "passed": true,
+      "validator": "not",
+      "path": [
+        "outcomeSequence"
+      ]
+    },
+    {
+      "id": "retryable-as-final",
+      "passed": true,
+      "validator": "oneOf",
+      "path": [
+        "error"
+      ]
+    },
+    {
+      "id": "cancel-as-failure",
+      "passed": true,
+      "validator": "not",
+      "path": [
+        "error",
+        "stableCode"
+      ]
+    },
+    {
+      "id": "unknown-as-final",
+      "passed": true,
+      "validator": "enum",
+      "path": [
+        "state"
+      ]
+    },
+    {
+      "id": "unknown-rootless-nonterminal-positive",
+      "passed": true
+    }
+  ],
+  "reproducedChecks": 22,
+  "failed": 0,
+  "additionalPeerObservation": {
+    "id": "tombstone-reason-on-nonterminal",
+    "accepted": false,
+    "validator": "const",
+    "path": [
+      "terminal"
+    ]
+  },
+  "inputs": {
+    "contract_delta.py": "18ee6ad30ea95697871495a6aa4c6c35327559b9087665ce6407433275107d36",
+    "NORMATIVE_DELTA.md": "e1eefb4b374571ac24d6f2b65410f540127e1468a7ccc9b1873f41b2043be61e",
+    "response-with-retained-reason.proposed.schema.json": "59a7ee942cdc179adc743c686d04ed72edcdb3d106e9f77c2703f3324082295f",
+    "retained-command-outcome.proposed.schema.json": "5b74d6381209412e707f25a7b4afa7d6ae035e41bf44ece12f80eb593fab0a4d",
+    "verify_definition_package.py": "16108ad666f87f41da71d81f77863f805a29d2841adfd2c28f23821df35d7879"
+  },
+  "scope": "Original14 definition fixtures plus independently constructed matching8 retained schema cases only; no new SQL/event namespace/lock producer approval.",
+  "wholeOperationClosed": false,
+  "implementationAcceptance": "NOT_EVALUATED"
+}

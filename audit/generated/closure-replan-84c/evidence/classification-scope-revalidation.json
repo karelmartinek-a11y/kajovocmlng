@@ -1,0 +1,363 @@
+{
+  "status": "PASS_CLASSIFICATION_CONSUMED_SCOPE_REVALIDATION_WITH_CHANGED_BOUNDARIES_STALE",
+  "executionSourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "currentSourceSha256": "ad98ebff9e2056c2596b04a0ea31870b3c89520c6f9ab2bd6e26e13ce0a54706",
+  "noOldFixtureReportRetagged": true,
+  "authorityExcerptsChecked": 312,
+  "authorityQuotesUnchanged": true,
+  "canonicalResourcesCompared": [
+    {
+      "path": "database/generation-effect-ledger-producer.sql",
+      "recordedSha256": "4ce2e51d7d98e6234a617928ce6db19cb3199db56d1364a60094e879f91eb274",
+      "actualSha256": "4ce2e51d7d98e6234a617928ce6db19cb3199db56d1364a60094e879f91eb274",
+      "matches": true
+    },
+    {
+      "path": "database/generation-ordered-context.sql",
+      "recordedSha256": "760765740b6fbb0cdbc2b2ed2964a115078cbba49debca900030fe5af6b6b4ac",
+      "actualSha256": "760765740b6fbb0cdbc2b2ed2964a115078cbba49debca900030fe5af6b6b4ac",
+      "matches": true
+    },
+    {
+      "path": "database/generation-ordered-retry-child.sql",
+      "recordedSha256": "f2293824868859c86bd4e23354440a3eb848b7ff1188f5ba4c409e055c38bab1",
+      "actualSha256": "f2293824868859c86bd4e23354440a3eb848b7ff1188f5ba4c409e055c38bab1",
+      "matches": true
+    },
+    {
+      "path": "database/generation-native-lineage.sql",
+      "recordedSha256": "5f75ac3a184945bad36addffaf7846333e3d9a2fa861948a11124788cc3ec785",
+      "actualSha256": "5f75ac3a184945bad36addffaf7846333e3d9a2fa861948a11124788cc3ec785",
+      "matches": true
+    },
+    {
+      "path": "database/generation-native-source-parent.sql",
+      "recordedSha256": "f7438826f9b988a1f1855072501799ce4938dcfdd74a3a0f61e5b1a311a22b75",
+      "actualSha256": "f7438826f9b988a1f1855072501799ce4938dcfdd74a3a0f61e5b1a311a22b75",
+      "matches": true
+    },
+    {
+      "path": "database/generation-trusted-policy-publisher.sql",
+      "recordedSha256": "283d15a232f16faa62b63404c707fdb70765c7fa6a9336b51b1268fdabe88ca8",
+      "actualSha256": "283d15a232f16faa62b63404c707fdb70765c7fa6a9336b51b1268fdabe88ca8",
+      "matches": true
+    }
+  ],
+  "rootHelpersCompared": [
+    {
+      "path": "scripts/owner_api_credential_root_auth.py",
+      "recordedSha256": "41f57409a7867011abe6ef052d082fc00d9c07e6fa7a52155befffbcdac23940",
+      "actualSha256": "41f57409a7867011abe6ef052d082fc00d9c07e6fa7a52155befffbcdac23940",
+      "matches": true
+    },
+    {
+      "path": "scripts/secret_command_chain.py",
+      "recordedSha256": "7bd0c42342118bb9edab12baf964230984b58ba4c99d4559ab89aa54dd07e8ce",
+      "actualSha256": "7bd0c42342118bb9edab12baf964230984b58ba4c99d4559ab89aa54dd07e8ce",
+      "matches": true
+    },
+    {
+      "path": "scripts/generation_auth_crypto.py",
+      "recordedSha256": "5cfd85a6b0d7852509e8301b7a0b38f3e315ad292094544733a89f9b1939d259",
+      "actualSha256": "5cfd85a6b0d7852509e8301b7a0b38f3e315ad292094544733a89f9b1939d259",
+      "matches": true
+    },
+    {
+      "path": "scripts/generation_locked_retry.py",
+      "recordedSha256": "33976428224eed291f074172b764206dd7657c8fa5d7e7fd3fd08f4a7a87ae91",
+      "actualSha256": "33976428224eed291f074172b764206dd7657c8fa5d7e7fd3fd08f4a7a87ae91",
+      "matches": true
+    },
+    {
+      "path": "scripts/generation_admission_contracts.py",
+      "recordedSha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+      "actualSha256": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+      "matches": true
+    },
+    {
+      "path": "scripts/generation_basis_consumer.py",
+      "recordedSha256": "f89b077b168c11c8a8d43952d8ad928e8cae7ae3437550c38dd4adc4e5380bd7",
+      "actualSha256": "f89b077b168c11c8a8d43952d8ad928e8cae7ae3437550c38dd4adc4e5380bd7",
+      "matches": true
+    },
+    {
+      "path": "scripts/generation_read_hydration_archive.py",
+      "recordedSha256": "86190cac70763c0013623771fae1fa34712aa5c045b2dc3d43842ea564abffe0",
+      "actualSha256": "86190cac70763c0013623771fae1fa34712aa5c045b2dc3d43842ea564abffe0",
+      "matches": true
+    }
+  ],
+  "phaseResourcesCompared": [
+    {
+      "parentId": "GENERATION.AUTH.API_ACCEPTANCE",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "GENERATION.AUTH.SESSION",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "GENERATION.AUTH.TRANSPORT",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "GENERATION.BASIS.UPDATE",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "GENERATION.BASIS.RETRY_PRODUCER",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "GENERATION.BASIS.RETRY_CHILD_COMMIT",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "GENERATION.BASIS.REPAIR",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "GENERATION.BASIS.FOLLOW_UP",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "GENERATION.ADMISSION.STAGE",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "GENERATION.ATOMIC.ALL_KINDS",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "GENERATION.PREROOT.DECISION_PRODUCERS",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "GENERATION.REPLAY.RECOVERY",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "GENERATION.ARCHIVE.PRODUCER",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "GENERATION.ARCHIVE.HISTORICAL_POLICY",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "GENERATION.READ.FULL_NATIVE",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "SECRET.REGISTRY.PUBLICATION",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "SECRET.AUTH.LOCKED_ACCEPTANCE",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "SECRET.ATOMIC.COMMAND_ROOT",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "SECRET.OWNER_CREDENTIAL",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "SECRET.CONSUMER.TARGET",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "SECRET.CONSUMER.ACTIVATION_BROKER",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "SECRET.READ.IMMUTABLE",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "SECRET.ERROR.RECOVERY",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "SECRET.UI.REVEAL",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "SHARED.CRYPTO.SYSTEMD_SOURCE",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "SHARED.CRYPTO.KEY_INVOCATION",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "SHARED.CRYPTO.GLOBAL_NONCE",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "UI.DASHBOARD_START.JOIN",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "UI.DASHBOARD_STOP.JOIN",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "UI.GEN_EDIT_SPEC.JOIN",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "UI.MANUAL_VISUAL",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "BROWSER.BUNDLE.CAS",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "BROWSER.ACCOUNT_POSTCONDITIONS",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "BROWSER.BRIDGE",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "BROWSER.SERIALIZER_KEYS_GENERATORS",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    },
+    {
+      "parentId": "SQL.HELPERS.CONCRETE_CALL_SITES",
+      "path": "r13/contracts/development-plan.json",
+      "recordedSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "actualSha256": "3671fc0ffe00fe6c7f29f19a5736bfb6a0489ccd63398dab4b0dc164feef7150",
+      "matches": true
+    }
+  ],
+  "changedBoundaryDisposition": [
+    {
+      "scope": "contracts/generation/create-completion.schema.json response/error machineReason optional field and error predicate",
+      "state": "STALE_PENDING_CURRENT_449_AND_INDEPENDENT_MASK_REPRODUCTION",
+      "requiresFreshEvidence": true,
+      "doesNotInvalidateUnchangedSQLLedgerOrTokenHashScopes": true
+    },
+    {
+      "scope": "§8.17 retained outcome technical supplement",
+      "state": "NEW_AUTHORITY_PENDING_CURRENT_SCOPED_REVIEW",
+      "existing§49.4RetentionNotWaived": true
+    }
+  ],
+  "limitations": [
+    "This revalidates only exact consumed classification excerpts, phase resources and the named canonical support scopes.",
+    "Original 2577 execution hashes and registered evidence remain historical; no claim all3897 inventory boundaries are current.",
+    "Create-completion affected error/predicate boundaries await fresh current evidence."
+  ],
+  "sourceStable": true
+}

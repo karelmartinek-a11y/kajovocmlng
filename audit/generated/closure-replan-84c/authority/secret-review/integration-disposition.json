@@ -1,0 +1,122 @@
+{
+  "sourceSha256": "1c787ea6c48d61890f7bc430a7e6270c949f7f1fd50bbf117cc3fba813b4249f",
+  "reviewedProposal": "audit/generated/closure-replan-84c/secret/NORMATIVE_DELTA.md",
+  "dispositions": [
+    {
+      "id": "MACHINE_REASON_SCHEMA",
+      "disposition": "APPROVE_BOUNDED_AUTHORING_INTEGRATION",
+      "authority": {
+        "pointer": "00_SSOT/KajovoCMLNG_SSOT.md",
+        "line": 42455,
+        "quote": "Tombstone locatoru zůstává po odstranění detailu výsledku. Nemá-li už systém retention právo vrátit detail, vrátí deterministický výsledek podle retained terminal metadata, případně existující `IDEMPOTENCY_CONFLICT` s machine reason `RESULT_RETAINED_AS_TOMBSTONE`; nikdy nepoužije starý key k novému effectu. API vrací current operation odkaz i při nonterminal wait/recovery, nikoli nový create.",
+        "sourceSha256": "1c787ea6c48d61890f7bc430a7e6270c949f7f1fd50bbf117cc3fba813b4249f"
+      },
+      "change": "Only optional exact machineReason RESULT_RETAINED_AS_TOMBSTONE on existing IDEMPOTENCY_CONFLICT/CONFLICT/DO_NOT_RETRY error; preserve terminal/no-output invariants. Apply authoritative error definitions and every derived create/HttpCreateFailure/operation copy together; version/digest archive remains exact.",
+      "proof": "14 original definition fixtures independently reproduced; valid terminal tombstone mutated to nonterminal correctly rejects.",
+      "limitations": "No new retained outcome producer/runtime assertion."
+    },
+    {
+      "id": "RETENTION_INFINITY",
+      "disposition": "APPROVE_TECHNICAL_SERVER_INTERNAL_RULE_WITH_FIXTURE_STILL_OPEN",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md",
+          "line": 42449,
+          "quote": "Idempotency record se nesmí odstranit ani expirovat, dokud může klient, queue, provider callback, task, MRTR exchange, browser run nebo recovery proces legitimně zopakovat danou logical operation. Po expiračním cleanupu se původní key nesmí přiřadit jiné business operaci v témže stabilním scope.",
+          "sourceSha256": "1c787ea6c48d61890f7bc430a7e6270c949f7f1fd50bbf117cc3fba813b4249f"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md",
+          "line": 42455,
+          "quote": "Tombstone locatoru zůstává po odstranění detailu výsledku. Nemá-li už systém retention právo vrátit detail, vrátí deterministický výsledek podle retained terminal metadata, případně existující `IDEMPOTENCY_CONFLICT` s machine reason `RESULT_RETAINED_AS_TOMBSTONE`; nikdy nepoužije starý key k novému effectu. API vrací current operation odkaz i při nonterminal wait/recovery, nikoli nový create.",
+          "sourceSha256": "1c787ea6c48d61890f7bc430a7e6270c949f7f1fd50bbf117cc3fba813b4249f"
+        }
+      ],
+      "change": "No invented numericTTL. Server-internal PG infinity denotes no scheduled cleanup until legitimate replay/recovery rights demonstrably exhausted; never public date-time or caller input. Actual authorization/retention metadata/cleanup producer and PG infinity↔public transport tests remain required.",
+      "limitations": "Does not approve cleanup producer, unbounded plaintext retention or changing immutable result bytes."
+    },
+    {
+      "id": "CREATE_CANDIDATE_TARGET_AND_CHANNEL",
+      "disposition": "APPROVE_EXISTING_SEMANTIC_CLARIFICATION_ONLY",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md",
+          "line": 4338,
+          "quote": "Vytvoření immutable candidate a jeho pozdější aktivace jsou různé operace.",
+          "sourceSha256": "1c787ea6c48d61890f7bc430a7e6270c949f7f1fd50bbf117cc3fba813b4249f"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md",
+          "line": 1035,
+          "quote": "Trusted runtime posílá kanonickému Secret Brokeru serverový execution context, stable name, target context, correlation ID a operation scope. Broker ověří exact active secret binding, source/target revisions a binding digest, vrátí hodnotu pouze procesu provádějícímu danou operaci a zapíše debug log i audit.",
+          "sourceSha256": "1c787ea6c48d61890f7bc430a7e6270c949f7f1fd50bbf117cc3fba813b4249f"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md",
+          "line": 4326,
+          "quote": "Tato technická specializace §12.18 stanoví native response/event masky obou",
+          "sourceSha256": "1c787ea6c48d61890f7bc430a7e6270c949f7f1fd50bbf117cc3fba813b4249f"
+        }
+      ],
+      "change": "Create inactive candidate without binding/activation; targetObjectId metadata cannot grant target/endpoint or broker authority; API/session contexts use their own true verifier and exact held authority. Target typed registry/availability/physical lock mapping stays OPEN; clarification cannot enable its guarded path."
+    },
+    {
+      "id": "FAILURE_REPLAY_NO_FAKE_ROOT",
+      "disposition": "APPROVE_SOURCE_DERIVED_RULES_NOT_NEW_EVENT_NAMESPACE",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md",
+          "line": 42437,
+          "quote": "Stejný scope, key a request digest vrací current nebo terminal record. Stejný scope a key s jiným request digestem vždy vrací `IDEMPOTENCY_CONFLICT`. Retryable selhání jednoho attemptu neterminalizuje business idempotency record; vytvoří nový attempt pod stejným logical operation ID. Terminal failure se ukládá pouze tehdy, když kontrakt určuje, že stejný požadavek nemá být automaticky znovu proveden.",
+          "sourceSha256": "1c787ea6c48d61890f7bc430a7e6270c949f7f1fd50bbf117cc3fba813b4249f"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md",
+          "line": 42447,
+          "quote": "Exactly-once external execution se netvrdí, pokud jej neposkytuje target idempotency key nebo jednoznačná read-back postcondition. V takovém případě je bezpečným výsledkem `UNKNOWN` a `MANUAL_REVIEW`.",
+          "sourceSha256": "1c787ea6c48d61890f7bc430a7e6270c949f7f1fd50bbf117cc3fba813b4249f"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md",
+          "line": 42461,
+          "quote": "Globální auditní hash chain alokuje `chainSequence` pod row lockem singletonu `audit_head`. Doménová transakce, která vyžaduje audit, současně uloží audit event, nový hash a nový audit head. Pokud audit write selže, doménová změna se necommitne.",
+          "sourceSha256": "1c787ea6c48d61890f7bc430a7e6270c949f7f1fd50bbf117cc3fba813b4249f"
+        }
+      ],
+      "change": "Known rollback versus unknown connection loss/cancellation/retained outcome remain distinct; no new root or effect on replay; audit failure rolls back. Retained error definitions must be supplied concretely, not treated as production proof by these schema cases."
+    },
+    {
+      "id": "COMMAND_OUTCOME_STREAM_PROPOSAL",
+      "disposition": "DO_NOT_ACTIVATE_AS_EXISTING_EFFECTIVE_AUTHORITY",
+      "authority": [
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md",
+          "line": 42459,
+          "quote": "Každý aggregate root obsahuje vlastní poslední `eventSequence`. Následující sequence se alokuje změnou root řádku v téže transakci jako stav. Tím vzniká bezmezerové pořadí commitnutých doménových eventů v rámci agregátu. PostgreSQL sequence objekt se pro tento bezmezerový aggregate-local čítač nepoužívá.",
+          "sourceSha256": "1c787ea6c48d61890f7bc430a7e6270c949f7f1fd50bbf117cc3fba813b4249f"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md",
+          "line": 42465,
+          "quote": "Každý event určený pro SSE, queue, webhook delivery, cache invalidaci, runtime reconcile nebo jiného consumera má ve stejné transakci `transactional_outbox` řádek. Publisher používá at-least-once delivery. Consumer deduplikuje podle immutable event ID a pro jeden stream přijímá pouze následující expected sequence; duplicate ignoruje, gap vyvolá snapshot/replay nebo `SEQUENCE_GAP`, nikoli tiché přeskočení.",
+          "sourceSha256": "1c787ea6c48d61890f7bc430a7e6270c949f7f1fd50bbf117cc3fba813b4249f"
+        },
+        {
+          "pointer": "00_SSOT/KajovoCMLNG_SSOT.md",
+          "line": 42469,
+          "quote": "Event se publikuje až po commitu. Crash po commitu a před publikací zanechá outbox row k pozdějšímu doručení. Crash po publikaci a před označením delivery může způsobit duplicate delivery, nikoli ztrátu eventu.",
+          "sourceSha256": "1c787ea6c48d61890f7bc430a7e6270c949f7f1fd50bbf117cc3fba813b4249f"
+        }
+      ],
+      "change": "domain.command.outcome.updated does not currently exist as a registered command stream. Keep inactive proposal with exact missing A obligations. Before activation supply canonical event catalogue/schema identity and applicability, command-owned sequence/head/evidence parent FK/lock ordinal mappings, authenticated retained outcome read, archived codec, atomic outbox/audit and recovery/replay proof.",
+      "proof": "8 own positive-derived payload schema checks reproduce author8; they test payload only, not new event producer/catalog/SQL authority.",
+      "limitations": "No new stream dispatch allowed and no whole rootless pipeline closure; existing successful OPERATION_TERMINAL Secret aggregate event is unchanged."
+    }
+  ],
+  "definitionProof": "definition-peer-proof.json",
+  "reproducedDefinitionChecks": 22,
+  "failed": 0,
+  "overall": "BOUNDED_SAFE_SCHEMA_RETENTION_CLARIFICATIONS_ONLY; command stream inactive",
+  "wholeOperationClosed": false,
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}
