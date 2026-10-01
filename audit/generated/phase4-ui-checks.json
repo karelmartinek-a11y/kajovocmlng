@@ -1,6 +1,6 @@
 {
   "status": "BLOCKED",
-  "structuralStatus": "PASS",
+  "structuralStatus": "FAIL",
   "scope": "Structural source/projection checks only; no production application or backend is present.",
   "checks": [
     {
@@ -9,12 +9,12 @@
       "detail": {
         "stale": [],
         "actions": 152,
-        "controls": 242
+        "controls": 243
       }
     },
     {
       "id": "matrix.exact-current-source-inventory",
-      "status": "PASS",
+      "status": "FAIL",
       "detail": {
         "canonical": 152,
         "missingBindings": 0
@@ -79,9 +79,9 @@
     },
     {
       "id": "current-handoff-matrix-exact-current-content-and-source",
-      "status": "PASS",
+      "status": "FAIL",
       "detail": {
-        "exactRebuild": true,
+        "exactRebuild": false,
         "sourceSha256": "sha256:4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
         "head": null
       }

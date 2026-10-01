@@ -125,12 +125,16 @@ def run():
         # This exactly reproduces the historical mismatch and is rejected now.
         require(bool(list(response_validator.iter_errors(response('SUCCEEDED', False, None, None)))),
                 'SUCCEEDED/terminal=false/null output incorrectly accepted')
-        valid = [response('SUCCEEDED', True, None, None), response('ACCEPTED', False, None, None),
+        # The effective OWNER read now requires a typed immutable result on success.
+        # Synthetic RAW witness probes branch constraints only, not hydration/auth.
+        raw='synthetic-value';d='sha256:'+hashlib.sha256(raw.encode()).hexdigest()
+        value={'secretId':'00000000-0000-4000-8000-000000000001','versionId':'00000000-0000-4000-8000-000000000002','secretType':'PASSWORD','byteLength':len(raw.encode()),'originalImportBytesDigest':d,'canonicalValueDigest':d,'value':{'representation':'RAW_UTF8','text':raw},'recordStatus':'INACTIVE','recordStateVersion':'1'}
+        valid = [response('SUCCEEDED', True, value, None), response('ACCEPTED', False, None, None),
                  response('FAILED', False, None, error), response('CANCELLED', True, None, error)]
         for sample in valid:
             errors = list(response_validator.iter_errors(sample))
             require(not errors, 'normative response branch rejected: '+str(errors))
-        for sample in [response('SUCCEEDED', True, None, error), response('ACCEPTED', True, None, None),
+        for sample in [response('SUCCEEDED', True, None, None), response('SUCCEEDED', True, value, error), response('SUCCEEDED', True, None, error), response('ACCEPTED', True, None, None),
                        response('FAILED', False, None, None), response('CANCELLED', False, None, error)]:
             require(bool(list(response_validator.iter_errors(sample))), 'contradictory status/result accepted')
     check('response.status-terminal-error-branches', outcomes)

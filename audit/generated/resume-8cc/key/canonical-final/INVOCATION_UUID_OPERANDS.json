@@ -1,0 +1,237 @@
+{
+  "status": "PASS_READ_ONLY_POST_RUN_OPERAND_ATTESTATION",
+  "sourceDocumentSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "sourceStable": true,
+  "invocations": [
+    {
+      "id": "nativeSourceFirst37",
+      "argv": [
+        "/tmp/ssot-audit-venv/bin/python",
+        "audit/generated/resume-8cc/key/canonical-final/native/verify_ordered_chain.py"
+      ],
+      "cwd": "/workspace/kajovocmlng",
+      "environmentOverrides": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "invocationEvidenceBasis": "Exact coordinator tools.exec_command argv/environment and redirected log; post-run persisted operands independently read now, not a reconstructed execution claim",
+      "runnerSha256": "5b00af187246906e04a444f9d391e4f1bdfa177b8f03cf17e5d2e576ec1c0b8c",
+      "outputSha256": "d9b2e89cd28269e281b4ec789bfc7980f84b98e1c1e43525bbe10f3e5576a655",
+      "stdoutStderrLog": "native/final-source-first.log",
+      "logSha256": "2bf671693edce1c4f430c4937128595aaddd7006d2654fca18dadb42151ca92f",
+      "checked": 37,
+      "postgresDatabase": "key_final_native_ordered_peer_8cc",
+      "observedAtUtc": "2026-10-01T11:16:18.838017+00:00",
+      "readOnlyObservationSQL": "SELECT id,kind,parent_job_id,encode(uuid_send(id),'hex') FROM public.generation_job ORDER BY id",
+      "observedPersistedRoots": [
+        {
+          "id": "00000000-0000-4000-8000-000000000001",
+          "kind": "CREATE",
+          "parentJobId": null,
+          "uuidRawHex": "00000000000040008000000000000001"
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000600",
+          "kind": "RETRY",
+          "parentJobId": "00000000-0000-4000-8000-000000000001",
+          "uuidRawHex": "00000000000040008000000000000600"
+        }
+      ],
+      "sourceJobId": "00000000-0000-4000-8000-000000000001",
+      "childJobId": "00000000-0000-4000-8000-000000000600",
+      "sourceUuidRawHex": "00000000000040008000000000000001",
+      "childUuidRawHex": "00000000000040008000000000000600",
+      "actualRawUuidOrder": "SOURCE_BEFORE_CHILD",
+      "readOnlyCommittedChainObservationSQL": "SELECT j.id,j.parent_job_id,s.source_job_id,n.source_job_id,d.target_aggregate_id,c.job_id FROM public.generation_job j JOIN kcml_retry_v1.child_scan s ON s.child_job_id=j.id JOIN kcml_native_basis_v1.child_lineage n ON n.child_job_id=j.id JOIN public.generation_job_create_completion c ON c.job_id=j.id JOIN public.domain_command d ON d.logical_operation_id=c.logical_operation_id WHERE j.kind='RETRY'",
+      "observedCommittedRootScanLineageCommandCompletion": {
+        "childId": "00000000-0000-4000-8000-000000000600",
+        "parentId": "00000000-0000-4000-8000-000000000001",
+        "scanSourceId": "00000000-0000-4000-8000-000000000001",
+        "lineageSourceId": "00000000-0000-4000-8000-000000000001",
+        "commandTargetId": "00000000-0000-4000-8000-000000000600",
+        "completionJobId": "00000000-0000-4000-8000-000000000600"
+      }
+    },
+    {
+      "id": "nativeChildFirst37",
+      "argv": [
+        "/tmp/ssot-audit-venv/bin/python",
+        "audit/generated/resume-8cc/key/canonical-final/native/verify_ordered_chain.py",
+        "--child-first"
+      ],
+      "cwd": "/workspace/kajovocmlng",
+      "environmentOverrides": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "invocationEvidenceBasis": "Exact coordinator tools.exec_command argv/environment and redirected log; post-run persisted operands independently read now, not a reconstructed execution claim",
+      "runnerSha256": "5b00af187246906e04a444f9d391e4f1bdfa177b8f03cf17e5d2e576ec1c0b8c",
+      "outputSha256": "d9b2e89cd28269e281b4ec789bfc7980f84b98e1c1e43525bbe10f3e5576a655",
+      "stdoutStderrLog": "native/final-child-first.log",
+      "logSha256": "6206f3d703b5e6003a6ef90826ac118cb2e35f56f8ff96e06c3d736414b186ef",
+      "checked": 37,
+      "postgresDatabase": "key_final_native_ordered_childfirst_peer_8cc",
+      "observedAtUtc": "2026-10-01T11:16:18.842606+00:00",
+      "readOnlyObservationSQL": "SELECT id,kind,parent_job_id,encode(uuid_send(id),'hex') FROM public.generation_job ORDER BY id",
+      "observedPersistedRoots": [
+        {
+          "id": "00000000-0000-4000-8000-000000000000",
+          "kind": "RETRY",
+          "parentJobId": "00000000-0000-4000-8000-000000000001",
+          "uuidRawHex": "00000000000040008000000000000000"
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001",
+          "kind": "CREATE",
+          "parentJobId": null,
+          "uuidRawHex": "00000000000040008000000000000001"
+        }
+      ],
+      "sourceJobId": "00000000-0000-4000-8000-000000000001",
+      "childJobId": "00000000-0000-4000-8000-000000000000",
+      "sourceUuidRawHex": "00000000000040008000000000000001",
+      "childUuidRawHex": "00000000000040008000000000000000",
+      "actualRawUuidOrder": "CHILD_BEFORE_SOURCE",
+      "readOnlyCommittedChainObservationSQL": "SELECT j.id,j.parent_job_id,s.source_job_id,n.source_job_id,d.target_aggregate_id,c.job_id FROM public.generation_job j JOIN kcml_retry_v1.child_scan s ON s.child_job_id=j.id JOIN kcml_native_basis_v1.child_lineage n ON n.child_job_id=j.id JOIN public.generation_job_create_completion c ON c.job_id=j.id JOIN public.domain_command d ON d.logical_operation_id=c.logical_operation_id WHERE j.kind='RETRY'",
+      "observedCommittedRootScanLineageCommandCompletion": {
+        "childId": "00000000-0000-4000-8000-000000000000",
+        "parentId": "00000000-0000-4000-8000-000000000001",
+        "scanSourceId": "00000000-0000-4000-8000-000000000001",
+        "lineageSourceId": "00000000-0000-4000-8000-000000000001",
+        "commandTargetId": "00000000-0000-4000-8000-000000000000",
+        "completionJobId": "00000000-0000-4000-8000-000000000000"
+      }
+    },
+    {
+      "id": "credentialRoot9",
+      "argv": [
+        "/tmp/ssot-audit-venv/bin/python",
+        "audit/generated/resume-8cc/key/canonical-final/credential/credential-root/verify_credential_root.py"
+      ],
+      "cwd": "/workspace/kajovocmlng",
+      "environmentOverrides": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "invocationEvidenceBasis": "Exact coordinator tools.exec_command argv/environment and redirected log; post-run persisted operands independently read now, not a reconstructed execution claim",
+      "runnerSha256": "da6cf0b85a3aaba3495dcf8bfd0bff0f2234dc1c2904e5213e1ba4e93b949dcb",
+      "outputSha256": "e395e06f6df5d144c6317a9fc96a5d340f64a9f22141634aba63fce6b5e34ef2",
+      "stdoutStderrLog": "credential/credential-root/final-root9.log",
+      "logSha256": "f1446b00c08170e8d9fe49e4202d8433e37ec14ffe5bc8f891ed704800638dbe",
+      "checked": 9,
+      "postgresDatabase": "key_final_credential_credential_peer_8cc",
+      "observedAtUtc": "2026-10-01T11:16:18.846980+00:00",
+      "readOnlyObservationSQL": "SELECT id,kind,parent_job_id,encode(uuid_send(id),'hex') FROM public.generation_job ORDER BY id",
+      "observedPersistedRoots": [
+        {
+          "id": "00000000-0000-4000-8000-000000000800",
+          "kind": "CREATE",
+          "parentJobId": null,
+          "uuidRawHex": "00000000000040008000000000000800"
+        }
+      ],
+      "UUIDOrderScope": "NOT_APPLICABLE_SINGLE_CREATE_ROOT",
+      "sourceJobId": null,
+      "childJobId": null
+    },
+    {
+      "id": "credentialSourceFirst27",
+      "argv": [
+        "/tmp/ssot-audit-venv/bin/python",
+        "audit/generated/resume-8cc/key/canonical-final/credential/credential-root/verify_credential_native_chain.py"
+      ],
+      "cwd": "/workspace/kajovocmlng",
+      "environmentOverrides": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "invocationEvidenceBasis": "Exact coordinator tools.exec_command argv/environment and redirected log; post-run persisted operands independently read now, not a reconstructed execution claim",
+      "runnerSha256": "77a8926a80159f83871beab197ff0c33a768ef4271f2d2dde544cbd1edf9fc70",
+      "outputSha256": "f8d0b9c36af2c631eca626ede238214221f9689d02c94486df78159c35620617",
+      "stdoutStderrLog": "credential/credential-root/final-source-first.log",
+      "logSha256": "23eaf85131a2276f9dc755dd7385adcd607f0d5fb7a860d2fe022d38ede10a93",
+      "checked": 27,
+      "postgresDatabase": "key_final_credential_cred_join_peer_8cc",
+      "observedAtUtc": "2026-10-01T11:16:18.850811+00:00",
+      "readOnlyObservationSQL": "SELECT id,kind,parent_job_id,encode(uuid_send(id),'hex') FROM public.generation_job ORDER BY id",
+      "observedPersistedRoots": [
+        {
+          "id": "00000000-0000-4000-8000-000000000001",
+          "kind": "CREATE",
+          "parentJobId": null,
+          "uuidRawHex": "00000000000040008000000000000001"
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000600",
+          "kind": "RETRY",
+          "parentJobId": "00000000-0000-4000-8000-000000000001",
+          "uuidRawHex": "00000000000040008000000000000600"
+        }
+      ],
+      "sourceJobId": "00000000-0000-4000-8000-000000000001",
+      "childJobId": "00000000-0000-4000-8000-000000000600",
+      "sourceUuidRawHex": "00000000000040008000000000000001",
+      "childUuidRawHex": "00000000000040008000000000000600",
+      "actualRawUuidOrder": "SOURCE_BEFORE_CHILD",
+      "readOnlyCommittedChainObservationSQL": "SELECT j.id,j.parent_job_id,s.source_job_id,n.source_job_id,d.target_aggregate_id,c.job_id FROM public.generation_job j JOIN kcml_retry_v1.child_scan s ON s.child_job_id=j.id JOIN kcml_native_basis_v1.child_lineage n ON n.child_job_id=j.id JOIN public.generation_job_create_completion c ON c.job_id=j.id JOIN public.domain_command d ON d.logical_operation_id=c.logical_operation_id WHERE j.kind='RETRY'",
+      "observedCommittedRootScanLineageCommandCompletion": {
+        "childId": "00000000-0000-4000-8000-000000000600",
+        "parentId": "00000000-0000-4000-8000-000000000001",
+        "scanSourceId": "00000000-0000-4000-8000-000000000001",
+        "lineageSourceId": "00000000-0000-4000-8000-000000000001",
+        "commandTargetId": "00000000-0000-4000-8000-000000000600",
+        "completionJobId": "00000000-0000-4000-8000-000000000600"
+      }
+    },
+    {
+      "id": "credentialChildFirst27",
+      "argv": [
+        "/tmp/ssot-audit-venv/bin/python",
+        "audit/generated/resume-8cc/key/canonical-final/credential/credential-root/verify_credential_native_chain.py",
+        "--child-first"
+      ],
+      "cwd": "/workspace/kajovocmlng",
+      "environmentOverrides": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "invocationEvidenceBasis": "Exact coordinator tools.exec_command argv/environment and redirected log; post-run persisted operands independently read now, not a reconstructed execution claim",
+      "runnerSha256": "77a8926a80159f83871beab197ff0c33a768ef4271f2d2dde544cbd1edf9fc70",
+      "outputSha256": "f8d0b9c36af2c631eca626ede238214221f9689d02c94486df78159c35620617",
+      "stdoutStderrLog": "credential/credential-root/final-child-first.log",
+      "logSha256": "8cc963fab39e0b4198f941715ee0d164187017264a5e1fa4b386dd0a316b44de",
+      "checked": 27,
+      "postgresDatabase": "key_final_credential_cred_childfirst_peer_8cc",
+      "observedAtUtc": "2026-10-01T11:16:18.856128+00:00",
+      "readOnlyObservationSQL": "SELECT id,kind,parent_job_id,encode(uuid_send(id),'hex') FROM public.generation_job ORDER BY id",
+      "observedPersistedRoots": [
+        {
+          "id": "00000000-0000-4000-8000-000000000000",
+          "kind": "RETRY",
+          "parentJobId": "00000000-0000-4000-8000-000000000001",
+          "uuidRawHex": "00000000000040008000000000000000"
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000001",
+          "kind": "CREATE",
+          "parentJobId": null,
+          "uuidRawHex": "00000000000040008000000000000001"
+        }
+      ],
+      "sourceJobId": "00000000-0000-4000-8000-000000000001",
+      "childJobId": "00000000-0000-4000-8000-000000000000",
+      "sourceUuidRawHex": "00000000000040008000000000000001",
+      "childUuidRawHex": "00000000000040008000000000000000",
+      "actualRawUuidOrder": "CHILD_BEFORE_SOURCE",
+      "readOnlyCommittedChainObservationSQL": "SELECT j.id,j.parent_job_id,s.source_job_id,n.source_job_id,d.target_aggregate_id,c.job_id FROM public.generation_job j JOIN kcml_retry_v1.child_scan s ON s.child_job_id=j.id JOIN kcml_native_basis_v1.child_lineage n ON n.child_job_id=j.id JOIN public.generation_job_create_completion c ON c.job_id=j.id JOIN public.domain_command d ON d.logical_operation_id=c.logical_operation_id WHERE j.kind='RETRY'",
+      "observedCommittedRootScanLineageCommandCompletion": {
+        "childId": "00000000-0000-4000-8000-000000000000",
+        "parentId": "00000000-0000-4000-8000-000000000001",
+        "scanSourceId": "00000000-0000-4000-8000-000000000001",
+        "lineageSourceId": "00000000-0000-4000-8000-000000000001",
+        "commandTargetId": "00000000-0000-4000-8000-000000000000",
+        "completionJobId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  ],
+  "identicalReportHashesExplanation": "Both UUID-order executions intentionally serialize the same case names/Boolean results, diagnostics, source/resource/helper hashes. Original reports omit argv/database/UUID operands, so successful distinct runs produce identical report bytes. This separate manifest preserves all original report hashes and independently distinguishes actual committed databases, exact invocation argv and physical root/scan/lineage/command/completion UUID operands. It adds provenance, not new test PASS or full H order certification.",
+  "scope": "Only finite post-run read-only observations of actual isolated fixtures; no key/plaintext output, no new application/runtime/systemd/global H acceptance",
+  "originalEvidenceBytesPreserved": true,
+  "wholeOperationClosed": false,
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

@@ -9,16 +9,16 @@
       "id": "GENERATION.AUTH.API_ACCEPTANCE",
       "area": "generation.job.create",
       "layer": "OPERATION_DESIGN",
-      "state": "OPEN",
+      "state": "IN_PROGRESS",
       "authority": [
         "00_SSOT/KajovoCMLNG_SSOT.md#section.7.2",
         "00_SSOT/KajovoCMLNG_SSOT.md#section.49.4",
         "00_SSOT/KajovoCMLNG_SSOT.md#section.51.20"
       ],
-      "missing": "Complete actual acceptance adapter binds caller/channel/purpose/target to current locked token receipt",
+      "missing": "Bounded real API-token acceptance/native RETRY reproduced; remaining trusted credential genesis/historical references, full API-use and physical H receipt/context registry; genuine systemd invocation transitively blocked",
       "verification": "Actual token→canonical transaction→replay fixture",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -42,7 +42,7 @@
       "missing": "Actual OWNER session material/expiry/invalidation verifier and channel binding",
       "verification": "Valid session and expiry/revocation/cross-channel negatives",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -65,7 +65,7 @@
       "missing": "Effective gateway Authorization header ceiling and strict transport policy",
       "verification": "Current HTTP boundary positives/oversize/repeated header negatives",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -89,7 +89,7 @@
       "missing": "Exact source-spec revision relation and usable native graph for UPDATE",
       "verification": "Actual immutable spec/graph bytes and wrong lineage/content negatives",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -104,15 +104,15 @@
       "id": "GENERATION.BASIS.RETRY_PRODUCER",
       "area": "generation.job.create",
       "layer": "OPERATION_DESIGN",
-      "state": "OPEN",
+      "state": "IN_PROGRESS",
       "authority": [
         "00_SSOT/KajovoCMLNG_SSOT.md#section.49.8",
         "00_SSOT/KajovoCMLNG_SSOT.md#section.51.12"
       ],
-      "missing": "Full intent/attempt/checkpoint/dispatch outbox/evidence producer, authoritative completeness and classification",
+      "missing": "Ordered intent/evidence/checkpoint finite producer reproduced; complete audit/unknown/reconciliation/compensation outcomes, trusted parent/cancel/deadline/binding/budget producers and full physical lock registration remain",
       "verification": "PG18.6 complete/incomplete source ledger, stale fence and competing writer fixtures",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -120,6 +120,23 @@
           "layer": "MANDATORY_PREGEN_FIXTURE",
           "method": "PG18.6 complete/incomplete source ledger, stale fence and competing writer fixtures",
           "state": "OPEN"
+        }
+      ],
+      "verifiedSubconditions": [
+        {
+          "id": "GEN.RETRY.PRODUCER.FINITE_ORDERED_LEDGER",
+          "state": "VERIFIED",
+          "scope": "Canonical SQL48 actual typed evidence/CAS/classifier/allocator/checkpoint order/atomic dispatch/concurrency/replay/rollback cases; full audit/unknown/reconcile/compensation and source authority OPEN",
+          "authority": [
+            "SSOT12.57",
+            "SSOT51.6",
+            "SSOT51.20"
+          ],
+          "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+          "evidence": "audit/generated/resume-8cc/ledger/canonical-final/DELIVERY.json",
+          "evidenceSha256": "8f3ae942ed3efed030afc68e26e1a3dc8610646102d4fc169cd5af511b4d865d",
+          "independentReview": "audit/generated/resume-8cc/ledger/canonical-final/DELIVERY.json",
+          "implementationAcceptance": "NOT_EVALUATED"
         }
       ]
     },
@@ -134,14 +151,14 @@
         "00_SSOT/KajovoCMLNG_SSOT.md#section.49.8",
         "00_SSOT/KajovoCMLNG_SSOT.md#section.51.12"
       ],
-      "missing": "Join genuine locked OWNER authentication/native protected input and full49.8 producer gates to the proven same-TX scan/reservation/child commit",
+      "missing": "Bounded authenticated native child/source-parent commit installed; complete trusted source approval/budget, all implicit FK physical H ordering, ledger exceptional decision outcomes, credential genesis/historical references and genuine key authority remain",
       "verification": "PG18.6 two RETRY, changed source, rollback, idempotent replay",
       "dependencies": [
         "GENERATION.BASIS.RETRY_PRODUCER",
         "GENERATION.AUTH.API_ACCEPTANCE",
         "SHARED.CRYPTO.KEY_INVOCATION"
       ],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -149,6 +166,24 @@
           "layer": "MANDATORY_PREGEN_FIXTURE",
           "method": "PG18.6 two RETRY, changed source, rollback, idempotent replay",
           "state": "OPEN"
+        }
+      ],
+      "verifiedSubconditions": [
+        {
+          "id": "GEN.RETRY.CHILD.CANONICAL_FINITE_TRANSACTION",
+          "state": "VERIFIED",
+          "scope": "Direct canonical SQL/root credential verifier: bounded actual auth/currentcredential→protected native RETRY→locked source scan→child root/event/outbox/audit/locator commit→native archived hydration; both UUID orders, rollback/replay/concurrent guards. Trusted upstream genesis/budget/approval/global H/systemd/nonce producers excluded as declared in peer limits.",
+          "authority": [
+            "SSOT12.57",
+            "SSOT49.8",
+            "SSOT51.6",
+            "SSOT51.20"
+          ],
+          "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+          "evidence": "audit/generated/resume-8cc/key/canonical-final/DELIVERY.json",
+          "evidenceSha256": "316f61623b4ba59b6049993a3b694de953440d335ae9843f546dfb6c76f33b10",
+          "independentReview": "audit/generated/resume-8cc/key/canonical-final/DELIVERY.json",
+          "implementationAcceptance": "NOT_EVALUATED"
         }
       ]
     },
@@ -165,7 +200,7 @@
       "missing": "Actual repair evidence and kind-specific native graph/delegation predicates",
       "verification": "Valid repair bytes and invalid evidence/authority/graph negatives",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -189,7 +224,7 @@
       "missing": "Frozen source availability/content validators with real producer wiring, preserve approved nonterminal rule",
       "verification": "324 native-byte cases plus actual frozen-lineage child persistence",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -212,7 +247,7 @@
       "missing": "All kind selectors distinguish discussion admission from execution activation prerequisites",
       "verification": "Each kind/state/available basis matrix and actual selector fixtures",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -242,7 +277,7 @@
         "SHARED.CRYPTO.GLOBAL_NONCE",
         "GENERATION.ARCHIVE.PRODUCER"
       ],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -267,7 +302,7 @@
       "missing": "Actual failure-before-root/pending/cancel/unknown/reconciliation decisions and retained outcomes",
       "verification": "Authenticated joined negative/retention/recovery matrix; no partial root/event",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -291,7 +326,7 @@
       "missing": "Actual current auth on retained replay, unknown/rollback/cancel reconciliation and audit archive producer",
       "verification": "Concurrent replay/conflict/recovery outcomes from persisted bytes",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -312,10 +347,10 @@
         "00_SSOT/KajovoCMLNG_SSOT.md#section.49.4",
         "00_SSOT/KajovoCMLNG_SSOT.md#section.51.10"
       ],
-      "missing": "Trusted deployment/release/admission archive publisher and full kind-policy dependency producers; success/pre-root exact retention and transfer primitives now verified",
+      "missing": "Late same-TX archive ticket and scoped publisher primitive installed; actual deployment/installer capability issuer and full kind-policy/dependency producer coverage remain",
       "verification": "Actual PG archive→snapshot binding→historical read/replay",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -335,10 +370,10 @@
         "00_SSOT/KajovoCMLNG_SSOT.md#section.12.54",
         "00_SSOT/KajovoCMLNG_SSOT.md#section.51.10"
       ],
-      "missing": "Full archived selector/eligibility/execution domain policy dispatch; two request rules and exact retained historical schema already verified",
+      "missing": "Frozen exact historical bytes/two policies reproduced; all UPDATE/RETRY/REPAIR/FOLLOW_UP accept/reject dependency classifier coverage remains",
       "verification": "Same id/different immutable bytes, historical accept/reject and unavailable policy",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -366,7 +401,7 @@
         "GENERATION.ARCHIVE.HISTORICAL_POLICY",
         "GENERATION.ATOMIC.ALL_KINDS"
       ],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -390,7 +425,7 @@
       "missing": "Trusted reviewed release producer and invoker capability assignment under actual locked acceptance; immutable publication/archive/exact reader primitive verified",
       "verification": "Canonical PG publication material/identity/schema/review negatives",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -417,7 +452,7 @@
       "dependencies": [
         "SECRET.REGISTRY.PUBLICATION"
       ],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -427,7 +462,7 @@
           "state": "OPEN"
         }
       ],
-      "verifiedSubconditions": [
+      "historicalSubconditions": [
         {
           "id": "SECRET.AUTH.CREDENTIAL_ROOT_ELIGIBILITY",
           "state": "VERIFIED",
@@ -443,6 +478,23 @@
           "evidence": "audit/generated/resume-8cc/key/review-eligibility-integrated/canonical-integration-review.json",
           "evidenceSha256": "b7123eca64249fef6caf455ef500b04d618885dfca627e31a260288c1b9d6842",
           "independentReview": "audit/generated/resume-8cc/key/review-eligibility-integrated/canonical-integration-review.json",
+          "implementationAcceptance": "NOT_EVALUATED"
+        }
+      ],
+      "verifiedSubconditions": [
+        {
+          "id": "SECRET.AUTH.CREDENTIAL_ROOT_ELIGIBILITY",
+          "state": "VERIFIED",
+          "scope": "Current locked OWNER API credential/root guards for fresh/replay/deletion wait; API-use/retention/provisioning/systemd OPEN",
+          "authority": [
+            "SSOT8.16",
+            "SSOT51.6",
+            "SSOT51.20"
+          ],
+          "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+          "evidence": "audit/generated/resume-8cc/coordinator/selected-proof-reuse.json",
+          "evidenceSha256": "08d7771586580dde680207210960a743d5ccf53256d4a02958acdb5ced001e93",
+          "independentReview": "audit/generated/resume-8cc/coordinator/selected-proof-reuse.json",
           "implementationAcceptance": "NOT_EVALUATED"
         }
       ]
@@ -464,7 +516,7 @@
         "SECRET.AUTH.LOCKED_ACCEPTANCE",
         "SHARED.CRYPTO.KEY_INVOCATION"
       ],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -474,7 +526,7 @@
           "state": "OPEN"
         }
       ],
-      "verifiedSubconditions": [
+      "historicalSubconditions": [
         {
           "id": "SECRET.ATOMIC.SEMANTIC_RESULT_BINDING",
           "state": "VERIFIED",
@@ -509,6 +561,38 @@
           "independentReview": "audit/generated/resume-8cc/key/review-eligibility-integrated/canonical-integration-review.json",
           "implementationAcceptance": "NOT_EVALUATED"
         }
+      ],
+      "verifiedSubconditions": [
+        {
+          "id": "SECRET.ATOMIC.SEMANTIC_RESULT_BINDING",
+          "state": "VERIFIED",
+          "scope": "Exact bounded create semantic-result bytes/digest; full failure/unknown/retention decision producers OPEN",
+          "authority": [
+            "SSOT8.16",
+            "SSOT51.6",
+            "SSOT51.20"
+          ],
+          "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+          "evidence": "audit/generated/resume-8cc/coordinator/selected-proof-reuse.json",
+          "evidenceSha256": "08d7771586580dde680207210960a743d5ccf53256d4a02958acdb5ced001e93",
+          "independentReview": "audit/generated/resume-8cc/coordinator/selected-proof-reuse.json",
+          "implementationAcceptance": "NOT_EVALUATED"
+        },
+        {
+          "id": "SECRET.RECORD.STATUS.PERSISTED_PROJECTION",
+          "state": "VERIFIED",
+          "scope": "Approved derived INACTIVE/ACTIVE/DELETED projection, actual transition/concurrency/integrity/replay fixture; complete invalidation command not asserted",
+          "authority": [
+            "SSOT8.16",
+            "SSOT51.6",
+            "SSOT51.20"
+          ],
+          "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+          "evidence": "audit/generated/resume-8cc/coordinator/selected-proof-reuse.json",
+          "evidenceSha256": "08d7771586580dde680207210960a743d5ccf53256d4a02958acdb5ced001e93",
+          "independentReview": "audit/generated/resume-8cc/coordinator/selected-proof-reuse.json",
+          "implementationAcceptance": "NOT_EVALUATED"
+        }
       ]
     },
     {
@@ -521,10 +605,10 @@
         "00_SSOT/KajovoCMLNG_SSOT.md#section.8.4",
         "00_SSOT/KajovoCMLNG_SSOT.md#section.8.12"
       ],
-      "missing": "Atomic verifier-hash/version/monotonic-epoch and activation CAS rotation producer; scoped Secret/version FK and currentACTIVE fingerprint guards verified",
+      "missing": "Scoped exact E20 credential-root guards verified; independently corrected rotation proposal remains inactive until authoritative complete invalidation inventory and retained result/consumer authority; real genesis/systemd/historical references remain",
       "verification": "Actual credential→immutable Secret version scoped FK/concurrent rotation/replay",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -549,7 +633,7 @@
       "missing": "Authoritative target/endpoint binding and declared supported profile/algorithm policies",
       "verification": "Hydrated bytes against actual server consumer declaration; wrong target/variant negatives",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -573,7 +657,7 @@
       "missing": "Activation epoch, immutable selected version, actual broker grant/use/result producer joins",
       "verification": "Actual PG broker/context/epoch transaction and expired/wrong-purpose/use negatives",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -595,13 +679,13 @@
         "00_SSOT/KajovoCMLNG_SSOT.md#section.8.12",
         "00_SSOT/KajovoCMLNG_SSOT.md#section.51.10"
       ],
-      "missing": "Actual protected-row open→exact stored metadata→read/use current/historical version producer",
+      "missing": "Bounded typed current/history OWNER API metadata/value producer installed; reserved credential OWNER-session reveal, full audit/usage/bindings/rotation policy/history codec/recovery and broker consumers remain",
       "verification": "Canonical key/SQL joined original bytes/type/schema/digest and legacy RAW fixtures",
       "dependencies": [
         "SECRET.ATOMIC.COMMAND_ROOT",
         "SHARED.CRYPTO.KEY_INVOCATION"
       ],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -611,7 +695,7 @@
           "state": "OPEN"
         }
       ],
-      "verifiedSubconditions": [
+      "historicalSubconditions": [
         {
           "id": "SECRET.READ.OWNER_API_IMMUTABLE",
           "state": "VERIFIED",
@@ -627,6 +711,23 @@
           "evidence": "audit/generated/resume-8cc/key/review-eligibility-integrated/canonical-integration-review.json",
           "evidenceSha256": "b7123eca64249fef6caf455ef500b04d618885dfca627e31a260288c1b9d6842",
           "independentReview": "audit/generated/resume-8cc/key/review-eligibility-integrated/canonical-integration-review.json",
+          "implementationAcceptance": "NOT_EVALUATED"
+        }
+      ],
+      "verifiedSubconditions": [
+        {
+          "id": "SECRET.READ.OWNER_API_IMMUTABLE",
+          "state": "VERIFIED",
+          "scope": "Actual non-reserved OWNER API metadata/current/history read plus authenticated typed original-byte open; reserved OWNER session/broker/historical recovery OPEN",
+          "authority": [
+            "SSOT8.16",
+            "SSOT51.6",
+            "SSOT51.20"
+          ],
+          "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+          "evidence": "audit/generated/resume-8cc/secrets/review-status-ui/canonical-final/DELIVERY.json",
+          "evidenceSha256": "45d78f52435efbfa00b4b6ac1a3b82a82e2b180827364732dc0e6d596633d9f9",
+          "independentReview": "audit/generated/resume-8cc/secrets/review-status-ui/canonical-final/DELIVERY.json",
           "implementationAcceptance": "NOT_EVALUATED"
         }
       ]
@@ -645,7 +746,7 @@
       "missing": "Operation-specific failure/unknown/cancel/replay producers and exact retained errors",
       "verification": "Joined persistence/read recovery matrix, no secret disclosure",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -667,10 +768,10 @@
         "00_SSOT/KajovoCMLNG_SSOT.md#section.8.8",
         "00_SSOT/KajovoCMLNG_SSOT.md#section.72.11"
       ],
-      "missing": "Import/activation/read UI results; explicit OWNER reveal keeps own authentication contract",
+      "missing": "Bounded typed readonly root-status metadata and exact same-version reveal/COPY installed; full import/activation/worker/read-result pipeline, reserved session reveal and generated backend runtime remain",
       "verification": "Actual command→read/UI result and unauthorized reveal negatives",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -680,7 +781,7 @@
           "state": "OPEN"
         }
       ],
-      "verifiedSubconditions": [
+      "historicalSubconditions": [
         {
           "id": "SECRET.UI.OWNER_TYPED_REVEAL_COPY",
           "state": "VERIFIED",
@@ -698,6 +799,23 @@
           "independentReview": "audit/generated/resume-8cc/key/review-eligibility-integrated/canonical-integration-review.json",
           "implementationAcceptance": "NOT_EVALUATED"
         }
+      ],
+      "verifiedSubconditions": [
+        {
+          "id": "SECRET.UI.OWNER_TYPED_REVEAL_COPY",
+          "state": "VERIFIED",
+          "scope": "Actual closed native masks/GET decoder; same root/stateVersion/version readonly status and exact revealed-byte COPY; complete UI backend runtime OPEN",
+          "authority": [
+            "SSOT8.16",
+            "SSOT51.6",
+            "SSOT51.20"
+          ],
+          "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+          "evidence": "audit/generated/resume-8cc/secrets/review-status-ui/canonical-final/DELIVERY.json",
+          "evidenceSha256": "45d78f52435efbfa00b4b6ac1a3b82a82e2b180827364732dc0e6d596633d9f9",
+          "independentReview": "audit/generated/resume-8cc/secrets/review-status-ui/canonical-final/DELIVERY.json",
+          "implementationAcceptance": "NOT_EVALUATED"
+        }
       ]
     },
     {
@@ -713,7 +831,7 @@
       "missing": "Actual root-owned encrypted systemd credential read-only invocation",
       "verification": "Actual systemd fixture or precise environment BLOCKED report",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -739,7 +857,7 @@
       "dependencies": [
         "SHARED.CRYPTO.SYSTEMD_SOURCE"
       ],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -762,7 +880,7 @@
       "missing": "Genuine manager key authority producer, typed Secret row reservation and complete rotation/concurrent lifecycle joins; generation exact row/reservation AAD fixture already verified",
       "verification": "Canonical PG duplicate/reuse/corrupt/missing-authority transaction tests",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -787,7 +905,7 @@
       "missing": "Frozen worker→command→runtime result→read identity/epoch joins",
       "verification": "Actual HTTP/PG command/result/read fixture and cross-runtime negatives",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -812,7 +930,7 @@
       "missing": "Frozen worker→command→stop result→read identity/epoch joins",
       "verification": "Actual HTTP/PG command/result/read fixture and wrong-target/replay negatives",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -837,7 +955,7 @@
       "missing": "Frozen worker→command→spec revision result→read identity joins",
       "verification": "Actual job/spec/revision command/result/read fixture",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -852,15 +970,15 @@
       "id": "UI.MANUAL_VISUAL",
       "area": "shared",
       "layer": "SHARED_DEPENDENCY",
-      "state": "OPEN",
+      "state": "IN_PROGRESS",
       "authority": [
         "00_SSOT/KajovoCMLNG_SSOT.md#section.72.11",
         "00_SSOT/KajovoCMLNG_SSOT.md#section.73.7"
       ],
-      "missing": "Mandatory actual visual review, distinct from automatic renderer and backend acceptance",
+      "missing": "Actual96 live+4 Secret canonical captures with selected-source bindings and four-crop review; remaining124 admin screenshots HISTORICAL_UNBOUND, full mandatory manual universe PENDING",
       "verification": "Manual reviewed current screenshots/conditions; render alone insufficient",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -882,7 +1000,7 @@
       "missing": "Full capture barrier/encrypted bundle/epoch-CAS producer and restore consumer",
       "verification": "Actual named browser bundle transaction and concurrent stale CAS fixtures",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -904,7 +1022,7 @@
       "missing": "Actual expected account/tenant marker binding after restore",
       "verification": "Actual declared consumer marker observation, no fixture valid flag",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -926,7 +1044,7 @@
       "missing": "Required client-certificate and OWNER Device Bridge capture/restore authority",
       "verification": "Exact bridge/permission/certificate context fixtures",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -948,7 +1066,7 @@
       "missing": "All required clone/key/generator/IDB/WebAuthn capture and restore postconditions",
       "verification": "Real engine fixtures each required supported member; cookies14 not full proof",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [
@@ -973,7 +1091,7 @@
       "missing": "Four generic helper definitions and all262 actual scoped call-site plans",
       "verification": "Executable canonical PG18.6 helpers against real physical roots/context; no generic slots",
       "dependencies": [],
-      "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
       "independentReview": "PENDING_INTEGRATED_CURRENT_RESULT",
       "implementationAcceptance": "NOT_EVALUATED",
       "proofRequirements": [

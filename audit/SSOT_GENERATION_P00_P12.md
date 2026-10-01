@@ -6,7 +6,9 @@ P00 requires current complete SSOT_CONTRACT_READY and separate freeze authorizat
 
 No successor RUNNING before predecessor current PASSED with identical SSOT/Contract Pack/toolchain lineage (71.7).
 
-SSOT SHA-256: `4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06`.
+SSOT SHA-256: `2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536`.
+
+Aktuální integrační checkpoint je PARTIAL: generation.job.create i secret.create zůstávají OPEN. Bounded RETRY/Secret fixtures nepředstavují kompletní P00 gate; skutečný systemd invocation, zbývající trusted producenti, read/UI/browser a celý závazný návrhový universe zůstávají předgeneračními povinnostmi.
 
 Deliverables a delta gates jsou převzaté z R13/R14/R15; finální P00 gate používá účinnou precedence §73.7 místo historického R13 whole-document gate. Plánované cesty jsou konkrétní umístění budoucích výstupů; aplikace nebyla generována.
 

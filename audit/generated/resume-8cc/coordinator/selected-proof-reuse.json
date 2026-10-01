@@ -1,0 +1,55 @@
+{
+  "currentSourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "executionSourcePreserved": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+  "method": "Only exact unchanged canonical status/create-command and their declared helpers; old OWNER read/transport superseded",
+  "subproofs": [
+    {
+      "path": "audit/generated/resume-8cc/key/review-eligibility-integrated/credential-eligibility-postgres-tests.json",
+      "sha256": "77cfc5263327fc9fee91dc3662835f648fbd53abf9a5d4ec93317aa895f36fe4",
+      "checked": 45
+    },
+    {
+      "path": "audit/generated/resume-8cc/key/review-status-owner/status/status-postgres-tests.json",
+      "sha256": "82f554f575ba8d20073a14c103ddf399e21ed11ab506ec97aa6e07deeacd0d51",
+      "checked": 23
+    }
+  ],
+  "wholeOperationClosed": false,
+  "limits": [
+    "No real credential provisioning, retention, complete invalidation or systemd source"
+  ],
+  "checks": [
+    {
+      "input": "database/secret-record-status.sql",
+      "passed": true
+    },
+    {
+      "input": "database/secret-owner-api-value-read.sql",
+      "passed": true
+    },
+    {
+      "input": "contracts/secrets/metadata-read.schema.json",
+      "passed": true
+    },
+    {
+      "input": "contracts/secrets/owner-value-read.schema.json",
+      "passed": true
+    },
+    {
+      "input": "database/generation-create-foundations.sql",
+      "passed": true
+    },
+    {
+      "input": "database/generation-locked-retry.sql",
+      "passed": true
+    },
+    {
+      "input": "database/generation-frozen-archive.sql",
+      "passed": true
+    },
+    {
+      "input": "database/generation-effect-ledger-producer.sql",
+      "passed": true
+    }
+  ]
+}

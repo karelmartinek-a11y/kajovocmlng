@@ -1,3 +1,27 @@
+# Current create-operation closure — continuation from 8cc19fbc
+
+Current canonical SSOT: `2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536`. Full operations closed: **0/619**. Both create operations remain OPEN; application acceptance NOT_EVALUATED.
+
+The finite checklist has **36 parent duties** (15 generation, nine Secret, 12 shared). Seven independently bounded subconditions are verified; no parent is VERIFIED. They overlap and do not define a project completion percentage.
+
+Effective §12.57 now integrates the ordered ledger, late same-transaction archive publisher, trusted context, child commit, immutable native lineage and source-parent SQL. Actual PostgreSQL18.6 executes embedded bytes: producer48 and eight connected fixture families123, plus original authentication-chain14. Credential/native independent final reports are in `audit/generated/resume-8cc/key/canonical-final/`. Every report declares remaining source/physical-authority limitations; an isolated key is not the real systemd source.
+
+Effective §8.16 binds approved INACTIVE/ACTIVE/DELETED root status, bounded Secret create result authority and exact immutable OWNER API metadata/value/COPY read. Current exact canonical fixtures: broker29, read20, metadata16, independent25, transport55 and UUID71; root native mask/HTTP22. Original create-eligibility45/status23 are reused only for unchanged exact consumed inputs, never relabeled as new executions.
+
+RETRY remaining: physical H receipt/context/snapshot/scan/nonce/archive/event/completion parent registration and all implicit FK lock order; trusted source approval/binding/budget; complete ledger audit/unknown/reconciliation/compensation outcomes; credential genesis/historical references; installer capability/all-kind archive policies and retained outcome/read producers. Exact stable IDs are in `ordered-native-retry-handoffs.json` and the closure checklist.
+
+Secret remaining: complete API-use/retention and failure/unknown producers, trusted target/activation/broker, full rotation invalidation inventory and reserved credential OWNER-session reveal, historical recovery codecs, complete browser §13.15. Rotation correction is independently reproduced49+11 but its proposed specialization remains **inactive**.
+
+Current visual evidence: actual96 live renders and4 Secret captures bind current selected input bytes; remaining124 old admin captures are HISTORICAL_UNBOUND. Four readonly status crops were reviewed; full manual universe and three UI worker/result handoffs remain OPEN. No backend runtime proof is asserted.
+
+Actual systemd manager/bus/invocation credential source is ENVIRONMENT BLOCKED, not a product decision. Approved FOLLOW_UP and Secret profiles/root status remain effective; no new owner decision is currently required.
+
+Next: `RETRY_FULL_PHYSICAL_H_AUTHORITY_AND_RETAINED_OUTCOME_PRODUCERS`. Use current checkpoint and exact authority/missing/verification per ID, preserve completed finite handoffs.
+
+---
+
+# Historical continuation notes (not current obligations or readiness)
+
 # Current create-operation closure — continuation from 905555e
 
 Whole design-closed operations: **0 / 619**. Current SSOT: `4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06`.

@@ -1,0 +1,14 @@
+{
+  "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "before": 205,
+  "after": 206,
+  "added": [
+    {
+      "id": "provenance-detector:4396309f1bf34ceeacd7:1",
+      "line": 951,
+      "text": "Root `status` je výhradně odvozená projekce `INACTIVE | ACTIVE | DELETED`, podle rozhodnutí OWNER `OWNER-SECRET-ROOT-STATUS-2026-10-01`. `DELETED` má přednost, pokud je root soft-deleted. Jinak `ACTIVE` znamená právě jednu platnou aktivní vazbu na verzi stejného rootu v lifecycle `ACTIVE`; bez aktivní vazby je root `INACTIVE`. Chybějící nebo cizí verze, více aktivních verzí či rozpor pointeru s lifecycle jsou chyba integrity, nikoli důvod tiše vrátit `INACTIVE`. Create vrací `INACTIVE`; import ani vytvoření verze neaktivují root. Volající status nesmí nastavovat ani samostatně měnit. Pokud je projekce uložena, její shoda se vynucuje atomicky v téže transakci jako změna autoritativních vazeb. `CREATED | ACTIVE | RETIRED` zůstává slovníkem verzí. Root `ACTIVE` nenahrazuje autorizaci, expiraci, target, purpose ani broker kontroly. Soft delete zachovává historii a immutable verze, vypořádává vazby a konzumenty podle stávajících invalidation pravidel a historická aktivní verze nesmí znovu aktivovat smazaný root."
+    }
+  ],
+  "removedIds": [],
+  "meaning": "Lexical content changes, not adjudicated semantic defects; detector regex unchanged"
+}

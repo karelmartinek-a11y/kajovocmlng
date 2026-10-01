@@ -1,5 +1,5 @@
 {
-  "sourceDocumentSha256": "5d8cf82e8a09f8e7e22a1e32a2c96757be4544c3fb746604b59cc6e182e6db0d",
+  "sourceDocumentSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
   "scope": "Actual domain witnesses and exact decoder/admission rejections; synthetic design proof.",
   "witnesses": {
     "generation.job.create": {
@@ -37,7 +37,7 @@
       "expiration": "2026-12-31T00:00:00Z"
     }
   },
-  "checked": 151,
+  "checked": 154,
   "failed": 0,
   "checks": [
     {
@@ -1067,6 +1067,24 @@
     },
     {
       "case": "authoring/unrelated-routes-byte-shape-preserved",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "authoring/all-non-create-records-unchanged-by-create-author",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "authoring/read-event-change-cannot-bypass-preservation",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "authoring/unrelated-change-cannot-bypass-preservation",
       "passed": true,
       "actual": true,
       "expected": true

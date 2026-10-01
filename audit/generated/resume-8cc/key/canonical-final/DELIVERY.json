@@ -1,0 +1,71 @@
+{
+  "status": "PASS_BOUNDED_CANONICAL_INDEPENDENT_REPRODUCTION",
+  "sourceDocumentSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "sourceStable": true,
+  "postgresqlVersion": "18.6",
+  "directEmbeddedSQLInstallation": true,
+  "evidence": {
+    "nativeSourceFirst37": {
+      "path": "native/native-retry-ordered-chain-proof.json",
+      "checked": 37,
+      "sha256": "d9b2e89cd28269e281b4ec789bfc7980f84b98e1c1e43525bbe10f3e5576a655"
+    },
+    "nativeChildFirst37": {
+      "path": "native/native-retry-ordered-child-first-proof.json",
+      "checked": 37,
+      "sha256": "d9b2e89cd28269e281b4ec789bfc7980f84b98e1c1e43525bbe10f3e5576a655"
+    },
+    "credentialRoot9": {
+      "path": "credential/credential-root/credential-root-proof.json",
+      "checked": 9,
+      "sha256": "e395e06f6df5d144c6317a9fc96a5d340f64a9f22141634aba63fce6b5e34ef2"
+    },
+    "credentialSourceFirst27": {
+      "path": "credential/credential-root/native-credential-chain-proof.json",
+      "checked": 27,
+      "sha256": "f8d0b9c36af2c631eca626ede238214221f9689d02c94486df78159c35620617"
+    },
+    "credentialChildFirst27": {
+      "path": "credential/credential-root/native-credential-child-first-proof.json",
+      "checked": 27,
+      "sha256": "f8d0b9c36af2c631eca626ede238214221f9689d02c94486df78159c35620617"
+    }
+  },
+  "actualEmbeddedSixSQLSha256": {
+    "database/generation-effect-ledger-producer.sql": "4ce2e51d7d98e6234a617928ce6db19cb3199db56d1364a60094e879f91eb274",
+    "database/generation-ordered-context.sql": "760765740b6fbb0cdbc2b2ed2964a115078cbba49debca900030fe5af6b6b4ac",
+    "database/generation-ordered-retry-child.sql": "f2293824868859c86bd4e23354440a3eb848b7ff1188f5ba4c409e055c38bab1",
+    "database/generation-native-lineage.sql": "5f75ac3a184945bad36addffaf7846333e3d9a2fa861948a11124788cc3ec785",
+    "database/generation-native-source-parent.sql": "f7438826f9b988a1f1855072501799ce4938dcfdd74a3a0f61e5b1a311a22b75",
+    "database/generation-trusted-policy-publisher.sql": "283d15a232f16faa62b63404c707fdb70765c7fa6a9336b51b1268fdabe88ca8"
+  },
+  "actualRootSupportSha256": {
+    "scripts/owner_api_credential_root_auth.py": "41f57409a7867011abe6ef052d082fc00d9c07e6fa7a52155befffbcdac23940",
+    "scripts/secret_command_chain.py": "7bd0c42342118bb9edab12baf964230984b58ba4c99d4559ab89aa54dd07e8ce",
+    "scripts/generation_auth_crypto.py": "5cfd85a6b0d7852509e8301b7a0b38f3e315ad292094544733a89f9b1939d259",
+    "scripts/generation_locked_retry.py": "33976428224eed291f074172b764206dd7657c8fa5d7e7fd3fd08f4a7a87ae91",
+    "scripts/generation_admission_contracts.py": "30891cf304d04c162fc94280365c7c584ddaabb445cb6b89f0def560ec8d35e5",
+    "scripts/generation_basis_consumer.py": "f89b077b168c11c8a8d43952d8ad928e8cae7ae3437550c38dd4adc4e5380bd7",
+    "scripts/generation_read_hydration_archive.py": "86190cac70763c0013623771fae1fa34712aa5c045b2dc3d43842ea564abffe0"
+  },
+  "scope": [
+    "Real canonical OWNER token verifier pins currentcredentialSecretIDs in privateinprocesscap underA/B",
+    "ActualCclaims thenOWNER10/currentSecret20 canonicalACTIVE/type/stableName/version/fingerprint guard forfresh+replay",
+    "DELETED oldACTIVE+samefingerprint deniesfresh/replay; realE20 blocksconcurrentdelete; rollbackleavesnochildcontextcommand",
+    "Actualproducer/CASclassification\u2192lockedscan\u2192childatomiccommit withroot/event/outbox/audit/locator\u2192AEADarchived read\u2192native43artifacts/safeUI",
+    "Both rawUUID rootorders; negativecancel/fence/coverage/contentDigest/byte-substitution/scopedFK/extra-field/scan/lineage/missingevent/replay/conflict andconcurrentwriters"
+  ],
+  "limits": [
+    "Wholeoperation NOT_CLOSED; no globalHorder acceptance",
+    "OWNERcredential genesis is explicitly isolatedfixture CREATED\u2192ACTIVE; actualgenesis/provider/keyidentity historicalFK authority OPEN",
+    "Actualroot-owned encrypted systemdcredential source ENV_BLOCKED; randomisolatedkey demonstrates canonicalprimitive notprovider",
+    "Producer source OWNERapproval/graph/binding/budget/observation-schema upstream fixture authority and remaining classifiers/lifecycle OPEN",
+    "Nonce stillsealed before globalreservation inprimitivefixture; trueproducerordering unresolved",
+    "Nativeadapter fixture is notgeneratedbackend/publictransport installation; ceiling4096fixture only",
+    "Sourceparent mapping is scoped archive154/155, notcompleteall-operationchildkind migration/callsite proof",
+    "Secretretention realadapter failclosed unresolved; browser bridge/account/CAS/serializer andapp runtime independent"
+  ],
+  "wholeOperationClosed": false,
+  "SSOT_CONTRACT_READY": "BLOCKED",
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

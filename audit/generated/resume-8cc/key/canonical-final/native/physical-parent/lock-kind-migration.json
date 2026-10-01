@@ -1,0 +1,45 @@
+{
+  "status": "PROPOSED_ROOT_INTEGRATION",
+  "authority": [
+    "SSOT \u00a749.4 frozen lineage",
+    "SSOT \u00a749.8 source phase ledger",
+    "SSOT \u00a751.6 primary_parent_uuid and immutable child ordering",
+    "SSOT \u00a751.20 exact server decoded frozen basis"
+  ],
+  "scope": "Copies in source-native archive, distinct from global schema/policy release authority",
+  "kinds": [
+    {
+      "table": "kcml_native_basis_v1.schema_bundle",
+      "ordinal": 154,
+      "primary_parent_uuid": "source_job_id",
+      "stable_id": "digest bytea",
+      "physical_identity": [
+        "source_job_id",
+        "digest"
+      ],
+      "producer": "genuine source publisher under OWNER10 and source GENERATION90 locks; schemas sorted bytea digest"
+    },
+    {
+      "table": "kcml_native_basis_v1.record",
+      "ordinal": 155,
+      "primary_parent_uuid": "source_job_id",
+      "stable_id": "record_id text COLLATE C; UTF8 exact bytes",
+      "physical_identity": [
+        "record_id"
+      ],
+      "producer": "same source publisher after154, records sorted exactUTF8"
+    },
+    {
+      "table": "kcml_native_basis_v1.child_lineage",
+      "ordinal": 153,
+      "primary_parent_uuid": "child_job_id",
+      "stable_id": "uuid_send(child_job_id)",
+      "physical_identity": [
+        "child_job_id"
+      ],
+      "producer": "ordered authenticated child adapter after source phase/effects scan and nonce152, before archive848/event850/outbox910/auditI"
+    }
+  ],
+  "migration": "Fresh empty source-native table extension only; populated existing source-native rows block for explicit provenance, never guessed/backfilled",
+  "wholeOperationClosed": false
+}

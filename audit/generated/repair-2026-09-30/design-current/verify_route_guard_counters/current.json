@@ -1,9 +1,9 @@
 {
-  "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
   "baseline": false,
   "scope": "Check every effective R9 route guard against the numeric domain of 56.3.\n\nThis checks three named platform guards, not the remaining generic domain bodies.\n",
   "routes": 509,
-  "guardDefinitions": 1527,
+  "guardDefinitions": 1523,
   "checks": [
     {
       "routeId": "route.0000",
@@ -101015,260 +101015,29 @@
     {
       "routeId": "route.0387",
       "operationId": "secret.metadata.read",
-      "schemaPointer": "/requestSchema/properties/guards/properties/expectedStateVersion",
-      "nullablePreserved": true,
-      "applicability": "COUNTER",
+      "applicability": "NOT_APPLICABLE_CLOSED_OWNER_READ",
+      "authority": "SSOT8.16",
       "cases": [
         {
-          "value": "0",
-          "expectedValid": true,
-          "actualValid": true,
+          "value": {},
           "passed": true
         },
         {
-          "value": "9223372036854775807",
-          "expectedValid": true,
-          "actualValid": true,
+          "value": {
+            "expectedStateVersion": "0"
+          },
           "passed": true
         },
         {
-          "value": "9223372036854775808",
-          "expectedValid": false,
-          "actualValid": false,
+          "value": {
+            "expectedBindingSetRevision": "0"
+          },
           "passed": true
         },
         {
-          "value": "18446744073709551616",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "01",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "-1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "binding-1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": " 1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "1\n",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": 1,
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": false,
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": null,
-          "expectedValid": true,
-          "actualValid": true,
-          "passed": true
-        }
-      ]
-    },
-    {
-      "routeId": "route.0387",
-      "operationId": "secret.metadata.read",
-      "schemaPointer": "/requestSchema/properties/guards/properties/expectedBindingSetRevision",
-      "nullablePreserved": true,
-      "applicability": "COUNTER",
-      "cases": [
-        {
-          "value": "0",
-          "expectedValid": true,
-          "actualValid": true,
-          "passed": true
-        },
-        {
-          "value": "9223372036854775807",
-          "expectedValid": true,
-          "actualValid": true,
-          "passed": true
-        },
-        {
-          "value": "9223372036854775808",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "18446744073709551616",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "01",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "-1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "binding-1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": " 1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "1\n",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": 1,
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": false,
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": null,
-          "expectedValid": true,
-          "actualValid": true,
-          "passed": true
-        }
-      ]
-    },
-    {
-      "routeId": "route.0387",
-      "operationId": "secret.metadata.read",
-      "schemaPointer": "/requestSchema/properties/guards/properties/expectedActivationEpoch",
-      "nullablePreserved": true,
-      "applicability": "COUNTER",
-      "cases": [
-        {
-          "value": "0",
-          "expectedValid": true,
-          "actualValid": true,
-          "passed": true
-        },
-        {
-          "value": "9223372036854775807",
-          "expectedValid": true,
-          "actualValid": true,
-          "passed": true
-        },
-        {
-          "value": "9223372036854775808",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "18446744073709551616",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "01",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "-1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "binding-1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": " 1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "1\n",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": 1,
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": false,
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": null,
-          "expectedValid": true,
-          "actualValid": true,
+          "value": {
+            "expectedActivationEpoch": "0"
+          },
           "passed": true
         }
       ]
@@ -101798,260 +101567,29 @@
     {
       "routeId": "route.0390",
       "operationId": "secret.value.read",
-      "schemaPointer": "/requestSchema/properties/guards/properties/expectedStateVersion",
-      "nullablePreserved": true,
-      "applicability": "COUNTER",
+      "applicability": "NOT_APPLICABLE_CLOSED_OWNER_READ",
+      "authority": "SSOT8.16",
       "cases": [
         {
-          "value": "0",
-          "expectedValid": true,
-          "actualValid": true,
+          "value": {},
           "passed": true
         },
         {
-          "value": "9223372036854775807",
-          "expectedValid": true,
-          "actualValid": true,
+          "value": {
+            "expectedStateVersion": "0"
+          },
           "passed": true
         },
         {
-          "value": "9223372036854775808",
-          "expectedValid": false,
-          "actualValid": false,
+          "value": {
+            "expectedBindingSetRevision": "0"
+          },
           "passed": true
         },
         {
-          "value": "18446744073709551616",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "01",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "-1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "binding-1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": " 1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "1\n",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": 1,
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": false,
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": null,
-          "expectedValid": true,
-          "actualValid": true,
-          "passed": true
-        }
-      ]
-    },
-    {
-      "routeId": "route.0390",
-      "operationId": "secret.value.read",
-      "schemaPointer": "/requestSchema/properties/guards/properties/expectedBindingSetRevision",
-      "nullablePreserved": true,
-      "applicability": "COUNTER",
-      "cases": [
-        {
-          "value": "0",
-          "expectedValid": true,
-          "actualValid": true,
-          "passed": true
-        },
-        {
-          "value": "9223372036854775807",
-          "expectedValid": true,
-          "actualValid": true,
-          "passed": true
-        },
-        {
-          "value": "9223372036854775808",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "18446744073709551616",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "01",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "-1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "binding-1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": " 1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "1\n",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": 1,
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": false,
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": null,
-          "expectedValid": true,
-          "actualValid": true,
-          "passed": true
-        }
-      ]
-    },
-    {
-      "routeId": "route.0390",
-      "operationId": "secret.value.read",
-      "schemaPointer": "/requestSchema/properties/guards/properties/expectedActivationEpoch",
-      "nullablePreserved": true,
-      "applicability": "COUNTER",
-      "cases": [
-        {
-          "value": "0",
-          "expectedValid": true,
-          "actualValid": true,
-          "passed": true
-        },
-        {
-          "value": "9223372036854775807",
-          "expectedValid": true,
-          "actualValid": true,
-          "passed": true
-        },
-        {
-          "value": "9223372036854775808",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "18446744073709551616",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "01",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "-1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "binding-1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": " 1",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": "1\n",
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": 1,
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": false,
-          "expectedValid": false,
-          "actualValid": false,
-          "passed": true
-        },
-        {
-          "value": null,
-          "expectedValid": true,
-          "actualValid": true,
+          "value": {
+            "expectedActivationEpoch": "0"
+          },
           "passed": true
         }
       ]
@@ -132855,7 +132393,7 @@
       ]
     }
   ],
-  "checked": 19851,
+  "checked": 19781,
   "failed": 0,
   "preserved": "Non-guard content and nullability match 997e835 plus explicit domain, event and (when authored) HTTP specialization for routes 0234/0232/0237; unrelated routes are unchanged."
 }

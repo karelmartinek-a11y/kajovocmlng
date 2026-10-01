@@ -1,0 +1,41 @@
+{
+  "status": "BOUNDED_INDEPENDENT_CREDENTIAL_ROOT_CANDIDATE_PASS",
+  "sourceDocumentSha256": "5c2c44097ac00ed7c22a3dcc9bbfdceda3eafc32bab5b8be0f93e17ffb0166d9",
+  "postgresqlVersion": "18.6",
+  "counts": {
+    "credential-root-proof.json": 9,
+    "native-credential-chain-proof.json": 27,
+    "native-credential-child-first-proof.json": 27
+  },
+  "sameJoinedCandidateAndSupportBytes": true,
+  "canonicalRawSQLMatches": {
+    "database/generation-ordered-context.sql": "760765740b6fbb0cdbc2b2ed2964a115078cbba49debca900030fe5af6b6b4ac",
+    "database/generation-ordered-retry-child.sql": "f2293824868859c86bd4e23354440a3eb848b7ff1188f5ba4c409e055c38bab1",
+    "database/generation-native-lineage.sql": "5f75ac3a184945bad36addffaf7846333e3d9a2fa861948a11124788cc3ec785",
+    "database/generation-native-source-parent.sql": "f7438826f9b988a1f1855072501799ce4938dcfdd74a3a0f61e5b1a311a22b75",
+    "database/generation-effect-ledger-producer.sql": "4ce2e51d7d98e6234a617928ce6db19cb3199db56d1364a60094e879f91eb274",
+    "database/generation-trusted-policy-publisher.sql": "283d15a232f16faa62b63404c707fdb70765c7fa6a9336b51b1268fdabe88ca8"
+  },
+  "installsActualEmbeddedSQLInsteadOfSnapshot": false,
+  "evidenceSha256": {
+    "credential-root-proof.json": "45162ffe9c5289ab872579f1eefa90083138d569686943bdbd0a92d16fccb1b8",
+    "native-credential-chain-proof.json": "9d827e86dd64eb4d17106f825ec5a4b5b76ca0c4ad29cb1940a1785e28c96d1a",
+    "native-credential-child-first-proof.json": "9d827e86dd64eb4d17106f825ec5a4b5b76ca0c4ad29cb1940a1785e28c96d1a"
+  },
+  "scopedReview": [
+    "ActualB credentialIDs captured in private inprocessissuedcap, constanttime tokenverifier/fingerprint",
+    "AfteractualC claims OWNER10 then currentreservedSecret20 validates exact root/type/stableName/activeversion/fingerprint/derivedACTIVE throughactualcanonical Secrethelper",
+    "Guard runsfresh andretained replay; no earlyreplay escapescurrentauthority",
+    "ActualE20 blocks concurrentdelete; DELETED stillhasoldACTIVEversion/fingerprint butfresh+replay denied specifically OWNER_API_CREDENTIAL_ROOT_NOT_ACTIVE",
+    "Bothsource-first/child-first sortedGENERATION90 knownroots beforelateH, producer/CAS/child/readchain27/27"
+  ],
+  "excluded": [
+    "Rootguard genesis/readprovisioning fixture notrealgenesisproducer",
+    "Historicalcredential identity root/FK/systemdkeysource stillOPEN",
+    "Currentpublicgatewaytransport andceilingproducer notproved",
+    "Candidatefixtureadapter notwholeproductionimplementation",
+    "Actual6canonicalraw installationfreshproof nextafterrootfreeze"
+  ],
+  "wholeOperationClosed": false,
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

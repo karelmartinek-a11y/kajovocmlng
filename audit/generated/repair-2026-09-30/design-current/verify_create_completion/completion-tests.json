@@ -1,13 +1,13 @@
 {
-  "sourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
-  "scriptSha256": "53a03171652a0bd84a0de1ab6a2c5b8fe06f577519b0e2d0c15d42538d63b7aa",
+  "sourceDocumentSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "scriptSha256": "39e310dd38edc994cb74fc960198383be876c443a86aa3b12aef347c9cf3e284",
   "supportSha256": {
-    "scripts/create_completion_contracts.py": "8f854db2a883884b641104c2822ee4745c505ce2122a844207671eebce9eea88",
+    "scripts/create_completion_contracts.py": "0cd08f02b4da6bae326024bd4f4da3a625edf4824da7cfa5bb3fe03bdc6ba9d0",
     "scripts/create_operation_contracts.py": "75280dbfa44cd5064998ac600c64198e6b7a975ecc45770770ac78ab46015b11",
     "scripts/follow_up_contracts.py": "21e08515ed3acacc7678d84d7915923aff825704414486a212f610a96a720ffa"
   },
   "resourceSha256": {
-    "contracts/payload-contracts.json": "483c132559313d8304478cdf055153d25dba2700d56455b744dd7047ba152a46",
+    "contracts/payload-contracts.json": "ddcbe434ae3d49cab8f38bb63034db001a8f444e4e889a7f3fdbd6265339e3c1",
     "contracts/create-completion.json": "9566c687f878d02405a7999dd2a0c4e71f9fe5f8a09b9b395b067104575b77dd"
   },
   "scope": "Synthetic create completion/commit/hydration witnesses; not production runtime acceptance. Hydration tests cover frozen creation receipt bytes only; full domain/read hydration remains OPEN.",
@@ -73,12 +73,13 @@
           "versionId": "00000000-0000-4000-8000-000000000003",
           "versionNumber": "1",
           "versionState": "CREATED",
+          "recordStatus": "INACTIVE",
           "activeVersionId": null,
           "stateVersion": "1",
           "createdAt": "2026-09-30T12:00:00Z"
         },
         "error": null,
-        "resultDigest": "sha256:66901c4be4f98e94b76f0215617de630762debf07887b4b0d576ea20716250ce",
+        "resultDigest": "sha256:3c877ad6e0a74d08a98c87a7a2971fd0a7e95bc39c64d201278d78e2c8068948",
         "stateVersion": "1",
         "eventSequence": "1",
         "activationEpoch": null,
@@ -98,18 +99,19 @@
           "versionId": "00000000-0000-4000-8000-000000000003",
           "versionNumber": "1",
           "versionState": "CREATED",
+          "recordStatus": "INACTIVE",
           "activeVersionId": null,
           "stateVersion": "1",
           "createdAt": "2026-09-30T12:00:00Z"
         },
-        "payloadDigest": "sha256:9624c0a9191ea5d68eff2a6738d6f7e0d5d2ad6a4b03c785224e3fb88b1154ba",
+        "payloadDigest": "sha256:4892edd7927e4209781e7c7468a2bf17f311b8ea8eacffa5fb6ed862df16c822",
         "immutableEventId": "00000000-0000-4000-8000-000000000004",
         "aggregateId": "00000000-0000-4000-8000-000000000002",
         "occurredAt": "2026-09-30T12:00:00Z"
       }
     }
   },
-  "checked": 439,
+  "checked": 449,
   "failed": 0,
   "checks": [
     {
@@ -4773,6 +4775,50 @@
       ]
     },
     {
+      "case": "secret.create/response/receipt-missing/recordStatus",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/output/recordStatus",
+      "actualDiagnostics": [
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "required",
+          "pointer": "/output/recordStatus"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/receipt-null/recordStatus",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/output/recordStatus",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/output/recordStatus"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output/recordStatus"
+        }
+      ]
+    },
+    {
       "case": "secret.create/response/receipt-missing/activeVersionId",
       "passed": true,
       "expectedKeyword": "required",
@@ -4869,6 +4915,66 @@
         {
           "keyword": "type",
           "pointer": "/output/createdAt"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/derived-create-status/ACTIVE",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/output/recordStatus",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/output/recordStatus"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/derived-create-status/DELETED",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/output/recordStatus",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/output/recordStatus"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/response/derived-create-status/CREATED",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/output/recordStatus",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/output/recordStatus"
+        },
+        {
+          "keyword": "oneOf",
+          "pointer": "/output"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/output"
         }
       ]
     },
@@ -5497,6 +5603,34 @@
       ]
     },
     {
+      "case": "secret.create/event/receipt-missing/recordStatus",
+      "passed": true,
+      "expectedKeyword": "required",
+      "expectedPointer": "/payload/recordStatus",
+      "actualDiagnostics": [
+        {
+          "keyword": "required",
+          "pointer": "/payload/recordStatus"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/receipt-null/recordStatus",
+      "passed": true,
+      "expectedKeyword": "type",
+      "expectedPointer": "/payload/recordStatus",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/payload/recordStatus"
+        },
+        {
+          "keyword": "type",
+          "pointer": "/payload/recordStatus"
+        }
+      ]
+    },
+    {
       "case": "secret.create/event/receipt-missing/activeVersionId",
       "passed": true,
       "expectedKeyword": "required",
@@ -5553,6 +5687,42 @@
         {
           "keyword": "type",
           "pointer": "/payload/createdAt"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/derived-create-status/ACTIVE",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/payload/recordStatus",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/payload/recordStatus"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/derived-create-status/DELETED",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/payload/recordStatus",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/payload/recordStatus"
+        }
+      ]
+    },
+    {
+      "case": "secret.create/event/derived-create-status/CREATED",
+      "passed": true,
+      "expectedKeyword": "const",
+      "expectedPointer": "/payload/recordStatus",
+      "actualDiagnostics": [
+        {
+          "keyword": "const",
+          "pointer": "/payload/recordStatus"
         }
       ]
     },
@@ -7069,19 +7239,19 @@
     {
       "case": "input-source-unchanged",
       "passed": true,
-      "actual": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
-      "expected": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06"
+      "actual": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+      "expected": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536"
     },
     {
       "case": "input-support-unchanged",
       "passed": true,
       "actual": {
-        "scripts/create_completion_contracts.py": "8f854db2a883884b641104c2822ee4745c505ce2122a844207671eebce9eea88",
+        "scripts/create_completion_contracts.py": "0cd08f02b4da6bae326024bd4f4da3a625edf4824da7cfa5bb3fe03bdc6ba9d0",
         "scripts/create_operation_contracts.py": "75280dbfa44cd5064998ac600c64198e6b7a975ecc45770770ac78ab46015b11",
         "scripts/follow_up_contracts.py": "21e08515ed3acacc7678d84d7915923aff825704414486a212f610a96a720ffa"
       },
       "expected": {
-        "scripts/create_completion_contracts.py": "8f854db2a883884b641104c2822ee4745c505ce2122a844207671eebce9eea88",
+        "scripts/create_completion_contracts.py": "0cd08f02b4da6bae326024bd4f4da3a625edf4824da7cfa5bb3fe03bdc6ba9d0",
         "scripts/create_operation_contracts.py": "75280dbfa44cd5064998ac600c64198e6b7a975ecc45770770ac78ab46015b11",
         "scripts/follow_up_contracts.py": "21e08515ed3acacc7678d84d7915923aff825704414486a212f610a96a720ffa"
       }
