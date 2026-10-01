@@ -475,15 +475,8 @@
     "wholeOperationsDesignClosed": 0
   },
   "nextBlock": {
-    "id": "RETRY_FULL_PHYSICAL_H_AUTHORITY_AND_RETAINED_OUTCOME_PRODUCERS",
-    "scope": "Complete exact remaining lock/parent and trusted source authorities listed in ordered-native-retry-handoffs; preserve current bounded native and producer witnesses. Secret rotation specialization is independently tested but remains inactive until complete invalidation authority.",
-    "inputs": [
-      "01_UI_CONTRACT/contracts/generation/ordered-native-retry-handoffs.json",
-      "audit/generated/resume-8cc/native/INSTALLATION.md",
-      "audit/generated/resume-8cc/ledger/canonical-final/DELIVERY.json",
-      "audit/generated/resume-8cc/archive/review-secret-rotation/fixed/rotation-peer-proof.json"
-    ],
-    "systemd": "ENVIRONMENT_BLOCKED; genuine manager/socket/invocation required, no fixture-key PASS"
+    "id": "FINITE_AUTHORITY_DEPENDENCY_AND_DOMAIN_FAMILY_INTEGRATION",
+    "scope": "Review exact pre-generation stage authorities, integrate finite classification into existing register, then complete Secret/session/audit and SQL packages using current definitions and fixtures"
   },
   "gates": {
     "SSOT_CONTRACT_READY": "BLOCKED",
@@ -1306,109 +1299,29 @@
     }
   ],
   "currentRun": {
-    "input": {
-      "head": "8cc19fbc69fb839ea88597b736da03d8b3eaecd4",
-      "remoteHead": "8cc19fbc69fb839ea88597b736da03d8b3eaecd4",
-      "branch": "ssot-repair-2026-09-30",
-      "entryWorkingTree": "CLEAN",
-      "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
-      "integrity": "INTEGRITY_MATCH",
-      "manifestSha256": "b61a4b5d95797c82cbf7168a9136c09eb246b3df23fe363dd72d3f4632a0a91a",
-      "auditPython": "/tmp/ssot-audit-venv/bin/python",
-      "actualPostgreSQLVersion": "18.6",
-      "instructions": "No AGENTS.md found in repo/workspace; session instructions and cloud runtime skill applied",
-      "nextBlock": "RETRY_AUTHENTICATED_NATIVE_CHILD_AND_FULL_LEDGER_PRODUCER"
-    },
-    "status": "PARTIAL",
-    "ownedOutputs": "audit/generated/resume-8cc",
-    "subagentCount": 6,
-    "scope": [
-      "RETRY full49.8ledger",
-      "authenticatednativeRETRYchild",
-      "trustedarchivepublisher/historicalpolicy",
-      "Secretcontext/command/rotation",
-      "broker/read/UI",
-      "systemdkeyauthority"
-    ],
-    "coordinatorOnly": "Canonical/shared/projections/register/checkpoint/manifests/Git",
-    "priorBoundedEvidence": "Retained current input-source fixtures, no full repeat without changed consumed inputs",
-    "completedBlocks": [
+    "inputHead": "84c41ba80af35d5d13f64cf8177ce551c2188e27",
+    "status": "IN_PROGRESS",
+    "approach": "User-directed finite A/B/C/D dependency replan plus create and bulk-family contract integration",
+    "entryEvidence": "audit/generated/closure-replan-84c/coordinator/ENTRY_STATE.json",
+    "pendingEvidence": "Second independent dependency/evidence review and integration into existing register; then whole Secret/session/audit/SQL definition workpackages",
+    "SSOT_CONTRACT_READY": "BLOCKED",
+    "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED",
+    "completedPackages": [
       {
-        "scope": "RETRY server-selected admission hydration (execution guards preserved)",
-        "authority": "SSOT §12.51.2",
-        "implementation": "scripts/generation_locked_retry.py",
-        "independentEvidence": "audit/generated/resume-8cc/key/review-stage/integrated-stage-proof.json",
-        "wholeOperationClosed": false
-      },
-      {
-        "scope": "Current continuation identities and author preservation",
-        "implementation": "scripts/verify_continuation_identity.py",
-        "evidence": "audit/generated/resume-8cc/coordinator/continuation-identity.json"
+        "id": "FINAL_GATE_UNIVERSE_73_7",
+        "state": "VERIFIED",
+        "scope": "Exact five final gate families; real five positive runs and fail-closed missing/hash/duplicate/timeout/wrong-family review",
+        "authority": "SSOT73.7",
+        "repair": [
+          "scripts/final_gate_set.py",
+          "scripts/run_baseline_gates.py",
+          "scripts/verify_package.py"
+        ],
+        "evidence": "audit/generated/closure-replan-84c/authority/gate-review/independent-final-gate-tests.json",
+        "review": "Independent32PASS; root18PASS"
       }
     ],
-    "integrityDuringWork": "Final source and evidence frozen; integrity-only manifest/receipt regenerated and independently verified after final writes",
-    "relevantChecks": {
-      "stageIndependent": {
-        "checked": 12,
-        "failed": 0,
-        "path": "audit/generated/resume-8cc/key/review-stage/integrated-stage-proof.json"
-      },
-      "preservedPhysicalRetry": {
-        "checked": 33,
-        "failed": 0,
-        "reason": "Root hydration helper changed; rerun retains physical SQL scope and binds all consumed code",
-        "path": "audit/generated/resume-8cc/coordinator/preserved-retry/producer-child-tests.json"
-      },
-      "connectedGate": {
-        "checked": 120,
-        "failed": 0,
-        "path": "audit/generated/resume-8cc/coordinator/producer-archive-chain-tests.json"
-      },
-      "continuationIdentity": "PASS"
-    },
-    "nextIntegration": "Review and embed full ledger/native child, trusted archive, owner Secret read/key authority; resolve actual lock ordering before closure",
-    "currentSourceDocumentSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
-    "priorCommittedHead": "2e61f9218cba8e285cd067ad893b45ad7f68c0c4",
-    "currentCanonicalReview": "audit/generated/resume-8cc/secrets/review-status-ui/canonical-final/DELIVERY.json",
-    "completedSubconditions": [
-      "SECRET.AUTH.CREDENTIAL_ROOT_ELIGIBILITY",
-      "SECRET.ATOMIC.SEMANTIC_RESULT_BINDING",
-      "SECRET.RECORD.STATUS.PERSISTED_PROJECTION",
-      "SECRET.READ.OWNER_API_IMMUTABLE",
-      "SECRET.UI.OWNER_TYPED_REVEAL_COPY",
-      "GEN.RETRY.PRODUCER.FINITE_ORDERED_LEDGER",
-      "GEN.RETRY.CHILD.CANONICAL_FINITE_TRANSACTION"
-    ],
-    "currentFullUniverse": "49 finished:42 PASS/7 BLOCKED; source and consumed report cache bindings preserved",
-    "designUniverse": {
-      "path": "audit/generated/repair-2026-09-30/design-current/commands.json",
-      "requiredChecks": 49,
-      "PASS": 42,
-      "BLOCKED": 7,
-      "validatorExceptions": 0,
-      "timeouts": 0
-    },
-    "visualEvidence": {
-      "path": "audit/visual-validation.json",
-      "executionSourceSha256": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4",
-      "currentSelectedInputVerification": "scripts/visual_evidence.py verify_reference: no issues; screenshot bytes copied from actual capture",
-      "actualLiveRenders": 96,
-      "actualCanonicalSecretRenders": 4,
-      "remainingAdmin": "124 HISTORICAL_UNBOUND",
-      "manualUniverse": "PENDING",
-      "implementationAcceptance": "NOT_EVALUATED"
-    },
-    "pushedPriorCommits": [
-      "451b556067cb7cdd4f411cd742ab8fcaec8a379a",
-      "d6f6ccefc27f03af3855c0bc31c1ef5f46609c4e",
-      "2e61f9218cba8e285cd067ad893b45ad7f68c0c4"
-    ],
-    "finalCommitLocator": "Resolve remote refs/heads/ssot-repair-2026-09-30; this checkpoint intentionally does not contain its own commit SHA",
-    "nativeUUIDOperands": {
-      "path": "audit/generated/resume-8cc/key/canonical-final/INVOCATION_UUID_OPERANDS.json",
-      "sha256": "8db330bf28c0588b024856b0f04b3ec7492461c260e296364a2bc7ab8d40e902",
-      "scope": "Actual persisted operand observations and argv; identical assertion report hashes do not collapse both executions"
-    }
+    "authorityClassificationProposal": "audit/generated/closure-replan-84c/authority/classification-proposal.json"
   },
   "historicalSnapshots": [
     {
@@ -2155,6 +2068,126 @@
         }
       },
       "authority": "HISTORICAL_NOT_CURRENT_PASS"
+    },
+    {
+      "type": "84c-entry",
+      "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+      "currentRun": {
+        "input": {
+          "head": "8cc19fbc69fb839ea88597b736da03d8b3eaecd4",
+          "remoteHead": "8cc19fbc69fb839ea88597b736da03d8b3eaecd4",
+          "branch": "ssot-repair-2026-09-30",
+          "entryWorkingTree": "CLEAN",
+          "sourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+          "integrity": "INTEGRITY_MATCH",
+          "manifestSha256": "b61a4b5d95797c82cbf7168a9136c09eb246b3df23fe363dd72d3f4632a0a91a",
+          "auditPython": "/tmp/ssot-audit-venv/bin/python",
+          "actualPostgreSQLVersion": "18.6",
+          "instructions": "No AGENTS.md found in repo/workspace; session instructions and cloud runtime skill applied",
+          "nextBlock": "RETRY_AUTHENTICATED_NATIVE_CHILD_AND_FULL_LEDGER_PRODUCER"
+        },
+        "status": "PARTIAL",
+        "ownedOutputs": "audit/generated/resume-8cc",
+        "subagentCount": 6,
+        "scope": [
+          "RETRY full49.8ledger",
+          "authenticatednativeRETRYchild",
+          "trustedarchivepublisher/historicalpolicy",
+          "Secretcontext/command/rotation",
+          "broker/read/UI",
+          "systemdkeyauthority"
+        ],
+        "coordinatorOnly": "Canonical/shared/projections/register/checkpoint/manifests/Git",
+        "priorBoundedEvidence": "Retained current input-source fixtures, no full repeat without changed consumed inputs",
+        "completedBlocks": [
+          {
+            "scope": "RETRY server-selected admission hydration (execution guards preserved)",
+            "authority": "SSOT §12.51.2",
+            "implementation": "scripts/generation_locked_retry.py",
+            "independentEvidence": "audit/generated/resume-8cc/key/review-stage/integrated-stage-proof.json",
+            "wholeOperationClosed": false
+          },
+          {
+            "scope": "Current continuation identities and author preservation",
+            "implementation": "scripts/verify_continuation_identity.py",
+            "evidence": "audit/generated/resume-8cc/coordinator/continuation-identity.json"
+          }
+        ],
+        "integrityDuringWork": "Final source and evidence frozen; integrity-only manifest/receipt regenerated and independently verified after final writes",
+        "relevantChecks": {
+          "stageIndependent": {
+            "checked": 12,
+            "failed": 0,
+            "path": "audit/generated/resume-8cc/key/review-stage/integrated-stage-proof.json"
+          },
+          "preservedPhysicalRetry": {
+            "checked": 33,
+            "failed": 0,
+            "reason": "Root hydration helper changed; rerun retains physical SQL scope and binds all consumed code",
+            "path": "audit/generated/resume-8cc/coordinator/preserved-retry/producer-child-tests.json"
+          },
+          "connectedGate": {
+            "checked": 120,
+            "failed": 0,
+            "path": "audit/generated/resume-8cc/coordinator/producer-archive-chain-tests.json"
+          },
+          "continuationIdentity": "PASS"
+        },
+        "nextIntegration": "Review and embed full ledger/native child, trusted archive, owner Secret read/key authority; resolve actual lock ordering before closure",
+        "currentSourceDocumentSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+        "priorCommittedHead": "2e61f9218cba8e285cd067ad893b45ad7f68c0c4",
+        "currentCanonicalReview": "audit/generated/resume-8cc/secrets/review-status-ui/canonical-final/DELIVERY.json",
+        "completedSubconditions": [
+          "SECRET.AUTH.CREDENTIAL_ROOT_ELIGIBILITY",
+          "SECRET.ATOMIC.SEMANTIC_RESULT_BINDING",
+          "SECRET.RECORD.STATUS.PERSISTED_PROJECTION",
+          "SECRET.READ.OWNER_API_IMMUTABLE",
+          "SECRET.UI.OWNER_TYPED_REVEAL_COPY",
+          "GEN.RETRY.PRODUCER.FINITE_ORDERED_LEDGER",
+          "GEN.RETRY.CHILD.CANONICAL_FINITE_TRANSACTION"
+        ],
+        "currentFullUniverse": "49 finished:42 PASS/7 BLOCKED; source and consumed report cache bindings preserved",
+        "designUniverse": {
+          "path": "audit/generated/repair-2026-09-30/design-current/commands.json",
+          "requiredChecks": 49,
+          "PASS": 42,
+          "BLOCKED": 7,
+          "validatorExceptions": 0,
+          "timeouts": 0
+        },
+        "visualEvidence": {
+          "path": "audit/visual-validation.json",
+          "executionSourceSha256": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4",
+          "currentSelectedInputVerification": "scripts/visual_evidence.py verify_reference: no issues; screenshot bytes copied from actual capture",
+          "actualLiveRenders": 96,
+          "actualCanonicalSecretRenders": 4,
+          "remainingAdmin": "124 HISTORICAL_UNBOUND",
+          "manualUniverse": "PENDING",
+          "implementationAcceptance": "NOT_EVALUATED"
+        },
+        "pushedPriorCommits": [
+          "451b556067cb7cdd4f411cd742ab8fcaec8a379a",
+          "d6f6ccefc27f03af3855c0bc31c1ef5f46609c4e",
+          "2e61f9218cba8e285cd067ad893b45ad7f68c0c4"
+        ],
+        "finalCommitLocator": "Resolve remote refs/heads/ssot-repair-2026-09-30; this checkpoint intentionally does not contain its own commit SHA",
+        "nativeUUIDOperands": {
+          "path": "audit/generated/resume-8cc/key/canonical-final/INVOCATION_UUID_OPERANDS.json",
+          "sha256": "8db330bf28c0588b024856b0f04b3ec7492461c260e296364a2bc7ab8d40e902",
+          "scope": "Actual persisted operand observations and argv; identical assertion report hashes do not collapse both executions"
+        }
+      },
+      "nextBlock": {
+        "id": "RETRY_FULL_PHYSICAL_H_AUTHORITY_AND_RETAINED_OUTCOME_PRODUCERS",
+        "scope": "Complete exact remaining lock/parent and trusted source authorities listed in ordered-native-retry-handoffs; preserve current bounded native and producer witnesses. Secret rotation specialization is independently tested but remains inactive until complete invalidation authority.",
+        "inputs": [
+          "01_UI_CONTRACT/contracts/generation/ordered-native-retry-handoffs.json",
+          "audit/generated/resume-8cc/native/INSTALLATION.md",
+          "audit/generated/resume-8cc/ledger/canonical-final/DELIVERY.json",
+          "audit/generated/resume-8cc/archive/review-secret-rotation/fixed/rotation-peer-proof.json"
+        ],
+        "systemd": "ENVIRONMENT_BLOCKED; genuine manager/socket/invocation required, no fixture-key PASS"
+      }
     }
   ],
   "currentMetrics": {

@@ -1,0 +1,11 @@
+# Independent final gate selection review
+
+Source `2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536`. Actual five embedded canonical verifier scripts all executed successfully against the real source in an owned cache. Independent fixture result: **32 PASS / 0 FAIL**. All five families remain fail-closed on missing resource, changed raw bytes, wrong declared hash, duplicate identity and wrong family. A real deliberately slow subprocess raises TimeoutExpired and all five statuses become structured GATE_TIMEOUT; unavailable invocation and nonzero return are separately marked BLOCKED. Invocation fault fixtures do not claim domain/runtime execution.
+
+The shared selector is consumed by both baseline and verify_package. Exact73.7 families are R10,R16,UI,CLOSURE,R17. R9's payload contract inspection remains an explicit semantic detector in verify_package; R9 no longer supplies an unsupported sixth whole-package gate. Adding even a duplicate scoped R9 row cannot expand the five-family tuple. General embedded duplicate identity remains separately structural-invalid; this scoped selector test does not authorize duplicate package resources.
+
+Implementation acceptance remains NOT_EVALUATED. No freeze, app generation or whole-operation closure. A stale write-audit prose sentence still said six validators when inspected; coordinator was notified to align it to exact five final families. That editorial fix does not change the tested selector.
+
+Authority classification self-review: none of the36 proposed rows requires an already generated backend before its own definition. A rows are exact contracts and physical plans; B timing is source-specific rather than universal. §12.56 explicitly requires genuine systemd fixtures before generation, §12.57 blocks missing physical producer/consumer authority before operation readiness. The model cannot invent trusted fields, fallback policy or unsupported masks. Future runtime UI/broker/systemd application deployment remains phase-bound C. Supported browser members are constrained by exact engine/serializer capability; no speculative universal profile was added. Parent statuses and mandatory gates remain unchanged.
+
+Reproduce: `PYTHONDONTWRITEBYTECODE=1 /tmp/ssot-audit-venv/bin/python audit/generated/closure-replan-84c/authority/gate-review/verify_independent_gate_selection.py`.

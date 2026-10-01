@@ -82,10 +82,9 @@ def audit():
  families=json.loads(by[('KCML-R16-RESOURCE','r16/contracts/process-family-registry.json')]['raw']);visual=json.loads((ROOT/'01_UI_CONTRACT/ui/contracts/process-visual-registry.json').read_text())
  check({x['id'] for x in families['processFamilies']}=={x['process_family'] for x in visual['plans']},'process family coverage')
  vr=verify_visual();structural.extend(vr['failures']);stats.update({k:v for k,v in vr.items() if k not in ['failures','status']})
- results=[]
- for fam,path in [('R9','verify_r9.py'),('R10','r10/scripts/verify_r10.py'),('R16','r16/scripts/verify_r16.py'),('UI','ui/scripts/verify_ui.py'),('CLOSURE','closure/scripts/verify_final_closure.py'),('R17','r17/scripts/verify_r17.py')]:
-  r=by[('KCML-'+fam+'-RESOURCE',path)];p=ROOT/'.cache/validators'/fam/Path(path).name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(r['raw']);run=subprocess.run([sys.executable,str(p),str(SSOT)],capture_output=True,text=True,timeout=180)
-  results.append({'family':fam,'exitCode':run.returncode,'stdout':run.stdout.strip(),'stderr':run.stderr.strip()});check(run.returncode==0,'validator failed '+fam)
+ from final_gate_set import run_final_gates
+ results=run_final_gates(entries,ROOT,SSOT)
+ for result in results:check(result['status']=='PASS','validator '+result['family']+': '+str(result['reason']))
  visual_path=ROOT/'audit/visual-validation.json';check(visual_path.exists(),'missing visual validation')
  if visual_path.exists():
   v=json.loads(visual_path.read_text())
@@ -93,7 +92,7 @@ def audit():
   structural.extend(verify_reference(v))
   for file,digest in v.get('sourceHashes',{}).items():check((ROOT/file).exists() and sha(ROOT/file)==digest,'render source drift '+file)
 
- return {'format':'KCML-FINAL-AUDIT/1','scope':'whole repository structure plus explicit semantic detectors; not a claim of manual line-by-line semantic certification','sourceBranch':subprocess.check_output(['git','branch','--show-current'],cwd=ROOT).decode().strip(),'freezePerformed':False,'status':'BLOCKED' if structural or findings else 'READY_FOR_INDEPENDENT_AUDIT','structuralStatus':'FAIL' if structural else 'PASS','stats':stats,'legacyValidators':results,'structuralFailures':structural,'archivalSyntaxFindings':archival,'blockers':findings,'claims':{'FORENSICALLY_COMPLETE':not(structural or findings),'IMPLEMENTATION_READY':not(structural or findings),'VISUALLY_CLOSED':not(structural or findings),'CONTRACT_CLOSED':not(structural or findings),'FREEZE_READY':not(structural or findings)},'sourceDocumentSha256':sha(SSOT)}
+ return {'format':'KCML-FINAL-AUDIT/1','scope':'whole repository structure plus explicit semantic detectors; not a claim of manual line-by-line semantic certification','sourceBranch':subprocess.check_output(['git','branch','--show-current'],cwd=ROOT).decode().strip(),'freezePerformed':False,'status':'BLOCKED' if structural or findings else 'READY_FOR_INDEPENDENT_AUDIT','structuralStatus':'FAIL' if structural else 'PASS','stats':stats,'legacyValidators':results,'structuralFailures':structural,'archivalSyntaxFindings':archival,'blockers':findings,'claims':{'FORENSICALLY_COMPLETE':not(structural or findings),'IMPLEMENTATION_READY':False,'VISUALLY_CLOSED':not(structural or findings),'CONTRACT_CLOSED':not(structural or findings),'FREEZE_READY':not(structural or findings)},'sourceDocumentSha256':sha(SSOT),'implementationAcceptance':'NOT_EVALUATED','finalGateAuthority':'SSOT73.7','finalGateFamilies':[x['family']for x in results]}
 if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('--write-audit',action='store_true');p.add_argument('--freeze',action='store_true');p.add_argument('--skip-manifest',action='store_true');a=p.parse_args()
  try:r=audit()
@@ -102,7 +101,7 @@ if __name__=='__main__':
   sys.exit(1)
  if a.write_audit:
   (ROOT/'audit/final-audit.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')
-  lines=['# Závěrečný audit SSOT','',f"Stav: **{r['status']}**. Strukturální kontroly: **{r['structuralStatus']}**. Freeze neproveden.",'','Rozsah: celý strom, vložené resources a kapsle, projekce UI, JSON/CSV, schémata, integrita a šest dílčích autoritativních validátorů. Automatické kontroly nejsou důkazem úplné ruční sémantické revize.','', '## Ověřené počty','']+[f'- {k}: {v}' for k,v in r['stats'].items()]+['','## Skutečné blockery','']
+  lines=['# Závěrečný audit SSOT','',f"Stav: **{r['status']}**. Strukturální kontroly: **{r['structuralStatus']}**. Freeze neproveden.",'','Rozsah: celý strom, vložené resources a kapsle, projekce UI, JSON/CSV, schémata, integrita a pět finálních gate families podle §73.7. Automatické kontroly nejsou důkazem úplné ruční sémantické revize.','', '## Ověřené počty','']+[f'- {k}: {v}' for k,v in r['stats'].items()]+['','## Skutečné blockery','']
   for f in r['blockers']:lines += [f"### {f['id']}",'',f['finding'],'',f['requiredClosure'],'']
   lines+=['## Strukturální chyby','',json.dumps(r['structuralFailures'],ensure_ascii=False),'','Definitivní prvopis ani FREEZE READY se neprohlašuje. Přesné strojové důkazy a návratové kódy jsou v `final-audit.json`.']
   (ROOT/'audit/FINAL_AUDIT.md').write_text('\n'.join(lines)+'\n')

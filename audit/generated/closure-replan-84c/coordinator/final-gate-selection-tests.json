@@ -1,0 +1,104 @@
+{
+  "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "actual-current-five-family-execution",
+      "passed": true
+    },
+    {
+      "id": "exact-effective-73.7-universe",
+      "passed": true
+    },
+    {
+      "id": "R10/missing",
+      "passed": true,
+      "diagnostic": "MISSING_REQUIRED_GATE"
+    },
+    {
+      "id": "R10/wrong-hash",
+      "passed": true,
+      "diagnostic": "SCRIPT_HASH_MISMATCH"
+    },
+    {
+      "id": "R10/duplicate",
+      "passed": true,
+      "diagnostic": "DUPLICATE_REQUIRED_GATE"
+    },
+    {
+      "id": "R16/missing",
+      "passed": true,
+      "diagnostic": "MISSING_REQUIRED_GATE"
+    },
+    {
+      "id": "R16/wrong-hash",
+      "passed": true,
+      "diagnostic": "SCRIPT_HASH_MISMATCH"
+    },
+    {
+      "id": "R16/duplicate",
+      "passed": true,
+      "diagnostic": "DUPLICATE_REQUIRED_GATE"
+    },
+    {
+      "id": "UI/missing",
+      "passed": true,
+      "diagnostic": "MISSING_REQUIRED_GATE"
+    },
+    {
+      "id": "UI/wrong-hash",
+      "passed": true,
+      "diagnostic": "SCRIPT_HASH_MISMATCH"
+    },
+    {
+      "id": "UI/duplicate",
+      "passed": true,
+      "diagnostic": "DUPLICATE_REQUIRED_GATE"
+    },
+    {
+      "id": "CLOSURE/missing",
+      "passed": true,
+      "diagnostic": "MISSING_REQUIRED_GATE"
+    },
+    {
+      "id": "CLOSURE/wrong-hash",
+      "passed": true,
+      "diagnostic": "SCRIPT_HASH_MISMATCH"
+    },
+    {
+      "id": "CLOSURE/duplicate",
+      "passed": true,
+      "diagnostic": "DUPLICATE_REQUIRED_GATE"
+    },
+    {
+      "id": "R17/missing",
+      "passed": true,
+      "diagnostic": "MISSING_REQUIRED_GATE"
+    },
+    {
+      "id": "R17/wrong-hash",
+      "passed": true,
+      "diagnostic": "SCRIPT_HASH_MISMATCH"
+    },
+    {
+      "id": "R17/duplicate",
+      "passed": true,
+      "diagnostic": "DUPLICATE_REQUIRED_GATE"
+    },
+    {
+      "id": "timeout-is-structured-BLOCKED",
+      "passed": true
+    }
+  ],
+  "checked": 18,
+  "failed": 0,
+  "authority": {
+    "pointer": "SSOT73.7",
+    "quote": "Fin\u00e1ln\u00ed whole-package gate families jsou `R10`, `R16`, `UI`, `CLOSURE`, `R17`."
+  },
+  "scope": "Five actual gate executions are positive evidence; mocks only inject specific selector/hash/invocation faults. No domain/runtime/whole readiness certification.",
+  "inputs": {
+    "scripts/final_gate_set.py": "ad9c08e91feed2f65cb0fb004fd60f9d01b3527f89d7e1c78a8de018499631db",
+    "audit/generated/baseline-gates.json": "062e9c0dea7bac66c786a1eda9f21ae91b72bc0d7b4290daad5f769b5b6245a1"
+  }
+}
