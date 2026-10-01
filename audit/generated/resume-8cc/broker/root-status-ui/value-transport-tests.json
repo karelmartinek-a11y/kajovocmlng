@@ -1,0 +1,246 @@
+{
+  "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+  "consumedSourceDigests": {
+    "contracts/secrets/profile-handoffs.schema.json": "bce6c974949e69314f725e9fcacd20d257b7cadfa7003b09122fc57fff0e69da"
+  },
+  "checked": 55,
+  "failed": 0,
+  "cases": [
+    {
+      "id": "existing-current-empty-query-explicit-current-discriminator",
+      "status": "PASS"
+    },
+    {
+      "id": "selected-immutable-version-explicit-query-native-SQL-argument",
+      "status": "PASS"
+    },
+    {
+      "id": "unknown-query",
+      "status": "PASS",
+      "diagnostic": "SECRET_VALUE_READ_QUERY_UNKNOWN"
+    },
+    {
+      "id": "duplicate-selector",
+      "status": "PASS",
+      "diagnostic": "SECRET_VALUE_READ_QUERY_DUPLICATE"
+    },
+    {
+      "id": "bad-version",
+      "status": "PASS",
+      "diagnostic": "SECRET_VALUE_READ_VERSION_INVALID"
+    },
+    {
+      "id": "null-selector",
+      "status": "PASS",
+      "diagnostic": "SECRET_VALUE_READ_QUERY_INVALID"
+    },
+    {
+      "id": "GET-JSON-body",
+      "status": "PASS",
+      "diagnostic": "SECRET_VALUE_READ_BODY_NOT_ALLOWED"
+    },
+    {
+      "id": "injected-path-authority",
+      "status": "PASS",
+      "diagnostic": "SECRET_VALUE_READ_PATH_INVALID"
+    },
+    {
+      "id": "wrong-method",
+      "status": "PASS",
+      "diagnostic": "SECRET_VALUE_READ_METHOD_INVALID"
+    },
+    {
+      "id": "actual-HTTP-query-decoder-to-explicit-history-native",
+      "status": "PASS"
+    },
+    {
+      "id": "encoded-duplicate",
+      "status": "PASS",
+      "diagnostic": "SECRET_VALUE_READ_QUERY_DUPLICATE"
+    },
+    {
+      "id": "bad-percent",
+      "status": "PASS",
+      "diagnostic": "SECRET_VALUE_READ_QUERY_ENCODING_INVALID"
+    },
+    {
+      "id": "invalid-UTF8",
+      "status": "PASS",
+      "diagnostic": "SECRET_VALUE_READ_QUERY_ENCODING_INVALID"
+    },
+    {
+      "id": "HTTP-unknown-query",
+      "status": "PASS",
+      "diagnostic": "SECRET_VALUE_READ_QUERY_UNKNOWN"
+    },
+    {
+      "id": "current-with-version",
+      "status": "PASS"
+    },
+    {
+      "id": "unknown-kind",
+      "status": "PASS"
+    },
+    {
+      "id": "client-authority",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_UTF8-typed-reveal-and-UI-copy-original-byte-exact",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_UTF8-status-DELETED",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_UTF8-status-CREATED",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_UTF8-status-unknown",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_UTF8-status-None",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_UTF8-stateVersion-00",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_UTF8-stateVersion-9223372036854775808",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_UTF8-stateVersion-4",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_UTF8-changed-original-bytes",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_UTF8-missing-original-byte",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_UTF8-UI-copy-digest-mismatch",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_UTF8-closed-response-extra-field",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_BINARY-typed-reveal-and-UI-copy-original-byte-exact",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_BINARY-status-DELETED",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_BINARY-status-CREATED",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_BINARY-status-unknown",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_BINARY-status-None",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_BINARY-stateVersion-00",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_BINARY-stateVersion-9223372036854775808",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_BINARY-stateVersion-4",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_BINARY-changed-original-bytes",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_BINARY-missing-original-byte",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_BINARY-UI-copy-digest-mismatch",
+      "status": "PASS"
+    },
+    {
+      "id": "RAW_BINARY-closed-response-extra-field",
+      "status": "PASS"
+    },
+    {
+      "id": "PROFILE_JSON_V1-typed-reveal-and-UI-copy-original-byte-exact",
+      "status": "PASS"
+    },
+    {
+      "id": "PROFILE_JSON_V1-status-DELETED",
+      "status": "PASS"
+    },
+    {
+      "id": "PROFILE_JSON_V1-status-CREATED",
+      "status": "PASS"
+    },
+    {
+      "id": "PROFILE_JSON_V1-status-unknown",
+      "status": "PASS"
+    },
+    {
+      "id": "PROFILE_JSON_V1-status-None",
+      "status": "PASS"
+    },
+    {
+      "id": "PROFILE_JSON_V1-stateVersion-00",
+      "status": "PASS"
+    },
+    {
+      "id": "PROFILE_JSON_V1-stateVersion-9223372036854775808",
+      "status": "PASS"
+    },
+    {
+      "id": "PROFILE_JSON_V1-stateVersion-4",
+      "status": "PASS"
+    },
+    {
+      "id": "PROFILE_JSON_V1-changed-original-bytes",
+      "status": "PASS"
+    },
+    {
+      "id": "PROFILE_JSON_V1-missing-original-byte",
+      "status": "PASS"
+    },
+    {
+      "id": "PROFILE_JSON_V1-UI-copy-digest-mismatch",
+      "status": "PASS"
+    },
+    {
+      "id": "typed-profile-original-bytes-semantic-identity",
+      "status": "PASS"
+    },
+    {
+      "id": "typed-profile-Secret-type-binding",
+      "status": "PASS"
+    },
+    {
+      "id": "PROFILE_JSON_V1-closed-response-extra-field",
+      "status": "PASS"
+    }
+  ],
+  "syntheticValuesOnly": true,
+  "plaintextInReport": false,
+  "scope": "typed transport/native conversion and upstream-open reveal/copy; no auth or SQL audit claim",
+  "wholeOperationClosed": false,
+  "implementationAcceptance": "NOT_EVALUATED"
+}

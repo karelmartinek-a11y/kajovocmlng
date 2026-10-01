@@ -1,0 +1,77 @@
+{
+  "sourceSha256": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4",
+  "effectiveHelperSha256": "e68eb5406fcd797d95e7abe313ff76a60ddede8d82697f425916fcc77fd747a6",
+  "reviewer": "sql_helpers; not consumer designer",
+  "checks": [
+    {
+      "id": "dashboard.start/valid-domain-selected-reference-positive",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.start/actual-old-self-consistent-wrong-target-now-rejected",
+      "status": "PASS",
+      "oldAcceptance": "DISPLAY_CANONICAL_OUTCOME",
+      "currentDiagnostic": "OWNER_UI_WORKER_TARGET_MISMATCH",
+      "positiveWitness": "dashboard.start/valid-domain-selected-reference-positive"
+    },
+    {
+      "id": "dashboard.start/worker-arguments-runtimeInstanceId",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_WORKER_ARGUMENT_BINDING_MISMATCH",
+      "positiveWitness": "dashboard.start/valid-domain-selected-reference-positive"
+    },
+    {
+      "id": "dashboard.start/worker-arguments-runtimeGeneration",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_WORKER_ARGUMENT_BINDING_MISMATCH",
+      "positiveWitness": "dashboard.start/valid-domain-selected-reference-positive"
+    },
+    {
+      "id": "dashboard.stop/valid-domain-selected-reference-positive",
+      "status": "PASS"
+    },
+    {
+      "id": "dashboard.stop/actual-old-self-consistent-wrong-target-now-rejected",
+      "status": "PASS",
+      "oldAcceptance": "DISPLAY_CANONICAL_OUTCOME",
+      "currentDiagnostic": "OWNER_UI_WORKER_TARGET_MISMATCH",
+      "positiveWitness": "dashboard.stop/valid-domain-selected-reference-positive"
+    },
+    {
+      "id": "dashboard.stop/worker-arguments-runtimeInstanceId",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_WORKER_ARGUMENT_BINDING_MISMATCH",
+      "positiveWitness": "dashboard.stop/valid-domain-selected-reference-positive"
+    },
+    {
+      "id": "dashboard.stop/worker-arguments-runtimeGeneration",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_WORKER_ARGUMENT_BINDING_MISMATCH",
+      "positiveWitness": "dashboard.stop/valid-domain-selected-reference-positive"
+    },
+    {
+      "id": "gen.editSpec/valid-domain-selected-reference-positive",
+      "status": "PASS"
+    },
+    {
+      "id": "gen.editSpec/actual-old-self-consistent-wrong-target-now-rejected",
+      "status": "PASS",
+      "oldAcceptance": "DISPLAY_CANONICAL_OUTCOME",
+      "currentDiagnostic": "OWNER_UI_WORKER_TARGET_MISMATCH",
+      "positiveWitness": "gen.editSpec/valid-domain-selected-reference-positive"
+    },
+    {
+      "id": "gen.editSpec/new-draft-must-not-reuse-base",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_NEW_DRAFT_REUSES_BASE_REVISION"
+    },
+    {
+      "id": "gen.editSpec/same-canonical-explicit-historical-block",
+      "status": "PASS",
+      "actualDiagnostic": "OWNER_UI_BASE_REVISION_PRODUCER_UNRESOLVED"
+    }
+  ],
+  "failed": 0,
+  "defects": [],
+  "scope": "Actual reference adapter execution with three independently adversarial selected-target successes, runtime command argument mutations and draft/same-canonical negatives; no producer/SQL/runtime proof."
+}

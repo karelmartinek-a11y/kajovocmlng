@@ -1,0 +1,115 @@
+{
+  "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+  "candidateSqlSha256": "dc2d36f5b6442396aa78e08b738d330a84b948dfc2c8802f588d8c729ed8a457",
+  "candidateHelperSha256": "e9eea9a05e4fa8b9c16e2d31df77366135d74e819d3be23d4796ebbbcd6324e0",
+  "authorFixtureSourceSha256": "edb6f322add044738f06d58595bc65e8309106fde2459eef579479c2a06b51a2",
+  "sourceUnchangedDuringRun": true,
+  "candidateHelperUnchangedDuringRun": true,
+  "candidateSqlUnchangedDuringRun": true,
+  "authorAssertionsReproduced": 49,
+  "checks": [
+    {
+      "id": "zero-result-digest",
+      "passed": true,
+      "expectedDiagnostic": "rotation_projection_completion_check",
+      "actualDiagnostic": "ERROR:  new row for relation \"rotation_projection_completion\" violates check constraint \"rotation_projection_completion_check\"",
+      "acceptedUnderAllDeferredConstraints": false,
+      "baseline": "independently reproduced actual author positive 49",
+      "rollbackPreservedHeads": true
+    },
+    {
+      "id": "semantic-mismatch",
+      "passed": true,
+      "expectedDiagnostic": "OWNER_ROTATION_SEMANTIC_RESULT_MISMATCH",
+      "actualDiagnostic": "ERROR:  OWNER_ROTATION_SEMANTIC_RESULT_MISMATCH",
+      "acceptedUnderAllDeferredConstraints": false,
+      "baseline": "independently reproduced actual author positive 49",
+      "rollbackPreservedHeads": true
+    },
+    {
+      "id": "event-type",
+      "passed": false,
+      "expectedDiagnostic": "OWNER_ROTATION_PROJECTION_ATOMIC_CLOSURE_INVALID",
+      "actualDiagnostic": null,
+      "acceptedUnderAllDeferredConstraints": true,
+      "baseline": "independently reproduced actual author positive 49",
+      "rollbackPreservedHeads": true
+    },
+    {
+      "id": "event-aggregate-kind",
+      "passed": false,
+      "expectedDiagnostic": "OWNER_ROTATION_PROJECTION_ATOMIC_CLOSURE_INVALID",
+      "actualDiagnostic": null,
+      "acceptedUnderAllDeferredConstraints": true,
+      "baseline": "independently reproduced actual author positive 49",
+      "rollbackPreservedHeads": true
+    },
+    {
+      "id": "event-schema-id",
+      "passed": false,
+      "expectedDiagnostic": "OWNER_ROTATION_PROJECTION_ATOMIC_CLOSURE_INVALID",
+      "actualDiagnostic": null,
+      "acceptedUnderAllDeferredConstraints": true,
+      "baseline": "independently reproduced actual author positive 49",
+      "rollbackPreservedHeads": true
+    },
+    {
+      "id": "event-schema-digest",
+      "passed": false,
+      "expectedDiagnostic": "OWNER_ROTATION_PROJECTION_ATOMIC_CLOSURE_INVALID",
+      "actualDiagnostic": null,
+      "acceptedUnderAllDeferredConstraints": true,
+      "baseline": "independently reproduced actual author positive 49",
+      "rollbackPreservedHeads": true
+    },
+    {
+      "id": "audit-after-digest",
+      "passed": false,
+      "expectedDiagnostic": "OWNER_ROTATION_PROJECTION_ATOMIC_CLOSURE_INVALID",
+      "actualDiagnostic": null,
+      "acceptedUnderAllDeferredConstraints": true,
+      "baseline": "independently reproduced actual author positive 49",
+      "rollbackPreservedHeads": true
+    },
+    {
+      "id": "empty-invalidation-does-not-open-public-guard",
+      "passed": true,
+      "actualDiagnostic": "OWNER_ROTATION_EFFECTIVE_INVALIDATION_INVENTORY_UNRESOLVED"
+    }
+  ],
+  "defects": [
+    {
+      "id": "event-type",
+      "accepted": true,
+      "diagnostic": null
+    },
+    {
+      "id": "event-aggregate-kind",
+      "accepted": true,
+      "diagnostic": null
+    },
+    {
+      "id": "event-schema-id",
+      "accepted": true,
+      "diagnostic": null
+    },
+    {
+      "id": "event-schema-digest",
+      "accepted": true,
+      "diagnostic": null
+    },
+    {
+      "id": "audit-after-digest",
+      "accepted": true,
+      "diagnostic": null
+    }
+  ],
+  "pass": 3,
+  "fail": 5,
+  "postgresVersion": "18.6",
+  "canonicalCryptoHelperPath": "/workspace/kajovocmlng/scripts/generation_auth_crypto.py",
+  "wholeRotationClosed": false,
+  "effectiveInvalidationInventory": "OPEN_NOT_ASSUMED_EMPTY",
+  "provider": "NOT_EVALUATED_SYNTHETIC_FIXTURE_KEY_ONLY",
+  "scope": "Actual isolated full author commit/CAS/concurrency/AEAD/replay plus independent deferred-closure mutations; no full invalidation/source/runtime rotation claim."
+}

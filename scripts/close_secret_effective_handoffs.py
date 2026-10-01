@@ -8,15 +8,15 @@ BASE=ROOT/'audit/generated/resume-8cc'
 SQL={
  'database/secret-command-chain.sql':'secrets/credential-eligibility/secret-command-chain-eligible.sql',
  'database/secret-record-status.sql':'secrets/status/secret-record-status.sql',
- 'database/secret-owner-api-value-read.sql':'broker/secret-owner-api-value-read.sql',
+ 'database/secret-owner-api-value-read.sql':'broker/root-status-ui/secret-owner-api-value-read.sql',
 }
 NORM='''### 8.16 Derived Secret root persistence and typed OWNER hydration
 
 `database/secret-record-status.sql` implements only the OWNER-approved derived projection in §§8.3,25.6 (OWNER-SECRET-ROOT-STATUS-2026-10-01). The root has no separately editable lifecycle. Create/import output and its frozen event receipt carry `recordStatus = INACTIVE`; version lifecycle remains CREATED/ACTIVE/RETIRED. Existing valid rows migrate their status projection without rewriting immutable IDs, bytes, versions or active pointers. Invalid lineage blocks migration. Root/version mutations validate the final committed projection; the deferred validator performs no late lower-class mutation after the audit head. Activation, rotation, deactivation and deletion retain their own command/authorization/invalidation requirements. DELETED takes precedence but cannot conceal invalid pointer integrity.
 
-`database/secret-command-chain.sql` and `scripts/secret_command_chain.py` specify the bounded genuine API-token/strict import, C0 locator/C1 idempotency claim, ordered OWNER/root locks, immutable context/command/version/receipt/event/outbox and last audit-head transaction. Context issuance is a separate safe trusted capability. A create context grants no broker or reveal authority. The frozen semantic-result bytes must equal the exact canonical response projection and their digest must bind command/completion/idempotency; mutually equal arbitrary digests are insufficient. Missing required artifacts or contradictory semantic bytes abort the complete transaction. The bounded reference producer still cannot dispatch the full operation while authoritative retention/failure/unknown producers, API-use evidence, target authority, complete rotation invalidation and genuine key/nonce invocation remain unresolved. Fixture retention dates and fixture key injection are not those producers.
+`database/secret-command-chain.sql` and `scripts/secret_command_chain.py` specify the bounded genuine API-token/strict import, C0 locator/C1 idempotency claim, ordered OWNER/root locks, immutable context/command/version/receipt/event/outbox and last audit-head transaction. Context issuance is a separate safe trusted capability. A create context grants no broker or reveal authority. Historical retained receipts keep their exact archived operation revision/schema and original semantic-result bytes; adding recordStatus to a new revision never rewrites an old receipt or digest. Unavailable historical codec/authority is BLOCKED, never silently enriched. The frozen semantic-result bytes must equal the exact canonical response projection and their digest must bind command/completion/idempotency; mutually equal arbitrary digests are insufficient. Missing required artifacts or contradictory semantic bytes abort the complete transaction. The bounded reference producer still cannot dispatch the full operation while authoritative retention/failure/unknown producers, API-use evidence, target authority, complete rotation invalidation and genuine key/nonce invocation remain unresolved. Fixture retention dates and fixture key injection are not those producers.
 
-`contracts/secrets/owner-value-read.schema.json` and `scripts/secret_value_read_transport.py` define the existing OWNER GET /secrets/{id}/value transport: canonical UUID path, no body, empty query selects CURRENT and exactly one versionId UUID selects IMMUTABLE_VERSION. Unknown/duplicate query (including duplicate percent-decoded names), malformed URI encoding and extra native fields reject. This is the explicit OWNER reveal boundary, never a create/event/log response. Authorized hydration uses the persisted root/version and derived status under locks. DELETED cannot be revived by selecting history; an explicit retained version of an INACTIVE root does not activate it. The reserved OWNER API credential still requires its distinct OWNER-session reveal contract. REVEAL and COPY use the same revealed immutable version and exact original bytes; COPY does not re-resolve current activation. PROFILE response includes its exact typed approved profile and original bytes, without format guessing; no unactivated full-browser profile is exposed. Complete browser §13.15 and backend/UI effect pipelines remain mandatory.
+`contracts/secrets/owner-value-read.schema.json` and `scripts/secret_value_read_transport.py` define the existing OWNER GET /secrets/{id}/value transport: canonical UUID path, no body, empty query selects CURRENT and exactly one versionId UUID selects IMMUTABLE_VERSION. Unknown/duplicate query (including duplicate percent-decoded names), malformed URI encoding and extra native fields reject. This is the explicit OWNER reveal boundary, never a create/event/log response. Authorized hydration uses the persisted root/version and derived status under locks. DELETED cannot be revived by selecting history; an explicit retained version of an INACTIVE root does not activate it. The reserved OWNER API credential still requires its distinct OWNER-session reveal contract. REVEAL and COPY use the same revealed immutable version and exact original bytes; COPY does not re-resolve current activation. PROFILE response includes its exact typed approved profile and original bytes, without format guessing; no unactivated full-browser profile is exposed. Value response carries actual root recordStatus and recordStateVersion. Metadata GET /secrets/{id} has no query/body and returns all actual stored root fields after fresh authentication, including DELETED display. UI status is SERVER_PROJECTION/readonly and joins same root/stateVersion; it never derives root status from selected version lifecycle. Rotation-policy, exact bindings, usage and audit read producers absent from the current root stay explicitly OPEN, as do event/error policies. Complete browser §13.15 and backend/UI effect pipelines remain mandatory.
 
 '''
 def main():
@@ -36,15 +36,36 @@ def main():
  helper=helper.replace('normative vocabulary/default is still OPEN; this bounded producer does not\n borrow version.CREATED as record lifecycle.', 'approved vocabulary/default is INACTIVE; the argument must match that exact\n server projection and does not borrow version.CREATED as record lifecycle.')
  helper=helper.replace(' native=decode_http('," if root_status!='INACTIVE':fail('SECRET_CREATE_RECORD_MUST_BE_INACTIVE')\n native=decode_http(",1)
  (ROOT/'scripts/secret_command_chain.py').write_text(helper)
- for name in ['secret_owner_value_read.py','secret_value_read_transport.py']:
-  (ROOT/'scripts'/name).write_bytes((BASE/'broker'/name).read_bytes())
- read=json.loads((BASE/'broker/secret-value-read.schema.json').read_bytes())
+ for name in ['secret_owner_value_read.py','secret_value_read_transport.py','secret_metadata_status_read.py']:
+  (ROOT/'scripts'/name).write_bytes((BASE/('broker'if name=='secret_owner_value_read.py'else'broker/root-status-ui')/name).read_bytes())
+ def canonical_uuids(value):
+  if isinstance(value,dict):
+   if value.get('format')=='uuid':value['pattern']=r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$(?![\s\S])'
+   for child in value.values():canonical_uuids(child)
+  elif isinstance(value,list):
+   for child in value:canonical_uuids(child)
+ read=json.loads((BASE/'broker/root-status-ui/secret-value-read.schema.json').read_bytes())
+ canonical_uuids(read)
  updates['contracts/secrets/owner-value-read.schema.json']=(json.dumps(read,ensure_ascii=False,indent=2)+'\n').encode()
  root_schema={'$schema':'https://json-schema.org/draft/2020-12/schema','$id':'urn:kcml:secret-root-status:1','type':'string','enum':['INACTIVE','ACTIVE','DELETED'],'readOnly':True,'x-authority':['SSOT8.3','SSOT25.6',decision['decisionId']],'x-derived':True}
  updates['contracts/secrets/root-status.schema.json']=(json.dumps(root_schema,indent=2)+'\n').encode()
+ metadata=json.loads((BASE/'broker/root-status-ui/secret-metadata-read.schema.json').read_bytes())
+ canonical_uuids(metadata)
+ updates['contracts/secrets/metadata-read.schema.json']=(json.dumps(metadata,ensure_ascii=False,indent=2)+'\n').encode()
+ from secret_read_contracts import specialize as specialize_reads
+ projected_rs={**rs,**{n:{'raw':updates[n]}for n in ['contracts/secrets/owner-value-read.schema.json','contracts/secrets/metadata-read.schema.json']}}
+ payload=specialize_reads(json.loads(rs['contracts/payload-contracts.json']['raw']),projected_rs)
+ updates['contracts/payload-contracts.json']=encoded(payload,rs['contracts/payload-contracts.json']['raw'])
+ proposal=json.loads((BASE/'broker/root-status-ui/ui-status-proposal.json').read_text())
+ ui=json.loads(rs[proposal['resource']]['raw']);page=next(p for p in ui['pages']if p['id']=='secrets')
+ existing=[f for f in page['fields']if f['id']=='secret.status']
+ if existing and existing!=[proposal['value']]:raise ValueError('SECRET_STATUS_UI_FIELD_CONFLICT')
+ if not existing:page['fields'].append(proposal['value'])
+ updates[proposal['resource']]=encoded(ui,rs[proposal['resource']]['raw'])
+
  handoff={'contractId':'SECRET_EFFECTIVE_HANDOFFS_V1','authority':['SSOT8.3','SSOT8.15','SSOT8.16','SSOT25.6','SSOT49.4','SSOT51.6','SSOT51.20','SSOT72.21'],
   'installationDependencies':['database/generation-create-foundations.sql','database/canonical-crypto-registry.sql','database/secret-profile-roots.sql','database/secret-profile-publication.sql','database/secret-owner-binding.sql',*SQL],
-  'createReceipt':'urn:kcml:create-operation-design:1#/$defs/SecretCreated','recordStatusSchema':'contracts/secrets/root-status.schema.json','valueReadSchema':'contracts/secrets/owner-value-read.schema.json',
+  'createReceipt':'urn:kcml:create-operation-design:1#/$defs/SecretCreated','recordStatusSchema':'contracts/secrets/root-status.schema.json','valueReadSchema':'contracts/secrets/owner-value-read.schema.json','metadataReadSchema':'contracts/secrets/metadata-read.schema.json',
   'ui':{'page':'13','revealAction':'REVEAL','copyAction':'COPY','copyPostcondition':'same revealed immutable version original bytes; no current-version re-resolution','statusInput':'locked authoritative root projection; never version lifecycle inference'},
   'open':['SECRET.AUTH.API_USAGE','SECRET.ERROR.RETAINED_OUTCOME','SECRET.OWNER_CREDENTIAL.INVALIDATION','SECRET.CONSUMER.TARGET','SECRET.CONSUMER.ACTIVATION_BROKER','SHARED.CRYPTO.SYSTEMD_SOURCE','SHARED.BROWSER.FULL_CONTRACT'],
   'wholeOperationClosed':False,'SSOT_CONTRACT_READY':'BLOCKED','IMPLEMENTATION_PRODUCTION_ACCEPTANCE':'NOT_EVALUATED'}

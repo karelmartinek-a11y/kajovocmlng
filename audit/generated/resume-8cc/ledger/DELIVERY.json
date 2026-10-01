@@ -1,0 +1,26 @@
+{
+  "inputCommit": "8cc19fbc69fb839ea88597b736da03d8b3eaecd4",
+  "inputSourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "candidateSqlSha256": "438e4418d95a71e3b74e8b445a7c3bdf5c950cc9955087496df74147933309e5",
+  "candidateResource": "database/generation-side-effect-producer.sql",
+  "status": "FROZEN_FIRST_INTEGRATION_CANDIDATE_THREE_PARENT_IDS_IN_PROGRESS",
+  "newChecks": 38,
+  "newFailed": 0,
+  "reusedSetupChecks": 18,
+  "wholeOperationClosed": false,
+  "filesSha256": {
+    "tests.log": "f86e5e0afdb3921697b4ac17cadb142c317c1315e2f57e09d8a7d2b0bbc8884d",
+    "side-effect-producer.sql": "438e4418d95a71e3b74e8b445a7c3bdf5c950cc9955087496df74147933309e5",
+    "checkpoint.schema.json": "dc8d32c560061e54177a6b630b367d3f959b44d687c52287d04414d987af04b2",
+    "executed-canonical-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "ledger-tests.json": "7da2a5736bdfd7abef4c4b195506def470cd0b9b5e9e78117323fc1529711483",
+    "cas-observation.schema.json": "a23097f7779a9d2c8b29e5afeae4e4f580b0a0b966eac7decd228df52576562d",
+    "side-effect-outcome.schema.json": "4bfec9f56f0b2c89680c8df92163e4ca42379b216fbed3a67c86e60653c4de28",
+    "verify_ledger.py": "bc8512ecf2a896c1271fb3c1cb9cb0fe973c8e2024dcf073e381e867954ff521",
+    "side-effect-intent.schema.json": "e487eae21b3065857ebd09fbf08d6995f77df09f23f2d1b29746834bb7dbc5ea",
+    "NORMATIVE_PROPOSAL.md": "d2447605913139f3aae64b1bdc0cce2af1e866c1817c279f1504df985e728873",
+    "INTEGRATION.md": "d2930cc62b6b78bd8d21bf68c21d048102c3a2c8c9f5bdd6a2aa5eb158c597a1"
+  },
+  "proofCommand": "/tmp/ssot-audit-venv/bin/python audit/generated/resume-8cc/ledger/verify_ledger.py",
+  "remainingSource": "INTEGRATION.md#exact-still-open-obligations-do-not-mark-broad-producer-ids-verified"
+}

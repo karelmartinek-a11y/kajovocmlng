@@ -1,0 +1,397 @@
+{
+  "inputCommit": "8cc19fbc69fb839ea88597b736da03d8b3eaecd4",
+  "sourceDocumentSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+  "checkCount": 48,
+  "failedCount": 0,
+  "checks": [
+    {
+      "case": "PRE-before-new-operation-attempt-state-order",
+      "passed": true,
+      "actual": [
+        {
+          "n": 1,
+          "kind": "CHECKPOINT",
+          "ordinal": 50,
+          "row_id": "00000000-0000-4000-8000-000000000804"
+        },
+        {
+          "n": 2,
+          "kind": "OPERATION",
+          "ordinal": 140,
+          "row_id": "00000000-0000-4000-8000-000000000800"
+        },
+        {
+          "n": 3,
+          "kind": "ATTEMPT",
+          "ordinal": 150,
+          "row_id": "00000000-0000-4000-8000-000000000801"
+        },
+        {
+          "n": 4,
+          "kind": "STATE",
+          "ordinal": 150,
+          "row_id": "330e9d73-c3d8-4196-aec1-2cab6b744b4c"
+        },
+        {
+          "n": 5,
+          "kind": "EVENT",
+          "ordinal": 160,
+          "row_id": "00000000-0000-4000-8000-000000000803"
+        }
+      ]
+    },
+    {
+      "case": "explicit-primary-parent-derived-from-canonical-root",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "actual-intent-attempt-precheckpoint-canonical-authority-outbox-commit",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "immutable-intent-replay",
+      "passed": true,
+      "actual": ""
+    },
+    {
+      "case": "intent-replay-changed-request",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_INTENT_REPLAY_CONFLICT",
+        "stderr": "ERROR:  EFFECT_INTENT_REPLAY_CONFLICT\nCONTEXT:  PL/pgSQL function kcml_effect_v1.record_intent(uuid,uuid,uuid,uuid,text,uuid,uuid,uuid,uuid,bytea,uuid,uuid,text,bigint,bigint,timestamp with time zone,bytea,uuid,bigint,bytea,bytea) line 11 at RAISE\n"
+      }
+    },
+    {
+      "case": "no-duplicate-authority-outbox",
+      "passed": true,
+      "actual": {
+        "expected": "effect_dispatch_one",
+        "stderr": "ERROR:  duplicate key value violates unique constraint \"effect_dispatch_one\"\nDETAIL:  Key (side_effect_operation_id, side_effect_attempt_sequence)=(00000000-0000-4000-8000-000000000800, 1) already exists.\n"
+      }
+    },
+    {
+      "case": "stale-parent-fence-dispatch",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_FENCE_INVALID",
+        "stderr": "ERROR:  EFFECT_FENCE_INVALID\nCONTEXT:  PL/pgSQL function kcml_effect_v1.fence_guard(uuid,bigint) line 13 at RAISE\nSQL statement \"SELECT kcml_effect_v1.fence_guard(p_op,p_sequence)\"\nPL/pgSQL function kcml_effect_v1.dispatch_guard(uuid,bigint) line 4 at PERFORM\n"
+      }
+    },
+    {
+      "case": "cancelled-parent-dispatch",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_FENCE_INVALID",
+        "stderr": "ERROR:  EFFECT_FENCE_INVALID\nCONTEXT:  PL/pgSQL function kcml_effect_v1.fence_guard(uuid,bigint) line 13 at RAISE\nSQL statement \"SELECT kcml_effect_v1.fence_guard(p_op,p_sequence)\"\nPL/pgSQL function kcml_effect_v1.dispatch_guard(uuid,bigint) line 4 at PERFORM\n"
+      }
+    },
+    {
+      "case": "stale-concurrency-fence-dispatch",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_FENCE_INVALID",
+        "stderr": "ERROR:  EFFECT_FENCE_INVALID\nCONTEXT:  PL/pgSQL function kcml_effect_v1.fence_guard(uuid,bigint) line 13 at RAISE\nSQL statement \"SELECT kcml_effect_v1.fence_guard(p_op,p_sequence)\"\nPL/pgSQL function kcml_effect_v1.dispatch_guard(uuid,bigint) line 4 at PERFORM\n"
+      }
+    },
+    {
+      "case": "typed-observation/requestDigest",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_OBSERVATION_MASK_INVALID",
+        "stderr": "ERROR:  EFFECT_OBSERVATION_MASK_INVALID\nCONTEXT:  PL/pgSQL function kcml_effect_v1.classify_cas_v1(jsonb,bytea,text,uuid) line 8 at RAISE\n"
+      }
+    },
+    {
+      "case": "typed-observation/targetIdempotencyKey",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_OBSERVATION_MASK_INVALID",
+        "stderr": "ERROR:  EFFECT_OBSERVATION_MASK_INVALID\nCONTEXT:  PL/pgSQL function kcml_effect_v1.classify_cas_v1(jsonb,bytea,text,uuid) line 8 at RAISE\n"
+      }
+    },
+    {
+      "case": "typed-observation/beforeVersion",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_OBSERVATION_MASK_INVALID",
+        "stderr": "ERROR:  EFFECT_OBSERVATION_MASK_INVALID\nCONTEXT:  PL/pgSQL function kcml_effect_v1.classify_cas_v1(jsonb,bytea,text,uuid) line 8 at RAISE\n"
+      }
+    },
+    {
+      "case": "typed-observation/afterVersion",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_OBSERVATION_MASK_INVALID",
+        "stderr": "ERROR:  EFFECT_OBSERVATION_MASK_INVALID\nCONTEXT:  PL/pgSQL function kcml_effect_v1.classify_cas_v1(jsonb,bytea,text,uuid) line 8 at RAISE\n"
+      }
+    },
+    {
+      "case": "typed-observation/beforeValueDigest",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_OBSERVATION_MASK_INVALID",
+        "stderr": "ERROR:  EFFECT_OBSERVATION_MASK_INVALID\nCONTEXT:  PL/pgSQL function kcml_effect_v1.classify_cas_v1(jsonb,bytea,text,uuid) line 8 at RAISE\n"
+      }
+    },
+    {
+      "case": "typed-observation/afterValueDigest",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_OBSERVATION_MASK_INVALID",
+        "stderr": "ERROR:  EFFECT_OBSERVATION_MASK_INVALID\nCONTEXT:  PL/pgSQL function kcml_effect_v1.classify_cas_v1(jsonb,bytea,text,uuid) line 8 at RAISE\n"
+      }
+    },
+    {
+      "case": "typed-observation/applied-identity",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_OBSERVATION_MASK_INVALID",
+        "stderr": "ERROR:  EFFECT_OBSERVATION_MASK_INVALID\nCONTEXT:  PL/pgSQL function kcml_effect_v1.classify_cas_v1(jsonb,bytea,text,uuid) line 8 at RAISE\n"
+      }
+    },
+    {
+      "case": "duplicate-observation-key",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_OBSERVATION_DUPLICATE_KEY",
+        "stderr": "ERROR:  EFFECT_OBSERVATION_DUPLICATE_KEY\nCONTEXT:  PL/pgSQL function kcml_effect_v1.strict_observation(bytea) line 7 at RAISE\n"
+      }
+    },
+    {
+      "case": "malformed-observation-json",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_OBSERVATION_ENCODING_INVALID",
+        "stderr": "ERROR:  EFFECT_OBSERVATION_ENCODING_INVALID\nCONTEXT:  PL/pgSQL function kcml_effect_v1.strict_observation(bytea) line 5 at RAISE\n"
+      }
+    },
+    {
+      "case": "actual-target-committed-readback-allocated-evidence-1",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "raw-evidence-exact-retained-replay-no-counter-consumption",
+      "passed": true,
+      "actual": ""
+    },
+    {
+      "case": "raw-evidence-same-id-changed-bytes-conflict",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_EVIDENCE_REPLAY_CONFLICT",
+        "stderr": "ERROR:  EFFECT_EVIDENCE_REPLAY_CONFLICT\nCONTEXT:  PL/pgSQL function kcml_effect_v1.append_evidence(uuid,bigint,uuid,text,bytea) line 11 at RAISE\n"
+      }
+    },
+    {
+      "case": "G-allocator-without-matching-state-projection-deferred-rejection",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_EVIDENCE_ALLOCATOR_PROJECTION_DRIFT",
+        "stderr": "ERROR:  EFFECT_EVIDENCE_ALLOCATOR_PROJECTION_DRIFT\nCONTEXT:  PL/pgSQL function kcml_effect_v1.evidence_head_projection() line 6 at RAISE\n"
+      }
+    },
+    {
+      "case": "direct-contiguous-evidence-state-without-G-authority-rejected",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_EVIDENCE_ALLOCATOR_PROJECTION_DRIFT",
+        "stderr": "ERROR:  EFFECT_EVIDENCE_ALLOCATOR_PROJECTION_DRIFT\nCONTEXT:  PL/pgSQL function kcml_effect_v1.evidence_head_projection() line 6 at RAISE\n"
+      }
+    },
+    {
+      "case": "G-allocator-wrong-parent-identity-rejection",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_EVIDENCE_ALLOCATOR_SCOPE",
+        "stderr": "ERROR:  EFFECT_EVIDENCE_ALLOCATOR_SCOPE\nCONTEXT:  PL/pgSQL function kcml_effect_v1.evidence_head_scope() line 2 at RAISE\n"
+      }
+    },
+    {
+      "case": "raw-invalid-kind-after-allocation-rolls-back-head",
+      "passed": true,
+      "actual": {
+        "expected": "evidence_kind_check",
+        "stderr": "ERROR:  new row for relation \"evidence\" violates check constraint \"evidence_kind_check\"\nDETAIL:  Failing row contains (00000000-0000-4000-8000-000000000800, 1, 2, 00000000-0000-4000-8000-000000000870, UNSUPPORTED_KIND, \\x7b22616674657256616c7565446967657374223a227368613235363a613438..., \\xa5dcd027de3ffdfba17a59dac0aec8e22fc4d467c1b0116a000595c5238e05..., 7, 00000000-0000-4000-8000-000000000005, 2026-10-01 09:57:12.779861+00, 00000000-0000-4000-8000-000000000002).\nCONTEXT:  SQL statement \"INSERT INTO kcml_effect_v1.evidence(operation_id,sequence,evidence_sequence,id,kind,exact_bytes,content_digest,source_fence,incarnation,observed_at)VALUES(p_op,p_sequence,n,p_id,p_kind,p_raw,sha256(p_raw),a.parent_fence,a.incarnation,clock_timestamp())\"\nPL/pgSQL function kcml_effect_v1.append_evidence(uuid,bigint,uuid,text,bytea) line 28 at SQL statement\n"
+      }
+    },
+    {
+      "case": "failed-raw-producer-no-sequence-or-evidence-consumed",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "immutable-raw-evidence",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_IMMUTABLE",
+        "stderr": "ERROR:  EFFECT_IMMUTABLE\nCONTEXT:  PL/pgSQL function kcml_effect_v1.immutable() line 1 at RAISE\n"
+      }
+    },
+    {
+      "case": "concurrent-raw-evidence-writer-serializes-counter",
+      "passed": true,
+      "actual": "ERROR:  canceling statement due to lock timeout\nCONTEXT:  while locking tuple (0,12) in relation \"generation_job\"\nSQL statement \"SELECT *               FROM public.generation_job WHERE id=o.parent_id FOR UPDATE\"\nPL/pgSQL function kcml_effect_v1.fence_guard(uuid,bigint) line 6 at SQL statement\nSQL statement \"SELECT kcml_effect_v1.fence_guard(p_op,p_sequence)\"\nPL/pgSQL function kcml_effect_v1.append_evidence(uuid,bigint,uuid,text,bytea) line 5 at PERFORM\n"
+    },
+    {
+      "case": "rolled-back-evidence-does-not-consume-sequence",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "raw-evidence-hole-rejected",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_ATOMIC_ATTEMPT_INCOMPLETE",
+        "stderr": "ERROR:  EFFECT_ATOMIC_ATTEMPT_INCOMPLETE\nCONTEXT:  PL/pgSQL function kcml_effect_v1.require_atomic_attempt() line 12 at RAISE\n"
+      }
+    },
+    {
+      "case": "POST-checkpoint-new-row-before-existing-outcome-updates",
+      "passed": true,
+      "actual": [
+        {
+          "n": 6,
+          "kind": "CHECKPOINT",
+          "ordinal": 50,
+          "row_id": "00000000-0000-4000-8000-000000000841"
+        },
+        {
+          "n": 7,
+          "kind": "EVENT",
+          "ordinal": 160,
+          "row_id": "00000000-0000-4000-8000-000000000842"
+        }
+      ]
+    },
+    {
+      "case": "actual-frozen-classifier-outcome-postcheckpoint-continuation-commit",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "invalid-checkpoint-rolls-back-whole-intent",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_CHECKPOINT_FULL_MASK",
+        "stderr": "ERROR:  EFFECT_CHECKPOINT_FULL_MASK\nCONTEXT:  PL/pgSQL function kcml_effect_v1.write_prepared_checkpoint(kcml_effect_v1.operation,kcml_effect_v1.attempt,uuid,text,bytea) line 7 at RAISE\nSQL statement \"SELECT kcml_effect_v1.write_prepared_checkpoint(o,a,p_checkpoint,'PRE',p_checkpoint_bytes)\"\nPL/pgSQL function kcml_effect_v1.record_intent(uuid,uuid,uuid,uuid,text,uuid,uuid,uuid,uuid,bytea,uuid,uuid,text,bigint,bigint,timestamp with time zone,bytea,uuid,bigint,bytea,bytea) line 21 at PERFORM\n"
+      }
+    },
+    {
+      "case": "failed-producer-no-partial-intent-or-attempt",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "outcome-byte-identical-replay",
+      "passed": true,
+      "actual": ""
+    },
+    {
+      "case": "terminal-evidence-does-not-rewrite-classified-outcome",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_TERMINAL_EVIDENCE_DENIED",
+        "stderr": "ERROR:  EFFECT_TERMINAL_EVIDENCE_DENIED\nCONTEXT:  PL/pgSQL function kcml_effect_v1.append_evidence(uuid,bigint,uuid,text,bytea) line 14 at RAISE\n"
+      }
+    },
+    {
+      "case": "immutable-target-binding",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_IMMUTABLE_OPERATION_SCOPE",
+        "stderr": "ERROR:  EFFECT_IMMUTABLE_OPERATION_SCOPE\nCONTEXT:  PL/pgSQL function kcml_effect_v1.operation_immutable_scope() line 2 at RAISE\n"
+      }
+    },
+    {
+      "case": "operation-state-drift-deferred-commit",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_OPERATION_STATE_DRIFT",
+        "stderr": "ERROR:  EFFECT_OPERATION_STATE_DRIFT\nCONTEXT:  PL/pgSQL function kcml_effect_v1.operation_closure() line 3 at RAISE\n"
+      }
+    },
+    {
+      "case": "outcome-replay-changed-checkpoint",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_OUTCOME_REPLAY_CONFLICT",
+        "stderr": "ERROR:  EFFECT_OUTCOME_REPLAY_CONFLICT\nCONTEXT:  PL/pgSQL function kcml_effect_v1.confirm_cas_v1(uuid,bigint,uuid,bytea,uuid,uuid) line 8 at RAISE\n"
+      }
+    },
+    {
+      "case": "full49-9-checkpoint-server-compiler-closed-mask",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "context-required-not-empty-fallback",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_CHECKPOINT_APPROVED_SOURCE_UNAVAILABLE",
+        "stderr": "ERROR:  EFFECT_CHECKPOINT_APPROVED_SOURCE_UNAVAILABLE\nCONTEXT:  PL/pgSQL function kcml_effect_v1.compile_checkpoint(uuid,bigint) line 9 at RAISE\n"
+      }
+    },
+    {
+      "case": "fenced-failure-no-stale-flag-shortcut",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_FENCED_FAILURE_NOT_OBSERVED",
+        "stderr": "ERROR:  EFFECT_FENCED_FAILURE_NOT_OBSERVED\nCONTEXT:  PL/pgSQL function kcml_effect_v1.produce_fenced_failure(uuid,bytea) line 8 at RAISE\n"
+      }
+    },
+    {
+      "case": "actual-stale-fence-known-failure-bytes-not-caller-flag",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "actual-ledger-native-op-attempt-state-evidence-publication",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "actual-seal-ledger-and-native-membership-complete",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "case": "byte-exact-native-publication-replay-after-seal",
+      "passed": true,
+      "actual": ""
+    },
+    {
+      "case": "sealed-phase-cannot-rewrite-current-ledger",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_PHASE_SEALED",
+        "stderr": "ERROR:  EFFECT_PHASE_SEALED\nCONTEXT:  PL/pgSQL function kcml_effect_v1.producer_gate() line 7 at RAISE\n"
+      }
+    },
+    {
+      "case": "sealed-source-phase-bytes-immutable",
+      "passed": true,
+      "actual": {
+        "expected": "EFFECT_PHASE_SEALED",
+        "stderr": "ERROR:  EFFECT_PHASE_SEALED\nCONTEXT:  PL/pgSQL function kcml_effect_v1.phase_frozen_guard() line 2 at RAISE\n"
+      }
+    }
+  ],
+  "postgresqlVersion": "18.6",
+  "candidateSqlSha256": "4ce2e51d7d98e6234a617928ce6db19cb3199db56d1364a60094e879f91eb274",
+  "compiledClassifierSha256": "bd0b139a114160dd813bc780c8fd2cffa38969ea0f6da65c8287f729c17a9810",
+  "canonicalResources": {
+    "database/generation-create-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "database/generation-locked-retry.sql": "a18aba72b317ae6fac0a86c153eb914de6b4fda6916f02a0c612a235b2f07835",
+    "database/generation-frozen-archive.sql": "2a6dce3b0a8a3f82b47576b371a6870ac2c0543ed85ac50e0b63d8ccced4f0ca"
+  },
+  "wholeOperationClosed": false,
+  "sourceUnchangedDuringRun": true,
+  "executedFoundationSha256": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+  "executedLockedRetrySha256": "a18aba72b317ae6fac0a86c153eb914de6b4fda6916f02a0c612a235b2f07835",
+  "executedArchiveSha256": "2a6dce3b0a8a3f82b47576b371a6870ac2c0543ed85ac50e0b63d8ccced4f0ca",
+  "reusedSetupChecks": 18,
+  "reusedSetupFailed": 0
+}

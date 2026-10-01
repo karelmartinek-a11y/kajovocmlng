@@ -1,0 +1,116 @@
+{
+  "sourceSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "candidateSqlSha256": "246204101460e3a4002cfe61f1871c7470eac0f99311116b5346799a4c2ce506",
+  "candidateHelperSha256": "26aafaa7fed727b3792bc7c4cd4e38b62d85523417e14cfdcdadfdb11f9e979f",
+  "authorFixtureSourceSha256": "3f6707f1bbbb8ada3380464160ff97c485d5a71f1406f5cca6dbdcd4453fdcae",
+  "sourceUnchangedDuringRun": true,
+  "candidateHelperUnchangedDuringRun": true,
+  "candidateSqlUnchangedDuringRun": true,
+  "authorAssertionsReproduced": 49,
+  "checks": [
+    {
+      "id": "zero-result-digest",
+      "passed": true,
+      "expectedDiagnostic": "rotation_projection_completion_check",
+      "actualDiagnostic": "ERROR:  new row for relation \"rotation_projection_completion\" violates check constraint \"rotation_projection_completion_check\"",
+      "acceptedUnderAllDeferredConstraints": false,
+      "baseline": "independently reproduced actual author positive 49",
+      "rollbackPreservedHeads": true
+    },
+    {
+      "id": "semantic-mismatch",
+      "passed": true,
+      "expectedDiagnostic": "OWNER_ROTATION_SEMANTIC_RESULT_MISMATCH",
+      "actualDiagnostic": "ERROR:  OWNER_ROTATION_SEMANTIC_RESULT_MISMATCH",
+      "acceptedUnderAllDeferredConstraints": false,
+      "baseline": "independently reproduced actual author positive 49",
+      "rollbackPreservedHeads": true
+    },
+    {
+      "id": "event-type",
+      "passed": true,
+      "expectedDiagnostic": "OWNER_ROTATION_EVENT_PROJECTION_MISMATCH",
+      "actualDiagnostic": "ERROR:  OWNER_ROTATION_EVENT_PROJECTION_MISMATCH",
+      "acceptedUnderAllDeferredConstraints": false,
+      "baseline": "independently reproduced actual author positive 49",
+      "rollbackPreservedHeads": true
+    },
+    {
+      "id": "event-aggregate-kind",
+      "passed": true,
+      "expectedDiagnostic": "OWNER_ROTATION_EVENT_PROJECTION_MISMATCH",
+      "actualDiagnostic": "ERROR:  OWNER_ROTATION_EVENT_PROJECTION_MISMATCH",
+      "acceptedUnderAllDeferredConstraints": false,
+      "baseline": "independently reproduced actual author positive 49",
+      "rollbackPreservedHeads": true
+    },
+    {
+      "id": "event-schema-id",
+      "passed": true,
+      "expectedDiagnostic": "OWNER_ROTATION_EVENT_PROJECTION_MISMATCH",
+      "actualDiagnostic": "ERROR:  OWNER_ROTATION_EVENT_PROJECTION_MISMATCH",
+      "acceptedUnderAllDeferredConstraints": false,
+      "baseline": "independently reproduced actual author positive 49",
+      "rollbackPreservedHeads": true
+    },
+    {
+      "id": "event-schema-digest",
+      "passed": true,
+      "expectedDiagnostic": "OWNER_ROTATION_EVENT_PROJECTION_MISMATCH",
+      "actualDiagnostic": "ERROR:  OWNER_ROTATION_EVENT_PROJECTION_MISMATCH",
+      "acceptedUnderAllDeferredConstraints": false,
+      "baseline": "independently reproduced actual author positive 49",
+      "rollbackPreservedHeads": true
+    },
+    {
+      "id": "valid-foreign-schema-digest",
+      "passed": true,
+      "expectedDiagnostic": "OWNER_ROTATION_EVENT_PROJECTION_MISMATCH",
+      "actualDiagnostic": "ERROR:  OWNER_ROTATION_EVENT_PROJECTION_MISMATCH",
+      "acceptedUnderAllDeferredConstraints": false,
+      "baseline": "independently reproduced actual author positive 49",
+      "rollbackPreservedHeads": true
+    },
+    {
+      "id": "earlier-valid-event-receipt",
+      "passed": true,
+      "expectedDiagnostic": "OWNER_ROTATION_EVENT_PAYLOAD_MISMATCH",
+      "actualDiagnostic": "ERROR:  OWNER_ROTATION_EVENT_PAYLOAD_MISMATCH",
+      "acceptedUnderAllDeferredConstraints": false,
+      "baseline": "independently reproduced actual author positive 49",
+      "rollbackPreservedHeads": true
+    },
+    {
+      "id": "audit-after-digest",
+      "passed": true,
+      "expectedDiagnostic": "OWNER_ROTATION_AUDIT_SEMANTIC_MISMATCH",
+      "actualDiagnostic": "ERROR:  OWNER_ROTATION_AUDIT_SEMANTIC_MISMATCH",
+      "acceptedUnderAllDeferredConstraints": false,
+      "baseline": "independently reproduced actual author positive 49",
+      "rollbackPreservedHeads": true
+    },
+    {
+      "id": "earlier-valid-audit-receipt",
+      "passed": true,
+      "expectedDiagnostic": "OWNER_ROTATION_AUDIT_SEMANTIC_MISMATCH",
+      "actualDiagnostic": "ERROR:  OWNER_ROTATION_AUDIT_SEMANTIC_MISMATCH",
+      "acceptedUnderAllDeferredConstraints": false,
+      "baseline": "independently reproduced actual author positive 49",
+      "rollbackPreservedHeads": true
+    },
+    {
+      "id": "empty-invalidation-does-not-open-public-guard",
+      "passed": true,
+      "actualDiagnostic": "OWNER_ROTATION_EFFECTIVE_INVALIDATION_INVENTORY_UNRESOLVED"
+    }
+  ],
+  "defects": [],
+  "pass": 11,
+  "fail": 0,
+  "postgresVersion": "18.6",
+  "canonicalCryptoHelperPath": "/workspace/kajovocmlng/scripts/generation_auth_crypto.py",
+  "wholeRotationClosed": false,
+  "effectiveInvalidationInventory": "OPEN_NOT_ASSUMED_EMPTY",
+  "provider": "NOT_EVALUATED_SYNTHETIC_FIXTURE_KEY_ONLY",
+  "scope": "Actual isolated full author commit/CAS/concurrency/AEAD/replay plus independent deferred-closure mutations; no full invalidation/source/runtime rotation claim."
+}

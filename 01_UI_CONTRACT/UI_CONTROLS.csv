@@ -178,6 +178,7 @@ secrets,/secrets,Secrets a hesla,field,secret.url,URL,url,TEXT_1,False,URL_IF_PR
 secrets,/secrets,Secrets a hesla,field,secret.username,Username,text,TEXT_1,False,DOMAIN_LENGTH,ALWAYS_WHEN_SECTION_EDITABLE,OWNER_INPUT,,,,,Volitelne metadata podle typu.
 secrets,/secrets,Secrets a hesla,field,secret.notes,Poznámky,textarea,TEXT_8,False,DOMAIN_LENGTH,ALWAYS_WHEN_SECTION_EDITABLE,OWNER_INPUT,,,,,OWNER poznamky.
 secrets,/secrets,Secrets a hesla,field,secret.expiration,Expirace,datetime,,False,TIMESTAMP/POLICY,ALWAYS_WHEN_SECTION_EDITABLE,OWNER_INPUT,,,,,Volitelna expirace verze/polozky.
+secrets,/secrets,Secrets a hesla,field,secret.status,Stav,readonly,TEXT_1,False,SECRET_ROOT_DERIVED_STATUS,NEVER,SERVER_PROJECTION,,,,,Odvozený stav rootu INACTIVE/ACTIVE/DELETED ze serverového read modelu; nikoli lifecycle vybrané verze ani oprávnění k použití.
 secrets,/secrets,Secrets a hesla,action,secret.create,Nový secret,,,,,,,SECRET.CREATE,required metadata/value valid and stableName available,validation/uniqueness failure,NONE,Vytvori secret + prvni version.
 secrets,/secrets,Secrets a hesla,action,secret.reveal,Zobrazit,,,,,,,SECRET.REVEAL,secret exists and version revealable,deleted/unavailable version,NONE,Reveal plaintext active/selected version.
 secrets,/secrets,Secrets a hesla,action,secret.copy,Kopírovat,,,,,,,SECRET.COPY,plaintext currently revealed,not revealed,NONE,Kopiruje revealovanou hodnotu.

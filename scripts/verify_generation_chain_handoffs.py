@@ -5,10 +5,11 @@ acceptance or whole-operation readiness. Missing/stale evidence is BLOCKED.
 """
 import hashlib,json,os
 from ssot_sources import ROOT,SSOT,resource_index
+PROOF='audit/generated/resume-8cc/archive/current-authchain/final-2577da/tree/audit/generated/resume-905/sql/review-current/authenticated-chain-review.json'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
  out=ROOT/os.environ.get('KCML_AUDIT_OUTPUT','audit/generated/resume-34d/coordinator');out.mkdir(parents=True,exist_ok=True)
- path=ROOT/'audit/generated/resume-905/sql/review-current/authenticated-chain-review.json';checks=[];rs=resource_index()
+ path=ROOT/PROOF;checks=[];rs=resource_index()
  def check(name,ok):checks.append({'case':name,'passed':bool(ok)})
  if path.exists():
   q=json.loads(path.read_text());check('actual-independent-native-chain',q.get('status')=='PASS' and q.get('failed')==0 and q.get('checked',0)>=14)

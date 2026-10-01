@@ -1,0 +1,84 @@
+{
+  "sourceDocumentSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "startedAt": "2026-10-01T10:50:58.125748+00:00",
+  "labels": {
+    "joined": {
+      "status": "EXECUTED",
+      "exitCode": 0,
+      "timedOut": false,
+      "proof": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/joined/tree/audit/generated/resume-905/archive/review-joined/joined-chain-proof.json",
+      "proofSha256": "6b59e14387f6316edbd8c675eccbd175831f2d3ba7955be688c3e35ea99462d6",
+      "executionManifest": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/joined/execution-manifest.json",
+      "log": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/joined/execution.log"
+    },
+    "retry": {
+      "status": "EXECUTED",
+      "exitCode": 0,
+      "timedOut": false,
+      "proof": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/retry/tree/audit/generated/resume-8cc/coordinator/preserved-retry/producer-child-tests.json",
+      "proofSha256": "a2856dfcb204f83a10dd7bbf46948d80cb2c9e5f8ca3e38be5bdfc12f2fe33ad",
+      "executionManifest": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/retry/execution-manifest.json",
+      "log": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/retry/execution.log"
+    },
+    "archive": {
+      "status": "EXECUTED",
+      "exitCode": 0,
+      "timedOut": false,
+      "proof": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/archive/tree/audit/generated/resume-905/sql/review-consumers/archive/archive-proof.json",
+      "proofSha256": "d92ba78e79a37f34fab78400e785a648d9363dda2ea5074f4ee8d960f1963364",
+      "executionManifest": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/archive/execution-manifest.json",
+      "log": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/archive/execution.log"
+    },
+    "aad": {
+      "status": "EXECUTED",
+      "exitCode": 0,
+      "timedOut": false,
+      "proof": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/aad/tree/audit/generated/resume-905/archive/review-key/peer-key-fixed-proof.json",
+      "proofSha256": "f373e7d5d4e40a17dace0f2ec876a88703b2e51282424011d824cb1e38ac75b9",
+      "executionManifest": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/aad/execution-manifest.json",
+      "log": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/aad/execution.log"
+    },
+    "secret": {
+      "status": "EXECUTED",
+      "exitCode": 0,
+      "timedOut": false,
+      "proof": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/secret/tree/audit/generated/resume-905/consumers/review-secrets/canonical-independent-review.json",
+      "proofSha256": "1a6a21998304984fc622c2982dc09469f23b39e3f0f682feefecd166d8de0a64",
+      "executionManifest": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/secret/execution-manifest.json",
+      "log": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/secret/execution.log"
+    },
+    "ui": {
+      "status": "EXECUTED",
+      "exitCode": 0,
+      "timedOut": false,
+      "proof": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/ui/tree/audit/generated/resume-905/sql/review-consumers/independent-consumer-review.json",
+      "proofSha256": "9b8a5d6be3baa8a23198b64f3904c4d95687b2d9336bce2b4c2cfaabca7c48d8",
+      "executionManifest": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/ui/execution-manifest.json",
+      "log": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/ui/execution.log"
+    },
+    "preroot": {
+      "status": "EXECUTED",
+      "exitCode": 0,
+      "timedOut": false,
+      "proof": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/preroot/tree/audit/generated/resume-905/sql/review-preroot-archive/independent-transfer-proof.json",
+      "proofSha256": "2ebb2074bac0f886359538551d2bb12b25bb37eddfb862103d9612328bab28ce",
+      "executionManifest": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/preroot/execution-manifest.json",
+      "log": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/preroot/execution.log"
+    },
+    "retry-stage": {
+      "status": "EXECUTED",
+      "exitCode": 0,
+      "timedOut": false,
+      "proof": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/retry-stage/tree/audit/generated/resume-8cc/key/review-stage/integrated-stage-proof.json",
+      "proofSha256": "1ce262f7d0ebee562c1e9e8bab2bd071204fd82fbfc4e868b2882a2af81336ad",
+      "executionManifest": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/retry-stage/execution-manifest.json",
+      "log": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-2577da/retry-stage/execution.log"
+    }
+  },
+  "wholeOperationClosed": false,
+  "provider": "ENV_BLOCKED",
+  "scope": "Fresh actual bounded fixtures; no readiness/whole-operation inference.",
+  "universeExitCode": 0,
+  "sourceUnchangedDuringRun": true,
+  "status": "PASS"
+}

@@ -1,0 +1,160 @@
+{
+  "contractId": "GENERATION_ORDERED_NATIVE_RETRY_HANDOFFS_V1",
+  "authority": [
+    "SSOT12.57",
+    "SSOT49.8",
+    "SSOT49.9",
+    "SSOT51.6",
+    "SSOT51.7"
+  ],
+  "installationDependencies": [
+    "database/generation-create-foundations.sql",
+    "database/canonical-crypto-registry.sql",
+    "database/generation-create-authentication.sql",
+    "database/generation-create-preroot.sql",
+    "database/generation-create-read.sql",
+    "database/generation-locked-retry.sql",
+    "database/generation-frozen-archive.sql",
+    "database/generation-retry-producer-child.sql",
+    "database/generation-locator-lock.sql",
+    "database/generation-protected-registry-link.sql",
+    "database/generation-preroot-frozen-archive.sql",
+    "database/canonical-key-invocation-receipts.sql",
+    "database/generation-effect-ledger-producer.sql",
+    "database/generation-trusted-policy-publisher.sql",
+    "database/generation-ordered-context.sql",
+    "database/generation-ordered-retry-child.sql",
+    "database/generation-native-lineage.sql",
+    "database/generation-native-source-parent.sql"
+  ],
+  "canonicalSqlSha256": {
+    "database/generation-effect-ledger-producer.sql": "4ce2e51d7d98e6234a617928ce6db19cb3199db56d1364a60094e879f91eb274",
+    "database/generation-trusted-policy-publisher.sql": "283d15a232f16faa62b63404c707fdb70765c7fa6a9336b51b1268fdabe88ca8",
+    "database/generation-ordered-context.sql": "760765740b6fbb0cdbc2b2ed2964a115078cbba49debca900030fe5af6b6b4ac",
+    "database/generation-ordered-retry-child.sql": "f2293824868859c86bd4e23354440a3eb848b7ff1188f5ba4c409e055c38bab1",
+    "database/generation-native-lineage.sql": "5f75ac3a184945bad36addffaf7846333e3d9a2fa861948a11124788cc3ec785",
+    "database/generation-native-source-parent.sql": "f7438826f9b988a1f1855072501799ce4938dcfdd74a3a0f61e5b1a311a22b75"
+  },
+  "ledgerLockIdentityMigration": {
+    "authority": "00_SSOT/KajovoCMLNG_SSOT.md \u00a751.6\u201351.7, \u00a749.8\u201349.9",
+    "migrationId": "KCML_EFFECT_LEDGER_LOCK_IDENTITY_V1",
+    "ownershipRoot": "public.generation_job(id), rootOrdinal90",
+    "kinds": [
+      {
+        "id": "GENERATION_PHASE_RUN",
+        "ordinal": 50,
+        "relation": "kcml_effect_v1.phase_run",
+        "rowId": "id",
+        "primaryParentColumn": "primary_parent_uuid",
+        "parentDerivation": "GENERATED ALWAYS AS(parent_id); parent_id FK generation_job"
+      },
+      {
+        "id": "GENERATION_CHECKPOINT",
+        "ordinal": 50,
+        "relation": "kcml_effect_v1.checkpoint",
+        "rowId": "id",
+        "primaryParentColumn": "primary_parent_uuid",
+        "parentDerivation": "GENERATED ALWAYS AS(parent_id); parent_id FK generation_job"
+      },
+      {
+        "id": "SIDE_EFFECT_OPERATION",
+        "ordinal": 140,
+        "relation": "kcml_effect_v1.operation",
+        "rowId": "id",
+        "primaryParentColumn": "primary_parent_uuid",
+        "parentDerivation": "GENERATED ALWAYS AS(parent_id); parent_id FK generation_job"
+      },
+      {
+        "id": "SIDE_EFFECT_ATTEMPT",
+        "ordinal": 150,
+        "relation": "kcml_effect_v1.attempt",
+        "rowId": "id",
+        "primaryParentColumn": "primary_parent_uuid",
+        "parentDerivation": "trusted BEFORE INSERT resolves operation.parent_id; explicit mismatch rejected; NOT NULL generation_job FK"
+      },
+      {
+        "id": "SIDE_EFFECT_ATTEMPT_STATE",
+        "ordinal": 150,
+        "relation": "kcml_effect_v1.state",
+        "rowId": "state_id",
+        "primaryParentColumn": "primary_parent_uuid",
+        "parentDerivation": "trusted BEFORE INSERT resolves operation.parent_id; explicit mismatch rejected; NOT NULL generation_job FK"
+      },
+      {
+        "id": "SIDE_EFFECT_RAW_EVIDENCE",
+        "ordinal": 150,
+        "relation": "kcml_effect_v1.evidence",
+        "rowId": "id",
+        "primaryParentColumn": "primary_parent_uuid",
+        "parentDerivation": "trusted BEFORE INSERT resolves operation.parent_id; explicit mismatch rejected; NOT NULL generation_job FK"
+      },
+      {
+        "id": "SIDE_EFFECT_EVENT_IMMUTABLE",
+        "ordinal": 160,
+        "relation": "kcml_effect_v1.event_identity + public.domain_event",
+        "rowId": "event_id/id",
+        "primaryParentColumn": "primary_parent_uuid",
+        "parentDerivation": "exact SIDE_EFFECT subtype resolves operation.parent_id; immutable one-to-one event FK and generation_job FK",
+        "allocation": "new explicit technical migration, never recycled",
+        "callsites": [
+          "kcml_effect_v1.record_intent",
+          "kcml_effect_v1.confirm_cas_v1"
+        ]
+      },
+      {
+        "id": "TRANSACTIONAL_OUTBOX",
+        "ordinal": 910,
+        "relation": "public.transactional_outbox",
+        "rowId": "id",
+        "parentDerivation": "existing outbox\u2192event\u2192event_identity\u2192generation_job; universal outbox parent migration outside bounded scope"
+      }
+    ],
+    "dedicatedAllocator": {
+      "class": "G",
+      "relation": "kcml_effect_v1.checkpoint_head",
+      "primaryParentColumn": "primary_parent_uuid",
+      "nonNull": true
+    },
+    "newKindOwnershipIsNotInferredFromNames": true,
+    "wholeLockUniverseClosed": false
+  },
+  "sourceNativeChildren": [
+    {
+      "relation": "kcml_native_basis_v1.schema_bundle",
+      "ordinal": 154,
+      "parent": "source_job_id",
+      "stableId": "digest",
+      "physicalParent": "primary_parent_uuid"
+    },
+    {
+      "relation": "kcml_native_basis_v1.record",
+      "ordinal": 155,
+      "parent": "source_job_id",
+      "stableId": "record_id UTF8 C bytes",
+      "physicalParent": "primary_parent_uuid"
+    },
+    {
+      "relation": "kcml_native_basis_v1.child_lineage",
+      "ordinal": 153,
+      "parent": "child_job_id",
+      "stableId": "child_job_id UUID bytes",
+      "physicalParent": "primary_parent_uuid"
+    }
+  ],
+  "remainingLockIdentityAndProducerGates": [
+    "GEN.RETRY.LOCK.AUTH_RECEIPT_CONTEXT_PHYSICAL_PARENT",
+    "GEN.RETRY.LOCK.SNAPSHOT_SCAN_NONCE_ARCHIVE_EVENT_COMPLETION_PHYSICAL_PARENT",
+    "GEN.RETRY.LOCK.ALL_IMPLICIT_FK_ACQUISITIONS",
+    "GEN.RETRY.PRODUCER.ALL_AUDIT_UNKNOWN_RECONCILIATION_OUTCOMES",
+    "GENERATION.AUTH.CREDENTIAL_GENESIS_AND_HISTORICAL_REFERENCE",
+    "GENERATION.SOURCE.TRUSTED_APPROVAL_BINDING_BUDGET",
+    "GENERATION.ARCHIVE.INSTALLER_KIND_COVERAGE",
+    "SQL.HELPERS.CONCRETE_CALL_SITES",
+    "SHARED.CRYPTO.SYSTEMD_SOURCE",
+    "SHARED.CRYPTO.GLOBAL_NONCE"
+  ],
+  "scope": "Bounded exact reference producer/admission/child/hydration design; all listed gates stay OPEN/BLOCKED before complete operation readiness",
+  "wholeOperationClosed": false,
+  "SSOT_CONTRACT_READY": "BLOCKED",
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

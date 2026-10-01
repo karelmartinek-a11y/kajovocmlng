@@ -1,0 +1,79 @@
+{
+  "sourceDocumentSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "sourceUnchangedDuringRun": true,
+  "candidateSqlSha256": "40a2fce25eaa50d582228463df86bfbf0ffb30f9facb1f1e84a2907bef3705ef",
+  "canonicalExtensionExecuted": true,
+  "postgresqlVersion": "18.6",
+  "checks": [
+    {
+      "case": "independent-accepted-pending-missing-archive-specific-rejection",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_PREROOT_ARCHIVE_REQUIRED",
+      "actualDiagnostic": "ERROR:  FROZEN_PREROOT_ARCHIVE_REQUIRED\nCONTEXT:  PL/pgSQL function kcml_preroot_archive_required_v1() line 4 at RAISE\n"
+    },
+    {
+      "case": "independent-missing-archive-rolls-back-command-protected-snapshot-and-outcome",
+      "passed": true
+    },
+    {
+      "case": "accepted-pending-actual-commit",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": ""
+    },
+    {
+      "case": "independent-pending-archive-does-not-fabricate-job-event-outbox",
+      "passed": true
+    },
+    {
+      "case": "changed-protected-transfer-refused",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_PREROOT_SNAPSHOT_TRANSFER_MISMATCH",
+      "actualDiagnostic": "ERROR:  GENERATION_PREROOT_SNAPSHOT_TRANSFER_MISMATCH\nCONTEXT:  PL/pgSQL function kcml_generation_command_context_consistency_v1() line 20 at RAISE\n"
+    },
+    {
+      "case": "pending-success-version-skip-refused",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_COMMAND_STATE_VERSION_STEP",
+      "actualDiagnostic": "ERROR:  GENERATION_COMMAND_STATE_VERSION_STEP\nCONTEXT:  PL/pgSQL function public.kcml_generation_command_version_step_v1() line 3 at RAISE\n"
+    },
+    {
+      "case": "independent-available-different-policy-exact-transfer-rejection",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_PREROOT_ARCHIVE_TRANSFER_MISMATCH",
+      "actualDiagnostic": "ERROR:  FROZEN_PREROOT_ARCHIVE_TRANSFER_MISMATCH\nCONTEXT:  PL/pgSQL function kcml_archive_preroot_transfer_v1() line 9 at RAISE\n"
+    },
+    {
+      "case": "independent-valid-success-rollback",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": ""
+    },
+    {
+      "case": "independent-transfer-rollback-preserves-earlier-pending-archive",
+      "passed": true
+    },
+    {
+      "case": "pending-to-success-same-identity-actual-commit",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": ""
+    },
+    {
+      "case": "earlier-pending-bytes-unchanged-after-success",
+      "passed": true
+    },
+    {
+      "case": "exact-one-job-command-created-event-outbox-two-audits-and-pending-history",
+      "passed": true
+    },
+    {
+      "case": "identical-frozen-protected-snapshot-producer-consumer-joins",
+      "passed": true
+    }
+  ],
+  "checked": 13,
+  "failed": 0,
+  "scope": "Independent actual canonical foundation/preroot/success archive SQL plus exact new candidate extension. True atomic pending with archive, actual retained no-root state, same frozen snapshot+archive success commit, available alternate policy rejection and rollback. Synthetic server authentication and opaque ciphertext are explicit bounded SQL fixtures, not actual credential/canonical crypto source proof.",
+  "wholeOperationClosed": false
+}

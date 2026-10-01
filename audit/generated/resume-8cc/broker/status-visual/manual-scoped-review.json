@@ -1,0 +1,31 @@
+{
+  "status": "LIMITED_REFERENCE_SEMANTICS_REVIEW",
+  "scope": "Four actual Secret readonly status field crops plus desktop root/detail framing; not all live/admin visual acceptance",
+  "reviewedFiles": [
+    {
+      "path": "renders/390x844/root-status-field.png",
+      "sha256": "3d60d0aff64ce587e1693561680ae93ac4fe74df749eae6daf41eb356e1f231d"
+    },
+    {
+      "path": "renders/768x1024/root-status-field.png",
+      "sha256": "e89ba7d81d27dcdd26c1ec41ae981bb7c1f7eba6c421403e89c6562914a4eb17"
+    },
+    {
+      "path": "renders/1366x768/root-status-field.png",
+      "sha256": "a13cbddae50240d1de4d719276e28f39064aaf499637f79094b10b0415b530ef"
+    },
+    {
+      "path": "renders/1920x1080/root-status-field.png",
+      "sha256": "b78b99d218d3d19a36302fd04f3bdbf0d53d30f44a355bcc4fa372712a130bec"
+    }
+  ],
+  "findings": [
+    "Stav is readable and bounded without clipping at four declared viewports",
+    "Root INACTIVE and selected immutable v1 CREATED are visibly distinguished",
+    "Readonly server-derived status field has no editable control; root status not permission",
+    "No Secret plaintext fixture visible; original value field remains bullets"
+  ],
+  "independentRootReview": "Coordinator reproduced selected-row/stateVersion183 identity counterexample before fix; final candidate reviewed and copied byteexact",
+  "fullManualGate": "PENDING",
+  "backendAcceptance": "NOT_EVALUATED"
+}

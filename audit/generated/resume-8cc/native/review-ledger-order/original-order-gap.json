@@ -1,0 +1,31 @@
+{
+  "postgresVersion": "18.6",
+  "actualInsertOrder": [
+    {
+      "n": 1,
+      "kind": "OPERATION",
+      "ordinal": 140,
+      "row_id": "00000000-0000-4000-8000-000000000800"
+    },
+    {
+      "n": 2,
+      "kind": "ATTEMPT",
+      "ordinal": 150,
+      "row_id": "00000000-0000-4000-8000-000000000801"
+    },
+    {
+      "n": 3,
+      "kind": "STATE",
+      "ordinal": 150,
+      "row_id": "f6afa63f-d90d-45ff-b96a-a32720036e5c"
+    },
+    {
+      "n": 4,
+      "kind": "CHECKPOINT",
+      "ordinal": 50,
+      "row_id": "00000000-0000-4000-8000-000000000804"
+    }
+  ],
+  "reproduced": "H140,H150 before new H50 checkpoint",
+  "candidateHash": "438e4418d95a71e3b74e8b445a7c3bdf5c950cc9955087496df74147933309e5"
+}

@@ -1,0 +1,34 @@
+{
+  "status": "PROPOSED_INTEGRATION",
+  "wholeOperationClosed": false,
+  "files": {
+    "audit/generated/resume-8cc/native/credential-root/verify_credential_native_chain.py": "05ff5b4992c372a781d25ef73f1dd2b394971c6a9b4e6586921a66cdc2fd6332",
+    "audit/generated/resume-8cc/native/credential-root/owner_api_credential_root_auth.py": "41f57409a7867011abe6ef052d082fc00d9c07e6fa7a52155befffbcdac23940",
+    "audit/generated/resume-8cc/native/credential-root/credential_root_fixture.py": "d7af68d1ddcf0f7a4418a2ea6eb11072f44db4bfef1b4c2928ccb42a13f9666f",
+    "audit/generated/resume-8cc/native/credential-root/ordered_generation_credential_factory.py": "9370fb5a8dafa3b2f763e544b5937aa027889fb93d050bdb3cab032d3c850dd4",
+    "audit/generated/resume-8cc/native/credential-root/verify_credential_root.py": "8dc4f6d37024cd931c234ba4be527e1dd5680f175cacd00b13ce4f0701656fd0"
+  },
+  "proofs": [
+    {
+      "path": "audit/generated/resume-8cc/native/credential-root/credential-root-proof.json",
+      "sha256": "ca049b6ad5f30a8f616c6c3af91b2f22b4f153b887cbcb05f0fec3ab6915555e",
+      "passed": 9,
+      "sourceDocumentSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247"
+    },
+    {
+      "path": "audit/generated/resume-8cc/native/credential-root/native-credential-chain-proof.json",
+      "sha256": "b759df21cdc897d0d3cad0e0d6f36f6576eebca850d4a733834078b6a738ff21",
+      "passed": 27,
+      "sourceDocumentSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247"
+    },
+    {
+      "path": "audit/generated/resume-8cc/native/credential-root/native-credential-child-first-proof.json",
+      "sha256": "b759df21cdc897d0d3cad0e0d6f36f6576eebca850d4a733834078b6a738ff21",
+      "passed": 27,
+      "sourceDocumentSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247"
+    }
+  ],
+  "actualRootPolicy": "scripts/secret_command_chain.py::validate_locked_credential_root",
+  "genesisAndKeySourceNotProved": true,
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

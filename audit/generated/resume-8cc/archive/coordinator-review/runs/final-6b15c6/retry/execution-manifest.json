@@ -1,0 +1,54 @@
+{
+  "label": "retry",
+  "sourceDocumentSha256": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4",
+  "sourceUnchangedDuringRun": true,
+  "originalScripts": [
+    "audit/generated/resume-8cc/coordinator/preserved-retry/verify_producer_child.py"
+  ],
+  "databaseIsolation": {
+    "archive_joined_905": "cr8_retry_archive_joined_905",
+    "archive_peer_key_fixed_905": "cr8_retry_archive_peer_key_fixed_905",
+    "auth_crypto_full_34d": "cr8_retry_auth_crypto_full_34d",
+    "archive_independent_sql_905": "cr8_retry_archive_independent_sql_905",
+    "generation_independent_review_fixture": "cr8_retry_generation_independent_review_fixture",
+    "retry_preserved_stage_8cc": "cr8_retry_retry_preserved_stage_8cc",
+    "independent_preroot_archive_sql905": "cr8_retry_independent_preroot_archive_sql905",
+    "pending_transfer_34d": "cr8_retry_pending_transfer_34d",
+    "secret_publication_review_905": "cr8_retry_secret_publication_review_905",
+    "secret_owner_review_905": "cr8_retry_secret_owner_review_905"
+  },
+  "actualDatabaseConnections": [
+    "cr8_retry_retry_preserved_stage_8cc",
+    "postgres"
+  ],
+  "executedPythonReads": [
+    {
+      "path": "audit/generated/resume-8cc/coordinator/preserved-retry/verify_producer_child.py",
+      "originalSha256": "fb507240133a9a13b5cd3f62628753275bd3c73f8287a41184772eea87dd43f5",
+      "executionSha256": "f0ab223108208f055c66933a7ea2b6f012868ea496666c360a9cf2f1c792ab19"
+    },
+    {
+      "path": "audit/generated/resume-d362/review/verify_scoped_generation_links.py",
+      "originalSha256": "37da9f21cc2f5ce00476df4ecb2b3433d92f73d239834a63046d97501327f18d",
+      "executionSha256": "d782e91378a084c0503a7fcc1401ad6627ef136a9bc6b5cac25bd43c256006a7"
+    },
+    {
+      "path": "audit/generated/resume-d362/events/verify_combined_generation.py",
+      "originalSha256": "a38bc59879e56c02b361afe22a791af1477b57308f22f3a7483e10fd950f58dd",
+      "executionSha256": "a38bc59879e56c02b361afe22a791af1477b57308f22f3a7483e10fd950f58dd"
+    }
+  ],
+  "redirectedWrites": [
+    {
+      "originalPath": "/workspace/kajovocmlng/audit/generated/resume-8cc/coordinator/preserved-retry/executed-canonical-foundations.sql",
+      "ownedPath": "/workspace/kajovocmlng/audit/generated/resume-8cc/archive/coordinator-review/runs/final-6b15c6/retry/tree/audit/generated/resume-8cc/coordinator/preserved-retry/executed-canonical-foundations.sql",
+      "sha256": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2"
+    },
+    {
+      "originalPath": "/workspace/kajovocmlng/audit/generated/resume-8cc/coordinator/preserved-retry/producer-child-tests.json",
+      "ownedPath": "/workspace/kajovocmlng/audit/generated/resume-8cc/archive/coordinator-review/runs/final-6b15c6/retry/tree/audit/generated/resume-8cc/coordinator/preserved-retry/producer-child-tests.json",
+      "sha256": "88952a4f2bc178511cc8e98eb614c0cd1e130fcc7877743978adca4d5d47d75c"
+    }
+  ],
+  "scope": "Original bounded fixture semantics; only isolated database names/audit output paths. No historical evidence source relabeling or whole-operation claim."
+}

@@ -1,0 +1,203 @@
+{
+  "inputHead": "905555e47f3547516439a699e262df62cbbec229",
+  "sourceDocumentSha256": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4",
+  "postgresqlVersion": "18.6",
+  "canonicalFoundationSha256": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+  "canonicalArchiveSha256": "2a6dce3b0a8a3f82b47576b371a6870ac2c0543ed85ac50e0b63d8ccced4f0ca",
+  "supportSha256": {
+    "verify_archive.py": "2ca78658d9ef9e1ca7b1b223732f967beb219994831d9d945aac5c1064849e90",
+    "generation_frozen_archive.py": "f1b4284eaaa907b94d34be0eb6080cf4d73b18561ec31fc5b6176212796b0622",
+    "generation_request_policy_v1.py": "41fea2ac308aaf938d711765655f938a6c953f65f9440bdbf7212e5ee29f2492",
+    "generation_create_consumer_archive.py": "8649370d5eac08af201f7728a3ecd1e8ac23b95609f4786c1c597999c6bad81f",
+    "generation_read_hydration_archive.py": "86190cac70763c0013623771fae1fa34712aa5c045b2dc3d43842ea564abffe0"
+  },
+  "checks": [
+    {
+      "id": "archive-canonical-installs-on-exact-canonical-foundations",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "otherwise-valid-create-without-archive-exact-rejection",
+      "passed": true,
+      "diagnostic": "ERROR:  23514: FROZEN_ARCHIVE_REQUIRED\nCONTEXT:  PL/pgSQL function kcml_archive_snapshot_required_v1() line 4 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909\n"
+    },
+    {
+      "id": "missing-archive-leaves-no-command-root-event",
+      "passed": true
+    },
+    {
+      "id": "declared-schema-dependency-must-have-actual-bytes",
+      "passed": true
+    },
+    {
+      "id": "snapshot-command-binding-swap-rejected-exactly",
+      "passed": true,
+      "diagnostic": "ERROR:  23514: FROZEN_ARCHIVE_SNAPSHOT_BINDING_MISMATCH\nCONTEXT:  PL/pgSQL function kcml_archive_snapshot_binding_v1() line 8 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909\n"
+    },
+    {
+      "id": "digest-valid-available-wrong-schema-snapshot-binding",
+      "passed": true,
+      "diagnostic": "ERROR:  23514: FROZEN_ARCHIVE_SNAPSHOT_BINDING_MISMATCH\nCONTEXT:  PL/pgSQL function kcml_archive_snapshot_binding_v1() line 8 at RAISE\nLOCATION:  exec_stmt_raise, pl_exec.c:3909\n"
+    },
+    {
+      "id": "archive-producer-binding-root-event-actual-one-commit",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "same-exact-publication-replay",
+      "passed": true
+    },
+    {
+      "id": "source-identity-replay-conflict",
+      "passed": true
+    },
+    {
+      "id": "concurrent-first-publication-lock-acquired",
+      "passed": true
+    },
+    {
+      "id": "concurrent-identical-publication-one-retained-row",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "concurrent-key-retained-source-cannot-replace",
+      "passed": true
+    },
+    {
+      "id": "schema-bytes-immutable",
+      "passed": true
+    },
+    {
+      "id": "binding-retained-immutable",
+      "passed": true
+    },
+    {
+      "id": "real-schema-real-policy-positive",
+      "passed": true
+    },
+    {
+      "id": "missing-archived-policy-no-current-fallback",
+      "passed": true,
+      "actualDiagnostic": "FROZEN_DOMAIN_POLICY_UNAVAILABLE",
+      "expectedDiagnostic": "FROZEN_DOMAIN_POLICY_UNAVAILABLE"
+    },
+    {
+      "id": "missing-archived-implementation-no-current-fallback",
+      "passed": true,
+      "actualDiagnostic": "FROZEN_DOMAIN_POLICY_IMPLEMENTATION_UNAVAILABLE",
+      "expectedDiagnostic": "FROZEN_DOMAIN_POLICY_IMPLEMENTATION_UNAVAILABLE"
+    },
+    {
+      "id": "policy-authentic-content-unavailable",
+      "passed": true,
+      "actualDiagnostic": "FROZEN_DOMAIN_POLICY_AUTHORITY_UNAVAILABLE",
+      "expectedDiagnostic": "FROZEN_DOMAIN_POLICY_AUTHORITY_UNAVAILABLE"
+    },
+    {
+      "id": "domain-rule-from-valid-positive-empty-intent",
+      "passed": true,
+      "actualDiagnostic": "EMPTY_INTENT",
+      "expectedDiagnostic": "EMPTY_INTENT"
+    },
+    {
+      "id": "same-id-two-archived-revisions-actual-sql",
+      "passed": true
+    },
+    {
+      "id": "old-exact-stored-bytes",
+      "passed": true
+    },
+    {
+      "id": "new-exact-stored-bytes",
+      "passed": true
+    },
+    {
+      "id": "historical-same-id-request-with-historical-policy",
+      "passed": true
+    },
+    {
+      "id": "latest-same-id-is-not-historical-substitute",
+      "passed": true,
+      "actualDiagnostic": "FROZEN_SCHEMA_CONTENT_INVALID",
+      "expectedDiagnostic": "FROZEN_SCHEMA_CONTENT_INVALID"
+    },
+    {
+      "id": "actual-historical-canonical-mask-policy-authority-publication",
+      "passed": true
+    },
+    {
+      "id": "actual-historical-update-mask-plus-retained-domain-policy-valid",
+      "passed": true
+    },
+    {
+      "id": "historical-update-not-current-policy-substitution",
+      "passed": true,
+      "actualDiagnostic": "FROZEN_SCHEMA_CONTENT_INVALID",
+      "expectedDiagnostic": "FROZEN_SCHEMA_CONTENT_INVALID"
+    },
+    {
+      "id": "canonical-read-install",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "archive-repository-reader-selects-exact-binding",
+      "passed": true
+    },
+    {
+      "id": "archive-repository-reader-returns-exact-policy-authority-schema-code",
+      "passed": true
+    },
+    {
+      "id": "wrong-command-cannot-read-snapshot-archive",
+      "passed": true
+    },
+    {
+      "id": "actual-root-event-receipt-storage-archive-domainpolicy-consumer-chain",
+      "passed": true
+    },
+    {
+      "id": "integrated-malformed-binding-structured-diagnostic",
+      "passed": true,
+      "actualDiagnostic": "FROZEN_POLICY_BINDING_INVALID",
+      "expectedDiagnostic": "FROZEN_POLICY_BINDING_INVALID"
+    },
+    {
+      "id": "integrated-null-schema-id-structured-diagnostic",
+      "passed": true,
+      "actualDiagnostic": "FROZEN_POLICY_BINDING_INVALID",
+      "expectedDiagnostic": "FROZEN_POLICY_BINDING_INVALID"
+    },
+    {
+      "id": "integrated-null-bundle-repository-structured-diagnostic",
+      "passed": true,
+      "actualDiagnostic": "FROZEN_POLICY_REPOSITORY_UNAVAILABLE",
+      "expectedDiagnostic": "FROZEN_POLICY_REPOSITORY_UNAVAILABLE"
+    },
+    {
+      "id": "integrated-null-implementation-repository-structured-diagnostic",
+      "passed": true,
+      "actualDiagnostic": "FROZEN_POLICY_REPOSITORY_UNAVAILABLE",
+      "expectedDiagnostic": "FROZEN_POLICY_REPOSITORY_UNAVAILABLE"
+    },
+    {
+      "id": "actual-storage-malformed-binding-no-KeyError",
+      "passed": true,
+      "actualDiagnostic": "FROZEN_POLICY_BINDING_INVALID",
+      "expectedDiagnostic": "FROZEN_POLICY_BINDING_INVALID"
+    }
+  ],
+  "checked": 37,
+  "failed": 0,
+  "status": "PASS",
+  "wholeOperationClosed": false,
+  "limitations": [
+    "Canonical embedded archive bytes executed and candidate equality asserted; effective root archive helpers used",
+    "OWNER authority and protected open are existing synthetic fixture context/opener; not actual credential or canonical crypto proof",
+    "Complete historical policy revisions require actual archived supported implementation; unknown revision fails BLOCKED",
+    "Pre-root accepted snapshot archive binding remains separate required extension"
+  ]
+}

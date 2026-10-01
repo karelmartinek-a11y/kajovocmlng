@@ -1,0 +1,93 @@
+{
+  "sourceSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+  "consumedInputDigests": {
+    "database/secret-profile-roots.sql": "524b3c067ff22a5a39d5b9a89e6c48bdaf6caf76db719200d439eea023b739eb",
+    "database/secret-record-status.sql": "557d5c6555c89db4c473cab12988c3caf3d2fc7e61c611e17a5e43767c9d14a9",
+    "database/secret-owner-api-value-read.sql": "34e7c69b608f98cf75fd90fe12b0bab3ae8b51e7687f924db645a0e33dc47618",
+    "contracts/secrets/root-status.schema.json": "eba474fa542632e10f323a09bc2280823003e404473257ea95f585dd1a29f6d8"
+  },
+  "checked": 16,
+  "failed": 0,
+  "cases": [
+    {
+      "id": "actual-root-detail-all-existing-physical-fields-exact-schema",
+      "status": "PASS"
+    },
+    {
+      "id": "actual-INACTIVE-ACTIVE-DELETED-preserved-root-metadata-vocab",
+      "status": "PASS"
+    },
+    {
+      "id": "unknown-query",
+      "status": "PASS",
+      "diagnostic": "SECRET_METADATA_READ_QUERY_NOT_ALLOWED"
+    },
+    {
+      "id": "status-body",
+      "status": "PASS",
+      "diagnostic": "SECRET_METADATA_READ_BODY_NOT_ALLOWED"
+    },
+    {
+      "id": "caller-owner",
+      "status": "PASS",
+      "diagnostic": "SECRET_METADATA_READ_PATH_INVALID"
+    },
+    {
+      "id": "status-ACTIVE-does-not-authorize-wrong-bearer",
+      "status": "PASS",
+      "diagnostic": "OWNER_API_AUTHENTICATION_FAILED"
+    },
+    {
+      "id": "root-status-projection-mismatch",
+      "status": "PASS",
+      "diagnostic": "SECRET_METADATA_STATUS_BINDING_MISMATCH"
+    },
+    {
+      "id": "integrity-diagnostic-not-INACTIVE",
+      "status": "PASS",
+      "diagnostic": "SECRET_STATUS_POINTER_NOT_ACTIVE"
+    },
+    {
+      "id": "different-root",
+      "status": "PASS",
+      "diagnostic": "SECRET_UI_STATUS_SNAPSHOT_MISMATCH"
+    },
+    {
+      "id": "stale-root-state",
+      "status": "PASS",
+      "diagnostic": "SECRET_UI_STATUS_SNAPSHOT_MISMATCH"
+    },
+    {
+      "id": "wrong-derived-status",
+      "status": "PASS",
+      "diagnostic": "SECRET_UI_STATUS_SNAPSHOT_MISMATCH"
+    },
+    {
+      "id": "DELETED-value",
+      "status": "PASS",
+      "diagnostic": "SECRET_UI_DELETED_VALUE_FORBIDDEN"
+    },
+    {
+      "id": "metadata-mask-refuses-version-lifecycle-CREATED",
+      "status": "PASS"
+    },
+    {
+      "id": "overflow-state",
+      "status": "PASS"
+    },
+    {
+      "id": "noncanonical-state",
+      "status": "PASS"
+    },
+    {
+      "id": "negative-epoch",
+      "status": "PASS"
+    }
+  ],
+  "actualParentChainChecks": 20,
+  "syntheticValuesOnly": true,
+  "plaintextInReport": false,
+  "wholeUIClosed": false,
+  "globalAudit": "OPEN",
+  "implementationAcceptance": "NOT_EVALUATED"
+}

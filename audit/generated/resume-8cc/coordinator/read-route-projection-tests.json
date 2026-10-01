@@ -1,0 +1,140 @@
+{
+  "sourceDocumentSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "status": "PASS",
+  "checked": 22,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "secret.metadata.read/positive",
+      "status": "PASS"
+    },
+    {
+      "id": "secret.metadata.read/reject/body/type",
+      "status": "PASS",
+      "actualKeywords": [
+        "type"
+      ]
+    },
+    {
+      "id": "secret.metadata.read/reject/guards/additionalProperties",
+      "status": "PASS",
+      "actualKeywords": [
+        "additionalProperties"
+      ]
+    },
+    {
+      "id": "secret.metadata.read/reject/query/additionalProperties",
+      "status": "PASS",
+      "actualKeywords": [
+        "additionalProperties"
+      ]
+    },
+    {
+      "id": "secret.metadata.read/reject/pathParameters/additionalProperties",
+      "status": "PASS",
+      "actualKeywords": [
+        "additionalProperties"
+      ]
+    },
+    {
+      "id": "secret.metadata.read/reject/pathParameters/pattern",
+      "status": "PASS",
+      "actualKeywords": [
+        "pattern"
+      ]
+    },
+    {
+      "id": "secret.metadata.read/reject/pathParameters/pattern",
+      "status": "PASS",
+      "actualKeywords": [
+        "format",
+        "pattern"
+      ]
+    },
+    {
+      "id": "secret.metadata.read/http-positive",
+      "status": "PASS"
+    },
+    {
+      "id": "secret.metadata.read/http-reject/uppercase",
+      "status": "PASS",
+      "actualDiagnostic": "SECRET_METADATA_READ_PATH_INVALID"
+    },
+    {
+      "id": "secret.metadata.read/http-reject/query",
+      "status": "PASS",
+      "actualDiagnostic": "SECRET_METADATA_READ_QUERY_NOT_ALLOWED"
+    },
+    {
+      "id": "secret.value.read/positive",
+      "status": "PASS"
+    },
+    {
+      "id": "secret.value.read/reject/body/type",
+      "status": "PASS",
+      "actualKeywords": [
+        "type"
+      ]
+    },
+    {
+      "id": "secret.value.read/reject/guards/additionalProperties",
+      "status": "PASS",
+      "actualKeywords": [
+        "additionalProperties"
+      ]
+    },
+    {
+      "id": "secret.value.read/reject/query/additionalProperties",
+      "status": "PASS",
+      "actualKeywords": [
+        "additionalProperties"
+      ]
+    },
+    {
+      "id": "secret.value.read/reject/pathParameters/additionalProperties",
+      "status": "PASS",
+      "actualKeywords": [
+        "additionalProperties"
+      ]
+    },
+    {
+      "id": "secret.value.read/reject/pathParameters/pattern",
+      "status": "PASS",
+      "actualKeywords": [
+        "pattern"
+      ]
+    },
+    {
+      "id": "secret.value.read/reject/pathParameters/pattern",
+      "status": "PASS",
+      "actualKeywords": [
+        "format",
+        "pattern"
+      ]
+    },
+    {
+      "id": "secret.value.read/history-positive",
+      "status": "PASS"
+    },
+    {
+      "id": "secret.value.read/history-uppercase",
+      "status": "PASS"
+    },
+    {
+      "id": "secret.value.read/http-positive",
+      "status": "PASS"
+    },
+    {
+      "id": "secret.value.read/http-reject/uppercase",
+      "status": "PASS",
+      "actualDiagnostic": "SECRET_VALUE_READ_PATH_INVALID"
+    },
+    {
+      "id": "secret.value.read/http-reject/query",
+      "status": "PASS",
+      "actualDiagnostic": "SECRET_VALUE_READ_QUERY_UNKNOWN"
+    }
+  ],
+  "scriptSha256": "f4e00d3916eb3c2053b9ec678ac8cfa8e6615a58f28f5f5766e7364dcef7cdee",
+  "scope": "Only current native request masks and actual GET decoding; whole read producers/event/errors/implementation not closed"
+}

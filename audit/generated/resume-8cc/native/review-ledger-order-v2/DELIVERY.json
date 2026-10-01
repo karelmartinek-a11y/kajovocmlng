@@ -1,0 +1,42 @@
+{
+  "status": "BOUNDED_APPEND_ORDER_CANDIDATE_VERIFIED_NOT_ACTIVATED",
+  "sourceDocumentSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+  "sourceUnchangedDuringRun": true,
+  "candidateSqlSha256": "4ce2e51d7d98e6234a617928ce6db19cb3199db56d1364a60094e879f91eb274",
+  "postgresqlVersion": "18.6",
+  "checks": 48,
+  "failed": 0,
+  "reusedHistoricalChecks": 18,
+  "files": {
+    "frozen-v1.sql": "d25687e5986d2efb62b495e4d989d1684420bfc7aefaeba380963fc4351a30cb",
+    "evidence-order-repair.sql": "52698177325f49b2f784bee543dc525a42bbba5934e3760cb653f6d240d3dfe5",
+    "side-effect-producer.sql": "4ce2e51d7d98e6234a617928ce6db19cb3199db56d1364a60094e879f91eb274",
+    "verify_original_append_gap.py": "a17b5c1e380b1fdf83a8391e57d54d78e184059ee4946af9a006bbded2999896",
+    "verify_fixed_append_vector.py": "064991017cc31c1ef3b40b3447a45e31385dd53446f862e0128543bbdaa0540d",
+    "verify_ordered.py": "58a5b13b784924e587651ef06415c2009f50cb9fb1759fde995201c01118f797",
+    "original-append-order-gap.json": "b686b540da92e6239ca779e3efac58195d5d7c14fd305dcc9d17abeeadd1274e",
+    "fixed-append-order-vector.json": "fcac7bb30ff8c750615d9d493ad402659aab9c60bec4d43a984a5f9802ceb0ff",
+    "ledger-tests.json": "860afe3d079c526ee6eee87f5cc1e488580b5f523cf3d2e6e3a2426be7a6231a"
+  },
+  "closedBoundedGap": "GEN.RETRY.ORDER.RAW_EVIDENCE_SAME_H150_UUID_ORDER",
+  "reproduction": "Actual BEFORE INSERT pause: frozen source holds higher STATE UUID; corrected producer does not yet hold it, independent NOWAIT writer proves both outcomes. Dedicated G allocator and exact deferred attempt FK permit sorted acquisition.",
+  "newAllocator": {
+    "class": "G",
+    "relation": "kcml_effect_v1.evidence_head",
+    "primaryParentColumn": "primary_parent_uuid",
+    "derivation": "actual operation.parent_id canonical generation_job FK",
+    "counter": "last_sequence+1 under FOR UPDATE; no MAX",
+    "closure": "deferred exact equality from allocator and state; contiguity/source guard preserved"
+  },
+  "wholeLockUniverseClosed": false,
+  "wholeProducerClosed": false,
+  "wholeOperationClosed": false,
+  "remaining": [
+    "Producer intent/outcome/dispatch audit boundaries",
+    "UNKNOWN/reconciliation/OWNER compensation and cancellation producer universe",
+    "Native graph/binding/budget/provider/workspace/browser authority",
+    "Other actual KnownTechnicalFailureResult producers",
+    "Final restricted installer/context roles and canonical systemd key environment",
+    "Native publication/phase-seal/failure producer full lock traces outside bounded append proof"
+  ]
+}

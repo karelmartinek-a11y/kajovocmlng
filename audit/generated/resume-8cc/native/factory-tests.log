@@ -1,0 +1,54 @@
+NOTICE:  drop cascades to 51 other objects
+DETAIL:  drop cascades to extension citext
+drop cascades to table owner_identity
+drop cascades to table owner_session
+drop cascades to table owner_api_credential
+drop cascades to table platform_incarnation
+drop cascades to table application_deployment_head
+drop cascades to function kcml_authentication_singleton_guard_v1()
+drop cascades to table domain_command
+drop cascades to table generation_job
+drop cascades to table generation_job_initial_request_snapshot
+drop cascades to table generation_job_follow_up_basis
+drop cascades to table generation_job_create_completion
+drop cascades to function kcml_reject_generation_create_snapshot_update_v1()
+drop cascades to function kcml_generation_job_write_guard_v1()
+drop cascades to table domain_idempotency_record
+drop cascades to table domain_event
+drop cascades to table transactional_outbox
+drop cascades to table audit_head
+drop cascades to function kcml_audit_hash_v1(integer,bytea,bigint,bytea)
+drop cascades to table audit_event
+drop cascades to table audit_archive_outbox
+drop cascades to table idempotency_locator
+drop cascades to function kcml_generation_create_atomic_closure_v1()
+drop cascades to function kcml_create_record_immutable_v1()
+drop cascades to function kcml_create_command_frozen_v1()
+drop cascades to function kcml_audit_hash(integer,bytea,bigint,bytea)
+drop cascades to function kcml_create_idempotency_frozen_v1()
+drop cascades to function kcml_create_locator_frozen_v1()
+drop cascades to function kcml_create_outbox_frozen_v1()
+drop cascades to table generation_create_contract_pin
+drop cascades to table generation_create_authentication_acceptance
+drop cascades to table generation_create_trusted_context
+drop cascades to function kcml_generation_create_context_v1(uuid,bytea,bytea,bytea)
+drop cascades to table generation_create_command_binding
+drop cascades to function kcml_generation_command_context_consistency_v1()
+drop cascades to function kcml_generation_snapshot_schema_pin_v1()
+drop cascades to function kcml_generation_auth_request_binding_v1()
+drop cascades to table generation_create_preroot_snapshot
+drop cascades to table generation_create_preroot_outcome
+drop cascades to function kcml_generation_preroot_closure_v1()
+drop cascades to function kcml_generation_preroot_audit_link_v1()
+drop cascades to table generation_create_retained_error_tuple
+drop cascades to function kcml_generation_command_version_step_v1()
+drop cascades to table canonical_authenticated_crypto_profile
+drop cascades to table canonical_master_key_generation
+drop cascades to table canonical_protected_nonce_reservation
+drop cascades to function kcml_canonical_crypto_registry_immutable_v1()
+drop cascades to function kcml_crypto_compact_sorted_json_v1(jsonb)
+drop cascades to function kcml_generation_protected_registry_link_v1()
+drop cascades to function kcml_generation_create_read_storage_v1(uuid,uuid)
+drop cascades to function kcml_generation_lock_retained_locator_v1(uuid)
+NOTICE:  schema "kcml_retry_v1" does not exist, skipping
+{"status": "PASS", "checked": 5}

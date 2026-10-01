@@ -1,0 +1,33 @@
+{
+  "status": "BOUNDED_CANDIDATE_VERIFIED_NOT_ACTIVATED",
+  "inputCommit": "451b556067cb7cdd4f411cd742ab8fcaec8a379a",
+  "sourceDocumentSha256": "c754c27e744434588ee17e3074d1750003077149a6193efcccefbd05f88103a3",
+  "files": {
+    "original-frozen.sql": "438e4418d95a71e3b74e8b445a7c3bdf5c950cc9955087496df74147933309e5",
+    "ordering-repair.sql": "ee15530bbf6d140c428c6d94e92dfcef77d7dd0275bc2f2a88cf86d96a887fa3",
+    "side-effect-producer.sql": "d25687e5986d2efb62b495e4d989d1684420bfc7aefaeba380963fc4351a30cb",
+    "verify_ordered.py": "dc8b422f9b4ec2027118bbe38cd8e2f629b66aae6b6b663c9e9a76c3ec3023e3",
+    "verify_original_gap.py": "7ad40d07f054f1ef7f5484cbe9634183e5b9b9872e8ed0a22339beeeca3f44d4",
+    "lock-kind-migration.json": "b03256882b2c049e3aa7032273792baeeaee8cbaae068da81afeb7cc65db6ed1",
+    "original-order-gap.json": "630e50863797d7f2794db4a52a2604d9aed4ec8ffe211c1f986cfe9437178057",
+    "ledger-tests.json": "7a80f703d9c9b703407cbbf2e670986e995845e96941bc1a8326f6de6f420ee9"
+  },
+  "postgresqlVersion": "18.6",
+  "checks": 41,
+  "failed": 0,
+  "reusedHistoricalSetupChecks": 18,
+  "closedBoundedDefects": [
+    "GEN.RETRY.ORDER.PRE_CHECKPOINT_BEFORE_ATTEMPT",
+    "GEN.RETRY.ORDER.POST_CHECKPOINT_BEFORE_OUTCOME_ROWS",
+    "GEN.RETRY.ORDER.DISPATCH_OPERATION_BEFORE_STATE",
+    "GEN.RETRY.ORDER.EXPLICIT_PRIMARY_PARENT_AND_EVENT_KIND"
+  ],
+  "remaining": [
+    "GEN.RETRY.ORDER.RAW_EVIDENCE_SAME_H150_UUID_ORDER: append_evidence still acquires mutable state H150 before inserting evidence H150, UUID order may reverse; complete three-way attempt/state/evidence ordering and deferred FK before parent ordering closure.",
+    "GEN.RETRY.ORDER.PUBLISH_NATIVE_AND_TERMINAL_AUDIT: native projection, phase sealing, audited outcomes/reconciliation not covered by bounded lock proof.",
+    "Existing parent producer obligations for audit, UNKNOWN/OWNER compensation, native checkpoint source authority, whole failure classifier universe and final restricted installation remain OPEN."
+  ],
+  "wholeProducerClosed": false,
+  "wholeOperationClosed": false,
+  "integration": "Install original candidate then exact additive ordering-repair.sql into fresh fixture schema; coordinator integrates explicit new kind160 and parent columns before regeneration. This is a fresh unpublished candidate migration, not an online immutable-row backfill."
+}

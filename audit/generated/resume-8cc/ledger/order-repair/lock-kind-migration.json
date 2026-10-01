@@ -1,0 +1,83 @@
+{
+  "authority": "00_SSOT/KajovoCMLNG_SSOT.md \u00a751.6\u201351.7, \u00a749.8\u201349.9",
+  "migrationId": "KCML_EFFECT_LEDGER_LOCK_IDENTITY_V1",
+  "ownershipRoot": "public.generation_job(id), rootOrdinal90",
+  "kinds": [
+    {
+      "id": "GENERATION_PHASE_RUN",
+      "ordinal": 50,
+      "relation": "kcml_effect_v1.phase_run",
+      "rowId": "id",
+      "primaryParentColumn": "primary_parent_uuid",
+      "parentDerivation": "GENERATED ALWAYS AS(parent_id); parent_id FK generation_job"
+    },
+    {
+      "id": "GENERATION_CHECKPOINT",
+      "ordinal": 50,
+      "relation": "kcml_effect_v1.checkpoint",
+      "rowId": "id",
+      "primaryParentColumn": "primary_parent_uuid",
+      "parentDerivation": "GENERATED ALWAYS AS(parent_id); parent_id FK generation_job"
+    },
+    {
+      "id": "SIDE_EFFECT_OPERATION",
+      "ordinal": 140,
+      "relation": "kcml_effect_v1.operation",
+      "rowId": "id",
+      "primaryParentColumn": "primary_parent_uuid",
+      "parentDerivation": "GENERATED ALWAYS AS(parent_id); parent_id FK generation_job"
+    },
+    {
+      "id": "SIDE_EFFECT_ATTEMPT",
+      "ordinal": 150,
+      "relation": "kcml_effect_v1.attempt",
+      "rowId": "id",
+      "primaryParentColumn": "primary_parent_uuid",
+      "parentDerivation": "trusted BEFORE INSERT resolves operation.parent_id; explicit mismatch rejected; NOT NULL generation_job FK"
+    },
+    {
+      "id": "SIDE_EFFECT_ATTEMPT_STATE",
+      "ordinal": 150,
+      "relation": "kcml_effect_v1.state",
+      "rowId": "state_id",
+      "primaryParentColumn": "primary_parent_uuid",
+      "parentDerivation": "trusted BEFORE INSERT resolves operation.parent_id; explicit mismatch rejected; NOT NULL generation_job FK"
+    },
+    {
+      "id": "SIDE_EFFECT_RAW_EVIDENCE",
+      "ordinal": 150,
+      "relation": "kcml_effect_v1.evidence",
+      "rowId": "id",
+      "primaryParentColumn": "primary_parent_uuid",
+      "parentDerivation": "trusted BEFORE INSERT resolves operation.parent_id; explicit mismatch rejected; NOT NULL generation_job FK"
+    },
+    {
+      "id": "SIDE_EFFECT_EVENT_IMMUTABLE",
+      "ordinal": 160,
+      "relation": "kcml_effect_v1.event_identity + public.domain_event",
+      "rowId": "event_id/id",
+      "primaryParentColumn": "primary_parent_uuid",
+      "parentDerivation": "exact SIDE_EFFECT subtype resolves operation.parent_id; immutable one-to-one event FK and generation_job FK",
+      "allocation": "new explicit technical migration, never recycled",
+      "callsites": [
+        "kcml_effect_v1.record_intent",
+        "kcml_effect_v1.confirm_cas_v1"
+      ]
+    },
+    {
+      "id": "TRANSACTIONAL_OUTBOX",
+      "ordinal": 910,
+      "relation": "public.transactional_outbox",
+      "rowId": "id",
+      "parentDerivation": "existing outbox\u2192event\u2192event_identity\u2192generation_job; universal outbox parent migration outside bounded scope"
+    }
+  ],
+  "dedicatedAllocator": {
+    "class": "G",
+    "relation": "kcml_effect_v1.checkpoint_head",
+    "primaryParentColumn": "primary_parent_uuid",
+    "nonNull": true
+  },
+  "newKindOwnershipIsNotInferredFromNames": true,
+  "wholeLockUniverseClosed": false
+}

@@ -21,9 +21,16 @@
     "database/generation-locator-lock.sql",
     "database/generation-protected-registry-link.sql",
     "database/generation-preroot-frozen-archive.sql",
-    "database/canonical-key-invocation-receipts.sql"
+    "database/canonical-key-invocation-receipts.sql",
+    "database/generation-effect-ledger-producer.sql",
+    "database/generation-trusted-policy-publisher.sql",
+    "database/generation-ordered-context.sql",
+    "database/generation-ordered-retry-child.sql",
+    "database/generation-native-lineage.sql",
+    "database/generation-native-source-parent.sql"
   ],
   "historicalRead": "scripts/generation_read_hydration_archive.py",
+  "orderedNativeRetryContract": "contracts/generation/ordered-native-retry-handoffs.json",
   "ownerBindingPrerequisite": "Exact canonical owner_api_credential table and bootstrap/rotation producer; isolated root/credential fixture does not prove whole owner authority",
   "scopedAuthorityNorm": "SSOT12.56",
   "secretInstallationOrder": [

@@ -50,6 +50,7 @@
     "status": "BOUNDED_SQL_REFERENCE_VERIFIED_RECOVERY_PRODUCER_AND_PENDING_TRANSFER_OPEN"
   },
   "operationId": "generation.job.create",
+  "orderedNativeRetryContract": "contracts/generation/ordered-native-retry-handoffs.json",
   "producerArchive": "contracts/generation/producer-archive-handoffs.json",
   "protectedInput": {
     "productionKeySource": "SSOT8.4/50.30 encrypted systemd credential source, read-only per invocation",
@@ -88,7 +89,13 @@
     "database/generation-locator-lock.sql",
     "database/generation-protected-registry-link.sql",
     "database/generation-preroot-frozen-archive.sql",
-    "database/canonical-key-invocation-receipts.sql"
+    "database/canonical-key-invocation-receipts.sql",
+    "database/generation-effect-ledger-producer.sql",
+    "database/generation-trusted-policy-publisher.sql",
+    "database/generation-ordered-context.sql",
+    "database/generation-ordered-retry-child.sql",
+    "database/generation-native-lineage.sql",
+    "database/generation-native-source-parent.sql"
   ],
   "version": "GENERATION_CREATE_CHAIN_HANDOFFS_V1",
   "wholeOperationClosed": false

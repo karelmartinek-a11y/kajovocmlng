@@ -11,7 +11,7 @@ BASE = ROOT / 'audit/generated/resume-8cc'
 SQL = {
     'database/generation-trusted-policy-publisher.sql': 'archive/generation-trusted-policy-publisher.sql',
     'database/canonical-key-invocation-receipts.sql': 'key/key-invocation-receipts.sql',
-    'database/secret-owner-api-value-read.sql': 'broker/secret-owner-api-value-read.sql',
+    'database/secret-owner-api-value-read.sql': 'broker/root-status-ui/secret-owner-api-value-read.sql',
 }
 HELPERS = {
     'generation_own_kind_policy_v1.py': 'archive/generation_own_kind_policy_v1.py',
@@ -39,7 +39,7 @@ Hydration verifies exact same-root version, protected nonce/object/context/comma
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--block', choices=('key', 'read', 'archive', 'all'), required=True)
+    parser.add_argument('--block', choices=('key', 'read'), required=True)
     args = parser.parse_args()
     text = SSOT.read_text(); items = list(resources(text)); rs = resource_index(items)
     selected = lambda path: args.block == 'all' or path.split('/', 1)[0] == {'key': 'key', 'read': 'broker', 'archive': 'archive'}[args.block]
@@ -72,7 +72,7 @@ def main():
         text = text.replace('KCML-R9-RESOURCE path="' + name + '" kind="JSON"', 'KCML-R9-RESOURCE path="' + name + '" kind="SQL"')
     paragraphs = GENERATION_NORM.strip().split('\n\n')
     generation_norm = paragraphs[0] + '\n\n'
-    if 'database/generation-trusted-policy-publisher.sql' in rs or 'database/generation-trusted-policy-publisher.sql' in updates:
+    if ('database/generation-trusted-policy-publisher.sql' in rs or 'database/generation-trusted-policy-publisher.sql' in updates) and 'contracts/generation/ordered-native-retry-handoffs.json' not in rs:
         generation_norm += '\n\n'.join(paragraphs[1:3]) + '\n\n'
     if 'database/canonical-key-invocation-receipts.sql' in rs or 'database/canonical-key-invocation-receipts.sql' in updates:
         generation_norm += paragraphs[3] + '\n\n'

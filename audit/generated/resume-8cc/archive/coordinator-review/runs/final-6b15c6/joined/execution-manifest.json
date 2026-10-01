@@ -1,0 +1,49 @@
+{
+  "label": "joined",
+  "sourceDocumentSha256": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4",
+  "sourceUnchangedDuringRun": true,
+  "originalScripts": [
+    "audit/generated/resume-905/archive/review-joined/verify_joined_chain.py"
+  ],
+  "databaseIsolation": {
+    "archive_joined_905": "cr8_joined_archive_joined_905",
+    "archive_peer_key_fixed_905": "cr8_joined_archive_peer_key_fixed_905",
+    "auth_crypto_full_34d": "cr8_joined_auth_crypto_full_34d",
+    "archive_independent_sql_905": "cr8_joined_archive_independent_sql_905",
+    "generation_independent_review_fixture": "cr8_joined_generation_independent_review_fixture",
+    "retry_preserved_stage_8cc": "cr8_joined_retry_preserved_stage_8cc",
+    "independent_preroot_archive_sql905": "cr8_joined_independent_preroot_archive_sql905",
+    "pending_transfer_34d": "cr8_joined_pending_transfer_34d",
+    "secret_publication_review_905": "cr8_joined_secret_publication_review_905",
+    "secret_owner_review_905": "cr8_joined_secret_owner_review_905"
+  },
+  "actualDatabaseConnections": [
+    "cr8_joined_archive_joined_905",
+    "postgres"
+  ],
+  "executedPythonReads": [
+    {
+      "path": "audit/generated/resume-905/archive/review-joined/verify_joined_chain.py",
+      "originalSha256": "aa496f8e2451b05869131ac1b6cf93ae7711e55c1d700a62bb382c54f24bbb5f",
+      "executionSha256": "8ab7a52a6f6c15da09d5fe9eaabe691222fbbda14cf6b50ac9ba9c3c1949b1c3"
+    },
+    {
+      "path": "audit/generated/resume-34d/auth-crypto/verify_authenticated_full_chain.py",
+      "originalSha256": "021c801f3064c02621f700af2b6f70e2c0db551129e0c4fe50b0c0411df37b32",
+      "executionSha256": "5de75a1ab5a096238514bdc679c301c012f129b80a2ad3d0d7769906bdfa8748"
+    },
+    {
+      "path": "audit/generated/resume-d362/events/verify_combined_generation.py",
+      "originalSha256": "a38bc59879e56c02b361afe22a791af1477b57308f22f3a7483e10fd950f58dd",
+      "executionSha256": "a38bc59879e56c02b361afe22a791af1477b57308f22f3a7483e10fd950f58dd"
+    }
+  ],
+  "redirectedWrites": [
+    {
+      "originalPath": "/workspace/kajovocmlng/audit/generated/resume-905/archive/review-joined/joined-chain-proof.json",
+      "ownedPath": "/workspace/kajovocmlng/audit/generated/resume-8cc/archive/coordinator-review/runs/final-6b15c6/joined/tree/audit/generated/resume-905/archive/review-joined/joined-chain-proof.json",
+      "sha256": "d8570d2280e5e46d580fd162afa3902fe16fed43ef4f8e44a58c9842f4701cf2"
+    }
+  ],
+  "scope": "Original bounded fixture semantics; only isolated database names/audit output paths. No historical evidence source relabeling or whole-operation claim."
+}

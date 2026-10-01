@@ -1,0 +1,26 @@
+{
+  "status": "PASS_ACTUAL_CURRENT_SELECTED_INPUTS",
+  "currentSourceSha256": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4",
+  "executionSourceSha256": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4",
+  "liveActualRenders": 96,
+  "liveChecks": 1133,
+  "secretActualRenders": 4,
+  "secretDOMChecks": 41,
+  "sourceInputsByteEqualCanonical": true,
+  "canonicalSecretPageActuallyServed": true,
+  "reports": [
+    "live-render/audit/visual-validation.json",
+    "secret-dom-renders.json"
+  ],
+  "oldAdminRemaining": {
+    "status": "HISTORICAL_UNBOUND",
+    "count": 124,
+    "originalExecutionSourceSha256": "22256baa17729b7577ca4e2498b74b7dfc2b3e6bab57f3b88c338a059557a0ee",
+    "originalReportSha256": "bf82724101cec5fd6568a5775f1439fff8580aa6e8d97d756f6b46d1e990d454",
+    "newExecution": false,
+    "reason": "Old admin package report does not bind each served HTML/asset digest; do not promote124 historical renders to current PASS."
+  },
+  "manualAcceptance": "PENDING_FULL_VISUAL_UNIVERSE",
+  "implementationAcceptance": "NOT_EVALUATED",
+  "wholeUIClosed": false
+}

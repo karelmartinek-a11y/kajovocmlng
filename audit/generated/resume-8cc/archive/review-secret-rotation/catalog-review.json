@@ -1,0 +1,172 @@
+{
+  "constraints": [
+    [
+      "owner_rotation_completion_closure",
+      "t",
+      "true",
+      "true",
+      "TRIGGER DEFERRABLE INITIALLY DEFERRED"
+    ],
+    [
+      "rotation_projection_complet_previous_credential_versio_not_null",
+      "n",
+      "false",
+      "false",
+      "NOT NULL previous_credential_version"
+    ],
+    [
+      "rotation_projection_completi_previous_credential_epoch_not_null",
+      "n",
+      "false",
+      "false",
+      "NOT NULL previous_credential_epoch"
+    ],
+    [
+      "rotation_projection_completi_previous_credential_state_not_null",
+      "n",
+      "false",
+      "false",
+      "NOT NULL previous_credential_state"
+    ],
+    [
+      "rotation_projection_completio_event_id_logical_operation_i_fkey",
+      "f",
+      "true",
+      "true",
+      "FOREIGN KEY (event_id, logical_operation_id, secret_id) REFERENCES domain_event(id, logical_operation_id, aggregate_id) DEFERRABLE INITIALLY DEFERRED"
+    ],
+    [
+      "rotation_projection_completion_check",
+      "c",
+      "false",
+      "false",
+      "CHECK ((result_digest = sha256(semantic_result_bytes)))"
+    ],
+    [
+      "rotation_projection_completion_context_id_fkey",
+      "f",
+      "false",
+      "false",
+      "FOREIGN KEY (context_id) REFERENCES kcml_secret_v1.owner_api_context(id)"
+    ],
+    [
+      "rotation_projection_completion_context_id_not_null",
+      "n",
+      "false",
+      "false",
+      "NOT NULL context_id"
+    ],
+    [
+      "rotation_projection_completion_event_id_key",
+      "u",
+      "false",
+      "false",
+      "UNIQUE (event_id)"
+    ],
+    [
+      "rotation_projection_completion_event_id_not_null",
+      "n",
+      "false",
+      "false",
+      "NOT NULL event_id"
+    ],
+    [
+      "rotation_projection_completion_logical_operation_id_fkey",
+      "f",
+      "false",
+      "false",
+      "FOREIGN KEY (logical_operation_id) REFERENCES domain_command(logical_operation_id)"
+    ],
+    [
+      "rotation_projection_completion_logical_operation_id_not_null",
+      "n",
+      "false",
+      "false",
+      "NOT NULL logical_operation_id"
+    ],
+    [
+      "rotation_projection_completion_output_receipt_bytes_not_null",
+      "n",
+      "false",
+      "false",
+      "NOT NULL output_receipt_bytes"
+    ],
+    [
+      "rotation_projection_completion_pkey",
+      "p",
+      "false",
+      "false",
+      "PRIMARY KEY (logical_operation_id)"
+    ],
+    [
+      "rotation_projection_completion_previous_secret_epoch_not_null",
+      "n",
+      "false",
+      "false",
+      "NOT NULL previous_secret_epoch"
+    ],
+    [
+      "rotation_projection_completion_previous_secret_state_not_null",
+      "n",
+      "false",
+      "false",
+      "NOT NULL previous_secret_state"
+    ],
+    [
+      "rotation_projection_completion_result_digest_not_null",
+      "n",
+      "false",
+      "false",
+      "NOT NULL result_digest"
+    ],
+    [
+      "rotation_projection_completion_secret_id_not_null",
+      "n",
+      "false",
+      "false",
+      "NOT NULL secret_id"
+    ],
+    [
+      "rotation_projection_completion_secret_id_version_id_fkey",
+      "f",
+      "false",
+      "false",
+      "FOREIGN KEY (secret_id, version_id) REFERENCES kcml_secret_v1.secret_version(secret_id, id)"
+    ],
+    [
+      "rotation_projection_completion_semantic_result_bytes_not_null",
+      "n",
+      "false",
+      "false",
+      "NOT NULL semantic_result_bytes"
+    ],
+    [
+      "rotation_projection_completion_version_id_not_null",
+      "n",
+      "false",
+      "false",
+      "NOT NULL version_id"
+    ]
+  ],
+  "rolePrivileges": [
+    [
+      "agent",
+      "true",
+      "true",
+      "true",
+      "true"
+    ],
+    [
+      "kcml_domain_writer",
+      "false",
+      "false",
+      "false",
+      "false"
+    ]
+  ],
+  "tableOwner": [
+    [
+      "agent"
+    ]
+  ]
+}

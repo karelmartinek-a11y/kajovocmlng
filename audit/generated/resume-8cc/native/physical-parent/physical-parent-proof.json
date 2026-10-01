@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "checked": 6,
+  "checks": [
+    {
+      "case": "source-schema-physical-parent-digest-identity",
+      "passed": true
+    },
+    {
+      "case": "source-record-physical-parent-exact-stable-id",
+      "passed": true
+    },
+    {
+      "case": "child-lineage-physical-parent-server-child",
+      "passed": true
+    },
+    {
+      "case": "same-exact-schema-bytes-distinct-source-copy",
+      "passed": true
+    },
+    {
+      "case": "missing-source-parent-specific-not-null",
+      "passed": true
+    },
+    {
+      "case": "all-scope-copy-tests-rollback-exact-count",
+      "passed": true
+    }
+  ],
+  "sourceDocumentSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+  "candidateSqlSha256": "f7438826f9b988a1f1855072501799ce4938dcfdd74a3a0f61e5b1a311a22b75",
+  "postgresqlVersion": "18.6",
+  "wholeOperationClosed": false
+}

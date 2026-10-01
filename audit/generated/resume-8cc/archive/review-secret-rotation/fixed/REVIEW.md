@@ -1,0 +1,11 @@
+# Independent corrected bounded rotation review
+
+Actual PostgreSQL 18.6: all 49 bounded author assertions independently reproduced in `peer_owner_rotate_archive_fixed_8cc`; 11 independent peer assertions PASS, zero FAIL. The original five accepted defects are now specifically rejected: wrong native event type, aggregate kind, schema ID/digest, and cryptographically consistent audit bytes containing the wrong afterDigest. Stronger positive-derived substitutions also reject a real earlier valid same-root receipt with its matching SHA in event payload or audit afterDigest, and a different valid schema digest. The negative starts from current authenticated token/current CAS/body; each named diagnostic matches exactly, with rollback preserving heads.
+
+Executed candidate SQL `246204101460e3a4002cfe61f1871c7470eac0f99311116b5346799a4c2ce506`, helper `26aafaa7fed727b3792bc7c4cd4e38b62d85523417e14cfdcdadfdb11f9e979f`, source `2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536`. Every consumed byte stayed unchanged during execution. Original unsafe evidence remains in the parent/history paths.
+
+The source-projection review independently confirms current authoritative record rebuilt with only the declared payload/eventType specialization, exact authoritative envelope ID, and canonical proposed exact event schema digest. The enclosing payload resource changed (Secret command/read integration), while rebuilding this candidate from the current selected rotation event record produces exactly the same proposal. The proposal's `sourceSha256` is historical provenance; it is not relabeled to the current source. This precise payload specialization remains explicitly inactive until coordinator normative integration. A syntactically valid schema or owner approval alone is not operation closure.
+
+The public adapter still refuses an explicit empty invalidation inventory. Actual root canonical AEAD opens persisted synthetic bytes; true systemd credential/genesis/global-nonce producers are excluded. Full invalidation inventory and rotation remain OPEN; implementation acceptance NOT_EVALUATED. No deployed narrow-role completion writer was fabricated.
+
+Reproduce: `PYTHONDONTWRITEBYTECODE=1 /tmp/ssot-audit-venv/bin/python audit/generated/resume-8cc/archive/review-secret-rotation/fixed/verify_rotation_peer.py`.

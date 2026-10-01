@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "checked": 6,
+  "checks": [
+    {
+      "case": "CONFIRMED_NOT_APPLIED-discussion-admitted",
+      "passed": true
+    },
+    {
+      "case": "CONFIRMED_NOT_APPLIED-execution-own-policy",
+      "passed": true,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "CONFIRMED_NOT_APPLIED-invalid-stage",
+      "passed": true,
+      "actualDiagnostic": "GENERATION_RETRY_STAGE_INVALID"
+    },
+    {
+      "case": "CONFIRMED_APPLIED-discussion-admitted",
+      "passed": true
+    },
+    {
+      "case": "CONFIRMED_APPLIED-execution-own-policy",
+      "passed": true,
+      "actualDiagnostic": "GENERATION_RETRY_CONFIRMED_EFFECT_REPEAT_FORBIDDEN"
+    },
+    {
+      "case": "CONFIRMED_APPLIED-invalid-stage",
+      "passed": true,
+      "actualDiagnostic": "GENERATION_RETRY_STAGE_INVALID"
+    }
+  ],
+  "sourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "candidateSha256": "8b337930afb9764031b04d5831c2a1a716ccbc606422d63dca861ec4004f2749",
+  "scope": "Isolated valid-positive-derived admission vs execution semantics; synthetic evidence is not a producer proof",
+  "wholeOperationClosed": false
+}

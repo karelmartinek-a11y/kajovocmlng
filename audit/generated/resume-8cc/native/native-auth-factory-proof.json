@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "checked": 5,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "actual-owner-auth-precise-create-root-commit",
+      "passed": true,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "retry-plaintext-is-native-retry-not-create",
+      "passed": true,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "retry-authenticated-snapshot-opens-exact-native-input",
+      "passed": true,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "credential-share-held-through-native-retry-snapshot",
+      "passed": true,
+      "actualDiagnostic": [
+        "LOCK_TIMEOUT"
+      ]
+    },
+    {
+      "case": "uncommitted-native-child-context-rolls-back",
+      "passed": true,
+      "actualDiagnostic": null
+    }
+  ],
+  "sourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "postgresqlVersion": "18.6",
+  "canonicalInputs": {
+    "database/generation-create-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "database/generation-create-authentication.sql": "9ec7558ed51a0a38558b123cdc7d6fb76d4de485440f2fd8607478b414e70285",
+    "database/canonical-crypto-registry.sql": "773310806845b2754bdd2675ee1a27ed7cc96697f54bccdcac2648ba9cd1c7d4",
+    "database/generation-protected-registry-link.sql": "d3362763a573d1dbef8eaf53aa8ad4d91eb288047cebe987f2e38baf0b977fb1",
+    "database/generation-locator-lock.sql": "848af8c448f16c3bdfddfbdd213dadf634eb7af9a929a91f5470cd96082592fb"
+  },
+  "consumedSupportSha256": {
+    "audit/generated/resume-8cc/native/verify_native_auth_factory.py": "da7d00f44f441f21199408db0d78f4ec6d37de1ce2177bcd81bbca2a8a8fb428",
+    "audit/generated/resume-8cc/native/native_auth_factory.py": "25a79eb9b6a9a23a95820bb271640bc7a2eb1841fa66d9a567923015eff59ba2",
+    "scripts/generation_auth_acceptance.py": "382ef3a708d1b1699282149068206ecda46950a7a293faf0f8fde28b5a853bdc",
+    "scripts/generation_auth_crypto.py": "5cfd85a6b0d7852509e8301b7a0b38f3e315ad292094544733a89f9b1939d259"
+  },
+  "wholeOperationClosed": false,
+  "limits": [
+    "No current trusted transport-ceiling producer; isolated fixture value4096 is not normative",
+    "Key issuance is random isolated fixture, not systemd credential-source evidence",
+    "Native RETRY locked eligibility/producer/child commit is next integration dependency; no relabelled CREATE snapshot proof",
+    "Historical native selector fixture only supplies source bytes; actual server phase/approval producers not asserted"
+  ]
+}

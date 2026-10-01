@@ -12,10 +12,22 @@ PROOFS={
  'preroot':BASE+'sql/review-preroot-archive/independent-transfer-proof.json',
  'retry-stage':'audit/generated/resume-8cc/key/review-stage/integrated-stage-proof.json',
 }
+# A fixed complete label universe; an explicitly selected current execution map
+# cannot remove obligations. Missing/malformed maps produce structured BLOCKED.
+PROOF_MAPPING='audit/generated/resume-8cc/coordinator/current-bounded-evidence.json'
+MAPPING_ERROR=None
+if (ROOT/PROOF_MAPPING).exists():
+ try:
+  current=json.loads((ROOT/PROOF_MAPPING).read_text())
+  if set(current)!=set(PROOFS) or not all(isinstance(p,str) and p.startswith('audit/') and '..'not in p.split('/') for p in current.values()):raise ValueError('INVALID_COMPLETE_EVIDENCE_MAP')
+  PROOFS=current
+ except (OSError,ValueError,TypeError) as exc:MAPPING_ERROR=type(exc).__name__+': '+str(exc)
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
  source=sha(SSOT);rs=resource_index();checks=[];evidence=[]
  def check(n,ok):checks.append({'case':n,'passed':bool(ok)})
+ check('complete-selected-evidence-map',MAPPING_ERROR is None)
+ if (ROOT/PROOF_MAPPING).exists():evidence.append({'path':PROOF_MAPPING,'sha256':sha(ROOT/PROOF_MAPPING),'diagnostic':MAPPING_ERROR})
  for label,name in PROOFS.items():
   p=ROOT/name
   if not p.exists():check(label+'/missing-required-proof',False);continue

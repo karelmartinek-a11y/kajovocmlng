@@ -1,0 +1,104 @@
+{
+  "status": "PARTIAL",
+  "wholeOperationClosed": false,
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED",
+  "files": {
+    "audit/generated/resume-8cc/native/verify_ordered_chain.py": "d7b049f24fec4d2f8c650529263a96f399f3e5d375ba5750e614a96a8be18ee1",
+    "audit/generated/resume-8cc/native/native_auth_factory.py": "e69f927e95c7366544bc75bbfea9e5b119f4c1c48d22a811e880a6549859b741",
+    "audit/generated/resume-8cc/native/native_basis_factory.py": "a63972defadfc5be61cc7fc54eab909668c0477fcacb709b4e050aad9aad432a",
+    "audit/generated/resume-8cc/native/owner_api_ordered_auth.py": "8588f29ef693da3c686ce8204ad09e820e9339f0d2acb30d49ba2f1e3f084a88",
+    "audit/generated/resume-8cc/native/ordered_generation_factory.py": "b2bee700367fbe0ef7949558dc9ade8d5de65d598c71672c72e739eb36050b86",
+    "audit/generated/resume-8cc/native/generation-ordered-context.sql": "760765740b6fbb0cdbc2b2ed2964a115078cbba49debca900030fe5af6b6b4ac",
+    "audit/generated/resume-8cc/native/generation-ordered-child.sql": "f2293824868859c86bd4e23354440a3eb848b7ff1188f5ba4c409e055c38bab1",
+    "audit/generated/resume-8cc/native/generation-native-lineage.sql": "5f75ac3a184945bad36addffaf7846333e3d9a2fa861948a11124788cc3ec785",
+    "audit/generated/resume-8cc/native/physical-parent/native-source-parent.sql": "f7438826f9b988a1f1855072501799ce4938dcfdd74a3a0f61e5b1a311a22b75",
+    "audit/generated/resume-8cc/native/physical-parent/lock-kind-migration.json": "a7c7cd31de160e8ee37d9269cec4b4e8f53b658e9f08db9af2e6b1fe96548c80"
+  },
+  "proofs": [
+    {
+      "path": "audit/generated/resume-8cc/native/native-retry-ordered-chain-proof.json",
+      "sha256": "9a2e657f4c0df494690688958ad6d0ca1c21255d26a78184cc16b650e72f947f",
+      "sourceDocumentSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "passed": 27
+    },
+    {
+      "path": "audit/generated/resume-8cc/native/native-retry-ordered-child-first-proof.json",
+      "sha256": "9a2e657f4c0df494690688958ad6d0ca1c21255d26a78184cc16b650e72f947f",
+      "sourceDocumentSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "passed": 27
+    },
+    {
+      "path": "audit/generated/resume-8cc/native/review-ledger-order-v2/ledger-tests.json",
+      "sha256": "3fad49ac175ce9525cbc5041dd38f44e9425443c5ee16a2112709084762967b5",
+      "sourceDocumentSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "passed": 48
+    },
+    {
+      "path": "audit/generated/resume-8cc/native/physical-parent/physical-parent-proof.json",
+      "sha256": "7e3a198a0c487b2e7ffbd79b7489e3290cfc83b514d89ba3a180a0ab748fb201",
+      "sourceDocumentSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+      "passed": 6
+    }
+  ],
+  "canonicalResourceMapping": {
+    "database/generation-create-foundations.sql": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+    "database/generation-create-authentication.sql": "9ec7558ed51a0a38558b123cdc7d6fb76d4de485440f2fd8607478b414e70285",
+    "database/canonical-crypto-registry.sql": "773310806845b2754bdd2675ee1a27ed7cc96697f54bccdcac2648ba9cd1c7d4",
+    "database/generation-protected-registry-link.sql": "d3362763a573d1dbef8eaf53aa8ad4d91eb288047cebe987f2e38baf0b977fb1",
+    "database/generation-locked-retry.sql": "a18aba72b317ae6fac0a86c153eb914de6b4fda6916f02a0c612a235b2f07835",
+    "database/generation-retry-producer-child.sql": "b7fecb14a941044594ee4488ec973a17c484c5d712ddbf44462a2d24124851fb",
+    "database/generation-frozen-archive.sql": "2a6dce3b0a8a3f82b47576b371a6870ac2c0543ed85ac50e0b63d8ccced4f0ca"
+  },
+  "candidateInputs": {
+    "audit/generated/resume-8cc/native/verify_ordered_chain.py": "d7b049f24fec4d2f8c650529263a96f399f3e5d375ba5750e614a96a8be18ee1",
+    "audit/generated/resume-8cc/native/native_auth_factory.py": "e69f927e95c7366544bc75bbfea9e5b119f4c1c48d22a811e880a6549859b741",
+    "audit/generated/resume-8cc/native/native_basis_factory.py": "a63972defadfc5be61cc7fc54eab909668c0477fcacb709b4e050aad9aad432a",
+    "audit/generated/resume-8cc/native/generation-native-lineage.sql": "5f75ac3a184945bad36addffaf7846333e3d9a2fa861948a11124788cc3ec785",
+    "audit/generated/resume-8cc/native/physical-parent/native-source-parent.sql": "f7438826f9b988a1f1855072501799ce4938dcfdd74a3a0f61e5b1a311a22b75",
+    "audit/generated/resume-8cc/native/generation_locked_retry_admission.py": "8b337930afb9764031b04d5831c2a1a716ccbc606422d63dca861ec4004f2749",
+    "audit/generated/resume-8cc/native/ordered_generation_factory.py": "b2bee700367fbe0ef7949558dc9ade8d5de65d598c71672c72e739eb36050b86",
+    "audit/generated/resume-8cc/native/owner_api_ordered_auth.py": "8588f29ef693da3c686ce8204ad09e820e9339f0d2acb30d49ba2f1e3f084a88",
+    "audit/generated/resume-8cc/native/generation-ordered-context.sql": "760765740b6fbb0cdbc2b2ed2964a115078cbba49debca900030fe5af6b6b4ac",
+    "audit/generated/resume-8cc/native/generation-ordered-child.sql": "f2293824868859c86bd4e23354440a3eb848b7ff1188f5ba4c409e055c38bab1",
+    "audit/generated/resume-8cc/ledger/order-repair-v2/side-effect-producer.sql": "4ce2e51d7d98e6234a617928ce6db19cb3199db56d1364a60094e879f91eb274",
+    "audit/generated/resume-8cc/archive/late-ticket/generation-trusted-policy-publisher.sql": "283d15a232f16faa62b63404c707fdb70765c7fa6a9336b51b1268fdabe88ca8",
+    "audit/generated/resume-8cc/archive/generation_policy_package.py": "a741d0014faeed3887f75eb17ef37638352528d3b79f2e2bd051cee9d842b35f",
+    "audit/generated/resume-8cc/archive/generation_own_kind_policy_v1.py": "0085630bd1af36c30b1911a0fcf7debaef48a0e07518fdadc20400e96a16a3fa"
+  },
+  "independentLedgerReproduction": {
+    "database": "native_peer_effect_order_8cc",
+    "candidateSqlSha256": "d25687e5986d2efb62b495e4d989d1684420bfc7aefaeba380963fc4351a30cb",
+    "passed": 41,
+    "setupIsSyntheticAuth": true,
+    "wholeOperationClosed": false
+  },
+  "remaining": [
+    "AUTH.TRANSPORT trusted ceiling producer OPEN;4096 fixtureonly",
+    "Canonical encrypted systemd actual source independent;randomfixturekeys do not prove it",
+    "Original SQL.HELPERS.CONCRETE_CALL_SITES generic wrapper not replaced by direct adapter",
+    "KnownTechnicalFailureResult current bounded FENCING_TOKEN_STALE producer is exercised; other predicates/phase lifecycle remain outside this proof",
+    "Source OWNER approval/graph/binding/budget/observation-schema producers and activation remain independent OPEN; archive availability is not semantic authority",
+    "Complete immutable child ordinal migration map and generic callsite integration still OPEN; corrected A/B\u2192C\u2192sortedE\u2192H producer is bounded proposal",
+    "Nonce recorded after seal in primitive fixture; real global producer ordering independent",
+    "Browser/UI/public gateway runtime not evaluated"
+  ],
+  "installation": "INSTALLATION.md",
+  "qualifiedCandidateBothOrdersCurrentSource": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+  "independentLedgerReproductionV2": {
+    "path": "audit/generated/resume-8cc/native/review-ledger-order-v2/ledger-tests.json",
+    "passed": 48,
+    "candidateSqlSha256": "4ce2e51d7d98e6234a617928ce6db19cb3199db56d1364a60094e879f91eb274",
+    "actualOriginalAndFixedRowLockCounterProbes": true,
+    "database": "native_peer_effect_order_v2_8cc"
+  },
+  "physicalParentProof": "audit/generated/resume-8cc/native/physical-parent/physical-parent-proof.json",
+  "historicalProofs": [
+    {
+      "path": "audit/generated/resume-8cc/native/review-ledger-order/ledger-tests.json",
+      "sha256": "0f97093b3f177058c5e15715337d830a062bcf14b3f86edb85a602aec19ba41d",
+      "sourceDocumentSha256": "8a1f2f79a48777a914f7ac397100ee651d765bfee4d8f6bb3787859a6b862d96",
+      "passed": 41
+    }
+  ],
+  "independentNativeReview": "audit/generated/resume-8cc/key/review-ordered-native/independent-review.json"
+}

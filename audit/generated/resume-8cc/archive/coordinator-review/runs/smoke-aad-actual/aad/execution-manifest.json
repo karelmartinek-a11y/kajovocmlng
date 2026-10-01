@@ -1,0 +1,49 @@
+{
+  "label": "aad",
+  "sourceDocumentSha256": "3edb2dafec4d93370d0f8ece759fee5b9d84cf50f59f28f89eb54498612ae247",
+  "sourceUnchangedDuringRun": true,
+  "originalScripts": [
+    "audit/generated/resume-905/archive/review-key/verify_peer_key_fixed.py"
+  ],
+  "databaseIsolation": {
+    "archive_joined_905": "cr8_aad_archive_joined_905",
+    "archive_peer_key_fixed_905": "cr8_aad_archive_peer_key_fixed_905",
+    "auth_crypto_full_34d": "cr8_aad_auth_crypto_full_34d",
+    "archive_independent_sql_905": "cr8_aad_archive_independent_sql_905",
+    "generation_independent_review_fixture": "cr8_aad_generation_independent_review_fixture",
+    "retry_preserved_stage_8cc": "cr8_aad_retry_preserved_stage_8cc",
+    "independent_preroot_archive_sql905": "cr8_aad_independent_preroot_archive_sql905",
+    "pending_transfer_34d": "cr8_aad_pending_transfer_34d",
+    "secret_publication_review_905": "cr8_aad_secret_publication_review_905",
+    "secret_owner_review_905": "cr8_aad_secret_owner_review_905"
+  },
+  "actualDatabaseConnections": [
+    "cr8_aad_archive_peer_key_fixed_905",
+    "postgres"
+  ],
+  "executedPythonReads": [
+    {
+      "path": "audit/generated/resume-905/archive/review-key/verify_peer_key_fixed.py",
+      "originalSha256": "bc41dfc6cc605af9e4439ca7c5fed9ed566ffc5a137cef0593c701c3823f7fe4",
+      "executionSha256": "40a7513d9f93d083c21969578bc7800b9bec835705491722c3b419e23e642c89"
+    },
+    {
+      "path": "audit/generated/resume-34d/auth-crypto/verify_authenticated_full_chain.py",
+      "originalSha256": "021c801f3064c02621f700af2b6f70e2c0db551129e0c4fe50b0c0411df37b32",
+      "executionSha256": "9d19579219a4c83770c01ae85f42a21c38d682acbebb2f01e8228078bc573632"
+    },
+    {
+      "path": "audit/generated/resume-d362/events/verify_combined_generation.py",
+      "originalSha256": "a38bc59879e56c02b361afe22a791af1477b57308f22f3a7483e10fd950f58dd",
+      "executionSha256": "a38bc59879e56c02b361afe22a791af1477b57308f22f3a7483e10fd950f58dd"
+    }
+  ],
+  "redirectedWrites": [
+    {
+      "originalPath": "/workspace/kajovocmlng/audit/generated/resume-905/archive/review-key/peer-key-fixed-proof.json",
+      "ownedPath": "/workspace/kajovocmlng/audit/generated/resume-8cc/archive/coordinator-review/runs/smoke-aad-actual/aad/tree/audit/generated/resume-905/archive/review-key/peer-key-fixed-proof.json",
+      "sha256": "648ccf9de211af0fc89124f434fa4d715bcc7a4baf15fb55a1f82824bed64edc"
+    }
+  ],
+  "scope": "Original bounded fixture semantics; only isolated database names/audit output paths. No historical evidence source relabeling or whole-operation claim."
+}

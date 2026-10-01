@@ -1,0 +1,543 @@
+{
+  "sourceDocumentSha256": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4",
+  "status": "PASS",
+  "checked": 122,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "joined/current-execution-source",
+      "passed": true
+    },
+    {
+      "case": "joined/actual-positive-derived-results",
+      "passed": true
+    },
+    {
+      "case": "joined/actual-PG18_6",
+      "passed": true
+    },
+    {
+      "case": "joined/canonical-resource:database/generation-create-foundations.sql",
+      "passed": true
+    },
+    {
+      "case": "joined/canonical-resource:database/generation-create-authentication.sql",
+      "passed": true
+    },
+    {
+      "case": "joined/canonical-resource:database/generation-create-preroot.sql",
+      "passed": true
+    },
+    {
+      "case": "joined/canonical-resource:database/canonical-crypto-registry.sql",
+      "passed": true
+    },
+    {
+      "case": "joined/canonical-resource:database/generation-protected-registry-link.sql",
+      "passed": true
+    },
+    {
+      "case": "joined/canonical-resource:database/generation-frozen-archive.sql",
+      "passed": true
+    },
+    {
+      "case": "joined/canonical-resource:database/generation-preroot-frozen-archive.sql",
+      "passed": true
+    },
+    {
+      "case": "joined/canonical-resource:database/generation-create-read.sql",
+      "passed": true
+    },
+    {
+      "case": "joined/consumed-code:audit/generated/resume-905/archive/review-joined/verify_joined_chain.py",
+      "passed": true
+    },
+    {
+      "case": "joined/consumed-code:scripts/generation_auth_crypto.py",
+      "passed": true
+    },
+    {
+      "case": "joined/consumed-code:scripts/generation_auth_acceptance.py",
+      "passed": true
+    },
+    {
+      "case": "joined/consumed-code:scripts/generation_frozen_archive.py",
+      "passed": true
+    },
+    {
+      "case": "joined/consumed-code:scripts/generation_request_policy_v1.py",
+      "passed": true
+    },
+    {
+      "case": "joined/consumed-code:scripts/generation_read_hydration_archive.py",
+      "passed": true
+    },
+    {
+      "case": "joined/consumed-code:scripts/generation_create_consumer_archive.py",
+      "passed": true
+    },
+    {
+      "case": "joined/required:one-auth-protected-archive-root-event-commit",
+      "passed": true
+    },
+    {
+      "case": "joined/required:independent-observer-sees-entire-committed-chain",
+      "passed": true
+    },
+    {
+      "case": "joined/required:actual-postcommit-protected-open-archive-hydration-domain-consumer",
+      "passed": true
+    },
+    {
+      "case": "joined/required:missing-archive-rollback-removes-whole-connected-chain",
+      "passed": true
+    },
+    {
+      "case": "joined/required:protected-context-swap-rejected-after-valid-archive",
+      "passed": true
+    },
+    {
+      "case": "joined/required:available-historical-mask-cannot-replace-root-frozen-pin",
+      "passed": true
+    },
+    {
+      "case": "retry/current-execution-source",
+      "passed": true
+    },
+    {
+      "case": "retry/actual-positive-derived-results",
+      "passed": true
+    },
+    {
+      "case": "retry/actual-PG18_6",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:audit/generated/resume-34d/auth-crypto/libpq_fixture.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:audit/generated/resume-8cc/archive/coordinator-review/run_bounded_fixture.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:audit/generated/resume-8cc/coordinator/preserved-retry/verify_producer_child.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:audit/generated/resume-d362/admission/generation_admission_fixtures.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:audit/generated/resume-d362/admission/generation_admission_reference.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:audit/generated/resume-d362/admission/generation_retry_inventory_fixtures.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:audit/generated/resume-d362/events/verify_combined_generation.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:audit/generated/resume-d362/persistence/context_fixture_exports.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:audit/generated/resume-d362/persistence/generation_descriptor_registry.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:audit/generated/resume-d362/review/verify_scoped_generation_links.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:scripts/author_resource_updates.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:scripts/close_create_error_presentation.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:scripts/create_completion_contracts.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:scripts/create_operation_contracts.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:scripts/create_replay_contract.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:scripts/follow_up_contracts.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:scripts/generation_admission_contracts.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:scripts/generation_basis_selectors.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:scripts/generation_locked_retry.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:scripts/generation_retry_inventory.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:scripts/phase2_repair_handoffs.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:scripts/secret_profile_import.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:scripts/secret_profile_parsers.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:scripts/secret_profile_reference.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:scripts/ssot_sources.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:scripts/verify_create_completion.py",
+      "passed": true
+    },
+    {
+      "case": "retry/consumed-code:scripts/verify_phase2_handoffs.py",
+      "passed": true
+    },
+    {
+      "case": "retry/exact-producer-child-SQL",
+      "passed": true
+    },
+    {
+      "case": "retry/required-code-binding:scripts/generation_locked_retry.py",
+      "passed": true
+    },
+    {
+      "case": "retry/required-code-binding:scripts/generation_retry_inventory.py",
+      "passed": true
+    },
+    {
+      "case": "retry/required-code-binding:scripts/generation_admission_contracts.py",
+      "passed": true
+    },
+    {
+      "case": "archive/current-execution-source",
+      "passed": true
+    },
+    {
+      "case": "archive/actual-positive-derived-results",
+      "passed": true
+    },
+    {
+      "case": "archive/actual-PG18_6",
+      "passed": true
+    },
+    {
+      "case": "archive/consumed-code:verify_archive.py",
+      "passed": true
+    },
+    {
+      "case": "archive/consumed-code:generation_frozen_archive.py",
+      "passed": true
+    },
+    {
+      "case": "archive/consumed-code:generation_request_policy_v1.py",
+      "passed": true
+    },
+    {
+      "case": "archive/consumed-code:generation_create_consumer_archive.py",
+      "passed": true
+    },
+    {
+      "case": "archive/consumed-code:generation_read_hydration_archive.py",
+      "passed": true
+    },
+    {
+      "case": "archive/exact-durable-archive-SQL",
+      "passed": true
+    },
+    {
+      "case": "aad/current-execution-source",
+      "passed": true
+    },
+    {
+      "case": "aad/actual-positive-derived-results",
+      "passed": true
+    },
+    {
+      "case": "aad/actual-PG18_6",
+      "passed": true
+    },
+    {
+      "case": "aad/canonical-resource:database/generation-create-foundations.sql",
+      "passed": true
+    },
+    {
+      "case": "aad/canonical-resource:database/generation-create-authentication.sql",
+      "passed": true
+    },
+    {
+      "case": "aad/canonical-resource:database/generation-create-preroot.sql",
+      "passed": true
+    },
+    {
+      "case": "aad/canonical-resource:database/canonical-crypto-registry.sql",
+      "passed": true
+    },
+    {
+      "case": "aad/canonical-resource:database/generation-frozen-archive.sql",
+      "passed": true
+    },
+    {
+      "case": "aad/canonical-resource:database/generation-preroot-frozen-archive.sql",
+      "passed": true
+    },
+    {
+      "case": "aad/consumed-code:audit/generated/resume-905/archive/review-key/verify_peer_key_fixed.py",
+      "passed": true
+    },
+    {
+      "case": "aad/consumed-code:audit/generated/resume-34d/auth-crypto/verify_authenticated_full_chain.py",
+      "passed": true
+    },
+    {
+      "case": "aad/consumed-code:scripts/generation_auth_crypto.py",
+      "passed": true
+    },
+    {
+      "case": "aad/consumed-code:scripts/generation_auth_acceptance.py",
+      "passed": true
+    },
+    {
+      "case": "aad/consumed-code:scripts/create_operation_contracts.py",
+      "passed": true
+    },
+    {
+      "case": "aad/exact-byte-guard-SQL",
+      "passed": true
+    },
+    {
+      "case": "secret/current-execution-source",
+      "passed": true
+    },
+    {
+      "case": "secret/actual-PG18_6",
+      "passed": true
+    },
+    {
+      "case": "secret/all-required-subproofs",
+      "passed": true
+    },
+    {
+      "case": "secret/all-required-canonical-modules",
+      "passed": true
+    },
+    {
+      "case": "secret/bound-report:publication-postgres-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/subproof-current:publication-postgres-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/subproof-executed-results:publication-postgres-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/bound-report:owner-binding-postgres-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/subproof-current:owner-binding-postgres-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/subproof-executed-results:owner-binding-postgres-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/bound-report:safe-role-postgres-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/subproof-current:safe-role-postgres-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/subproof-executed-results:safe-role-postgres-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/bound-report:additional-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/subproof-current:additional-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/subproof-executed-results:additional-tests.json",
+      "passed": true
+    },
+    {
+      "case": "secret/canonical-resource:database/secret-profile-roots.sql",
+      "passed": true
+    },
+    {
+      "case": "secret/canonical-resource:database/secret-profile-publication.sql",
+      "passed": true
+    },
+    {
+      "case": "secret/canonical-resource:database/secret-owner-binding.sql",
+      "passed": true
+    },
+    {
+      "case": "ui/current-execution-source",
+      "passed": true
+    },
+    {
+      "case": "ui/actual-positive-derived-results",
+      "passed": true
+    },
+    {
+      "case": "ui/actual-root-adapter",
+      "passed": true
+    },
+    {
+      "case": "preroot/current-execution-source",
+      "passed": true
+    },
+    {
+      "case": "preroot/actual-positive-derived-results",
+      "passed": true
+    },
+    {
+      "case": "preroot/actual-PG18_6",
+      "passed": true
+    },
+    {
+      "case": "preroot/exact-canonical-preroot-archive-SQL",
+      "passed": true
+    },
+    {
+      "case": "retry-stage/current-execution-source",
+      "passed": true
+    },
+    {
+      "case": "retry-stage/actual-positive-derived-results",
+      "passed": true
+    },
+    {
+      "case": "retry-stage/consumed-code:audit/generated/resume-8cc/key/review-stage/verify_named_stage.py",
+      "passed": true
+    },
+    {
+      "case": "retry-stage/consumed-code:audit/generated/resume-8cc/key/review-stage/generation_locked_retry_named.py",
+      "passed": true
+    },
+    {
+      "case": "retry-stage/consumed-code:scripts/generation_locked_retry.py",
+      "passed": true
+    },
+    {
+      "case": "retry-stage/consumed-code:scripts/generation_retry_inventory.py",
+      "passed": true
+    },
+    {
+      "case": "retry-stage/consumed-code:audit/generated/resume-8cc/native/generation_locked_retry_admission.py",
+      "passed": true
+    },
+    {
+      "case": "retry-stage/integrated-helper-bound",
+      "passed": true
+    },
+    {
+      "case": "retry-stage/required:integrated-discussion-CONFIRMED_APPLIED",
+      "passed": true
+    },
+    {
+      "case": "retry-stage/required:integrated-discussion-FAILED_FINAL",
+      "passed": true
+    },
+    {
+      "case": "retry-stage/required:integrated-execution-CONFIRMED_APPLIED",
+      "passed": true
+    },
+    {
+      "case": "retry-stage/required:integrated-execution-FAILED_FINAL",
+      "passed": true
+    },
+    {
+      "case": "retry-stage/required:actual-scan-byte-mutation",
+      "passed": true
+    },
+    {
+      "case": "retry-stage/required:classifier-digest-mutation",
+      "passed": true
+    }
+  ],
+  "evidence": [
+    {
+      "path": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-6b15c6/joined/tree/audit/generated/resume-905/archive/review-joined/joined-chain-proof.json",
+      "sha256": "d8570d2280e5e46d580fd162afa3902fe16fed43ef4f8e44a58c9842f4701cf2",
+      "executionSource": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4"
+    },
+    {
+      "path": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-6b15c6/retry/tree/audit/generated/resume-8cc/coordinator/preserved-retry/producer-child-tests.json",
+      "sha256": "88952a4f2bc178511cc8e98eb614c0cd1e130fcc7877743978adca4d5d47d75c",
+      "executionSource": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4"
+    },
+    {
+      "path": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-6b15c6/archive/tree/audit/generated/resume-905/sql/review-consumers/archive/archive-proof.json",
+      "sha256": "e7e89bc7426b0dc06e1fba290c3451ea192de9ed825c0ae1b5e6b138c0c200b2",
+      "executionSource": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4"
+    },
+    {
+      "path": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-6b15c6/aad/tree/audit/generated/resume-905/archive/review-key/peer-key-fixed-proof.json",
+      "sha256": "b6aa6686f21d0cd6871126a89e06bda7a9da7998aac518c0388ee166369a7c20",
+      "executionSource": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4"
+    },
+    {
+      "path": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-6b15c6/secret/tree/audit/generated/resume-905/consumers/review-secrets/canonical-independent-review.json",
+      "sha256": "640eb0255e98d0f6f5b76f9122df329eef1f027b8d7cac43c18ef9a95191d286",
+      "executionSource": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4"
+    },
+    {
+      "path": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-6b15c6/ui/tree/audit/generated/resume-905/sql/review-consumers/independent-consumer-review.json",
+      "sha256": "cc62c71383e741804b50a80a11001095c54fd33e06b59f5a19d6d7fe531ccb30",
+      "executionSource": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4"
+    },
+    {
+      "path": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-6b15c6/preroot/tree/audit/generated/resume-905/sql/review-preroot-archive/independent-transfer-proof.json",
+      "sha256": "296157bf50a397dcede96fc99cfcd0698bc36e0ce7b1e10a77155b314b3c8221",
+      "executionSource": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4"
+    },
+    {
+      "path": "audit/generated/resume-8cc/archive/coordinator-review/runs/final-6b15c6/retry-stage/tree/audit/generated/resume-8cc/key/review-stage/integrated-stage-proof.json",
+      "sha256": "d1231d75da6f291b80b2e9bdf99c95758e48b66c7c2af34e4867ff8f6290bcdd",
+      "executionSource": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4"
+    }
+  ],
+  "scope": "Current connected pre-generation fixtures; whole operation and systemd remain open.",
+  "wholeOperationClosed": false,
+  "systemdSourceProof": "BLOCKED_ENVIRONMENT",
+  "SSOT_CONTRACT_READY": "BLOCKED",
+  "IMPLEMENTATION_PRODUCTION_ACCEPTANCE": "NOT_EVALUATED"
+}

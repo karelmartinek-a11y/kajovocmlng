@@ -1,0 +1,100 @@
+{
+  "status": "PASS",
+  "postgresqlVersion": "18.6",
+  "installedFunctions": [
+    [
+      "kcml_native_basis_v1",
+      "closure",
+      "",
+      "agent",
+      "search_path=pg_catalog",
+      "{agent=X/agent}"
+    ],
+    [
+      "kcml_native_basis_v1",
+      "required_child_lineage",
+      "",
+      "agent",
+      "search_path=pg_catalog",
+      "{agent=X/agent}"
+    ],
+    [
+      "kcml_retry_v1",
+      "ordered_child_commit_guard",
+      "",
+      "agent",
+      "search_path=pg_catalog",
+      "{agent=X/agent}"
+    ],
+    [
+      "kcml_retry_v1",
+      "reserve_child_ordered",
+      "p_child uuid, p_phase uuid, p_source uuid, p_digest bytea, p_fence bigint",
+      "agent",
+      "search_path=pg_catalog",
+      "{agent=X/agent}"
+    ],
+    [
+      "public",
+      "kcml_generation_create_context_ordered_v1",
+      "p_authentication_acceptance_id uuid, p_context_id uuid, p_client_request_digest bytea, p_operation_contract_digest bytea, p_execution_descriptor_bytes bytea",
+      "kcml_generation_context_builder",
+      "search_path=pg_catalog, public",
+      "{kcml_generation_context_builder=X/kcml_generation_context_builder,kcml_domain_writer=X/kcml_generation_context_builder}"
+    ],
+    [
+      "public",
+      "kcml_pin_policy_acceptance_v1",
+      "p_context uuid, p_command uuid",
+      "kcml_generation_archive_builder",
+      "search_path=pg_catalog, public",
+      "{kcml_generation_archive_builder=X/kcml_generation_archive_builder,kcml_domain_writer=X/kcml_generation_archive_builder}"
+    ]
+  ],
+  "deferredAtomicConstraints": [
+    [
+      "child_atomic_lineage",
+      "t",
+      "t"
+    ],
+    [
+      "child_lineage_required",
+      "t",
+      "t"
+    ],
+    [
+      "generation_job_context_owner_channel",
+      "t",
+      "t"
+    ],
+    [
+      "generation_job_parent_job_id_fkey",
+      "t",
+      "t"
+    ],
+    [
+      "ordered_child_commit_guard",
+      "t",
+      "t"
+    ]
+  ],
+  "roles": [
+    [
+      "kcml_authentication_writer",
+      "f"
+    ],
+    [
+      "kcml_domain_writer",
+      "f"
+    ],
+    [
+      "kcml_generation_context_builder",
+      "f"
+    ],
+    [
+      "kcml_generation_policy_installer",
+      "f"
+    ]
+  ],
+  "scope": "Actual installation/qualification catalogue, not complete runtime privilege or global lock-order acceptance"
+}

@@ -1,0 +1,226 @@
+{
+  "sourceDigest": "sha256:4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "canonicalInputsExecuted": true,
+  "candidateSqlDigest": "sha256:c00e8abf6b2ae274534f4517490293b8e69bf6d389793fe68a2ce4dbd5cba4d9",
+  "packageDigest": "sha256:45d659ea90c282112b9147c2e32032ba3770b8bafcf6032ffa939ef77eb67752",
+  "proofKind": "ISOLATED_POSTGRESQL18_6_TRUSTED_PACKAGE_OWN_KIND_DISCUSSION",
+  "checks": [
+    {
+      "id": "bare-package-mask",
+      "passed": true,
+      "expectedDiagnostic": "generation_policy_package_mask",
+      "actualDiagnostic": "ERROR:  new row for relation \"generation_policy_release_v1\" violates check constraint \"generation_policy_package_mask\"\nDETAIL:  Failing row contains (1, \\x0de8be9a1a927f01f3855b92697814d06f795e8a4e6397c18b5ee9aa682a40..., urn:kcml:generation:kind-policy-package:1, \\x463644972eea9ac6594587b94ee18c72dbcb4bef761b9c5c06b47362baaa3c..., \\x7b227061636b6167654964223a2275726e3a6b636d6c3a67656e6572617469..., urn:kcml:r9:semantic:route.0215:body, \\x460d8ef92703bdbd660299904c36a7f4bc11f56218eacd3a32349fcad324fa..., urn:kcml:generation-create:domain-policy:1, \\xc15f461bc91608577e812b1af2be21c85f2f44856df59510df7a8050a73871..., 2026-10-01 09:11:01.387776+00).\n"
+    },
+    {
+      "id": "null-package-members",
+      "passed": true,
+      "expectedDiagnostic": "generation_policy_package_mask",
+      "actualDiagnostic": "ERROR:  new row for relation \"generation_policy_release_v1\" violates check constraint \"generation_policy_package_mask\"\nDETAIL:  Failing row contains (1, \\x0de8be9a1a927f01f3855b92697814d06f795e8a4e6397c18b5ee9aa682a40..., urn:kcml:generation:kind-policy-package:1, \\x7ce2558bf0abc4735ad191e62f1e187f7efaa1662293a22c251df19abeef62..., \\x7b22656e747279706f696e7473223a5b7b22646570656e64656e6379446967..., urn:kcml:r9:semantic:route.0215:body, \\x460d8ef92703bdbd660299904c36a7f4bc11f56218eacd3a32349fcad324fa..., urn:kcml:generation-create:domain-policy:1, \\xc15f461bc91608577e812b1af2be21c85f2f44856df59510df7a8050a73871..., 2026-10-01 09:11:01.387776+00).\n"
+    },
+    {
+      "id": "full-package-wrong-request-identity",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_ARCHIVE_PACKAGE_REQUEST_IDENTITY_MISMATCH",
+      "actualDiagnostic": "ERROR:  GENERATION_ARCHIVE_PACKAGE_REQUEST_IDENTITY_MISMATCH\nCONTEXT:  PL/pgSQL function kcml_publish_accepted_policy_package_v1(uuid,uuid,uuid) line 40 at RAISE\n"
+    },
+    {
+      "id": "actual-release-missing-code-member",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_ARCHIVE_PACKAGE_MEMBER_UNAVAILABLE",
+      "actualDiagnostic": "ERROR:  GENERATION_ARCHIVE_PACKAGE_MEMBER_UNAVAILABLE\nCONTEXT:  PL/pgSQL function kcml_publish_accepted_policy_package_v1(uuid,uuid,uuid) line 41 at RAISE\n"
+    },
+    {
+      "id": "failed-publication-full-rollback",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "request-only-archive-package-omission",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_ARCHIVE_ACCEPTED_PACKAGE_REQUIRED",
+      "actualDiagnostic": "ERROR:  GENERATION_ARCHIVE_ACCEPTED_PACKAGE_REQUIRED\nCONTEXT:  PL/pgSQL function kcml_accepted_package_guard_v1() line 17 at RAISE\n"
+    },
+    {
+      "id": "omitted-package-root-event-rollback",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "domain-cannot-install-policy",
+      "passed": true,
+      "expectedDiagnostic": "permission denied",
+      "actualDiagnostic": "ERROR:  permission denied for table generation_policy_release_v1\n"
+    },
+    {
+      "id": "late-lower-lock-ticket-denied",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_ARCHIVE_ACCEPTANCE_LOCK_ORDER",
+      "actualDiagnostic": "ERROR:  GENERATION_ARCHIVE_ACCEPTANCE_LOCK_ORDER\nCONTEXT:  PL/pgSQL function kcml_pin_policy_acceptance_v1(uuid,uuid) line 6 at RAISE\n"
+    },
+    {
+      "id": "publisher-wrong-context",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_ARCHIVE_ACCEPTED_CONTEXT_MISMATCH",
+      "actualDiagnostic": "ERROR:  GENERATION_ARCHIVE_ACCEPTED_CONTEXT_MISMATCH\nCONTEXT:  PL/pgSQL function kcml_publish_accepted_policy_package_v1(uuid,uuid,uuid) line 14 at RAISE\n"
+    },
+    {
+      "id": "unscoped-publisher-role",
+      "passed": true,
+      "expectedDiagnostic": "permission denied",
+      "actualDiagnostic": "ERROR:  permission denied for function kcml_publish_accepted_policy_package_v1\n"
+    },
+    {
+      "id": "same-tx-replay-identical-package",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "trusted-token-package-root-atomic-commit",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "fresh-observer-package-event-audit-available",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "cross-tx-ticket-replay-denied",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_ARCHIVE_ACCEPTANCE_PHASE_REQUIRED",
+      "actualDiagnostic": "ERROR:  GENERATION_ARCHIVE_ACCEPTANCE_PHASE_REQUIRED\nCONTEXT:  PL/pgSQL function kcml_publish_accepted_policy_package_v1(uuid,uuid,uuid) line 16 at RAISE\n"
+    },
+    {
+      "id": "actual-persisted-exact-policy-source-closure",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "UPDATE/archived-own-kind-real-record-byte-admission",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "UPDATE/wrong-basis-digest",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_BASIS_DIGEST_CONFLICT",
+      "actualDiagnostic": "GENERATION_BASIS_DIGEST_CONFLICT:"
+    },
+    {
+      "id": "RETRY/archived-own-kind-real-record-byte-admission",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "RETRY/wrong-basis-digest",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_BASIS_DIGEST_CONFLICT",
+      "actualDiagnostic": "GENERATION_BASIS_DIGEST_CONFLICT:"
+    },
+    {
+      "id": "REPAIR/archived-own-kind-real-record-byte-admission",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "REPAIR/wrong-basis-digest",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_BASIS_DIGEST_CONFLICT",
+      "actualDiagnostic": "GENERATION_BASIS_DIGEST_CONFLICT:"
+    },
+    {
+      "id": "blank-intent/archived-request-policy",
+      "passed": true,
+      "expectedDiagnostic": "EMPTY_INTENT",
+      "actualDiagnostic": "EMPTY_INTENT:$.intent"
+    },
+    {
+      "id": "duplicate-artifact/archived-request-policy",
+      "passed": true,
+      "expectedDiagnostic": "DUPLICATE_ARTIFACT_REFERENCE",
+      "actualDiagnostic": "DUPLICATE_ARTIFACT_REFERENCE:$.sources"
+    },
+    {
+      "id": "historical-required-source-unavailable",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_POLICY_PACKAGE_MEMBER_UNAVAILABLE",
+      "actualDiagnostic": "GENERATION_POLICY_PACKAGE_MEMBER_UNAVAILABLE:"
+    },
+    {
+      "id": "package-identity-swap",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_POLICY_PACKAGE_DIGEST_MISMATCH",
+      "actualDiagnostic": "GENERATION_POLICY_PACKAGE_DIGEST_MISMATCH:"
+    },
+    {
+      "id": "same-id-different-revision-available",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "stored-historical-own-kind-mask-accept",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "same-body-current-policy-admits",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "id": "historical-selected-mask-rejects-not-current-fallback",
+      "passed": true,
+      "expectedDiagnostic": "FROZEN_SCHEMA_CONTENT_INVALID",
+      "actualDiagnostic": "FROZEN_SCHEMA_CONTENT_INVALID:$.intent"
+    },
+    {
+      "id": "version-boolean/stored-package-specific-rejection",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_POLICY_PACKAGE_INVALID",
+      "actualDiagnostic": "GENERATION_POLICY_PACKAGE_INVALID:"
+    },
+    {
+      "id": "request-schema-id-array/stored-package-specific-rejection",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_POLICY_PACKAGE_INVALID",
+      "actualDiagnostic": "GENERATION_POLICY_PACKAGE_INVALID:"
+    },
+    {
+      "id": "request-policy-digest-null/stored-package-specific-rejection",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_POLICY_PACKAGE_INVALID",
+      "actualDiagnostic": "GENERATION_POLICY_PACKAGE_INVALID:"
+    },
+    {
+      "id": "required-artifact-authority-omitted/stored-package-specific-rejection",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_POLICY_AUTHORITY_MEMBER_UNAVAILABLE",
+      "actualDiagnostic": "GENERATION_POLICY_AUTHORITY_MEMBER_UNAVAILABLE:"
+    },
+    {
+      "id": "schema-list-instead-object/stored-package-specific-rejection",
+      "passed": true,
+      "expectedDiagnostic": "GENERATION_POLICY_PACKAGE_SCHEMA_IDENTITY_MISMATCH",
+      "actualDiagnostic": "GENERATION_POLICY_PACKAGE_SCHEMA_IDENTITY_MISMATCH:"
+    }
+  ],
+  "pass": 35,
+  "fail": 0,
+  "limitations": [
+    "Deployment bootstrap installer exercised as isolated role, not production service installer attestation.",
+    "Static dispatcher covers UPDATE/RETRY/REPAIR discussion; ledger CAS classifier and other fullkind execution policies not claimed.",
+    "Actual systemd encrypted credential remains separately environment blocked."
+  ]
+}

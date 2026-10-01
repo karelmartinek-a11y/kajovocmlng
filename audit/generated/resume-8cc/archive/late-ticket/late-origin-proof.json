@@ -1,0 +1,45 @@
+{
+  "sourceDocumentSha256": "c754c27e744434588ee17e3074d1750003077149a6193efcccefbd05f88103a3",
+  "candidateSha256": "283d15a232f16faa62b63404c707fdb70765c7fa6a9336b51b1268fdabe88ca8",
+  "checks": [
+    {
+      "id": "actual-canonical-verifier-insert-emits-same-tx-origin",
+      "passed": true,
+      "diagnostic": null
+    },
+    {
+      "id": "actual-context-ticket-binds-same-tx",
+      "passed": true,
+      "diagnostic": null
+    },
+    {
+      "id": "domain-cannot-fabricate-origin",
+      "passed": true,
+      "diagnostic": "permission denied"
+    },
+    {
+      "id": "origin-trigger-not-callable-authority",
+      "passed": true,
+      "diagnostic": "trigger functions can only be called as triggers"
+    },
+    {
+      "id": "immutable-origin-update",
+      "passed": true,
+      "diagnostic": "FROZEN_ARCHIVE_IMMUTABLE"
+    },
+    {
+      "id": "retained-context-cannot-mint-new-transaction-ticket",
+      "passed": true,
+      "diagnostic": "GENERATION_ARCHIVE_CURRENT_AUTHENTICATION_ORIGIN_REQUIRED"
+    },
+    {
+      "id": "late-ticket-no-lower-lock-statements",
+      "passed": true,
+      "diagnostic": null
+    }
+  ],
+  "pass": 7,
+  "fail": 0,
+  "postgresqlVersion": "18.6",
+  "scope": "Actual trigger/ticket SQL against actual bearer-verifier receipt/context only; legacy setup persists H context before C, so this intentionally does not certify global ordered admission. Ordered native producer joined proof remains required."
+}

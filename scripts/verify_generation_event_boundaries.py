@@ -31,6 +31,10 @@ def main():
     if CREATE_DESIGN in rs:
         expected=specialize_creates(expected)
         old_rows={r['routeId']:r for r in specialize_creates(json.loads(old[PATH]['raw']))['records']}
+    from secret_read_contracts import specialize as specialize_reads
+    if 'contracts/secrets/metadata-read.schema.json'in rs:
+        expected=specialize_reads(expected,rs)
+        old_rows={r['routeId']:r for r in specialize_reads({'records':list(old_rows.values())},rs)['records']}
     expected_rows={r['routeId']:r for r in expected['records']}
     registry=Registry().with_resource(bundle['$id'],Resource.from_contents(bundle))
     validator=lambda s:Draft202012Validator(s,registry=registry,format_checker=FormatChecker())

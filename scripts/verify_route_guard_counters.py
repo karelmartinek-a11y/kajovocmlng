@@ -36,6 +36,8 @@ def main():
         if HTTP in rs:expected=specialize_http(expected,bundle)
         from create_operation_contracts import PATH as CREATE_DESIGN, specialize as specialize_creates
         if CREATE_DESIGN in rs:expected=specialize_creates(expected)
+        from secret_read_contracts import specialize as specialize_reads
+        if 'contracts/secrets/metadata-read.schema.json'in rs:expected=specialize_reads(expected,rs)
         old_routes={r['routeId']:r for r in expected['records']}
     checks=[]
     values=[('0',True),('9223372036854775807',True),('9223372036854775808',False),
@@ -45,6 +47,13 @@ def main():
     for route in routes:
         original=old_routes[route['routeId']]
         normalized=copy.deepcopy(route)
+        if route['operationId']in ('secret.metadata.read','secret.value.read') and not args.baseline:
+            guards=route['requestSchema']['properties']['guards']
+            good=guards=={'type':'object','additionalProperties':False,'properties':{},'required':[]} and route==original
+            cases=[{'value':{},'passed':good}]+[{'value':{f:'0'},'passed':not Draft202012Validator(guards).is_valid({f:'0'})}for f in FIELDS]
+            failures+=sum(not c['passed']for c in cases)
+            checks.append({'routeId':route['routeId'],'operationId':route['operationId'],'applicability':'NOT_APPLICABLE_CLOSED_OWNER_READ','authority':'SSOT8.16','cases':cases})
+            continue
         for field in FIELDS:
             schema=route['requestSchema']['properties']['guards']['properties'][field]
             prior=original['requestSchema']['properties']['guards']['properties'][field]

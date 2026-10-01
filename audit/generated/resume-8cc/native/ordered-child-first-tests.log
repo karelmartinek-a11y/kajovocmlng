@@ -1,0 +1,173 @@
+NOTICE:  drop cascades to 102 other objects
+DETAIL:  drop cascades to extension citext
+drop cascades to table owner_identity
+drop cascades to constraint record_owner_id_fkey on table kcml_native_basis_v1.record
+drop cascades to table owner_session
+drop cascades to table owner_api_credential
+drop cascades to table platform_incarnation
+drop cascades to table application_deployment_head
+drop cascades to function kcml_authentication_singleton_guard_v1()
+drop cascades to table domain_command
+drop cascades to constraint operation_logical_operation_id_fkey on table kcml_effect_v1.operation
+drop cascades to constraint child_lineage_logical_operation_id_fkey on table kcml_native_basis_v1.child_lineage
+drop cascades to table generation_job
+drop cascades to constraint phase_job_id_fkey on table kcml_retry_v1.phase
+drop cascades to constraint child_scan_child_job_id_fkey on table kcml_retry_v1.child_scan
+drop cascades to constraint child_scan_source_job_id_fkey on table kcml_retry_v1.child_scan
+drop cascades to constraint phase_run_parent_id_fkey on table kcml_effect_v1.phase_run
+drop cascades to constraint operation_parent_id_fkey on table kcml_effect_v1.operation
+drop cascades to constraint checkpoint_parent_id_fkey on table kcml_effect_v1.checkpoint
+drop cascades to constraint checkpoint_head_parent_id_fkey on table kcml_effect_v1.checkpoint_head
+drop cascades to constraint checkpoint_context_parent_id_fkey on table kcml_effect_v1.checkpoint_context
+drop cascades to constraint attempt_primary_parent_uuid_fkey on table kcml_effect_v1.attempt
+drop cascades to constraint state_primary_parent_uuid_fkey on table kcml_effect_v1.state
+drop cascades to constraint evidence_primary_parent_uuid_fkey on table kcml_effect_v1.evidence
+drop cascades to constraint event_identity_primary_parent_uuid_fkey on table kcml_effect_v1.event_identity
+drop cascades to constraint evidence_head_primary_parent_uuid_fkey on table kcml_effect_v1.evidence_head
+drop cascades to constraint record_source_job_id_fkey on table kcml_native_basis_v1.record
+drop cascades to constraint child_lineage_child_job_id_fkey on table kcml_native_basis_v1.child_lineage
+drop cascades to constraint child_lineage_source_job_id_fkey on table kcml_native_basis_v1.child_lineage
+drop cascades to constraint schema_bundle_source_job_id_fkey on table kcml_native_basis_v1.schema_bundle
+drop cascades to table generation_job_initial_request_snapshot
+drop cascades to table generation_job_follow_up_basis
+drop cascades to table generation_job_create_completion
+drop cascades to function kcml_reject_generation_create_snapshot_update_v1()
+drop cascades to function kcml_generation_job_write_guard_v1()
+drop cascades to table domain_idempotency_record
+drop cascades to table domain_event
+drop cascades to constraint event_identity_event_id_fkey on table kcml_effect_v1.event_identity
+drop cascades to table transactional_outbox
+drop cascades to constraint attempt_dispatch_authority on table kcml_effect_v1.attempt
+drop cascades to table audit_head
+drop cascades to function kcml_audit_hash_v1(integer,bytea,bigint,bytea)
+drop cascades to table audit_event
+drop cascades to table audit_archive_outbox
+drop cascades to table idempotency_locator
+drop cascades to function kcml_generation_create_atomic_closure_v1()
+drop cascades to function kcml_create_record_immutable_v1()
+drop cascades to trigger membership_immutable on table kcml_retry_v1.phase_membership
+drop cascades to trigger frozen_child_scan on table kcml_retry_v1.child_scan
+drop cascades to function kcml_create_command_frozen_v1()
+drop cascades to function kcml_audit_hash(integer,bytea,bigint,bytea)
+drop cascades to function kcml_create_idempotency_frozen_v1()
+drop cascades to function kcml_create_locator_frozen_v1()
+drop cascades to function kcml_create_outbox_frozen_v1()
+drop cascades to table generation_create_contract_pin
+drop cascades to table generation_create_authentication_acceptance
+drop cascades to table generation_create_trusted_context
+drop cascades to constraint child_lineage_trusted_context_id_fkey on table kcml_native_basis_v1.child_lineage
+drop cascades to function kcml_generation_create_context_v1(uuid,bytea,bytea,bytea)
+drop cascades to table generation_create_command_binding
+drop cascades to function kcml_generation_command_context_consistency_v1()
+drop cascades to function kcml_generation_snapshot_schema_pin_v1()
+drop cascades to function kcml_generation_auth_request_binding_v1()
+drop cascades to table generation_create_preroot_snapshot
+drop cascades to table generation_create_preroot_outcome
+drop cascades to function kcml_generation_preroot_closure_v1()
+drop cascades to function kcml_generation_preroot_audit_link_v1()
+drop cascades to table generation_create_retained_error_tuple
+drop cascades to function kcml_generation_command_version_step_v1()
+drop cascades to table canonical_authenticated_crypto_profile
+drop cascades to table canonical_master_key_generation
+drop cascades to table canonical_protected_nonce_reservation
+drop cascades to function kcml_canonical_crypto_registry_immutable_v1()
+drop cascades to function kcml_crypto_compact_sorted_json_v1(jsonb)
+drop cascades to function kcml_generation_protected_registry_link_v1()
+drop cascades to function kcml_generation_create_read_storage_v1(uuid,uuid)
+drop cascades to function kcml_generation_lock_retained_locator_v1(uuid)
+drop cascades to function kcml_generation_create_context_ordered_v1(uuid,uuid,bytea,bytea,bytea)
+drop cascades to extension pgcrypto
+drop cascades to default value for column state_id of table kcml_effect_v1.state
+drop cascades to table generation_frozen_bundle_v1
+drop cascades to table generation_frozen_policy_binding_v1
+drop cascades to function kcml_archive_immutable_v1()
+drop cascades to function kcml_archive_snapshot_binding_v1()
+drop cascades to function kcml_archive_snapshot_required_v1()
+drop cascades to function kcml_archive_publish_v1(text,text,bytea,bytea,text,bytea)
+drop cascades to function kcml_archive_read_v1(uuid,uuid)
+drop cascades to table generation_preroot_frozen_policy_binding_v1
+drop cascades to function kcml_preroot_archive_binding_v1()
+drop cascades to function kcml_preroot_archive_required_v1()
+drop cascades to function kcml_archive_preroot_transfer_v1()
+drop cascades to function kcml_preroot_archive_existing_success_v1()
+drop cascades to function kcml_preroot_archive_read_v1(uuid,uuid)
+drop cascades to function kcml_generation_policy_package_shape_v1(jsonb)
+drop cascades to table generation_policy_release_v1
+drop cascades to table generation_policy_release_blob_v1
+drop cascades to table generation_accepted_policy_package_v1
+drop cascades to table generation_policy_acceptance_ticket_v1
+drop cascades to table generation_policy_authentication_origin_v1
+drop cascades to function kcml_policy_authentication_origin_v1()
+drop cascades to function kcml_pin_policy_acceptance_v1(uuid,uuid)
+and 2 other objects (see server log for list)
+NOTICE:  drop cascades to 18 other objects
+DETAIL:  drop cascades to table kcml_retry_v1.phase
+drop cascades to constraint phase_seal_phase_run_id_fkey on table kcml_effect_v1.phase_seal
+drop cascades to table kcml_retry_v1.operation
+drop cascades to table kcml_retry_v1.attempt
+drop cascades to table kcml_retry_v1.current_state
+drop cascades to table kcml_retry_v1.evidence
+drop cascades to function kcml_retry_v1.phase_write_gate()
+drop cascades to function kcml_retry_v1.scan(uuid,uuid,bytea)
+drop cascades to function kcml_retry_v1.check_current_join()
+drop cascades to table kcml_retry_v1.phase_membership
+drop cascades to function kcml_retry_v1.capture_member()
+drop cascades to table kcml_retry_v1.child_scan
+drop cascades to constraint child_lineage_child_job_id_fkey1 on table kcml_native_basis_v1.child_lineage
+drop cascades to function kcml_retry_v1.reserve_child(uuid,uuid,uuid,bytea,bigint)
+drop cascades to function kcml_retry_v1.child_insert_guard()
+drop cascades to function kcml_retry_v1.child_commit_guard()
+drop cascades to function kcml_retry_v1.ordered_child_commit_guard()
+drop cascades to function kcml_retry_v1.reserve_child_ordered(uuid,uuid,uuid,bytea,bigint)
+NOTICE:  drop cascades to 43 other objects
+DETAIL:  drop cascades to table kcml_effect_v1.phase_run
+drop cascades to table kcml_effect_v1.operation
+drop cascades to table kcml_effect_v1.attempt
+drop cascades to table kcml_effect_v1.state
+drop cascades to table kcml_effect_v1.concurrency_claim
+drop cascades to table kcml_effect_v1.evidence
+drop cascades to table kcml_effect_v1.checkpoint
+drop cascades to table kcml_effect_v1.checkpoint_head
+drop cascades to function kcml_effect_v1.fence_guard(uuid,bigint)
+drop cascades to function kcml_effect_v1.require_atomic_attempt()
+drop cascades to function kcml_effect_v1.append_evidence(uuid,bigint,uuid,text,bytea)
+drop cascades to function kcml_effect_v1.dispatch_guard(uuid,bigint)
+drop cascades to function kcml_effect_v1.write_checkpoint(uuid,bigint,uuid,text,bytea)
+drop cascades to function kcml_effect_v1.immutable()
+drop cascades to function kcml_effect_v1.classify_cas_v1(jsonb,bytea,text,uuid)
+drop cascades to function kcml_effect_v1.confirm_cas_v1(uuid,bigint,uuid,bytea,uuid,uuid)
+drop cascades to function kcml_effect_v1.record_intent(uuid,uuid,uuid,uuid,text,uuid,uuid,uuid,uuid,bytea,uuid,uuid,text,bigint,bigint,timestamp with time zone,bytea,uuid,bigint,bytea,bytea)
+drop cascades to function kcml_effect_v1.operation_immutable_scope()
+drop cascades to function kcml_effect_v1.operation_closure()
+drop cascades to function kcml_effect_v1.event_mask(text)
+drop cascades to function kcml_effect_v1.publish_native_projection(uuid,bytea,jsonb)
+drop cascades to table kcml_effect_v1.checkpoint_context
+drop cascades to function kcml_effect_v1.assert_archived_ref(jsonb)
+drop cascades to function kcml_effect_v1.compile_checkpoint(uuid,bigint)
+drop cascades to table kcml_effect_v1.phase_seal
+drop cascades to function kcml_effect_v1.producer_gate()
+drop cascades to function kcml_effect_v1.seal_phase(uuid)
+drop cascades to function kcml_effect_v1.state_guard()
+drop cascades to function kcml_effect_v1.phase_frozen_guard()
+drop cascades to function kcml_effect_v1.begin_phase(uuid,uuid,bytea,bytea)
+drop cascades to function kcml_effect_v1.finish_failed_phase(uuid,bytea)
+drop cascades to function kcml_effect_v1.execution_phase_frozen()
+drop cascades to function kcml_effect_v1.strict_observation(bytea)
+drop cascades to function kcml_effect_v1.produce_fenced_failure(uuid,bytea)
+drop cascades to function kcml_effect_v1.compile_prepared_checkpoint(kcml_effect_v1.operation,kcml_effect_v1.attempt)
+drop cascades to function kcml_effect_v1.write_prepared_checkpoint(kcml_effect_v1.operation,kcml_effect_v1.attempt,uuid,text,bytea)
+drop cascades to function kcml_effect_v1.derive_primary_parent()
+drop cascades to function kcml_effect_v1.primary_parent_immutable()
+drop cascades to table kcml_effect_v1.event_identity
+drop cascades to function kcml_effect_v1.side_effect_event_parent()
+drop cascades to table kcml_effect_v1.evidence_head
+drop cascades to function kcml_effect_v1.evidence_head_scope()
+drop cascades to function kcml_effect_v1.evidence_head_projection()
+NOTICE:  drop cascades to 6 other objects
+DETAIL:  drop cascades to table kcml_native_basis_v1.schema_bundle
+drop cascades to table kcml_native_basis_v1.record
+drop cascades to table kcml_native_basis_v1.child_lineage
+drop cascades to function kcml_native_basis_v1.immutable()
+drop cascades to function kcml_native_basis_v1.closure()
+drop cascades to function kcml_native_basis_v1.required_child_lineage()
+{"status": "PASS", "checked": 27}

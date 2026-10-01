@@ -1,0 +1,175 @@
+{
+  "sourceDocumentSha256": "9e44b203d686ff1253133c5eb2a94ae0fc9234adafe71978fa3b437b4819363e",
+  "helperSha256": "8052550a13f38e2646a63d43f8ef10877a8528036f3b549b0cddfb0411a0b212",
+  "referenceChecks": [
+    {
+      "case": "parser-reference-positive-unique-owner-pinned",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "untrusted-bus-environment-cannot-change-pinned-socket-argv",
+      "passed": true
+    },
+    {
+      "case": "wrong-exact-unit",
+      "passed": true,
+      "expectedDiagnostic": "SYSTEMD_EXACT_UNIT_NOT_ACTIVE",
+      "actualDiagnostic": "SYSTEMD_EXACT_UNIT_NOT_ACTIVE"
+    },
+    {
+      "case": "inactive-unit",
+      "passed": true,
+      "expectedDiagnostic": "SYSTEMD_EXACT_UNIT_NOT_ACTIVE",
+      "actualDiagnostic": "SYSTEMD_EXACT_UNIT_NOT_ACTIVE"
+    },
+    {
+      "case": "null-invocation",
+      "passed": true,
+      "expectedDiagnostic": "SYSTEMD_INVOCATION_CHANGED",
+      "actualDiagnostic": "SYSTEMD_INVOCATION_CHANGED"
+    },
+    {
+      "case": "wrong-invocation-size",
+      "passed": true,
+      "expectedDiagnostic": "SYSTEMD_INVOCATION_BYTES_INVALID",
+      "actualDiagnostic": "SYSTEMD_INVOCATION_BYTES_INVALID"
+    },
+    {
+      "case": "boolean-main-pid",
+      "passed": true,
+      "expectedDiagnostic": "SYSTEMD_REPLY_TYPE_INVALID",
+      "actualDiagnostic": "SYSTEMD_REPLY_TYPE_INVALID"
+    },
+    {
+      "case": "zero-pid",
+      "passed": true,
+      "expectedDiagnostic": "SYSTEMD_INVOCATION_CHANGED",
+      "actualDiagnostic": "SYSTEMD_INVOCATION_CHANGED"
+    },
+    {
+      "case": "extra-authority-field",
+      "passed": true,
+      "expectedDiagnostic": "SYSTEMD_REPLY_MASK_INVALID",
+      "actualDiagnostic": "SYSTEMD_REPLY_MASK_INVALID"
+    },
+    {
+      "case": "wrong-signature",
+      "passed": true,
+      "expectedDiagnostic": "SYSTEMD_REPLY_MASK_INVALID",
+      "actualDiagnostic": "SYSTEMD_REPLY_MASK_INVALID"
+    },
+    {
+      "case": "restart-between-manager-reads",
+      "passed": true,
+      "expectedDiagnostic": "SYSTEMD_INVOCATION_CHANGED",
+      "actualDiagnostic": "SYSTEMD_INVOCATION_CHANGED"
+    },
+    {
+      "case": "request-unit-path-injection",
+      "passed": true,
+      "expectedDiagnostic": "SYSTEMD_EXACT_UNIT_INVALID",
+      "actualDiagnostic": "SYSTEMD_EXACT_UNIT_INVALID"
+    },
+    {
+      "case": "request-callable-not-manager",
+      "passed": true,
+      "expectedDiagnostic": "SYSTEMD_OBSERVER_REQUIRED",
+      "actualDiagnostic": "SYSTEMD_OBSERVER_REQUIRED"
+    },
+    {
+      "case": "actual-nonroot-installer-denied-before-source-read",
+      "passed": true,
+      "expectedDiagnostic": "SYSTEMD_SOURCE_INSTALLER_NOT_ROOT",
+      "actualDiagnostic": "SYSTEMD_SOURCE_INSTALLER_NOT_ROOT"
+    },
+    {
+      "case": "receipt-wrong-invocation",
+      "passed": true,
+      "expectedDiagnostic": "CRYPTO_INVOCATION_RECEIPT_STALE",
+      "actualDiagnostic": "CRYPTO_INVOCATION_RECEIPT_STALE"
+    },
+    {
+      "case": "receipt-wrong-mainpid",
+      "passed": true,
+      "expectedDiagnostic": "CRYPTO_INVOCATION_RECEIPT_STALE",
+      "actualDiagnostic": "CRYPTO_INVOCATION_RECEIPT_STALE"
+    },
+    {
+      "case": "receipt-wrong-generation",
+      "passed": true,
+      "expectedDiagnostic": "CRYPTO_KEY_GENERATION_MISMATCH",
+      "actualDiagnostic": "CRYPTO_KEY_GENERATION_MISMATCH"
+    },
+    {
+      "case": "receipt-boolean-generation",
+      "passed": true,
+      "expectedDiagnostic": "CRYPTO_INVOCATION_RECEIPT_MASK_INVALID",
+      "actualDiagnostic": "CRYPTO_INVOCATION_RECEIPT_MASK_INVALID"
+    },
+    {
+      "case": "record-boolean-generation",
+      "passed": true,
+      "expectedDiagnostic": "CRYPTO_KEY_REGISTRY_MASK_INVALID",
+      "actualDiagnostic": "CRYPTO_KEY_REGISTRY_MASK_INVALID"
+    },
+    {
+      "case": "receipt-wrong-key-id",
+      "passed": true,
+      "expectedDiagnostic": "CRYPTO_KEY_GENERATION_MISMATCH",
+      "actualDiagnostic": "CRYPTO_KEY_GENERATION_MISMATCH"
+    },
+    {
+      "case": "purpose-unknown",
+      "passed": true,
+      "expectedDiagnostic": "CRYPTO_KEY_PURPOSE_MASK_INVALID",
+      "actualDiagnostic": "CRYPTO_KEY_PURPOSE_MASK_INVALID"
+    },
+    {
+      "case": "purpose-duplicate",
+      "passed": true,
+      "expectedDiagnostic": "CRYPTO_KEY_PURPOSE_MASK_INVALID",
+      "actualDiagnostic": "CRYPTO_KEY_PURPOSE_MASK_INVALID"
+    },
+    {
+      "case": "purpose-denied",
+      "passed": true,
+      "expectedDiagnostic": "CRYPTO_KEY_PURPOSE_DENIED",
+      "actualDiagnostic": "CRYPTO_KEY_PURPOSE_DENIED"
+    },
+    {
+      "case": "receipt-client-directory",
+      "passed": true,
+      "expectedDiagnostic": "SYSTEMD_CREDENTIAL_DIRECTORY_BINDING_INVALID",
+      "actualDiagnostic": "SYSTEMD_CREDENTIAL_DIRECTORY_BINDING_INVALID"
+    },
+    {
+      "case": "wrong-profile",
+      "passed": true,
+      "expectedDiagnostic": "CRYPTO_KEY_PROFILE_MISMATCH",
+      "actualDiagnostic": "CRYPTO_KEY_PROFILE_MISMATCH"
+    },
+    {
+      "case": "retired-key-new-seal-denied",
+      "passed": true,
+      "expectedDiagnostic": "CRYPTO_RETIRED_KEY_ENCRYPTION_DENIED",
+      "actualDiagnostic": "CRYPTO_RETIRED_KEY_ENCRYPTION_DENIED"
+    },
+    {
+      "case": "reference-loader-readonly-fingerprint-positive",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "reference-retained-key-readable-without-current-key-substitution",
+      "passed": true,
+      "expectedDiagnostic": null,
+      "actualDiagnostic": null
+    }
+  ],
+  "referencePass": 28,
+  "providerStatus": "ENV_BLOCKED",
+  "scope": "Reproduced actual guarded parser/reference interface, explicitly patched manager and temporary key path; never actual provider attestation."
+}

@@ -1,0 +1,339 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kcml:side-effect-frozen-checkpoint:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "parentId",
+    "stateVersion",
+    "incarnation",
+    "fence",
+    "sequence",
+    "operationId",
+    "state",
+    "substate",
+    "approvedRevisionId",
+    "specificationDigest",
+    "planId",
+    "planDigest",
+    "agentGraphRef",
+    "bindingSnapshotRef",
+    "activationEpoch",
+    "completedStepKeys",
+    "eventWatermark",
+    "pendingSideEffects",
+    "providerHandles",
+    "eventCursors",
+    "workspaceRefs",
+    "browserRefs",
+    "budgetSnapshotRef",
+    "cancellationVersion",
+    "deadline"
+  ],
+  "properties": {
+    "parentId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "stateVersion": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)$"
+    },
+    "incarnation": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "fence": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)$"
+    },
+    "sequence": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)$"
+    },
+    "operationId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "state": {
+      "enum": [
+        "ACTIVATING",
+        "ANALYZING",
+        "BLOCKED",
+        "CANCELLED",
+        "CML_CONFORMANCE",
+        "COMPLETED",
+        "DISCUSSING",
+        "FAILED",
+        "IMPLEMENTING",
+        "INTEGRATING",
+        "VALIDATING"
+      ]
+    },
+    "substate": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "approvedRevisionId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "specificationDigest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "planId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "planDigest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "agentGraphRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recordId",
+        "contentDigest",
+        "schemaId",
+        "schemaDigest"
+      ],
+      "properties": {
+        "recordId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contentDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "schemaId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schemaDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      }
+    },
+    "bindingSnapshotRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recordId",
+        "contentDigest",
+        "schemaId",
+        "schemaDigest"
+      ],
+      "properties": {
+        "recordId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contentDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "schemaId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schemaDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      }
+    },
+    "activationEpoch": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)$"
+    },
+    "completedStepKeys": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "eventWatermark": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)$"
+    },
+    "pendingSideEffects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "operationId",
+          "attemptSequence",
+          "state"
+        ],
+        "properties": {
+          "operationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "attemptSequence": {
+            "type": "string",
+            "pattern": "^(0|[1-9][0-9]*)$"
+          },
+          "state": {
+            "enum": [
+              "INTENT_RECORDED",
+              "DISPATCHING",
+              "OUTCOME_RECORDED",
+              "RECONCILING",
+              "UNKNOWN"
+            ]
+          }
+        }
+      }
+    },
+    "providerHandles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "providerId",
+          "requestId",
+          "handle"
+        ],
+        "properties": {
+          "providerId": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          },
+          "handle": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "eventCursors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "streamId",
+          "sequence"
+        ],
+        "properties": {
+          "streamId": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "string",
+            "pattern": "^(0|[1-9][0-9]*)$"
+          }
+        }
+      }
+    },
+    "workspaceRefs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "recordId",
+          "contentDigest",
+          "schemaId",
+          "schemaDigest"
+        ],
+        "properties": {
+          "recordId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "contentDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "schemaId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "schemaDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "browserRefs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "recordId",
+          "contentDigest",
+          "schemaId",
+          "schemaDigest"
+        ],
+        "properties": {
+          "recordId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "contentDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "schemaId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "schemaDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "budgetSnapshotRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recordId",
+        "contentDigest",
+        "schemaId",
+        "schemaDigest"
+      ],
+      "properties": {
+        "recordId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contentDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "schemaId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schemaDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      }
+    },
+    "cancellationVersion": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)$"
+    },
+    "deadline": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "label": "authchain",
+  "sourceDocumentSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "sourceUnchangedDuringRun": true,
+  "originalScripts": [
+    "audit/generated/resume-905/sql/review-current/verify_auth_chain_review.py"
+  ],
+  "databaseIsolation": {
+    "archive_joined_905": "cr8_authchain_archive_joined_905",
+    "archive_peer_key_fixed_905": "cr8_authchain_archive_peer_key_fixed_905",
+    "auth_crypto_full_34d": "cr8_authchain_auth_crypto_full_34d",
+    "archive_independent_sql_905": "cr8_authchain_archive_independent_sql_905",
+    "generation_independent_review_fixture": "cr8_authchain_generation_independent_review_fixture",
+    "retry_preserved_stage_8cc": "cr8_authchain_retry_preserved_stage_8cc",
+    "independent_preroot_archive_sql905": "cr8_authchain_independent_preroot_archive_sql905",
+    "pending_transfer_34d": "cr8_authchain_pending_transfer_34d",
+    "secret_publication_review_905": "cr8_authchain_secret_publication_review_905",
+    "secret_owner_review_905": "cr8_authchain_secret_owner_review_905",
+    "review_auth_chain_sql905": "cr8_authchain_review_auth_chain_sql905"
+  },
+  "actualDatabaseConnections": [
+    "cr8_authchain_review_auth_chain_sql905",
+    "postgres"
+  ],
+  "executedPythonReads": [
+    {
+      "path": "audit/generated/resume-905/sql/review-current/verify_auth_chain_review.py",
+      "originalSha256": "df3892785de234585716fffc25df0f928c3a7ecf7619eaeca205adf7d2472f9c",
+      "executionSha256": "25868afe9203fd109718235879a4887fed8597d9ca7964b10e49802e668be025"
+    },
+    {
+      "path": "audit/generated/resume-34d/auth-crypto/verify_authenticated_full_chain.py",
+      "originalSha256": "021c801f3064c02621f700af2b6f70e2c0db551129e0c4fe50b0c0411df37b32",
+      "executionSha256": "28ac0fdf401687e7c4b75027a212d7d077a5098fa069d8f85974d532572fd2eb"
+    },
+    {
+      "path": "audit/generated/resume-d362/events/verify_combined_generation.py",
+      "originalSha256": "a38bc59879e56c02b361afe22a791af1477b57308f22f3a7483e10fd950f58dd",
+      "executionSha256": "a38bc59879e56c02b361afe22a791af1477b57308f22f3a7483e10fd950f58dd"
+    }
+  ],
+  "redirectedWrites": [
+    {
+      "originalPath": "/workspace/kajovocmlng/audit/generated/resume-905/sql/review-current/authenticated-chain-review.json",
+      "ownedPath": "/workspace/kajovocmlng/audit/generated/resume-8cc/archive/current-authchain/final-2577da/tree/audit/generated/resume-905/sql/review-current/authenticated-chain-review.json",
+      "sha256": "867ff6cc45ae67d8bc11b34e4bbeebb57a3b6ee38c39db646a14853b8fcc5498"
+    },
+    {
+      "originalPath": "/workspace/kajovocmlng/audit/generated/resume-905/sql/review-current/authenticated-chain-review.json",
+      "ownedPath": "/workspace/kajovocmlng/audit/generated/resume-8cc/archive/current-authchain/final-2577da/tree/audit/generated/resume-905/sql/review-current/authenticated-chain-review.json",
+      "sha256": "1366de1f2323e25ad65eb92a4b040cda0631f4b31d5e2bbde8e2045ca0138c6b"
+    }
+  ],
+  "scope": "Original bounded fixture semantics; only isolated database names/audit output paths. No historical evidence source relabeling or whole-operation claim."
+}

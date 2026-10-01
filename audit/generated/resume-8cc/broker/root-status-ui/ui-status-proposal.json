@@ -1,0 +1,31 @@
+{
+  "operation": "append preserved UI field",
+  "resource": "ui/contracts/ui-control-registry.json",
+  "pointer": "/pages/13/fields/-",
+  "value": {
+    "editableWhen": "NEVER",
+    "id": "secret.status",
+    "inputProfile": "TEXT_1",
+    "label": "Stav",
+    "purpose": "Odvozený stav rootu INACTIVE/ACTIVE/DELETED ze serverového read modelu; nikoli lifecycle vybrané verze ani oprávnění k použití.",
+    "required": false,
+    "source": "SERVER_PROJECTION",
+    "type": "readonly",
+    "validation": "SECRET_ROOT_DERIVED_STATUS"
+  },
+  "serverFieldRequiredInResponse": true,
+  "consumedInputs": {
+    "metadata": "GET /secrets/{id}; response.status+id+state_version",
+    "value": "GET /secrets/{id}/value; response.recordStatus+secretId+recordStateVersion"
+  },
+  "join": "same secretId and same canonical state_version; otherwise SECRET_UI_STATUS_SNAPSHOT_MISMATCH",
+  "normativeAddition": "§72.21 readonly displayed secret.status, NEVER editable/SERVER_PROJECTION, derived §8.3/25.6; not a create/import field",
+  "existingActionsPreserved": [
+    "secret.reveal",
+    "secret.copy",
+    "secret.newVersion",
+    "secret.activateVersion",
+    "secret.rotate"
+  ],
+  "wholeUIClosed": false
+}

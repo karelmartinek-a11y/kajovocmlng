@@ -1,0 +1,71 @@
+{
+  "sourceSha256": "c754c27e744434588ee17e3074d1750003077149a6193efcccefbd05f88103a3",
+  "checked": 11,
+  "failed": 0,
+  "cases": [
+    {
+      "id": "archived-real-schema-accepts-original-RAW-representation",
+      "status": "PASS"
+    },
+    {
+      "id": "fresh-complex-RAW-create-still-specific-profile-required",
+      "status": "PASS",
+      "diagnostic": "SECRET_PROFILE_REQUIRED"
+    },
+    {
+      "id": "complex-RAW-store-without-retained-original-origin",
+      "status": "PASS",
+      "diagnostic": "SECRET_LEGACY_RAW_ORIGIN_REQUIRED"
+    },
+    {
+      "id": "original-representation-cannot-be-rewritten",
+      "status": "PASS",
+      "diagnostic": "SECRET_LEGACY_IMMUTABLE_ROW_MISMATCH"
+    },
+    {
+      "id": "wrong-original-context-with-valid-receipt-digest",
+      "status": "PASS",
+      "diagnostic": "SECRET_LEGACY_RETAINED_ADMISSION_BINDING_MISMATCH"
+    },
+    {
+      "id": "wrong-original-logical-operation-with-valid-digest",
+      "status": "PASS",
+      "diagnostic": "SECRET_LEGACY_RETAINED_ADMISSION_BINDING_MISMATCH"
+    },
+    {
+      "id": "exact-protected-original-row-schema-retained-receipt-restore-commit",
+      "status": "PASS"
+    },
+    {
+      "id": "authenticated-immutable-RAW-owner-read-byte-preserving-no-profile-guess",
+      "status": "PASS"
+    },
+    {
+      "id": "original-archive-row-immutable",
+      "status": "PASS",
+      "diagnostic": "SECRET_PROFILE_DEFINITION_IMMUTABLE"
+    },
+    {
+      "id": "legacy-ciphertext-still-immutable",
+      "status": "PASS",
+      "diagnostic": "SECRET_VERSION_CRYPTO_IMMUTABLE"
+    },
+    {
+      "id": "untrusted-caller-cannot-publish-legacy-origin",
+      "status": "PASS",
+      "diagnostic": "permission denied for table"
+    }
+  ],
+  "postgresVersion": "18.6",
+  "candidateSqlSha256": "2c627b7f4ec1b007f07bc5760d47b49954ce20034bc2af88c0604a878289bfae",
+  "historicalSchemaResourceDigest": "36ea5e4fe712132db426cc2b276b7c4f72b0d9f8a764c856e064240a364ba295",
+  "historicalSourceCommit": "34d3a75c47a92ab7d8e0dac84f581549a15445ca",
+  "historicalSourceDigest": "2bc1ce83521b398966723169b1523e9a15a350abfb3131c0ff6b8fa8727c2854",
+  "originalSecretType": "TOTP_SEED",
+  "originalRepresentation": "RAW_UTF8",
+  "syntheticRestoredFixture": true,
+  "authenticHistoricalAdmissionProducer": "NOT_EVALUATED_REQUIRED_ARCHIVE_PUBLISHER",
+  "plaintextInReport": false,
+  "wholeOperationClosed": false,
+  "implementationAcceptance": "NOT_EVALUATED"
+}

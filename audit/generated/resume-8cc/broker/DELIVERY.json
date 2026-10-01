@@ -1,0 +1,32 @@
+{
+  "inputCommit": "8cc19fbc69fb839ea88597b736da03d8b3eaecd4",
+  "inputSourceSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "ownedDirectory": "audit/generated/resume-8cc/broker",
+  "candidates": {
+    "secret_value_read_transport.py": "65a8f2742b2a25c06564740ad91113eb37e7cfa33a20dc28bc5aeaa1bc46c7e9",
+    "verify_broker.py": "3f61af44d66e9652f8f892b24590336ef3a28bfeed48c5b9923650a4efc2a271",
+    "secret-owner-api-value-read.sql": "34e7c69b608f98cf75fd90fe12b0bab3ae8b51e7687f924db645a0e33dc47618",
+    "secret_broker_open.py": "0a1155185fe2f5f27f9b9f67a6a97fecf9cbfd576221925769c8d8c65ef2d603",
+    "secret_owner_value_read.py": "6684ca4dd596dd7b3f2135ba8eb9420705bf6ae82347170bccb25eca9a26dd2f",
+    "verify_legacy_restore.py": "6bd0ca40b95c3db51f29fc5357b6a949300d4c73c688b9d910d50a43b0842f8d",
+    "secret-value-read.schema.json": "aac78e65ed7bfb83744c3bd95acf96340d3b656dacf7f86fe407c7127f154bf3",
+    "secret-broker-boundary.sql": "dc31476ce8553497bceb84cc008c186b2acbae3df2c0de7c0e5df18f16dddaba",
+    "verify_value_transport.py": "ccfd7aa576ce7e3661beed78edbdb8e93924875a20b5e21a12a5e2addf153e55",
+    "secret-legacy-raw-origin.sql": "2c627b7f4ec1b007f07bc5760d47b49954ce20034bc2af88c0604a878289bfae",
+    "verify_owner_value_read.py": "363f966776a26f07d03aa3169eda0c29b0e1c36fd7749e41e3cdd4b5c6a46a22"
+  },
+  "proofs": {
+    "owner-value-read-tests.json": 17,
+    "legacy-restore-tests.json": 11,
+    "broker-tests.json": 29,
+    "value-transport-tests.json": 34
+  },
+  "wholeOperationsClosed": 0,
+  "integratableScope": "Concrete non-reserved OWNER API read with peer approved status projector, exact current/history transport+native+typed response+UI copy and actual joint held-TX verifier/open/retained audit commit positive. Global audit/access producer still open. Guarded legacy origin storage needs authentic original publisher; broad broker NOT integratable missing canonical source/target/gateway authority.",
+  "newProductDecision": false,
+  "implementationAcceptance": "NOT_EVALUATED",
+  "statusProjectorDependency": {
+    "path": "audit/generated/resume-8cc/secrets/status/secret-record-status.sql",
+    "sha256": "557d5c6555c89db4c473cab12988c3caf3d2fc7e61c611e17a5e43767c9d14a9"
+  }
+}

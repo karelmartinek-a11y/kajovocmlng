@@ -1,0 +1,107 @@
+{
+  "status": "PASS",
+  "sourceDocumentSha256": "2577dacf6024e4666ba98b11eb9c7ffa6e7f225e60630697db740129615cc536",
+  "canonicalSqlSha256": "9ad1b981edc79c5a58be17978603a99e05b61244736406f4247477afc5e057d2",
+  "postgresqlVersion": "18.6",
+  "checked": 14,
+  "failed": 0,
+  "checks": [
+    {
+      "case": "single-use-receipt-no-second-context",
+      "passed": true,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "rotation-cannot-cross-verified-token-to-full-command-commit",
+      "passed": true,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "all-five-outcomes-invisible-before-commit",
+      "passed": true,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "rotation-after-full-canonical-acceptance-commit",
+      "passed": true,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "all-five-outcomes-visible-atomically",
+      "passed": true,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "actual-persisted-bytes-hydrate-native-consumer",
+      "passed": true,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "old-token-replay-denied-after-rotation",
+      "passed": true,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "independent-entire-current-auth-persist-read-open-native-consumer-chain",
+      "passed": true,
+      "actualDiagnostic": null
+    },
+    {
+      "case": "independent-read-selectedJob",
+      "passed": true,
+      "actualDiagnostic": "READ_JOB_IDENTITY_MISMATCH:"
+    },
+    {
+      "case": "independent-read-owner",
+      "passed": true,
+      "actualDiagnostic": "GENERATION_READ_OWNER_MISMATCH:"
+    },
+    {
+      "case": "independent-read-event",
+      "passed": true,
+      "actualDiagnostic": "GENERATION_READ_EVENT_IDENTITY_MISMATCH:"
+    },
+    {
+      "case": "independent-persisted-hydration-identity-jobId",
+      "passed": true,
+      "actualDiagnostic": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "case": "independent-persisted-hydration-identity-trustedContextId",
+      "passed": true,
+      "actualDiagnostic": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    },
+    {
+      "case": "independent-persisted-hydration-identity-applicationDeploymentEpoch",
+      "passed": true,
+      "actualDiagnostic": "PROTECTED_INPUT_AUTHENTICATION_FAILED"
+    }
+  ],
+  "wholeOperationClosed": false,
+  "proofScope": "Real OWNER API material -> canonical joined PG root/event/outbox/audit COMMIT.\nUses current embedded foundation SQL unchanged, plus explicitly named technical\nrequest-auth binding extension; real AES profile reference protects native input.\n",
+  "systemdKeyMaterialization": "BLOCKED_REQUIRED_PREGENERATION_FIXTURE",
+  "supportSha256": {
+    "audit/generated/resume-34d/auth-crypto/verify_authenticated_full_chain.py": "021c801f3064c02621f700af2b6f70e2c0db551129e0c4fe50b0c0411df37b32",
+    "audit/generated/resume-34d/auth-crypto/auth_crypto_reference.py": "5cfd85a6b0d7852509e8301b7a0b38f3e315ad292094544733a89f9b1939d259",
+    "audit/generated/resume-34d/auth-crypto/acceptance_reference.py": "4299da1a947d83af0f6c822a3d2ce4265eb9774ee0b03e6bed160ca90bd5b2b2",
+    "audit/generated/resume-34d/auth-crypto/libpq_fixture.py": "c66ad6efc0e39dff1fcffc0825dd279deb84b53951d42af5e506e90b74e30095",
+    "audit/generated/resume-34d/auth-crypto/authentication-request-binding-proposed.sql": "9ec7558ed51a0a38558b123cdc7d6fb76d4de485440f2fd8607478b414e70285",
+    "audit/generated/resume-d362/events/verify_combined_generation.py": "a38bc59879e56c02b361afe22a791af1477b57308f22f3a7483e10fd950f58dd"
+  },
+  "integratedSqlDigests": {
+    "database/generation-create-authentication.sql": "9ec7558ed51a0a38558b123cdc7d6fb76d4de485440f2fd8607478b414e70285",
+    "database/generation-create-preroot.sql": "0ed9d0e563b802da50c96ebb31f62390aeab16040bd19660612fb14dd83aa75e",
+    "database/generation-create-read.sql": "9a91a4bd9c8f1f8b8376a63c0e90fa91b0b5ddeb3c69d3769bb1a98e6a93d7ed",
+    "database/generation-locked-retry.sql": "a18aba72b317ae6fac0a86c153eb914de6b4fda6916f02a0c612a235b2f07835"
+  },
+  "rootImplementationDigests": {
+    "generation_auth_crypto.py": "5cfd85a6b0d7852509e8301b7a0b38f3e315ad292094544733a89f9b1939d259",
+    "generation_auth_acceptance.py": "382ef3a708d1b1699282149068206ecda46950a7a293faf0f8fde28b5a853bdc",
+    "generation_read_hydration.py": "e0199c7f38fd04f0d139fa2cb14c906f7113b0d772765aaad61eee50a43dbf65",
+    "generation_create_consumer.py": "a342febae4a3eab1f8455ccd17fedeb70be586af177f2b33cce57a4a05ea53ce"
+  },
+  "independentDatabase": "cr8_authchain_review_auth_chain_sql905",
+  "originalVerifierSha256": "28ac0fdf401687e7c4b75027a212d7d077a5098fa069d8f85974d532572fd2eb",
+  "executedReviewProgramSha256": "bdaaf9c63c282152ef01da826afec4c61cd2d96f4e696091b6996d087f196079",
+  "independentScope": "Actual canonicalfoundation installedunchanged+authscopeextension; fresh isolated PG verification through full token\u2192root/event/outbox/audit\u2192canonicalSQLread\u2192rootread_hydration\u2192actualAESopening\u2192rootnativeconsumer; selectedjob/OWNER/event plusthreeidentityAADmutants; systemdmaterialization remainsBLOCKED"
+}

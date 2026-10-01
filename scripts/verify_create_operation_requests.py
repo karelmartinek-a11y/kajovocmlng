@@ -144,8 +144,24 @@ def run():
  baseline=subprocess.check_output(['git','show','aaab5a1:00_SSOT/KajovoCMLNG_SSOT.md'],cwd=ROOT).decode()
  from ssot_sources import resources
  old=json.loads(resource_index(resources(baseline))[PAYLOAD]['raw'])
- unchanged=all(r==o for r,o in zip(payload['records'],old['records']) if r['operationId'] not in OPERATIONS)
- assert_case('authoring/unrelated-routes-byte-shape-preserved',lambda:unchanged)
+ # The two separately authored OWNER read boundaries are now effective; keep
+ # every other route and every untouched field of those records protected.
+ reads={'secret.metadata.read','secret.value.read'}
+ def preserved(candidate):
+  if len(candidate['records'])!=len(old['records']):return False
+  for r,o in zip(candidate['records'],old['records']):
+   if r['operationId']in OPERATIONS:continue
+   if r['operationId']not in reads:
+    if r!=o:return False
+   elif {k:v for k,v in r.items()if k not in ('requestSchema','responseSchema','semanticRules')}!={k:v for k,v in o.items()if k not in ('requestSchema','responseSchema','semanticRules')}:return False
+  return True
+ assert_case('authoring/unrelated-routes-byte-shape-preserved',lambda:preserved(payload))
+ authored=specialize(payload)
+ assert_case('authoring/all-non-create-records-unchanged-by-create-author',lambda:all(a==b for a,b in zip(authored['records'],payload['records'])if a['operationId']not in OPERATIONS))
+ mutated=copy.deepcopy(payload);next(r for r in mutated['records']if r['operationId']=='secret.metadata.read')['eventApplicability']={'status':'NOT_APPLICABLE'}
+ assert_case('authoring/read-event-change-cannot-bypass-preservation',lambda:not preserved(mutated))
+ mutated=copy.deepcopy(payload);next(r for r in mutated['records']if r['operationId']not in set(OPERATIONS)|reads)['routeId']='UNAUTHORIZED_CHANGE'
+ assert_case('authoring/unrelated-change-cannot-bypass-preservation',lambda:not preserved(mutated))
  report={'sourceDocumentSha256':hashlib.sha256(SSOT.read_bytes()).hexdigest(),'scope':__doc__,'witnesses':witnesses,
   'checked':len(checks),'failed':sum(not r['passed'] for r in checks),'checks':checks,
   'boundaries':{o:{'request':'EXPLICIT_DOMAIN_SHAPE_AND_DECODER','response':'EXPLICIT_CREATE_OUTPUT_ERROR_UNION','event':'EXPLICIT_AGGREGATE_CREATE_RECEIPT_EVENT','runtime':'NOT_EVALUATED'} for o in OPERATIONS},

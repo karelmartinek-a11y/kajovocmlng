@@ -1,0 +1,47 @@
+{
+  "status": "CONTRACT_GAP_REPRODUCED",
+  "obligationId": "GENERATION.AUTH.API_ACCEPTANCE",
+  "sourceDocumentSha256": "4ac6fe00df084e910a90093485b12172866be73db94f66b6815200556c35be06",
+  "postgresqlVersion": "18.6",
+  "authority": [
+    "SSOT\u00a751.6 lock total order C before E; immutable child same parent ordinal",
+    "SSOT\u00a751.12 public API raw verifier/current credential before API-derived authority"
+  ],
+  "actualOrder": [
+    {
+      "ordinal": 0,
+      "acquisition": "OWNER_IDENTITY_FOR_SHARE",
+      "lockClass": "E",
+      "scope": "owner_identity singleton",
+      "source": "scripts/generation_auth_acceptance.py"
+    },
+    {
+      "ordinal": 1,
+      "acquisition": "AUTHENTICATION_ACCEPTANCE_INSERT",
+      "lockClass": "IMMUTABLE_CHILD_INSERT_PENDING_EXACT_ORDINAL",
+      "scope": "fresh auth receipt with immediate owner FK",
+      "source": "scripts/generation_auth_acceptance.py"
+    },
+    {
+      "ordinal": 2,
+      "acquisition": "TRUSTED_CONTEXT_INSERT",
+      "lockClass": "IMMUTABLE_CHILD_INSERT_PENDING_EXACT_ORDINAL",
+      "scope": "new typed context",
+      "source": "canonical context constructor"
+    },
+    {
+      "ordinal": 3,
+      "acquisition": "RETAINED_LOCATOR_LOOKUP",
+      "lockClass": "C0_C1",
+      "scope": "stablebusinesskey/originalscope",
+      "source": "canonical locator lock helper"
+    }
+  ],
+  "realConcurrentOwnerMutation": [
+    "LOCK_TIMEOUT"
+  ],
+  "rootVerifierSha256": "382ef3a708d1b1699282149068206ecda46950a7a293faf0f8fde28b5a853bdc",
+  "finding": "OWNER FOR SHARE precedes C0/C1. Removing explicit SHARE alone does not prove conformance: immediate auth-receipt owner FK and fresh immutable auth/context INSERT precede C. Exact ordinal mapping and corrected producer needed.",
+  "wholeOperationClosed": false,
+  "fixtureAcceptance": "Not a PASS: diagnostic reproduction only"
+}

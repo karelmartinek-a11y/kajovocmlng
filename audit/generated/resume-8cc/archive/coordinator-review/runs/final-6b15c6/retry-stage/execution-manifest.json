@@ -1,0 +1,36 @@
+{
+  "label": "retry-stage",
+  "sourceDocumentSha256": "6b15c6adfce34164abaf4321ce2dd990a101d6263d70d13d5ce822553db254c4",
+  "sourceUnchangedDuringRun": true,
+  "originalScripts": [
+    "audit/generated/resume-8cc/key/review-stage/verify_named_stage.py"
+  ],
+  "databaseIsolation": {
+    "archive_joined_905": "cr8_retry_stage_archive_joined_905",
+    "archive_peer_key_fixed_905": "cr8_retry_stage_archive_peer_key_fixed_905",
+    "auth_crypto_full_34d": "cr8_retry_stage_auth_crypto_full_34d",
+    "archive_independent_sql_905": "cr8_retry_stage_archive_independent_sql_905",
+    "generation_independent_review_fixture": "cr8_retry_stage_generation_independent_review_fixture",
+    "retry_preserved_stage_8cc": "cr8_retry_stage_retry_preserved_stage_8cc",
+    "independent_preroot_archive_sql905": "cr8_retry_stage_independent_preroot_archive_sql905",
+    "pending_transfer_34d": "cr8_retry_stage_pending_transfer_34d",
+    "secret_publication_review_905": "cr8_retry_stage_secret_publication_review_905",
+    "secret_owner_review_905": "cr8_retry_stage_secret_owner_review_905"
+  },
+  "actualDatabaseConnections": [],
+  "executedPythonReads": [
+    {
+      "path": "audit/generated/resume-8cc/key/review-stage/verify_named_stage.py",
+      "originalSha256": "460765f7b2782ce5b590e347a38948feeca255f419dd5bfe6371d0913cca480d",
+      "executionSha256": "460765f7b2782ce5b590e347a38948feeca255f419dd5bfe6371d0913cca480d"
+    }
+  ],
+  "redirectedWrites": [
+    {
+      "originalPath": "/workspace/kajovocmlng/audit/generated/resume-8cc/key/review-stage/integrated-stage-proof.json",
+      "ownedPath": "/workspace/kajovocmlng/audit/generated/resume-8cc/archive/coordinator-review/runs/final-6b15c6/retry-stage/tree/audit/generated/resume-8cc/key/review-stage/integrated-stage-proof.json",
+      "sha256": "d1231d75da6f291b80b2e9bdf99c95758e48b66c7c2af34e4867ff8f6290bcdd"
+    }
+  ],
+  "scope": "Original bounded fixture semantics; only isolated database names/audit output paths. No historical evidence source relabeling or whole-operation claim."
+}

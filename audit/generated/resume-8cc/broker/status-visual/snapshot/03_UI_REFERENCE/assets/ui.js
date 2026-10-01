@@ -1,0 +1,1 @@
+document.addEventListener("click",e=>{const b=e.target.closest("[data-disabled-reason]");if(b&&b.classList.contains("disabled")){alert(b.dataset.disabledReason)}});
