@@ -1,0 +1,19 @@
+{
+  "kind": "mcp",
+  "name": "calculator_mcp",
+  "version": "0.1.0",
+  "description": "Minimal generated calculator MCP server",
+  "host": "127.0.0.1",
+  "port": 8000,
+  "path": "/mcp",
+  "secrets": [],
+  "tools": [
+    {
+      "name": "add",
+      "description": "Add two integers",
+      "params": {"a": "int", "b": "int"},
+      "returns": "int",
+      "body": "return a + b"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kajovo-factory"
+version = "0.1.0"
+description = "Usable local control plane and generators for KájovoCML MCP servers and OpenAI Agents SDK agents."
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+mcp = ["mcp>=2,<3"]
+agents = ["openai-agents>=0.7,<1", "mcp>=2,<3"]
+secrets = ["cryptography>=46,<47"]
+all = ["mcp>=2,<3", "openai-agents>=0.7,<1", "cryptography>=46,<47"]
+
+[project.scripts]
+kajovo-factory = "kajovo_factory.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
