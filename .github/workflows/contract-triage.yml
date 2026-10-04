@@ -1,0 +1,35 @@
+name: Contract triage
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 00_SSOT/KajovoCMLNG_SSOT.md
+      - scripts/contract_triage.py
+      - scripts/investigate_missing_operation_masks.py
+      - scripts/phase1_schema_closure.py
+      - scripts/phase2_handoff_closure.py
+      - .github/workflows/contract-triage.yml
+  workflow_dispatch:
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned audit dependencies
+        run: python -m pip install -r requirements-audit.txt
+      - name: Build contract triage
+        run: python scripts/contract_triage.py
+      - name: Upload triage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: contract-triage
+          path: |
+            audit/generated/contract-triage.json
+            audit/generated/missing-operation-investigation.json
+            audit/generated/current-operation-schema-matrix.json
+          if-no-files-found: error
