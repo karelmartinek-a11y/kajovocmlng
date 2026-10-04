@@ -29,7 +29,9 @@ jobs:
           python -m unittest discover -s implementation/tests -v
           kajovo-factory selftest
       - name: Clean generated local state
-        run: rm -rf implementation/src/kajovo_factory.egg-info .kajovo-selftest .kajovo
+        run: |
+          rm -rf implementation/src/kajovo_factory.egg-info .kajovo-selftest .kajovo
+          git restore .github/workflows/implementation-smoke.yml
       - name: Refresh package inventory
         run: python scripts/update_manifests.py
       - name: Commit implementation and inventory
